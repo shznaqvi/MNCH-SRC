@@ -1,0 +1,688 @@
+package edu.aku.hassannaqvi.mnch_src;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.RadioButton;
+import android.widget.Toast;
+
+import org.json.JSONObject;
+
+public class Section3Activity extends Activity {
+
+    private static final String TAG = "Sec3";
+
+    private ScrollView scrollView01;
+    private TextView appHeader;
+    private TextView lblS3q301a;
+    private TextView lblS3q301b;
+    private TextView lblS3q301c;
+    private TextView lblS3q301d;
+    private RadioGroup radioS3q301d;
+    private RadioButton rDOS3q301d1;
+    private RadioButton rDOS3q301d2;
+    private TextView lblS3q301e;
+    private TextView lblS3q301f;
+    private RadioGroup radioS3q301f;
+    private RadioButton rDOS3q301f1;
+    private RadioButton rDOS3q301f2;
+    private RadioButton rDOS3q301f3;
+    private RadioButton rDOS3q301f4;
+    private TextView lblS3q301g;
+    private TextView lblS3q301h;
+    private RadioGroup radioS3q301h;
+    private RadioButton rDOS3q301h1;
+    private RadioButton rDOS3q301h2;
+
+    private RadioGroup radioS3q301g;
+    private RadioButton rDOS3q301g1;
+    private RadioButton rDOS3q301g2;
+    private RadioButton rDOS3q301g3;
+
+    private TextView lblS3q301i;
+    private RadioGroup radioS3q301i;
+    private RadioButton rDOS3q301i1;
+    private RadioButton rDOS3q301i2;
+    private RadioButton rDOS3q301i3;
+    private RadioButton rDOS3q301i4;
+    private RadioButton rDOS3q301i5;
+    private RadioButton rDOS3q301i6;
+    private RadioButton rDOS3q301i7;
+    private RadioButton rDOS3q301i8;
+    private RadioButton rDOS3q301i9;
+    private RadioButton rDOS3q301i10;
+    private TextView lblS3q301j;
+    private RadioGroup radioS3q301j;
+    private RadioButton rDOS3q301j1;
+    private RadioButton rDOS3q301j2;
+    private RadioButton rDOS3q301j3;
+    private RadioButton rDOS3q301j4;
+    private RadioButton rDOS3q301j5;
+    private RadioButton rDOS3q301j6;
+    private RadioButton rDOS3q301j7;
+    private RadioButton rDOS3q301j8;
+    private TextView lblS3q301k;
+
+    private LinearLayout vu_s3q301g;
+    private LinearLayout vu_s3q301d;
+    private LinearLayout vu_s3q301h;
+    private LinearLayout vu_s3q301ioth;
+    private LinearLayout vu_s3q301joth;
+
+    private EditText s3q301a;
+    private EditText s3q301b;
+    private EditText s3q301c;
+    private EditText s3q301e;
+    private EditText s3q301g;
+    private EditText s3q301k;
+    private EditText s3q301ioth;
+    private EditText s3q301joth;
+
+    private int rdo_s3q301d;
+    private int rdo_s3q301f;
+    private int rdo_s3q301g;
+    private int rdo_s3q301h;
+    private int rdo_s3q301i;
+    private int rdo_s3q301j;
+
+    public static JSONObject s1;
+
+    String var_s3q301d = "";
+    String var_s3q301f = "";
+    String var_s3q301g = "";
+    String var_s3q301h = "";
+    String var_s3q301i = "";
+    String var_s3q301j = "";
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_section3);
+
+        scrollView01 = (ScrollView) findViewById(R.id.ScrollView01);
+
+        appHeader = (TextView) findViewById(R.id.app_header);
+        appHeader.setText("SRC - > Section3");
+
+        vu_s3q301g = (LinearLayout) findViewById(R.id.vu_s3q301g);
+        vu_s3q301d = (LinearLayout) findViewById(R.id.vu_s3q301d);
+        vu_s3q301h = (LinearLayout) findViewById(R.id.vu_s3q301h);
+        vu_s3q301ioth = (LinearLayout) findViewById(R.id.vu_s3q301ioth);
+        vu_s3q301joth = (LinearLayout) findViewById(R.id.vu_s3q301joth);
+
+
+        lblS3q301a = (TextView) findViewById(R.id.lbl_s3q301a);
+        lblS3q301b = (TextView) findViewById(R.id.lbl_s3q301b);
+        lblS3q301c = (TextView) findViewById(R.id.lbl_s3q301c);
+        lblS3q301d = (TextView) findViewById(R.id.lbl_s3q301d);
+        radioS3q301d = (RadioGroup) findViewById(R.id.radio_s3q301d);
+        rDOS3q301d1 = (RadioButton) findViewById(R.id.RDO_s3q301d_1);
+        rDOS3q301d2 = (RadioButton) findViewById(R.id.RDO_s3q301d_2);
+        lblS3q301e = (TextView) findViewById(R.id.lbl_s3q301e);
+        lblS3q301f = (TextView) findViewById(R.id.lbl_s3q301f);
+        radioS3q301f = (RadioGroup) findViewById(R.id.radio_s3q301f);
+        rDOS3q301f1 = (RadioButton) findViewById(R.id.RDO_s3q301f_1);
+        rDOS3q301f2 = (RadioButton) findViewById(R.id.RDO_s3q301f_2);
+        rDOS3q301f3 = (RadioButton) findViewById(R.id.RDO_s3q301f_3);
+        rDOS3q301f4 = (RadioButton) findViewById(R.id.RDO_s3q301f_4);
+        lblS3q301g = (TextView) findViewById(R.id.lbl_s3q301g);
+        radioS3q301g = (RadioGroup) findViewById(R.id.radio_s3q301g);
+        rDOS3q301g1 = (RadioButton) findViewById(R.id.RDO_s3q301g_1);
+        rDOS3q301g2 = (RadioButton) findViewById(R.id.RDO_s3q301g_2);
+        rDOS3q301g3 = (RadioButton) findViewById(R.id.RDO_s3q301g_3);
+        lblS3q301h = (TextView) findViewById(R.id.lbl_s3q301h);
+        radioS3q301h = (RadioGroup) findViewById(R.id.radio_s3q301h);
+        rDOS3q301h1 = (RadioButton) findViewById(R.id.RDO_s3q301h_1);
+        rDOS3q301h2 = (RadioButton) findViewById(R.id.RDO_s3q301h_2);
+        lblS3q301i = (TextView) findViewById(R.id.lbl_s3q301i);
+        radioS3q301i = (RadioGroup) findViewById(R.id.radio_s3q301i);
+        rDOS3q301i1 = (RadioButton) findViewById(R.id.RDO_s3q301i_1);
+        rDOS3q301i2 = (RadioButton) findViewById(R.id.RDO_s3q301i_2);
+        rDOS3q301i3 = (RadioButton) findViewById(R.id.RDO_s3q301i_3);
+        rDOS3q301i4 = (RadioButton) findViewById(R.id.RDO_s3q301i_4);
+        rDOS3q301i5 = (RadioButton) findViewById(R.id.RDO_s3q301i_5);
+        rDOS3q301i6 = (RadioButton) findViewById(R.id.RDO_s3q301i_6);
+        rDOS3q301i7 = (RadioButton) findViewById(R.id.RDO_s3q301i_7);
+        rDOS3q301i8 = (RadioButton) findViewById(R.id.RDO_s3q301i_8);
+        rDOS3q301i9 = (RadioButton) findViewById(R.id.RDO_s3q301i_9);
+        rDOS3q301i10 = (RadioButton) findViewById(R.id.RDO_s3q301i_10);
+        lblS3q301j = (TextView) findViewById(R.id.lbl_s3q301j);
+        radioS3q301j = (RadioGroup) findViewById(R.id.radio_s3q301j);
+        rDOS3q301j1 = (RadioButton) findViewById(R.id.RDO_s3q301j_1);
+        rDOS3q301j2 = (RadioButton) findViewById(R.id.RDO_s3q301j_2);
+        rDOS3q301j3 = (RadioButton) findViewById(R.id.RDO_s3q301j_3);
+        rDOS3q301j4 = (RadioButton) findViewById(R.id.RDO_s3q301j_4);
+        rDOS3q301j5 = (RadioButton) findViewById(R.id.RDO_s3q301j_5);
+        rDOS3q301j6 = (RadioButton) findViewById(R.id.RDO_s3q301j_6);
+        rDOS3q301j7 = (RadioButton) findViewById(R.id.RDO_s3q301j_7);
+        rDOS3q301j8 = (RadioButton) findViewById(R.id.RDO_s3q301j_8);
+        lblS3q301k = (TextView) findViewById(R.id.lbl_s3q301k);
+        s3q301ioth = (EditText) findViewById(R.id.s3q301ioth);
+        s3q301joth = (EditText) findViewById(R.id.s3q301joth);
+
+        s3q301a = (EditText) findViewById(R.id.s3q301a);
+        s3q301b = (EditText) findViewById(R.id.s3q301b);
+        s3q301c = (EditText) findViewById(R.id.s3q301c);
+        s3q301e = (EditText) findViewById(R.id.s3q301e);
+        s3q301k = (EditText) findViewById(R.id.s3q301k);
+        s3q301ioth = (EditText) findViewById(R.id.s3q301ioth);
+        s3q301joth = (EditText) findViewById(R.id.s3q301joth);
+
+
+        radioS3q301d.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == rDOS3q301d1.getId()) {
+                    vu_s3q301d.setVisibility(View.VISIBLE);
+
+                    s3q301e.requestFocus();
+
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(s3q301e.getWindowToken(), 0);
+
+                } else {
+
+                    vu_s3q301d.setVisibility(View.GONE);
+                    s3q301e.setText("");
+
+                }
+            }
+        });
+
+
+        radioS3q301f.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                if (checkedId == rDOS3q301f1.getId()) {
+
+                    vu_s3q301h.setVisibility(View.GONE);
+                    vu_s3q301g.setVisibility(View.GONE);
+
+                    radioS3q301h.clearCheck();
+                    radioS3q301g.clearCheck();
+
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(radioS3q301i.getWindowToken(), 0);
+
+                } else if (checkedId == rDOS3q301f2.getId()) {
+
+                    vu_s3q301h.setVisibility(View.GONE);
+                    vu_s3q301g.setVisibility(View.GONE);
+
+                    radioS3q301h.clearCheck();
+                    radioS3q301g.clearCheck();
+
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(radioS3q301i.getWindowToken(), 0);
+
+                } else if (checkedId == rDOS3q301f3.getId()) {
+
+                    vu_s3q301h.setVisibility(View.VISIBLE);
+                    vu_s3q301g.setVisibility(View.GONE);
+
+                    radioS3q301g.clearCheck();
+
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(radioS3q301h.getWindowToken(), 0);
+
+                } else if (checkedId == rDOS3q301f4.getId()) {
+
+                    vu_s3q301g.setVisibility(View.VISIBLE);
+
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(radioS3q301g.getWindowToken(), 0);
+                }
+            }
+        });
+
+        radioS3q301i.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == rDOS3q301i10.getId()) {
+
+                    vu_s3q301ioth.setVisibility(View.VISIBLE);
+
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(s3q301ioth.getWindowToken(), 0);
+
+                } else {
+                    vu_s3q301ioth.setVisibility(View.GONE);
+                    s3q301ioth.setText("");
+                }
+            }
+        });
+
+
+        radioS3q301j.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == rDOS3q301j8.getId()) {
+
+                    vu_s3q301joth.setVisibility(View.VISIBLE);
+
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(s3q301joth.getWindowToken(), 0);
+
+                } else {
+                    vu_s3q301joth.setVisibility(View.GONE);
+                    s3q301joth.setText("");
+                }
+            }
+        });
+
+    }
+
+    private EditText getS3q301a() {
+        return (EditText) findViewById(R.id.s3q301a);
+    }
+
+    private EditText getS3q301b() {
+        return (EditText) findViewById(R.id.s3q301b);
+    }
+
+    private EditText getS3q301c() {
+        return (EditText) findViewById(R.id.s3q301c);
+    }
+
+    private EditText getS3q301e() {
+        return (EditText) findViewById(R.id.s3q301e);
+    }
+
+    private EditText getS3q301ioth() {
+        return (EditText) findViewById(R.id.s3q301ioth);
+    }
+
+    private EditText getS3q301joth() {
+        return (EditText) findViewById(R.id.s3q301joth);
+    }
+
+    private EditText getS3q301k() {
+        return (EditText) findViewById(R.id.s3q301k);
+    }
+
+    public void gotoSection4(View view) {
+
+
+        if (ValidateForm()) {
+
+            if (SaveDraft()) {
+
+                Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
+
+                if (UpdateDB()) {
+                    Intent sec4_intent = new Intent(this, Section4Activity.class);
+                    startActivity(sec4_intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+
+
+    private boolean UpdateDB() {
+        SRCDBHelper db = new SRCDBHelper(this);
+        db.updateS3();
+        return true;
+    }
+
+
+    private boolean SaveDraft() {
+        JSONObject s3 = new JSONObject();
+        try {
+            s3.put("s3q301a", s3q301a.getText().toString());
+            s3.put("s3q301b", s3q301b.getText().toString());
+            s3.put("s3q301c", s3q301c.getText().toString());
+
+
+            switch (radioS3q301d.getCheckedRadioButtonId()) {
+                case R.id.RDO_s3q301d_1:
+                    var_s3q301d = "1";
+                    break;
+
+                case R.id.RDO_s3q301d_2:
+                    var_s3q301d = "2";
+                    break;
+            }
+
+            s3.put("s3q301d", var_s3q301d);
+            s3.put("s3q301e", s3q301e.getText().toString());
+
+
+            switch (radioS3q301f.getCheckedRadioButtonId()) {
+                case R.id.RDO_s3q301f_1:
+                    var_s3q301f = "1";
+                    break;
+
+                case R.id.RDO_s3q301f_2:
+                    var_s3q301f = "2";
+                    break;
+
+                case R.id.RDO_s3q301f_3:
+                    var_s3q301f = "3";
+                    break;
+
+                case R.id.RDO_s3q301f_4:
+                    var_s3q301f = "4";
+                    break;
+            }
+
+
+            s3.put("s3q301f", var_s3q301f);
+
+
+            switch (radioS3q301g.getCheckedRadioButtonId()) {
+                case R.id.RDO_s3q301g_1:
+                    var_s3q301g = "1";
+                    break;
+
+                case R.id.RDO_s3q301g_2:
+                    var_s3q301g = "2";
+                    break;
+
+                case R.id.RDO_s3q301g_3:
+                    var_s3q301g = "3";
+                    break;
+            }
+
+            s3.put("s3q301g", var_s3q301g);
+
+            switch (radioS3q301h.getCheckedRadioButtonId()) {
+                case R.id.RDO_s3q301h_1:
+                    var_s3q301h = "1";
+                    break;
+
+                case R.id.RDO_s3q301h_2:
+                    var_s3q301h = "2";
+                    break;
+            }
+
+            s3.put("s3q301h", var_s3q301h);
+
+
+            switch (radioS3q301i.getCheckedRadioButtonId()) {
+                case R.id.RDO_s3q301i_1:
+                    var_s3q301i = "1";
+                    break;
+
+                case R.id.RDO_s3q301i_2:
+                    var_s3q301i = "2";
+                    break;
+
+                case R.id.RDO_s3q301i_3:
+                    var_s3q301i = "3";
+                    break;
+
+                case R.id.RDO_s3q301i_4:
+                    var_s3q301i = "4";
+                    break;
+
+                case R.id.RDO_s3q301i_5:
+                    var_s3q301i = "5";
+                    break;
+
+                case R.id.RDO_s3q301i_6:
+                    var_s3q301i = "6";
+                    break;
+
+                case R.id.RDO_s3q301i_7:
+                    var_s3q301i = "7";
+                    break;
+
+                case R.id.RDO_s3q301i_8:
+                    var_s3q301i = "8";
+                    break;
+
+                case R.id.RDO_s3q301i_9:
+                    var_s3q301i = "9";
+                    break;
+
+                case R.id.RDO_s3q301i_10:
+                    var_s3q301i = "10";
+                    break;
+            }
+
+
+            s3.put("s3q301i", var_s3q301i);
+
+            s3.put("s3q301ioth", s3q301ioth.getText().toString());
+
+
+            switch (radioS3q301j.getCheckedRadioButtonId()) {
+                case R.id.RDO_s3q301j_1:
+                    var_s3q301j = "1";
+                    break;
+                case R.id.RDO_s3q301j_2:
+                    var_s3q301j = "2";
+                    break;
+                case R.id.RDO_s3q301j_3:
+                    var_s3q301j = "3";
+                    break;
+                case R.id.RDO_s3q301j_4:
+                    var_s3q301j = "4";
+                    break;
+                case R.id.RDO_s3q301j_5:
+                    var_s3q301j = "5";
+                    break;
+                case R.id.RDO_s3q301j_6:
+                    var_s3q301j = "6";
+                    break;
+                case R.id.RDO_s3q301j_7:
+                    var_s3q301j = "7";
+                    break;
+                case R.id.RDO_s3q301j_8:
+                    var_s3q301j = "8";
+                    break;
+            }
+
+
+            s3.put("s3q301j", var_s3q301j);
+            s3.put("s3q301joth", s3q301joth.getText().toString());
+
+            s3.put("s3q301k", s3q301k.getText().toString());
+
+            SRCApp.fc.setROW_S3(s3.toString());
+
+        } catch (Exception e) {
+
+        }
+
+        return true;
+    }
+
+
+    private boolean ValidateForm() {
+        //Toast.makeText(getApplicationContext(), "Validating Form", Toast.LENGTH_SHORT).show();
+
+        if (getS3q301a().getText().toString().isEmpty() || s3q301a.getText().toString() == null) {
+            s3q301a.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "Please enter name of a married woman \r\n", Toast.LENGTH_LONG).show();
+            s3q301a.requestFocus();
+            return false;
+        } else {
+            s3q301a.setError(null);
+        }
+
+        if (getS3q301b().getText().toString().isEmpty() || s3q301b.getText().toString() == null) {
+            s3q301b.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "Please enter age in years \r\n", Toast.LENGTH_LONG).show();
+            s3q301b.requestFocus();
+            return false;
+        } else {
+            s3q301b.setError(null);
+        }
+
+        if (getS3q301c().getText().toString().isEmpty() || s3q301c.getText().toString() == null) {
+            s3q301c.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "Please enter education status \r\n", Toast.LENGTH_LONG).show();
+            s3q301c.requestFocus();
+            return false;
+        } else {
+            s3q301c.setError(null);
+        }
+
+
+        rdo_s3q301d = radioS3q301d.getCheckedRadioButtonId();
+
+        switch (rdo_s3q301d) {
+            case R.id.RDO_s3q301d_1:
+                var_s3q301d = "1";
+                break;
+
+            case R.id.RDO_s3q301d_2:
+                var_s3q301d = "2";
+                break;
+        }
+
+
+        if (rdo_s3q301d == -1) {
+            rDOS3q301d1.setError(getString(R.string.rdoerr));
+            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+            rDOS3q301d1.requestFocus();
+            return false;
+        } else {
+            rDOS3q301d1.setError(null);
+        }
+
+        if (var_s3q301d == "1" && getS3q301e().getText().toString().isEmpty() || s3q301e.getText().toString() == null) {
+            s3q301e.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "Please enter gestational age \r\n", Toast.LENGTH_LONG).show();
+            s3q301e.requestFocus();
+            return false;
+        } else {
+            s3q301e.setError(null);
+        }
+
+        rdo_s3q301f = radioS3q301f.getCheckedRadioButtonId();
+
+        switch (rdo_s3q301f) {
+            case R.id.RDO_s3q301f_1:
+                var_s3q301f = "1";
+                break;
+
+            case R.id.RDO_s3q301f_2:
+                var_s3q301f = "2";
+                break;
+
+            case R.id.RDO_s3q301f_3:
+                var_s3q301f = "3";
+                break;
+
+            case R.id.RDO_s3q301f_4:
+                var_s3q301f = "4";
+                break;
+        }
+
+        if (rdo_s3q301f == -1) {
+            rDOS3q301f1.setError(getString(R.string.rdoerr));
+            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+            rDOS3q301f1.requestFocus();
+            return false;
+        } else {
+            rDOS3q301f1.setError(null);
+        }
+
+        rdo_s3q301g = radioS3q301g.getCheckedRadioButtonId();
+
+        if (var_s3q301f == "4" && rdo_s3q301g == -1) {
+            rDOS3q301g1.setError(getString(R.string.rdoerr));
+            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+            rDOS3q301g1.requestFocus();
+            return false;
+        } else {
+            rDOS3q301g1.setError(null);
+        }
+
+
+        rdo_s3q301h = radioS3q301h.getCheckedRadioButtonId();
+
+        if (var_s3q301f == "4" && rdo_s3q301h == -1 || var_s3q301f == "3" && rdo_s3q301h == -1) {
+            rDOS3q301h1.setError(getString(R.string.rdoerr));
+            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+            rDOS3q301f1.requestFocus();
+            return false;
+        } else {
+            rDOS3q301h1.setError(null);
+        }
+
+
+        rdo_s3q301i = radioS3q301i.getCheckedRadioButtonId();
+
+        switch (rdo_s3q301i) {
+            case R.id.RDO_s3q301i_10:
+                var_s3q301i = "10";
+                break;
+        }
+
+        if (rdo_s3q301i == -1) {
+            rDOS3q301i1.setError(getString(R.string.rdoerr));
+            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+            rDOS3q301i1.requestFocus();
+            return false;
+        } else {
+            rDOS3q301i1.setError(null);
+        }
+
+
+        if (var_s3q301i == "10" && getS3q301ioth().getText().toString().isEmpty() || s3q301ioth.getText().toString() == null) {
+            s3q301ioth.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "Please specify place of delivery if others  \r\n", Toast.LENGTH_LONG).show();
+            s3q301ioth.requestFocus();
+            return false;
+        } else {
+            s3q301ioth.setError(null);
+        }
+
+
+        rdo_s3q301j = radioS3q301j.getCheckedRadioButtonId();
+
+        switch (rdo_s3q301j) {
+            case R.id.RDO_s3q301j_8:
+                var_s3q301j = "8";
+                break;
+        }
+
+        if (rdo_s3q301j == -1) {
+            rDOS3q301j1.setError(getString(R.string.rdoerr));
+            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+            rDOS3q301j1.requestFocus();
+            return false;
+        } else {
+            rDOS3q301j1.setError(null);
+        }
+
+
+        if (var_s3q301j == "8" && getS3q301joth().getText().toString().isEmpty() || s3q301joth.getText().toString() == null) {
+            s3q301joth.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "Please specify delivery conducted by if others  \r\n", Toast.LENGTH_LONG).show();
+            s3q301joth.requestFocus();
+            return false;
+        } else {
+            s3q301joth.setError(null);
+        }
+
+
+        if (getS3q301k().getText().toString().isEmpty() || s3q301k.getText().toString() == null) {
+            s3q301k.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "Please specify cost of delivery  \r\n", Toast.LENGTH_LONG).show();
+            s3q301k.requestFocus();
+            return false;
+        } else {
+            s3q301k.setError(null);
+        }
+
+        return true;
+    }
+
+
+}

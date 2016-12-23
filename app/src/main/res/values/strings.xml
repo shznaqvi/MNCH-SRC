@@ -1,0 +1,196 @@
+<resources>
+    <string name="app_name">SRC</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">User ID</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="ddlusers">Select Users</string>
+    <string name="error_invalid_email">This user id address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="btnDBAccess">Database Access</string>
+    <string name="sec2">Section 2</string>
+    <string name="sec3">Section 3</string>
+    <string name="sec4">Section 4</string>
+    <string name="sec5">Section 5</string>
+    <string name="sec6">Section 6</string>
+    <string name="sec7">Section 7</string>
+    <string name="sec8">Section 8</string>
+
+    <string name="urlusers">URL</string>
+
+    <string name="txterr">Required field</string>
+    <string name="rdoerr">Please select at least one option</string>
+    <string name="chkerr">Please select at least one option</string>
+
+    <string name="btnPrev">Previous Page</string>
+    <string name="btnOpenForm">Form Open</string>
+    <string name="btnSyncData">Synchronize Data</string>
+    <string name="btnLogout">Logout</string>
+
+    <string name="title_activity_main_page">Main</string>
+
+    <!-- Section 1 -->
+
+    <string name="baseline_formid">گهر جو نمبر</string>
+    <string name="baseline_s1q101">گهر جو نمبر</string>
+    <string name="baseline_s1q102">جواب ڏيڻ واري جو نالو</string>
+    <string name="baseline_s1q103">جواب ڏيڻ واري جي جنس</string>
+    <string name="baseline_s1q103_1">مرد</string>
+    <string name="baseline_s1q103_2">عورت</string>
+    <string name="baseline_s1q104">جواب ڏيندڙ جي عمر</string>
+    <string name="baseline_s1q105">ڳوٺ جو نالو</string>
+    <string name="baseline_s1q106a">يونين ڪائونسل جو نالو</string>
+    <string name="baseline_s1q106b">يونين ڪائونسل جو ڪوڊ</string>
+    <string name="baseline_s1q107">خاندان جو نمبر(ليڊي هيلٿ ورڪر جي فهرست مان حاصل ڪريو)</string>
+    <string name="baseline_s1q108">گهر جي ٻن بالغ ذميوار فردن جا فون نمبر</string>
+    <string name="baseline_s1q108b">گهر جي ٻن بالغ ذميوار فردن جا فون نمبر</string>
+    <string name="baseline_s1q109a">انٽرويو ڪندڙ جو نالو</string>
+    <string name="baseline_s1q109b">انٽرويو ڪندڙ جو ڪوڊ</string>
+    <string name="baseline_s1q110">انٽرويو جي تاريخ</string>
+    <string name="baseline_s1q111">انٽرويو جو نتيجو</string>
+    <string name="baseline_s1q111_1">مڪمل ٿيو</string>
+    <string name="baseline_s1q111_2">مڪمل نه ٿيو</string>
+    <string name="baseline_s1q111_3">جواب ڏيندڙ گهر ۾ موجود ناهي</string>
+    <string name="baseline_s1q111_4">جواب ڏيندڙ انڪار ڪري ڇڏيو</string>
+    <string name="baseline_s1q111oth">جيڪڏهن نه ته ڇو</string>
+    <string name="baseline_s1q112">ڇازباني اجازت نامو انٽرويو وٺڻ کان اڳ ورتو ويو</string>
+    <string name="baseline_s1q112_1">ها</string>
+    <string name="baseline_s1q112_2">نه</string>
+
+    <!-- Section 2 -->
+
+    <string name="baseline_s2q201">گهرجي سربراهه جو نالو</string>
+    <string name="baseline_s2q202">گهر جي سربراهه جي عمر</string>
+    <string name="baseline_s2q203">گهر جي سربراهه جي جنس</string>
+    <string name="baseline_s2q203_1">مرد</string>
+    <string name="baseline_s2q203_2">عورت</string>
+    <string name="baseline_s2q204">گهر جي سربراهه جي مڪمل ڪيل تعليم جا سال</string>
+    <string name="baseline_s2q205">گهر جي سربراهه جو پيشو</string>
+    <string name="baseline_s2q205_1">پروفيشنل/ٽيڪنيڪل/مينجريل</string>
+    <string name="baseline_s2q205_2">ڪلرڪ</string>
+    <string name="baseline_s2q205_3">سھولتون مهيا ڪرڻ</string>
+    <string name="baseline_s2q205_4">مستري</string>
+    <string name="baseline_s2q205_5">مزدور</string>
+    <string name="baseline_s2q205_6">گهريلو نوڪر</string>
+    <string name="baseline_s2q205_7">زراعت</string>
+    <string name="baseline_s2q205_8">واپار</string>
+    <string name="baseline_s2q205_9">ننڍو دڪان/ننڍو واپار</string>
+    <string name="baseline_s2q205_10">ٻيو ڪجهه</string>
+    <string name="baseline_s2q205_11">بيروزگار</string>
+    <string name="baseline_s2q205_12">رٽائرڊ</string>
+    <string name="baseline_s2q205_13">ھائوس وائف</string>
+    <string name="baseline_s2q205oth">ٻيو ڪجهه</string>
+    <string name="baseline_s2q206">جواب ڏيندڙ کان گهر ۾ موجود سڀني گهر ڀاتين جي ڪل تعداد جي باري ۾ پڇو (جن جو کاڌو پيتو گڏ ھجي</string>
+    <string name="baseline_s2q206a">گهرڀاتين جو ڪل تعداد</string>
+    <string name="baseline_s2q206b">مرد</string>
+    <string name="baseline_s2q206c">عورتون</string>
+    <string name="baseline_s2q206d">نو مولود ٻار 28 - 0 ڏينهن تائين</string>
+    <string name="baseline_s2q206e"> ٻار1کان 5 - 1 سالن تائين</string>
+    <string name="baseline_s2q206f">ٻار 5 کان 14 سالن تائين جي عمر جا</string>
+    <string name="baseline_s2q206g">عورتون 15 کان 49 سالن تائين</string>
+    <string name="baseline_s2q206h">شادي شده عورتون 15کان 49 سالن تائين</string>
+
+    <!-- Section 3 -->
+
+    <string name="baseline_s3q301a">شادي شده عورت جونالو</string>
+    <string name="baseline_s3q301b">عمر</string>
+    <string name="baseline_s3q301c">حاصل ڪيل تعليم سڪول/ڪاليج /يونيورسٽي جاا ڪاميابي سان مڪمل ڪيل سال مذهبي تعليم ڪڏھن به اسڪول ڪو نه ويو</string>
+    <string name="baseline_s3q301d">موجود حامله عورتون</string>
+    <string name="baseline_s3q301d_1">ها</string>
+    <string name="baseline_s3q301d_2">نه</string>
+    <string name="baseline_s3q301e">اي حمل جو دورانيو</string>
+    <string name="baseline_s3q301f">حمل جو نتيجو</string>
+    <string name="baseline_s3q301f_1">ضايع ٿي وڃڻ</string>
+    <string name="baseline_s3q301f_2">مرده ٻار جي پيدائش</string>
+    <string name="baseline_s3q301f_3">زندهه ٻار جي پيدائش</string>
+    <string name="baseline_s3q301f_4">جاڙن ٻارن جي  پيدائش</string>
+    <string name="baseline_s3q301g">جاڙن ٻارن جي پيدائش جي نوعيت</string>
+    <string name="baseline_s3q301g_1">ٻه مرده ٻارن جي پيدائش/هڪ مرده ٻارجي پيدائش</string>
+    <string name="baseline_s3q301g_2">هڪ زنده ٻار پيدائش</string>
+    <string name="baseline_s3q301g_3">ٻه زندهه ٻارن جي پيدائش</string>
+    <string name="baseline_s3q301h"> زندهه پيدائش جي ڇا صورتحال آھي</string>
+    <string name="baseline_s3q301h_1">زندهه</string>
+    <string name="baseline_s3q301h_2">مري</string>
+    <string name="baseline_s3q301i">ويم جي جڳھه</string>
+    <string name="baseline_s3q301i_1">گهر</string>
+    <string name="baseline_s3q301i_2">گورنمينٽ ڊسپينسري</string>
+    <string name="baseline_s3q301i_3">بنيادي صحت مرڪز</string>
+    <string name="baseline_s3q301i_4">رورل هيلٿ سينٽر</string>
+    <string name="baseline_s3q301i_5">تعلقواسپتال</string>
+    <string name="baseline_s3q301i_6">ضلعي اسپتال</string>
+    <string name="baseline_s3q301i_7">نجي ڪلينڪ</string>
+    <string name="baseline_s3q301i_8">نجي  اسپتال</string>
+    <string name="baseline_s3q301i_9">اسپتال ڏانهن ويندي رستي ۾</string>
+    <string name="baseline_s3q301i_10">ٻيا</string>
+    <string name="baseline_s3q301ioth">وضاحت سان لکو</string>
+    <string name="baseline_s3q301j">ويم ڪنهن ڪرايو</string>
+    <string name="baseline_s3q301j_1">ليڊي هيلٿ ورڪر</string>
+    <string name="baseline_s3q301j_2">دائي</string>
+    <string name="baseline_s3q301j_3">ڪميونٽي مڊ وائف</string>
+    <string name="baseline_s3q301j_4">ليڊي هيلٿ وزيٽر</string>
+    <string name="baseline_s3q301j_5">خانگي ڊاڪٽر</string>
+    <string name="baseline_s3q301j_6">سرڪاري  ڊاڪٽر</string>
+    <string name="baseline_s3q301j_7">خاندان جي فرد</string>
+    <string name="baseline_s3q301j_8">ٻيا</string>
+    <string name="baseline_s3q301joth">وضاحت سان لکو</string>
+    <string name="baseline_s3q301k">ويم جو خرچ بشمول گاڏي، ويم ڪرائيندڙجي في،دوائون، کاڌو خوراڪ ۽ اسپتال جو خرچ (روپين ۾</string>
+
+    <!-- Section 4a -->
+
+    <string name="baseline_s4q41a">مري ويل ماءُ جو مڪمل نالو  اي</string>
+    <string name="baseline_s4q41b">مرڻ وقت عمر</string>
+    <string name="baseline_s4q41c">ويم يا حمل جو نتيجو</string>
+    <string name="baseline_s4q41c_1">پيٽ ۾ مري ويو</string>
+    <string name="baseline_s4q41c_2">مرده پيدائش</string>
+    <string name="baseline_s4q41c_3"> زندهه پيدائش</string>
+    <string name="baseline_s4q41c_4">جاڙا زندهه پيدائش</string>
+    <string name="baseline_s4q41c_5">هڪ مرده پيدائش</string>
+    <string name="baseline_s4q41c_6">هڪ زندهه پيدائش</string>
+    <string name="baseline_s4q41c_7">جاڙا  مرده پيدائش</string>
+    <string name="baseline_s4q41d">موت جي جڳھه</string>
+    <string name="baseline_s4q41d_1">گهر</string>
+    <string name="baseline_s4q41d_2">گورنمينٽ ڊسپينسري</string>
+    <string name="baseline_s4q41d_3">بي ايڇ يو</string>
+    <string name="baseline_s4q41d_4">رورل هيلٿ سينٽر</string>
+    <string name="baseline_s4q41d_5">تعلقي اسپتال</string>
+    <string name="baseline_s4q41d_6">ضلعي اسپتال</string>
+    <string name="baseline_s4q41d_7">نجي ڪلينڪ</string>
+    <string name="baseline_s4q41d_8">نجي اسپتال</string>
+    <string name="baseline_s4q41d_9">اسپتال ڏانهن ويندي رستي ۾</string>
+    <string name="baseline_s4q41d_10">ٻيا</string>
+    <string name="baseline_s4q41doth">وضاحت سان لکو</string>
+    <string name="baseline_s4q41e">موت جو سبب مهرباني ڪري وضاحت سان لکو </string>
+
+    <!-- Section 4a -->
+
+    <string name="baseline_s4q42a">ساڳيوماءُ جو فهرست نمبر استعمال ڪريو سوال 20 ۾</string>
+    <string name="baseline_s4q42b">مريويل  ٻار جو مڪمل نالو</string>
+    <string name="baseline_s4q42c_1">مرد</string>
+    <string name="baseline_s4q42c_2">عورت</string>
+    <string name="baseline_s4q42d">موت وقت عمر</string>
+    <string name="baseline_s4q42e_1">گهر</string>
+    <string name="baseline_s4q42e_2">گورنمينٽ ڊسپينسري  </string>
+    <string name="baseline_s4q42e_3">بي ايڇ يو</string>
+    <string name="baseline_s4q42e_4">رورل هيلٿ سينٽر</string>
+    <string name="baseline_s4q42e_5">تعلقي اسپتال</string>
+    <string name="baseline_s4q42e_6">ضلعي اسپتال</string>
+    <string name="baseline_s4q42e_7">نجي ڪلينڪ</string>
+    <string name="baseline_s4q42e_8">نجي اسپتال</string>
+    <string name="baseline_s4q42e_9">اسپتال ڏانهن ويندي رستي ۾</string>
+    <string name="baseline_s4q42e_10">ٻيا</string>
+    <string name="baseline_s4q42f">موت جو سبب مهرباني ڪري وضاحت سان لکو</string>
+
+    <!-- Section 5 -->
+
+
+    <!-- Section 6 -->
+
+</resources>
