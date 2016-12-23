@@ -16,6 +16,7 @@
     </string>
 
     <string name="btnDBAccess">Database Access</string>
+    <string name="btnadd">Add Another Woman</string>
     <string name="sec2">Section 2</string>
     <string name="sec3">Section 3</string>
     <string name="sec4">Section 4</string>
@@ -107,6 +108,11 @@
     <string name="baseline_s3q301d_1">ها</string>
     <string name="baseline_s3q301d_2">نه</string>
     <string name="baseline_s3q301e">اي حمل جو دورانيو</string>
+
+    <string name="baseline_s3q301f1">ڇا هي عورت پوئين 2 سالن دوران حمل سان ٿي آهي</string>
+    <string name="baseline_s3q301f1_1">ها</string>
+    <string name="baseline_s3q301f1_2">نه</string>
+
     <string name="baseline_s3q301f">حمل جو نتيجو</string>
     <string name="baseline_s3q301f_1">ضايع ٿي وڃڻ</string>
     <string name="baseline_s3q301f_2">مرده ٻار جي پيدائش</string>
@@ -177,7 +183,7 @@
     <string name="baseline_s4q42c_2">عورت</string>
     <string name="baseline_s4q42d">موت وقت عمر</string>
     <string name="baseline_s4q42e_1">گهر</string>
-    <string name="baseline_s4q42e_2">گورنمينٽ ڊسپينسري  </string>
+    <string name="baseline_s4q42e_2">گورنمينٽ ڊسپينسري</string>
     <string name="baseline_s4q42e_3">بي ايڇ يو</string>
     <string name="baseline_s4q42e_4">رورل هيلٿ سينٽر</string>
     <string name="baseline_s4q42e_5">تعلقي اسپتال</string>

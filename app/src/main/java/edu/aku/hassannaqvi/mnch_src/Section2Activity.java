@@ -303,6 +303,14 @@ public class Section2Activity extends Activity {
             s2.put("s2q206g", s2q206g.getText().toString());
             s2.put("s2q206h", s2q206h.getText().toString());
 
+            if (s2q206h.getText().toString() != "") {
+                CVars var = new CVars();
+                var.StoreReporductionAgeWoman(Integer.parseInt(s2q206h.getText().toString()));
+            } else {
+                CVars var = new CVars();
+                var.StoreReporductionAgeWoman(Integer.parseInt("0"));
+            }
+
             SRCApp.fc.setROW_S2(s2.toString());
 
         } catch (Exception e) {
@@ -508,6 +516,40 @@ public class Section2Activity extends Activity {
             s2q206h.setError(null);
         }
 
+
+        if (Integer.parseInt(s2q202.getText().toString()) < 18 ||
+                Integer.parseInt(s2q202.getText().toString()) > 99) {
+            Toast.makeText(getApplicationContext(), "Head of household age must be between 18 - 99 \r\n", Toast.LENGTH_LONG).show();
+            s2q202.requestFocus();
+            return false;
+        }
+
+
+        if (Integer.parseInt(s2q204.getText().toString()) < 0
+                && Integer.parseInt(s2q204.getText().toString()) != 91
+                && Integer.parseInt(s2q204.getText().toString()) != 92
+                || Integer.parseInt(s2q204.getText().toString()) > 16
+                && Integer.parseInt(s2q204.getText().toString()) != 91
+                && Integer.parseInt(s2q204.getText().toString()) != 92) {
+            Toast.makeText(getApplicationContext(), "Years of schooling of head of household must be 0 - 16 or 91 or 92 \r\n", Toast.LENGTH_LONG).show();
+            s2q204.requestFocus();
+            return false;
+        }
+
+
+        int result = Integer.parseInt(s2q206b.getText().toString()) +
+                Integer.parseInt(s2q206c.getText().toString()) +
+                Integer.parseInt(s2q206d.getText().toString()) +
+                Integer.parseInt(s2q206e.getText().toString()) +
+                Integer.parseInt(s2q206f.getText().toString()) +
+                Integer.parseInt(s2q206g.getText().toString()) +
+                Integer.parseInt(s2q206h.getText().toString());
+
+        if (!s2q206a.getText().toString().equals(String.valueOf(result))) {
+            Toast.makeText(getApplicationContext(), "Total number of members mismatch \r\n", Toast.LENGTH_LONG).show();
+            s2q206a.requestFocus();
+            return false;
+        }
 
         return true;
     }

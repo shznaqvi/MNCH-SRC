@@ -27,7 +27,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
     private static final String TAG = "Sec1";
     private static final String DATABASE_NAME = "src.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     public static final String SQL_CREATE_USERS = "CREATE TABLE IF NOT EXISTS " + UsersContract.singleUser.TABLE_NAME + "("
             + UsersContract.singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -84,7 +84,18 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec3Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Sec3Entry.ROW_DEVID + " TEXT,"
             + Sec3Entry.ROW_FORM_ID + " INTEGER,"
-            + Sec3Entry.ROW_S3 + " TEXT);";
+            + Sec3Entry.ROW_s3q301a + " TEXT,"
+            + Sec3Entry.ROW_s3q301b + " TEXT,"
+            + Sec3Entry.ROW_s3q301c + " INTEGER,"
+            + Sec3Entry.ROW_s3q301d + " INTEGER,"
+            + Sec3Entry.ROW_s3q301f1 + " INTEGER,"
+            + Sec3Entry.ROW_s3q301e + " INTEGER,"
+            + Sec3Entry.ROW_s3q301f + " INTEGER,"
+            + Sec3Entry.ROW_s3q301g + " INTEGER,"
+            + Sec3Entry.ROW_s3q301h + " INTEGER,"
+            + Sec3Entry.ROW_s3q301i + " INTEGER,"
+            + Sec3Entry.ROW_s3q301j + " INTEGER,"
+            + Sec3Entry.ROW_s3q301k + " INTEGER);";
 
     private static final String SQL_DELETE_SEC3 =
             "DROP TABLE IF EXISTS " + Sec3Entry.TABLE_NAME;
@@ -297,6 +308,38 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             values.put(Sec1Entry.ROW_GPS_DT, fc.getROW_GPS_DT());
 
             newRowId = db.insert(Sec1Entry.TABLE_NAME, null, values);
+            db.close();
+
+        } catch (Exception e) {
+        }
+
+        return newRowId;
+    }
+
+
+    public Long InsertRecord_Section3(Sec3Contract fc) {
+        long newRowId = 0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        try {
+            ContentValues values = new ContentValues();
+
+            values.put(Sec3Entry.ROW_DEVID, fc.getROW_DEVID());
+            values.put(Sec3Entry.ROW_FORM_ID, fc.getROW_FORM_ID());
+
+            values.put(Sec3Entry.ROW_s3q301a, fc.get_s3q301a());
+            values.put(Sec3Entry.ROW_s3q301b, fc.get_s3q301b());
+            values.put(Sec3Entry.ROW_s3q301c, fc.get_s3q301c());
+            values.put(Sec3Entry.ROW_s3q301d, fc.get_s3q301d());
+            values.put(Sec3Entry.ROW_s3q301f1, fc.get_s3q301f1());
+            values.put(Sec3Entry.ROW_s3q301e, fc.get_s3q301e());
+            values.put(Sec3Entry.ROW_s3q301f, fc.get_s3q301f());
+            values.put(Sec3Entry.ROW_s3q301g, fc.get_s3q301g());
+            values.put(Sec3Entry.ROW_s3q301h, fc.get_s3q301h());
+            values.put(Sec3Entry.ROW_s3q301i, fc.get_s3q301i());
+            values.put(Sec3Entry.ROW_s3q301j, fc.get_s3q301j());
+            values.put(Sec3Entry.ROW_s3q301k, fc.get_s3q301k());
+
+            newRowId = db.insert(Sec3Entry.TABLE_NAME, null, values);
             db.close();
 
         } catch (Exception e) {
