@@ -418,10 +418,11 @@ public class Section3Activity extends Activity {
 
         try {
 
-            SRCApp.sc3.setROW_DEVID(SRCApp.DEVID);
-            SRCApp.sc3.setROW_UID(SRCApp.uid);
-
             CVars var = new CVars();
+
+            SRCApp.sc3.setROW_DEVID(SRCApp.DEVID);
+            SRCApp.sc3.setROW_UID(SRCApp.DEVID + SRCApp.fc.get_ID());
+
             SRCApp.sc3.setROW_FORM_ID(var.GetHHNO());
             SRCApp.sc3.setROW_HHCODE(var.GetHHCode());
 
