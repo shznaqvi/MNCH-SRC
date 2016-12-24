@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
@@ -114,6 +115,8 @@ public class Section5Activity extends Activity {
     RadioButton mn051101;
     @BindView(R.id.mn051102)
     RadioButton mn051102;
+    @BindView(R.id.fldGrpmn0512)
+    LinearLayout fldGrpmn0512;
     @BindView(R.id.mn0512)
     RadioGroup mn0512;
     @BindView(R.id.mn051201)
@@ -194,8 +197,6 @@ public class Section5Activity extends Activity {
     CheckBox mn051688;
     @BindView(R.id.mn051688x)
     EditText mn051688x;
-    @BindView(R.id.mn0517a)
-    CheckBox mn0517a;
     @BindView(R.id.mn0517a1)
     RadioGroup mn0517a1;
     @BindView(R.id.mn0517a101)
@@ -207,77 +208,23 @@ public class Section5Activity extends Activity {
     @BindView(R.id.mn0517a2m)
     EditText mn0517a2m;
     @BindView(R.id.mn0517a3)
-    EditText mn0517a3;
-    @BindView(R.id.mn0517b)
-    CheckBox mn0517b;
-    @BindView(R.id.mn0517b1)
-    RadioGroup mn0517b1;
-    @BindView(R.id.mn0517b101)
-    RadioButton mn0517b101;
-    @BindView(R.id.mn0517b102)
-    RadioButton mn0517b102;
-    @BindView(R.id.mn0517b2d)
-    EditText mn0517b2d;
-    @BindView(R.id.mn0517b2m)
-    EditText mn0517b2m;
-    @BindView(R.id.mn0517b3)
-    EditText mn0517b3;
-    @BindView(R.id.mn0517c)
-    CheckBox mn0517c;
-    @BindView(R.id.mn0517c1)
-    RadioGroup mn0517c1;
-    @BindView(R.id.mn0517c101)
-    RadioButton mn0517c101;
-    @BindView(R.id.mn0517c102)
-    RadioButton mn0517c102;
-    @BindView(R.id.mn0517c2d)
-    EditText mn0517c2d;
-    @BindView(R.id.mn0517c2m)
-    EditText mn0517c2m;
-    @BindView(R.id.mn0517c3)
-    EditText mn0517c3;
-    @BindView(R.id.mn0517d)
-    CheckBox mn0517d;
-    @BindView(R.id.mn0517d1)
-    RadioGroup mn0517d1;
-    @BindView(R.id.mn0517d101)
-    RadioButton mn0517d101;
-    @BindView(R.id.mn0517d102)
-    RadioButton mn0517d102;
-    @BindView(R.id.mn0517d2d)
-    EditText mn0517d2d;
-    @BindView(R.id.mn0517d2m)
-    EditText mn0517d2m;
-    @BindView(R.id.mn0517d3)
-    EditText mn0517d3;
-    @BindView(R.id.mn0517e)
-    CheckBox mn0517e;
-    @BindView(R.id.mn0517e1)
-    RadioGroup mn0517e1;
-    @BindView(R.id.mn0517e101)
-    RadioButton mn0517e101;
-    @BindView(R.id.mn0517e102)
-    RadioButton mn0517e102;
-    @BindView(R.id.mn0517e2d)
-    EditText mn0517e2d;
-    @BindView(R.id.mn0517e2m)
-    EditText mn0517e2m;
-    @BindView(R.id.mn0517e3)
-    EditText mn0517e3;
-    @BindView(R.id.mn0517f)
-    CheckBox mn0517f;
-    @BindView(R.id.mn0517f1)
-    RadioGroup mn0517f1;
-    @BindView(R.id.mn0517f101)
-    RadioButton mn0517f101;
-    @BindView(R.id.mn0517f102)
-    RadioButton mn0517f102;
-    @BindView(R.id.mn0517f2d)
-    EditText mn0517f2d;
-    @BindView(R.id.mn0517f2m)
-    EditText mn0517f2m;
-    @BindView(R.id.mn0517f3)
-    EditText mn0517f3;
+    RadioGroup mn0517a3;
+    @BindView(R.id.mn0517a301)
+    RadioButton mn0517a301;
+    @BindView(R.id.mn0517a302)
+    RadioButton mn0517a302;
+    @BindView(R.id.mn0517a303)
+    RadioButton mn0517a303;
+    @BindView(R.id.mn0517a304)
+    RadioButton mn0517a304;
+    @BindView(R.id.mn0517a305)
+    RadioButton mn0517a305;
+    @BindView(R.id.mn0517a306)
+    RadioButton mn0517a306;
+    @BindView(R.id.mn0517a307)
+    RadioButton mn0517a307;
+    @BindView(R.id.mn0517a3077)
+    RadioButton mn0517a3077;
     @BindView(R.id.mn051801)
     CheckBox mn051801;
     @BindView(R.id.mn051802)
