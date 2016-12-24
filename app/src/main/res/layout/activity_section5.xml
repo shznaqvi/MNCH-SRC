@@ -59,6 +59,11 @@
 
             </RadioGroup>
 
+        <LinearLayout
+            android:id="@+id/fldGrpmn0502"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
 
@@ -87,8 +92,13 @@
                     android:text="@string/mnno" />
 
             </RadioGroup>
+        </LinearLayout>
 
-
+        <LinearLayout
+            android:id="@+id/fldGrpmn0503"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <TextView
 
                 android:layout_width="match_parent"
@@ -121,7 +131,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mn050303" />
             </RadioGroup>
-
+        </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -149,6 +159,11 @@
 
             </RadioGroup>
 
+        <LinearLayout
+            android:id="@+id/fldGrpmn0505"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -175,7 +190,7 @@
 
             </RadioGroup>
 
-
+        </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -203,7 +218,11 @@
 
             </RadioGroup>
 
-
+        <LinearLayout
+            android:id="@+id/fldGrpmn0507"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
