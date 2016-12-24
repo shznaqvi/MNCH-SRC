@@ -41,4 +41,86 @@
         <item name="android:paddingBottom">20sp</item>
         <item name="android:paddingTop">20sp</item>
     </style>
+
+    <style name="BackgroundStyle" parent="android:Widget.ScrollView">
+        <item name="android:background">#efefef</item>
+    </style>
+
+    <style name="lblTextView" parent="android:TextAppearance.Widget.TextView">
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:textColor">#d6d6d6</item>
+        <item name="android:padding">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:drawableBottom">#000</item>
+
+    </style>
+
+    <style name="subHeading" parent="android:TextAppearance.Widget.TextView">
+        <item name="android:background">#d69e29</item>
+        <item name="android:textColor">#222222</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:drawableBottom">#000</item>
+
+    </style>
+
+    <style name="txtEditText" parent="android:Widget.EditText">
+        <item name="android:padding">@dimen/activity_horizontal_margin</item>
+        <item name="android:textColor">#121212</item>
+        <item name="android:background">#d6d6d6</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textSize">20sp</item>
+
+
+    </style>
+
+    <style name="btnButton" parent="android:Widget.Button">
+        <item name="android:textColor">#efefef</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:padding">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginTop">@dimen/activity_horizontal_margin</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textSize">20sp</item>
+
+    </style>
+
+    <style name="btnRadioButton" parent="android:Widget.CompoundButton.RadioButton">
+        <item name="android:padding">@dimen/activity_horizontal_margin</item>
+        <item name="android:textColor">#121212</item>
+        <item name="android:background">#d6d6d6</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textSize">20sp</item>
+
+    </style>
+
+    <style name="chkBox" parent="android:Widget.CompoundButton.CheckBox">
+        <item name="android:padding">16dp</item>
+        <item name="android:textColor">#121212</item>
+        <item name="android:background">#d6d6d6</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textSize">20sp</item>
+
+    </style>
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="android:Widget.Holo.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
 </resources>
