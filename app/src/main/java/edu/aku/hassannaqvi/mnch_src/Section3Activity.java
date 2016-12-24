@@ -124,7 +124,7 @@ public class Section3Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section3);
 
-        counter = 1;
+        counter = 0;
         sno = 0;
 
         scrollView01 = (ScrollView) findViewById(R.id.ScrollView01);
@@ -411,6 +411,9 @@ public class Section3Activity extends Activity {
 
         try {
 
+            SRCApp.sc3.setROW_DEVID(SRCApp.DEVID);
+            SRCApp.sc3.setROW_UID(SRCApp.uid);
+
             SRCApp.sc3.set_s3q301a(s3q301a.getText().toString());
             SRCApp.sc3.set_s3q301b(s3q301b.getText().toString());
             SRCApp.sc3.set_s3q301c(s3q301c.getText().toString());
@@ -419,6 +422,10 @@ public class Section3Activity extends Activity {
             if (sno == 0) {
                 SRCApp.sc3.setROW_SNO("1");
             } else {
+
+                SRCDBHelper db = new SRCDBHelper(this);
+
+                sno = db.getSNO();
                 SRCApp.sc3.setROW_SNO(String.valueOf(sno + 1));
             }
 
