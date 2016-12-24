@@ -117,6 +117,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/mn060301" />
 
+            
             <CheckBox
                 android:id="@+id/mn060302"
                 android:layout_width="match_parent"
@@ -217,7 +218,7 @@
     />
 
 </RadioGroup>
-            
+
             <Button
                 android:id="@+id/btnnext"
                 style="@style/btn"
