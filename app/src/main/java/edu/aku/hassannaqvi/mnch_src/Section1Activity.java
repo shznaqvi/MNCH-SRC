@@ -262,6 +262,11 @@ public class Section1Activity extends Activity {
         SRCApp.fc.setROW_S1Q101(s1q101.getText().toString());
         SRCApp.fc.setROW_S1Q102(s1q102.getText().toString());
 
+        CVars var = new CVars();
+        var.StoreHNO(s1q101.getText().toString());
+        var.StoreCode(s1q102.getText().toString());
+
+
         switch (radioS1q103.getCheckedRadioButtonId()) {
             case R.id.RDO_s1q103_1:
                 var_s1q103 = "1";
