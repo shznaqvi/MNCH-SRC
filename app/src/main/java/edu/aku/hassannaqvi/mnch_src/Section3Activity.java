@@ -45,6 +45,7 @@ public class Section3Activity extends Activity {
     private RadioButton rDOS3q301f4;
 
     private int counter;
+    private int sno;
 
     private TextView lblS3q301g;
     private TextView lblS3q301h;
@@ -124,6 +125,7 @@ public class Section3Activity extends Activity {
         setContentView(R.layout.activity_section3);
 
         counter = 1;
+        sno = 0;
 
         scrollView01 = (ScrollView) findViewById(R.id.ScrollView01);
 
@@ -360,6 +362,8 @@ public class Section3Activity extends Activity {
                         ClearFields();
                         counter = counter + 1;
 
+                        s3q301a.requestFocus();
+
                     } else {
                         Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
                     }
@@ -402,14 +406,26 @@ public class Section3Activity extends Activity {
 
 
     private boolean SaveDraft() {
-        JSONObject s3 = new JSONObject();
+
+        SRCApp.sc3 = new Sec3Contract();
+
         try {
-            s3.put("s3q301a", s3q301a.getText().toString());
-            s3.put("s3q301b", s3q301b.getText().toString());
-            s3.put("s3q301c", s3q301c.getText().toString());
+
+            SRCApp.sc3.set_s3q301a(s3q301a.getText().toString());
+            SRCApp.sc3.set_s3q301b(s3q301b.getText().toString());
+            SRCApp.sc3.set_s3q301c(s3q301c.getText().toString());
 
 
-            switch (radioS3q301d.getCheckedRadioButtonId()) {
+            if (sno == 0) {
+                SRCApp.sc3.setROW_SNO("1");
+            } else {
+                SRCApp.sc3.setROW_SNO(String.valueOf(sno + 1));
+            }
+
+
+            rdo_s3q301d = radioS3q301d.getCheckedRadioButtonId();
+
+            switch (rdo_s3q301d) {
                 case R.id.RDO_s3q301d_1:
                     var_s3q301d = "1";
                     break;
@@ -419,9 +435,12 @@ public class Section3Activity extends Activity {
                     break;
             }
 
-            s3.put("s3q301d", var_s3q301d);
+            SRCApp.sc3.set_s3q301d(var_s3q301d);
 
-            switch (radioS3q301f1.getCheckedRadioButtonId()) {
+
+            rdo_s3q301f1 = radioS3q301f1.getCheckedRadioButtonId();
+
+            switch (rdo_s3q301f1) {
                 case R.id.RDO_s3q301f1_1:
                     var_s3q301f1 = "1";
                     break;
@@ -431,11 +450,15 @@ public class Section3Activity extends Activity {
                     break;
             }
 
-            s3.put("s3q301f1", var_s3q301f1);
+            SRCApp.sc3.set_s3q301f1(var_s3q301f1);
 
-            s3.put("s3q301e", s3q301e.getText().toString());
 
-            switch (radioS3q301f.getCheckedRadioButtonId()) {
+            SRCApp.sc3.set_s3q301e(s3q301e.getText().toString());
+
+
+            rdo_s3q301f = radioS3q301f.getCheckedRadioButtonId();
+
+            switch (rdo_s3q301f) {
                 case R.id.RDO_s3q301f_1:
                     var_s3q301f = "1";
                     break;
@@ -454,26 +477,15 @@ public class Section3Activity extends Activity {
             }
 
 
-            s3.put("s3q301f", var_s3q301f);
+            SRCApp.sc3.set_s3q301f(var_s3q301f);
 
 
-            switch (radioS3q301g.getCheckedRadioButtonId()) {
-                case R.id.RDO_s3q301g_1:
-                    var_s3q301g = "1";
-                    break;
+            SRCApp.sc3.set_s3q301g(s3q301g.getText().toString());
 
-                case R.id.RDO_s3q301g_2:
-                    var_s3q301g = "2";
-                    break;
 
-                case R.id.RDO_s3q301g_3:
-                    var_s3q301g = "3";
-                    break;
-            }
+            rdo_s3q301h = radioS3q301h.getCheckedRadioButtonId();
 
-            s3.put("s3q301g", var_s3q301g);
-
-            switch (radioS3q301h.getCheckedRadioButtonId()) {
+            switch (rdo_s3q301h) {
                 case R.id.RDO_s3q301h_1:
                     var_s3q301h = "1";
                     break;
@@ -483,91 +495,15 @@ public class Section3Activity extends Activity {
                     break;
             }
 
-            s3.put("s3q301h", var_s3q301h);
+
+            SRCApp.sc3.set_s3q301h(var_s3q301h);
 
 
-            switch (radioS3q301i.getCheckedRadioButtonId()) {
-                case R.id.RDO_s3q301i_1:
-                    var_s3q301i = "1";
-                    break;
-
-                case R.id.RDO_s3q301i_2:
-                    var_s3q301i = "2";
-                    break;
-
-                case R.id.RDO_s3q301i_3:
-                    var_s3q301i = "3";
-                    break;
-
-                case R.id.RDO_s3q301i_4:
-                    var_s3q301i = "4";
-                    break;
-
-                case R.id.RDO_s3q301i_5:
-                    var_s3q301i = "5";
-                    break;
-
-                case R.id.RDO_s3q301i_6:
-                    var_s3q301i = "6";
-                    break;
-
-                case R.id.RDO_s3q301i_7:
-                    var_s3q301i = "7";
-                    break;
-
-                case R.id.RDO_s3q301i_8:
-                    var_s3q301i = "8";
-                    break;
-
-                case R.id.RDO_s3q301i_9:
-                    var_s3q301i = "9";
-                    break;
-
-                case R.id.RDO_s3q301i_10:
-                    var_s3q301i = "10";
-                    break;
-            }
 
 
-            s3.put("s3q301i", var_s3q301i);
+            SRCApp.sc3.set_s3q301i(s3q301i.getText().toString());
+            SRCApp.sc3.set_s3q301j(s3q301j.getText().toString());
 
-            s3.put("s3q301ioth", s3q301ioth.getText().toString());
-
-
-            switch (radioS3q301j.getCheckedRadioButtonId()) {
-                case R.id.RDO_s3q301j_1:
-                    var_s3q301j = "1";
-                    break;
-                case R.id.RDO_s3q301j_2:
-                    var_s3q301j = "2";
-                    break;
-                case R.id.RDO_s3q301j_3:
-                    var_s3q301j = "3";
-                    break;
-                case R.id.RDO_s3q301j_4:
-                    var_s3q301j = "4";
-                    break;
-                case R.id.RDO_s3q301j_5:
-                    var_s3q301j = "5";
-                    break;
-                case R.id.RDO_s3q301j_6:
-                    var_s3q301j = "6";
-                    break;
-                case R.id.RDO_s3q301j_7:
-                    var_s3q301j = "7";
-                    break;
-                case R.id.RDO_s3q301j_8:
-                    var_s3q301j = "8";
-                    break;
-            }
-
-
-            s3.put("s3q301j", var_s3q301j);
-            s3.put("s3q301joth", s3q301joth.getText().toString());
-
-            s3.put("s3q301k", s3q301k.getText().toString());
-
-            SRCApp.fc.setROW_S3(s3.toString());
 
         } catch (Exception e) {
 

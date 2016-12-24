@@ -13,6 +13,8 @@ public class Sec3Contract implements BaseColumns {
     String ROW_DEVID = SRCApp.DEVID;
     String ROW_FORM_ID;
 
+    String ROW_SNO;
+
     String ROW_s3q301a;
     String ROW_s3q301b;
     String ROW_s3q301c;
@@ -26,10 +28,30 @@ public class Sec3Contract implements BaseColumns {
     String ROW_s3q301j;
     String ROW_s3q301k;
     String ROW_s3q301l;
+    String ROW_UID;
 
     public Sec3Contract() {
 
     }
+
+
+    public String getROW_SNO() {
+        return this.ROW_SNO;
+    }
+
+    public void setROW_SNO(String ROW_SNO) {
+        this.ROW_SNO = ROW_SNO;
+    }
+
+
+    public String getROW_UID() {
+        return this.ROW_UID;
+    }
+
+    public void setROW_UID(String ROW_UID) {
+        this.ROW_UID = ROW_UID;
+    }
+
 
     public String getROW_DEVID() {
         return ROW_DEVID;
@@ -161,6 +183,8 @@ public class Sec3Contract implements BaseColumns {
         public static final String ROW_DEVID = "devid";
         public static final String ROW_FORM_ID = "formid";
 
+        public static final String ROW_SNO = "sno";
+
         public static final String ROW_s3q301a = "s3q301a";
         public static final String ROW_s3q301b = "s3q301b";
         public static final String ROW_s3q301c = "s3q301c";
@@ -173,5 +197,6 @@ public class Sec3Contract implements BaseColumns {
         public static final String ROW_s3q301i = "s3q301i";
         public static final String ROW_s3q301j = "s3q301j";
         public static final String ROW_s3q301k = "s3q301k";
+        public static final String ROW_UID = "uid";
     }
 }

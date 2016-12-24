@@ -28,7 +28,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
     private static final String TAG = "Sec1";
     private static final String DATABASE_NAME = "src.db";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 1;
 
     public static final String SQL_CREATE_USERS = "CREATE TABLE IF NOT EXISTS " + UsersContract.singleUser.TABLE_NAME + "("
             + UsersContract.singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -85,6 +85,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec3Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Sec3Entry.ROW_DEVID + " TEXT,"
             + Sec3Entry.ROW_FORM_ID + " INTEGER,"
+            + Sec3Entry.ROW_SNO + " TEXT,"
             + Sec3Entry.ROW_s3q301a + " TEXT,"
             + Sec3Entry.ROW_s3q301b + " TEXT,"
             + Sec3Entry.ROW_s3q301c + " INTEGER,"
@@ -96,7 +97,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec3Entry.ROW_s3q301h + " INTEGER,"
             + Sec3Entry.ROW_s3q301i + " INTEGER,"
             + Sec3Entry.ROW_s3q301j + " INTEGER,"
-            + Sec3Entry.ROW_s3q301k + " INTEGER);";
+            + Sec3Entry.ROW_s3q301k + " INTEGER,"
+            + Sec3Entry.ROW_UID + " TEXT);";
 
     private static final String SQL_DELETE_SEC3 =
             "DROP TABLE IF EXISTS " + Sec3Entry.TABLE_NAME;
@@ -106,18 +108,12 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Section4Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Section4Entry.ROW_DEVID + " TEXT,"
             + Section4Entry.ROW_FORM_ID + " INTEGER,"
-            + Section4Entry.ROW_s3q301a + " TEXT,"
-            + Section4Entry.ROW_s3q301b + " TEXT,"
-            + Section4Entry.ROW_s3q301c + " INTEGER,"
-            + Section4Entry.ROW_s3q301d + " INTEGER,"
-            + Section4Entry.ROW_s3q301f1 + " INTEGER,"
-            + Section4Entry.ROW_s3q301e + " INTEGER,"
-            + Section4Entry.ROW_s3q301f + " INTEGER,"
-            + Section4Entry.ROW_s3q301g + " INTEGER,"
-            + Section4Entry.ROW_s3q301h + " INTEGER,"
-            + Section4Entry.ROW_s3q301i + " INTEGER,"
-            + Section4Entry.ROW_s3q301j + " INTEGER,"
-            + Section4Entry.ROW_s3q301k + " INTEGER);";
+            + Section4Entry.ROW_s4q41a + " TEXT,"
+            + Section4Entry.ROW_s4q41b + " TEXT,"
+            + Section4Entry.ROW_s4q41c + " TEXT,"
+            + Section4Entry.ROW_s4q41d + " TEXT,"
+            + Section4Entry.ROW_s4q41e + " TEXT,"
+            + Section4Entry.ROW_UID + " TEXT);";
 
     private static final String SQL_DELETE_SEC4 =
             "DROP TABLE IF EXISTS " + Section4Entry.TABLE_NAME;
