@@ -33,6 +33,16 @@
                 android:background="@color/colorPrimary" />
 
             <TextView
+                android:id="@+id/app_header1"
+                style="@style/myheading"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/lbl_hhhead"
+                style="@style/txtquestion"
+                android:text="" />
+
+            <TextView
                 android:id="@+id/lbl_s4q41a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

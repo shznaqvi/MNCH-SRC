@@ -108,6 +108,9 @@ public class Section3Activity extends Activity {
     private int rdo_s3q301i;
     private int rdo_s3q301j;
 
+    private TextView lbl_hhhead;
+    private TextView woman_count;
+
     public static JSONObject s1;
 
     String var_s3q301d = "";
@@ -137,7 +140,6 @@ public class Section3Activity extends Activity {
         vu_s3q301h = (LinearLayout) findViewById(R.id.vu_s3q301h);
         vu_s3q301ioth = (LinearLayout) findViewById(R.id.vu_s3q301ioth);
         vu_s3q301joth = (LinearLayout) findViewById(R.id.vu_s3q301joth);
-
 
         lblS3q301a = (TextView) findViewById(R.id.lbl_s3q301a);
         lblS3q301b = (TextView) findViewById(R.id.lbl_s3q301b);
@@ -203,6 +205,15 @@ public class Section3Activity extends Activity {
 
         btnnext = (Button) findViewById(R.id.btnnext);
         btnadd = (Button) findViewById(R.id.btnadd);
+
+        lbl_hhhead = (TextView) findViewById(R.id.lbl_hhhead);
+        woman_count = (TextView) findViewById(R.id.woman_count);
+
+        CVars var = new CVars();
+        lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
+
+        //woman_count.setText(var.GetReproductionAgeWoman());
+
 
         btnnext.setEnabled(false);
 
@@ -345,10 +356,6 @@ public class Section3Activity extends Activity {
 
         CVars var = new CVars();
 
-        Log.d(TAG, "val : " + var.GetReproductionAgeWoman());
-        Log.d(TAG, "counter : " + counter);
-
-
         if (var.GetReproductionAgeWoman() != counter) {
 
             if (ValidateForm()) {
@@ -411,8 +418,13 @@ public class Section3Activity extends Activity {
 
         try {
 
+            CVars var = new CVars();
+
             SRCApp.sc3.setROW_DEVID(SRCApp.DEVID);
-            SRCApp.sc3.setROW_UID(SRCApp.uid);
+            SRCApp.sc3.setROW_UID(SRCApp.DEVID + SRCApp.fc.get_ID());
+
+            SRCApp.sc3.setROW_FORM_ID(var.GetHHNO());
+            SRCApp.sc3.setROW_HHCODE(var.GetHHCode());
 
             SRCApp.sc3.set_s3q301a(s3q301a.getText().toString());
             SRCApp.sc3.set_s3q301b(s3q301b.getText().toString());
@@ -426,6 +438,8 @@ public class Section3Activity extends Activity {
                 SRCDBHelper db = new SRCDBHelper(this);
 
                 sno = db.getSNO();
+
+                Log.d(TAG, "sno: " + sno);
                 SRCApp.sc3.setROW_SNO(String.valueOf(sno + 1));
             }
 
