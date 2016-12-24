@@ -582,7 +582,6 @@ public class Section3Activity extends Activity {
                     break;
             }
 
-
             SRCApp.sc3.set_s3q301j(var_s3q301j);
 
 
