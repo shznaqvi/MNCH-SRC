@@ -11,6 +11,7 @@ import android.util.Log;
 
 import edu.aku.hassannaqvi.mnch_src.FormContract.Sec1Entry;
 import edu.aku.hassannaqvi.mnch_src.Sec3Contract.Sec3Entry;
+import edu.aku.hassannaqvi.mnch_src.Section4Contract.Section4Entry;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -101,6 +102,27 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + Sec3Entry.TABLE_NAME;
 
 
+    public static final String SQL_CREATE_BASELINE_SEC4 = "CREATE TABLE IF NOT EXISTS " + Section4Entry.TABLE_NAME + "("
+            + Section4Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + Section4Entry.ROW_DEVID + " TEXT,"
+            + Section4Entry.ROW_FORM_ID + " INTEGER,"
+            + Section4Entry.ROW_s3q301a + " TEXT,"
+            + Section4Entry.ROW_s3q301b + " TEXT,"
+            + Section4Entry.ROW_s3q301c + " INTEGER,"
+            + Section4Entry.ROW_s3q301d + " INTEGER,"
+            + Section4Entry.ROW_s3q301f1 + " INTEGER,"
+            + Section4Entry.ROW_s3q301e + " INTEGER,"
+            + Section4Entry.ROW_s3q301f + " INTEGER,"
+            + Section4Entry.ROW_s3q301g + " INTEGER,"
+            + Section4Entry.ROW_s3q301h + " INTEGER,"
+            + Section4Entry.ROW_s3q301i + " INTEGER,"
+            + Section4Entry.ROW_s3q301j + " INTEGER,"
+            + Section4Entry.ROW_s3q301k + " INTEGER);";
+
+    private static final String SQL_DELETE_SEC4 =
+            "DROP TABLE IF EXISTS " + Section4Entry.TABLE_NAME;
+
+
     SRCDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -111,6 +133,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_BASELINE_SEC1);
         db.execSQL(SQL_CREATE_BASELINE_SEC3);
+        db.execSQL(SQL_CREATE_BASELINE_SEC4);
     }
 
     @Override
@@ -118,6 +141,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         //db.execSQL(SQL_DELETE_USERS);
         //db.execSQL(SQL_DELETE_SEC1);
         //db.execSQL(SQL_DELETE_SEC3);
+        //db.execSQL(SQL_DELETE_SEC4);
 
         onCreate(db);
     }
