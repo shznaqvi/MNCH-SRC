@@ -10,8 +10,10 @@ import android.app.Activity;
 import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -21,8 +23,11 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 public class Section1Activity extends Activity {
@@ -56,9 +61,11 @@ public class Section1Activity extends Activity {
     private RadioButton rDOS1q1121;
     private RadioButton rDOS1q1122;
 
-    private EditText formid;
-    private EditText s1q101;
     private EditText s1q102;
+
+    private EditText formid;
+    private Spinner s1q101;
+
     private EditText s1q104;
     private EditText s1q105;
     private EditText s1q106a;
@@ -131,8 +138,11 @@ public class Section1Activity extends Activity {
         rDOS1q1122 = (RadioButton) findViewById(R.id.RDO_s1q112_2);
 
         formid = (EditText) findViewById(R.id.formid);
-        s1q101 = (EditText) findViewById(R.id.s1q101);
+        s1q101 = (Spinner) findViewById(R.id.s1q101);
+
+
         s1q102 = (EditText) findViewById(R.id.s1q102);
+
         s1q104 = (EditText) findViewById(R.id.s1q104);
         s1q105 = (EditText) findViewById(R.id.s1q105);
         s1q106a = (EditText) findViewById(R.id.s1q106a);
@@ -144,6 +154,14 @@ public class Section1Activity extends Activity {
         s1q111oth = (EditText) findViewById(R.id.s1q111oth);
 
         vu_s1q112 = (LinearLayout) findViewById(R.id.vu_s1q112);
+
+
+        ArrayList<String> lst_hhcode = GetHHCode();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(Section1Activity.this,
+                android.R.layout.simple_spinner_item, lst_hhcode);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s1q101.setAdapter(adapter);
 
 
         alert = new AlertDialog.Builder(this);
@@ -181,10 +199,6 @@ public class Section1Activity extends Activity {
 
     private EditText getFormid() {
         return (EditText) findViewById(R.id.formid);
-    }
-
-    private EditText getS1q101() {
-        return (EditText) findViewById(R.id.s1q101);
     }
 
     private EditText getS1q102() {
@@ -259,12 +273,12 @@ public class Section1Activity extends Activity {
 
         SRCApp.fc.setROW_DEVID(SRCApp.DEVID);
         SRCApp.fc.setROW_FORM_ID(formid.getText().toString());
-        SRCApp.fc.setROW_S1Q101(s1q101.getText().toString());
+        SRCApp.fc.setROW_S1Q101(s1q101.getSelectedItem().toString());
         SRCApp.fc.setROW_S1Q102(s1q102.getText().toString());
 
         CVars var = new CVars();
-        var.StoreHNO(s1q101.getText().toString());
-        var.StoreCode(s1q102.getText().toString());
+        var.StoreHHNO(formid.getText().toString());
+        var.StoreHHCode(s1q101.getSelectedItem().toString());
 
 
         switch (radioS1q103.getCheckedRadioButtonId()) {
@@ -322,12 +336,23 @@ public class Section1Activity extends Activity {
 
         SRCApp.fc.setROW_ENTRYDATE(dt1);
 
-        CVars var = new CVars();
         SRCApp.fc.setROW_USERID(var.GetUser());
 
         setGPS();
 
         return true;
+    }
+
+    private ArrayList GetHHCode() {
+        ArrayList lst_hhcode = new ArrayList<>();
+
+        lst_hhcode.add(0, "X");
+        lst_hhcode.add(1, "A");
+        lst_hhcode.add(2, "B");
+        lst_hhcode.add(3, "C");
+        lst_hhcode.add(4, "D");
+
+        return lst_hhcode;
     }
 
 
@@ -343,15 +368,6 @@ public class Section1Activity extends Activity {
             formid.setError(null);
         }
 
-        if (getS1q101().getText().toString().isEmpty() || s1q101.getText().toString() == null) {
-            s1q101.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "Please enter household number \r\n", Toast.LENGTH_LONG).show();
-            s1q101.requestFocus();
-            return false;
-        } else {
-            s1q101.setError(null);
-        }
-
         if (getS1q102().getText().toString().isEmpty() || s1q102.getText().toString() == null) {
             s1q102.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter respondent name \r\n", Toast.LENGTH_LONG).show();
@@ -360,6 +376,7 @@ public class Section1Activity extends Activity {
         } else {
             s1q102.setError(null);
         }
+
 
         rdo_s1q103 = radioS1q103.getCheckedRadioButtonId();
 

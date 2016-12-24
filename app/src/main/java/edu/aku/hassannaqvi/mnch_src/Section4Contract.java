@@ -15,6 +15,11 @@ public class Section4Contract implements BaseColumns {
 
     Long _ID;
     String ROW_DEVID = SRCApp.DEVID;
+    String ROW_FORM_ID;
+    String ROW_HHCODE;
+
+    String ROW_SNO;
+
     String ROW_s4q41a;
     String ROW_s4q41b;
     String ROW_s4q41c;
@@ -26,12 +31,39 @@ public class Section4Contract implements BaseColumns {
 
     }
 
+
+    public String getROW_HHCODE() {
+        return this.ROW_HHCODE;
+    }
+
+    public void setROW_HHCODE(String ROW_HHCODE) {
+        this.ROW_HHCODE = ROW_HHCODE;
+    }
+
+
+    public String get_SNO() {
+        return this.ROW_SNO;
+    }
+
+    public void set_SNO(String ROW_SNO) {
+        this.ROW_SNO = ROW_SNO;
+    }
+
+
     public Long get_ID() {
         return _ID;
     }
 
     public void set_ID(Long _ID) {
         this._ID = _ID;
+    }
+
+    public String get_FORM_ID() {
+        return this.ROW_FORM_ID;
+    }
+
+    public void set_FORM_ID(String ROW_FORM_ID) {
+        this.ROW_FORM_ID = ROW_FORM_ID;
     }
 
     public String get_DEVID() {
@@ -95,11 +127,17 @@ public class Section4Contract implements BaseColumns {
         JSONObject json = new JSONObject();
 
         json.put(Section4Entry._ID, this._ID);
+        json.put(Section4Entry.ROW_DEVID, this.ROW_DEVID);
+        json.put(Section4Entry.ROW_FORM_ID, this.ROW_FORM_ID);
+        json.put(Section4Entry.ROW_HHCODE, this.ROW_HHCODE);
+        json.put(Section4Entry.ROW_SNO, this.ROW_SNO);
+
         json.put(Section4Entry.ROW_s4q41a, this.ROW_s4q41a);
         json.put(Section4Entry.ROW_s4q41b, this.ROW_s4q41b);
         json.put(Section4Entry.ROW_s4q41c, this.ROW_s4q41c);
         json.put(Section4Entry.ROW_s4q41d, this.ROW_s4q41d);
         json.put(Section4Entry.ROW_s4q41e, this.ROW_s4q41e);
+        json.put(Section4Entry.ROW_UID, this.ROW_UID);
 
         return json;
     }
@@ -108,8 +146,12 @@ public class Section4Contract implements BaseColumns {
     public static abstract class Section4Entry implements BaseColumns {
         public static final String TABLE_NAME = "sec4";
         public static final String _ID = "_ID";
-
         public static final String ROW_DEVID = "devid";
+        public static final String ROW_FORM_ID = "formid";
+        public static final String ROW_HHCODE = "hcode";
+
+        public static final String ROW_SNO = "sno";
+
         public static final String ROW_s4q41a = "s4q41a";
         public static final String ROW_s4q41b = "s4q41b";
         public static final String ROW_s4q41c = "s4q41c";

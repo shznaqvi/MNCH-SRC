@@ -54,13 +54,13 @@
                 android:text="@string/baseline_s1q101"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/s1q101"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textCapWords" />
+                android:inputType="text" />
 
             <TextView
                 android:id="@+id/lbl_s1q102"

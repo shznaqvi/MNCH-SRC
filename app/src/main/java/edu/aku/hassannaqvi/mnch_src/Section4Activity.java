@@ -38,6 +38,8 @@ public class Section4Activity extends Activity {
     private RadioButton rdo_s4q41d_10;
     private EditText s4q41doth;
 
+    private TextView lbl_hhhead;
+
     private int rdo_s4q41d;
     private EditText s4q41e;
 
@@ -83,6 +85,13 @@ public class Section4Activity extends Activity {
         s4q41e = (EditText) findViewById(R.id.s4q41e);
 
         vu_s4q41doth = (LinearLayout) findViewById(R.id.vu_s4q41doth);
+
+
+        lbl_hhhead = (TextView) findViewById(R.id.lbl_hhhead);
+
+        CVars var = new CVars();
+        lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
+
 
         radio_s4q41d.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
