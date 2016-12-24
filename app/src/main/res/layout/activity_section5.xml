@@ -14,7 +14,7 @@
         android:background="#d6d6d6"
         android:scrollbars="horizontal">
 
-        
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
