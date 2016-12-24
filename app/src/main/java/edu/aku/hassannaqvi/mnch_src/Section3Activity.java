@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -30,12 +32,21 @@ public class Section3Activity extends Activity {
     private RadioButton rDOS3q301d1;
     private RadioButton rDOS3q301d2;
     private TextView lblS3q301e;
+
+    private RadioGroup radioS3q301f1;
+    private RadioButton rDOS3q301f11;
+    private RadioButton rDOS3q301f12;
+
     private TextView lblS3q301f;
     private RadioGroup radioS3q301f;
     private RadioButton rDOS3q301f1;
     private RadioButton rDOS3q301f2;
     private RadioButton rDOS3q301f3;
     private RadioButton rDOS3q301f4;
+
+    private int counter;
+    private int sno;
+
     private TextView lblS3q301g;
     private TextView lblS3q301h;
     private RadioGroup radioS3q301h;
@@ -71,6 +82,9 @@ public class Section3Activity extends Activity {
     private RadioButton rDOS3q301j8;
     private TextView lblS3q301k;
 
+    private Button btnnext;
+    private Button btnadd;
+
     private LinearLayout vu_s3q301g;
     private LinearLayout vu_s3q301d;
     private LinearLayout vu_s3q301h;
@@ -87,6 +101,7 @@ public class Section3Activity extends Activity {
     private EditText s3q301joth;
 
     private int rdo_s3q301d;
+    private int rdo_s3q301f1;
     private int rdo_s3q301f;
     private int rdo_s3q301g;
     private int rdo_s3q301h;
@@ -96,6 +111,7 @@ public class Section3Activity extends Activity {
     public static JSONObject s1;
 
     String var_s3q301d = "";
+    String var_s3q301f1 = "";
     String var_s3q301f = "";
     String var_s3q301g = "";
     String var_s3q301h = "";
@@ -107,6 +123,9 @@ public class Section3Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section3);
+
+        counter = 1;
+        sno = 0;
 
         scrollView01 = (ScrollView) findViewById(R.id.ScrollView01);
 
@@ -129,6 +148,11 @@ public class Section3Activity extends Activity {
         rDOS3q301d2 = (RadioButton) findViewById(R.id.RDO_s3q301d_2);
         lblS3q301e = (TextView) findViewById(R.id.lbl_s3q301e);
         lblS3q301f = (TextView) findViewById(R.id.lbl_s3q301f);
+
+        radioS3q301f1 = (RadioGroup) findViewById(R.id.radio_s3q301f1);
+        rDOS3q301f11 = (RadioButton) findViewById(R.id.RDO_s3q301f1_1);
+        rDOS3q301f12 = (RadioButton) findViewById(R.id.RDO_s3q301f1_2);
+
         radioS3q301f = (RadioGroup) findViewById(R.id.radio_s3q301f);
         rDOS3q301f1 = (RadioButton) findViewById(R.id.RDO_s3q301f_1);
         rDOS3q301f2 = (RadioButton) findViewById(R.id.RDO_s3q301f_2);
@@ -177,6 +201,11 @@ public class Section3Activity extends Activity {
         s3q301ioth = (EditText) findViewById(R.id.s3q301ioth);
         s3q301joth = (EditText) findViewById(R.id.s3q301joth);
 
+        btnnext = (Button) findViewById(R.id.btnnext);
+        btnadd = (Button) findViewById(R.id.btnadd);
+
+        btnnext.setEnabled(false);
+
 
         radioS3q301d.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -184,7 +213,7 @@ public class Section3Activity extends Activity {
                 if (checkedId == rDOS3q301d1.getId()) {
                     vu_s3q301d.setVisibility(View.VISIBLE);
 
-                    s3q301e.requestFocus();
+                    radioS3q301f1.requestFocus();
 
                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(s3q301e.getWindowToken(), 0);
@@ -192,6 +221,7 @@ public class Section3Activity extends Activity {
                 } else {
 
                     vu_s3q301d.setVisibility(View.GONE);
+                    radioS3q301f1.clearCheck();
                     s3q301e.setText("");
 
                 }
@@ -310,42 +340,92 @@ public class Section3Activity extends Activity {
         return (EditText) findViewById(R.id.s3q301k);
     }
 
-    public void gotoSection4(View view) {
+
+    public void AddWoman(View view) {
+
+        CVars var = new CVars();
+
+        Log.d(TAG, "val : " + var.GetReproductionAgeWoman());
+        Log.d(TAG, "counter : " + counter);
 
 
-        if (ValidateForm()) {
+        if (var.GetReproductionAgeWoman() != counter) {
 
-            if (SaveDraft()) {
+            if (ValidateForm()) {
 
-                Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
+                if (SaveDraft()) {
 
-                if (UpdateDB()) {
-                    Intent sec4_intent = new Intent(this, Section4Activity.class);
-                    startActivity(sec4_intent);
-                } else {
-                    Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
+
+                    if (UpdateDB()) {
+
+                        ClearFields();
+                        counter = counter + 1;
+
+                        s3q301a.requestFocus();
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
+
+        } else {
+            btnadd.setEnabled(false);
+            btnnext.setEnabled(true);
         }
+    }
+
+
+    private void ClearFields() {
+        s3q301a.setText("");
+        s3q301b.setText("");
+        s3q301c.setText("");
+        radioS3q301d.clearCheck();
+        s3q301e.setText("");
+        radioS3q301f1.clearCheck();
+        radioS3q301f.clearCheck();
+        radioS3q301g.clearCheck();
+        radioS3q301h.clearCheck();
+        radioS3q301i.clearCheck();
+        radioS3q301j.clearCheck();
+        s3q301k.setText("");
+    }
+
+    public void gotoSection4(View view) {
+        Intent sec4_intent = new Intent(this, Section4Activity.class);
+        startActivity(sec4_intent);
     }
 
 
     private boolean UpdateDB() {
         SRCDBHelper db = new SRCDBHelper(this);
-        db.updateS3();
+        Long rowId = db.InsertRecord_Section3(SRCApp.sc3);
         return true;
     }
 
 
     private boolean SaveDraft() {
-        JSONObject s3 = new JSONObject();
+
+        SRCApp.sc3 = new Sec3Contract();
+
         try {
-            s3.put("s3q301a", s3q301a.getText().toString());
-            s3.put("s3q301b", s3q301b.getText().toString());
-            s3.put("s3q301c", s3q301c.getText().toString());
+
+            SRCApp.sc3.set_s3q301a(s3q301a.getText().toString());
+            SRCApp.sc3.set_s3q301b(s3q301b.getText().toString());
+            SRCApp.sc3.set_s3q301c(s3q301c.getText().toString());
 
 
-            switch (radioS3q301d.getCheckedRadioButtonId()) {
+            if (sno == 0) {
+                SRCApp.sc3.setROW_SNO("1");
+            } else {
+                SRCApp.sc3.setROW_SNO(String.valueOf(sno + 1));
+            }
+
+
+            rdo_s3q301d = radioS3q301d.getCheckedRadioButtonId();
+
+            switch (rdo_s3q301d) {
                 case R.id.RDO_s3q301d_1:
                     var_s3q301d = "1";
                     break;
@@ -355,11 +435,30 @@ public class Section3Activity extends Activity {
                     break;
             }
 
-            s3.put("s3q301d", var_s3q301d);
-            s3.put("s3q301e", s3q301e.getText().toString());
+            SRCApp.sc3.set_s3q301d(var_s3q301d);
 
 
-            switch (radioS3q301f.getCheckedRadioButtonId()) {
+            rdo_s3q301f1 = radioS3q301f1.getCheckedRadioButtonId();
+
+            switch (rdo_s3q301f1) {
+                case R.id.RDO_s3q301f1_1:
+                    var_s3q301f1 = "1";
+                    break;
+
+                case R.id.RDO_s3q301f1_2:
+                    var_s3q301f1 = "2";
+                    break;
+            }
+
+            SRCApp.sc3.set_s3q301f1(var_s3q301f1);
+
+
+            SRCApp.sc3.set_s3q301e(s3q301e.getText().toString());
+
+
+            rdo_s3q301f = radioS3q301f.getCheckedRadioButtonId();
+
+            switch (rdo_s3q301f) {
                 case R.id.RDO_s3q301f_1:
                     var_s3q301f = "1";
                     break;
@@ -378,26 +477,14 @@ public class Section3Activity extends Activity {
             }
 
 
-            s3.put("s3q301f", var_s3q301f);
+            SRCApp.sc3.set_s3q301f(var_s3q301f);
 
 
-            switch (radioS3q301g.getCheckedRadioButtonId()) {
-                case R.id.RDO_s3q301g_1:
-                    var_s3q301g = "1";
-                    break;
+            SRCApp.sc3.set_s3q301g(s3q301g.getText().toString());
 
-                case R.id.RDO_s3q301g_2:
-                    var_s3q301g = "2";
-                    break;
+            rdo_s3q301h = radioS3q301h.getCheckedRadioButtonId();
 
-                case R.id.RDO_s3q301g_3:
-                    var_s3q301g = "3";
-                    break;
-            }
-
-            s3.put("s3q301g", var_s3q301g);
-
-            switch (radioS3q301h.getCheckedRadioButtonId()) {
+            switch (rdo_s3q301h) {
                 case R.id.RDO_s3q301h_1:
                     var_s3q301h = "1";
                     break;
@@ -407,91 +494,97 @@ public class Section3Activity extends Activity {
                     break;
             }
 
-            s3.put("s3q301h", var_s3q301h);
+
+            SRCApp.sc3.set_s3q301h(var_s3q301h);
 
 
-            switch (radioS3q301i.getCheckedRadioButtonId()) {
+            rdo_s3q301i = radioS3q301i.getCheckedRadioButtonId();
+
+            switch (rdo_s3q301i) {
                 case R.id.RDO_s3q301i_1:
-                    var_s3q301i = "1";
+                    var_s3q301h = "1";
                     break;
 
                 case R.id.RDO_s3q301i_2:
-                    var_s3q301i = "2";
+                    var_s3q301h = "2";
                     break;
 
                 case R.id.RDO_s3q301i_3:
-                    var_s3q301i = "3";
+                    var_s3q301h = "3";
                     break;
 
                 case R.id.RDO_s3q301i_4:
-                    var_s3q301i = "4";
+                    var_s3q301h = "4";
                     break;
 
                 case R.id.RDO_s3q301i_5:
-                    var_s3q301i = "5";
+                    var_s3q301h = "5";
                     break;
 
                 case R.id.RDO_s3q301i_6:
-                    var_s3q301i = "6";
+                    var_s3q301h = "6";
                     break;
 
                 case R.id.RDO_s3q301i_7:
-                    var_s3q301i = "7";
+                    var_s3q301h = "7";
                     break;
 
                 case R.id.RDO_s3q301i_8:
-                    var_s3q301i = "8";
+                    var_s3q301h = "8";
                     break;
 
                 case R.id.RDO_s3q301i_9:
-                    var_s3q301i = "9";
+                    var_s3q301h = "9";
                     break;
 
                 case R.id.RDO_s3q301i_10:
-                    var_s3q301i = "10";
+                    var_s3q301h = "10";
                     break;
             }
 
 
-            s3.put("s3q301i", var_s3q301i);
-
-            s3.put("s3q301ioth", s3q301ioth.getText().toString());
+            SRCApp.sc3.set_s3q301h(var_s3q301h);
 
 
-            switch (radioS3q301j.getCheckedRadioButtonId()) {
+            rdo_s3q301j = radioS3q301j.getCheckedRadioButtonId();
+
+            switch (rdo_s3q301j) {
                 case R.id.RDO_s3q301j_1:
                     var_s3q301j = "1";
                     break;
+
                 case R.id.RDO_s3q301j_2:
                     var_s3q301j = "2";
                     break;
+
                 case R.id.RDO_s3q301j_3:
                     var_s3q301j = "3";
                     break;
+
                 case R.id.RDO_s3q301j_4:
                     var_s3q301j = "4";
                     break;
+
                 case R.id.RDO_s3q301j_5:
                     var_s3q301j = "5";
                     break;
+
                 case R.id.RDO_s3q301j_6:
                     var_s3q301j = "6";
                     break;
+
                 case R.id.RDO_s3q301j_7:
                     var_s3q301j = "7";
                     break;
+
                 case R.id.RDO_s3q301j_8:
                     var_s3q301j = "8";
                     break;
             }
 
 
-            s3.put("s3q301j", var_s3q301j);
-            s3.put("s3q301joth", s3q301joth.getText().toString());
+            SRCApp.sc3.set_s3q301j(var_s3q301j);
 
-            s3.put("s3q301k", s3q301k.getText().toString());
-
-            SRCApp.fc.setROW_S3(s3.toString());
 
         } catch (Exception e) {
 
@@ -554,7 +647,33 @@ public class Section3Activity extends Activity {
             rDOS3q301d1.setError(null);
         }
 
-        if (var_s3q301d == "1" && getS3q301e().getText().toString().isEmpty() || s3q301e.getText().toString() == null) {
+
+        rdo_s3q301f1 = radioS3q301f1.getCheckedRadioButtonId();
+
+        switch (rdo_s3q301f) {
+            case R.id.RDO_s3q301f_1:
+                var_s3q301f1 = "1";
+                break;
+
+            case R.id.RDO_s3q301f_2:
+                var_s3q301f1 = "2";
+                break;
+        }
+
+
+        if (var_s3q301d == "1") {
+            if (rdo_s3q301f1 == -1) {
+                rDOS3q301f11.setError(getString(R.string.rdoerr));
+                Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+                rDOS3q301f11.requestFocus();
+                return false;
+            } else {
+                rDOS3q301f11.setError(null);
+            }
+        }
+
+
+        if (var_s3q301f1 == "1" && getS3q301e().getText().toString().isEmpty() || s3q301e.getText().toString() == null) {
             s3q301e.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter gestational age \r\n", Toast.LENGTH_LONG).show();
             s3q301e.requestFocus();
@@ -562,6 +681,7 @@ public class Section3Activity extends Activity {
         } else {
             s3q301e.setError(null);
         }
+
 
         rdo_s3q301f = radioS3q301f.getCheckedRadioButtonId();
 
@@ -582,6 +702,7 @@ public class Section3Activity extends Activity {
                 var_s3q301f = "4";
                 break;
         }
+
 
         if (rdo_s3q301f == -1) {
             rDOS3q301f1.setError(getString(R.string.rdoerr));
@@ -680,6 +801,19 @@ public class Section3Activity extends Activity {
         } else {
             s3q301k.setError(null);
         }
+
+
+        if (Integer.parseInt(s3q301c.getText().toString()) < 0
+                && Integer.parseInt(s3q301c.getText().toString()) != 91
+                && Integer.parseInt(s3q301c.getText().toString()) != 92
+                || Integer.parseInt(s3q301c.getText().toString()) > 16
+                && Integer.parseInt(s3q301c.getText().toString()) != 91
+                && Integer.parseInt(s3q301c.getText().toString()) != 92) {
+            Toast.makeText(getApplicationContext(), "Years of schooling of woman must be 0 - 16 or 91 or 92 \r\n", Toast.LENGTH_LONG).show();
+            s3q301c.requestFocus();
+            return false;
+        }
+
 
         return true;
     }
