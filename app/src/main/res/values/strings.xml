@@ -234,6 +234,8 @@
     <string name="mn051407"> نجي اسپتال </string>
     <string name="mndns"> حاصل نه ڪيو هيو </string>
     <string name="mnother"> ٻيو (ڪو نالو لکو) </string>
+    <string name="mnyes">ها</string>
+    <string name="mnno">نه</string>
     <string name="mn0515"> توهان پنهنجي حمل جو بنيادي چيڪپ ڇوڪرايو هيو؟ </string>
     <string name="mn051501"> نئين ڄمڻ واري ٻار جي افزائش ڄاڻڻ لاءِ </string>
     <string name="mn051502"> طريقي سان ٿي سگھي ٿو ويم ڪھڙيِ </string>
@@ -391,7 +393,7 @@
     <string name="mn053204"> اينٽيسيپٽڪ لوشن </string>
     <string name="mn053205"> خاڪ/مٽي </string>
     <string name="mn053206"> ڪلورهيگذيڊين </string>
-    <string name="mn0533"> ۾ ويم جي دوران ڇا ليڊي هيلٿ ورڪرموجود هئي؟ گهر </string>
+    <string name="mn0533">گهر ۾ ويم جي دوران ڇا ليڊي هيلٿ ورڪرموجود هئي؟ </string>
     <string name="mn0534"> ويم ڪنهن ڪرايو </string>
     <string name="mn053401"> دائي </string>
     <string name="mn053402"> ليڊي هيلٿ وزيٽرر/ نرس </string>
