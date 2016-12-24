@@ -43,13 +43,15 @@
                 android:text="" />
 
             <TextView
-                android:id="@+id/lbl_womancount"
-                style="@style/myheading"
-                android:layout_gravity="center_horizontal" />
+                android:id="@+id/lbl_wcount"
+                style="@style/txtquestion"
+                android:layoutDirection="ltr"
+                android:text="" />
 
             <TextView
-                android:id="@+id/woman_count"
+                android:id="@+id/wcount"
                 style="@style/txtquestion"
+                android:layoutDirection="ltr"
                 android:text="" />
 
             <TextView

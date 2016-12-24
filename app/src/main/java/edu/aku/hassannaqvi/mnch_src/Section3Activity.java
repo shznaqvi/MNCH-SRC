@@ -100,6 +100,8 @@ public class Section3Activity extends Activity {
     private EditText s3q301ioth;
     private EditText s3q301joth;
 
+    private TextView wcount;
+
     private int rdo_s3q301d;
     private int rdo_s3q301f1;
     private int rdo_s3q301f;
@@ -109,7 +111,6 @@ public class Section3Activity extends Activity {
     private int rdo_s3q301j;
 
     private TextView lbl_hhhead;
-    private TextView woman_count;
 
     public static JSONObject s1;
 
@@ -206,14 +207,13 @@ public class Section3Activity extends Activity {
         btnnext = (Button) findViewById(R.id.btnnext);
         btnadd = (Button) findViewById(R.id.btnadd);
 
+        wcount = (TextView) findViewById(R.id.wcount);
+
         lbl_hhhead = (TextView) findViewById(R.id.lbl_hhhead);
-        woman_count = (TextView) findViewById(R.id.woman_count);
 
         CVars var = new CVars();
         lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
-
-        //woman_count.setText(var.GetReproductionAgeWoman());
-
+        //wcount.setText(var.GetReproductionAgeWoman());
 
         btnnext.setEnabled(false);
 
