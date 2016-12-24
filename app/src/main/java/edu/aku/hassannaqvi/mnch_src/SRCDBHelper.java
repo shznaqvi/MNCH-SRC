@@ -383,7 +383,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             values.put(Sec3Entry.ROW_s3q301j, fc.get_s3q301j());
             values.put(Sec3Entry.ROW_s3q301k, fc.get_s3q301k());
 
-            values.put(Sec3Entry.ROW_UID, fc.getROW_UID());
+            values.put(Sec3Entry.ROW_UID, SRCApp.fc.getROW_UID());
 
             newRowId = db.insert(Sec3Entry.TABLE_NAME, null, values);
             db.close();
