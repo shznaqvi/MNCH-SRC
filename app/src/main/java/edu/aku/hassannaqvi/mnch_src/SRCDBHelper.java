@@ -110,8 +110,11 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Section4Entry.ROW_DEVID + " TEXT,"
             + Section4Entry.ROW_FORM_ID + " INTEGER,"
             + Section4Entry.ROW_HHCODE + " TEXT,"
+            + Section4Entry.ROW_SNO + " TEXT,"
             + Section4Entry.ROW_s4q41a + " TEXT,"
             + Section4Entry.ROW_s4q41b + " TEXT,"
+            + Section4Entry.ROW_s4q41b1 + " TEXT,"
+            + Section4Entry.ROW_s4q41b2 + " TEXT,"
             + Section4Entry.ROW_s4q41c + " TEXT,"
             + Section4Entry.ROW_s4q41d + " TEXT,"
             + Section4Entry.ROW_s4q41e + " TEXT,"
@@ -198,6 +201,24 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
             CVars var = new CVars();
             String QUERY = "SELECT * FROM " + Sec3Entry.TABLE_NAME + " WHERE formid = '"
+                    + var.GetHHNO() + "'";
+
+            Cursor cursor = db.rawQuery(QUERY, null);
+            sno = cursor.getCount();
+            db.close();
+        } catch (Exception e) {
+        }
+        return sno;
+    }
+
+
+    public int getSNO1() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int sno = 0;
+        try {
+
+            CVars var = new CVars();
+            String QUERY = "SELECT * FROM " + Section4Entry.TABLE_NAME + " WHERE formid = '"
                     + var.GetHHNO() + "'";
 
             Cursor cursor = db.rawQuery(QUERY, null);
@@ -386,6 +407,38 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             values.put(Sec3Entry.ROW_UID, SRCApp.fc.getROW_UID());
 
             newRowId = db.insert(Sec3Entry.TABLE_NAME, null, values);
+            db.close();
+
+        } catch (Exception e) {
+        }
+
+        return newRowId;
+    }
+
+
+    public Long InsertRecord_Section4a(Section4Contract fc) {
+        long newRowId = 0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        try {
+            ContentValues values = new ContentValues();
+
+            values.put(Section4Entry.ROW_DEVID, fc.get_DEVID());
+            values.put(Section4Entry.ROW_FORM_ID, fc.get_FORM_ID());
+            values.put(Section4Entry.ROW_HHCODE, fc.get_HHCODE());
+
+            values.put(Section4Entry.ROW_SNO, fc.get_SNO());
+
+            values.put(Section4Entry.ROW_s4q41a, fc.get_s4q41a());
+            values.put(Section4Entry.ROW_s4q41b, fc.get_s4q41b());
+            values.put(Section4Entry.ROW_s4q41b1, fc.get_s4q41b1());
+            values.put(Section4Entry.ROW_s4q41b2, fc.get_s4q41b2());
+            values.put(Section4Entry.ROW_s4q41c, fc.get_s4q41c());
+            values.put(Section4Entry.ROW_s4q41d, fc.get_s4q41d());
+            values.put(Section4Entry.ROW_s4q41e, fc.get_s4q41e());
+
+            values.put(Section4Entry.ROW_UID, SRCApp.fc.getROW_UID());
+
+            newRowId = db.insert(Section4Entry.TABLE_NAME, null, values);
             db.close();
 
         } catch (Exception e) {

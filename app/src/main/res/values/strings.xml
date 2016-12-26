@@ -241,9 +241,7 @@
     <string name="mn051406"> نجي ڪلينڪ </string>
     <string name="mn051407"> نجي اسپتال </string>
     <string name="mndns"> حاصل نه ڪيو هيو </string>
-    <string name="mnother"> ٻيو (وضاحت ڪریو) </string>
-    <string name="mnyes">ها</string>
-    <string name="mnno">نه</string>
+    <string name="mnother"> ٻيو (ڪو نالو لکو) </string>
     <string name="mn0515"> توهان پنهنجي حمل جو بنيادي چيڪپ ڇوڪرايو هيو؟ </string>
     <string name="mn051501"> نئين ڄمڻ واري ٻار جي افزائش ڄاڻڻ لاءِ </string>
     <string name="mn051502"> طريقي سان ٿي سگھي ٿو ويم ڪھڙيِ </string>
@@ -265,22 +263,36 @@
     <string name="mn051609"> ٻارجي چرپرچيڪ ڪئي هئي </string>
     <string name="mn051610"> ٻار جي دل جي چرپرچيڪ ڪئي </string>
     <string name="mn0517"> حمل جي بنيادي چيڪپ دوران توهان کي ڪهڙي قسم جون دوائن ڏنيون ويون هيون؟ </string>
-    <string name="mn0517vitd"> Vitamin D </string>
-    <string name="mn0517used"> Used </string>
-    <string name="mn0517dura"> Duration </string>
-    <string name="mn0517days"> Days </string>
-    <string name="mn0517month"> Month </string>
-    <string name="mn0517src"> Source </string>
-    <string name="mn0517iron"> Iron folate </string>
-
-    <string name="mn0517folic"> Folic acid </string>
-
-    <string name="mn0517micro"> Micronutrient </string>
-
-    <string name="mn0517calcium"> Calcium </string>
-
-    <string name="mn0517ovit"> Other vitamins </string>
-
+    <string name="mn0517a"> Vitamin D </string>
+    <string name="mn0517a1"> Used </string>
+    <string name="mn0517a2d"> Days </string>
+    <string name="mn0517a2m"> Month </string>
+    <string name="mn0517a3"> Source </string>
+    <string name="mn0517b"> Iron folate </string>
+    <string name="mn0517b1"> Used </string>
+    <string name="mn0517b2d"> Days </string>
+    <string name="mn0517b2m"> Month </string>
+    <string name="mn0517b3"> Source </string>
+    <string name="mn0517c"> Folic acid </string>
+    <string name="mn0517c1"> Used </string>
+    <string name="mn0517c2d"> Days </string>
+    <string name="mn0517c2m"> Month </string>
+    <string name="mn0517c3"> Source </string>
+    <string name="mn0517d"> Micronutrient </string>
+    <string name="mn0517d1"> Used </string>
+    <string name="mn0517d2d"> Days </string>
+    <string name="mn0517d2m"> Month </string>
+    <string name="mn0517d3"> Source </string>
+    <string name="mn0517e"> Calcium </string>
+    <string name="mn0517e1"> Used </string>
+    <string name="mn0517e2d"> Days </string>
+    <string name="mn0517e2m"> Month </string>
+    <string name="mn0517e3"> Source </string>
+    <string name="mn0517f"> Other vitamins </string>
+    <string name="mn0517f1"> Used </string>
+    <string name="mn0517f2d"> Days </string>
+    <string name="mn0517f2m"> Month </string>
+    <string name="mn0517f3"> Source </string>
     <string name="mn0518"> حمل جي بنيادي چيڪپ دوران ڇا توهان کي هيٺ ڏنل صلاحِ ڏني وئي هئي؟ </string>
     <string name="mn051801"> ۽ ويم جي خطرناڪ علامتن باري ۾ حمل </string>
     <string name="mn051802"> کاڌ يا خوراڪ جي باري ۾ </string>
@@ -328,9 +340,9 @@
     <string name="mn052320"> پيٽ ۾ ٻار جو حرڪتنه ڪرڻ </string>
     <string name="mn052321"> مروڙ پوڻ </string>
     <string name="mn0524"> آخري حمل دوران پيچيدگي هئڻ جي صورت ۾ توهان پنهنجو علاج ڪٿان ڪرايو هيو؟ </string>
-    <string name="mn052401"> ايل ايڇ ڊبليو صحت گهر </string>
-    <string name="mn052402"> بنيادي صحت مرڪز </string>
-    <string name="mn052403"> رورل هيلٿ سينٽر </string>
+    <string name="mn0052401"> ايل ايڇ ڊبليو صحت گهر </string>
+    <string name="mn0052402"> بنيادي صحت مرڪز </string>
+    <string name="mn0052403"> رورل هيلٿ سينٽر </string>
     <string name="mn052404"> تعلقه اسپتال </string>
     <string name="mn052405"> ضلعه اسپتال </string>
     <string name="mn052406"> نجي ڪلينڪ </string>
@@ -359,7 +371,7 @@
     <string name="mn052706"> نجي ڪلينڪ </string>
     <string name="mn052707"> نجي اسپتال </string>
     <string name="mn052708"> ايل ايڇ ڊبليو جي گهر ۾ </string>
-    <string name="mn0528">  جيڪڏهن  گهر ۾ ويم ٿيوهيو،ته ان جوڪارڻ ڇا هيو </string>
+    <string name="mn0528"> جيڪڏهن گهر ۾ ويم ٿيوهيو،ته ان جوڪارڻ ڇا هيو </string>
     <string name="mn052801"> ضروري نه سمجهيو </string>
     <string name="mn052802"> پيئسه ڪو نه هئا </string>
     <string name="mn052803"> سواريجي سهولتڪو نه هئي </string>
@@ -387,7 +399,7 @@
     <string name="mn053204"> اينٽيسيپٽڪ لوشن </string>
     <string name="mn053205"> خاڪ/مٽي </string>
     <string name="mn053206"> ڪلورهيگذيڊين </string>
-    <string name="mn0533">گهر ۾ ويم جي دوران ڇا ليڊي هيلٿ ورڪرموجود هئي؟ </string>
+    <string name="mn0533"> ۾ ويم جي دوران ڇا ليڊي هيلٿ ورڪرموجود هئي؟ گهر </string>
     <string name="mn0534"> ويم ڪنهن ڪرايو </string>
     <string name="mn053401"> دائي </string>
     <string name="mn053402"> ليڊي هيلٿ وزيٽرر/ نرس </string>
@@ -511,9 +523,9 @@
     <string name="mn070301"> منهن ۽ نڪ کي صاف ڪيوويو </string>
     <string name="mn070302"> ٻار جي پٺي کي مهٽيو ويو </string>
     <string name="mn070303"> ٻار جي جڳهه تبديل ڪئي وئي </string>
-    <string name="mn070304"> پيرن کان پڪڙي الٽو لٽڪائي پٺي تي ٿڦڙ هنيا ويا </string>
-    <string name="mn070305"> امبوبيگ ذريعي مصنوعي ساهه کڻايو ويو </string>
-    <string name="mn070306"> وات ذريعي مصنوعي ساهه کڻايو ويو </string>
+    <string name="mn070305"> پيرن کان پڪڙي الٽو لٽڪائي پٺي تي ٿڦڙ هنيا ويا </string>
+    <string name="mn070307"> امبوبيگ ذريعي مصنوعي ساهه کڻايو ويو </string>
+    <string name="mn070309"> وات ذريعي مصنوعي ساهه کڻايو ويو </string>
     <string name="mn0704"> ڇا اوهان (ٻار جو نالو) کي ڪڏهن پنهنجي ٿڃ پياري آهي؟ </string>
     <string name="mn0705"> جيڪڏهن نه،ته ڇو توهان پنهنجي ٻار کي پنهنجو کير نه پياريو هيو </string>
     <string name="mn070501"> کير ناڪافي ھيو </string>
