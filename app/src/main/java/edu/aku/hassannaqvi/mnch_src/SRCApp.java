@@ -23,6 +23,7 @@ public class SRCApp extends Application {
     public static String GPS_DT;
     public static String GPS_ACC;
     public static FormContract fc;
+    public static Sec3Contract sc3;
     public static Section4Contract sc4;
 
 

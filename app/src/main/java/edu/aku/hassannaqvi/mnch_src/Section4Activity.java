@@ -117,6 +117,7 @@ public class Section4Activity extends Activity {
 
         SRCApp.sc4.set_s4q41a(s4q41a.getText().toString());
         SRCApp.sc4.set_s4q41b(s4q41b.getText().toString());
+
         rdo_s4q41c = radio_s4q41c.getCheckedRadioButtonId();
 
         switch (rdo_s4q41c) {
@@ -144,6 +145,7 @@ public class Section4Activity extends Activity {
         }
 
         SRCApp.sc4.set_s4q41c(var_s4q41c);
+
         rdo_s4q41d = radio_s4q41d.getCheckedRadioButtonId();
 
         switch (rdo_s4q41d) {
@@ -180,6 +182,7 @@ public class Section4Activity extends Activity {
         }
 
         SRCApp.sc4.set_s4q41d(var_s4q41d);
+
         SRCApp.sc4.set_s4q41e(s4q41e.getText().toString());
     }
 

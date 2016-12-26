@@ -7,6 +7,8 @@ package edu.aku.hassannaqvi.mnch_src;
 public class CVars {
     public static String myuser;
     public static String url_sync_users;
+    public static int repro_age_woman;
+
 
     public void StoreUser(String Users) {
         this.myuser = Users;
@@ -22,5 +24,13 @@ public class CVars {
 
     public String getUrl_sync_users() {
         return url_sync_users;
+    }
+
+    public void StoreReporductionAgeWoman(int repro_age_woman) {
+        this.repro_age_woman = repro_age_woman;
+    }
+
+    public int GetReproductionAgeWoman() {
+        return this.repro_age_woman;
     }
 }
