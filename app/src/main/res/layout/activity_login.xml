@@ -67,7 +67,7 @@
 
             <Button
                 android:id="@+id/email_sign_in_button"
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="loginUser"
                 android:text="@string/action_sign_in" />
@@ -100,7 +100,7 @@
 
                 <Button
                     android:id="@+id/btnSynchUsers"
-                    style="@style/btn"
+                    style="@style/buttons"
                     android:layout_marginTop="20dp"
                     android:onClick="SyncUsers"
                     android:text="Sync Users" />
