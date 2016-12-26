@@ -211,6 +211,10 @@ public class Section3Activity extends Activity {
 
         lbl_hhhead = (TextView) findViewById(R.id.lbl_hhhead);
 
+        SRCDBHelper db = new SRCDBHelper(this);
+        Log.d(TAG, "getSNO: " + db.getSNO());
+
+
         CVars var = new CVars();
         lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
         //wcount.setText(var.GetReproductionAgeWoman());
@@ -279,6 +283,9 @@ public class Section3Activity extends Activity {
                 } else if (checkedId == rDOS3q301f4.getId()) {
 
                     vu_s3q301g.setVisibility(View.VISIBLE);
+                    vu_s3q301h.setVisibility(View.GONE);
+
+                    radioS3q301h.clearCheck();
 
                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(radioS3q301g.getWindowToken(), 0);
@@ -369,7 +376,14 @@ public class Section3Activity extends Activity {
                         ClearFields();
                         counter = counter + 1;
 
+                        vu_s3q301d.setVisibility(View.GONE);
+                        vu_s3q301g.setVisibility(View.GONE);
+                        vu_s3q301h.setVisibility(View.GONE);
+                        vu_s3q301ioth.setVisibility(View.GONE);
+                        vu_s3q301joth.setVisibility(View.GONE);
+
                         s3q301a.requestFocus();
+
 
                     } else {
                         Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
@@ -433,6 +447,7 @@ public class Section3Activity extends Activity {
 
             if (sno == 0) {
                 SRCApp.sc3.setROW_SNO("1");
+                sno = 1;
             } else {
 
                 SRCDBHelper db = new SRCDBHelper(this);
@@ -501,7 +516,20 @@ public class Section3Activity extends Activity {
             SRCApp.sc3.set_s3q301f(var_s3q301f);
 
 
-            SRCApp.sc3.set_s3q301g(s3q301g.getText().toString());
+            rdo_s3q301g = radioS3q301g.getCheckedRadioButtonId();
+
+            switch (rdo_s3q301g) {
+                case R.id.RDO_s3q301g_1:
+                    var_s3q301g = "1";
+                    break;
+
+                case R.id.RDO_s3q301g_2:
+                    var_s3q301g = "2";
+                    break;
+            }
+
+
+            SRCApp.sc3.set_s3q301g(var_s3q301g);
 
             rdo_s3q301h = radioS3q301h.getCheckedRadioButtonId();
 
@@ -523,43 +551,43 @@ public class Section3Activity extends Activity {
 
             switch (rdo_s3q301i) {
                 case R.id.RDO_s3q301i_1:
-                    var_s3q301h = "1";
+                    var_s3q301i = "1";
                     break;
 
                 case R.id.RDO_s3q301i_2:
-                    var_s3q301h = "2";
+                    var_s3q301i = "2";
                     break;
 
                 case R.id.RDO_s3q301i_3:
-                    var_s3q301h = "3";
+                    var_s3q301i = "3";
                     break;
 
                 case R.id.RDO_s3q301i_4:
-                    var_s3q301h = "4";
+                    var_s3q301i = "4";
                     break;
 
                 case R.id.RDO_s3q301i_5:
-                    var_s3q301h = "5";
+                    var_s3q301i = "5";
                     break;
 
                 case R.id.RDO_s3q301i_6:
-                    var_s3q301h = "6";
+                    var_s3q301i = "6";
                     break;
 
                 case R.id.RDO_s3q301i_7:
-                    var_s3q301h = "7";
+                    var_s3q301i = "7";
                     break;
 
                 case R.id.RDO_s3q301i_8:
-                    var_s3q301h = "8";
+                    var_s3q301i = "8";
                     break;
 
                 case R.id.RDO_s3q301i_9:
-                    var_s3q301h = "9";
+                    var_s3q301i = "9";
                     break;
 
                 case R.id.RDO_s3q301i_10:
-                    var_s3q301h = "10";
+                    var_s3q301i = "10";
                     break;
             }
 
@@ -670,12 +698,12 @@ public class Section3Activity extends Activity {
 
         rdo_s3q301f1 = radioS3q301f1.getCheckedRadioButtonId();
 
-        switch (rdo_s3q301f) {
-            case R.id.RDO_s3q301f_1:
+        switch (rdo_s3q301f1) {
+            case R.id.RDO_s3q301f1_1:
                 var_s3q301f1 = "1";
                 break;
 
-            case R.id.RDO_s3q301f_2:
+            case R.id.RDO_s3q301f1_2:
                 var_s3q301f1 = "2";
                 break;
         }
@@ -693,13 +721,15 @@ public class Section3Activity extends Activity {
         }
 
 
-        if (var_s3q301f1 == "1" && getS3q301e().getText().toString().isEmpty() || s3q301e.getText().toString() == null) {
-            s3q301e.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "Please enter gestational age \r\n", Toast.LENGTH_LONG).show();
-            s3q301e.requestFocus();
-            return false;
-        } else {
-            s3q301e.setError(null);
+        if (var_s3q301d == "1") {
+            if (var_s3q301f1 == "1" && getS3q301e().getText().toString().isEmpty() || var_s3q301f1 == "1" && s3q301e.getText().toString() == null) {
+                s3q301e.setError(getString(R.string.txterr));
+                Toast.makeText(getApplicationContext(), "Please enter gestational age \r\n", Toast.LENGTH_LONG).show();
+                s3q301e.requestFocus();
+                return false;
+            } else {
+                s3q301e.setError(null);
+            }
         }
 
 
@@ -733,7 +763,21 @@ public class Section3Activity extends Activity {
             rDOS3q301f1.setError(null);
         }
 
+
+        var_s3q301g = "";
+
         rdo_s3q301g = radioS3q301g.getCheckedRadioButtonId();
+
+        switch (rdo_s3q301g) {
+            case R.id.RDO_s3q301g_1:
+                var_s3q301g = "1";
+                break;
+
+            case R.id.RDO_s3q301g_2:
+                var_s3q301g = "2";
+                break;
+        }
+
 
         if (var_s3q301f == "4" && rdo_s3q301g == -1) {
             rDOS3q301g1.setError(getString(R.string.rdoerr));
@@ -745,13 +789,27 @@ public class Section3Activity extends Activity {
         }
 
 
+        var_s3q301h = "";
+
         rdo_s3q301h = radioS3q301h.getCheckedRadioButtonId();
 
-        if (var_s3q301f == "4" && rdo_s3q301h == -1 || var_s3q301f == "3" && rdo_s3q301h == -1) {
+        switch (rdo_s3q301h) {
+            case R.id.RDO_s3q301h_1:
+                var_s3q301h = "1";
+                break;
+
+            case R.id.RDO_s3q301h_2:
+                var_s3q301h = "2";
+                break;
+        }
+
+        if (var_s3q301f == "3" && rdo_s3q301h == -1) {
+
             rDOS3q301h1.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
-            rDOS3q301f1.requestFocus();
+            rDOS3q301h1.requestFocus();
             return false;
+
         } else {
             rDOS3q301h1.setError(null);
         }
@@ -760,12 +818,49 @@ public class Section3Activity extends Activity {
         rdo_s3q301i = radioS3q301i.getCheckedRadioButtonId();
 
         switch (rdo_s3q301i) {
+            case R.id.RDO_s3q301i_1:
+                var_s3q301i = "1";
+                break;
+
+            case R.id.RDO_s3q301i_2:
+                var_s3q301i = "2";
+                break;
+
+            case R.id.RDO_s3q301i_3:
+                var_s3q301i = "3";
+                break;
+
+            case R.id.RDO_s3q301i_4:
+                var_s3q301i = "4";
+                break;
+
+            case R.id.RDO_s3q301i_5:
+                var_s3q301i = "5";
+                break;
+
+            case R.id.RDO_s3q301i_6:
+                var_s3q301i = "6";
+                break;
+
+            case R.id.RDO_s3q301i_7:
+                var_s3q301i = "7";
+                break;
+
+            case R.id.RDO_s3q301i_8:
+                var_s3q301i = "8";
+                break;
+
+            case R.id.RDO_s3q301i_9:
+                var_s3q301i = "9";
+                break;
+
             case R.id.RDO_s3q301i_10:
                 var_s3q301i = "10";
                 break;
         }
 
-        if (rdo_s3q301i == -1) {
+
+        if (var_s3q301i == "") {
             rDOS3q301i1.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             rDOS3q301i1.requestFocus();
@@ -820,6 +915,17 @@ public class Section3Activity extends Activity {
             return false;
         } else {
             s3q301k.setError(null);
+        }
+
+
+        if (s3q301e.getText().toString().isEmpty() || s3q301e.getText().toString() == null) {
+
+        } else {
+            if (Integer.parseInt(s3q301e.getText().toString()) <= 2 || Integer.parseInt(s3q301e.getText().toString()) > 43) {
+                Toast.makeText(getApplicationContext(), "Gestational age must be 3 - 43 weeks \r\n", Toast.LENGTH_LONG).show();
+                s3q301e.requestFocus();
+                return false;
+            }
         }
 
 

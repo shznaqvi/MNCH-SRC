@@ -22,6 +22,8 @@ public class Section4Contract implements BaseColumns {
 
     String ROW_s4q41a;
     String ROW_s4q41b;
+    String ROW_s4q41b1;
+    String ROW_s4q41b2;
     String ROW_s4q41c;
     String ROW_s4q41d;
     String ROW_s4q41e;
@@ -31,12 +33,27 @@ public class Section4Contract implements BaseColumns {
 
     }
 
+    public String get_s4q41b1() {
+        return this.ROW_s4q41b1;
+    }
 
-    public String getROW_HHCODE() {
+    public void set_s4q41b1(String ROW_s4q41b1) {
+        this.ROW_s4q41b1 = ROW_s4q41b1;
+    }
+
+    public String get_s4q41b2() {
+        return this.ROW_s4q41b2;
+    }
+
+    public void set_s4q41b2(String ROW_s4q41b2) {
+        this.ROW_s4q41b2 = ROW_s4q41b2;
+    }
+
+    public String get_HHCODE() {
         return this.ROW_HHCODE;
     }
 
-    public void setROW_HHCODE(String ROW_HHCODE) {
+    public void set_HHCODE(String ROW_HHCODE) {
         this.ROW_HHCODE = ROW_HHCODE;
     }
 
@@ -134,6 +151,8 @@ public class Section4Contract implements BaseColumns {
 
         json.put(Section4Entry.ROW_s4q41a, this.ROW_s4q41a);
         json.put(Section4Entry.ROW_s4q41b, this.ROW_s4q41b);
+        json.put(Section4Entry.ROW_s4q41b1, this.ROW_s4q41b1);
+        json.put(Section4Entry.ROW_s4q41b2, this.ROW_s4q41b2);
         json.put(Section4Entry.ROW_s4q41c, this.ROW_s4q41c);
         json.put(Section4Entry.ROW_s4q41d, this.ROW_s4q41d);
         json.put(Section4Entry.ROW_s4q41e, this.ROW_s4q41e);
@@ -154,6 +173,8 @@ public class Section4Contract implements BaseColumns {
 
         public static final String ROW_s4q41a = "s4q41a";
         public static final String ROW_s4q41b = "s4q41b";
+        public static final String ROW_s4q41b1 = "s4q41b1";
+        public static final String ROW_s4q41b2 = "s4q41b2";
         public static final String ROW_s4q41c = "s4q41c";
         public static final String ROW_s4q41d = "s4q41d";
         public static final String ROW_s4q41e = "s4q41e";

@@ -225,6 +225,146 @@ public class Section5Activity extends Activity {
     RadioButton mn0517a307;
     @BindView(R.id.mn0517a3077)
     RadioButton mn0517a3077;
+    @BindView(R.id.mn0517b1)
+    RadioGroup mn0517b1;
+    @BindView(R.id.mn0517b101)
+    RadioButton mn0517b101;
+    @BindView(R.id.mn0517b102)
+    RadioButton mn0517b102;
+    @BindView(R.id.mn0517b2d)
+    EditText mn0517b2d;
+    @BindView(R.id.mn0517b2m)
+    EditText mn0517b2m;
+    @BindView(R.id.mn0517b3)
+    RadioGroup mn0517b3;
+    @BindView(R.id.mn0517b301)
+    RadioButton mn0517b301;
+    @BindView(R.id.mn0517b302)
+    RadioButton mn0517b302;
+    @BindView(R.id.mn0517b303)
+    RadioButton mn0517b303;
+    @BindView(R.id.mn0517b304)
+    RadioButton mn0517b304;
+    @BindView(R.id.mn0517b305)
+    RadioButton mn0517b305;
+    @BindView(R.id.mn0517b306)
+    RadioButton mn0517b306;
+    @BindView(R.id.mn0517b307)
+    RadioButton mn0517b307;
+    @BindView(R.id.mn0517b3077)
+    RadioButton mn0517b3077;
+    @BindView(R.id.mn0517c1)
+    RadioGroup mn0517c1;
+    @BindView(R.id.mn0517c101)
+    RadioButton mn0517c101;
+    @BindView(R.id.mn0517c102)
+    RadioButton mn0517c102;
+    @BindView(R.id.mn0517c2d)
+    EditText mn0517c2d;
+    @BindView(R.id.mn0517c2m)
+    EditText mn0517c2m;
+    @BindView(R.id.mn0517c3)
+    RadioGroup mn0517c3;
+    @BindView(R.id.mn0517c301)
+    RadioButton mn0517c301;
+    @BindView(R.id.mn0517c302)
+    RadioButton mn0517c302;
+    @BindView(R.id.mn0517c303)
+    RadioButton mn0517c303;
+    @BindView(R.id.mn0517c304)
+    RadioButton mn0517c304;
+    @BindView(R.id.mn0517c305)
+    RadioButton mn0517c305;
+    @BindView(R.id.mn0517c306)
+    RadioButton mn0517c306;
+    @BindView(R.id.mn0517c307)
+    RadioButton mn0517c307;
+    @BindView(R.id.mn0517c3077)
+    RadioButton mn0517c3077;
+    @BindView(R.id.mn0517d1)
+    RadioGroup mn0517d1;
+    @BindView(R.id.mn0517d101)
+    RadioButton mn0517d101;
+    @BindView(R.id.mn0517d102)
+    RadioButton mn0517d102;
+    @BindView(R.id.mn0517d2d)
+    EditText mn0517d2d;
+    @BindView(R.id.mn0517d2m)
+    EditText mn0517d2m;
+    @BindView(R.id.mn0517d3)
+    RadioGroup mn0517d3;
+    @BindView(R.id.mn0517d301)
+    RadioButton mn0517d301;
+    @BindView(R.id.mn0517d302)
+    RadioButton mn0517d302;
+    @BindView(R.id.mn0517d303)
+    RadioButton mn0517d303;
+    @BindView(R.id.mn0517d304)
+    RadioButton mn0517d304;
+    @BindView(R.id.mn0517d305)
+    RadioButton mn0517d305;
+    @BindView(R.id.mn0517d306)
+    RadioButton mn0517d306;
+    @BindView(R.id.mn0517d307)
+    RadioButton mn0517d307;
+    @BindView(R.id.mn0517d3077)
+    RadioButton mn0517d3077;
+    @BindView(R.id.mn0517e1)
+    RadioGroup mn0517e1;
+    @BindView(R.id.mn0517e101)
+    RadioButton mn0517e101;
+    @BindView(R.id.mn0517e102)
+    RadioButton mn0517e102;
+    @BindView(R.id.mn0517e2d)
+    EditText mn0517e2d;
+    @BindView(R.id.mn0517e2m)
+    EditText mn0517e2m;
+    @BindView(R.id.mn0517e3)
+    RadioGroup mn0517e3;
+    @BindView(R.id.mn0517e301)
+    RadioButton mn0517e301;
+    @BindView(R.id.mn0517e302)
+    RadioButton mn0517e302;
+    @BindView(R.id.mn0517e303)
+    RadioButton mn0517e303;
+    @BindView(R.id.mn0517e304)
+    RadioButton mn0517e304;
+    @BindView(R.id.mn0517e305)
+    RadioButton mn0517e305;
+    @BindView(R.id.mn0517e306)
+    RadioButton mn0517e306;
+    @BindView(R.id.mn0517e307)
+    RadioButton mn0517e307;
+    @BindView(R.id.mn0517e3077)
+    RadioButton mn0517e3077;
+    @BindView(R.id.mn0517f1)
+    RadioGroup mn0517f1;
+    @BindView(R.id.mn0517f101)
+    RadioButton mn0517f101;
+    @BindView(R.id.mn0517f102)
+    RadioButton mn0517f102;
+    @BindView(R.id.mn0517f2d)
+    EditText mn0517f2d;
+    @BindView(R.id.mn0517f2m)
+    EditText mn0517f2m;
+    @BindView(R.id.mn0517f3)
+    RadioGroup mn0517f3;
+    @BindView(R.id.mn0517f301)
+    RadioButton mn0517f301;
+    @BindView(R.id.mn0517f302)
+    RadioButton mn0517f302;
+    @BindView(R.id.mn0517f303)
+    RadioButton mn0517f303;
+    @BindView(R.id.mn0517f304)
+    RadioButton mn0517f304;
+    @BindView(R.id.mn0517f305)
+    RadioButton mn0517f305;
+    @BindView(R.id.mn0517f306)
+    RadioButton mn0517f306;
+    @BindView(R.id.mn0517f307)
+    RadioButton mn0517f307;
+    @BindView(R.id.mn0517f3077)
+    RadioButton mn0517f3077;
     @BindView(R.id.mn051801)
     CheckBox mn051801;
     @BindView(R.id.mn051802)
@@ -395,6 +535,7 @@ public class Section5Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section5);
         ButterKnife.bind(this);
+
 
     }
 
