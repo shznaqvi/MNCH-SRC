@@ -366,7 +366,7 @@
 
             <Button
                 android:id="@+id/btnnext"
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="gotoSection3"
                 android:text="@string/sec3" />

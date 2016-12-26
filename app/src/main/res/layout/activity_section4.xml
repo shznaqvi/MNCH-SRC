@@ -276,14 +276,14 @@
 
             <Button
                 android:id="@+id/btnadd"
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="AddWoman"
                 android:text="@string/btnadd" />
 
             <Button
                 android:id="@+id/btnnext"
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="gotoSection5"
                 android:text="@string/sec5" />

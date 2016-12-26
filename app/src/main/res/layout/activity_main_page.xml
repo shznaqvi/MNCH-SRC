@@ -33,76 +33,76 @@
 
             <Button
                 android:id="@+id/btnOpenForm"
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="OpenForm"
                 android:text="@string/btnOpenForm" />
 
             <Button
                 android:id="@+id/btnSyncData"
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:text="@string/btnSyncData" />
 
             <Button
                 android:id="@+id/btnDBAccess"
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="OpenDBAccess"
                 android:text="@string/btnDBAccess" />
 
             <Button
                 android:id="@+id/ShowSec2"
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="OpenSection2"
                 android:text="@string/sec2" />
 
             <Button
                 android:id="@+id/ShowSec3"
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="OpenSection3"
                 android:text="@string/sec3" />
 
             <Button
                 android:id="@+id/ShowSec4"
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="OpenSection4"
                 android:text="@string/sec4" />
 
             <Button
                 android:id="@+id/ShowSec5"
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="OpenSection5"
                 android:text="@string/sec5" />
 
             <Button
                 android:id="@+id/ShowSec6"
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="OpenSection6"
                 android:text="@string/sec6" />
 
             <Button
                 android:id="@+id/ShowSec7"
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="OpenSection7"
                 android:text="@string/sec7" />
 
             <Button
                 android:id="@+id/ShowSec8"
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="OpenSection8"
                 android:text="@string/sec8" />
 
             <Button
                 android:id="@+id/btnLogout"
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="Logout"
                 android:text="@string/btnLogout" />

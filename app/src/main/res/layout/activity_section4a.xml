@@ -32,15 +32,6 @@
                 android:layout_height="2dp"
                 android:background="@color/colorPrimary" />
 
-            <TextView
-                android:id="@+id/app_header1"
-                style="@style/myheading"
-                android:layout_gravity="center_horizontal" />
-
-            <TextView
-                android:id="@+id/lbl_hhhead"
-                style="@style/txtquestion"
-                android:text="" />
 
         </LinearLayout>
     </ScrollView>
