@@ -21,19 +21,19 @@
             android:orientation="vertical">
 
             <Button
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="syncUser"
                 android:text="Sync User" />
 
             <Button
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="OpenDB"
                 android:text="OpenDatabaseManager" />
 
             <Button
-                style="@style/btn"
+                style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="syncData"
                 android:text="Sync Data" />
