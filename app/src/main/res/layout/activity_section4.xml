@@ -286,7 +286,7 @@
                 style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="gotoSection5"
-                android:text="@string/sec5" />
+                android:text="@string/sec4b" />
 
         </LinearLayout>
     </ScrollView>

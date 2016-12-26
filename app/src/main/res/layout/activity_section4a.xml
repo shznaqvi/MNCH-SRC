@@ -32,6 +32,179 @@
                 android:layout_height="2dp"
                 android:background="@color/colorPrimary" />
 
+            <TextView
+                android:id="@+id/lbl_s4q42a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/baseline_s4q42a"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/s4q42a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/lbl_s4q42b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/baseline_s4q42b"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/s4q42b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/lbl_s4q42c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/baseline_s4q42c"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <RadioGroup
+                android:id="@+id/radio_s4q42c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/RDO_s4q42c_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baseline_s4q42c_1" />
+
+                <RadioButton
+                    android:id="@+id/RDO_s4q42c_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baseline_s4q42c_2" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/lbl_s4q42d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/baseline_s4q42d"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/s4q42d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/lbl_s4q42e"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/baseline_s4q42e"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <RadioGroup
+                android:id="@+id/radio_s4q42e"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/RDO_s4q42e_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baseline_s4q42e_1" />
+
+                <RadioButton
+                    android:id="@+id/RDO_s4q42e_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baseline_s4q42e_2" />
+
+                <RadioButton
+                    android:id="@+id/RDO_s4q42e_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baseline_s4q42e_3" />
+
+                <RadioButton
+                    android:id="@+id/RDO_s4q42e_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baseline_s4q42e_4" />
+
+                <RadioButton
+                    android:id="@+id/RDO_s4q42e_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baseline_s4q42e_5" />
+
+                <RadioButton
+                    android:id="@+id/RDO_s4q42e_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baseline_s4q42e_6" />
+
+                <RadioButton
+                    android:id="@+id/RDO_s4q42e_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baseline_s4q42e_7" />
+
+                <RadioButton
+                    android:id="@+id/RDO_s4q42e_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baseline_s4q42e_8" />
+
+                <RadioButton
+                    android:id="@+id/RDO_s4q42e_9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baseline_s4q42e_9" />
+
+                <RadioButton
+                    android:id="@+id/RDO_s4q42e_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baseline_s4q42e_10" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/lbl_s4q42f"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/baseline_s4q42f"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/s4q42f"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/btnadd"
+                style="@style/buttons"
+                android:layout_marginTop="20dp"
+                android:onClick="AddChild"
+                android:text="@string/btnaddchild" />
+
+            <Button
+                android:id="@+id/btnnext"
+                style="@style/buttons"
+                android:layout_marginTop="20dp"
+                android:onClick="gotoSection5"
+                android:text="@string/sec5" />
 
         </LinearLayout>
     </ScrollView>

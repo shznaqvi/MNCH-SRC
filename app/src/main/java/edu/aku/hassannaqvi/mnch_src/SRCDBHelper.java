@@ -12,6 +12,7 @@ import android.util.Log;
 import edu.aku.hassannaqvi.mnch_src.FormContract.Sec1Entry;
 import edu.aku.hassannaqvi.mnch_src.Sec3Contract.Sec3Entry;
 import edu.aku.hassannaqvi.mnch_src.Section4Contract.Section4Entry;
+import edu.aku.hassannaqvi.mnch_src.Section4aContract.Section4aEntry;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -219,6 +220,24 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
             CVars var = new CVars();
             String QUERY = "SELECT * FROM " + Section4Entry.TABLE_NAME + " WHERE formid = '"
+                    + var.GetHHNO() + "'";
+
+            Cursor cursor = db.rawQuery(QUERY, null);
+            sno = cursor.getCount();
+            db.close();
+        } catch (Exception e) {
+        }
+        return sno;
+    }
+
+
+    public int getSNO2() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int sno = 0;
+        try {
+
+            CVars var = new CVars();
+            String QUERY = "SELECT * FROM " + Section4aEntry.TABLE_NAME + " WHERE formid = '"
                     + var.GetHHNO() + "'";
 
             Cursor cursor = db.rawQuery(QUERY, null);

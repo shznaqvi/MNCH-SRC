@@ -19,9 +19,11 @@
 
     <string name="btnDBAccess">Database Access</string>
     <string name="btnadd">Add Another Woman</string>
+    <string name="btnaddchild">Add Another Child</string>
     <string name="sec2">Section 2</string>
     <string name="sec3">Section 3</string>
     <string name="sec4">Section 4</string>
+    <string name="sec4b">Section 4b</string>
     <string name="sec5">Section 5</string>
     <string name="sec6">Section 6</string>
     <string name="sec7">Section 7</string>
@@ -154,7 +156,9 @@
     <!-- Section 4a -->
 
     <string name="baseline_s4q41a">مري ويل ماءُ جو مڪمل نالو  اي</string>
-    <string name="baseline_s4q41b">مرڻ وقت عمر</string>
+    <string name="baseline_s4q41b">مرڻ وقت عمر(ڏينهن)</string>
+    <string name="baseline_s4q41b1">مرڻ وقت عمر(مهينو)</string>
+    <string name="baseline_s4q41b2">مرڻ وقت عمر(سال)</string>
     <string name="baseline_s4q41c">ويم يا حمل جو نتيجو</string>
     <string name="baseline_s4q41c_1">پيٽ ۾ مري ويو</string>
     <string name="baseline_s4q41c_2">مرده پيدائش</string>
@@ -181,9 +185,11 @@
 
     <string name="baseline_s4q42a">ساڳيوماءُ جو فهرست نمبر استعمال ڪريو سوال 20 ۾</string>
     <string name="baseline_s4q42b">مريويل  ٻار جو مڪمل نالو</string>
+    <string name="baseline_s4q42c">جنس</string>
     <string name="baseline_s4q42c_1">مرد</string>
     <string name="baseline_s4q42c_2">عورت</string>
     <string name="baseline_s4q42d">موت وقت عمر</string>
+    <string name="baseline_s4q42e">موت جي جڳھه</string>
     <string name="baseline_s4q42e_1">گهر</string>
     <string name="baseline_s4q42e_2">گورنمينٽ ڊسپينسري</string>
     <string name="baseline_s4q42e_3">بي ايڇ يو</string>

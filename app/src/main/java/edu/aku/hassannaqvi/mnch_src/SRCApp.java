@@ -25,6 +25,7 @@ public class SRCApp extends Application {
     public static FormContract fc;
     public static Sec3Contract sc3;
     public static Section4Contract sc4a;
+    public static Section4aContract sc4b;
 
 
     //public static final String _IP = "192.168.1.10"; // Test NODE server
