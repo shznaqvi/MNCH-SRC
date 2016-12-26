@@ -148,7 +148,7 @@ public class Section4Activity extends Activity {
 
 
     public void gotoSection5(View view) {
-        Intent sec4_intent = new Intent(this, Section5Activity.class);
+        Intent sec4_intent = new Intent(this, Section4aActivity.class);
         startActivity(sec4_intent);
     }
 
