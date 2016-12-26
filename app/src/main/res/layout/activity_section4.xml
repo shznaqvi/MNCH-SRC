@@ -70,7 +70,40 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
+
+            <TextView
+                android:id="@+id/lbl_s4q41b1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/baseline_s4q41b1"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/s4q41b1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number"
+                android:maxLength="2" />
+
+            <TextView
+                android:id="@+id/lbl_s4q41b2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/baseline_s4q41b2"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/s4q41b2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:id="@+id/lbl_s4q41c"
@@ -240,6 +273,13 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="text" />
+
+            <Button
+                android:id="@+id/btnadd"
+                style="@style/btn"
+                android:layout_marginTop="20dp"
+                android:onClick="AddWoman"
+                android:text="@string/btnadd" />
 
             <Button
                 android:id="@+id/btnnext"

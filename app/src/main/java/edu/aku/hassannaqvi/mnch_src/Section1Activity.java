@@ -243,6 +243,15 @@ public class Section1Activity extends Activity {
 
         //spTimeT = mc101time.getCurrentHour() + ":" + mc101time.getCurrentMinute();
 
+        switch (radioS1q112.getCheckedRadioButtonId()) {
+            case R.id.RDO_s1q112_1:
+                var_s1q112 = "1";
+                break;
+            case R.id.RDO_s1q112_2:
+                var_s1q112 = "2";
+                break;
+        }
+
         if (ValidateForm()) {
 
             if (SaveDraft()) {
@@ -250,8 +259,14 @@ public class Section1Activity extends Activity {
                 Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
 
                 if (UpdateDB()) {
-                    Intent sec2_intent = new Intent(this, Section2Activity.class);
-                    startActivity(sec2_intent);
+
+                    if (var_s1q112 == "1") {
+                        Intent sec2_intent = new Intent(this, Section2Activity.class);
+                        startActivity(sec2_intent);
+                    } else {
+                        Intent sec2_intent = new Intent(this, MainPage.class);
+                        startActivity(sec2_intent);
+                    }
                 } else {
                     Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
                 }

@@ -154,7 +154,9 @@
     <!-- Section 4a -->
 
     <string name="baseline_s4q41a">مري ويل ماءُ جو مڪمل نالو  اي</string>
-    <string name="baseline_s4q41b">مرڻ وقت عمر</string>
+    <string name="baseline_s4q41b">مرڻ وقت عمر(ڏينهن)</string>
+    <string name="baseline_s4q41b1">مرڻ وقت عمر(مهينو)</string>
+    <string name="baseline_s4q41b2">مرڻ وقت عمر(سال)</string>
     <string name="baseline_s4q41c">ويم يا حمل جو نتيجو</string>
     <string name="baseline_s4q41c_1">پيٽ ۾ مري ويو</string>
     <string name="baseline_s4q41c_2">مرده پيدائش</string>
