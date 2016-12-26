@@ -301,13 +301,19 @@
     <string name="mn051905"> صحت مرڪز پري هيو </string>
     <string name="mn051906"> وڏن جي اجازت نه هئي </string>
     <string name="mn0520"> حمل دوران توهان ڪڏهن ٻانهن/ڏوري ۾ ڪوئي ٽڪو لڳرايو جيڪو تشنج يعني ٻارن کي جهٽڪن جي بيماري کان بچاءِ لاءِ هجي ٿو؟ </string>
-    <string name="mn0521"> جيڪڏهن ها، توهان حمل دوران تشنج کان بچاءِ جا ٽڪا ڪيترا ڀيرا لڳرايا هيا؟ </string>
-    <string name="mn052101"> هڪ ڀيرو </string>
-    <string name="mn052102"> ٻه ڀيرا </string>
-    <string name="mn052103"> ٽي ڀيرا </string>
-    <string name="mn052104"> وڌيڪ کان ٽن ڀيرن </string>
-    <string name="mn0522"> ڇا توهان کي پنهنجي آخري حمل دوران ڪاپيچيدگي ٿي هئي؟ </string>
-    <string name="mn0523"> جيڪڏهن ها ته آخري حمل دوران توهان کي ڪهڙي قسم جون پيچيدگيون ٿيون هيون؟ </string>
+
+    <string name="mn0521"> ڇا اوهان وٽ ويڪسين ڪارڊ موجو د آهي( چيڪ ڪيو ماءُ جو وڪسين جو ڪارڊ ۽ ان مان لکو) پر جيڪڏهن ان وٽ نه آهي ته ان کان ٽي ٽي وڪسين جي باري ۾ پڇو ته ان کي ڪيترا دفعا لڳي آهي </string>
+    <string name="mn0522"> جيڪڏهن ها، توهان حمل دوران تشنج کان بچاءِ جا ٽڪا ڪيترا ڀيرا لڳرايا هيا؟ </string>
+    <string name="mn052201"> هڪ ڀيرو </string>
+    <string name="mn052202"> ٻه ڀيرا </string>
+    <string name="mn052203"> ٽي ڀيرا </string>
+    <string name="mn052204"> وڌيڪ کان ٽن ڀيرن </string>
+
+
+
+
+    <string name="mn0523"> ڇا توهان کي پنهنجي آخري حمل دوران ڪاپيچيدگي ٿي هئي؟ </string>
+    <string name="mn0524"> جيڪڏهن ها ته اوهان صحت مرڪز تي وقت تي پهچندا آهيو؟  </string>
     <string name="mn052301"> ٻچيداني مان خون جو اخراج </string>
     <string name="mn052302"> نظر ڌنڌلائجي وڃڻ </string>
     <string name="mn052303"> جهٽڪا يادورا پوڻ </string>
@@ -338,13 +344,13 @@
     <string name="mn052406"> نجي ڪلينڪ </string>
     <string name="mn052407"> نجي اسپتال </string>
     <string name="mn0525"> آخري حمل دوران پيچيدگي هئڻ جي صورت ۾ توهان پنهنجو علاج ڪنهن کان ڪرايوهيو؟ </string>
-    <string name="mn052501"> ليڊي هيلٿ ورڪر </string>
-    <string name="mn052502"> دائي </string>
-    <string name="mn052503"> ڪميونٽي مڊ وائف </string>
-    <string name="mn052504"> ليڊي هيلٿ وزيٽر </string>
-    <string name="mn052505"> نرس </string>
-    <string name="mn052506"> خانگي ڊاڪٽر </string>
-    <string name="mn052507"> سرڪاري ڊاڪٽر </string>
+    <string name="mn052501"> ضروري نه سمجهيو  </string>
+    <string name="mn052502"> پيئسه ڪو نه هئا </string>
+    <string name="mn052503"> سواري جي سهولت ڪو نه هئي </string>
+    <string name="mn052504"> ڪوئي ساڻ وٺي هلڻ وارو نه هيو  </string>
+    <string name="mn052505"> صحت مرڪز پري هيو </string>
+    <string name="mn052506"> وڏن جي اجازت نه هئي </string>
+
     <string name="mn0526"> جيڪڏهن نه ته پيچيدگي هئڻ جي صورت ۾ توهان پنهنجو علاج ڇو نه ڪرايو هيو؟ </string>
     <string name="mn052601"> ضروري نه سمجهيو </string>
     <string name="mn052602"> پيئسه ڪو نه هئا </string>
