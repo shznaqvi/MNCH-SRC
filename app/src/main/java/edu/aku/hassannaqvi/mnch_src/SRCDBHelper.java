@@ -85,6 +85,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec3Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Sec3Entry.ROW_DEVID + " TEXT,"
             + Sec3Entry.ROW_FORM_ID + " INTEGER,"
+            + Sec3Entry.ROW_HHCODE + " TEXT,"
             + Sec3Entry.ROW_SNO + " TEXT,"
             + Sec3Entry.ROW_s3q301a + " TEXT,"
             + Sec3Entry.ROW_s3q301b + " TEXT,"
@@ -108,6 +109,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Section4Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Section4Entry.ROW_DEVID + " TEXT,"
             + Section4Entry.ROW_FORM_ID + " INTEGER,"
+            + Section4Entry.ROW_HHCODE + " TEXT,"
             + Section4Entry.ROW_s4q41a + " TEXT,"
             + Section4Entry.ROW_s4q41b + " TEXT,"
             + Section4Entry.ROW_s4q41c + " TEXT,"
@@ -187,6 +189,25 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         } catch (Exception e) {
         }
     }
+
+
+    public int getSNO() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int sno = 0;
+        try {
+
+            CVars var = new CVars();
+            String QUERY = "SELECT * FROM " + Sec3Entry.TABLE_NAME + " WHERE formid = '"
+                    + var.GetHHNO() + "'";
+
+            Cursor cursor = db.rawQuery(QUERY, null);
+            sno = cursor.getCount();
+            db.close();
+        } catch (Exception e) {
+        }
+        return sno;
+    }
+
 
     public ArrayList<UsersContract> getAllUsers() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -345,6 +366,9 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
             values.put(Sec3Entry.ROW_DEVID, fc.getROW_DEVID());
             values.put(Sec3Entry.ROW_FORM_ID, fc.getROW_FORM_ID());
+            values.put(Sec3Entry.ROW_HHCODE, fc.getROW_HHCODE());
+
+            values.put(Sec3Entry.ROW_SNO, fc.getROW_SNO());
 
             values.put(Sec3Entry.ROW_s3q301a, fc.get_s3q301a());
             values.put(Sec3Entry.ROW_s3q301b, fc.get_s3q301b());
@@ -358,6 +382,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             values.put(Sec3Entry.ROW_s3q301i, fc.get_s3q301i());
             values.put(Sec3Entry.ROW_s3q301j, fc.get_s3q301j());
             values.put(Sec3Entry.ROW_s3q301k, fc.get_s3q301k());
+
+            values.put(Sec3Entry.ROW_UID, SRCApp.fc.getROW_UID());
 
             newRowId = db.insert(Sec3Entry.TABLE_NAME, null, values);
             db.close();
