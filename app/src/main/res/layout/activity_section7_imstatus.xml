@@ -790,21 +790,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/mnpcv3" />
+                android:text="@string/mnipcv3" />
 
             <RadioGroup
-                android:id="@+id/mnpcv3"
+                android:id="@+id/mnipcv3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/mnpcv3_1"
+                    android:id="@+id/mnipcv3_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnyes" />
 
                 <RadioButton
-                    android:id="@+id/mnpcv3_2"
+                    android:id="@+id/mnipcv3_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnno" />
@@ -816,27 +816,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/mnpcv3src" />
+                android:text="@string/mnipcv3src" />
 
             <RadioGroup
-                android:id="@+id/mnpcv3src"
+                android:id="@+id/mnipcv3src"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/mnpcv3src_1"
+                    android:id="@+id/mnipcv3src_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mncard" />
 
                 <RadioButton
-                    android:id="@+id/mnpcv3src_2"
+                    android:id="@+id/mnipcv3src_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnrbm" />
 
                 <RadioButton
-                    android:id="@+id/mnpcv3src_3"
+                    android:id="@+id/mnipcv3src_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnnr" />

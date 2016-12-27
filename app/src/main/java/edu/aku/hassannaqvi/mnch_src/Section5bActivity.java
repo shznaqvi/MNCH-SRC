@@ -160,8 +160,8 @@ public class Section5bActivity extends Activity {
     RadioButton mn054506;
     @BindView(R.id.mn054588)
     RadioButton mn054588;
-    @BindView(R.id.mn054188x)
-    EditText mn054188x;
+    @BindView(R.id.mn054588x)
+    EditText mn054588x;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
