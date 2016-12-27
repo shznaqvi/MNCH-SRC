@@ -1598,7 +1598,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <RadioButton
+                <!--<RadioButton
                     android:id="@+id/mn052101"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1620,7 +1620,7 @@
                     android:id="@+id/mn052104"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mn052104" />
+                    android:text="@string/mn052104" />-->
             </RadioGroup>
 
             <TextView
@@ -1818,47 +1818,47 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/mn052401"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn052401" />
+                <!-- <RadioButton
+                     android:id="@+id/mn052401"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="@string/mn052401" />
 
-                <RadioButton
-                    android:id="@+id/mn052402"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn052402" />
+                 <RadioButton
+                     android:id="@+id/mn052402"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="@string/mn052402" />
 
-                <RadioButton
-                    android:id="@+id/mn052403"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn052403" />
+                 <RadioButton
+                     android:id="@+id/mn052403"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="@string/mn052403" />
 
-                <RadioButton
-                    android:id="@+id/mn052404"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn052404" />
+                 <RadioButton
+                     android:id="@+id/mn052404"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="@string/mn052404" />
 
-                <RadioButton
-                    android:id="@+id/mn052405"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn052405" />
+                 <RadioButton
+                     android:id="@+id/mn052405"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="@string/mn052405" />
 
-                <RadioButton
-                    android:id="@+id/mn052406"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn052406" />
+                 <RadioButton
+                     android:id="@+id/mn052406"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="@string/mn052406" />
 
-                <RadioButton
-                    android:id="@+id/mn052407"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn052407" />
+                 <RadioButton
+                     android:id="@+id/mn052407"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="@string/mn052407" />-->
 
                 <RadioButton
                     android:id="@+id/mn052477"
@@ -1928,11 +1928,11 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mn052506" />
 
-                <RadioButton
+                <!--<RadioButton
                     android:id="@+id/mn052507"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mn052507" />
+                    android:text="@string/mn052507" />-->
 
                 <RadioButton
                     android:id="@+id/mn052588"

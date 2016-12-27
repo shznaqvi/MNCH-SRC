@@ -69,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mn053004" />
 
-                <!--<RadioButton
+                <RadioButton
                     android:id="@+id/mn053005"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
                     android:id="@+id/mn053088"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnother" /> -->
+                    android:text="@string/mnother" />
 
             </RadioGroup>
 
@@ -211,7 +211,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <!--<RadioButton
+                <RadioButton
                     android:id="@+id/mn053301"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -264,7 +264,7 @@
                     android:id="@+id/mn053388"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnother" /> -->
+                    android:text="@string/mnother" />
 
             </RadioGroup>
 
@@ -543,8 +543,14 @@
 
             </RadioGroup>
 
+            <LinearLayout
+                android:id="@+id/fldGrpmn0541"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <TextView
+
+                <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mn0541"
@@ -571,7 +577,7 @@
 
             </RadioGroup>
 
-            <!--<TextView
+                <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mn0542"
@@ -685,7 +691,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mnother" />
 
-        </RadioGroup> -->
+            </RadioGroup>
 
             <EditText
                 android:id="@+id/mn054388x"
@@ -693,7 +699,14 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/mnother" />
 
-            <TextView
+                <LinearLayout
+                    android:id="@+id/fldGrpmn0544"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mn0544"
@@ -729,7 +742,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mn054404" />
 
-                <!--<RadioButton
+                <RadioButton
                     android:id="@+id/mn054405"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -745,7 +758,7 @@
                     android:id="@+id/mn054407"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/mn054407" /> -->
+                    android:text="@string/mn054407" />
 
                 <RadioButton
                     android:id="@+id/mn054477"
@@ -767,6 +780,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mnother" />
+                </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -825,10 +839,12 @@
             </RadioGroup>
 
             <EditText
-                android:id="@+id/mn054188x"
+                android:id="@+id/mn054588x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mnother" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

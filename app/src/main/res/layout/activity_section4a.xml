@@ -62,12 +62,12 @@
                 android:ems="10"
                 android:inputType="text" />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/lbl_s4q42c"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/baseline_s4q42c"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />-->
 
             <RadioGroup
                 android:id="@+id/radio_s4q42c"
@@ -103,12 +103,12 @@
                 android:ems="10"
                 android:inputType="text" />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/lbl_s4q42e"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/baseline_s4q42e"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />-->
 
             <RadioGroup
                 android:id="@+id/radio_s4q42e"
@@ -192,12 +192,12 @@
                 android:ems="10"
                 android:inputType="text" />
 
-            <Button
+            <!--<Button
                 android:id="@+id/btnadd"
                 style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="AddChild"
-                android:text="@string/btnaddchild" />
+                android:text="@string/btnaddchild" />-->
 
             <Button
                 android:id="@+id/btnnext"
