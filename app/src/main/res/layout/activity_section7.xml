@@ -57,6 +57,25 @@
                 android:text="@string/mn0702"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
+            <EditText
+                android:id="@+id/mn070201"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mn070201" />
+
+            <EditText
+                android:id="@+id/mn070202"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mn070202" />
+
+            <CheckBox
+                android:id="@+id/mn0702_99"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mndkn" />
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
