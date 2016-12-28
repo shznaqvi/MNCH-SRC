@@ -21,13 +21,11 @@
             android:orientation="vertical">
 
             <TextView
-
-
                 android:id="@+id/app_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:textSize="30sp" />
+                android:textSize="30sp"/>
 
             <View
                 android:layout_width="match_parent"
@@ -109,7 +107,6 @@
                     android:layout_marginTop="16dp"
                     android:text="@string/mn0503"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
-
 
                 <RadioGroup
                     android:id="@+id/mn0503"
@@ -567,7 +564,6 @@
                     android:layout_marginTop="16dp"
                     android:text="@string/mn0515"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
-
 
                 <CheckBox
                     android:id="@+id/mn051501"

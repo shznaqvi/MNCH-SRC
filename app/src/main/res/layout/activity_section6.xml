@@ -238,7 +238,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mnno" />
 
-
             </RadioGroup>
 
 
@@ -248,6 +247,8 @@
                 android:layout_marginTop="20dp"
                 android:onClick="gotoSection7"
                 android:text="@string/sec7" />
+
+
 
         </LinearLayout>
     </ScrollView>
