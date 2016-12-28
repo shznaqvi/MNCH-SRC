@@ -124,13 +124,13 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/mn0531_1"
+                    android:id="@+id/mn053101"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mnyes" />
 
                 <RadioButton
-                    android:id="@+id/mn0531_2"
+                    android:id="@+id/mn053102"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mnno" />
@@ -206,67 +206,60 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
-            <RadioGroup
-                android:id="@+id/mn0533"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <CheckBox
+                android:id="@+id/mn053301"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mn053301" />
 
-                <RadioButton
-                    android:id="@+id/mn053301"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn053301" />
+            <CheckBox
+                android:id="@+id/mn053302"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mn053302" />
 
-                <RadioButton
-                    android:id="@+id/mn053302"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn053302" />
+            <CheckBox
+                android:id="@+id/mn053303"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mn053303" />
 
-                <RadioButton
-                    android:id="@+id/mn053303"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn053303" />
+            <CheckBox
+                android:id="@+id/mn053304"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mn053304" />
 
-                <RadioButton
-                    android:id="@+id/mn053304"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn053304" />
+            <CheckBox
+                android:id="@+id/mn053305"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mn053305" />
 
-                <RadioButton
-                    android:id="@+id/mn053305"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn053305" />
+            <CheckBox
+                android:id="@+id/mn053306"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mn053306" />
 
-                <RadioButton
-                    android:id="@+id/mn053306"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn053306" />
+            <CheckBox
+                android:id="@+id/mn053307"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mn053307" />
 
-                <RadioButton
-                    android:id="@+id/mn053307"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn053307" />
-
-                <RadioButton
-                    android:id="@+id/mn053308"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn053308" />
+            <CheckBox
+                android:id="@+id/mn053308"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mn053308" />
 
 
-                <RadioButton
-                    android:id="@+id/mn053388"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mnother" />
-
-            </RadioGroup>
+            <CheckBox
+                android:id="@+id/mn053388"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mnother" />
 
             <EditText
                 android:id="@+id/mn053388x"
@@ -318,6 +311,13 @@
 
             </RadioGroup>
 
+            <EditText
+                android:id="@+id/mn053488x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mnother" />
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -331,13 +331,13 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/mn0535_1"
+                    android:id="@+id/mn053501"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mnyes" />
 
                 <RadioButton
-                    android:id="@+id/mn0535_2"
+                    android:id="@+id/mn053502"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mnno" />
@@ -363,7 +363,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/mn053602" />
 
-            <!--<CheckBox
+            <CheckBox
                 android:id="@+id/mn053603"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -397,7 +397,7 @@
                 android:id="@+id/mn053688x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mnother" />-->
+                android:hint="@string/mnother" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -413,13 +413,13 @@
 
 
                 <RadioButton
-                    android:id="@+id/mn0537_1"
+                    android:id="@+id/mn053701"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mnyes" />
 
                 <RadioButton
-                    android:id="@+id/mn0537_2"
+                    android:id="@+id/mn053702"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mnno" />
@@ -469,11 +469,11 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mn053805" />
 
-                <!--<RadioButton
+                <RadioButton
                     android:id="@+id/mn053806"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/mn053806" /> -->
+                    android:text="@string/mn053806" />
 
                 <RadioButton
                     android:id="@+id/mn053888"
@@ -482,6 +482,13 @@
                     android:text="@string/mnother" />
 
             </RadioGroup>
+
+            <EditText
+                android:id="@+id/mn053888x"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/mnother" />
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -530,13 +537,13 @@
 
 
                 <RadioButton
-                    android:id="@+id/mn0540_1"
+                    android:id="@+id/mn054001"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mnyes" />
 
                 <RadioButton
-                    android:id="@+id/mn0540_2"
+                    android:id="@+id/mn054002"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mnno" />
@@ -557,20 +564,20 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
-            <RadioGroup
+                <RadioGroup
                 android:id="@+id/mn0541"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
 
                 <RadioButton
-                    android:id="@+id/mn0541_1"
+                    android:id="@+id/mn054101"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mnyes" />
 
                 <RadioButton
-                    android:id="@+id/mn0541_2"
+                    android:id="@+id/mn054102"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mnno" />
@@ -583,55 +590,55 @@
                 android:text="@string/mn0542"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <CheckBox
+                <CheckBox
                 android:id="@+id/mn054201"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/mn054201" />
 
-            <CheckBox
+                <CheckBox
                 android:id="@+id/mn054202"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/mn054202" />
 
-            <CheckBox
+                <CheckBox
                 android:id="@+id/mn054203"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/mn054203" />
 
-            <CheckBox
+                <CheckBox
                 android:id="@+id/mn054204"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/mn054204" />
 
-            <CheckBox
+                <CheckBox
                 android:id="@+id/mn054205"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/mn054205" />
 
-            <CheckBox
+                <CheckBox
                 android:id="@+id/mn054288"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/mnother" />
 
-            <EditText
+                <EditText
                 android:id="@+id/mn054288x"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/mnother" />
 
-            <TextView
+                <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mn0543"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <RadioGroup
+                <RadioGroup
                 android:id="@+id/mn0543"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -686,14 +693,14 @@
                     android:text="@string/mndns" />
 
                 <RadioButton
-                    android:id="@+id/mn054309"
+                    android:id="@+id/mn054388"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mnother" />
 
             </RadioGroup>
 
-            <EditText
+                <EditText
                 android:id="@+id/mn054388x"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -701,150 +708,180 @@
 
                 <LinearLayout
                     android:id="@+id/fldGrpmn0544"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                     android:orientation="vertical">
 
 
                     <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/mn0544"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <RadioGroup
-                android:id="@+id/mn0544"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <RadioButton
-                    android:id="@+id/mn054401"
-                    android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mn054401" />
+                        android:text="@string/mn0544"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                <RadioButton
-                    android:id="@+id/mn054402"
-                    android:layout_width="wrap_content"
+                    <RadioGroup
+                        android:id="@+id/mn0544"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <RadioButton
+                            android:id="@+id/mn054401"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mn054401" />
+
+                        <RadioButton
+                            android:id="@+id/mn054402"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mn054402" />
+
+                        <RadioButton
+                            android:id="@+id/mn054403"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mn054403" />
+
+                        <RadioButton
+                            android:id="@+id/mn054404"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mn054404" />
+
+                        <RadioButton
+                            android:id="@+id/mn054405"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mn054405" />
+
+                        <RadioButton
+                            android:id="@+id/mn054406"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mn054406" />
+
+                        <RadioButton
+                            android:id="@+id/mn054407"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mn054407" />
+
+                        <RadioButton
+                            android:id="@+id/mn054477"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mndns" />
+
+                        <RadioButton
+                            android:id="@+id/mn054488"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mnother" />
+
+
+                    </RadioGroup>
+
+                    <EditText
+                        android:id="@+id/mn054488x"
+                        android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mn054402" />
-
-                <RadioButton
-                    android:id="@+id/mn054403"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn054403" />
-
-                <RadioButton
-                    android:id="@+id/mn054404"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn054404" />
-
-                <RadioButton
-                    android:id="@+id/mn054405"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn054405" />
-
-                <RadioButton
-                    android:id="@+id/mn054406"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn054406" />
-
-                <RadioButton
-                    android:id="@+id/mn054407"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn054407" />
-
-                <RadioButton
-                    android:id="@+id/mn054477"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mndns" />
-
-                <RadioButton
-                    android:id="@+id/mn054488"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mnother" />
-
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/mn054488x"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mnother" />
+                        android:hint="@string/mnother" />
                 </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/mn0545"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <RadioGroup
-                android:id="@+id/mn0545"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <RadioButton
-                    android:id="@+id/mn054501"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mn054501" />
+                    android:text="@string/mn0545"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                <RadioButton
-                    android:id="@+id/mn054502"
-                    android:layout_width="wrap_content"
+                <RadioGroup
+                    android:id="@+id/mn0545"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <RadioButton
+                        android:id="@+id/mn054501"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mn054501" />
+
+                    <RadioButton
+                        android:id="@+id/mn054502"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mn054502" />
+
+                    <RadioButton
+                        android:id="@+id/mn054503"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mn054503" />
+
+                    <RadioButton
+                        android:id="@+id/mn054504"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mn054504" />
+
+                    <RadioButton
+                        android:id="@+id/mn054505"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mn054505" />
+
+                    <RadioButton
+                        android:id="@+id/mn054506"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mn054506" />
+
+                    <RadioButton
+                        android:id="@+id/mn054588"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mnother" />
+
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/mn054588x"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mn054502" />
-
-                <RadioButton
-                    android:id="@+id/mn054503"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn054503" />
-
-                <RadioButton
-                    android:id="@+id/mn054504"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn054504" />
-
-                <RadioButton
-                    android:id="@+id/mn054505"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn054505" />
-
-                <RadioButton
-                    android:id="@+id/mn054506"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn054506" />
-
-                <RadioButton
-                    android:id="@+id/mn054588"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mnother" />
-
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/mn054588x"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mnother" />
+                    android:hint="@string/mnother" />
 
             </LinearLayout>
+
+            <!--  = = = = =  END OF FORM FIELDS - Section C = = = = = -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_End"
+                    style="@style/buttons"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:onClick="endInterview"
+                    android:text="@string/end_interview"
+                    android:textColor="#ff1e1e" />
+
+                <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+
+                <Button
+                    android:id="@+id/btn_Continue"
+                    style="@style/buttons"
+                    android:onClick="startInterview"
+                    android:text="@string/start_interview"
+                    android:textColor="#1ed61e" />
+                <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
+
+            </LinearLayout>
+
 
         </LinearLayout>
 

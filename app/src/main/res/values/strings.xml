@@ -15,13 +15,18 @@
         completions."
     </string>
 
+    <string name="end_interview"> اختتام </string>
+    <string name="start_interview"> انٹرویو شروع کریں </string>
+
     <string name="app_header1">HouseHold Number</string>
 
     <string name="btnDBAccess">Database Access</string>
     <string name="btnadd">Add Another Woman</string>
+    <string name="btnaddchild">Add Another Child</string>
     <string name="sec2">Section 2</string>
     <string name="sec3">Section 3</string>
     <string name="sec4">Section 4</string>
+    <string name="sec4b">Section 4b</string>
     <string name="sec5">Section 5</string>
     <string name="sec6">Section 6</string>
     <string name="sec7">Section 7</string>
