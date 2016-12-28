@@ -46,13 +46,13 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/mn0501_1"
+                    android:id="@+id/mn050101"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnyes" />
 
                 <RadioButton
-                    android:id="@+id/mn0501_2"
+                    android:id="@+id/mn050102"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnno" />
@@ -80,13 +80,13 @@
 
 
                     <RadioButton
-                        android:id="@+id/mn0502_1"
+                        android:id="@+id/mn050201"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mnyes" />
 
                     <RadioButton
-                        android:id="@+id/mn0502_2"
+                        android:id="@+id/mn050202"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mnno" />
@@ -147,13 +147,13 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/mn0504_1"
+                    android:id="@+id/mn050401"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnyes" />
 
                 <RadioButton
-                    android:id="@+id/mn0504_2"
+                    android:id="@+id/mn050402"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnno" />
@@ -179,13 +179,13 @@
                     android:layout_height="wrap_content">
 
                     <RadioButton
-                        android:id="@+id/mn0505_1"
+                        android:id="@+id/mn050501"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mnyes" />
 
                     <RadioButton
-                        android:id="@+id/mn0505_2"
+                        android:id="@+id/mn050502"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mnno" />
@@ -208,13 +208,13 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/mn0506_1"
+                    android:id="@+id/mn050601"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnyes" />
 
                 <RadioButton
-                    android:id="@+id/mn0506_2"
+                    android:id="@+id/mn050602"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnno" />
@@ -280,13 +280,13 @@
                     android:layout_height="wrap_content">
 
                     <RadioButton
-                        android:id="@+id/mn0508_1"
+                        android:id="@+id/mn050801"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mnyes" />
 
                     <RadioButton
-                        android:id="@+id/mn0508_2"
+                        android:id="@+id/mn050802"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mnno" />
@@ -546,7 +546,7 @@
                     android:text="@string/mn051407" />
 
                 <CheckBox
-                    android:id="@+id/mn0514077"
+                    android:id="@+id/mn051477"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mndns" />
@@ -2003,30 +2003,31 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/mnother" />
 
+            <!--  = = = = =  END OF FORM FIELDS - Section C = = = = = -->
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:orientation="horizontal">
 
-                <!-- <Button
-                     android:id="@+id/btn_End"
-                     style="@style/buttons"
-                     android:layout_width="0dp"
-                     android:layout_weight="1"
-                     android:onClick="endInterview"
-                     android:text="@string/end_interview"
-                     android:textColor="#ff1e1e" /> -->
+                <Button
+                    android:id="@+id/btn_End"
+                    style="@style/buttons"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:onClick="endInterview"
+                    android:text="@string/end_interview"
+                    android:textColor="#ff1e1e" />
 
                 <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
 
-                <!-- <Button
+                <Button
                     android:id="@+id/btn_Continue"
                     style="@style/buttons"
                     android:onClick="startInterview"
                     android:text="@string/start_interview"
-                    android:textColor="#1ed61e" /> -->
-
+                    android:textColor="#1ed61e" />
                 <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
 
             </LinearLayout>

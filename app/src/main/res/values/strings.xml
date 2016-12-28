@@ -15,6 +15,9 @@
         completions."
     </string>
 
+    <string name="end_interview"> اختتام </string>
+    <string name="start_interview"> انٹرویو شروع کریں </string>
+
     <string name="app_header1">HouseHold Number</string>
 
     <string name="btnDBAccess">Database Access</string>
