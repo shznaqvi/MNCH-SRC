@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -108,16 +110,22 @@ public class Section5Activity extends Activity {
     CheckBox mn050988;
     @BindView(R.id.mn050988x)
     EditText mn050988x;
-    @BindView(R.id.mn0510)
-    RadioGroup mn0510;
+    @BindView(R.id.fldGrpmn051001)
+    LinearLayout fldGrpmn051001;
     @BindView(R.id.mn051001)
-    RadioButton mn051001;
+    EditText mn051001;
+    @BindView(R.id.fldGrpmn051002)
+    LinearLayout fldGrpmn051002;
     @BindView(R.id.mn051002)
-    RadioButton mn051002;
+    EditText mn051002;
+    @BindView(R.id.fldGrpmn051003)
+    LinearLayout fldGrpmn051003;
     @BindView(R.id.mn051003)
-    RadioButton mn051003;
+    EditText mn051003;
+    @BindView(R.id.fldGrpmn051004)
+    LinearLayout fldGrpmn051004;
     @BindView(R.id.mn051004)
-    RadioButton mn051004;
+    EditText mn051004;
     @BindView(R.id.mn0511)
     RadioGroup mn0511;
     @BindView(R.id.mn051101)
@@ -388,6 +396,8 @@ public class Section5Activity extends Activity {
     CheckBox mn051888;
     @BindView(R.id.mn051888x)
     EditText mn051888x;
+    @BindView(R.id.fldGrpmn0519)
+    LinearLayout fldGrpmn0519;
     @BindView(R.id.mn051901)
     CheckBox mn051901;
     @BindView(R.id.mn051902)
@@ -537,6 +547,319 @@ public class Section5Activity extends Activity {
         setContentView(R.layout.activity_section5);
         ButterKnife.bind(this);
 
+        mn0501.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mn050101.isChecked()) {
+                    fldGrpmn0502.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpmn0502.setVisibility(View.GONE);
+                    mn0502.clearCheck();
+                    mn0503.clearCheck();
+
+                }
+            }
+        });
+        mn0502.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mn050201.isChecked()) {
+                    fldGrpmn0503.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpmn0503.setVisibility(View.GONE);
+                    mn0503.clearCheck();
+
+                }
+            }
+        });
+        mn0504.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mn050401.isChecked()) {
+                    fldGrpmn0505.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpmn0505.setVisibility(View.GONE);
+                    mn0505.clearCheck();
+
+                }
+            }
+        });
+        mn0506.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mn050601.isChecked()) {
+                    fldGrpmn0507.setVisibility(View.VISIBLE);
+                    // Skip 5.10 options on 5.07 selection
+                    mn0507.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                        @Override
+                        public void onCheckedChanged(RadioGroup group, int checkedId) {
+                            if (mn050701.isChecked()) {
+                                fldGrpmn051001.setVisibility(View.VISIBLE);
+                            } else {
+                                fldGrpmn051001.setVisibility(View.GONE);
+                                mn051001.setText(null);
+                            }
+
+                            if (mn050702.isChecked()) {
+                                fldGrpmn051002.setVisibility(View.VISIBLE);
+                            } else {
+                                fldGrpmn051002.setVisibility(View.GONE);
+                                mn051002.setText(null);
+                            }
+
+                            if (mn050703.isChecked()) {
+                                fldGrpmn051003.setVisibility(View.VISIBLE);
+                            } else {
+                                fldGrpmn051003.setVisibility(View.GONE);
+                                mn051003.setText(null);
+                            }
+
+                            if (mn050704.isChecked()) {
+                                fldGrpmn051004.setVisibility(View.VISIBLE);
+                            } else {
+                                fldGrpmn051004.setVisibility(View.GONE);
+                                mn051004.setText(null);
+                            }
+                        }
+                    });
+
+                } else {
+                    fldGrpmn0507.setVisibility(View.GONE);
+                    // CheckBoxes
+                    mn050701.setChecked(false);
+                    mn050702.setChecked(false);
+                    mn050703.setChecked(false);
+                    mn050704.setChecked(false);
+                    // RadioGroup
+                    mn0508.clearCheck();
+                    // CheckBoxes
+                    mn050901.setChecked(false);
+                    mn050902.setChecked(false);
+                    mn050903.setChecked(false);
+                    mn050904.setChecked(false);
+                    mn050905.setChecked(false);
+                    mn050906.setChecked(false);
+                    mn050907.setChecked(false);
+                    mn050988.setChecked(false);
+                    mn050988x.setText(null);
+                    mn051001.setText(null);
+                    mn051002.setText(null);
+                    mn051003.setText(null);
+                    mn051004.setText(null);
+                }
+            }
+        });
+        mn050988.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn050988x.setVisibility(View.VISIBLE);
+                } else {
+                    mn050988x.setVisibility(View.GONE);
+                    mn050988x.setText(null);
+
+                }
+            }
+        });
+        mn0511.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mn051101.isChecked()) {
+                    fldGrpmn0512.setVisibility(View.VISIBLE);
+                    fldGrpmn0519.setVisibility(View.GONE);
+                    mn051901.setChecked(false);
+                    mn051902.setChecked(false);
+                    mn051903.setChecked(false);
+                    mn051904.setChecked(false);
+                    mn051905.setChecked(false);
+                    mn051906.setChecked(false);
+                    mn051988.setChecked(false);
+                    mn051988x.setText(null);
+                } else {
+                    fldGrpmn0519.setVisibility(View.VISIBLE);
+                    fldGrpmn0512.setVisibility(View.GONE);
+                    mn051201.setText(null);
+                    mn051202.setChecked(false);
+                    mn051301.setText(null);
+                    mn051302.setChecked(false);
+                    mn051401.setChecked(false);
+                    mn051402.setChecked(false);
+                    mn051403.setChecked(false);
+                    mn051404.setChecked(false);
+                    mn051405.setChecked(false);
+                    mn051406.setChecked(false);
+                    mn051407.setChecked(false);
+                    mn051477.setChecked(false);
+                    mn051488.setChecked(false);
+                    mn051488x.setText(null);
+                    mn051501.setChecked(false);
+                    mn051502.setChecked(false);
+                    mn051503.setChecked(false);
+                    mn051504.setChecked(false);
+                    mn051505.setChecked(false);
+                    mn051506.setChecked(false);
+                    mn051507.setChecked(false);
+                    mn051508.setChecked(false);
+                    mn051588.setChecked(false);
+                    mn051588x.setText(null);
+                    mn051601.setChecked(false);
+                    mn051602.setChecked(false);
+                    mn051603.setChecked(false);
+                    mn051604.setChecked(false);
+                    mn051605.setChecked(false);
+                    mn051606.setChecked(false);
+                    mn051607.setChecked(false);
+                    mn051608.setChecked(false);
+                    mn051609.setChecked(false);
+                    mn051610.setChecked(false);
+                    mn051688.setChecked(false);
+                    mn051688x.setText(null);
+                    mn0517a1.clearCheck();
+                    mn0517a2d.setText(null);
+                    mn0517a2m.setText(null);
+                    mn0517a3.clearCheck();
+                    mn0517b1.clearCheck();
+                    mn0517b2d.setText(null);
+                    mn0517b2m.setText(null);
+                    mn0517b3.clearCheck();
+                    mn0517c1.clearCheck();
+                    mn0517c2d.setText(null);
+                    mn0517c2m.setText(null);
+                    mn0517c3.clearCheck();
+                    mn0517d1.clearCheck();
+                    mn0517d2d.setText(null);
+                    mn0517d2m.setText(null);
+                    mn0517d3.clearCheck();
+                    mn0517e1.clearCheck();
+                    mn0517e2d.setText(null);
+                    mn0517e2m.setText(null);
+                    mn0517e3.clearCheck();
+                    mn0517f1.clearCheck();
+                    mn0517f2d.setText(null);
+                    mn0517f2m.setText(null);
+                    mn0517f3.clearCheck();
+                    mn051801.setChecked(false);
+                    mn051802.setChecked(false);
+                    mn051803.setChecked(false);
+                    mn051804.setChecked(false);
+                    mn051805.setChecked(false);
+                    mn051806.setChecked(false);
+                    mn051807.setChecked(false);
+                    mn051808.setChecked(false);
+                    mn051809.setChecked(false);
+                    mn051888.setChecked(false);
+                    mn051888x.setText(null);
+                }
+            }
+        });
+        mn051202.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn051201.setEnabled(false);
+                    mn051201.setText(null);
+                } else {
+                    mn051201.setEnabled(true);
+                }
+            }
+        });
+
+        mn051302.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn051301.setEnabled(false);
+                    mn051301.setText(null);
+                } else {
+                    mn051301.setEnabled(true);
+                }
+            }
+        });
+
+        mn051477.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn051401.setEnabled(false);
+                    mn051402.setEnabled(false);
+                    mn051403.setEnabled(false);
+                    mn051404.setEnabled(false);
+                    mn051405.setEnabled(false);
+                    mn051406.setEnabled(false);
+                    mn051488.setEnabled(false);
+                    mn051488x.setText(null);
+                } else {
+                    mn051401.setEnabled(true);
+                    mn051402.setEnabled(true);
+                    mn051403.setEnabled(true);
+                    mn051404.setEnabled(true);
+                    mn051405.setEnabled(true);
+                    mn051406.setEnabled(true);
+                    mn051488.setEnabled(true);
+                }
+            }
+        });
+
+        mn051488.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn051488x.setVisibility(View.VISIBLE);
+                } else {
+                    mn051488x.setVisibility(View.GONE);
+                    mn051488x.setText(null);
+                }
+            }
+        });
+
+
+        mn051588.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn051588x.setVisibility(View.VISIBLE);
+                } else {
+                    mn051588x.setVisibility(View.GONE);
+                    mn051588x.setText(null);
+                }
+            }
+        });
+
+        mn051688.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn051688x.setVisibility(View.VISIBLE);
+                } else {
+                    mn051688x.setVisibility(View.GONE);
+                    mn051688x.setText(null);
+                }
+            }
+        });
+
+        mn051888.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn051888x.setVisibility(View.VISIBLE);
+                } else {
+                    mn051888x.setVisibility(View.GONE);
+                    mn051888x.setText(null);
+                }
+            }
+        });
+
+        mn051988.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn051988x.setVisibility(View.VISIBLE);
+                } else {
+                    mn051988x.setVisibility(View.GONE);
+                    mn051988x.setText(null);
+                }
+            }
+        });
 
     }
 
