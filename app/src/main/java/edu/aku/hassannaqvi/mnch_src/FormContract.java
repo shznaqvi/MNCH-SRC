@@ -1,5 +1,6 @@
 package edu.aku.hassannaqvi.mnch_src;
 
+import android.database.Cursor;
 import android.provider.BaseColumns;
 
 import org.json.JSONException;
@@ -37,14 +38,16 @@ public final class FormContract implements BaseColumns {
     String ROW_S3;
     String ROW_S4;
     String ROW_S5;
+    String ROW_S5b;
+    String ROW_S5c;
     String ROW_S6;
     String ROW_S7;
     String ROW_S8;
-    String ROW_UID;
-    String ROW_GPS_LANG = SRCApp.GPS_LNG;
-    String ROW_GPS_LAT = SRCApp.GPS_LAT;
-    String ROW_GPS_DT = SRCApp.GPS_DT;
-    String ROW_GPS_ACC = SRCApp.GPS_ACC;
+    String ROW_UUID;
+    String ROW_GPS_LNG;
+    String ROW_GPS_LAT;
+    String ROW_GPS_DT;
+    String ROW_GPS_ACC;
 
     FormContract(String devid, String formid, String s1q101, String s1q102, String s1q103, String s1q104, String s1q105,
                  String s1q106a, String s1q106b, String s1q107, String s1q108, String s1q108b, String s1q109a, String s1q109b, String s1q110,
@@ -92,6 +95,86 @@ public final class FormContract implements BaseColumns {
         this.ROW_S6 = fc.getString("va_04");
         this.ROW_S7 = fc.getString("va_04");
         this.ROW_S8 = fc.getString("va_04");
+    }
+
+    public FormContract Sync(JSONObject jsonObject) throws JSONException {
+        this._ID = jsonObject.getLong(Sec1Entry._ID);
+        this.ROW_DEVID = jsonObject.getString(Sec1Entry.ROW_DEVID);
+        this.ROW_FORM_ID = jsonObject.getString(Sec1Entry.ROW_FORM_ID);
+        this.ROW_S1Q101 = jsonObject.getString(Sec1Entry.ROW_S1Q101);
+        this.ROW_S1Q102 = jsonObject.getString(Sec1Entry.ROW_S1Q102);
+        this.ROW_S1Q103 = jsonObject.getString(Sec1Entry.ROW_S1Q103);
+        this.ROW_S1Q104 = jsonObject.getString(Sec1Entry.ROW_S1Q104);
+        this.ROW_S1Q105 = jsonObject.getString(Sec1Entry.ROW_S1Q105);
+        this.ROW_S1Q106a = jsonObject.getString(Sec1Entry.ROW_S1Q106a);
+        this.ROW_S1Q106b = jsonObject.getString(Sec1Entry.ROW_S1Q106b);
+        this.ROW_S1Q107 = jsonObject.getString(Sec1Entry.ROW_S1Q107);
+        this.ROW_S1Q108 = jsonObject.getString(Sec1Entry.ROW_S1Q108);
+        this.ROW_S1Q108b = jsonObject.getString(Sec1Entry.ROW_S1Q108b);
+        this.ROW_S1Q109a = jsonObject.getString(Sec1Entry.ROW_S1Q109a);
+        this.ROW_S1Q109b = jsonObject.getString(Sec1Entry.ROW_S1Q109b);
+        this.ROW_S1Q110 = jsonObject.getString(Sec1Entry.ROW_S1Q110);
+        this.ROW_S1Q111 = jsonObject.getString(Sec1Entry.ROW_S1Q111);
+        this.ROW_S1Q111oth = jsonObject.getString(Sec1Entry.ROW_S1Q111OTH);
+        this.ROW_S1Q112 = jsonObject.getString(Sec1Entry.ROW_S1Q112);
+        this.ROW_ENTRYDATE = jsonObject.getString(Sec1Entry.ROW_ENTRYDATE);
+        this.ROW_USERID = jsonObject.getString(Sec1Entry.ROW_USERID);
+        this.ROW_S2 = jsonObject.getString(Sec1Entry.ROW_S2);
+        this.ROW_S3 = jsonObject.getString(Sec1Entry.ROW_S3);
+        this.ROW_S4 = jsonObject.getString(Sec1Entry.ROW_S4);
+        this.ROW_S5 = jsonObject.getString(Sec1Entry.ROW_S5);
+        this.ROW_S5b = jsonObject.getString(Sec1Entry.ROW_S5b);
+        this.ROW_S5c = jsonObject.getString(Sec1Entry.ROW_S5c);
+        this.ROW_S6 = jsonObject.getString(Sec1Entry.ROW_S6);
+        this.ROW_S7 = jsonObject.getString(Sec1Entry.ROW_S7);
+        this.ROW_S8 = jsonObject.getString(Sec1Entry.ROW_S8);
+        this.ROW_UUID = jsonObject.getString(Sec1Entry.ROW_UUID);
+        this.ROW_GPS_LNG = jsonObject.getString(Sec1Entry.ROW_GPS_LNG);
+        this.ROW_GPS_LAT = jsonObject.getString(Sec1Entry.ROW_GPS_LAT);
+        this.ROW_GPS_DT = jsonObject.getString(Sec1Entry.ROW_GPS_DT);
+        this.ROW_GPS_ACC = jsonObject.getString(Sec1Entry.ROW_GPS_ACC);
+
+        return this;
+    }
+
+    public FormContract Hydrate(Cursor cursor) {
+        this._ID = cursor.getLong(cursor.getColumnIndex(Sec1Entry._ID));
+        this.ROW_DEVID = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_DEVID));
+        this.ROW_FORM_ID = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_FORM_ID));
+        this.ROW_S1Q101 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q101));
+        this.ROW_S1Q102 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q102));
+        this.ROW_S1Q103 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q103));
+        this.ROW_S1Q104 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q104));
+        this.ROW_S1Q105 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q105));
+        this.ROW_S1Q106a = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q106a));
+        this.ROW_S1Q106b = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q106b));
+        this.ROW_S1Q107 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q107));
+        this.ROW_S1Q108 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q108));
+        this.ROW_S1Q108b = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q108b));
+        this.ROW_S1Q109a = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q109a));
+        this.ROW_S1Q109b = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q109b));
+        this.ROW_S1Q110 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q110));
+        this.ROW_S1Q111 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q111));
+        this.ROW_S1Q111oth = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q111OTH));
+        this.ROW_S1Q112 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q112));
+        this.ROW_ENTRYDATE = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_ENTRYDATE));
+        this.ROW_USERID = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_USERID));
+        this.ROW_S2 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S2));
+        this.ROW_S3 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S3));
+        this.ROW_S4 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S4));
+        this.ROW_S5 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S5));
+        this.ROW_S5b = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S5b));
+        this.ROW_S5c = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S5c));
+        this.ROW_S6 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S6));
+        this.ROW_S7 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S7));
+        this.ROW_S8 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S8));
+        this.ROW_UUID = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_UUID));
+        this.ROW_GPS_LNG = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_GPS_LNG));
+        this.ROW_GPS_LAT = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_GPS_LAT));
+        this.ROW_GPS_DT = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_GPS_DT));
+        this.ROW_GPS_ACC = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_GPS_ACC));
+
+        return this;
     }
 
     public Long get_ID() {
@@ -156,6 +239,22 @@ public final class FormContract implements BaseColumns {
 
     public void setROW_S1Q105(String ROW_S1Q105) {
         this.ROW_S1Q105 = ROW_S1Q105;
+    }
+
+    public String getROW_S5b() {
+        return ROW_S5b;
+    }
+
+    public void setROW_S5b(String ROW_S5b) {
+        this.ROW_S5b = ROW_S5b;
+    }
+
+    public String getROW_S5c() {
+        return ROW_S5c;
+    }
+
+    public void setROW_S5c(String ROW_S5c) {
+        this.ROW_S5c = ROW_S5c;
     }
 
     public String getROW_S1Q106a() {
@@ -295,19 +394,19 @@ public final class FormContract implements BaseColumns {
     }
 
     public String getROW_UID() {
-        return ROW_UID;
+        return ROW_UUID;
     }
 
     public void setROW_UID(String ROW_UID) {
-        this.ROW_UID = ROW_UID;
+        this.ROW_UUID = ROW_UID;
     }
 
     public String getROW_GPS_LANG() {
-        return ROW_GPS_LANG;
+        return ROW_GPS_LNG;
     }
 
     public void setROW_GPS_LANG(String ROW_GPS_LANG) {
-        this.ROW_GPS_LANG = ROW_GPS_LANG;
+        this.ROW_GPS_LNG = ROW_GPS_LANG;
     }
 
     public String getROW_GPS_LAT() {
@@ -384,11 +483,13 @@ public final class FormContract implements BaseColumns {
         json.put(Sec1Entry.ROW_S3, this.ROW_S3);
         json.put(Sec1Entry.ROW_S4, this.ROW_S4);
         json.put(Sec1Entry.ROW_S5, this.ROW_S5);
+        json.put(Sec1Entry.ROW_S5b, this.ROW_S5b);
+        json.put(Sec1Entry.ROW_S5c, this.ROW_S5c);
         json.put(Sec1Entry.ROW_S6, this.ROW_S6);
         json.put(Sec1Entry.ROW_S7, this.ROW_S7);
         json.put(Sec1Entry.ROW_S8, this.ROW_S8);
-        json.put(Sec1Entry.ROW_UUID, this.ROW_UID);
-        json.put(Sec1Entry.ROW_GPS_LNG, this.ROW_GPS_LANG);
+        json.put(Sec1Entry.ROW_UUID, this.ROW_UUID);
+        json.put(Sec1Entry.ROW_GPS_LNG, this.ROW_GPS_LNG);
         json.put(Sec1Entry.ROW_GPS_LAT, this.ROW_GPS_LAT);
         json.put(Sec1Entry.ROW_GPS_ACC, this.ROW_GPS_ACC);
         json.put(Sec1Entry.ROW_GPS_DT, this.ROW_GPS_DT);
@@ -399,7 +500,7 @@ public final class FormContract implements BaseColumns {
 
     public static abstract class Sec1Entry implements BaseColumns {
         public static final String TABLE_NAME = "sec1";
-        public static final String _ID = "_ID";
+        public static final String _ID = "_id";
 
         public static final String ROW_DEVID = "devid";
         public static final String ROW_FORM_ID = "formid";
@@ -425,13 +526,15 @@ public final class FormContract implements BaseColumns {
         public static final String ROW_S3 = "s3";
         public static final String ROW_S4 = "s4";
         public static final String ROW_S5 = "s5";
+        public static final String ROW_S5b = "s5b";
+        public static final String ROW_S5c = "s5c";
         public static final String ROW_S6 = "s6";
         public static final String ROW_S7 = "s7";
         public static final String ROW_S8 = "s8";
-        public static final String ROW_UUID = "UUID";
-        public static final String ROW_GPS_LNG = "GPS_LNG";
-        public static final String ROW_GPS_LAT = "GPS_LAT";
-        public static final String ROW_GPS_DT = "GPS_DT";
-        public static final String ROW_GPS_ACC = "GPS_ACC";
+        public static final String ROW_UUID = "uuid";
+        public static final String ROW_GPS_LNG = "gps_lng";
+        public static final String ROW_GPS_LAT = "gps_lat";
+        public static final String ROW_GPS_DT = "gps_dt";
+        public static final String ROW_GPS_ACC = "gps_acc";
     }
 }

@@ -46,13 +46,13 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/mn0546_1"
+                    android:id="@+id/mn054601"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mnyes" />
 
                 <RadioButton
-                    android:id="@+id/mn0546_2"
+                    android:id="@+id/mn054602"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mnno" />
@@ -306,19 +306,19 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/mn0551_1"
+                    android:id="@+id/mn055101"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mnyes" />
 
                 <RadioButton
-                    android:id="@+id/mn0551_2"
+                    android:id="@+id/mn055102"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mnno" />
 
                 <RadioButton
-                    android:id="@+id/mn0551_99"
+                    android:id="@+id/mn055199"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mndkn" />

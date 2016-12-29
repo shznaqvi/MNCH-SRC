@@ -1171,6 +1171,193 @@ public class Section5Activity extends Activity {
         s5.put("mn051588", mn051588.isChecked() ? "88" : "0");
         // EditText
         s5.put("mn051588x", mn051588x.getText().toString());
+        // CheckBox
+        s5.put("mn051601", mn051601.isChecked() ? "1" : "0");
+        s5.put("mn051602", mn051602.isChecked() ? "2" : "0");
+        s5.put("mn051603", mn051603.isChecked() ? "3" : "0");
+        s5.put("mn051604", mn051604.isChecked() ? "4" : "0");
+        s5.put("mn051605", mn051605.isChecked() ? "5" : "0");
+        s5.put("mn051606", mn051606.isChecked() ? "6" : "0");
+        s5.put("mn051607", mn051607.isChecked() ? "7" : "0");
+        s5.put("mn051608", mn051608.isChecked() ? "8" : "0");
+        s5.put("mn051609", mn051609.isChecked() ? "9" : "0");
+        s5.put("mn051610", mn051610.isChecked() ? "10" : "0");
+        s5.put("mn051688", mn051688.isChecked() ? "88" : "0");
+        // EditText
+        s5.put("mn051688x", mn051688x.getText().toString());
+        s5.put("mn0517a1", mn0517a101.isChecked() ? "1" : mn0517a102.isChecked() ? "2" : "0");
+        s5.put("mn0517a2d", mn0517a2d.getText().toString());
+        s5.put("mn0517a2m", mn0517a2m.getText().toString());
+        // RadioGroup
+        s5.put("mn0517a1", mn0517a301.isChecked() ? "1"
+                : mn0517a302.isChecked() ? "2"
+                : mn0517a303.isChecked() ? "3"
+                : mn0517a304.isChecked() ? "4"
+                : mn0517a305.isChecked() ? "5"
+                : mn0517a306.isChecked() ? "6"
+                : mn0517a307.isChecked() ? "7"
+                : mn0517a377.isChecked() ? "77"
+                : "0");
+        s5.put("mn0517b1", mn0517b101.isChecked() ? "1" : mn0517b102.isChecked() ? "2" : "0");
+        s5.put("mn0517b2d", mn0517b2d.getText().toString());
+        s5.put("mn0517b2m", mn0517b2m.getText().toString());
+        // RadioGroup
+        s5.put("mn0517b1", mn0517b301.isChecked() ? "1"
+                : mn0517b302.isChecked() ? "2"
+                : mn0517b303.isChecked() ? "3"
+                : mn0517b304.isChecked() ? "4"
+                : mn0517b305.isChecked() ? "5"
+                : mn0517b306.isChecked() ? "6"
+                : mn0517b307.isChecked() ? "7"
+                : mn0517b377.isChecked() ? "77"
+                : "0");
+        s5.put("mn0517c1", mn0517c101.isChecked() ? "1" : mn0517c102.isChecked() ? "2" : "0");
+        s5.put("mn0517c2d", mn0517c2d.getText().toString());
+        s5.put("mn0517c2m", mn0517c2m.getText().toString());
+        // RadioGroup
+        s5.put("mn0517c1", mn0517c301.isChecked() ? "1"
+                : mn0517c302.isChecked() ? "2"
+                : mn0517c303.isChecked() ? "3"
+                : mn0517c304.isChecked() ? "4"
+                : mn0517c305.isChecked() ? "5"
+                : mn0517c306.isChecked() ? "6"
+                : mn0517c307.isChecked() ? "7"
+                : mn0517c377.isChecked() ? "77"
+                : "0");
+        s5.put("mn0517d1", mn0517d101.isChecked() ? "1" : mn0517d102.isChecked() ? "2" : "0");
+        s5.put("mn0517d2d", mn0517d2d.getText().toString());
+        s5.put("mn0517d2m", mn0517d2m.getText().toString());
+        // RadioGroup
+        s5.put("mn0517d1", mn0517d301.isChecked() ? "1"
+                : mn0517d302.isChecked() ? "2"
+                : mn0517d303.isChecked() ? "3"
+                : mn0517d304.isChecked() ? "4"
+                : mn0517d305.isChecked() ? "5"
+                : mn0517d306.isChecked() ? "6"
+                : mn0517d307.isChecked() ? "7"
+                : mn0517d377.isChecked() ? "77"
+                : "0");
+        s5.put("mn0517e1", mn0517e101.isChecked() ? "1" : mn0517e102.isChecked() ? "2" : "0");
+        s5.put("mn0517e2d", mn0517e2d.getText().toString());
+        s5.put("mn0517e2m", mn0517e2m.getText().toString());
+        // RadioGroup
+        s5.put("mn0517e1", mn0517e301.isChecked() ? "1"
+                : mn0517e302.isChecked() ? "2"
+                : mn0517e303.isChecked() ? "3"
+                : mn0517e304.isChecked() ? "4"
+                : mn0517e305.isChecked() ? "5"
+                : mn0517e306.isChecked() ? "6"
+                : mn0517e307.isChecked() ? "7"
+                : mn0517e377.isChecked() ? "77"
+                : "0");
+        s5.put("mn0517f1", mn0517f101.isChecked() ? "1" : mn0517f102.isChecked() ? "2" : "0");
+        s5.put("mn0517f2d", mn0517f2d.getText().toString());
+        s5.put("mn0517f2m", mn0517f2m.getText().toString());
+        // RadioGroup
+        s5.put("mn0517f1", mn0517f301.isChecked() ? "1"
+                : mn0517f302.isChecked() ? "2"
+                : mn0517f303.isChecked() ? "3"
+                : mn0517f304.isChecked() ? "4"
+                : mn0517f305.isChecked() ? "5"
+                : mn0517f306.isChecked() ? "6"
+                : mn0517f307.isChecked() ? "7"
+                : mn0517f377.isChecked() ? "77"
+                : "0");
+        // CheckBox
+        s5.put("mn051801", mn051801.isChecked() ? "1" : "0");
+        s5.put("mn051802", mn051802.isChecked() ? "2" : "0");
+        s5.put("mn051803", mn051803.isChecked() ? "3" : "0");
+        s5.put("mn051804", mn051804.isChecked() ? "4" : "0");
+        s5.put("mn051805", mn051805.isChecked() ? "5" : "0");
+        s5.put("mn051806", mn051806.isChecked() ? "6" : "0");
+        s5.put("mn051807", mn051807.isChecked() ? "7" : "0");
+        s5.put("mn051808", mn051808.isChecked() ? "8" : "0");
+        s5.put("mn051809", mn051809.isChecked() ? "9" : "0");
+        s5.put("mn051888", mn051888.isChecked() ? "88" : "0");
+        // EditText
+        s5.put("mn051888x", mn051888x.getText().toString());
+// CheckBox
+        s5.put("mn051901", mn051901.isChecked() ? "1" : "0");
+        s5.put("mn051902", mn051902.isChecked() ? "2" : "0");
+        s5.put("mn051903", mn051903.isChecked() ? "3" : "0");
+        s5.put("mn051904", mn051904.isChecked() ? "4" : "0");
+        s5.put("mn051905", mn051905.isChecked() ? "5" : "0");
+        s5.put("mn051906", mn051906.isChecked() ? "6" : "0");
+        s5.put("mn051988", mn051988.isChecked() ? "88" : "0");
+        // EditText
+        s5.put("mn051988x", mn051988x.getText().toString());
+        s5.put("mn0520", mn052001.isChecked() ? "1" : mn052002.isChecked() ? "2" : "0");
+        s5.put("mn0521", mn052101.isChecked() ? "1" : mn052102.isChecked() ? "2" : "0");
+        s5.put("mn0522", mn052201.isChecked() ? "1"
+                : mn052202.isChecked() ? "2"
+                : mn052203.isChecked() ? "3"
+                : mn052204.isChecked() ? "4"
+                : "0");
+        s5.put("mn0523", mn052301.isChecked() ? "1" : mn052302.isChecked() ? "2" : "0");
+        s5.put("mn0524", mn052401.isChecked() ? "1" : mn052402.isChecked() ? "2" : "0");
+        // CheckBox
+        s5.put("mn052501", mn052501.isChecked() ? "1" : "0");
+        s5.put("mn052502", mn052502.isChecked() ? "2" : "0");
+        s5.put("mn052503", mn052503.isChecked() ? "3" : "0");
+        s5.put("mn052504", mn052504.isChecked() ? "4" : "0");
+        s5.put("mn052505", mn052505.isChecked() ? "5" : "0");
+        s5.put("mn052506", mn052506.isChecked() ? "6" : "0");
+        s5.put("mn052588", mn052588.isChecked() ? "88" : "0");
+        // EditText
+        s5.put("mn052588x", mn052588x.getText().toString());
+        // CheckBox
+        s5.put("mn052601", mn052601.isChecked() ? "1" : "0");
+        s5.put("mn052602", mn052602.isChecked() ? "2" : "0");
+        s5.put("mn052603", mn052603.isChecked() ? "3" : "0");
+        s5.put("mn052604", mn052604.isChecked() ? "4" : "0");
+        s5.put("mn052605", mn052605.isChecked() ? "5" : "0");
+        s5.put("mn052606", mn052606.isChecked() ? "6" : "0");
+        s5.put("mn052607", mn052607.isChecked() ? "7" : "0");
+        s5.put("mn052608", mn052608.isChecked() ? "8" : "0");
+        s5.put("mn052609", mn052609.isChecked() ? "9" : "0");
+        s5.put("mn052610", mn052610.isChecked() ? "10" : "0");
+        s5.put("mn052611", mn052611.isChecked() ? "11" : "0");
+        s5.put("mn052612", mn052612.isChecked() ? "12" : "0");
+        s5.put("mn052613", mn052613.isChecked() ? "13" : "0");
+        s5.put("mn052614", mn052614.isChecked() ? "14" : "0");
+        s5.put("mn052615", mn052615.isChecked() ? "15" : "0");
+        s5.put("mn052688", mn052688.isChecked() ? "88" : "0");
+        // EditText
+        s5.put("mn052688x", mn052688x.getText().toString());
+        // CheckBox
+        s5.put("mn052701", mn052701.isChecked() ? "1" : "0");
+        s5.put("mn052702", mn052702.isChecked() ? "2" : "0");
+        s5.put("mn052703", mn052703.isChecked() ? "3" : "0");
+        s5.put("mn052704", mn052704.isChecked() ? "4" : "0");
+        s5.put("mn052705", mn052705.isChecked() ? "5" : "0");
+        s5.put("mn052706", mn052706.isChecked() ? "6" : "0");
+        s5.put("mn052707", mn052707.isChecked() ? "7" : "0");
+        s5.put("mn052777", mn052777.isChecked() ? "77" : "0");
+        s5.put("mn052788", mn052788.isChecked() ? "88" : "0");
+        // EditText
+        s5.put("mn052788x", mn052788x.getText().toString());
+        // CheckBox
+        s5.put("mn052801", mn052801.isChecked() ? "1" : "0");
+        s5.put("mn052802", mn052802.isChecked() ? "2" : "0");
+        s5.put("mn052803", mn052803.isChecked() ? "3" : "0");
+        s5.put("mn052804", mn052804.isChecked() ? "4" : "0");
+        s5.put("mn052805", mn052805.isChecked() ? "5" : "0");
+        s5.put("mn052806", mn052806.isChecked() ? "6" : "0");
+        s5.put("mn052807", mn052807.isChecked() ? "7" : "0");
+        s5.put("mn052877", mn052877.isChecked() ? "77" : "0");
+        s5.put("mn052888", mn052888.isChecked() ? "88" : "0");
+        // EditText
+        s5.put("mn052888x", mn052888x.getText().toString());
+        // CheckBox
+        s5.put("mn052901", mn052901.isChecked() ? "1" : "0");
+        s5.put("mn052902", mn052902.isChecked() ? "2" : "0");
+        s5.put("mn052903", mn052903.isChecked() ? "3" : "0");
+        s5.put("mn052904", mn052904.isChecked() ? "4" : "0");
+        s5.put("mn052905", mn052905.isChecked() ? "5" : "0");
+        s5.put("mn052906", mn052906.isChecked() ? "6" : "0");
+        s5.put("mn052988", mn052988.isChecked() ? "88" : "0");
+        // EditText
+        s5.put("mn052988x", mn052988x.getText().toString());
 
         SRCApp.fc.setROW_S5(String.valueOf(s5));
 

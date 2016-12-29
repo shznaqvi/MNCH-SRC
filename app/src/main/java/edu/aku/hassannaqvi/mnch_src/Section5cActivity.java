@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
@@ -27,6 +28,26 @@ public class Section5cActivity extends Activity {
     RadioButton mn05461;
     @BindView(R.id.mn0546_2)
     RadioButton mn05462;
+    @BindView(R.id.fldGrpmn0547)
+    LinearLayout fldGrpmn0547;
+    @BindView(R.id.mn054701)
+    CheckBox mn054701;
+    @BindView(R.id.mn054702)
+    CheckBox mn054702;
+    @BindView(R.id.mn054703)
+    CheckBox mn054703;
+    @BindView(R.id.mn054704)
+    CheckBox mn054704;
+    @BindView(R.id.mn054705)
+    CheckBox mn054705;
+    @BindView(R.id.mn054706)
+    CheckBox mn054706;
+    @BindView(R.id.mn054707)
+    CheckBox mn054707;
+    @BindView(R.id.mn054777)
+    CheckBox mn054777;
+    @BindView(R.id.mn054788)
+    CheckBox mn054788;
     @BindView(R.id.mn054788x)
     EditText mn054788x;
     @BindView(R.id.mn0548)
@@ -53,6 +74,10 @@ public class Section5cActivity extends Activity {
     CheckBox mn054906;
     @BindView(R.id.mn054907)
     CheckBox mn054907;
+    @BindView(R.id.mn054908)
+    CheckBox mn054908;
+    @BindView(R.id.mn054909)
+    CheckBox mn054909;
     @BindView(R.id.mn054988)
     CheckBox mn054988;
     @BindView(R.id.mn054988x)
@@ -79,11 +104,129 @@ public class Section5cActivity extends Activity {
     RadioButton mn05512;
     @BindView(R.id.mn0551_99)
     RadioButton mn055199;
+    @BindView(R.id.fldGrpmn0552)
+    LinearLayout fldGrpmn0552;
+    @BindView(R.id.mn055201)
+    CheckBox mn055201;
+    @BindView(R.id.mn055202)
+    CheckBox mn055202;
+    @BindView(R.id.mn055203)
+    CheckBox mn055203;
+    @BindView(R.id.mn055204)
+    CheckBox mn055204;
+    @BindView(R.id.mn055205)
+    CheckBox mn055205;
+    @BindView(R.id.mn055206)
+    CheckBox mn055206;
+    @BindView(R.id.mn055207)
+    CheckBox mn055207;
+    @BindView(R.id.mn055208)
+    CheckBox mn055208;
+    @BindView(R.id.mn055288)
+    CheckBox mn055288;
+    @BindView(R.id.mn055288x)
+    EditText mn055288x;
+    @BindView(R.id.mn055301)
+    CheckBox mn055301;
+    @BindView(R.id.mn055302)
+    CheckBox mn055302;
+    @BindView(R.id.mn055303)
+    CheckBox mn055303;
+    @BindView(R.id.mn055304)
+    CheckBox mn055304;
+    @BindView(R.id.mn055305)
+    CheckBox mn055305;
+    @BindView(R.id.mn055306)
+    CheckBox mn055306;
+    @BindView(R.id.mn055307)
+    CheckBox mn055307;
+    @BindView(R.id.mn055377)
+    CheckBox mn055377;
+    @BindView(R.id.mn055388)
+    CheckBox mn055388;
+    @BindView(R.id.mn055388x)
+    EditText mn055388x;
+    @BindView(R.id.fldGrpmn0554)
+    LinearLayout fldGrpmn0554;
     @BindView(R.id.mn0554)
     RadioGroup mn0554;
+    @BindView(R.id.mn055401)
+    RadioButton mn055401;
+    @BindView(R.id.mn055402)
+    RadioButton mn055402;
+    @BindView(R.id.mn055403)
+    RadioButton mn055403;
+    @BindView(R.id.mn055404)
+    RadioButton mn055404;
+    @BindView(R.id.mn055405)
+    RadioButton mn055405;
+    @BindView(R.id.mn055477)
+    RadioButton mn055477;
+    @BindView(R.id.mn055488)
+    RadioButton mn055488;
     @BindView(R.id.mn055488x)
     EditText mn055488x;
+    @BindView(R.id.mn055501)
+    CheckBox mn055501;
+    @BindView(R.id.mn055502)
+    CheckBox mn055502;
+    @BindView(R.id.mn055503)
+    CheckBox mn055503;
+    @BindView(R.id.mn055504)
+    CheckBox mn055504;
+    @BindView(R.id.mn055505)
+    CheckBox mn055505;
+    @BindView(R.id.mn055506)
+    CheckBox mn055506;
+    @BindView(R.id.mn055588)
+    CheckBox mn055588;
+    @BindView(R.id.mn055588x)
+    EditText mn055588x;
 
+    {
+        @Override
+        public void onCheckedChanged (RadioGroup group,int checkedId){
+        if (mn054601.isChecked()) {
+            fldGrpmn0547.setVisibility(View.VISIBLE);
+
+        } else {
+            fldGrpmn0547.setVisibility(View.GONE);
+            mn054701.setChecked(false);
+            mn054702.setChecked(false);
+            mn054703.setChecked(false);
+            mn054704.setChecked(false);
+            mn054705.setChecked(false);
+            mn054706.setChecked(false);
+            mn054707.setChecked(false);
+            mn054777.setChecked(false);
+            mn054788.setChecked(false);
+            mn054788x.setText(null);
+            mn0548.clearCheck();
+            mn054901.setChecked(false);
+            mn054902.setChecked(false);
+            mn054903.setChecked(false);
+            mn054904.setChecked(false);
+            mn054905.setChecked(false);
+            mn054906.setChecked(false);
+            mn054907.setChecked(false);
+            mn054908.setChecked(false);
+            mn054909.setChecked(false);
+            mn054988.setChecked(false);
+            mn054988x.setText(null);
+            mn055001.setChecked(false);
+            mn055002.setChecked(false);
+            mn055003.setChecked(false);
+            mn055004.setChecked(false);
+            mn055005.setChecked(false);
+            mn055088.setChecked(false);
+            mn055088x.setText(null);
+
+
+        }
+    }
+    }
+
+    mn0546.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,5 +234,10 @@ public class Section5cActivity extends Activity {
         ButterKnife.bind(this);
 
     }
+
+    )
+
+
+}
 
 }

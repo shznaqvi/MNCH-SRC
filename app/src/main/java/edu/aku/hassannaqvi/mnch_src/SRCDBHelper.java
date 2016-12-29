@@ -9,27 +9,22 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import edu.aku.hassannaqvi.mnch_src.FormContract.Sec1Entry;
-import edu.aku.hassannaqvi.mnch_src.Sec3Contract.Sec3Entry;
-import edu.aku.hassannaqvi.mnch_src.Section4Contract.Section4Entry;
-import edu.aku.hassannaqvi.mnch_src.Section4aContract.Section4aEntry;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import edu.aku.hassannaqvi.mnch_src.FormContract.Sec1Entry;
+import edu.aku.hassannaqvi.mnch_src.Sec3Contract.Sec3Entry;
+import edu.aku.hassannaqvi.mnch_src.Section4Contract.Section4Entry;
+import edu.aku.hassannaqvi.mnch_src.Section4aContract.Section4aEntry;
+
 /**
  * Created by isd on 20/10/2016.
  */
 public class SRCDBHelper extends SQLiteOpenHelper {
-
-    private static final String TAG = "Sec1";
-    private static final String DATABASE_NAME = "src.db";
-    private static final int DATABASE_VERSION = 1;
 
     public static final String SQL_CREATE_USERS = "CREATE TABLE IF NOT EXISTS " + UsersContract.singleUser.TABLE_NAME + "("
             + UsersContract.singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -37,11 +32,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + UsersContract.singleUser.ROW_PASSWORD + " TEXT,"
             + UsersContract.singleUser.ROW_USERSTATUS + " TEXT,"
             + UsersContract.singleUser.ROW_ISADMIN + " TEXT );";
-
-    private static final String SQL_DELETE_USERS =
-            "DROP TABLE IF EXISTS " + UsersContract.singleUser.TABLE_NAME;
-
-
     /*******************************
      * Section 1
      ******************************/
@@ -76,12 +66,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec1Entry.ROW_GPS_LAT + " TEXT,"
             + Sec1Entry.ROW_GPS_DT + " TEXT,"
             + Sec1Entry.ROW_GPS_ACC + " TEXT);";
-
-
-    private static final String SQL_DELETE_SEC1 =
-            "DROP TABLE IF EXISTS " + Sec1Entry.TABLE_NAME;
-
-
     public static final String SQL_CREATE_BASELINE_SEC3 = "CREATE TABLE IF NOT EXISTS " + Sec3Entry.TABLE_NAME + "("
             + Sec3Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Sec3Entry.ROW_DEVID + " TEXT,"
@@ -101,11 +85,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec3Entry.ROW_s3q301j + " INTEGER,"
             + Sec3Entry.ROW_s3q301k + " INTEGER,"
             + Sec3Entry.ROW_UID + " TEXT);";
-
-    private static final String SQL_DELETE_SEC3 =
-            "DROP TABLE IF EXISTS " + Sec3Entry.TABLE_NAME;
-
-
     public static final String SQL_CREATE_BASELINE_SEC4 = "CREATE TABLE IF NOT EXISTS " + Section4Entry.TABLE_NAME + "("
             + Section4Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Section4Entry.ROW_DEVID + " TEXT,"
@@ -120,7 +99,15 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Section4Entry.ROW_s4q41d + " TEXT,"
             + Section4Entry.ROW_s4q41e + " TEXT,"
             + Section4Entry.ROW_UID + " TEXT);";
-
+    private static final String TAG = "Sec1";
+    private static final String DATABASE_NAME = "src.db";
+    private static final int DATABASE_VERSION = 1;
+    private static final String SQL_DELETE_USERS =
+            "DROP TABLE IF EXISTS " + UsersContract.singleUser.TABLE_NAME;
+    private static final String SQL_DELETE_SEC1 =
+            "DROP TABLE IF EXISTS " + Sec1Entry.TABLE_NAME;
+    private static final String SQL_DELETE_SEC3 =
+            "DROP TABLE IF EXISTS " + Sec3Entry.TABLE_NAME;
     private static final String SQL_DELETE_SEC4 =
             "DROP TABLE IF EXISTS " + Section4Entry.TABLE_NAME;
 
@@ -504,6 +491,115 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public int updateS5() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Sec1Entry.ROW_S5, SRCApp.fc.getROW_S5());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + SRCApp.fc.get_ID();
+        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
+
+        int count = db.update(Sec1Entry.TABLE_NAME,
+                values,
+                selection,
+                null);
+        return count;
+    }
+
+    public int updateS5b() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Sec1Entry.ROW_S5b, SRCApp.fc.getROW_S5b());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + SRCApp.fc.get_ID();
+        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
+
+        int count = db.update(Sec1Entry.TABLE_NAME,
+                values,
+                selection,
+                null);
+        return count;
+    }
+
+    public int updateS5c() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Sec1Entry.ROW_S5c, SRCApp.fc.getROW_S5c());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + SRCApp.fc.get_ID();
+        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
+
+        int count = db.update(Sec1Entry.TABLE_NAME,
+                values,
+                selection,
+                null);
+        return count;
+    }
+
+    public int updateS6() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Sec1Entry.ROW_S6, SRCApp.fc.getROW_S6());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + SRCApp.fc.get_ID();
+        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
+
+        int count = db.update(Sec1Entry.TABLE_NAME,
+                values,
+                selection,
+                null);
+        return count;
+    }
+
+    public int updateS7() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Sec1Entry.ROW_S7, SRCApp.fc.getROW_S7());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + SRCApp.fc.get_ID();
+        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
+
+        int count = db.update(Sec1Entry.TABLE_NAME,
+                values,
+                selection,
+                null);
+        return count;
+    }
+
+
+    public int updateS8() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Sec1Entry.ROW_S8, SRCApp.fc.getROW_S8());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + SRCApp.fc.get_ID();
+        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
+
+        int count = db.update(Sec1Entry.TABLE_NAME,
+                values,
+                selection,
+                null);
+        return count;
+    }
+
 
     public List<FormContract> getAllForms() {
 
@@ -638,8 +734,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         fc.ROW_S6 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S6));
         fc.ROW_S7 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S7));
         fc.ROW_S8 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S8));
-        fc.ROW_UID = c.getString(c.getColumnIndex(Sec1Entry.ROW_UUID));
-        fc.ROW_GPS_LANG = c.getString(c.getColumnIndex(Sec1Entry.ROW_GPS_LNG));
+        fc.ROW_UUID = c.getString(c.getColumnIndex(Sec1Entry.ROW_UUID));
+        fc.ROW_GPS_LNG = c.getString(c.getColumnIndex(Sec1Entry.ROW_GPS_LNG));
         fc.ROW_GPS_LAT = c.getString(c.getColumnIndex(Sec1Entry.ROW_GPS_LAT));
         fc.ROW_GPS_DT = c.getString(c.getColumnIndex(Sec1Entry.ROW_GPS_DT));
         fc.ROW_GPS_ACC = c.getString(c.getColumnIndex(Sec1Entry.ROW_GPS_ACC));
