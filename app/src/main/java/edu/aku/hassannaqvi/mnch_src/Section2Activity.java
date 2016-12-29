@@ -559,7 +559,10 @@ public class Section2Activity extends Activity {
 
 
         int result = Integer.parseInt(s2q206b.getText().toString()) +
-                Integer.parseInt(s2q206c.getText().toString());
+                Integer.parseInt(s2q206c.getText().toString()) +
+                Integer.parseInt(s2q206d.getText().toString()) +
+                Integer.parseInt(s2q206e.getText().toString()) +
+                Integer.parseInt(s2q206f.getText().toString());
 
         if (!s2q206a.getText().toString().equals(String.valueOf(result))) {
             Toast.makeText(getApplicationContext(), "Total number of members mismatch \r\n", Toast.LENGTH_LONG).show();

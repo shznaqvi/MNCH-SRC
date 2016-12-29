@@ -188,8 +188,11 @@
     <string name="baseline_s4q42c">جنس</string>
     <string name="baseline_s4q42c_1">مرد</string>
     <string name="baseline_s4q42c_2">عورت</string>
-    <string name="baseline_s4q42d">موت وقت عمر</string>
+    <string name="baseline_s4q42d">موت وقت عمر(ڏينهن)</string>
+    <string name="baseline_s4q42d1">موت وقت عمر(مهينو)</string>
+    <string name="baseline_s4q42d2">موت وقت عمر(سال)</string>
     <string name="baseline_s4q42e">موت جي جڳھه</string>
+    <string name="baseline_s4q42eoth">وضاحت سان لکو</string>
     <string name="baseline_s4q42e_1">گهر</string>
     <string name="baseline_s4q42e_2">گورنمينٽ ڊسپينسري</string>
     <string name="baseline_s4q42e_3">بي ايڇ يو</string>

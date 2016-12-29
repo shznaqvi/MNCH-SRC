@@ -10,6 +10,17 @@ public class CVars {
     public static int repro_age_woman;
     public static String hhno;
     public static String hhcode;
+    public static String status;
+
+
+    public void StoreStatus(String status) {
+        this.status = status;
+    }
+
+    public String GetStatu() {
+        return this.status;
+    }
+
 
     public void StoreHHNO(String hhno) {
         this.hhno = hhno;
