@@ -374,17 +374,17 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mn055206" />
 
-                <CheckBox
-                    android:id="@+id/mn055207"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn055207" />
+                <!-- <CheckBox
+                     android:id="@+id/mn055207"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/mn055207" />
 
-                <CheckBox
-                    android:id="@+id/mn055208"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn055208" />
+                 <CheckBox
+                     android:id="@+id/mn055208"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/mn055208" />-->
 
                 <CheckBox
                     android:id="@+id/mn055288"
