@@ -467,8 +467,8 @@
 
                 <LinearLayout
                     android:id="@+id/fldGrpmn0554"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
 
@@ -536,9 +536,16 @@
 
                 </LinearLayout>
 
-                <TextView
+                <LinearLayout
+                    android:id="@+id/fldGrpmn0555"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/mn0555"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -590,10 +597,42 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/mnother" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--  = = = = =  END OF FORM FIELDS - Section C = = = = = -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_End"
+                    style="@style/buttons"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:onClick="endInterview"
+                    android:text="@string/end_interview"
+                    android:textColor="#ff1e1e" />
+
+                <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+
+                <Button
+                    android:id="@+id/btn_Continue"
+                    style="@style/buttons"
+                    android:onClick="startInterview"
+                    android:text="@string/start_interview"
+                    android:textColor="#1ed61e" />
+                <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
+
             </LinearLayout>
 
 
         </LinearLayout>
+
 
     </ScrollView>
 

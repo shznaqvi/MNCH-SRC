@@ -1,8 +1,13 @@
 package edu.aku.hassannaqvi.mnch_src;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -10,9 +15,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class Section5cActivity extends Activity {
 
@@ -24,10 +34,10 @@ public class Section5cActivity extends Activity {
     TextView appHeader;
     @BindView(R.id.mn0546)
     RadioGroup mn0546;
-    @BindView(R.id.mn0546_1)
-    RadioButton mn05461;
-    @BindView(R.id.mn0546_2)
-    RadioButton mn05462;
+    @BindView(R.id.mn054601)
+    RadioButton mn054601;
+    @BindView(R.id.mn054602)
+    RadioButton mn054602;
     @BindView(R.id.fldGrpmn0547)
     LinearLayout fldGrpmn0547;
     @BindView(R.id.mn054701)
@@ -98,11 +108,11 @@ public class Section5cActivity extends Activity {
     EditText mn055088x;
     @BindView(R.id.mn0551)
     RadioGroup mn0551;
-    @BindView(R.id.mn0551_1)
-    RadioButton mn05511;
-    @BindView(R.id.mn0551_2)
-    RadioButton mn05512;
-    @BindView(R.id.mn0551_99)
+    @BindView(R.id.mn055101)
+    RadioButton mn055101;
+    @BindView(R.id.mn055102)
+    RadioButton mn055102;
+    @BindView(R.id.mn055199)
     RadioButton mn055199;
     @BindView(R.id.fldGrpmn0552)
     LinearLayout fldGrpmn0552;
@@ -182,62 +192,322 @@ public class Section5cActivity extends Activity {
     CheckBox mn055588;
     @BindView(R.id.mn055588x)
     EditText mn055588x;
-
-    {
-        @Override
-        public void onCheckedChanged (RadioGroup group,int checkedId){
-        if (mn054601.isChecked()) {
-            fldGrpmn0547.setVisibility(View.VISIBLE);
-
-        } else {
-            fldGrpmn0547.setVisibility(View.GONE);
-            mn054701.setChecked(false);
-            mn054702.setChecked(false);
-            mn054703.setChecked(false);
-            mn054704.setChecked(false);
-            mn054705.setChecked(false);
-            mn054706.setChecked(false);
-            mn054707.setChecked(false);
-            mn054777.setChecked(false);
-            mn054788.setChecked(false);
-            mn054788x.setText(null);
-            mn0548.clearCheck();
-            mn054901.setChecked(false);
-            mn054902.setChecked(false);
-            mn054903.setChecked(false);
-            mn054904.setChecked(false);
-            mn054905.setChecked(false);
-            mn054906.setChecked(false);
-            mn054907.setChecked(false);
-            mn054908.setChecked(false);
-            mn054909.setChecked(false);
-            mn054988.setChecked(false);
-            mn054988x.setText(null);
-            mn055001.setChecked(false);
-            mn055002.setChecked(false);
-            mn055003.setChecked(false);
-            mn055004.setChecked(false);
-            mn055005.setChecked(false);
-            mn055088.setChecked(false);
-            mn055088x.setText(null);
+    @BindView(R.id.fldGrpmn0555)
+    LinearLayout fldGrpmn0555;
 
 
-        }
-    }
-    }
-
-    mn0546.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section5c);
         ButterKnife.bind(this);
 
+        appHeader.setText("SRC - > Section 5C");
+
+        // ============= Q 5.46 Skip Pattern =================
+
+        mn0546.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mn054601.isChecked()) {
+                    fldGrpmn0547.setVisibility(View.VISIBLE);
+
+                } else {
+                    fldGrpmn0547.setVisibility(View.GONE);
+                    mn054701.setChecked(false);
+                    mn054702.setChecked(false);
+                    mn054703.setChecked(false);
+                    mn054704.setChecked(false);
+                    mn054705.setChecked(false);
+                    mn054706.setChecked(false);
+                    mn054707.setChecked(false);
+                    mn054777.setChecked(false);
+                    mn054788.setChecked(false);
+                    mn054788x.setText(null);
+                    mn0548.clearCheck();
+                    mn054901.setChecked(false);
+                    mn054902.setChecked(false);
+                    mn054903.setChecked(false);
+                    mn054904.setChecked(false);
+                    mn054905.setChecked(false);
+                    mn054906.setChecked(false);
+                    mn054907.setChecked(false);
+                    mn054908.setChecked(false);
+                    mn054909.setChecked(false);
+                    mn054988.setChecked(false);
+                    mn054988x.setText(null);
+                    mn055001.setChecked(false);
+                    mn055002.setChecked(false);
+                    mn055003.setChecked(false);
+                    mn055004.setChecked(false);
+                    mn055005.setChecked(false);
+                    mn055088.setChecked(false);
+                    mn055088x.setText(null);
+
+                }
+            }
+
+        });
+
+        // ============= Q 5.51 Skip Pattern =================
+
+        mn0551.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mn055101.isChecked()) {
+                    fldGrpmn0552.setVisibility(View.VISIBLE);
+
+                } else {
+                    fldGrpmn0552.setVisibility(View.GONE);
+                    mn055201.setChecked(false);
+                    mn055202.setChecked(false);
+                    mn055203.setChecked(false);
+                    mn055204.setChecked(false);
+                    mn055205.setChecked(false);
+                    mn055206.setChecked(false);
+                    mn055288.setChecked(false);
+                    mn055288x.setText(null);
+                    mn055301.setChecked(false);
+                    mn055302.setChecked(false);
+                    mn055303.setChecked(false);
+                    mn055304.setChecked(false);
+                    mn055305.setChecked(false);
+                    mn055306.setChecked(false);
+                    mn055307.setChecked(false);
+                    mn055377.setChecked(false);
+                    mn055388.setChecked(false);
+                    mn055388x.setText(null);
+                    mn0554.clearCheck();
+                    mn055501.setChecked(false);
+                    mn055502.setChecked(false);
+                    mn055503.setChecked(false);
+                    mn055504.setChecked(false);
+                    mn055505.setChecked(false);
+                    mn055506.setChecked(false);
+                    mn055588.setChecked(false);
+                    mn055588x.setText(null);
+
+
+                }
+            }
+        });
+
+        // ============= Q 5.53 Skip Pattern =================
+        mn055377.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    fldGrpmn0554.setVisibility(View.GONE);
+                    fldGrpmn0555.setVisibility(View.VISIBLE);
+                    mn0554.clearCheck();
+                } else {
+                    fldGrpmn0555.setVisibility(View.GONE);
+                    fldGrpmn0554.setVisibility(View.VISIBLE);
+                    mn055501.setChecked(false);
+                    mn055502.setChecked(false);
+                    mn055503.setChecked(false);
+                    mn055504.setChecked(false);
+                    mn055505.setChecked(false);
+                    mn055506.setChecked(false);
+                    mn055588.setChecked(false);
+                    mn055588x.setText(null);
+
+                }
+            }
+        });
+
+
+        //  =========================== Q 5.47 Others ================================
+        mn054788.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn054788x.setVisibility(View.VISIBLE);
+                    mn054788x.requestFocus();
+                } else {
+                    mn054788x.setVisibility(View.GONE);
+                    mn054788x.setText(null);
+
+                }
+            }
+        });
+        //  =========================== Q 5.49 Others ================================
+        mn054988.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn054988x.setVisibility(View.VISIBLE);
+                    mn054988x.requestFocus();
+                } else {
+                    mn054988x.setVisibility(View.GONE);
+                    mn054988x.setText(null);
+
+                }
+            }
+        });
+
+        //  =========================== Q 5.50 Others ================================
+        mn055088.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn055088x.setVisibility(View.VISIBLE);
+                    mn055088x.requestFocus();
+                } else {
+                    mn055088x.setVisibility(View.GONE);
+                    mn055088x.setText(null);
+
+                }
+            }
+        });
+
+        //  =========================== Q 5.52 Others ================================
+        mn055288.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn055288x.setVisibility(View.VISIBLE);
+                    mn055288x.requestFocus();
+                } else {
+                    mn055288x.setVisibility(View.GONE);
+                    mn055288x.setText(null);
+
+                }
+            }
+        });
+
+        //  =========================== Q 5.53 Others ================================
+        mn055388.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn055388x.setVisibility(View.VISIBLE);
+                    mn055388x.requestFocus();
+                } else {
+                    mn055388x.setVisibility(View.GONE);
+                    mn055388x.setText(null);
+
+                }
+            }
+        });
+
+        //  =========================== Q 5.55 Others ================================
+        mn055588.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn055588x.setVisibility(View.VISIBLE);
+                    mn055588x.requestFocus();
+                } else {
+                    mn055588x.setVisibility(View.GONE);
+                    mn055588x.setText(null);
+
+                }
+            }
+        });
+
+        //  ============================= Q 5.54 Others ==============================
+        mn0554.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == mn055488.getId()) {
+
+                    mn055488x.setVisibility(View.VISIBLE);
+                    mn055488x.requestFocus();
+
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(mn055488x.getWindowToken(), 0);
+
+                } else {
+
+                    mn055488x.setVisibility(View.GONE);
+                    mn055488x.setText("");
+                }
+            }
+        });
+
+
     }
 
-    )
+
+    @OnClick(R.id.btn_End)
+    void onBtnEndClick() {
+        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
+       /* if (formValidation()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {*/
+        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
+        Intent endSec = new Intent(this, EndingActivity.class);
+        endSec.putExtra("complete", false);
+        startActivity(endSec);
+           /* } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        } */
+    }
 
 
-}
+    @OnClick(R.id.btn_Continue)
+    void onBtnContinueClick() {
+        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+        if (formValidation()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
+                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
+                finish();
+
+                Intent secNext = new Intent(this, Section6Activity.class);
+                startActivity(secNext);
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+
+    private boolean UpdateDB() {
+        SRCDBHelper db = new SRCDBHelper(this);
+
+        int updcount = db.updateS5c();
+
+        if (updcount == 1) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+    }
+
+    private void SaveDraft() throws JSONException {
+        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+
+        JSONObject s5c = new JSONObject();
+
+        // TODO JSON
+
+        SRCApp.fc.setROW_S5(String.valueOf(s5c));
+
+        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+
+    }
+
+    private boolean formValidation() {
+
+        Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
+
+        // TODO Form Validation
+
+        return true;
+    }
 }

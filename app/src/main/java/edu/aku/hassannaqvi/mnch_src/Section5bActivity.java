@@ -315,7 +315,7 @@ public class Section5bActivity extends Activity {
             }
         });
 
-        // ================================== Q 5.30 Others =========================
+        // ================================== Q 5.32 Others =========================
         mn0532.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
