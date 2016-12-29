@@ -381,39 +381,38 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     public boolean Login(String username, String password) throws SQLException {
         SQLiteDatabase db = this.getReadableDatabase();
         boolean isexists = false;
+        String isadmin = "";
         String status = "";
 
         CVars var = new CVars();
 
-        Cursor mCursor = db.rawQuery("SELECT * FROM " + UsersContract.singleUser.TABLE_NAME + " WHERE " + UsersContract.singleUser.ROW_USERNAME + "=? AND " + UsersContract.singleUser.ROW_PASSWORD + "=?", new String[]{username, password}, null);
 
-
-        Log.d(TAG, "rowcount: " + mCursor.getCount());
+        Cursor mCursor = db.rawQuery("SELECT * FROM " + UsersContract.singleUser.TABLE_NAME + " WHERE " +
+                UsersContract.singleUser.ROW_USERNAME + "=? AND " +
+                UsersContract.singleUser.ROW_PASSWORD + "=? AND " +
+                UsersContract.singleUser.ROW_USERSTATUS + "=?", new String[]{username, password, "1"}, null);
 
         if (mCursor.getCount() < 0) {
-            mCursor.close();
-            return false;
+            isexists = false;
 
         } else {
 
             if (mCursor.moveToFirst()) {
 
                 status = mCursor.getString(3);
-                var.StoreStatus(status);
+                isadmin = mCursor.getString(4);
+                var.Store_isadmin(isadmin);
 
-                Log.d(TAG, "status: " + status);
 
-                if (status == "1") {
+                if (status.equals("1")) {
                     isexists = true;
                 } else {
                     isexists = false;
                 }
             }
-
-            mCursor.close();
         }
 
-        Log.d(TAG, "isexists: " + isexists);
+        mCursor.close();
 
         return isexists;
     }

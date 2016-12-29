@@ -3,21 +3,37 @@ package edu.aku.hassannaqvi.mnch_src;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainPage extends Activity {
 
+    private static final String TAG = "MainPage";
+
     private TextView username;
+    private LinearLayout vu_opendb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
+        vu_opendb = (LinearLayout) findViewById(R.id.vu_opendb);
+
+        CVars var = new CVars();
+
         if (CVars.myuser != null) {
             username = (TextView) findViewById(R.id.username);
             username.setText("Welcome : " + CVars.myuser);
+        }
+
+
+        if (CVars.isadmin.equals("1")) {
+            vu_opendb.setVisibility(View.VISIBLE);
+        } else {
+            vu_opendb.setVisibility(View.GONE);
         }
     }
 

@@ -10,15 +10,15 @@ public class CVars {
     public static int repro_age_woman;
     public static String hhno;
     public static String hhcode;
-    public static String status;
+    public static String isadmin;
 
 
-    public void StoreStatus(String status) {
-        this.status = status;
+    public void Store_isadmin(String isadmin) {
+        this.isadmin = isadmin;
     }
 
-    public String GetStatu() {
-        return this.status;
+    public String Get_isadmin() {
+        return this.isadmin;
     }
 
 
