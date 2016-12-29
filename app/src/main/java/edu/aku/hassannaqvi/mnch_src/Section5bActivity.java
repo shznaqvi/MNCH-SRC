@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -477,43 +478,35 @@ public class Section5bActivity extends Activity {
         });
 
         //  =========================== Q 5.33 Others ================================
-        if (mn053388.isChecked()) {
-            mn053388x.setVisibility(View.VISIBLE);
-            mn053388x.requestFocus();
+        mn053388.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn053388x.setVisibility(View.VISIBLE);
+                    mn053388x.requestFocus();
+                } else {
+                    mn053388x.setVisibility(View.GONE);
+                    mn053388x.setText(null);
 
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(mn053388x.getWindowToken(), 0);
+                }
+            }
+        });
 
-        } else {
-            mn053388x.setVisibility(View.GONE);
-            mn053388x.setText("");
-        }
-
-        // ============================ Q 5.36 Others ======================================
-        if (mn053688.isChecked()) {
-            mn053688x.setVisibility(View.VISIBLE);
-            mn053688x.requestFocus();
-
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(mn053688x.getWindowToken(), 0);
-
-        } else {
-            mn053688x.setVisibility(View.GONE);
-            mn053688x.setText("");
-        }
 
         //==================================== Q 5.42 others ==============================
-        if (mn054288.isChecked()) {
-            mn054288x.setVisibility(View.VISIBLE);
-            mn054288x.requestFocus();
+        mn054288.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn054288x.setVisibility(View.VISIBLE);
+                    mn054288x.requestFocus();
+                } else {
+                    mn054288x.setVisibility(View.GONE);
+                    mn054288x.setText(null);
 
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(mn054288x.getWindowToken(), 0);
-
-        } else {
-            mn054288x.setVisibility(View.GONE);
-            mn054288x.setText("");
-        }
+                }
+            }
+        });
 
         // ============================= Q 5.35 Skip Pattern ========================
         mn0535.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -539,6 +532,22 @@ public class Section5bActivity extends Activity {
                 }
             }
         });
+
+        // ============================ Q 5.36 Others ======================================
+        mn053688.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn053688x.setVisibility(View.VISIBLE);
+                    mn053688x.requestFocus();
+                } else {
+                    mn053688x.setVisibility(View.GONE);
+                    mn053688x.setText(null);
+
+                }
+            }
+        });
+
 
 
 
@@ -1007,5 +1016,10 @@ public class Section5bActivity extends Activity {
         }
 
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 }
