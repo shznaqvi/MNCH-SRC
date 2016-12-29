@@ -865,7 +865,7 @@
                         android:text="@string/mn051407" />
 
                     <RadioButton
-                        android:id="@+id/mn0517a3077"
+                        android:id="@+id/mn0517a377"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mndns" />
@@ -982,7 +982,7 @@
                         android:text="@string/mn051407" />
 
                     <RadioButton
-                        android:id="@+id/mn0517b3077"
+                        android:id="@+id/mn0517b377"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mndns" />
@@ -1099,7 +1099,7 @@
                         android:text="@string/mn051407" />
 
                     <RadioButton
-                        android:id="@+id/mn0517c3077"
+                        android:id="@+id/mn0517c377"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mndns" />
@@ -1215,7 +1215,7 @@
                         android:text="@string/mn051407" />
 
                     <RadioButton
-                        android:id="@+id/mn0517d3077"
+                        android:id="@+id/mn0517d377"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mndns" />
@@ -1332,7 +1332,7 @@
                         android:text="@string/mn051407" />
 
                     <RadioButton
-                        android:id="@+id/mn0517e3077"
+                        android:id="@+id/mn0517e377"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mndns" />
@@ -1449,7 +1449,7 @@
                         android:text="@string/mn051407" />
 
                     <RadioButton
-                        android:id="@+id/mn0517f3077"
+                        android:id="@+id/mn0517f377"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/mndns" />
