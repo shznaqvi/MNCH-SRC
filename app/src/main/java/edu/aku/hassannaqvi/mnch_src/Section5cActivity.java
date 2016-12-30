@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class Section5cActivity extends Activity {
-    private static final String TAG = Section5bActivity.class.getSimpleName();
+    private static final String TAG = Section5cActivity.class.getSimpleName();
 
     @BindView(R.id.activity_section5c)
     FrameLayout activitySection5c;
@@ -421,7 +421,7 @@ public class Section5cActivity extends Activity {
                 } else {
 
                     mn055488x.setVisibility(View.GONE);
-                    mn055488x.setText("");
+                    mn055488x.setText(null);
                 }
             }
         });
@@ -815,5 +815,10 @@ public class Section5cActivity extends Activity {
 
         return true;
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 }

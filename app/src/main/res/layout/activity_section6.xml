@@ -159,7 +159,14 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/mnother" />
 
-                <TextView
+                <LinearLayout
+                    android:id="@+id/fldGrpmn0604"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -209,13 +216,15 @@
                         android:layout_height="wrap_content"
                         android:text="@string/mnother" />
 
+
+                </RadioGroup>
+
                     <EditText
                         android:id="@+id/mn060488x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/mnother" />
-
-                </RadioGroup>
+                </LinearLayout>
 
 
                 <TextView

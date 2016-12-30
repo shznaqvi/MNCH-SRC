@@ -310,7 +310,7 @@ public class Section5bActivity extends Activity {
                 } else {
 
                     mn053088x.setVisibility(View.GONE);
-                    mn053088x.setText("");
+                    mn053088x.setText(null);
                 }
             }
         });
@@ -330,7 +330,7 @@ public class Section5bActivity extends Activity {
                 } else {
 
                     mn053288x.setVisibility(View.GONE);
-                    mn053288x.setText("");
+                    mn053288x.setText(null);
                 }
             }
         });
@@ -350,7 +350,7 @@ public class Section5bActivity extends Activity {
                 } else {
 
                     mn053488x.setVisibility(View.GONE);
-                    mn053488x.setText("");
+                    mn053488x.setText(null);
                 }
             }
         });
@@ -370,7 +370,7 @@ public class Section5bActivity extends Activity {
                 } else {
 
                     mn053888x.setVisibility(View.GONE);
-                    mn053888x.setText("");
+                    mn053888x.setText(null);
                 }
             }
         });
@@ -432,7 +432,7 @@ public class Section5bActivity extends Activity {
                 } else {
 
                     mn054388x.setVisibility(View.GONE);
-                    mn054388x.setText("");
+                    mn054388x.setText(null);
                 }
             }
         });
@@ -452,7 +452,7 @@ public class Section5bActivity extends Activity {
                 } else {
 
                     mn054488x.setVisibility(View.GONE);
-                    mn054488x.setText("");
+                    mn054488x.setText(null);
                 }
             }
         });
@@ -472,7 +472,7 @@ public class Section5bActivity extends Activity {
                 } else {
 
                     mn054588x.setVisibility(View.GONE);
-                    mn054588x.setText("");
+                    mn054588x.setText(null);
                 }
             }
         });
