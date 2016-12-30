@@ -159,7 +159,9 @@
     <!-- Section 4a -->
 
     <string name="baseline_s4q41a">مري ويل ماءُ جو مڪمل نالو  اي</string>
-    <string name="baseline_s4q41b">مرڻ وقت عمر</string>
+    <string name="baseline_s4q41b">مرڻ وقت عمر(ڏينهن)</string>
+    <string name="baseline_s4q41b1">مرڻ وقت عمر(مهينو)</string>
+    <string name="baseline_s4q41b2">مرڻ وقت عمر(سال)</string>
     <string name="baseline_s4q41c">ويم يا حمل جو نتيجو</string>
     <string name="baseline_s4q41c_1">پيٽ ۾ مري ويو</string>
     <string name="baseline_s4q41c_2">مرده پيدائش</string>
@@ -186,9 +188,11 @@
 
     <string name="baseline_s4q42a">ساڳيوماءُ جو فهرست نمبر استعمال ڪريو سوال 20 ۾</string>
     <string name="baseline_s4q42b">مريويل  ٻار جو مڪمل نالو</string>
+    <string name="baseline_s4q42c">جنس</string>
     <string name="baseline_s4q42c_1">مرد</string>
     <string name="baseline_s4q42c_2">عورت</string>
     <string name="baseline_s4q42d">موت وقت عمر</string>
+    <string name="baseline_s4q42e">موت جي جڳھه</string>
     <string name="baseline_s4q42e_1">گهر</string>
     <string name="baseline_s4q42e_2">گورنمينٽ ڊسپينسري</string>
     <string name="baseline_s4q42e_3">بي ايڇ يو</string>
@@ -334,12 +338,12 @@
     <string name="mn052612"> رت اچڻ </string>
 
 
-    <string name="mn052615"> ٻچيداني مان مواد جواخراج </string>
+    <string name="mn052613"> ٻچيداني مان مواد جواخراج </string>
 
 
-    <string name="mn052618"> چڪر اچڻ/بي هوشي </string>
+    <string name="mn052614"> چڪر اچڻ/بي هوشي </string>
 
-    <string name="mn052620"> پيٽ ۾ ٻار جو حرڪتنه ڪرڻ </string>
+    <string name="mn052615"> پيٽ ۾ ٻار جو حرڪتنه ڪرڻ </string>
 
     <string name="mn0527"> آخري حمل دوران پيچيدگي هئڻ جي صورت ۾ توهان پنهنجو علاج ڪٿان ڪرايو هيو؟ </string>
     <string name="mn052701"> ايل ايڇ ڊبليو صحت گهر </string>
