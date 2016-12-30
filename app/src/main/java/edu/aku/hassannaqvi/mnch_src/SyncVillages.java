@@ -16,17 +16,19 @@ import java.net.URL;
 import java.util.ArrayList;
 
 /**
- * Created by hassan.naqvi on 4/28/2016.
+ * Created by isd on 30/12/2016.
  */
-public class GetUsers extends AsyncTask<String, String, String> {
 
-    private final String TAG = "GetUsers()";
+public class SyncVillages extends AsyncTask<String, String, String> {
+
+    private final String TAG = "GetCluster";
     HttpURLConnection urlConnection;
     private Context mContext;
 
-    public GetUsers(Context context) {
+    public SyncVillages(Context context) {
         mContext = context;
     }
+
 
     @Override
     protected String doInBackground(String... args) {
@@ -34,11 +36,11 @@ public class GetUsers extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            //URL url = new URL("http://10.198.96.103:8080/src/users_login.php");
+            //URL url = new URL("http://10.198.96.72:8080/mapps/users_login.php");
 
             CVars var = new CVars();
+            URL url = new URL(var.getUrl_sync_lhw());
 
-            URL url = new URL(var.getUrl_sync_usr());
             urlConnection = (HttpURLConnection) url.openConnection();
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
 
@@ -52,12 +54,9 @@ public class GetUsers extends AsyncTask<String, String, String> {
 
         } catch (Exception e) {
             e.printStackTrace();
-
-
         } finally {
             urlConnection.disconnect();
         }
-
 
         return result.toString();
     }
@@ -70,39 +69,16 @@ public class GetUsers extends AsyncTask<String, String, String> {
         String json = result;
         //json = json.replaceAll("\\[", "").replaceAll("\\]","");
         Log.d(TAG, result);
-        ArrayList<UsersContract> userArrayList;
+        ArrayList<VillageContract> userArrayList;
         SRCDBHelper db = new SRCDBHelper(mContext);
         try {
-            userArrayList = new ArrayList<UsersContract>();
+            userArrayList = new ArrayList<VillageContract>();
             //JSONObject jsonObject = new JSONObject(json);
             JSONArray jsonArray = new JSONArray(json);
-            db.syncUser(jsonArray);
+            db.syncVillages(jsonArray);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        db.getAllUsers();
+        db.getVillages();
     }
-
-
-
-
-
-/*        try {
-
-            JSONObject obj = new JSONObject(json);
-
-            Log.d("My App", obj.toString());
-
-        } catch (Throwable t) {
-            Log.e("My App", "Could not parse malformed JSON: \"" + json + "\"");
-        }*/
-
-//        ArrayList<String> listdata = new ArrayList<String>();
-//        JSONArray jArray = (JSONArray)jsonObject;
-//        if (jArray != null) {
-//            for (int i=0;i<jArray.length();i++){
-//                listdata.add(jArray.get(i).toString());
-//            }
-//        }
-
 }

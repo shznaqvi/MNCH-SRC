@@ -13,6 +13,8 @@ import edu.aku.hassannaqvi.mnch_src.FormContract.Sec1Entry;
 import edu.aku.hassannaqvi.mnch_src.Sec3Contract.Sec3Entry;
 import edu.aku.hassannaqvi.mnch_src.Section4Contract.Section4Entry;
 import edu.aku.hassannaqvi.mnch_src.Section4aContract.Section4aEntry;
+import edu.aku.hassannaqvi.mnch_src.ClusterContract.ClusterEntry;
+import edu.aku.hassannaqvi.mnch_src.VillageContract.VillageEntry;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -158,6 +160,25 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + Section4Entry.TABLE_NAME;
 
 
+    /*******************************
+     * Get Cluster / UC
+     ******************************/
+
+
+    public static final String SQL_CREATE_CLUSTER = "CREATE TABLE IF NOT EXISTS " + ClusterEntry.TABLE_NAME + "("
+            + ClusterEntry.ROW_UCCODE + " TEXT,"
+            + ClusterEntry.ROW_UCNAME + " TEXT);";
+
+    /*******************************
+     * Get Villages
+     ******************************/
+
+
+    public static final String SQL_CREATE_VILLAGE = "CREATE TABLE IF NOT EXISTS " + VillageEntry.TABLE_NAME + "("
+            + VillageEntry.ROW_VCODE + " TEXT,"
+            + VillageEntry.ROW_VNAME + " TEXT,"
+            + VillageEntry.ROW_UCNAME + " TEXT);";
+
     SRCDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -166,6 +187,9 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_USERS);
+        db.execSQL(SQL_CREATE_CLUSTER);
+        db.execSQL(SQL_CREATE_VILLAGE);
+
         db.execSQL(SQL_CREATE_BASELINE_SEC1);
         db.execSQL(SQL_CREATE_BASELINE_SEC3);
         db.execSQL(SQL_CREATE_BASELINE_SEC4);
@@ -202,7 +226,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
     public void syncUser(JSONArray userlist) {
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.delete(UsersContract.singleUser.TABLE_NAME, null, null);
+        db.delete(UsersContract.singleUser.TABLE_NAME, null, null);
 
         try {
             JSONArray jsonArray = userlist;
@@ -221,6 +245,57 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 values.put(UsersContract.singleUser.ROW_ISADMIN, isadmin);
 
                 db.insert(UsersContract.singleUser.TABLE_NAME, null, values);
+            }
+            db.close();
+
+        } catch (Exception e) {
+        }
+    }
+
+    public void syncCluster(JSONArray test) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(ClusterContract.ClusterEntry.TABLE_NAME, null, null);
+
+        try {
+            JSONArray jsonArray = test;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectUser = jsonArray.getJSONObject(i);
+                String uccode = jsonObjectUser.getString("uccode");
+                String ucname = jsonObjectUser.getString("ucname");
+
+                ContentValues values = new ContentValues();
+
+                values.put(ClusterEntry.ROW_UCCODE, uccode);
+                values.put(ClusterEntry.ROW_UCNAME, ucname);
+
+                db.insert(ClusterEntry.TABLE_NAME, null, values);
+            }
+            db.close();
+
+        } catch (Exception e) {
+        }
+    }
+
+    public void syncVillages(JSONArray test) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(VillageEntry.TABLE_NAME, null, null);
+
+        try {
+            JSONArray jsonArray = test;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectUser = jsonArray.getJSONObject(i);
+
+                String vcode = jsonObjectUser.getString("vcode");
+                String vname = jsonObjectUser.getString("vname");
+                String ucname = jsonObjectUser.getString("ucname");
+
+                ContentValues values = new ContentValues();
+
+                values.put(VillageEntry.ROW_VCODE, vcode);
+                values.put(VillageEntry.ROW_VNAME, vname);
+                values.put(VillageEntry.ROW_UCNAME, ucname);
+
+                db.insert(VillageEntry.TABLE_NAME, null, values);
             }
             db.close();
 
@@ -813,6 +888,128 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         } catch (Exception e) {
         }
         return id;
+    }
+
+
+    public ArrayList<Members> getCluster() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<Members> userList = null;
+        try {
+            userList = new ArrayList<Members>();
+            String QUERY = "SELECT * FROM " + ClusterEntry.TABLE_NAME;
+            Cursor cursor = db.rawQuery(QUERY, null);
+
+            if (!cursor.isLast()) {
+                while (cursor.moveToNext()) {
+                    ClusterContract hf = new ClusterContract();
+
+                    hf.setROW_UCCODE(cursor.getString(0));
+                    hf.setROW_UCNAME(cursor.getString(1));
+
+                    userList.add(new Members(hf.getROW_UCCODE(), hf.getROW_UCNAME()));
+                }
+            }
+            db.close();
+        } catch (Exception e) {
+        }
+        return userList;
+    }
+
+
+    public ArrayList<Members> getVillages(String ucname) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<Members> userList = null;
+        try {
+            userList = new ArrayList<Members>();
+            String QUERY = "SELECT * FROM " + VillageEntry.TABLE_NAME + " WHERE "
+                    + VillageEntry.ROW_UCNAME + "='" + ucname + "'";
+
+            Cursor cursor = db.rawQuery(QUERY, null);
+
+            if (!cursor.isLast()) {
+                while (cursor.moveToNext()) {
+                    VillageContract hf = new VillageContract();
+
+                    hf.setROW_VCODE(cursor.getString(0));
+                    hf.setROW_VNAME(cursor.getString(1));
+
+                    userList.add(new Members(hf.getROW_VCODE(), hf.getROW_VNAME()));
+                }
+            }
+            db.close();
+        } catch (Exception e) {
+        }
+        return userList;
+    }
+
+    public ArrayList<Members> getVillages() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<Members> userList = null;
+        try {
+            userList = new ArrayList<Members>();
+            String QUERY = "SELECT * FROM " + VillageEntry.TABLE_NAME;
+
+            Cursor cursor = db.rawQuery(QUERY, null);
+
+            if (!cursor.isLast()) {
+                while (cursor.moveToNext()) {
+                    VillageContract hf = new VillageContract();
+
+                    hf.setROW_VCODE(cursor.getString(0));
+                    hf.setROW_VNAME(cursor.getString(1));
+
+                    userList.add(new Members(hf.getROW_VCODE(), hf.getROW_VNAME()));
+                }
+            }
+            db.close();
+        } catch (Exception e) {
+        }
+        return userList;
+    }
+
+
+    public String getUCCode(String ucname) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String uccode = "";
+
+        try {
+            String QUERY = "SELECT * FROM " + ClusterEntry.TABLE_NAME + " WHERE " +
+                    ClusterEntry.ROW_UCNAME + " = '" + ucname + "'";
+
+            Cursor cursor = db.rawQuery(QUERY, null);
+
+            if (!cursor.isLast()) {
+                while (cursor.moveToNext()) {
+                    uccode = cursor.getString(cursor.getColumnIndex("uccode"));
+                }
+            }
+            db.close();
+        } catch (Exception e) {
+        }
+        return uccode;
+    }
+
+
+    public String getVCode(String ucname, String vname) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String vcode = "";
+
+        try {
+            String QUERY = "SELECT * FROM " + VillageEntry.TABLE_NAME + " WHERE " +
+                    VillageEntry.ROW_UCNAME + " = '" + ucname + "' AND " +
+                    VillageEntry.ROW_VNAME + " = '" + vname + "'";
+
+            Cursor cursor = db.rawQuery(QUERY, null);
+
+            if (!cursor.isLast()) {
+                while (cursor.moveToNext()) {
+                    vcode = cursor.getString(cursor.getColumnIndex("vcode"));
+                }
+            }
+            db.close();
+        } catch (Exception e) {
+        }
+        return vcode;
     }
 
 }

@@ -61,6 +61,13 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/btnGetHF"
+                style="@style/buttons"
+                android:layout_marginTop="20dp"
+                android:onClick="OpenGetHF"
+                android:text="@string/btnGetHF" />
+
+            <Button
                 android:id="@+id/ShowSec2"
                 style="@style/buttons"
                 android:layout_marginTop="20dp"

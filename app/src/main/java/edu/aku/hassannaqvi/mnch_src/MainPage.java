@@ -37,6 +37,11 @@ public class MainPage extends Activity {
         }
     }
 
+    public void OpenGetHF(View view) {
+        Intent sec1_intent = new Intent(this, GetCluster.class);
+        startActivity(sec1_intent);
+    }
+
     public void OpenForm(View v) {
         Intent sec1_intent = new Intent(this, Section1Activity.class);
         startActivity(sec1_intent);

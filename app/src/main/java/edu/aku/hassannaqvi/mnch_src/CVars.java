@@ -12,6 +12,44 @@ public class CVars {
     public static String hhcode;
     public static String isadmin;
 
+    public static String url_sync_hf;
+    public static String url_sync_lhw;
+    public static String url_sync_usr;
+    public static String url_sync_sec1;
+
+
+    public String getUrl_sync_usr() {
+        return this.url_sync_usr;
+    }
+
+    public void setUrl_sync_usr(String url_sync_usr) {
+        this.url_sync_usr = url_sync_usr;
+    }
+
+    public String getUrl_sync_hf() {
+        return this.url_sync_hf;
+    }
+
+    public void setUrl_sync_hf(String url_sync_hf) {
+        this.url_sync_hf = url_sync_hf;
+    }
+
+    public String getUrl_sync_lhw() {
+        return this.url_sync_lhw;
+    }
+
+
+    public void setUrl_sync_lhw(String url_sync_lhw) {
+        this.url_sync_lhw = url_sync_lhw;
+    }
+
+    public String get_url_sync_sec1() {
+        return this.url_sync_sec1;
+    }
+
+    public void set_url_sync_sec1(String url_sync_sec1) {
+        this.url_sync_sec1 = url_sync_sec1;
+    }
 
     public void Store_isadmin(String isadmin) {
         this.isadmin = isadmin;
@@ -51,12 +89,11 @@ public class CVars {
     }
 
     public String getUrl_sync_users() {
-        return url_sync_users;
+        return this.url_sync_users;
     }
 
     public void StoreReporductionAgeWoman(int repro_age_woman) {
-        this.repro_age_woman = repro_age_woman;
-    }
+        this.repro_age_woman = repro_age_woman;    }
 
     public int GetReproductionAgeWoman() {
         return this.repro_age_woman;

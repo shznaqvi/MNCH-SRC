@@ -48,6 +48,34 @@
                 android:inputType="number" />
 
             <TextView
+                android:id="@+id/lbl_s1q105"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/baseline_s1q105"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Spinner
+                android:id="@+id/s1q105"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10" />
+
+            <TextView
+                android:id="@+id/lbl_s1q106a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/baseline_s1q106a"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Spinner
+                android:id="@+id/s1q106a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10" />
+
+            <TextView
                 android:id="@+id/lbl_s1q101"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -117,36 +145,6 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number" />
-
-            <TextView
-                android:id="@+id/lbl_s1q105"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/baseline_s1q105"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <EditText
-                android:id="@+id/s1q105"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textCapWords" />
-
-            <TextView
-                android:id="@+id/lbl_s1q106a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/baseline_s1q106a"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <EditText
-                android:id="@+id/s1q106a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textCapWords" />
 
             <TextView
                 android:id="@+id/lbl_s1q106b"
