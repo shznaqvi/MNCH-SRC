@@ -173,7 +173,7 @@
                     android:text="@string/mn0604"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                <RadioGroup
+                    <RadioGroup
                     android:id="@+id/mn0604"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
