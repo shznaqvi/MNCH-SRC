@@ -1,7 +1,11 @@
 package edu.aku.hassannaqvi.mnch_src;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.RadioGroup;
@@ -13,10 +17,14 @@ import android.widget.Button;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 
+
 public class Section8Activity extends Activity {
+
+    public static final String TAG = "";
 
     @BindView(R.id.app_header)
     TextView appHeader;
@@ -428,6 +436,26 @@ public class Section8Activity extends Activity {
         ButterKnife.bind(this);
 
         appHeader.setText("SRC -> Section8");
+
+        mn0801.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == mn080188.getId()) {
+
+                    vuMn080188x.setVisibility(View.VISIBLE);
+                    mn080188x.requestFocus();
+
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(mn080188x.getWindowToken(), 0);
+
+                } else {
+
+                    vuMn080188x.setVisibility(View.GONE);
+                    mn080188x.setText(null);
+                }
+            }
+        });
+
     }
 
     @OnClick(R.id.btnnext)
