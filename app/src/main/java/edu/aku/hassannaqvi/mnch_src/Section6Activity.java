@@ -264,20 +264,20 @@ public class Section6Activity extends Activity {
         s6.put("mn0601", mn060101.isChecked() ? "1" : mn060102.isChecked() ? "2" : "0");
 
         // Checkbox
-        s6.put("mn0602", mn060201.isChecked() ? "1" : "0");
-        s6.put("mn0602", mn060202.isChecked() ? "1" : "0");
-        s6.put("mn0602", mn060203.isChecked() ? "1" : "0");
-        s6.put("mn0602", mn060204.isChecked() ? "1" : "0");
-        s6.put("mn0602", mn060288.isChecked() ? "1" : "0");
+        s6.put("mn060201", mn060201.isChecked() ? "1" : "0");
+        s6.put("mn060202", mn060202.isChecked() ? "1" : "0");
+        s6.put("mn060203", mn060203.isChecked() ? "1" : "0");
+        s6.put("mn060204", mn060204.isChecked() ? "1" : "0");
+        s6.put("mn060288", mn060288.isChecked() ? "1" : "0");
         s6.put("mn060288x", mn060288x.getText().toString());
 
         // Checkbox
-        s6.put("mn0603", mn060301.isChecked() ? "1" : "0");
-        s6.put("mn0603", mn060302.isChecked() ? "1" : "0");
-        s6.put("mn0603", mn060303.isChecked() ? "1" : "0");
-        s6.put("mn0603", mn060304.isChecked() ? "1" : "0");
-        s6.put("mn0603", mn060305.isChecked() ? "1" : "0");
-        s6.put("mn0603", mn060388.isChecked() ? "1" : "0");
+        s6.put("mn060301", mn060301.isChecked() ? "1" : "0");
+        s6.put("mn060302", mn060302.isChecked() ? "1" : "0");
+        s6.put("mn060303", mn060303.isChecked() ? "1" : "0");
+        s6.put("mn060304", mn060304.isChecked() ? "1" : "0");
+        s6.put("mn060305", mn060305.isChecked() ? "1" : "0");
+        s6.put("mn060388", mn060388.isChecked() ? "1" : "0");
         s6.put("mn060388x", mn060388x.getText().toString());
 
         // Radio Group

@@ -3,7 +3,9 @@ package edu.aku.hassannaqvi.mnch_src;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -20,6 +22,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class Section8Activity extends Activity {
+
+    private static final String TAG = Section8Activity.class.getSimpleName();
 
     @BindView(R.id.ScrollView01)
     ScrollView scrollView01;
@@ -161,8 +165,8 @@ public class Section8Activity extends Activity {
     RadioButton mn080688;
     @BindView(R.id.mn080688x)
     EditText mn080688x;
-    @BindView(R.id.mn807)
-    RadioGroup mn807;
+    @BindView(R.id.mn0807)
+    RadioGroup mn0807;
     @BindView(R.id.mn080701)
     RadioButton mn080701;
     @BindView(R.id.mn080702)
@@ -197,46 +201,42 @@ public class Section8Activity extends Activity {
     RadioButton mn080788;
     @BindView(R.id.mn080788x)
     EditText mn080788x;
-    @BindView(R.id.mn808a)
-    RadioGroup mn808a;
-    @BindView(R.id.mn0808a01)
-    RadioButton mn0808a01;
-    @BindView(R.id.mn0808a02)
-    RadioButton mn0808a02;
-    @BindView(R.id.mn0808a03)
-    RadioButton mn0808a03;
-    @BindView(R.id.mn0808a04)
-    RadioButton mn0808a04;
-    @BindView(R.id.mn0808a05)
-    RadioButton mn0808a05;
-    @BindView(R.id.mn0808b)
-    RadioGroup mn0808b;
-    @BindView(R.id.mn0808b01)
-    RadioButton mn0808b01;
-    @BindView(R.id.mn0808b02)
-    RadioButton mn0808b02;
-    @BindView(R.id.mn0808b03)
-    RadioButton mn0808b03;
-    @BindView(R.id.mn0808b04)
-    RadioButton mn0808b04;
-    @BindView(R.id.mn0808c)
-    RadioGroup mn0808c;
-    @BindView(R.id.mn0808c01)
-    RadioButton mn0808c01;
-    @BindView(R.id.mn0808c02)
-    RadioButton mn0808c02;
-    @BindView(R.id.mn0808c03)
-    RadioButton mn0808c03;
-    @BindView(R.id.mn0808c04)
-    RadioButton mn0808c04;
-    @BindView(R.id.mn0808c05)
-    RadioButton mn0808c05;
-    @BindView(R.id.mn0808c06)
-    RadioButton mn0808c06;
-    @BindView(R.id.mn0808c88)
-    RadioButton mn0808c88;
-    @BindView(R.id.mn0808c88x)
-    EditText mn0808c88x;
+    @BindView(R.id.mn0808)
+    RadioGroup mn0808;
+    @BindView(R.id.mn080801)
+    RadioButton mn080801;
+    @BindView(R.id.mn080802)
+    RadioButton mn080802;
+    @BindView(R.id.mn080803)
+    RadioButton mn080803;
+    @BindView(R.id.mn080804)
+    RadioButton mn080804;
+    @BindView(R.id.mn080805)
+    RadioButton mn080805;
+    @BindView(R.id.mn080806)
+    RadioButton mn080806;
+    @BindView(R.id.mn080807)
+    RadioButton mn080807;
+    @BindView(R.id.mn080808)
+    RadioButton mn080808;
+    @BindView(R.id.mn080809)
+    RadioButton mn080809;
+    @BindView(R.id.mn080810)
+    RadioButton mn080810;
+    @BindView(R.id.mn080811)
+    RadioButton mn080811;
+    @BindView(R.id.mn080812)
+    RadioButton mn080812;
+    @BindView(R.id.mn080813)
+    RadioButton mn080813;
+    @BindView(R.id.mn080814)
+    RadioButton mn080814;
+    @BindView(R.id.mn080815)
+    RadioButton mn080815;
+    @BindView(R.id.mn080888)
+    RadioButton mn080888;
+    @BindView(R.id.mn080888x)
+    EditText mn080888x;
     @BindView(R.id.mn0809)
     RadioGroup mn0809;
     @BindView(R.id.mn080901)
@@ -279,32 +279,30 @@ public class Section8Activity extends Activity {
     CheckBox mn081388;
     @BindView(R.id.mn081388x)
     EditText mn081388x;
-    @BindView(R.id.mn0814a)
-    RadioGroup mn0814a;
-    @BindView(R.id.mn0814a01)
-    RadioButton mn0814a01;
-    @BindView(R.id.mn0814a02)
-    RadioButton mn0814a02;
-    @BindView(R.id.mn0814a03)
-    RadioButton mn0814a03;
-    @BindView(R.id.mn0814a04)
-    RadioButton mn0814a04;
-    @BindView(R.id.mn0814b)
-    RadioGroup mn0814b;
-    @BindView(R.id.mn0814b01)
-    RadioButton mn0814b01;
-    @BindView(R.id.mn0814b02)
-    RadioButton mn0814b02;
-    @BindView(R.id.mn0814b03)
-    RadioButton mn0814b03;
-    @BindView(R.id.mn0814b04)
-    RadioButton mn0814b04;
-    @BindView(R.id.mn0814b05)
-    RadioButton mn0814b05;
-    @BindView(R.id.mn0814c)
-    RadioGroup mn0814c;
-    @BindView(R.id.mn0814c01)
-    RadioButton mn0814c01;
+    @BindView(R.id.mn0814)
+    RadioGroup mn0814;
+    @BindView(R.id.mn081401)
+    RadioButton mn081401;
+    @BindView(R.id.mn081402)
+    RadioButton mn081402;
+    @BindView(R.id.mn081403)
+    RadioButton mn081403;
+    @BindView(R.id.mn081404)
+    RadioButton mn081404;
+    @BindView(R.id.mn081405)
+    RadioButton mn081405;
+    @BindView(R.id.mn081406)
+    RadioButton mn081406;
+    @BindView(R.id.mn081407)
+    RadioButton mn081407;
+    @BindView(R.id.mn081408)
+    RadioButton mn081408;
+    @BindView(R.id.mn081409)
+    RadioButton mn081409;
+    @BindView(R.id.mn081410)
+    RadioButton mn081410;
+    @BindView(R.id.mn081411)
+    RadioButton mn081411;
     @BindView(R.id.mn081488)
     RadioButton mn081488;
     @BindView(R.id.mn081488x)
@@ -403,14 +401,217 @@ public class Section8Activity extends Activity {
     RadioButton mn082303;
     @BindView(R.id.mn082304)
     RadioButton mn082304;
-    @BindView(R.id.mn082305)
-    RadioButton mn082305;
+    @BindView(R.id.mn082302x)
+    EditText mn082302x;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section8);
         ButterKnife.bind(this);
+
+        appHeader.setText("SRC - > Section 8");
+
+        // ============= Q 5.09 Skip Pattern =================
+
+        mn0809.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mn080901.isChecked()) {
+                    fldGrpmn0810.setVisibility(View.VISIBLE);
+
+                } else {
+                    fldGrpmn0810.setVisibility(View.GONE);
+                    mn0810.setText(null);
+                    mn0811.clearCheck();
+                }
+            }
+        });
+
+        // ============= Q 8.15 Skip Pattern =================
+
+        mn0815.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mn081501.isChecked()) {
+                    fldGrpmn0816.setVisibility(View.VISIBLE);
+
+                } else {
+                    fldGrpmn0816.setVisibility(View.GONE);
+                    mn0816.setText(null);
+
+                }
+            }
+        });
+
+        // ============= Q 8.20 Skip Pattern =================
+
+        mn0820.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mn082001.isChecked()) {
+                    fldGrpmn0821.setVisibility(View.VISIBLE);
+
+                } else {
+                    fldGrpmn0821.setVisibility(View.GONE);
+                    mn082101.setText(null);
+                    mn082102.setText(null);
+                    mn0821.clearCheck();
+                }
+            }
+        });
+
+        //  ============================= Q 8.01 Others ==============================
+        mn0801.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == mn080188.getId()) {
+
+                    mn080188x.setVisibility(View.VISIBLE);
+                    mn080188x.requestFocus();
+
+                } else {
+
+                    mn080188x.setVisibility(View.GONE);
+                    mn080188x.setText(null);
+                }
+            }
+        });
+
+        //  ============================= Q 8.02(a) Others ==============================
+        mn0802a.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == mn0802a88.getId()) {
+
+                    mn0802a88x.setVisibility(View.VISIBLE);
+                    mn0802a88x.requestFocus();
+
+                } else {
+
+                    mn0802a88x.setVisibility(View.GONE);
+                    mn0802a88x.setText(null);
+                }
+            }
+        });
+
+        //  ============================= Q 8.02(b) Others ==============================
+        mn0802b.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == mn0802b88.getId()) {
+
+                    mn0802b88x.setVisibility(View.VISIBLE);
+                    mn0802b88x.requestFocus();
+
+                } else {
+
+                    mn0802b88x.setVisibility(View.GONE);
+                    mn0802b88x.setText(null);
+                }
+            }
+        });
+
+        //  ============================= Q 8.02(c) Others ==============================
+        mn0802c.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == mn0802c88.getId()) {
+
+                    mn0802c88x.setVisibility(View.VISIBLE);
+                    mn0802c88x.requestFocus();
+
+                } else {
+
+                    mn0802c88x.setVisibility(View.GONE);
+                    mn0802c88x.setText(null);
+                }
+            }
+        });
+
+        //  ============================= Q 8.06 Others ==============================
+        mn0806.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == mn080688.getId()) {
+
+                    mn080688x.setVisibility(View.VISIBLE);
+                    mn080688x.requestFocus();
+
+                } else {
+
+                    mn080688x.setVisibility(View.GONE);
+                    mn080688x.setText(null);
+                }
+            }
+        });
+
+        //  ============================= Q 8.07 Others ==============================
+        mn0807.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == mn080788.getId()) {
+
+                    mn080788x.setVisibility(View.VISIBLE);
+                    mn080788x.requestFocus();
+
+                } else {
+
+                    mn080788x.setVisibility(View.GONE);
+                    mn080788x.setText(null);
+                }
+            }
+        });
+
+        //  ============================= Q 8.08 Others ==============================
+        mn0808.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == mn080888.getId()) {
+
+                    mn080888x.setVisibility(View.VISIBLE);
+                    mn080888x.requestFocus();
+
+                } else {
+
+                    mn080888x.setVisibility(View.GONE);
+                    mn080888x.setText(null);
+                }
+            }
+        });
+
+        //  =========================== Q 8.13 Others ================================
+        mn081388.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn081388x.setVisibility(View.VISIBLE);
+                    mn081388x.requestFocus();
+                } else {
+                    mn081388x.setVisibility(View.GONE);
+                    mn081388x.setText(null);
+
+                }
+            }
+        });
+
+        //  ============================= Q 8.14 Others ==============================
+        mn0814.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == mn081488.getId()) {
+
+                    mn081488x.setVisibility(View.VISIBLE);
+                    mn081488x.requestFocus();
+
+                } else {
+
+                    mn081488x.setVisibility(View.GONE);
+                    mn081488x.setText(null);
+                }
+            }
+        });
+
 
     }
 
@@ -489,7 +690,63 @@ public class Section8Activity extends Activity {
                 : mn080713.isChecked() ? "13" : mn080714.isChecked() ? "14" : mn080715.isChecked() ? "15"
                 : mn080788.isChecked() ? "88" : "0");
         s8.put("mn080788x", mn080788x.getText().toString());
-
+        s8.put("mn0808", mn080801.isChecked() ? "1" : mn080802.isChecked() ? "2" : mn080803.isChecked() ? "3"
+                : mn080804.isChecked() ? "4" : mn080805.isChecked() ? "5" : mn080806.isChecked() ? "6"
+                : mn080807.isChecked() ? "7" : mn080808.isChecked() ? "8" : mn080809.isChecked() ? "9"
+                : mn080810.isChecked() ? "10" : mn080811.isChecked() ? "11" : mn080812.isChecked() ? "12"
+                : mn080813.isChecked() ? "13" : mn080814.isChecked() ? "14" : mn080815.isChecked() ? "15"
+                : mn080888.isChecked() ? "88" : "0");
+        s8.put("mn080888x", mn080888x.getText().toString());
+        s8.put("mn0809", mn080901.isChecked() ? "1" : mn080902.isChecked() ? "2" : "0");
+        s8.put("mn0810", mn0810.getText().toString());
+        s8.put("mn0811", mn081101.isChecked() ? "1" : mn081102.isChecked() ? "2" : mn081103.isChecked() ? "3"
+                : mn081104.isChecked() ? "4" : "0");
+        s8.put("mn0812", mn081201.isChecked() ? "1" : mn081202.isChecked() ? "2" : "0");
+        s8.put("mn081301", mn081301.isChecked() ? "1" : "0");
+        s8.put("mn081302", mn081302.isChecked() ? "1" : "0");
+        s8.put("mn081303", mn081303.isChecked() ? "1" : "0");
+        s8.put("mn081304", mn081304.isChecked() ? "1" : "0");
+        s8.put("mn081305", mn081305.isChecked() ? "1" : "0");
+        s8.put("mn081306", mn081306.isChecked() ? "1" : "0");
+        s8.put("mn081388", mn081388.isChecked() ? "1" : "0");
+        s8.put("mn081388x", mn081388x.getText().toString());
+        s8.put("mn0814", mn081401.isChecked() ? "1" : mn081402.isChecked() ? "2" : mn081403.isChecked() ? "3"
+                : mn081404.isChecked() ? "4" : mn081405.isChecked() ? "5" : mn081406.isChecked() ? "6"
+                : mn081407.isChecked() ? "7" : mn081408.isChecked() ? "8" : mn081409.isChecked() ? "9"
+                : mn081410.isChecked() ? "10" : mn081411.isChecked() ? "11" : mn081488.isChecked() ? "88" : "0");
+        s8.put("mn081488x", mn081488x.getText().toString());
+        s8.put("mn0815", mn081501.isChecked() ? "1" : mn081502.isChecked() ? "2" : "0");
+        s8.put("mn0816", mn0816.getText().toString());
+        s8.put("mn0817", mn081701.isChecked() ? "1" : mn081702.isChecked() ? "2" : "0");
+        s8.put("mn0818", mn081801.isChecked() ? "1" : mn081802.isChecked() ? "2" : "0");
+        s8.put("mn0819", mn081901.isChecked() ? "1" : mn081902.isChecked() ? "2" : "0");
+        s8.put("mn0820", mn082001.isChecked() ? "1" : mn082002.isChecked() ? "2" : "0");
+        s8.put("mn082101", mn082101.getText().toString());
+        s8.put("mn082102", mn082102.getText().toString());
+        s8.put("mn082199", mn082199.isChecked() ? "99" : "0");
+        s8.put("mn082201", mn082201.getText().toString());
+        s8.put("mn082202", mn082202.getText().toString());
+        s8.put("mn082203", mn082203.getText().toString());
+        s8.put("mn082204", mn082204.getText().toString());
+        s8.put("mn082205", mn082205.getText().toString());
+        s8.put("mn082206", mn082206.getText().toString());
+        s8.put("mn082207", mn082207.getText().toString());
+        s8.put("mn082208", mn082208.getText().toString());
+        s8.put("mn082209", mn082209.getText().toString());
+        s8.put("mn082210", mn082210.getText().toString());
+        s8.put("mn082211", mn082211.getText().toString());
+        s8.put("mn082212", mn082212.getText().toString());
+        s8.put("mn082213", mn082213.getText().toString());
+        s8.put("mn082214", mn082214.getText().toString());
+        s8.put("mn082215", mn082215.getText().toString());
+        s8.put("mn082216", mn082216.getText().toString());
+        s8.put("mn082217", mn082217.getText().toString());
+        s8.put("mn082218", mn082218.getText().toString());
+        s8.put("mn082219", mn082219.getText().toString());
+        s8.put("mn082220", mn082220.getText().toString());
+        s8.put("mn0823", mn082301.isChecked() ? "1" : mn082302.isChecked() ? "2" : mn082303.isChecked() ? "3"
+                : mn082304.isChecked() ? "4" : "0");
+        s8.put("mn082302x", mn082302x.getText().toString());
 
         SRCApp.fc.setROW_S8(String.valueOf(s8));
 

@@ -532,7 +532,7 @@
 
 
             <RadioGroup
-                android:id="@+id/mn807"
+                android:id="@+id/mn0807"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -649,7 +649,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <RadioGroup
-                android:id="@+id/mn808"
+                android:id="@+id/mn0808"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -874,7 +874,6 @@
 
             </RadioGroup>
 
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -1003,6 +1002,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mn081410" />
+
+                <RadioButton
+                    android:id="@+id/mn081411"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mn081411" />
 
                 <RadioButton
                     android:id="@+id/mn081488"
@@ -1502,12 +1507,13 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mn082304" />
 
-                <RadioButton
-                    android:id="@+id/mn082305"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn082305" />
             </RadioGroup>
+
+            <EditText
+                android:id="@+id/mn082302x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mnother" />
 
 
             <!--  = = = = =  END OF FORM FIELDS - Section C = = = = = -->

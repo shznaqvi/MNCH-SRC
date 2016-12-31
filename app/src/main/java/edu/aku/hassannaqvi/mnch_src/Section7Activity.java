@@ -27,7 +27,6 @@ import butterknife.OnClick;
 public class Section7Activity extends Activity {
 
     private static final String TAG = Section7Activity.class.getSimpleName();
-    public String dob;
     @BindView(R.id.activity_section7)
     FrameLayout activitySection7;
     @BindView(R.id.scrollView01)
@@ -276,6 +275,7 @@ public class Section7Activity extends Activity {
     EditText mn072202;
     @BindView(R.id.mn072203)
     EditText mn072203;
+    private String dob;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -283,7 +283,7 @@ public class Section7Activity extends Activity {
         setContentView(R.layout.activity_section7);
         ButterKnife.bind(this);
 
-        appHeader.setText("SRC - > Section 6");
+        appHeader.setText("SRC - > Section 7");
         mn0701.setMaxDate(new Date().getTime());
         dob = new SimpleDateFormat("dd-MM-yyyy").format(mn0701.getCalendarView().getDate());
 
@@ -369,13 +369,14 @@ public class Section7Activity extends Activity {
                 : mn070888.isChecked() ? "88" : mn070899.isChecked() ? "99" : "0");
         s7.put("mn070888x", mn070888x.getText().toString());
         s7.put("mn0709", mn070901.isChecked() ? "1" : mn070902.isChecked() ? "2" : "0");
-        s7.put("mn0710", mn071001.isChecked() ? "1" : "0");
-        s7.put("mn0710", mn071002.isChecked() ? "1" : "0");
-        s7.put("mn0710", mn071003.isChecked() ? "1" : "0");
-        s7.put("mn0710", mn071004.isChecked() ? "1" : "0");
-        s7.put("mn0710", mn071005.isChecked() ? "1" : "0");
-        s7.put("mn0710", mn071006.isChecked() ? "1" : "0");
-        s7.put("mn0710", mn071088.isChecked() ? "1" : "0");
+        //Check Box
+        s7.put("mn071001", mn071001.isChecked() ? "1" : "0");
+        s7.put("mn071002", mn071002.isChecked() ? "1" : "0");
+        s7.put("mn071003", mn071003.isChecked() ? "1" : "0");
+        s7.put("mn071004", mn071004.isChecked() ? "1" : "0");
+        s7.put("mn071005", mn071005.isChecked() ? "1" : "0");
+        s7.put("mn071006", mn071006.isChecked() ? "1" : "0");
+        s7.put("mn071007", mn071088.isChecked() ? "1" : "0");
         s7.put("mn071088x", mn071088x.getText().toString());
         s7.put("mn0711", mn071101.isChecked() ? "1" : mn071102.isChecked() ? "2" : mn071103.isChecked() ? "3" : "0");
         s7.put("mn071102x", mn071102x.getText().toString());
@@ -384,47 +385,48 @@ public class Section7Activity extends Activity {
         s7.put("mn0713", mn071301.isChecked() ? "1" : mn071302.isChecked() ? "2" : "0");
         s7.put("mn071301x", mn071301x.getText().toString());
         s7.put("mn071302x", mn071302x.getText().toString());
-        s7.put("mn0714", mn071401.isChecked() ? "1" : "0");
-        s7.put("mn0714", mn071402.isChecked() ? "1" : "0");
-        s7.put("mn0714", mn071403.isChecked() ? "1" : "0");
-        s7.put("mn0714", mn071404.isChecked() ? "1" : "0");
-        s7.put("mn0714", mn071405.isChecked() ? "1" : "0");
-        s7.put("mn0714", mn071406.isChecked() ? "1" : "0");
-        s7.put("mn0714", mn071488.isChecked() ? "1" : "0");
+        s7.put("mn071401", mn071401.isChecked() ? "1" : "0");
+        s7.put("mn071402", mn071402.isChecked() ? "1" : "0");
+        s7.put("mn071403", mn071403.isChecked() ? "1" : "0");
+        s7.put("mn071404", mn071404.isChecked() ? "1" : "0");
+        s7.put("mn071405", mn071405.isChecked() ? "1" : "0");
+        s7.put("mn071406", mn071406.isChecked() ? "1" : "0");
+        s7.put("mn071488", mn071488.isChecked() ? "1" : "0");
+        s7.put("mn071488x", mn071488x.getText().toString());
         s7.put("mn0715", mn071501.isChecked() ? "1" : mn071502.isChecked() ? "2" : "0");
-        s7.put("mn0716", mn071601.isChecked() ? "1" : "0");
-        s7.put("mn0716", mn071602.isChecked() ? "1" : "0");
-        s7.put("mn0716", mn071603.isChecked() ? "1" : "0");
-        s7.put("mn0716", mn071604.isChecked() ? "1" : "0");
-        s7.put("mn0716", mn071605.isChecked() ? "1" : "0");
-        s7.put("mn0716", mn071606.isChecked() ? "1" : "0");
-        s7.put("mn0716", mn071607.isChecked() ? "1" : "0");
-        s7.put("mn0716", mn071608.isChecked() ? "1" : "0");
-        s7.put("mn0716", mn071609.isChecked() ? "1" : "0");
-        s7.put("mn0716", mn071688.isChecked() ? "1" : "0");
+
+        s7.put("mn071601", mn071601.isChecked() ? "1" : "0");
+        s7.put("mn071602", mn071602.isChecked() ? "1" : "0");
+        s7.put("mn071603", mn071603.isChecked() ? "1" : "0");
+        s7.put("mn071604", mn071604.isChecked() ? "1" : "0");
+        s7.put("mn071605", mn071605.isChecked() ? "1" : "0");
+        s7.put("mn071606", mn071606.isChecked() ? "1" : "0");
+        s7.put("mn071607", mn071607.isChecked() ? "1" : "0");
+        s7.put("mn071608", mn071608.isChecked() ? "1" : "0");
+        s7.put("mn071609", mn071609.isChecked() ? "1" : "0");
+        s7.put("mn071688", mn071688.isChecked() ? "1" : "0");
         s7.put("mn071688x", mn071688x.getText().toString());
-        s7.put("mn0717", mn071701.isChecked() ? "1" : "0");
-        s7.put("mn0717", mn071702.isChecked() ? "1" : "0");
-        s7.put("mn0717", mn071703.isChecked() ? "1" : "0");
-        s7.put("mn0717", mn071703.isChecked() ? "1" : "0");
-        s7.put("mn0717", mn071704.isChecked() ? "1" : "0");
-        s7.put("mn0717", mn071705.isChecked() ? "1" : "0");
-        s7.put("mn0717", mn071706.isChecked() ? "1" : "0");
-        s7.put("mn0717", mn071707.isChecked() ? "1" : "0");
-        s7.put("mn0717", mn071708.isChecked() ? "1" : "0");
-        s7.put("mn0717", mn071709.isChecked() ? "1" : "0");
-        s7.put("mn0717", mn071777.isChecked() ? "1" : "0");
-        s7.put("mn0717", mn071788.isChecked() ? "1" : "0");
+        s7.put("mn071701", mn071701.isChecked() ? "1" : "0");
+        s7.put("mn071702", mn071702.isChecked() ? "1" : "0");
+        s7.put("mn071703", mn071703.isChecked() ? "1" : "0");
+        s7.put("mn071704", mn071704.isChecked() ? "1" : "0");
+        s7.put("mn071705", mn071705.isChecked() ? "1" : "0");
+        s7.put("mn071706", mn071706.isChecked() ? "1" : "0");
+        s7.put("mn071707", mn071707.isChecked() ? "1" : "0");
+        s7.put("mn071708", mn071708.isChecked() ? "1" : "0");
+        s7.put("mn071709", mn071709.isChecked() ? "1" : "0");
+        s7.put("mn071777", mn071777.isChecked() ? "1" : "0");
+        s7.put("mn071788", mn071788.isChecked() ? "1" : "0");
         s7.put("mn071788x", mn071788x.getText().toString());
         s7.put("mn0718", mn071801.isChecked() ? "1" : mn071802.isChecked() ? "2" : mn071803.isChecked() ? "3" : "0");
         s7.put("mn0719", mn071901.isChecked() ? "1" : mn071902.isChecked() ? "2" : mn071903.isChecked() ? "3"
                 : mn071904.isChecked() ? "4" : mn071905.isChecked() ? "5" : mn071906.isChecked() ? "6"
                 : mn071907.isChecked() ? "7" : mn071988.isChecked() ? "88" : "0");
         s7.put("mn071988x", mn071988x.getText().toString());
-        s7.put("mn0720", mn072001.isChecked() ? "1" : "0");
-        s7.put("mn0720", mn072002.isChecked() ? "1" : "0");
-        s7.put("mn0720", mn072003.isChecked() ? "1" : "0");
-        s7.put("mn0720", mn072004.isChecked() ? "1" : "0");
+        s7.put("mn072001", mn072001.isChecked() ? "1" : "0");
+        s7.put("mn072002", mn072002.isChecked() ? "1" : "0");
+        s7.put("mn072003", mn072003.isChecked() ? "1" : "0");
+        s7.put("mn072004", mn072004.isChecked() ? "1" : "0");
         s7.put("mn0721", mn072101.isChecked() ? "1" : mn072102.isChecked() ? "2" : "0");
         s7.put("mn072201", mn072201.getText().toString());
         s7.put("mn072202", mn072202.getText().toString());
