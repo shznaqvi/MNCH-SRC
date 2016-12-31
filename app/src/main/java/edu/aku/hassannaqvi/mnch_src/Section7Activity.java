@@ -430,7 +430,7 @@ public class Section7Activity extends Activity {
         s7.put("mn072202", mn072202.getText().toString());
         s7.put("mn072203", mn072203.getText().toString());
 
-        SRCApp.fc.setROW_S6(String.valueOf(s7));
+        SRCApp.fc.setROW_S7(String.valueOf(s7));
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
