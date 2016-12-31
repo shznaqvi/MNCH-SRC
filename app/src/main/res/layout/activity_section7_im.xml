@@ -945,7 +945,7 @@
                 android:layout_marginTop="20dp"
                 android:onClick="gotoSection8"
                 android:text="@string/sec8" />
-            
+             
 
         </LinearLayout>
     </ScrollView>

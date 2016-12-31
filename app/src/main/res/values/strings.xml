@@ -15,7 +15,10 @@
         completions."
     </string>
 
+    <string name="app_header1">HouseHold Number</string>
+
     <string name="btnDBAccess">Database Access</string>
+    <string name="btnadd">Add Another Woman</string>
     <string name="sec2">Section 2</string>
     <string name="sec3">Section 3</string>
     <string name="sec4">Section 4</string>
@@ -107,6 +110,11 @@
     <string name="baseline_s3q301d_1">ها</string>
     <string name="baseline_s3q301d_2">نه</string>
     <string name="baseline_s3q301e">اي حمل جو دورانيو</string>
+
+    <string name="baseline_s3q301f1">ڇا هي عورت پوئين 2 سالن دوران حمل سان ٿي آهي</string>
+    <string name="baseline_s3q301f1_1">ها</string>
+    <string name="baseline_s3q301f1_2">نه</string>
+
     <string name="baseline_s3q301f">حمل جو نتيجو</string>
     <string name="baseline_s3q301f_1">ضايع ٿي وڃڻ</string>
     <string name="baseline_s3q301f_2">مرده ٻار جي پيدائش</string>
@@ -177,7 +185,7 @@
     <string name="baseline_s4q42c_2">عورت</string>
     <string name="baseline_s4q42d">موت وقت عمر</string>
     <string name="baseline_s4q42e_1">گهر</string>
-    <string name="baseline_s4q42e_2">گورنمينٽ ڊسپينسري</string>
+    <string name="baseline_s4q42e_2">گورنمينٽ ڊسپينسري  </string>
     <string name="baseline_s4q42e_3">بي ايڇ يو</string>
     <string name="baseline_s4q42e_4">رورل هيلٿ سينٽر</string>
     <string name="baseline_s4q42e_5">تعلقي اسپتال</string>
@@ -232,9 +240,9 @@
     <string name="mn051405"> ضلعه اسپتال </string>
     <string name="mn051406"> نجي ڪلينڪ </string>
     <string name="mn051407"> نجي اسپتال </string>
-    <string name="mnDNS"> حاصل نه ڪيو هيو </string>
-    <string name="mnother"> ٻيو (ڪو نالو لکو) </string>
-    <string name="mnyes"> ها</string>
+    <string name="mndns"> حاصل نه ڪيو هيو </string>
+    <string name="mnother"> ٻيو (وضاحت ڪریو) </string>
+    <string name="mnyes">ها</string>
     <string name="mnno">نه</string>
     <string name="mn0515"> توهان پنهنجي حمل جو بنيادي چيڪپ ڇوڪرايو هيو؟ </string>
     <string name="mn051501"> نئين ڄمڻ واري ٻار جي افزائش ڄاڻڻ لاءِ </string>
@@ -257,36 +265,22 @@
     <string name="mn051609"> ٻارجي چرپرچيڪ ڪئي هئي </string>
     <string name="mn051610"> ٻار جي دل جي چرپرچيڪ ڪئي </string>
     <string name="mn0517"> حمل جي بنيادي چيڪپ دوران توهان کي ڪهڙي قسم جون دوائن ڏنيون ويون هيون؟ </string>
-    <string name="mn0517a"> Vitamin D </string>
-    <string name="mn0517a1"> Used </string>
-    <string name="mn0517a2d"> Days </string>
-    <string name="mn0517a2m"> Month </string>
-    <string name="mn0517a3"> Source </string>
-    <string name="mn0517b"> Iron folate </string>
-    <string name="mn0517b1"> Used </string>
-    <string name="mn0517b2d"> Days </string>
-    <string name="mn0517b2m"> Month </string>
-    <string name="mn0517b3"> Source </string>
-    <string name="mn0517c"> Folic acid </string>
-    <string name="mn0517c1"> Used </string>
-    <string name="mn0517c2d"> Days </string>
-    <string name="mn0517c2m"> Month </string>
-    <string name="mn0517c3"> Source </string>
-    <string name="mn0517d"> Micronutrient </string>
-    <string name="mn0517d1"> Used </string>
-    <string name="mn0517d2d"> Days </string>
-    <string name="mn0517d2m"> Month </string>
-    <string name="mn0517d3"> Source </string>
-    <string name="mn0517e"> Calcium </string>
-    <string name="mn0517e1"> Used </string>
-    <string name="mn0517e2d"> Days </string>
-    <string name="mn0517e2m"> Month </string>
-    <string name="mn0517e3"> Source </string>
-    <string name="mn0517f"> Other vitamins </string>
-    <string name="mn0517f1"> Used </string>
-    <string name="mn0517f2d"> Days </string>
-    <string name="mn0517f2m"> Month </string>
-    <string name="mn0517f3"> Source </string>
+    <string name="mn0517vitd"> Vitamin D </string>
+    <string name="mn0517used"> Used </string>
+    <string name="mn0517dura"> Duration </string>
+    <string name="mn0517days"> Days </string>
+    <string name="mn0517month"> Month </string>
+    <string name="mn0517src"> Source </string>
+    <string name="mn0517iron"> Iron folate </string>
+
+    <string name="mn0517folic"> Folic acid </string>
+
+    <string name="mn0517micro"> Micronutrient </string>
+
+    <string name="mn0517calcium"> Calcium </string>
+
+    <string name="mn0517ovit"> Other vitamins </string>
+
     <string name="mn0518"> حمل جي بنيادي چيڪپ دوران ڇا توهان کي هيٺ ڏنل صلاحِ ڏني وئي هئي؟ </string>
     <string name="mn051801"> ۽ ويم جي خطرناڪ علامتن باري ۾ حمل </string>
     <string name="mn051802"> کاڌ يا خوراڪ جي باري ۾ </string>
@@ -333,15 +327,15 @@
     <string name="mn052610"> ساهه جي مونجهه </string>
     <string name="mn052611"> پيٽ ۾ وڪڙ پوڻ </string>
     <string name="mn052612"> رت اچڻ </string>
-    <string name="mn052613"> گهڻي اڃ </string>
-    <string name="mn052614"> وزن وڌي وڃڻ گھڻو </string>
+
+
     <string name="mn052615"> ٻچيداني مان مواد جواخراج </string>
-    <string name="mn052616"> پيشاب ۾ تڪليف </string>
-    <string name="mn052617"> ۾ زخم اندام نهاني </string>
+
+
     <string name="mn052618"> چڪر اچڻ/بي هوشي </string>
-    <string name="mn052619"> مستقل ٿڪاوٽ </string>
+
     <string name="mn052620"> پيٽ ۾ ٻار جو حرڪتنه ڪرڻ </string>
-    <string name="mn052621"> مروڙ پوڻ </string>
+
     <string name="mn0527"> آخري حمل دوران پيچيدگي هئڻ جي صورت ۾ توهان پنهنجو علاج ڪٿان ڪرايو هيو؟ </string>
     <string name="mn052701"> ايل ايڇ ڊبليو صحت گهر </string>
     <string name="mn052702"> بنيادي صحت مرڪز </string>
@@ -383,13 +377,14 @@
     <string name="mn053205"> صحت مرڪز پري هيو </string>
     <string name="mn053206"> وڏن جي اجازت نه هئي </string>
     <string name="mn0533"> ويم جي لاءِ توهان ڪهڙا انتظام ڪيا هيا؟ </string>
-    <string name="mn053301"> ناڙو ٻڌڻ جي لاءِ ڌاڳو </string>
-    <string name="mn053302"> ٻارلاءِ نوان ڪپڙا </string>
-    <string name="mn053303"> ٻارکي ويڙهڻ جي لاءِ صاف ڪپڙا </string>
-    <string name="mn053304"> پيسن جو انتظام </string>
-    <string name="mn053305"> گاڏي جوانتظام </string>
-    <string name="mn053306"> ڪجهه به نه </string>
-    <string name="mn053307"> صاف ويم ڪرائڻ جو سامان /ڪٽ </string>
+    <string name="mn053301"> ناڙوڪٽڻ جي لاءِنئون بليڊ </string>
+    <string name="mn053302"> ناڙو ٻڌڻ جي لاءِ ڌاڳو </string>
+    <string name="mn053303"> ٻارلاءِ نوان ڪپڙا </string>
+    <string name="mn053304"> ٻارکي ويڙهڻ جي لاءِ صاف ڪپڙا </string>
+    <string name="mn053305"> پيسن جو انتظام </string>
+    <string name="mn053306"> گاڏي جوانتظام </string>
+    <string name="mn053307"> ڪجهه به نه </string>
+    <string name="mn053308"> صاف ويم ڪرائڻ جو سامان /ڪٽ </string>
     <string name="mn0534"> ناڙو ڪٽڻ جي لاءِ ڇا استعمال ڪيو ويوهيو؟ </string>
     <string name="mn053401"> چاقو </string>
     <string name="mn053402"> قينچي </string>
@@ -415,9 +410,8 @@
     <string name="mn053901"> نارمل ويم </string>
     <string name="mn053902"> ننڍي آپريشن ذريعي </string>
     <string name="mn053903"> وڏي آپريشن ذريعي </string>
-    <string name=""> ويم جو نتيجو </string>
-    <string name=""> زندهه پيدائش </string>
-    <string name=""> مرده پيدائش </string>
+
+
     <string name="mn0540"> آخري ويم دوران توهان کي ڪاپيچيدگي ٿي هئي؟ </string>
     <string name="mn0541"> جيڪڏهن ها ، ته ڇا اوهان صحت مرڪز ۾ وقت تي پنهنجي پيچيدگي کي بيان ڪرڻ لاءِ پهتو؟ </string>
     <string name="mn0542"> جيڪڏهن ها ته آخري ويم دوران توهان کي ڪهڙي ڪهڙي قسم جون پيچيدگيون ٿيون هيون؟ </string>
@@ -480,7 +474,7 @@
     <string name="mn055004"> ٻار کي صرف ۽ صرف پنهنجو کير پيارڻ </string>
     <string name="mn055005"> خانداني منصوبابندي جي باري ۾ مشورو ڏيڻ </string>
     <string name="mn0551"> ويم کانپوء ڇاتوهان کي ڪا پيچيدگي ٿي هئي </string>
-    <string name="mnDKN"> معلوم ناهي </string>
+    <string name="mndkn"> معلوم ناهي </string>
     <string name="mn0552"> جيڪڏهن ها ته ويم کانپوءِ توهان کي ڪهڙي قسم جون پيچيدگيون ٿيون هيون </string>
     <string name="mn055201"> ڇاتي۾ سوڄ هجڻ </string>
     <string name="mn055202"> پيٽ جي هيٺين حصي ۾ تڪليف </string>
@@ -610,53 +604,53 @@
     <string name="mn0721"> ڇا توهان جي ٻار کي پوئين ڇهن مهينن ۾ ڪا اهڙي بيماري ٿي هئي جنهنجي ڪري انکي اسپتال ۾ داخل ڪيو ويو هيو </string>
     <string name="mn0722"> جيڪڏهن ها.ته اهڙي ڪهڙي بيماري ٿي هئي جنهن جي ڪري انکي اسپتال ۾ داخل ڪيو ويو هيو </string>
     <string name="mn0723"> (گھر ۾ موجودهرپنج سالن کان ننڍي عمرجي ٻار کي فارم ۾ شامل ڪريو) حفاظتي ٽڪن جي تفصیلات </string>
-    <string name="mnNOC"> Name of Child </string>
-    <string name="mnAGEM"> Age of Child (Months) </string>
-    <string name="mnCA"> Card available </string>
-    <string name="mnBIRTH"> At Birth </string>
-    <string name="mnBCG"> BCG </string>
-    <string name="mnBCGSrc"> Source </string>
-    <string name="mnBCGSCAR"> Presence of Scar </string>
-    <string name="mnOPV0"> OPV 0 </string>
-    <string name="mnOPV0SRC"> Source </string>
-    <string name="mn06W"> At 6 weeks of age </string>
-    <string name="mnP1"> Pentavalent 1 </string>
-    <string name="mnP1SRC"> Source </string>
-    <string name="mnOPV1"> OPV 1 </string>
-    <string name="mnOPV1SRC"> Source </string>
-    <string name="mnPCV1"> PCV 1 </string>
-    <string name="mnPCV1SRC"> Source </string>
-    <string name="mn10W"> At 10 weeks of age </string>
-    <string name="mnP2"> Pentavalent 2 </string>
-    <string name="mnP2SRC"> Source </string>
-    <string name="mnOPV2"> OPV 2 </string>
-    <string name="mnOPV2SRC"> Source </string>
-    <string name="mnPCV2"> PCV 2 </string>
-    <string name="mnPCV2SRC"> Source </string>
-    <string name="mn14W"> At 14 weeks </string>
-    <string name="mnP3"> Pentavalent 3 </string>
-    <string name="mnP3SRC"> Source </string>
-    <string name="mnOPV3"> OPV 3 </string>
-    <string name="mnOPV3SRC"> Source </string>
-    <string name="mnIPV2"> IPV </string>
-    <string name="mnIPV2SRC"> Source </string>
-    <string name="mnIPCV3"> PCV 3 </string>
-    <string name="mnIPCV3SRC"> Source </string>
-    <string name="mn09M"> At 9 months </string>
-    <string name="mnM1"> Measles 1 </string>
-    <string name="mnM1SRC"> Source </string>
-    <string name="mn15M"> At 15 months </string>
-    <string name="mnM2"> Measles 2 </string>
-    <string name="mnM2SRC"> Source </string>
-    <string name="mnGT"> Grand Total </string>
-    <string name="mnTOPV"> Total doses of OPV </string>
-    <string name="mnTP"> Total doses of Penta </string>
-    <string name="mnTPCV"> Total doses of PCV </string>
-    <string name="mnTM"> Total doses of measles </string>
-    <string name="mnIS"> Immunization Status </string>
-    <string name="mnFI"> Fully immunized </string>
-    <string name="mnPI"> Partially immunized </string>
-    <string name="mnUI"> Un immunized </string>
+    <string name="mnnoc"> Name of Child </string>
+    <string name="mnagem"> Age of Child (Months) </string>
+    <string name="mnca"> Card available </string>
+    <string name="mnbirth"> At Birth </string>
+    <string name="mnbcg"> BCG </string>
+    <string name="mnbcgsrc"> Source </string>
+    <string name="mnbcgscar"> Presence of Scar </string>
+    <string name="mnopv0"> OPV 0 </string>
+    <string name="mnopv0src"> Source </string>
+    <string name="mn06w"> At 6 weeks of age </string>
+    <string name="mnp1"> Pentavalent 1 </string>
+    <string name="mnp1src"> Source </string>
+    <string name="mnopv1"> OPV 1 </string>
+    <string name="mnopv1src"> Source </string>
+    <string name="mnpcv1"> PCV 1 </string>
+    <string name="mnpcv1src"> Source </string>
+    <string name="mn10w"> At 10 weeks of age </string>
+    <string name="mnp2"> Pentavalent 2 </string>
+    <string name="mnp2src"> Source </string>
+    <string name="mnopv2"> OPV 2 </string>
+    <string name="mnopv2src"> Source </string>
+    <string name="mnpcv2"> PCV 2 </string>
+    <string name="mnpcv2src"> Source </string>
+    <string name="mn14w"> At 14 weeks </string>
+    <string name="mnp3"> Pentavalent 3 </string>
+    <string name="mnp3src"> Source </string>
+    <string name="mnopv3"> OPV 3 </string>
+    <string name="mnopv3src"> Source </string>
+    <string name="mnipv2"> IPV </string>
+    <string name="mnipv2src"> Source </string>
+    <string name="mnipcv3"> PCV 3 </string>
+    <string name="mnipcv3src"> Source </string>
+    <string name="mn09m"> At 9 months </string>
+    <string name="mnm1"> Measles 1 </string>
+    <string name="mnm1src"> Source </string>
+    <string name="mn15m"> At 15 months </string>
+    <string name="mnm2"> Measles 2 </string>
+    <string name="mnm2src"> Source </string>
+    <string name="mngt"> Grand Total </string>
+    <string name="mntopv"> Total doses of OPV </string>
+    <string name="mntp"> Total doses of Penta </string>
+    <string name="mntpcv"> Total doses of PCV </string>
+    <string name="mntm"> Total doses of measles </string>
+    <string name="mnis"> Immunization Status </string>
+    <string name="mnfi"> Fully immunized </string>
+    <string name="mnpi"> Partially immunized </string>
+    <string name="mnui"> Un immunized </string>
     <string name="mn0801"> گهر ۾ ڪهڙي ٻولي استعمال ڪندا آهيو </string>
     <string name="mn080101"> اردو </string>
     <string name="mn080102"> سنڌي </string>
@@ -818,7 +812,4 @@
     <string name="mn082303"> (جيڪڏهن نه ته ڇو__؟) </string>
     <string name="mn082304"> جواب ڏيندڙ گهر ۾ موجود ناهي </string>
     <string name="mn082305"> جواب ڏيندڙ انڪار ڪري ڇڏيو </string>
-
-    <!-- Section 6 -->
-
 </resources>
