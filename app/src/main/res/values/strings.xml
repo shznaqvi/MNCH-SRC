@@ -604,12 +604,15 @@
     <string name="mn0721"> ڇا توهان جي ٻار کي پوئين ڇهن مهينن ۾ ڪا اهڙي بيماري ٿي هئي جنهنجي ڪري انکي اسپتال ۾ داخل ڪيو ويو هيو </string>
     <string name="mn0722"> جيڪڏهن ها.ته اهڙي ڪهڙي بيماري ٿي هئي جنهن جي ڪري انکي اسپتال ۾ داخل ڪيو ويو هيو </string>
     <string name="mn0723"> (گھر ۾ موجودهرپنج سالن کان ننڍي عمرجي ٻار کي فارم ۾ شامل ڪريو) حفاظتي ٽڪن جي تفصیلات </string>
-    <string name="mnnoc"> Name of Child </string>
-    <string name="mnagem"> Age of Child (Months) </string>
-    <string name="mnca"> Card available </string>
+    <string name="mn07im01"> Name of Child </string>
+    <string name="mn07im02"> Age of Child (Months) </string>
+    <string name="mn07im03"> Card available </string>
     <string name="mnbirth"> At Birth </string>
     <string name="mnbcg"> BCG </string>
     <string name="mnbcgsrc"> Source </string>
+    <string name="mnbcgsrc01"> کارڈ </string>
+    <string name="mnbcgsrc02"> جوابدہندہ </string>
+    <string name="mnbcgsrc03"> یاد نہیں </string>
     <string name="mnbcgscar"> Presence of Scar </string>
     <string name="mnopv0"> OPV 0 </string>
     <string name="mnopv0src"> Source </string>
@@ -812,4 +815,6 @@
     <string name="mn082303"> (جيڪڏهن نه ته ڇو__؟) </string>
     <string name="mn082304"> جواب ڏيندڙ گهر ۾ موجود ناهي </string>
     <string name="mn082305"> جواب ڏيندڙ انڪار ڪري ڇڏيو </string>
+    <!-- Section 6 -->
+
 </resources>

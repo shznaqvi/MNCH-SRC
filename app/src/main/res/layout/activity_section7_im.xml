@@ -44,14 +44,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/mnnoc"
+                android:text="@string/mn07im01"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/mnnoc"
+                android:id="@+id/mn07im01"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mnnoc"
+                android:hint="@string/mn07im01"
                 android:inputType="textPersonName" />
 
 
@@ -59,15 +59,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/mnagem"
+                android:text="@string/mn07im02"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
             <EditText
-                android:id="@+id/mnagem"
+                android:id="@+id/mn07im02"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mnagem"
+                android:hint="@string/mn07im02"
                 android:inputType="textPersonName" />
 
 
@@ -75,23 +75,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/mnca"
+                android:text="@string/mn07im03"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
             <RadioGroup
-                android:id="@+id/mnca"
+                android:id="@+id/mn07im03"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/mnca01"
+                    android:id="@+id/mn07im0301"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnyes" />
 
                 <RadioButton
-                    android:id="@+id/mnca02"
+                    android:id="@+id/mn07im0302"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnno" />
@@ -149,13 +149,19 @@
                     android:id="@+id/mnbcgsrc01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mncard" />
+                    android:text="@string/mnbcgsrc01" />
 
                 <RadioButton
                     android:id="@+id/mnbcgsrc02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnresp" />
+                    android:text="@string/mnbcgsrc02" />
+
+                 <RadioButton
+                    android:id="@+id/mnbcgsrc03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnbcgsrc03" />
 
             </RadioGroup>
 
@@ -184,11 +190,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mnno" />
 
-                <RadioButton
-                    android:id="@+id/bcgscar03"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mnchnp" />
 
             </RadioGroup>
 
@@ -234,13 +235,21 @@
                     android:id="@+id/mnopv0src01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mncard" />
+                    android:text="@string/mnbcgsrc01" />
 
                 <RadioButton
                     android:id="@+id/mnopv0src02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnresp" />
+                    android:text="@string/mnbcgsrc02" />
+
+                  <RadioButton
+                    android:id="@+id/mnopv0src03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnbcgsrc03" />
+
+
 
             </RadioGroup>
 
@@ -294,13 +303,20 @@
                     android:id="@+id/mnp1src01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mncard" />
+                    android:text="@string/mnbcgsrc01" />
 
                 <RadioButton
                     android:id="@+id/mnp1src02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnresp" />
+                    android:text="@string/mnbcgsrc02" />
+
+ <RadioButton
+                    android:id="@+id/mnp1src03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnbcgsrc03" />
+
 
             </RadioGroup>
 
@@ -346,13 +362,22 @@
                     android:id="@+id/mnopv1src01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mncard" />
+                    android:text="@string/mnbcgsrc01" />
 
                 <RadioButton
                     android:id="@+id/mnopv1src02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnresp" />
+                    android:text="@string/mnbcgsrc02" />
+
+                  <RadioButton
+                    android:id="@+id/mnopv1src03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnbcgsrc03" />
+
+
+
 
             </RadioGroup>
 
@@ -399,13 +424,21 @@
                     android:id="@+id/mnpcv1src01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mncard" />
+                    android:text="@string/mnbcgsrc01" />
 
                 <RadioButton
                     android:id="@+id/mnpcv1src02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnresp" />
+                    android:text="@string/mnbcgsrc02" />
+
+                 <RadioButton
+                    android:id="@+id/mnpcv1src03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnbcgsrc03" />
+
+
 
             </RadioGroup>
 
@@ -459,13 +492,23 @@
                     android:id="@+id/mnp2src01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mncard" />
+                    android:text="@string/mnbcgsrc01" />
 
                 <RadioButton
                     android:id="@+id/mnp2src02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnresp" />
+                    android:text="@string/mnbcgsrc02" />
+
+
+                   <RadioButton
+                    android:id="@+id/mnp2src03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnbcgsrc03" />
+
+
+
 
             </RadioGroup>
 
@@ -510,13 +553,20 @@
                     android:id="@+id/mnopv2src01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mncard" />
+                    android:text="@string/mnbcgsrc01" />
 
                 <RadioButton
                     android:id="@+id/mnopv2src02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnresp" />
+                    android:text="@string/mnbcgsrc02" />
+
+                 <RadioButton
+                    android:id="@+id/mnopv2src03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnbcgsrc03" />
+
 
             </RadioGroup>
 
@@ -562,13 +612,21 @@
                     android:id="@+id/mnpcv2src01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mncard" />
+                    android:text="@string/mnbcgsrc01" />
 
                 <RadioButton
                     android:id="@+id/mnpcv2src02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnresp" />
+                    android:text="@string/mnbcgsrc02" />
+
+
+ <RadioButton
+                    android:id="@+id/mnpcv2src03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnbcgsrc03" />
+
 
             </RadioGroup>
 
@@ -621,13 +679,20 @@
                     android:id="@+id/mnp3src01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mncard" />
+                    android:text="@string/mnbcgsrc01" />
 
                 <RadioButton
                     android:id="@+id/mnp3src02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnresp" />
+                    android:text="@string/mnbcgsrc02" />
+
+                 <RadioButton
+                    android:id="@+id/mnp3src03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnbcgsrc03" />
+
 
             </RadioGroup>
 
@@ -672,13 +737,21 @@
                     android:id="@+id/mnopv3src01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mncard" />
+                    android:text="@string/mnbcgsrc01" />
 
                 <RadioButton
                     android:id="@+id/mnopv3src02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnresp" />
+                    android:text="@string/mnbcgsrc02" />
+
+
+ <RadioButton
+                    android:id="@+id/mnopv3src03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnbcgsrc03" />
+
 
             </RadioGroup>
 
@@ -723,13 +796,20 @@
                     android:id="@+id/mnipv2src01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mncard" />
+                    android:text="@string/mnbcgsrc01" />
 
                 <RadioButton
                     android:id="@+id/mnipv2src02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnresp" />
+                    android:text="@string/mnbcgsrc02" />
+
+                  <RadioButton
+                    android:id="@+id/mnipv2src03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnbcgsrc03" />
+
 
             </RadioGroup>
 
@@ -774,13 +854,20 @@
                     android:id="@+id/mnipcv3src01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mncard" />
+                    android:text="@string/mnbcgsrc01" />
 
                 <RadioButton
                     android:id="@+id/mnipcv3src02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnresp" />
+                    android:text="@string/mnbcgsrc02" />
+
+                 <RadioButton
+                    android:id="@+id/mnipcv3src03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnbcgsrc03" />
+
 
             </RadioGroup>
 
@@ -832,13 +919,20 @@
                     android:id="@+id/mnm1src01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mncard" />
+                    android:text="@string/mnbcgsrc01" />
 
                 <RadioButton
                     android:id="@+id/mnm1src02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnresp" />
+                    android:text="@string/mnbcgsrc02" />
+
+                 <RadioButton
+                    android:id="@+id/mnm1src03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnbcgsrc03" />
+
 
             </RadioGroup>
 
@@ -890,16 +984,22 @@
                     android:id="@+id/mnm2src01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mncard" />
+                    android:text="@string/mnbcgsrc01" />
 
                 <RadioButton
                     android:id="@+id/mnm2src02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnresp" />
+                    android:text="@string/mnbcgsrc02" />
+
+
+                <RadioButton
+                    android:id="@+id/mnm2src03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnbcgsrc03" />
 
             </RadioGroup>
-
 
             <TextView
                 android:layout_width="match_parent"
@@ -934,7 +1034,6 @@
                android:id="@+id/mnui"
                android:text="@string/mnui"
                />
-
 
          </RadioGroup>
 
