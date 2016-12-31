@@ -101,7 +101,7 @@ public class LoginActivity extends Activity {
 
     public void SyncUsers(View v) {
         CVars var = new CVars();
-        var.setUrl_sync_users(txturl.getText().toString());
+        var.setUrl_sync_usr(txturl.getText().toString());
 
         GetUsers user = new GetUsers(this);
         user.execute();
