@@ -1499,13 +1499,13 @@
                     android:id="@+id/mn082303"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mn082303" />
+                    android:text="@string/mn082304" />
 
                 <RadioButton
                     android:id="@+id/mn082304"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mn082304" />
+                    android:text="@string/mn082305" />
 
             </RadioGroup>
 
@@ -1513,7 +1513,7 @@
                 android:id="@+id/mn082302x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mnother" />
+                android:hint="@string/mn082303" />
 
 
             <!--  = = = = =  END OF FORM FIELDS - Section C = = = = = -->
