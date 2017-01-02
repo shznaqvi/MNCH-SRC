@@ -9,6 +9,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import edu.aku.hassannaqvi.mnch_src.FormContract.Sec1Entry;
+import edu.aku.hassannaqvi.mnch_src.Sec3Contract.Sec3Entry;
+import edu.aku.hassannaqvi.mnch_src.Section4Contract.Section4Entry;
+import edu.aku.hassannaqvi.mnch_src.Section4aContract.Section4aEntry;
+import edu.aku.hassannaqvi.mnch_src.ClusterContract.ClusterEntry;
+import edu.aku.hassannaqvi.mnch_src.VillageContract.VillageEntry;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -32,6 +39,12 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + UsersContract.singleUser.ROW_USERNAME + " TEXT,"
             + UsersContract.singleUser.ROW_PASSWORD + " TEXT,"
             + UsersContract.singleUser.ROW_USERSTATUS + " TEXT,"
+            + UsersContract.singleUser.ROW_ISADMIN + " TEXT);";
+
+    private static final String SQL_DELETE_USERS =
+            "DROP TABLE IF EXISTS " + UsersContract.singleUser.TABLE_NAME;
+
+
             + UsersContract.singleUser.ROW_ISADMIN + " TEXT );";
     /*******************************
      * Section 1
@@ -86,6 +99,15 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec3Entry.ROW_s3q301j + " INTEGER,"
             + Sec3Entry.ROW_s3q301k + " INTEGER,"
             + Sec3Entry.ROW_UID + " TEXT);";
+
+    private static final String SQL_DELETE_SEC3 =
+            "DROP TABLE IF EXISTS " + Sec3Entry.TABLE_NAME;
+
+
+    /*******************************
+     * Section 4a
+     ******************************/
+
     public static final String SQL_CREATE_BASELINE_SEC4 = "CREATE TABLE IF NOT EXISTS " + Section4Entry.TABLE_NAME + "("
             + Section4Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Section4Entry.ROW_DEVID + " TEXT,"
@@ -131,6 +153,50 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + single7Im.TABLE_NAME;
 
 
+    /*******************************
+     * Section 4b
+     ******************************/
+
+    public static final String SQL_CREATE_BASELINE_SEC4b = "CREATE TABLE IF NOT EXISTS " + Section4aEntry.TABLE_NAME + "("
+            + Section4aEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + Section4aEntry.ROW_DEVID + " TEXT,"
+            + Section4aEntry.ROW_FORM_ID + " INTEGER,"
+            + Section4aEntry.ROW_HHCODE + " TEXT,"
+            + Section4aEntry.ROW_SNO + " TEXT,"
+            + Section4aEntry.ROW_s4q42a + " TEXT,"
+            + Section4aEntry.ROW_s4q42b + " TEXT,"
+            + Section4aEntry.ROW_s4q42c + " TEXT,"
+            + Section4aEntry.ROW_s4q42d + " TEXT,"
+            + Section4aEntry.ROW_s4q42d1 + " TEXT,"
+            + Section4aEntry.ROW_s4q42d2 + " TEXT,"
+            + Section4aEntry.ROW_s4q42e + " TEXT,"
+            + Section4aEntry.ROW_s4q42eoth + " TEXT,"
+            + Section4aEntry.ROW_s4q42f + " TEXT,"
+            + Section4aEntry.ROW_UID + " TEXT);";
+
+    private static final String SQL_DELETE_SEC4b =
+            "DROP TABLE IF EXISTS " + Section4Entry.TABLE_NAME;
+
+
+    /*******************************
+     * Get Cluster / UC
+     ******************************/
+
+
+    public static final String SQL_CREATE_CLUSTER = "CREATE TABLE IF NOT EXISTS " + ClusterEntry.TABLE_NAME + "("
+            + ClusterEntry.ROW_UCCODE + " TEXT,"
+            + ClusterEntry.ROW_UCNAME + " TEXT);";
+
+    /*******************************
+     * Get Villages
+     ******************************/
+
+
+    public static final String SQL_CREATE_VILLAGE = "CREATE TABLE IF NOT EXISTS " + VillageEntry.TABLE_NAME + "("
+            + VillageEntry.ROW_VCODE + " TEXT,"
+            + VillageEntry.ROW_VNAME + " TEXT,"
+            + VillageEntry.ROW_UCNAME + " TEXT);";
+
     SRCDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -139,10 +205,14 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_USERS);
+        db.execSQL(SQL_CREATE_CLUSTER);
+        db.execSQL(SQL_CREATE_VILLAGE);
+
         db.execSQL(SQL_CREATE_BASELINE_SEC1);
         db.execSQL(SQL_CREATE_BASELINE_SEC3);
         db.execSQL(SQL_CREATE_BASELINE_SEC4);
         db.execSQL(SQL_CREATE_SEC_7_IM);
+        db.execSQL(SQL_CREATE_BASELINE_SEC4b);
     }
 
     @Override
@@ -175,7 +245,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
     public void syncUser(JSONArray userlist) {
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.delete(UsersContract.singleUser.TABLE_NAME, null, null);
+        db.delete(UsersContract.singleUser.TABLE_NAME, null, null);
 
         try {
             JSONArray jsonArray = userlist;
@@ -194,6 +264,57 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 values.put(UsersContract.singleUser.ROW_ISADMIN, isadmin);
 
                 db.insert(UsersContract.singleUser.TABLE_NAME, null, values);
+            }
+            db.close();
+
+        } catch (Exception e) {
+        }
+    }
+
+    public void syncCluster(JSONArray test) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(ClusterContract.ClusterEntry.TABLE_NAME, null, null);
+
+        try {
+            JSONArray jsonArray = test;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectUser = jsonArray.getJSONObject(i);
+                String uccode = jsonObjectUser.getString("uccode");
+                String ucname = jsonObjectUser.getString("ucname");
+
+                ContentValues values = new ContentValues();
+
+                values.put(ClusterEntry.ROW_UCCODE, uccode);
+                values.put(ClusterEntry.ROW_UCNAME, ucname);
+
+                db.insert(ClusterEntry.TABLE_NAME, null, values);
+            }
+            db.close();
+
+        } catch (Exception e) {
+        }
+    }
+
+    public void syncVillages(JSONArray test) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(VillageEntry.TABLE_NAME, null, null);
+
+        try {
+            JSONArray jsonArray = test;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectUser = jsonArray.getJSONObject(i);
+
+                String vcode = jsonObjectUser.getString("vcode");
+                String vname = jsonObjectUser.getString("vname");
+                String ucname = jsonObjectUser.getString("ucname");
+
+                ContentValues values = new ContentValues();
+
+                values.put(VillageEntry.ROW_VCODE, vcode);
+                values.put(VillageEntry.ROW_VNAME, vname);
+                values.put(VillageEntry.ROW_UCNAME, ucname);
+
+                db.insert(VillageEntry.TABLE_NAME, null, values);
             }
             db.close();
 
@@ -353,6 +474,46 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
     public boolean Login(String username, String password) throws SQLException {
         SQLiteDatabase db = this.getReadableDatabase();
+        boolean isexists = false;
+        String isadmin = "";
+        String status = "";
+
+        CVars var = new CVars();
+
+
+        Cursor mCursor = db.rawQuery("SELECT * FROM " + UsersContract.singleUser.TABLE_NAME + " WHERE " +
+                UsersContract.singleUser.ROW_USERNAME + "=? AND " +
+                UsersContract.singleUser.ROW_PASSWORD + "=? AND " +
+                UsersContract.singleUser.ROW_USERSTATUS + "=?", new String[]{username, password, "1"}, null);
+
+        if (mCursor.getCount() < 0) {
+            isexists = false;
+
+        } else {
+
+            if (mCursor.moveToFirst()) {
+
+                status = mCursor.getString(3);
+                isadmin = mCursor.getString(4);
+                var.Store_isadmin(isadmin);
+
+
+                if (status.equals("1")) {
+                    isexists = true;
+                } else {
+                    isexists = false;
+                }
+            }
+        }
+
+        mCursor.close();
+
+        return isexists;
+    }
+
+
+    public boolean Login1(String username, String password) throws SQLException {
+        SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor mCursor = db.rawQuery("SELECT * FROM " + UsersContract.singleUser.TABLE_NAME + " WHERE " + UsersContract.singleUser.ROW_USERNAME + "=? AND " + UsersContract.singleUser.ROW_PASSWORD + "=?", new String[]{username, password});
         if (mCursor != null) {
@@ -394,6 +555,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             values.put(Sec1Entry.ROW_GPS_LNG, fc.getROW_GPS_LANG());
             values.put(Sec1Entry.ROW_GPS_ACC, fc.getROW_GPS_ACC());
             values.put(Sec1Entry.ROW_GPS_DT, fc.getROW_GPS_DT());
+
 
             newRowId = db.insert(Sec1Entry.TABLE_NAME, null, values);
             db.close();
@@ -465,6 +627,40 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             values.put(Section4Entry.ROW_UID, SRCApp.fc.getROW_UID());
 
             newRowId = db.insert(Section4Entry.TABLE_NAME, null, values);
+            db.close();
+
+        } catch (Exception e) {
+        }
+
+        return newRowId;
+    }
+
+
+    public Long InsertRecord_Section4b(Section4aContract fc) {
+        long newRowId = 0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        try {
+            ContentValues values = new ContentValues();
+
+            values.put(Section4aEntry.ROW_DEVID, fc.get_deviceid());
+            values.put(Section4aEntry.ROW_FORM_ID, fc.get_form_id());
+            values.put(Section4aEntry.ROW_HHCODE, fc.get_hhcdoe());
+
+            values.put(Section4aEntry.ROW_SNO, fc.get_sno());
+
+            values.put(Section4aEntry.ROW_s4q42a, fc.get_s4q42a());
+            values.put(Section4aEntry.ROW_s4q42b, fc.get_s4q42b());
+            values.put(Section4aEntry.ROW_s4q42c, fc.get_s4q42c());
+            values.put(Section4aEntry.ROW_s4q42d, fc.get_s4q42d());
+            values.put(Section4aEntry.ROW_s4q42d1, fc.get_s4q42d1());
+            values.put(Section4aEntry.ROW_s4q42d2, fc.get_s4q42d2());
+            values.put(Section4aEntry.ROW_s4q42e, fc.get_s4q42e());
+            values.put(Section4aEntry.ROW_s4q42eoth, fc.get_s4q42eoth());
+            values.put(Section4aEntry.ROW_s4q42f, fc.get_s4q42f());
+
+            values.put(Section4aEntry.ROW_UID, SRCApp.fc.getROW_UID());
+
+            newRowId = db.insert(Section4aEntry.TABLE_NAME, null, values);
             db.close();
 
         } catch (Exception e) {
@@ -844,5 +1040,185 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return fc;
     }
 
+
+    public ArrayList<Members> getAll_Woman_Reproductive_Age() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<Members> userList = null;
+        try {
+
+            CVars var = new CVars();
+
+            userList = new ArrayList<>();
+            String QUERY = "SELECT * FROM " + Sec3Entry.TABLE_NAME + " WHERE " + Sec3Entry.ROW_FORM_ID +
+                    " = '" + var.GetHHNO() + "'";
+
+            Cursor cursor = db.rawQuery(QUERY, null);
+            int num = cursor.getCount();
+
+            if (!cursor.isLast()) {
+                while (cursor.moveToNext()) {
+
+                    Members m = new Members();
+
+                    Section4aContract sc = new Section4aContract();
+                    sc.set_sno(cursor.getString(cursor.getColumnIndex(Sec3Entry._ID)));
+                    sc.set_s4q42a(cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301a)));
+
+                    userList.add(new Members(String.valueOf(sc.get_sno()), sc.get_s4q42a()));
+                }
+            }
+            db.close();
+        } catch (Exception e) {
+        }
+        return userList;
+    }
+
+
+    public String getID_Woman_Reproductive_Age(String nme) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String id = "";
+
+        try {
+
+            CVars var = new CVars();
+
+            String QUERY = "SELECT * FROM " + Sec3Entry.TABLE_NAME + " WHERE " +
+                    Sec3Entry.ROW_FORM_ID + " = '" + var.GetHHNO() + "' and " +
+                    Sec3Entry.ROW_s3q301a + " = '" + nme + "'";
+
+            Cursor cursor = db.rawQuery(QUERY, null);
+
+            if (!cursor.isLast()) {
+                while (cursor.moveToNext()) {
+                    id = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_SNO));
+                }
+            }
+            db.close();
+        } catch (Exception e) {
+        }
+        return id;
+    }
+
+
+    public ArrayList<Members> getCluster() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<Members> userList = null;
+        try {
+            userList = new ArrayList<Members>();
+            String QUERY = "SELECT * FROM " + ClusterEntry.TABLE_NAME;
+            Cursor cursor = db.rawQuery(QUERY, null);
+
+            if (!cursor.isLast()) {
+                while (cursor.moveToNext()) {
+                    ClusterContract hf = new ClusterContract();
+
+                    hf.setROW_UCCODE(cursor.getString(0));
+                    hf.setROW_UCNAME(cursor.getString(1));
+
+                    userList.add(new Members(hf.getROW_UCCODE(), hf.getROW_UCNAME()));
+                }
+            }
+            db.close();
+        } catch (Exception e) {
+        }
+        return userList;
+    }
+
+
+    public ArrayList<Members> getVillages(String ucname) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<Members> userList = null;
+        try {
+            userList = new ArrayList<Members>();
+            String QUERY = "SELECT * FROM " + VillageEntry.TABLE_NAME + " WHERE "
+                    + VillageEntry.ROW_UCNAME + "='" + ucname + "'";
+
+            Cursor cursor = db.rawQuery(QUERY, null);
+
+            if (!cursor.isLast()) {
+                while (cursor.moveToNext()) {
+                    VillageContract hf = new VillageContract();
+
+                    hf.setROW_VCODE(cursor.getString(0));
+                    hf.setROW_VNAME(cursor.getString(1));
+
+                    userList.add(new Members(hf.getROW_VCODE(), hf.getROW_VNAME()));
+                }
+            }
+            db.close();
+        } catch (Exception e) {
+        }
+        return userList;
+    }
+
+    public ArrayList<Members> getVillages() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<Members> userList = null;
+        try {
+            userList = new ArrayList<Members>();
+            String QUERY = "SELECT * FROM " + VillageEntry.TABLE_NAME;
+
+            Cursor cursor = db.rawQuery(QUERY, null);
+
+            if (!cursor.isLast()) {
+                while (cursor.moveToNext()) {
+                    VillageContract hf = new VillageContract();
+
+                    hf.setROW_VCODE(cursor.getString(0));
+                    hf.setROW_VNAME(cursor.getString(1));
+
+                    userList.add(new Members(hf.getROW_VCODE(), hf.getROW_VNAME()));
+                }
+            }
+            db.close();
+        } catch (Exception e) {
+        }
+        return userList;
+    }
+
+
+    public String getUCCode(String ucname) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String uccode = "";
+
+        try {
+            String QUERY = "SELECT * FROM " + ClusterEntry.TABLE_NAME + " WHERE " +
+                    ClusterEntry.ROW_UCNAME + " = '" + ucname + "'";
+
+            Cursor cursor = db.rawQuery(QUERY, null);
+
+            if (!cursor.isLast()) {
+                while (cursor.moveToNext()) {
+                    uccode = cursor.getString(cursor.getColumnIndex("uccode"));
+                }
+            }
+            db.close();
+        } catch (Exception e) {
+        }
+        return uccode;
+    }
+
+
+    public String getVCode(String ucname, String vname) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String vcode = "";
+
+        try {
+            String QUERY = "SELECT * FROM " + VillageEntry.TABLE_NAME + " WHERE " +
+                    VillageEntry.ROW_UCNAME + " = '" + ucname + "' AND " +
+                    VillageEntry.ROW_VNAME + " = '" + vname + "'";
+
+            Cursor cursor = db.rawQuery(QUERY, null);
+
+            if (!cursor.isLast()) {
+                while (cursor.moveToNext()) {
+                    vcode = cursor.getString(cursor.getColumnIndex("vcode"));
+                }
+            }
+            db.close();
+        } catch (Exception e) {
+        }
+        return vcode;
+    }
 
 }

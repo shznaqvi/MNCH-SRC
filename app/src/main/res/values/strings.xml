@@ -20,6 +20,11 @@
 
     <string name="app_header1">HouseHold Number</string>
 
+    <string name="btnGetHF">Get Cluster / Villages / Users </string>
+    <string name="btnGetHF1">Get Cluster / UC</string>
+    <string name="btnGetVillages">Get Village List</string>
+    <string name="btnGetUsers">Get Users List</string>
+
     <string name="btnDBAccess">Database Access</string>
     <string name="btnadd">Add Another Woman</string>
     <string name="btnaddchild">Add Another Child</string>
@@ -191,8 +196,11 @@
     <string name="baseline_s4q42c">جنس</string>
     <string name="baseline_s4q42c_1">مرد</string>
     <string name="baseline_s4q42c_2">عورت</string>
-    <string name="baseline_s4q42d">موت وقت عمر</string>
+    <string name="baseline_s4q42d">موت وقت عمر(ڏينهن)</string>
+    <string name="baseline_s4q42d1">موت وقت عمر(مهينو)</string>
+    <string name="baseline_s4q42d2">موت وقت عمر(سال)</string>
     <string name="baseline_s4q42e">موت جي جڳھه</string>
+    <string name="baseline_s4q42eoth">وضاحت سان لکو</string>
     <string name="baseline_s4q42e_1">گهر</string>
     <string name="baseline_s4q42e_2">گورنمينٽ ڊسپينسري</string>
     <string name="baseline_s4q42e_3">بي ايڇ يو</string>
@@ -796,6 +804,7 @@
     <string name="mn0821"> توهان جي گهرفرد کي ڪيترا ايڪڙ يا ڪئنال زرعي زمين آهي؟ </string>
     <string name="mn082101"> ايڪڙ </string>
     <string name="mn082102"> ڪينال </string>
+    <string name="mn0821099"> خبر نه آهي </string>
     <string name="mn0822"> جواب ڏيندڙ کان هيٺ ڏنل ملڪيت جي تعداد جي باري ۾ پڇو جيڪڏهن نه آهي ته ڪوڊ ٻڙي لکو. </string>
     <string name="mn082201"> چوپايو مال مينهن، ۽ ڳئون </string>
     <string name="mn082202"> رڍون ۽ ٻڪريون </string>
@@ -823,6 +832,7 @@
     <string name="mn082303"> (جيڪڏهن نه ته ڇو__؟) </string>
     <string name="mn082304"> جواب ڏيندڙ گهر ۾ موجود ناهي </string>
     <string name="mn082305"> جواب ڏيندڙ انڪار ڪري ڇڏيو </string>
+    <string name="end"> end </string>
     <!-- Section 6 -->
 
 </resources>

@@ -60,6 +60,8 @@
         <activity android:name=".Section4aActivity" />
         <activity android:name=".EndingActivity" />
         <activity android:name=".Section7ImActivity"></activity>
+        <activity android:name=".Section4aActivity" />
+        <activity android:name=".GetCluster"></activity>
     </application>
 
 </manifest>

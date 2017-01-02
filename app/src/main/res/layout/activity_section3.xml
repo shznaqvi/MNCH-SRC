@@ -49,12 +49,6 @@
                 android:text="" />
 
             <TextView
-                android:id="@+id/wcount"
-                style="@style/txtquestion"
-                android:layoutDirection="ltr"
-                android:text="" />
-
-            <TextView
                 android:id="@+id/lbl_s3q301a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

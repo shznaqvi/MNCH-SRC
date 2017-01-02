@@ -33,13 +33,23 @@
                 android:background="@color/colorPrimary" />
 
             <TextView
+                android:id="@+id/app_header1"
+                style="@style/myheading"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/lbl_hhhead"
+                style="@style/txtquestion"
+                android:text="" />
+
+            <TextView
                 android:id="@+id/lbl_s4q42a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/baseline_s4q42a"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/s4q42a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -101,7 +111,37 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="text" />
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/lbl_s4q42d1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/baseline_s4q42d1"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/s4q42d1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/lbl_s4q42d2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/baseline_s4q42d2"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/s4q42d2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number" />
 
             <TextView
                 android:id="@+id/lbl_s4q42e"
@@ -176,6 +216,30 @@
                     android:text="@string/baseline_s4q42e_10" />
 
             </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/vu_s4q42eoth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/lbl_s4q42eoth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baseline_s4q42eoth"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <EditText
+                    android:id="@+id/s4q42eoth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/lbl_s4q42f"

@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.mnch_src;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
@@ -111,6 +112,7 @@ public class Section3Activity extends Activity {
     private int rdo_s3q301j;
 
     private TextView lbl_hhhead;
+    private TextView lbl_wcount;
 
     public static JSONObject s1;
 
@@ -128,13 +130,14 @@ public class Section3Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section3);
 
-        counter = 0;
+        counter = 1;
         sno = 0;
 
         scrollView01 = (ScrollView) findViewById(R.id.ScrollView01);
 
         appHeader = (TextView) findViewById(R.id.app_header);
         appHeader.setText("SRC - > Section3");
+
 
         vu_s3q301g = (LinearLayout) findViewById(R.id.vu_s3q301g);
         vu_s3q301d = (LinearLayout) findViewById(R.id.vu_s3q301d);
@@ -206,18 +209,16 @@ public class Section3Activity extends Activity {
 
         btnnext = (Button) findViewById(R.id.btnnext);
         btnadd = (Button) findViewById(R.id.btnadd);
-
-        wcount = (TextView) findViewById(R.id.wcount);
-
-        lbl_hhhead = (TextView) findViewById(R.id.lbl_hhhead);
-
-        SRCDBHelper db = new SRCDBHelper(this);
-        Log.d(TAG, "getSNO: " + db.getSNO());
-
+        lbl_wcount = (TextView) findViewById(R.id.lbl_wcount);
 
         CVars var = new CVars();
+
+        lbl_hhhead = (TextView) findViewById(R.id.lbl_hhhead);
         lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
-        //wcount.setText(var.GetReproductionAgeWoman());
+
+
+        lbl_wcount.setText("Total Reproductive Woman : " + var.GetReproductionAgeWoman());
+        lbl_wcount.setTextColor(Color.RED);
 
         btnnext.setEnabled(false);
 
@@ -363,7 +364,10 @@ public class Section3Activity extends Activity {
 
         CVars var = new CVars();
 
-        if (var.GetReproductionAgeWoman() != counter) {
+        Log.d(TAG, "counter: " + counter);
+        Log.d(TAG, "getwoman: " + var.GetReproductionAgeWoman());
+
+        if (var.GetReproductionAgeWoman() > counter) {
 
             if (ValidateForm()) {
 
@@ -374,7 +378,7 @@ public class Section3Activity extends Activity {
                     if (UpdateDB()) {
 
                         ClearFields();
-                        counter = counter + 1;
+                        counter++;
 
                         vu_s3q301d.setVisibility(View.GONE);
                         vu_s3q301g.setVisibility(View.GONE);
@@ -883,10 +887,39 @@ public class Section3Activity extends Activity {
         rdo_s3q301j = radioS3q301j.getCheckedRadioButtonId();
 
         switch (rdo_s3q301j) {
+            case R.id.RDO_s3q301j_1:
+                var_s3q301j = "1";
+                break;
+
+            case R.id.RDO_s3q301j_2:
+                var_s3q301j = "2";
+                break;
+
+            case R.id.RDO_s3q301j_3:
+                var_s3q301j = "3";
+                break;
+
+            case R.id.RDO_s3q301j_4:
+                var_s3q301j = "4";
+                break;
+
+            case R.id.RDO_s3q301j_5:
+                var_s3q301j = "5";
+                break;
+
+            case R.id.RDO_s3q301j_6:
+                var_s3q301j = "6";
+                break;
+
+            case R.id.RDO_s3q301j_7:
+                var_s3q301j = "7";
+                break;
+
             case R.id.RDO_s3q301j_8:
                 var_s3q301j = "8";
                 break;
         }
+
 
         if (rdo_s3q301j == -1) {
             rDOS3q301j1.setError(getString(R.string.rdoerr));

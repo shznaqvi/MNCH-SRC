@@ -65,7 +65,7 @@ public class Section4Activity extends Activity {
         setContentView(R.layout.activity_section4);
 
         app_header = (TextView) findViewById(R.id.app_header);
-        app_header.setText("SRC - > Section4");
+        app_header.setText("SRC - > Section4a");
 
         s4q41a = (EditText) findViewById(R.id.s4q41a);
         s4q41b = (EditText) findViewById(R.id.s4q41b);
@@ -136,6 +136,8 @@ public class Section4Activity extends Activity {
 
                     ClearFields();
                     counter = counter + 1;
+
+                    vu_s4q41doth.setVisibility(View.GONE);
 
                     s4q41a.requestFocus();
 

@@ -44,12 +44,28 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/btnSyncData" />
 
+            <LinearLayout
+                android:id="@+id/vu_opendb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/btnDBAccess"
+                    style="@style/buttons"
+                    android:layout_marginTop="20dp"
+                    android:onClick="OpenDBAccess"
+                    android:text="@string/btnDBAccess" />
+
+            </LinearLayout>
+
             <Button
-                android:id="@+id/btnDBAccess"
+                android:id="@+id/btnGetHF"
                 style="@style/buttons"
                 android:layout_marginTop="20dp"
-                android:onClick="OpenDBAccess"
-                android:text="@string/btnDBAccess" />
+                android:onClick="OpenGetHF"
+                android:text="@string/btnGetHF" />
 
             <Button
                 android:id="@+id/ShowSec2"
