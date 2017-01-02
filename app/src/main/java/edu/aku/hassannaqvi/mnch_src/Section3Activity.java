@@ -1,20 +1,20 @@
 package edu.aku.hassannaqvi.mnch_src;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.app.Activity;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import org.json.JSONObject;
@@ -22,7 +22,14 @@ import org.json.JSONObject;
 public class Section3Activity extends Activity {
 
     private static final String TAG = "Sec3";
-
+    public static JSONObject s1;
+    String var_s3q301d = "";
+    String var_s3q301f1 = "";
+    String var_s3q301f = "";
+    String var_s3q301g = "";
+    String var_s3q301h = "";
+    String var_s3q301i = "";
+    String var_s3q301j = "";
     private ScrollView scrollView01;
     private TextView appHeader;
     private TextView lblS3q301a;
@@ -33,32 +40,26 @@ public class Section3Activity extends Activity {
     private RadioButton rDOS3q301d1;
     private RadioButton rDOS3q301d2;
     private TextView lblS3q301e;
-
     private RadioGroup radioS3q301f1;
     private RadioButton rDOS3q301f11;
     private RadioButton rDOS3q301f12;
-
     private TextView lblS3q301f;
     private RadioGroup radioS3q301f;
     private RadioButton rDOS3q301f1;
     private RadioButton rDOS3q301f2;
     private RadioButton rDOS3q301f3;
     private RadioButton rDOS3q301f4;
-
     private int counter;
     private int sno;
-
     private TextView lblS3q301g;
     private TextView lblS3q301h;
     private RadioGroup radioS3q301h;
     private RadioButton rDOS3q301h1;
     private RadioButton rDOS3q301h2;
-
     private RadioGroup radioS3q301g;
     private RadioButton rDOS3q301g1;
     private RadioButton rDOS3q301g2;
     private RadioButton rDOS3q301g3;
-
     private TextView lblS3q301i;
     private RadioGroup radioS3q301i;
     private RadioButton rDOS3q301i1;
@@ -82,16 +83,13 @@ public class Section3Activity extends Activity {
     private RadioButton rDOS3q301j7;
     private RadioButton rDOS3q301j8;
     private TextView lblS3q301k;
-
     private Button btnnext;
     private Button btnadd;
-
     private LinearLayout vu_s3q301g;
     private LinearLayout vu_s3q301d;
     private LinearLayout vu_s3q301h;
     private LinearLayout vu_s3q301ioth;
     private LinearLayout vu_s3q301joth;
-
     private EditText s3q301a;
     private EditText s3q301b;
     private EditText s3q301c;
@@ -100,9 +98,7 @@ public class Section3Activity extends Activity {
     private EditText s3q301k;
     private EditText s3q301ioth;
     private EditText s3q301joth;
-
     private TextView wcount;
-
     private int rdo_s3q301d;
     private int rdo_s3q301f1;
     private int rdo_s3q301f;
@@ -110,20 +106,8 @@ public class Section3Activity extends Activity {
     private int rdo_s3q301h;
     private int rdo_s3q301i;
     private int rdo_s3q301j;
-
     private TextView lbl_hhhead;
     private TextView lbl_wcount;
-
-    public static JSONObject s1;
-
-    String var_s3q301d = "";
-    String var_s3q301f1 = "";
-    String var_s3q301f = "";
-    String var_s3q301g = "";
-    String var_s3q301h = "";
-    String var_s3q301i = "";
-    String var_s3q301j = "";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

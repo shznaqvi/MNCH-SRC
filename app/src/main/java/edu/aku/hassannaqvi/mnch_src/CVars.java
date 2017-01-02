@@ -19,83 +19,84 @@ public class CVars {
 
 
     public String getUrl_sync_usr() {
-        return this.url_sync_usr;
+        return url_sync_usr;
     }
 
     public void setUrl_sync_usr(String url_sync_usr) {
-        this.url_sync_usr = url_sync_usr;
+        CVars.url_sync_usr = url_sync_usr;
     }
 
     public String getUrl_sync_hf() {
-        return this.url_sync_hf;
+        return url_sync_hf;
     }
 
     public void setUrl_sync_hf(String url_sync_hf) {
-        this.url_sync_hf = url_sync_hf;
+        CVars.url_sync_hf = url_sync_hf;
     }
 
     public String getUrl_sync_lhw() {
-        return this.url_sync_lhw;
+        return url_sync_lhw;
     }
 
 
     public void setUrl_sync_lhw(String url_sync_lhw) {
-        this.url_sync_lhw = url_sync_lhw;
+        CVars.url_sync_lhw = url_sync_lhw;
     }
 
     public String get_url_sync_sec1() {
-        return this.url_sync_sec1;
+        return url_sync_sec1;
     }
 
     public void set_url_sync_sec1(String url_sync_sec1) {
-        this.url_sync_sec1 = url_sync_sec1;
+        CVars.url_sync_sec1 = url_sync_sec1;
     }
 
     public void Store_isadmin(String isadmin) {
-        this.isadmin = isadmin;
+        CVars.isadmin = isadmin;
     }
 
     public String Get_isadmin() {
-        return this.isadmin;
+        return isadmin;
     }
 
 
     public void StoreHHNO(String hhno) {
-        this.hhno = hhno;
+        CVars.hhno = hhno;
     }
 
     public String GetHHNO() {
-        return this.hhno;
+        return hhno;
     }
 
     public void StoreHHCode(String hhcode) {
-        this.hhcode = hhcode;
+        CVars.hhcode = hhcode;
     }
 
     public String GetHHCode() {
-        return this.hhcode;
+        return hhcode;
     }
 
     public void StoreUser(String Users) {
-        this.myuser = Users;
+        myuser = Users;
     }
 
     public String GetUser() {
-        return this.myuser;
-    }
-
-    public void setUrl_sync_users(String url_sync_users) {
-        this.url_sync_users = url_sync_users;
+        return myuser;
     }
 
     public String getUrl_sync_users() {
-        return this.url_sync_users;
+        return url_sync_users;
+    }
+
+    public void setUrl_sync_users(String url_sync_users) {
+        CVars.url_sync_users = url_sync_users;
     }
 
     public void StoreReporductionAgeWoman(int repro_age_woman) {
-        this.repro_age_woman = repro_age_woman;    }
+        CVars.repro_age_woman = repro_age_woman;
+    }
 
     public int GetReproductionAgeWoman() {
-        return this.repro_age_woman;
+        return repro_age_woman;
     }
 }

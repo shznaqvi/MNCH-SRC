@@ -9,13 +9,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import edu.aku.hassannaqvi.mnch_src.FormContract.Sec1Entry;
-import edu.aku.hassannaqvi.mnch_src.Sec3Contract.Sec3Entry;
-import edu.aku.hassannaqvi.mnch_src.Section4Contract.Section4Entry;
-import edu.aku.hassannaqvi.mnch_src.Section4aContract.Section4aEntry;
-import edu.aku.hassannaqvi.mnch_src.ClusterContract.ClusterEntry;
-import edu.aku.hassannaqvi.mnch_src.VillageContract.VillageEntry;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -23,11 +16,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import edu.aku.hassannaqvi.mnch_src.ClusterContract.ClusterEntry;
 import edu.aku.hassannaqvi.mnch_src.FormContract.Sec1Entry;
 import edu.aku.hassannaqvi.mnch_src.Sec3Contract.Sec3Entry;
 import edu.aku.hassannaqvi.mnch_src.Sec7ImContract.single7Im;
 import edu.aku.hassannaqvi.mnch_src.Section4Contract.Section4Entry;
 import edu.aku.hassannaqvi.mnch_src.Section4aContract.Section4aEntry;
+import edu.aku.hassannaqvi.mnch_src.VillageContract.VillageEntry;
 
 /**
  * Created by isd on 20/10/2016.
@@ -39,12 +34,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + UsersContract.singleUser.ROW_USERNAME + " TEXT,"
             + UsersContract.singleUser.ROW_PASSWORD + " TEXT,"
             + UsersContract.singleUser.ROW_USERSTATUS + " TEXT,"
-            + UsersContract.singleUser.ROW_ISADMIN + " TEXT);";
-
-    private static final String SQL_DELETE_USERS =
-            "DROP TABLE IF EXISTS " + UsersContract.singleUser.TABLE_NAME;
-
-
             + UsersContract.singleUser.ROW_ISADMIN + " TEXT );";
     /*******************************
      * Section 1
@@ -80,6 +69,10 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec1Entry.ROW_GPS_LAT + " TEXT,"
             + Sec1Entry.ROW_GPS_DT + " TEXT,"
             + Sec1Entry.ROW_GPS_ACC + " TEXT);";
+    /*******************************
+     * Section 3
+     ******************************/
+
     public static final String SQL_CREATE_BASELINE_SEC3 = "CREATE TABLE IF NOT EXISTS " + Sec3Entry.TABLE_NAME + "("
             + Sec3Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Sec3Entry.ROW_DEVID + " TEXT,"
@@ -99,11 +92,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec3Entry.ROW_s3q301j + " INTEGER,"
             + Sec3Entry.ROW_s3q301k + " INTEGER,"
             + Sec3Entry.ROW_UID + " TEXT);";
-
-    private static final String SQL_DELETE_SEC3 =
-            "DROP TABLE IF EXISTS " + Sec3Entry.TABLE_NAME;
-
-
     /*******************************
      * Section 4a
      ******************************/
@@ -122,7 +110,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Section4Entry.ROW_s4q41d + " TEXT,"
             + Section4Entry.ROW_s4q41e + " TEXT,"
             + Section4Entry.ROW_UID + " TEXT);";
-
     public static final String SQL_CREATE_SEC_7_IM = "CREATE TABLE IF NOT EXISTS " + single7Im.TABLE_NAME + "("
             + single7Im._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + single7Im.ROW_DEVID + " TEXT,"
@@ -136,23 +123,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + single7Im.ROW_GPS_DT + " TEXT,"
             + single7Im.ROW_GPS_ACC + " TEXT,"
             + single7Im.ROW_UID + " TEXT);";
-
-
-    private static final String TAG = "Sec1";
-    private static final String DATABASE_NAME = "src.db";
-    private static final int DATABASE_VERSION = 1;
-    private static final String SQL_DELETE_USERS =
-            "DROP TABLE IF EXISTS " + UsersContract.singleUser.TABLE_NAME;
-    private static final String SQL_DELETE_SEC1 =
-            "DROP TABLE IF EXISTS " + Sec1Entry.TABLE_NAME;
-    private static final String SQL_DELETE_SEC3 =
-            "DROP TABLE IF EXISTS " + Sec3Entry.TABLE_NAME;
-    private static final String SQL_DELETE_SEC4 =
-            "DROP TABLE IF EXISTS " + Section4Entry.TABLE_NAME;
-    private static final String SQL_DELETE_SEC_7_IM =
-            "DROP TABLE IF EXISTS " + single7Im.TABLE_NAME;
-
-
     /*******************************
      * Section 4b
      ******************************/
@@ -173,11 +143,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Section4aEntry.ROW_s4q42eoth + " TEXT,"
             + Section4aEntry.ROW_s4q42f + " TEXT,"
             + Section4aEntry.ROW_UID + " TEXT);";
-
-    private static final String SQL_DELETE_SEC4b =
-            "DROP TABLE IF EXISTS " + Section4Entry.TABLE_NAME;
-
-
     /*******************************
      * Get Cluster / UC
      ******************************/
@@ -186,7 +151,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     public static final String SQL_CREATE_CLUSTER = "CREATE TABLE IF NOT EXISTS " + ClusterEntry.TABLE_NAME + "("
             + ClusterEntry.ROW_UCCODE + " TEXT,"
             + ClusterEntry.ROW_UCNAME + " TEXT);";
-
     /*******************************
      * Get Villages
      ******************************/
@@ -196,6 +160,21 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + VillageEntry.ROW_VCODE + " TEXT,"
             + VillageEntry.ROW_VNAME + " TEXT,"
             + VillageEntry.ROW_UCNAME + " TEXT);";
+    private static final String TAG = "Sec1";
+    private static final String DATABASE_NAME = "src.db";
+    private static final int DATABASE_VERSION = 1;
+    private static final String SQL_DELETE_USERS =
+            "DROP TABLE IF EXISTS " + UsersContract.singleUser.TABLE_NAME;
+    private static final String SQL_DELETE_SEC1 =
+            "DROP TABLE IF EXISTS " + Sec1Entry.TABLE_NAME;
+    private static final String SQL_DELETE_SEC3 =
+            "DROP TABLE IF EXISTS " + Sec3Entry.TABLE_NAME;
+    private static final String SQL_DELETE_SEC4 =
+            "DROP TABLE IF EXISTS " + Section4Entry.TABLE_NAME;
+    private static final String SQL_DELETE_SEC_7_IM =
+            "DROP TABLE IF EXISTS " + single7Im.TABLE_NAME;
+    private static final String SQL_DELETE_SEC4b =
+            "DROP TABLE IF EXISTS " + Section4Entry.TABLE_NAME;
 
     SRCDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -498,11 +477,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 var.Store_isadmin(isadmin);
 
 
-                if (status.equals("1")) {
-                    isexists = true;
-                } else {
-                    isexists = false;
-                }
+                isexists = status.equals("1");
             }
         }
 
@@ -592,7 +567,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             values.put(Sec3Entry.ROW_s3q301j, fc.get_s3q301j());
             values.put(Sec3Entry.ROW_s3q301k, fc.get_s3q301k());
 
-            values.put(Sec3Entry.ROW_UID, SRCApp.fc.getROW_UID());
+            values.put(Sec3Entry.ROW_UID, SRCApp.fc.getROW_UUID());
 
             newRowId = db.insert(Sec3Entry.TABLE_NAME, null, values);
             db.close();
@@ -624,7 +599,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             values.put(Section4Entry.ROW_s4q41d, fc.get_s4q41d());
             values.put(Section4Entry.ROW_s4q41e, fc.get_s4q41e());
 
-            values.put(Section4Entry.ROW_UID, SRCApp.fc.getROW_UID());
+            values.put(Section4Entry.ROW_UID, SRCApp.fc.getROW_UUID());
 
             newRowId = db.insert(Section4Entry.TABLE_NAME, null, values);
             db.close();
@@ -658,7 +633,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             values.put(Section4aEntry.ROW_s4q42eoth, fc.get_s4q42eoth());
             values.put(Section4aEntry.ROW_s4q42f, fc.get_s4q42f());
 
-            values.put(Section4aEntry.ROW_UID, SRCApp.fc.getROW_UID());
+            values.put(Section4aEntry.ROW_UID, SRCApp.fc.getROW_UUID());
 
             newRowId = db.insert(Section4aEntry.TABLE_NAME, null, values);
             db.close();
@@ -797,7 +772,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    public Long addOC(Sec7ImContract s7im) {
+    public Long addSec7Im(Sec7ImContract s7im) {
 
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();

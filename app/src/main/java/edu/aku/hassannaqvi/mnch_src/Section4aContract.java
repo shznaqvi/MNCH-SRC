@@ -34,24 +34,21 @@ public class Section4aContract implements BaseColumns {
 
     }
 
-
-    public void set_s4q42eoth(String ROW_s4q42eoth) {
-        this.ROW_s4q42eoth = ROW_s4q42eoth;
-    }
-
     public String get_s4q42eoth() {
         return this.ROW_s4q42eoth;
     }
 
-
-    public void set_deviceid(String ROW_DEVID) {
-        this.ROW_DEVID = ROW_DEVID;
+    public void set_s4q42eoth(String ROW_s4q42eoth) {
+        this.ROW_s4q42eoth = ROW_s4q42eoth;
     }
 
     public String get_deviceid() {
         return this.ROW_DEVID;
     }
 
+    public void set_deviceid(String ROW_DEVID) {
+        this.ROW_DEVID = ROW_DEVID;
+    }
 
     public void set_hhcode(String ROW_HHCODE) {
         this.ROW_HHCODE = ROW_HHCODE;
@@ -61,97 +58,93 @@ public class Section4aContract implements BaseColumns {
         return this.ROW_HHCODE;
     }
 
-    public void set_sno(String ROW_SNO) {
-        this.ROW_SNO = ROW_SNO;
-    }
-
     public String get_sno() {
         return this.ROW_SNO;
     }
 
-    public void set_form_id(String ROW_FORM_ID) {
-        this.ROW_FORM_ID = ROW_FORM_ID;
+    public void set_sno(String ROW_SNO) {
+        this.ROW_SNO = ROW_SNO;
     }
 
     public String get_form_id() {
         return this.ROW_FORM_ID;
     }
 
-    public void set_uuid(String ROW_UID) {
-        this.ROW_UID = ROW_UID;
+    public void set_form_id(String ROW_FORM_ID) {
+        this.ROW_FORM_ID = ROW_FORM_ID;
     }
 
     public String get_uuid() {
         return this.ROW_UID;
     }
 
-    public void set_s4q42a(String ROW_s4q42a) {
-        this.ROW_s4q42a = ROW_s4q42a;
+    public void set_uuid(String ROW_UID) {
+        this.ROW_UID = ROW_UID;
     }
 
     public String get_s4q42a() {
         return this.ROW_s4q42a;
     }
 
-    public void set_s4q42b(String ROW_s4q42b) {
-        this.ROW_s4q42b = ROW_s4q42b;
+    public void set_s4q42a(String ROW_s4q42a) {
+        this.ROW_s4q42a = ROW_s4q42a;
     }
 
     public String get_s4q42b() {
         return this.ROW_s4q42b;
     }
 
-    public void set_s4q42c(String ROW_s4q42c) {
-        this.ROW_s4q42c = ROW_s4q42c;
+    public void set_s4q42b(String ROW_s4q42b) {
+        this.ROW_s4q42b = ROW_s4q42b;
     }
 
     public String get_s4q42c() {
         return this.ROW_s4q42c;
     }
 
-
-    public void set_s4q42d(String ROW_s4q42d) {
-        this.ROW_s4q42d = ROW_s4q42d;
+    public void set_s4q42c(String ROW_s4q42c) {
+        this.ROW_s4q42c = ROW_s4q42c;
     }
 
     public String get_s4q42d() {
         return this.ROW_s4q42d;
     }
 
-    public void set_s4q42d1(String ROW_s4q42d1) {
-        this.ROW_s4q42d1 = ROW_s4q42d1;
+    public void set_s4q42d(String ROW_s4q42d) {
+        this.ROW_s4q42d = ROW_s4q42d;
     }
 
     public String get_s4q42d1() {
         return this.ROW_s4q42d1;
     }
 
-
-    public void set_s4q42d2(String ROW_s4q42d2) {
-        this.ROW_s4q42d2 = ROW_s4q42d2;
+    public void set_s4q42d1(String ROW_s4q42d1) {
+        this.ROW_s4q42d1 = ROW_s4q42d1;
     }
 
     public String get_s4q42d2() {
         return this.ROW_s4q42d2;
     }
 
-
-    public void set_s4q42e(String ROW_s4q42e) {
-        this.ROW_s4q42e = ROW_s4q42e;
+    public void set_s4q42d2(String ROW_s4q42d2) {
+        this.ROW_s4q42d2 = ROW_s4q42d2;
     }
 
     public String get_s4q42e() {
         return this.ROW_s4q42e;
     }
 
-    public void set_s4q42f(String ROW_s4q42f) {
-        this.ROW_s4q42f = ROW_s4q42f;
+    public void set_s4q42e(String ROW_s4q42e) {
+        this.ROW_s4q42e = ROW_s4q42e;
     }
 
     public String get_s4q42f() {
         return this.ROW_s4q42f;
     }
 
+    public void set_s4q42f(String ROW_s4q42f) {
+        this.ROW_s4q42f = ROW_s4q42f;
+    }
 
     public JSONObject toJSONObject() throws JSONException {
         JSONObject json = new JSONObject();

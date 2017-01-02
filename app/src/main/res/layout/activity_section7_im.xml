@@ -174,18 +174,18 @@
 
 
             <RadioGroup
-                android:id="@+id/bcgscar"
+                android:id="@+id/mnbcgscar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/bcgscar01"
+                    android:id="@+id/mnbcgscar01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnyes" />
 
                 <RadioButton
-                    android:id="@+id/bcgscar02"
+                    android:id="@+id/mnbcgscar02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnno" />

@@ -1,20 +1,20 @@
 package edu.aku.hassannaqvi.mnch_src;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.app.Activity;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import org.json.JSONObject;
@@ -22,6 +22,8 @@ import org.json.JSONObject;
 public class Section2Activity extends Activity {
 
     private static final String TAG = "Sec2";
+    String var_s2q203 = "";
+    String var_s2q205 = "";
     private ScrollView scrollView01;
     private TextView appHeader;
     private TextView lblS2q201;
@@ -56,7 +58,6 @@ public class Section2Activity extends Activity {
     private TextView lblS2q206f;
     private TextView lblS2q206g;
     private TextView lblS2q206h;
-
     private EditText s2q201;
     private EditText s2q202;
     private EditText s2q204;
@@ -69,16 +70,10 @@ public class Section2Activity extends Activity {
     private EditText s2q206f;
     private EditText s2q206g;
     private EditText s2q206h;
-
     private TextView lbl_hhhead;
-
     private LinearLayout vu_s2q205oth;
-
     private int rdo_s2q203;
     private int rdo_s2q205;
-
-    String var_s2q203 = "";
-    String var_s2q205 = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,18 +1,27 @@
 package edu.aku.hassannaqvi.mnch_src;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class Section7ImActivity extends Activity {
+
+    private static final String TAG = Section7ImActivity.class.getSimpleName();
 
     @BindView(R.id.ScrollView01)
     ScrollView scrollView01;
@@ -42,12 +51,12 @@ public class Section7ImActivity extends Activity {
     RadioButton mnbcgsrc02;
     @BindView(R.id.mnbcgsrc03)
     RadioButton mnbcgsrc03;
-    @BindView(R.id.bcgscar)
-    RadioGroup bcgscar;
-    @BindView(R.id.bcgscar01)
-    RadioButton bcgscar01;
-    @BindView(R.id.bcgscar02)
-    RadioButton bcgscar02;
+    @BindView(R.id.mnbcgscar)
+    RadioGroup mnbcgscar;
+    @BindView(R.id.mnbcgscar01)
+    RadioButton mnbcgscar01;
+    @BindView(R.id.mnbcgscar02)
+    RadioButton mnbcgscar02;
     @BindView(R.id.mnopv0)
     RadioGroup mnopv0;
     @BindView(R.id.mnopv001)
@@ -249,13 +258,155 @@ public class Section7ImActivity extends Activity {
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-        //TODO implement
+        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+        if (formValidation()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
+                Toast.makeText(this, "Starting Closing Section", Toast.LENGTH_SHORT).show();
+                Intent endSec = new Intent(this, EndingActivity.class);
+                endSec.putExtra("complete", false);
+                startActivity(endSec);
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
-        //TODO implement
+        Toast.makeText(this, "Processing Section G", Toast.LENGTH_SHORT).show();
+        if (formValidation()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (UpdateDB()) {
+                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+
+                finish();
+
+                Intent Sec8 = new Intent(this, Section8Activity.class);
+                startActivity(Sec8);
+
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
+    private boolean UpdateDB() {
+        Long rowId;
+        SRCDBHelper db = new SRCDBHelper(this);
+
+        rowId = db.addSec7Im(SRCApp.sec7im);
+
+        SRCApp.sec7im.set_ID(rowId);
+
+        if (rowId != null) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            SRCApp.sec7im.setROW_UID(
+                    (SRCApp.sec7im.getROW_DEVID() + SRCApp.sec7im.get_ID()));
+            Toast.makeText(this, "Current Form No: " + SRCApp.sec7im.getROW_UID(), Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+    }
+
+    private void SaveDraft() throws JSONException {
+        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+        SRCApp.sec7im = new Sec7ImContract();
+        SRCApp.sec7im.setROW_DEVID(Settings.Secure.getString(getApplicationContext().getContentResolver(),
+                Settings.Secure.ANDROID_ID));
+        SRCApp.sec7im.setROW_USERID(SRCApp.fc.getROW_USERID());
+        SRCApp.sec7im.setROW_UUID(SRCApp.fc.getROW_UUID());
+        SRCApp.sec7im.setROW_ENTRYDATE(SRCApp.fc.getROW_ENTRYDATE());
+        SRCApp.sec7im.setHousehold(SRCApp.fc.getROW_S1Q101());
+        SRCApp.sec7im.setROW_GPS_LAT(SRCApp.fc.ROW_GPS_LAT);
+        SRCApp.sec7im.setROW_GPS_LNG(SRCApp.fc.ROW_GPS_LNG);
+        SRCApp.sec7im.setROW_GPS_ACC(SRCApp.fc.ROW_GPS_LAT);
+        SRCApp.sec7im.setROW_GPS_DT(SRCApp.fc.ROW_GPS_DT);
+
+
+        JSONObject s7im = new JSONObject();
+
+        s7im.put("mn07im01", mn07im01.getText().toString());
+        s7im.put("mn07im02", mn07im02.getText().toString());
+        s7im.put("mn07im03", mn07im0301.isChecked() ? "1" : mn07im0302.isChecked() ? "2" : "default");
+        s7im.put("mnbcg", mnbcg01.isChecked() ? "1" : mnbcg02.isChecked() ? "2" : "default");
+        s7im.put("mnbcgsrc", mnbcgsrc01.isChecked() ? "1" : mnbcgsrc02.isChecked() ? "2" : "default");
+        s7im.put("mnbcgscar", mnbcgscar01.isChecked() ? "1" : mnbcgscar02.isChecked() ? "2" : "default");
+        s7im.put("mnopv0", mnopv001.isChecked() ? "1" : mnopv002.isChecked() ? "2" : "default");
+        s7im.put("mnopv0src", mnopv0src01.isChecked() ? "1" : mnopv0src02.isChecked() ? "2" : "default");
+        s7im.put("mnp1", mnp101.isChecked() ? "1" : mnp102.isChecked() ? "2" : "default");
+        s7im.put("mnp1src", mnp1src01.isChecked() ? "1" : mnp1src02.isChecked() ? "2" : "default");
+        s7im.put("mnopv1", mnopv101.isChecked() ? "1" : mnopv102.isChecked() ? "2" : "default");
+        s7im.put("mnopv1src", mnopv1src01.isChecked() ? "1" : mnopv1src02.isChecked() ? "2" : "default");
+        s7im.put("mnopv2", mnopv201.isChecked() ? "1" : mnopv202.isChecked() ? "2" : "default");
+        s7im.put("mnopv2src", mnopv2src01.isChecked() ? "1" : mnopv2src02.isChecked() ? "2" : "default");
+        s7im.put("mnopv3", mnopv301.isChecked() ? "1" : mnopv302.isChecked() ? "2" : "default");
+        s7im.put("mnopv3src", mnopv3src01.isChecked() ? "1" : mnopv3src02.isChecked() ? "2" : "default");
+        s7im.put("mnp2", mnp201.isChecked() ? "1" : mnp202.isChecked() ? "2" : "default");
+        s7im.put("mnp2src", mnp2src01.isChecked() ? "1" : mnp2src02.isChecked() ? "2" : "default");
+        s7im.put("mnp3", mnp301.isChecked() ? "1" : mnp302.isChecked() ? "2" : "default");
+        s7im.put("mnp3src", mnp3src01.isChecked() ? "1" : mnp3src02.isChecked() ? "2" : "default");
+        s7im.put("mnpcv1", mnpcv101.isChecked() ? "1" : mnpcv102.isChecked() ? "2" : "default");
+        s7im.put("mnpcv1src", mnpcv1src01.isChecked() ? "1" : mnpcv1src02.isChecked() ? "2" : "default");
+        s7im.put("mnpcv2", mnpcv201.isChecked() ? "1" : mnpcv202.isChecked() ? "2" : "default");
+        s7im.put("mnpcv2src", mnpcv2src01.isChecked() ? "1" : mnpcv2src02.isChecked() ? "2" : "default");
+        s7im.put("mnpcv3", mnpcv301.isChecked() ? "1" : mnpcv302.isChecked() ? "2" : "default");
+        s7im.put("mnpcv3src", mnpcv3src01.isChecked() ? "1" : mnpcv3src02.isChecked() ? "2" : "default");
+        s7im.put("mnipv", mnipv01.isChecked() ? "1" : mnipv02.isChecked() ? "2" : "default");
+        s7im.put("mnipvsrc", mnipvsrc01.isChecked() ? "1" : mnipvsrc02.isChecked() ? "2" : "default");
+        s7im.put("mnm1", mnm101.isChecked() ? "1" : mnm102.isChecked() ? "2" : "default");
+        s7im.put("mnm1src", mnm1src01.isChecked() ? "1" : mnm1src02.isChecked() ? "2" : "default");
+        s7im.put("mnm2", mnm201.isChecked() ? "1" : mnm202.isChecked() ? "2" : "default");
+        s7im.put("mnm2src", mnm2src01.isChecked() ? "1" : mnm2src02.isChecked() ? "2" : "default");
+        s7im.put("mnis", mnfi.isChecked() ? "1" : mnpi.isChecked() ? "2" : mnui.isChecked() ? "3" : "default");
+
+
+        SRCApp.sec7im.setROW_7IM(String.valueOf(s7im));
+
+
+        Toast.makeText(this, "Saving Draft... Successful!", Toast.LENGTH_SHORT).show();
+    }
+
+    private boolean formValidation() {
+
+        if (mn07im01.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn07im01), Toast.LENGTH_LONG).show();
+            mn07im01.setError("This data is Required!");
+            Log.i(TAG, "mn07im01: This data is Required!");
+            return false;
+        } else {
+            mn07im01.setError(null);
+        }
+
+        if (mn07im02.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn07im02), Toast.LENGTH_LONG).show();
+            mn07im02.setError("This data is Required!");
+            Log.i(TAG, "mn07im02: This data is Required!");
+            return false;
+        } else {
+            mn07im02.setError(null);
+        }
+        if (mn07im03.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn07im03), Toast.LENGTH_LONG).show();
+            mn07im0302.setError("This data is Required!");
+            Log.i(TAG, "mn07im03: This data is Required!");
+            return false;
+        } else {
+            mn07im0302.setError(null);
+        }
+
+        return true;
+    }
 
 }

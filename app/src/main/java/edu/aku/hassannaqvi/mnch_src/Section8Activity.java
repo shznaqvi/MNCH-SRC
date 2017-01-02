@@ -1,23 +1,19 @@
 package edu.aku.hassannaqvi.mnch_src;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.app.Activity;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ScrollView;
-import android.widget.TextView;
-import android.widget.RadioGroup;
-import android.widget.RadioButton;
-import android.widget.LinearLayout;
-import android.widget.EditText;
 import android.widget.CheckBox;
-import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 
