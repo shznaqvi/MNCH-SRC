@@ -480,8 +480,20 @@ public class Section3Activity extends Activity {
             SRCApp.sc3.set_s3q301f(var_s3q301f);
 
 
-            SRCApp.sc3.set_s3q301g(s3q301g.getText().toString());
+            rdo_s3q301g = radioS3q301g.getCheckedRadioButtonId();
 
+            switch (rdo_s3q301g) {
+                case R.id.RDO_s3q301g_1:
+                    var_s3q301g = "1";
+                    break;
+
+                case R.id.RDO_s3q301g_2:
+                    var_s3q301g = "2";
+                    break;
+            }
+
+
+            SRCApp.sc3.set_s3q301g(var_s3q301g);
 
             rdo_s3q301h = radioS3q301h.getCheckedRadioButtonId();
 
@@ -499,10 +511,91 @@ public class Section3Activity extends Activity {
             SRCApp.sc3.set_s3q301h(var_s3q301h);
 
 
+            rdo_s3q301i = radioS3q301i.getCheckedRadioButtonId();
+
+            switch (rdo_s3q301i) {
+                case R.id.RDO_s3q301i_1:
+                    var_s3q301i = "1";
+                    break;
+
+                case R.id.RDO_s3q301i_2:
+                    var_s3q301i = "2";
+                    break;
+
+                case R.id.RDO_s3q301i_3:
+                    var_s3q301i = "3";
+                    break;
+
+                case R.id.RDO_s3q301i_4:
+                    var_s3q301i = "4";
+                    break;
+
+                case R.id.RDO_s3q301i_5:
+                    var_s3q301i = "5";
+                    break;
+
+                case R.id.RDO_s3q301i_6:
+                    var_s3q301i = "6";
+                    break;
+
+                case R.id.RDO_s3q301i_7:
+                    var_s3q301i = "7";
+                    break;
+
+                case R.id.RDO_s3q301i_8:
+                    var_s3q301i = "8";
+                    break;
+
+                case R.id.RDO_s3q301i_9:
+                    var_s3q301i = "9";
+                    break;
+
+                case R.id.RDO_s3q301i_10:
+                    var_s3q301i = "10";
+                    break;
+            }
 
 
-            SRCApp.sc3.set_s3q301i(s3q301i.getText().toString());
-            SRCApp.sc3.set_s3q301j(s3q301j.getText().toString());
+            SRCApp.sc3.set_s3q301h(var_s3q301h);
+
+
+            rdo_s3q301j = radioS3q301j.getCheckedRadioButtonId();
+
+            switch (rdo_s3q301j) {
+                case R.id.RDO_s3q301j_1:
+                    var_s3q301j = "1";
+                    break;
+
+                case R.id.RDO_s3q301j_2:
+                    var_s3q301j = "2";
+                    break;
+
+                case R.id.RDO_s3q301j_3:
+                    var_s3q301j = "3";
+                    break;
+
+                case R.id.RDO_s3q301j_4:
+                    var_s3q301j = "4";
+                    break;
+
+                case R.id.RDO_s3q301j_5:
+                    var_s3q301j = "5";
+                    break;
+
+                case R.id.RDO_s3q301j_6:
+                    var_s3q301j = "6";
+                    break;
+
+                case R.id.RDO_s3q301j_7:
+                    var_s3q301j = "7";
+                    break;
+
+                case R.id.RDO_s3q301j_8:
+                    var_s3q301j = "8";
+                    break;
+            }
+
+            SRCApp.sc3.set_s3q301j(var_s3q301j);
 
 
         } catch (Exception e) {

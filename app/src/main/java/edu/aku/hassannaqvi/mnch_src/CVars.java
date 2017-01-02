@@ -8,7 +8,24 @@ public class CVars {
     public static String myuser;
     public static String url_sync_users;
     public static int repro_age_woman;
+    public static String hhno;
+    public static String hhcode;
 
+    public void StoreHHNO(String hhno) {
+        this.hhno = hhno;
+    }
+
+    public String GetHHNO() {
+        return this.hhno;
+    }
+
+    public void StoreHHCode(String hhcode) {
+        this.hhcode = hhcode;
+    }
+
+    public String GetHHCode() {
+        return this.hhcode;
+    }
 
     public void StoreUser(String Users) {
         this.myuser = Users;
