@@ -196,10 +196,10 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        //db.execSQL(SQL_DELETE_USERS);
-        //db.execSQL(SQL_DELETE_SEC1);
-        //db.execSQL(SQL_DELETE_SEC3);
-        //db.execSQL(SQL_DELETE_SEC4);
+        db.execSQL(SQL_DELETE_USERS);
+        db.execSQL(SQL_DELETE_SEC1);
+        db.execSQL(SQL_DELETE_SEC3);
+        db.execSQL(SQL_DELETE_SEC4);
 
         onCreate(db);
     }
@@ -801,6 +801,24 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 values);
 
         return newRowId;
+    }
+
+    public int updateS7im() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(single7Im.ROW_UID, SRCApp.sec7im.getROW_UID());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + SRCApp.sec7im.get_ID();
+        String[] selectionArgs = {String.valueOf(SRCApp.sec7im.get_ID())};
+
+        int count = db.update(single7Im.TABLE_NAME,
+                values,
+                selection,
+                null);
+        return count;
     }
 
 

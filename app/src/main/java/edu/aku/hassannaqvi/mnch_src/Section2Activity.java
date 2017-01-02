@@ -314,6 +314,9 @@ public class Section2Activity extends Activity {
             s2.put("s2q206c", s2q206c.getText().toString());
             s2.put("s2q206d", s2q206d.getText().toString());
             s2.put("s2q206e", s2q206e.getText().toString());
+
+            SRCApp.chTotal = Integer.valueOf(s2q206d.getText().toString()) + Integer.valueOf(s2q206e.getText().toString());
+
             s2.put("s2q206f", s2q206f.getText().toString());
             s2.put("s2q206g", s2q206g.getText().toString());
             s2.put("s2q206h", s2q206h.getText().toString());
