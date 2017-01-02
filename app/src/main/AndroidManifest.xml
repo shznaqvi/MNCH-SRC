@@ -59,7 +59,7 @@
         <activity android:name=".Section5cActivity" />
         <activity android:name=".Section4aActivity" />
         <activity android:name=".EndingActivity" />
-        <activity android:name=".Section7IMActivity"></activity>
+        <activity android:name=".Section7ImActivity"></activity>
     </application>
 
 </manifest>

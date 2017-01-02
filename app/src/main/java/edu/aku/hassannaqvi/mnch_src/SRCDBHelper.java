@@ -18,6 +18,7 @@ import java.util.List;
 
 import edu.aku.hassannaqvi.mnch_src.FormContract.Sec1Entry;
 import edu.aku.hassannaqvi.mnch_src.Sec3Contract.Sec3Entry;
+import edu.aku.hassannaqvi.mnch_src.Sec7ImContract.single7Im;
 import edu.aku.hassannaqvi.mnch_src.Section4Contract.Section4Entry;
 import edu.aku.hassannaqvi.mnch_src.Section4aContract.Section4aEntry;
 
@@ -99,6 +100,22 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Section4Entry.ROW_s4q41d + " TEXT,"
             + Section4Entry.ROW_s4q41e + " TEXT,"
             + Section4Entry.ROW_UID + " TEXT);";
+
+    public static final String SQL_CREATE_SEC_7_IM = "CREATE TABLE IF NOT EXISTS " + single7Im.TABLE_NAME + "("
+            + single7Im._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + single7Im.ROW_DEVID + " TEXT,"
+            + single7Im.ROW_ENTRYDATE + " TEXT,"
+            + single7Im.ROW_USERID + " TEXT,"
+            + single7Im.ROW_UUID + " TEXT,"
+            + single7Im.ROW_HOUSEHOLD + " TEXT,"
+            + single7Im.ROW_7IM + " TEXT,"
+            + single7Im.ROW_GPS_LNG + " TEXT,"
+            + single7Im.ROW_GPS_LAT + " TEXT,"
+            + single7Im.ROW_GPS_DT + " TEXT,"
+            + single7Im.ROW_GPS_ACC + " TEXT,"
+            + single7Im.ROW_UID + " TEXT);";
+
+
     private static final String TAG = "Sec1";
     private static final String DATABASE_NAME = "src.db";
     private static final int DATABASE_VERSION = 1;
@@ -110,6 +127,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + Sec3Entry.TABLE_NAME;
     private static final String SQL_DELETE_SEC4 =
             "DROP TABLE IF EXISTS " + Section4Entry.TABLE_NAME;
+    private static final String SQL_DELETE_SEC_7_IM =
+            "DROP TABLE IF EXISTS " + single7Im.TABLE_NAME;
 
 
     SRCDBHelper(Context context) {
@@ -123,6 +142,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_BASELINE_SEC1);
         db.execSQL(SQL_CREATE_BASELINE_SEC3);
         db.execSQL(SQL_CREATE_BASELINE_SEC4);
+        db.execSQL(SQL_CREATE_SEC_7_IM);
     }
 
     @Override
@@ -581,6 +601,37 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public Long addOC(Sec7ImContract s7im) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(single7Im._ID, s7im.get_ID());
+        values.put(single7Im.ROW_DEVID, s7im.getROW_DEVID());
+        values.put(single7Im.ROW_ENTRYDATE, s7im.getROW_ENTRYDATE());
+        values.put(single7Im.ROW_USERID, s7im.getROW_USERID());
+        values.put(single7Im.ROW_UUID, s7im.getROW_UUID());
+        values.put(single7Im.ROW_UID, s7im.getROW_UID());
+        values.put(single7Im.ROW_HOUSEHOLD, s7im.getHousehold());
+        values.put(single7Im.ROW_7IM, s7im.getROW_7IM());
+        values.put(single7Im.ROW_GPS_LNG, s7im.getROW_GPS_LNG());
+        values.put(single7Im.ROW_GPS_LAT, s7im.getROW_GPS_LAT());
+        values.put(single7Im.ROW_GPS_DT, s7im.getROW_GPS_DT());
+        values.put(single7Im.ROW_GPS_ACC, s7im.getROW_GPS_ACC());
+
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                single7Im.TABLE_NAME,
+                null,
+                values);
+
+        return newRowId;
+    }
+
 
     public int updateS8() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -706,6 +757,56 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return allFC;
     }
 
+    public Collection<Sec7ImContract> getAllSec7Im() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                single7Im._ID,
+                single7Im.ROW_DEVID,
+                single7Im.ROW_ENTRYDATE,
+                single7Im.ROW_USERID,
+                single7Im.ROW_UUID,
+                single7Im.ROW_UID,
+                single7Im.ROW_HOUSEHOLD,
+                single7Im.ROW_7IM,
+                single7Im.ROW_GPS_LNG,
+                single7Im.ROW_GPS_LAT,
+                single7Im.ROW_GPS_DT,
+                single7Im.ROW_GPS_ACC,
+        };
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                single7Im._ID + " ASC";
+
+        Collection<Sec7ImContract> allOC = new ArrayList<Sec7ImContract>();
+        try {
+            c = db.query(
+                    single7Im.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                Sec7ImContract s7Im = new Sec7ImContract();
+                allOC.add(s7Im.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allOC;
+    }
     private FormContract hydrate(Cursor c) {
         FormContract fc = new FormContract();
 
