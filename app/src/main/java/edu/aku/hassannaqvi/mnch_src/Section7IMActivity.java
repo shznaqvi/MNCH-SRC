@@ -183,34 +183,34 @@ public class Section7ImActivity extends Activity {
     RadioButton mnopv3src02;
     @BindView(R.id.mnopv3src03)
     RadioButton mnopv3src03;
-    @BindView(R.id.mnipv2)
-    RadioGroup mnipv2;
-    @BindView(R.id.mnipv201)
-    RadioButton mnipv201;
-    @BindView(R.id.mnipv202)
-    RadioButton mnipv202;
-    @BindView(R.id.mnipv2src)
-    RadioGroup mnipv2src;
-    @BindView(R.id.mnipv2src01)
-    RadioButton mnipv2src01;
-    @BindView(R.id.mnipv2src02)
-    RadioButton mnipv2src02;
-    @BindView(R.id.mnipv2src03)
-    RadioButton mnipv2src03;
-    @BindView(R.id.mnipcv3)
-    RadioGroup mnipcv3;
-    @BindView(R.id.mnipcv301)
-    RadioButton mnipcv301;
-    @BindView(R.id.mnipcv302)
-    RadioButton mnipcv302;
-    @BindView(R.id.mnipcv3src)
-    RadioGroup mnipcv3src;
-    @BindView(R.id.mnipcv3src01)
-    RadioButton mnipcv3src01;
-    @BindView(R.id.mnipcv3src02)
-    RadioButton mnipcv3src02;
-    @BindView(R.id.mnipcv3src03)
-    RadioButton mnipcv3src03;
+    @BindView(R.id.mnipv)
+    RadioGroup mnipv;
+    @BindView(R.id.mnipv01)
+    RadioButton mnipv01;
+    @BindView(R.id.mnipv02)
+    RadioButton mnipv02;
+    @BindView(R.id.mnipvsrc)
+    RadioGroup mnipvsrc;
+    @BindView(R.id.mnipvsrc01)
+    RadioButton mnipvsrc01;
+    @BindView(R.id.mnipvsrc02)
+    RadioButton mnipvsrc02;
+    @BindView(R.id.mnipvsrc03)
+    RadioButton mnipvsrc03;
+    @BindView(R.id.mnpcv3)
+    RadioGroup mnpcv3;
+    @BindView(R.id.mnpcv301)
+    RadioButton mnpcv301;
+    @BindView(R.id.mnpcv302)
+    RadioButton mnpcv302;
+    @BindView(R.id.mnpcv3src)
+    RadioGroup mnpcv3src;
+    @BindView(R.id.mnpcv3src01)
+    RadioButton mnpcv3src01;
+    @BindView(R.id.mnpcv3src02)
+    RadioButton mnpcv3src02;
+    @BindView(R.id.mnpcv3src03)
+    RadioButton mnpcv3src03;
     @BindView(R.id.mnm1)
     RadioGroup mnm1;
     @BindView(R.id.mnm101)
@@ -397,6 +397,7 @@ public class Section7ImActivity extends Activity {
         } else {
             mn07im02.setError(null);
         }
+
         if (mn07im03.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn07im03), Toast.LENGTH_LONG).show();
             mn07im0302.setError("This data is Required!");

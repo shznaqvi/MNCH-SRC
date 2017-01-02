@@ -1,11 +1,10 @@
 package edu.aku.hassannaqvi.mnch_src;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -61,11 +60,7 @@ public class LoginActivity extends Activity {
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) {
-                    //attemptLogin();
-                    return true;
-                }
-                return false;
+                return id == R.id.login || id == EditorInfo.IME_NULL;
             }
         });
 
@@ -101,7 +96,7 @@ public class LoginActivity extends Activity {
 
     public void SyncUsers(View v) {
         CVars var = new CVars();
-        var.setUrl_sync_users(txturl.getText().toString());
+        var.setUrl_sync_usr(txturl.getText().toString());
 
         GetUsers user = new GetUsers(this);
         user.execute();

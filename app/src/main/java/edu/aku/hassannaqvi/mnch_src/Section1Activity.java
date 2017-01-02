@@ -308,7 +308,7 @@ public class Section1Activity extends Activity {
     private boolean UpdateDB() {
         SRCDBHelper db = new SRCDBHelper(this);
         SRCApp.fc.set_ID(db.InsertRecord(SRCApp.fc));
-        SRCApp.fc.setROW_UID(SRCApp.fc.getROW_DEVID() + SRCApp.fc.get_ID());
+        SRCApp.fc.setROW_UUID(SRCApp.fc.getROW_DEVID() + SRCApp.fc.get_ID());
 
         return true;
     }

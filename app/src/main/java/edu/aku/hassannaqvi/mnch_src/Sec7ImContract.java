@@ -188,7 +188,7 @@ public final class Sec7ImContract implements BaseColumns {
         public static final String ROW_UUID = "uuid ";
         public static final String ROW_UID = "uid ";
         public static final String ROW_HOUSEHOLD = "household ";
-        public static final String ROW_7IM = "7im ";
+        public static final String ROW_7IM = "s7im ";
         public static final String ROW_GPS_LNG = "gps_lng ";
         public static final String ROW_GPS_LAT = "gps_lat ";
         public static final String ROW_GPS_DT = "gps_dt ";
