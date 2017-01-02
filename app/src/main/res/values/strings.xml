@@ -610,9 +610,6 @@
     <string name="mnbirth"> At Birth </string>
     <string name="mnbcg"> BCG </string>
     <string name="mnbcgsrc"> Source </string>
-    <string name="mnbcgsrc01"> کارڈ </string>
-    <string name="mnbcgsrc02"> جوابدہندہ </string>
-    <string name="mnbcgsrc03"> یاد نہیں </string>
     <string name="mnbcgscar"> Presence of Scar </string>
     <string name="mnopv0"> OPV 0 </string>
     <string name="mnopv0src"> Source </string>
@@ -635,10 +632,10 @@
     <string name="mnp3src"> Source </string>
     <string name="mnopv3"> OPV 3 </string>
     <string name="mnopv3src"> Source </string>
-    <string name="mnipv2"> IPV </string>
-    <string name="mnipv2src"> Source </string>
-    <string name="mnipcv3"> PCV 3 </string>
-    <string name="mnipcv3src"> Source </string>
+    <string name="mnipv"> IPV </string>
+    <string name="mnipvsrc"> Source </string>
+    <string name="mnpcv3"> PCV 3 </string>
+    <string name="mnpcv3src"> Source </string>
     <string name="mn09m"> At 9 months </string>
     <string name="mnm1"> Measles 1 </string>
     <string name="mnm1src"> Source </string>
@@ -654,6 +651,10 @@
     <string name="mnfi"> Fully immunized </string>
     <string name="mnpi"> Partially immunized </string>
     <string name="mnui"> Un immunized </string>
+    <string name="mncard">ڪارڊ</string>
+    <string name="mnrbm">ماء / نگران جي مطابق</string>
+    <string name="mnnr">ياد ڪونهي</string>
+    <string name="mncnp">ٻار موجود ڪونهي</string>
     <string name="mn0801"> گهر ۾ ڪهڙي ٻولي استعمال ڪندا آهيو </string>
     <string name="mn080101"> اردو </string>
     <string name="mn080102"> سنڌي </string>

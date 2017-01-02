@@ -73,5 +73,6 @@ public final class UsersContract implements BaseColumns {
         public static final String ROW_USERSTATUS = "USERSTATUS";
         public static final String ROW_ISADMIN = "ISADMIN";
 
+
     }
 }

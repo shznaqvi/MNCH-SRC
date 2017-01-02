@@ -46,9 +46,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
         pd = new ProgressDialog(mContext);
         pd.setTitle("Please wait... Processing Forms");
         pd.show();
-
     }
-
 
     @Override
     protected String doInBackground(Void... params) {
@@ -67,10 +65,9 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
             connection.setInstanceFollowRedirects(false);
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");
-            connection.setRequestProperty("charset", "utf-8");
+            connection.setRequestProperty("charset","utf-8");
             connection.setUseCaches(false);
             connection.connect();
-
 
             JSONArray jsonSync = new JSONArray();
 
