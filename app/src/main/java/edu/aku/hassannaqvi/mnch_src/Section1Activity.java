@@ -1,38 +1,42 @@
 package edu.aku.hassannaqvi.mnch_src;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.app.Activity;
 import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.RadioButton;
-import android.widget.DatePicker;
 import android.widget.Toast;
 
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 
 public class Section1Activity extends Activity {
 
     private static final String TAG = "Sec1";
+    public static JSONObject s1;
+    String var_s1q103 = "";
+    String var_s1q111 = "";
+    String var_s1q112 = "";
     private TextView appheader;
     private ScrollView activitySection1;
     private TextView lblFormid;
@@ -60,38 +64,24 @@ public class Section1Activity extends Activity {
     private RadioGroup radioS1q112;
     private RadioButton rDOS1q1121;
     private RadioButton rDOS1q1122;
-
     private EditText s1q102;
-
     private EditText formid;
     private Spinner s1q101;
-
     private EditText s1q104;
-    private EditText s1q105;
-    private EditText s1q106a;
+    private Spinner s1q105;
+    private Spinner s1q106a;
     private EditText s1q106b;
     private EditText s1q107;
     private EditText s1q108;
     private EditText s1q108b;
     private DatePicker s1q110;
     private EditText s1q111oth;
-
     private LinearLayout vu_s1q112;
-
     private int rdo_s1q103;
     private int rdo_s1q111;
     private int rdo_s1q112;
-
     private AlertDialog.Builder alert;
-
-    public static JSONObject s1;
-
     private String spDateT;
-
-    String var_s1q103 = "";
-    String var_s1q111 = "";
-    String var_s1q112 = "";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,8 +134,8 @@ public class Section1Activity extends Activity {
         s1q102 = (EditText) findViewById(R.id.s1q102);
 
         s1q104 = (EditText) findViewById(R.id.s1q104);
-        s1q105 = (EditText) findViewById(R.id.s1q105);
-        s1q106a = (EditText) findViewById(R.id.s1q106a);
+        s1q105 = (Spinner) findViewById(R.id.s1q105);
+        s1q106a = (Spinner) findViewById(R.id.s1q106a);
         s1q106b = (EditText) findViewById(R.id.s1q106b);
         s1q107 = (EditText) findViewById(R.id.s1q107);
         s1q108 = (EditText) findViewById(R.id.s1q108);
@@ -162,6 +152,55 @@ public class Section1Activity extends Activity {
                 android.R.layout.simple_spinner_item, lst_hhcode);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s1q101.setAdapter(adapter);
+
+
+        ArrayList<String> arr_members = new ArrayList<>();
+        final ArrayList<String> arr_members1 = new ArrayList<>();
+
+        final SRCDBHelper db = new SRCDBHelper(this);
+        final Collection<Members> members = db.getCluster();
+
+
+        for (Members m : members) {
+            arr_members.add(m.getNME());
+        }
+
+
+        ArrayAdapter<String> adapter_cluster = new ArrayAdapter<>(Section1Activity.this,
+                android.R.layout.simple_spinner_item, arr_members);
+        adapter_cluster.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s1q105.setAdapter(adapter_cluster);
+
+
+        final CVars var = new CVars();
+
+        s1q105.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+                // TODO Auto-generated method stub
+
+                String item = s1q105.getSelectedItem().toString();
+                //var.setClusterName(item);
+
+                final Collection<Members> members1 = db.getVillages(item);
+
+                arr_members1.clear();
+
+                for (Members m : members1) {
+                    arr_members1.add(m.getNME());
+                }
+
+
+                ArrayAdapter<String> adapter1 = new ArrayAdapter<>(Section1Activity.this,
+                        android.R.layout.simple_spinner_item, arr_members1);
+                adapter1.setDropDownViewResource(android.R.layout.simple_list_item_1);
+                s1q106a.setAdapter(adapter1);
+
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+            }
+        });
 
 
         alert = new AlertDialog.Builder(this);
@@ -209,16 +248,8 @@ public class Section1Activity extends Activity {
         return (EditText) findViewById(R.id.s1q104);
     }
 
-    private EditText getS1q105() {
-        return (EditText) findViewById(R.id.s1q105);
-    }
-
     private EditText getS1q106b() {
         return (EditText) findViewById(R.id.s1q106b);
-    }
-
-    private EditText getS1q106a() {
-        return (EditText) findViewById(R.id.s1q106a);
     }
 
     private EditText getS1q107() {
@@ -308,8 +339,16 @@ public class Section1Activity extends Activity {
 
         SRCApp.fc.setROW_S1Q103(var_s1q103.toString());
         SRCApp.fc.setROW_S1Q104(s1q104.getText().toString());
-        SRCApp.fc.setROW_S1Q105(s1q105.getText().toString());
-        SRCApp.fc.setROW_S1Q106a(s1q106a.getText().toString());
+
+
+        SRCDBHelper db = new SRCDBHelper(this);
+        String uccode = db.getUCCode(s1q105.getSelectedItem().toString());
+        String vcode = db.getVCode(s1q105.getSelectedItem().toString(), s1q106a.getSelectedItem().toString());
+
+
+        SRCApp.fc.setROW_S1Q105(uccode);
+        SRCApp.fc.setROW_S1Q106a(vcode);
+
         SRCApp.fc.setROW_S1Q106b(s1q106b.getText().toString());
         SRCApp.fc.setROW_S1Q107(s1q107.getText().toString());
         SRCApp.fc.setROW_S1Q108(s1q108.getText().toString());
@@ -413,23 +452,6 @@ public class Section1Activity extends Activity {
             s1q104.setError(null);
         }
 
-        if (getS1q105().getText().toString().isEmpty() || s1q105.getText().toString() == null) {
-            s1q105.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "Please enter village \r\n", Toast.LENGTH_LONG).show();
-            s1q105.requestFocus();
-            return false;
-        } else {
-            s1q105.setError(null);
-        }
-
-        if (getS1q106a().getText().toString().isEmpty() || s1q106a.getText().toString() == null) {
-            s1q106a.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "Please enter uc name \r\n", Toast.LENGTH_LONG).show();
-            s1q106a.requestFocus();
-            return false;
-        } else {
-            s1q106a.setError(null);
-        }
 
         if (getS1q106b().getText().toString().isEmpty() || s1q106b.getText().toString() == null) {
             s1q106b.setError(getString(R.string.txterr));
