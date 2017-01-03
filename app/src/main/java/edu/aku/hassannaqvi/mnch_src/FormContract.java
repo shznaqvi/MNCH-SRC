@@ -393,12 +393,12 @@ public final class FormContract implements BaseColumns {
         this.ROW_S8 = ROW_S8;
     }
 
-    public String getROW_UUID() {
+    public String getROW_UID() {
         return ROW_UUID;
     }
 
-    public void setROW_UUID(String ROW_UUID) {
-        this.ROW_UUID = ROW_UUID;
+    public void setROW_UID(String ROW_UID) {
+        this.ROW_UUID = ROW_UID;
     }
 
     public String getROW_GPS_LANG() {

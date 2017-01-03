@@ -1276,7 +1276,7 @@ public class Section5Activity extends Activity {
         s5.put("mn051888", mn051888.isChecked() ? "88" : "0");
         // EditText
         s5.put("mn051888x", mn051888x.getText().toString());
-// CheckBox
+        // CheckBox
         s5.put("mn051901", mn051901.isChecked() ? "1" : "0");
         s5.put("mn051902", mn051902.isChecked() ? "2" : "0");
         s5.put("mn051903", mn051903.isChecked() ? "3" : "0");
