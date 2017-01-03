@@ -162,33 +162,33 @@
 
 
                 <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/mn0706"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <RadioGroup
-                android:id="@+id/mn0706"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/mn070601"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnyes" />
+                    android:layout_marginTop="16dp"
+                    android:text="@string/mn0706"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                <RadioButton
-                    android:id="@+id/mn070602"
+                <RadioGroup
+                    android:id="@+id/mn0706"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mnno" />
+                    android:layout_height="wrap_content">
 
-                <RadioButton
-                    android:id="@+id/mn070699"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    <RadioButton
+                        android:id="@+id/mn070601"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mnyes" />
+
+                    <RadioButton
+                        android:id="@+id/mn070602"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mnno" />
+
+                    <RadioButton
+                        android:id="@+id/mn070699"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                     android:text="@string/mndkn" />
 
             </RadioGroup>
@@ -229,7 +229,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/mn0708"
+                        android:text="@string/mn0708"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <RadioGroup
@@ -334,7 +334,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/mn0710"
+                    android:text="@string/mn0710"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
@@ -472,11 +472,11 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-            <TextView
+                <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/mn0713"
+                    android:text="@string/mn0713"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <RadioGroup
@@ -603,7 +603,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/mn0716"
+                    android:text="@string/mn0716"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
@@ -801,7 +801,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/mn0719"
+                            android:text="@string/mn0719"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
@@ -862,11 +862,11 @@
 
                 </LinearLayout>
 
-            <TextView
+                <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/mn0720"
+                    android:text="@string/mn0720"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <CheckBox
@@ -928,7 +928,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/mn0722"
+                        android:text="@string/mn0722"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
@@ -936,15 +936,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <EditText
-                android:id="@+id/mn072202"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                    <EditText
+                        android:id="@+id/mn072202"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
-            <EditText
-                android:id="@+id/mn072203"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                    <EditText
+                        android:id="@+id/mn072203"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
                 </LinearLayout>
 

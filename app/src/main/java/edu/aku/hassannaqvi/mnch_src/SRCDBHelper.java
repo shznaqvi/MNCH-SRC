@@ -682,95 +682,14 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    public int updateS5() {
-        SQLiteDatabase db = this.getReadableDatabase();
 
-// New value for one column
-        ContentValues values = new ContentValues();
-        values.put(Sec1Entry.ROW_S5, SRCApp.fc.getROW_S5());
 
-// Which row to update, based on the ID
-        String selection = " _ID = " + SRCApp.fc.get_ID();
-        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
 
-        int count = db.update(Sec1Entry.TABLE_NAME,
-                values,
-                selection,
-                null);
-        return count;
-    }
 
-    public int updateS5b() {
-        SQLiteDatabase db = this.getReadableDatabase();
 
-// New value for one column
-        ContentValues values = new ContentValues();
-        values.put(Sec1Entry.ROW_S5b, SRCApp.fc.getROW_S5b());
 
-// Which row to update, based on the ID
-        String selection = " _ID = " + SRCApp.fc.get_ID();
-        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
 
-        int count = db.update(Sec1Entry.TABLE_NAME,
-                values,
-                selection,
-                null);
-        return count;
-    }
 
-    public int updateS5c() {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-// New value for one column
-        ContentValues values = new ContentValues();
-        values.put(Sec1Entry.ROW_S5c, SRCApp.fc.getROW_S5c());
-
-// Which row to update, based on the ID
-        String selection = " _ID = " + SRCApp.fc.get_ID();
-        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
-
-        int count = db.update(Sec1Entry.TABLE_NAME,
-                values,
-                selection,
-                null);
-        return count;
-    }
-
-    public int updateS6() {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-// New value for one column
-        ContentValues values = new ContentValues();
-        values.put(Sec1Entry.ROW_S6, SRCApp.fc.getROW_S6());
-
-// Which row to update, based on the ID
-        String selection = " _ID = " + SRCApp.fc.get_ID();
-        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
-
-        int count = db.update(Sec1Entry.TABLE_NAME,
-                values,
-                selection,
-                null);
-        return count;
-    }
-
-    public int updateS7() {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-// New value for one column
-        ContentValues values = new ContentValues();
-        values.put(Sec1Entry.ROW_S7, SRCApp.fc.getROW_S7());
-
-// Which row to update, based on the ID
-        String selection = " _ID = " + SRCApp.fc.get_ID();
-        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
-
-        int count = db.update(Sec1Entry.TABLE_NAME,
-                values,
-                selection,
-                null);
-        return count;
-    }
 
     public Long addSec7Im(Sec7ImContract s7im) {
 
@@ -821,24 +740,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return count;
     }
 
-
-    public int updateS8() {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-// New value for one column
-        ContentValues values = new ContentValues();
-        values.put(Sec1Entry.ROW_S8, SRCApp.fc.getROW_S8());
-
-// Which row to update, based on the ID
-        String selection = " _ID = " + SRCApp.fc.get_ID();
-        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
-
-        int count = db.update(Sec1Entry.TABLE_NAME,
-                values,
-                selection,
-                null);
-        return count;
-    }
 
     public int updateS5() {
         SQLiteDatabase db = this.getReadableDatabase();

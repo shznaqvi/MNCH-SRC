@@ -145,8 +145,8 @@
                 android:orientation="vertical">
 
                 <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                 android:text="@string/mn0532"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -360,8 +360,8 @@
 
 
                 <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                 android:text="@string/mn0536"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -378,7 +378,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/mn053602" />
 
-            <CheckBox
+                <CheckBox
                 android:id="@+id/mn053603"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -714,7 +714,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mnother" />
 
-            </RadioGroup>
+                </RadioGroup>
 
                 <EditText
                 android:id="@+id/mn054388x"

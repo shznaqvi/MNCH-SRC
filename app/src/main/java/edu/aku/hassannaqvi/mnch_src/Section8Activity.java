@@ -678,7 +678,6 @@ public class Section8Activity extends Activity {
     }
 
 
-
     private boolean UpdateDB() {
         SRCDBHelper db = new SRCDBHelper(this);
 
