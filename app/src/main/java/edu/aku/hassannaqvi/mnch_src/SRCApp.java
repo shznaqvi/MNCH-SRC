@@ -8,6 +8,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
 import android.view.View;
 
 
@@ -16,24 +17,6 @@ import android.view.View;
  */
 
 public class SRCApp extends Application {
-    //public static final String _IP = "192.168.1.10"; // Test NODE server
-    public static final String _IP = "10.198.96.103"; // Test PHP server
-    public static final Integer _PORT = 80; // Port - with colon (:)
-    public static final String _HOST_URL = "10.198.96.103:8080";
-    private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
-    private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000; // in Milliseconds
-    private static final int TWENTY_MINUTES = 1000 * 60 * 20;
-    private static final int TWO_MINUTES = 1000 * 60 * 2;
-    private static final long MILLIS_IN_SECOND = 1000;
-    private static final long SECONDS_IN_MINUTE = 60;
-    private static final long MINUTES_IN_HOUR = 60;
-    private static final long HOURS_IN_DAY = 24;
-    public static final long MILLISECONDS_IN_DAY = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY;
-    private static final long DAYS_IN_YEAR = 365;
-    /*
-        public static final String _IP = "43.245.131.159"; // Test server
-    */
-    public static final long MILLISECONDS_IN_YEAR = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_YEAR;
     public static String DEVID;
     public static String GPS_LAT;
     public static String GPS_LNG;
@@ -41,9 +24,31 @@ public class SRCApp extends Application {
     public static String GPS_ACC;
     public static FormContract fc;
     public static Sec3Contract sc3;
-    public static Section4Contract sc4a;
-    public static Section4aContract sc4b;
-    public static Sec7ImContract sec7im;
+    public static Section4Contract sc4;
+
+
+    //public static final String _IP = "192.168.1.10"; // Test NODE server
+    public static final String _IP = "10.198.96.103"; // Test PHP server
+    public static final Integer _PORT = 80; // Port - with colon (:)
+    public static final String _HOST_URL = "10.198.96.103:8080";
+/*
+    public static final String _IP = "43.245.131.159"; // Test server
+*/
+
+
+    private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
+    private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000; // in Milliseconds
+    private static final int TWENTY_MINUTES = 1000 * 60 * 20;
+    private static final int TWO_MINUTES = 1000 * 60 * 2;
+
+    private static final long MILLIS_IN_SECOND = 1000;
+    private static final long SECONDS_IN_MINUTE = 60;
+    private static final long MINUTES_IN_HOUR = 60;
+    private static final long HOURS_IN_DAY = 24;
+    public static final long MILLISECONDS_IN_DAY = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY;
+    private static final long DAYS_IN_YEAR = 365;
+    public static final long MILLISECONDS_IN_YEAR = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_YEAR;
+
     public static String deviceId;
     public static String uid;
 

@@ -54,7 +54,7 @@
         <item name="android:layout_marginTop">24dp</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:textColor">#ffffff</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">36sp</item>
         <item name="android:typeface">serif</item>
         <item name="android:padding">8dp</item>
 
@@ -151,6 +151,14 @@
     </style>
 
     <style name="buttons" parent="android:Widget.Button">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="btn" parent="android:Widget.Button">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">36sp</item>
         <item name="android:typeface">serif</item>

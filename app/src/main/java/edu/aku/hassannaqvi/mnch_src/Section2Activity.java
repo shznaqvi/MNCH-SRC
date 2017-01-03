@@ -1,20 +1,20 @@
 package edu.aku.hassannaqvi.mnch_src;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.app.Activity;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import org.json.JSONObject;
@@ -22,8 +22,6 @@ import org.json.JSONObject;
 public class Section2Activity extends Activity {
 
     private static final String TAG = "Sec2";
-    String var_s2q203 = "";
-    String var_s2q205 = "";
     private ScrollView scrollView01;
     private TextView appHeader;
     private TextView lblS2q201;
@@ -58,6 +56,7 @@ public class Section2Activity extends Activity {
     private TextView lblS2q206f;
     private TextView lblS2q206g;
     private TextView lblS2q206h;
+
     private EditText s2q201;
     private EditText s2q202;
     private EditText s2q204;
@@ -70,10 +69,14 @@ public class Section2Activity extends Activity {
     private EditText s2q206f;
     private EditText s2q206g;
     private EditText s2q206h;
-    private TextView lbl_hhhead;
+
     private LinearLayout vu_s2q205oth;
+
     private int rdo_s2q203;
     private int rdo_s2q205;
+
+    String var_s2q203 = "";
+    String var_s2q205 = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,15 +133,7 @@ public class Section2Activity extends Activity {
         s2q206g = (EditText) findViewById(R.id.s2q206g);
         s2q206h = (EditText) findViewById(R.id.s2q206h);
 
-
         vu_s2q205oth = (LinearLayout) findViewById(R.id.vu_s2q205oth);
-
-
-        lbl_hhhead = (TextView) findViewById(R.id.lbl_hhhead);
-
-        CVars var = new CVars();
-        lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
-
 
         radioS2q205.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -219,17 +214,8 @@ public class Section2Activity extends Activity {
                 Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
 
                 if (UpdateDB()) {
-
-                    CVars var = new CVars();
-
-                    if (var.GetReproductionAgeWoman() == 0) {
-                        Intent sec3_intent = new Intent(this, Section4Activity.class);
-                        startActivity(sec3_intent);
-                    } else {
-                        Intent sec3_intent = new Intent(this, Section3Activity.class);
-                        startActivity(sec3_intent);
-                    }
-
+                    Intent sec3_intent = new Intent(this, Section3Activity.class);
+                    startActivity(sec3_intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
                 }
@@ -248,7 +234,6 @@ public class Section2Activity extends Activity {
     private boolean SaveDraft() {
         JSONObject s2 = new JSONObject();
         try {
-
             s2.put("s2q201", s2q201.getText().toString());
             s2.put("s2q202", s2q202.getText().toString());
 
@@ -314,21 +299,17 @@ public class Section2Activity extends Activity {
             s2.put("s2q206c", s2q206c.getText().toString());
             s2.put("s2q206d", s2q206d.getText().toString());
             s2.put("s2q206e", s2q206e.getText().toString());
-
-            SRCApp.chTotal = Integer.valueOf(s2q206d.getText().toString()) + Integer.valueOf(s2q206e.getText().toString());
-
             s2.put("s2q206f", s2q206f.getText().toString());
             s2.put("s2q206g", s2q206g.getText().toString());
             s2.put("s2q206h", s2q206h.getText().toString());
 
-            CVars var = new CVars();
-
-            if (!s2q206h.getText().toString().isEmpty() || s2q206h.getText().toString() != null) {
+            if (s2q206h.getText().toString() != "") {
+                CVars var = new CVars();
                 var.StoreReporductionAgeWoman(Integer.parseInt(s2q206h.getText().toString()));
             } else {
+                CVars var = new CVars();
                 var.StoreReporductionAgeWoman(Integer.parseInt("0"));
             }
-
 
             SRCApp.fc.setROW_S2(s2.toString());
 
@@ -560,24 +541,15 @@ public class Section2Activity extends Activity {
                 Integer.parseInt(s2q206c.getText().toString()) +
                 Integer.parseInt(s2q206d.getText().toString()) +
                 Integer.parseInt(s2q206e.getText().toString()) +
-                Integer.parseInt(s2q206f.getText().toString());
+                Integer.parseInt(s2q206f.getText().toString()) +
+                Integer.parseInt(s2q206g.getText().toString()) +
+                Integer.parseInt(s2q206h.getText().toString());
 
         if (!s2q206a.getText().toString().equals(String.valueOf(result))) {
             Toast.makeText(getApplicationContext(), "Total number of members mismatch \r\n", Toast.LENGTH_LONG).show();
             s2q206a.requestFocus();
             return false;
         }
-
-
-        int result1 = Integer.parseInt(s2q206g.getText().toString()) + Integer.parseInt(s2q206h.getText().toString());
-
-
-        if (Integer.parseInt(s2q206c.getText().toString()) != result1) {
-            Toast.makeText(getApplicationContext(), "Total number of woman must be equal to the number of married and non married woman \r\n", Toast.LENGTH_LONG).show();
-            s2q206c.requestFocus();
-            return false;
-        }
-
 
         return true;
     }

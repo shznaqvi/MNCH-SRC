@@ -12,7 +12,6 @@ public class Sec3Contract implements BaseColumns {
     Long _ID;
     String ROW_DEVID = SRCApp.DEVID;
     String ROW_FORM_ID;
-    String ROW_HHCODE;
 
     String ROW_SNO;
 
@@ -33,15 +32,6 @@ public class Sec3Contract implements BaseColumns {
 
     public Sec3Contract() {
 
-    }
-
-
-    public String getROW_HHCODE() {
-        return this.ROW_HHCODE;
-    }
-
-    public void setROW_HHCODE(String ROW_HHCODE) {
-        this.ROW_HHCODE = ROW_HHCODE;
     }
 
 
@@ -192,7 +182,6 @@ public class Sec3Contract implements BaseColumns {
 
         public static final String ROW_DEVID = "devid";
         public static final String ROW_FORM_ID = "formid";
-        public static final String ROW_HHCODE = "hcode";
 
         public static final String ROW_SNO = "sno";
 

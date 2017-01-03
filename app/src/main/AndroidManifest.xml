@@ -55,12 +55,7 @@
         <activity android:name=".Section6Activity" />
         <activity android:name=".Section7Activity" />
         <activity android:name=".Section8Activity" />
-        <activity android:name=".Section5bActivity" />
-        <activity android:name=".Section5cActivity" />
-        <activity android:name=".Section4aActivity" />
-        <activity android:name=".EndingActivity" />
-        <activity android:name=".Section7ImActivity"></activity>
-        <activity android:name=".GetCluster"></activity>
+        <activity android:name=".Section5bActivity"></activity>
     </application>
 
 </manifest>

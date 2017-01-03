@@ -1,34 +1,28 @@
 package edu.aku.hassannaqvi.mnch_src;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.CheckBox;
-import android.widget.DatePicker;
-import android.widget.EditText;
+import android.app.Activity;
+import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.CheckBox;
+import android.widget.RadioGroup;
+import android.widget.RadioButton;
+import android.widget.Button;
 import android.widget.Toast;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class Section7Activity extends Activity {
+public class Section7Activity extends Activity implements RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener {
 
-    private static final String TAG = Section7Activity.class.getSimpleName();
-    @BindView(R.id.activity_section7)
-    FrameLayout activitySection7;
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
     @BindView(R.id.app_header)
@@ -39,44 +33,40 @@ public class Section7Activity extends Activity {
     EditText mn070201;
     @BindView(R.id.mn070202)
     EditText mn070202;
-    @BindView(R.id.mn070299)
+    @BindView(R.id.mn0702_99)
     CheckBox mn070299;
     @BindView(R.id.mn0703)
     RadioGroup mn0703;
-    @BindView(R.id.mn070301)
-    RadioButton mn070301;
-    @BindView(R.id.mn070302)
-    RadioButton mn070302;
+    @BindView(R.id.mn0703_1)
+    RadioButton mn07031;
+    @BindView(R.id.mn0703_2)
+    RadioButton mn07032;
     @BindView(R.id.mn0704)
     RadioGroup mn0704;
-    @BindView(R.id.mn070401)
-    RadioButton mn070401;
-    @BindView(R.id.mn070402)
-    RadioButton mn070402;
+    @BindView(R.id.mn0704_1)
+    RadioButton mn07041;
+    @BindView(R.id.mn0704_2)
+    RadioButton mn07042;
     @BindView(R.id.mn0705)
     RadioGroup mn0705;
-    @BindView(R.id.mn070501)
-    RadioButton mn070501;
-    @BindView(R.id.mn070502)
-    RadioButton mn070502;
-    @BindView(R.id.fldGrpmn0707)
-    LinearLayout fldGrpmn0707;
+    @BindView(R.id.mn0705_1)
+    RadioButton mn07051;
+    @BindView(R.id.mn0705_2)
+    RadioButton mn07052;
     @BindView(R.id.mn0706)
     RadioGroup mn0706;
-    @BindView(R.id.mn070601)
-    RadioButton mn070601;
-    @BindView(R.id.mn070602)
-    RadioButton mn070602;
-    @BindView(R.id.mn070699)
+    @BindView(R.id.mn0706_1)
+    RadioButton mn07061;
+    @BindView(R.id.mn0706_2)
+    RadioButton mn07062;
+    @BindView(R.id.mn0706_99)
     RadioButton mn070699;
     @BindView(R.id.mn0707)
     RadioGroup mn0707;
-    @BindView(R.id.mn070701)
-    RadioButton mn070701;
-    @BindView(R.id.mn070702)
-    RadioButton mn070702;
-    @BindView(R.id.fldGrpmn0708)
-    LinearLayout fldGrpmn0708;
+    @BindView(R.id.mn0707_1)
+    RadioButton mn07071;
+    @BindView(R.id.mn0707_2)
+    RadioButton mn07072;
     @BindView(R.id.mn0708)
     RadioGroup mn0708;
     @BindView(R.id.mn070801)
@@ -99,12 +89,10 @@ public class Section7Activity extends Activity {
     EditText mn070888x;
     @BindView(R.id.mn0709)
     RadioGroup mn0709;
-    @BindView(R.id.mn070901)
-    RadioButton mn070901;
-    @BindView(R.id.mn070902)
-    RadioButton mn070902;
-    @BindView(R.id.fldGrpmn0710)
-    LinearLayout fldGrpmn0710;
+    @BindView(R.id.mn0709_1)
+    RadioButton mn07091;
+    @BindView(R.id.mn0709_2)
+    RadioButton mn07092;
     @BindView(R.id.mn071001)
     CheckBox mn071001;
     @BindView(R.id.mn071002)
@@ -127,22 +115,20 @@ public class Section7Activity extends Activity {
     RadioButton mn071101;
     @BindView(R.id.mn071102)
     RadioButton mn071102;
-    @BindView(R.id.mn071102x)
+    //    @BindView(R.id.mn071102x)
     EditText mn071102x;
     @BindView(R.id.mn071103)
     RadioButton mn071103;
-    @BindView(R.id.mn071103x)
+    //    @BindView(R.id.mn071103x)
     EditText mn071103x;
     @BindView(R.id.mn0712)
     RadioGroup mn0712;
-    @BindView(R.id.mn071201)
-    RadioButton mn071201;
-    @BindView(R.id.mn071202)
-    RadioButton mn071202;
-    @BindView(R.id.mn071299)
+    @BindView(R.id.mn0712_1)
+    RadioButton mn07121;
+    @BindView(R.id.mn0712_2)
+    RadioButton mn07122;
+    @BindView(R.id.mn0712_99)
     RadioButton mn071299;
-    @BindView(R.id.fldGrpmn0713)
-    LinearLayout fldGrpmn0713;
     @BindView(R.id.mn0713)
     RadioGroup mn0713;
     @BindView(R.id.mn071301)
@@ -171,12 +157,10 @@ public class Section7Activity extends Activity {
     EditText mn071488x;
     @BindView(R.id.mn0715)
     RadioGroup mn0715;
-    @BindView(R.id.mn071501)
-    RadioButton mn071501;
-    @BindView(R.id.mn071502)
-    RadioButton mn071502;
-    @BindView(R.id.fldGrpmn0716)
-    LinearLayout fldGrpmn0716;
+    @BindView(R.id.mn0715_1)
+    RadioButton mn07151;
+    @BindView(R.id.mn0715_2)
+    RadioButton mn07152;
     @BindView(R.id.mn071601)
     CheckBox mn071601;
     @BindView(R.id.mn071602)
@@ -231,26 +215,24 @@ public class Section7Activity extends Activity {
     RadioButton mn071802;
     @BindView(R.id.mn071803)
     RadioButton mn071803;
-    @BindView(R.id.fldGrpmn0801)
-    LinearLayout fldGrpmn0801;
-    @BindView(R.id.fldGrpmn0719)
-    LinearLayout fldGrpmn0719;
-    @BindView(R.id.mn071901)
-    CheckBox mn071901;
-    @BindView(R.id.mn071902)
-    CheckBox mn071902;
-    @BindView(R.id.mn071903)
-    CheckBox mn071903;
-    @BindView(R.id.mn071904)
-    CheckBox mn071904;
-    @BindView(R.id.mn071905)
-    CheckBox mn071905;
-    @BindView(R.id.mn071906)
-    CheckBox mn071906;
-    @BindView(R.id.mn071907)
-    CheckBox mn071907;
-    @BindView(R.id.mn071988)
-    CheckBox mn071988;
+    @BindView(R.id.mn0719)
+    RadioGroup mn0719;
+    @BindView(R.id.mn0701901)
+    RadioButton mn0701901;
+    @BindView(R.id.mn0701902)
+    RadioButton mn0701902;
+    @BindView(R.id.mn0701903)
+    RadioButton mn0701903;
+    @BindView(R.id.mn0701904)
+    RadioButton mn0701904;
+    @BindView(R.id.mn0701905)
+    RadioButton mn0701905;
+    @BindView(R.id.mn0701906)
+    RadioButton mn0701906;
+    //    @BindView(R.id.mn0701907)
+    RadioButton mn0701907;
+    @BindView(R.id.mn0701988)
+    RadioButton mn0701988;
     @BindView(R.id.mn071988x)
     EditText mn071988x;
     @BindView(R.id.mn072001)
@@ -263,19 +245,34 @@ public class Section7Activity extends Activity {
     CheckBox mn072004;
     @BindView(R.id.mn0721)
     RadioGroup mn0721;
-    @BindView(R.id.mn072101)
-    RadioButton mn072101;
-    @BindView(R.id.mn072102)
-    RadioButton mn072102;
-    @BindView(R.id.fldGrpmn0722)
-    LinearLayout fldGrpmn0722;
+    @BindView(R.id.mn0721_1)
+    RadioButton mn07211;
+    @BindView(R.id.mn0721_2)
+    RadioButton mn07212;
     @BindView(R.id.mn072201)
     EditText mn072201;
     @BindView(R.id.mn072202)
     EditText mn072202;
     @BindView(R.id.mn072203)
     EditText mn072203;
-    private String dob;
+
+    @BindView(R.id.mn07078)
+    LinearLayout mn07078;
+    @BindView(R.id.mn07088)
+    LinearLayout mn07088;
+    @BindView(R.id.mn07010Grp)
+    LinearLayout mn07010Grp;
+    @BindView(R.id.mn07013Grp)
+    LinearLayout mn07013Grp;
+    @BindView(R.id.mn07016BigGrp)
+    LinearLayout mn07016BigGrp;
+    @BindView(R.id.mn07019Grp)
+    LinearLayout mn07019Grp;
+    @BindView(R.id.mn07019BigGrp)
+    LinearLayout mn07019BigGrp;
+    @BindView(R.id.mn07022Grp)
+    LinearLayout mn07022Grp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -283,174 +280,463 @@ public class Section7Activity extends Activity {
         setContentView(R.layout.activity_section7);
         ButterKnife.bind(this);
 
-        appHeader.setText("SRC - > Section 7");
-        mn0701.setMaxDate(new Date().getTime());
-        dob = new SimpleDateFormat("dd-MM-yyyy").format(mn0701.getCalendarView().getDate());
+        mn0706.setOnCheckedChangeListener(this);
+        mn0707.setOnCheckedChangeListener(this);
+        mn0708.setOnCheckedChangeListener(this);
+        mn0709.setOnCheckedChangeListener(this);
+        mn0712.setOnCheckedChangeListener(this);
+        mn0715.setOnCheckedChangeListener(this);
+        mn0718.setOnCheckedChangeListener(this);
+        mn0721.setOnCheckedChangeListener(this);
 
+//        Checked Cases
+
+        mn071088.setOnCheckedChangeListener(this);
+        mn071488.setOnCheckedChangeListener(this);
+        mn071688.setOnCheckedChangeListener(this);
+        mn071788.setOnCheckedChangeListener(this);
 
     }
 
     @OnClick(R.id.btn_End)
     void onBtnEndClick() {
-
-        Toast.makeText(this, "Not Processing This Section", Toast.LENGTH_SHORT).show();
-       /* if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {*/
-        Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
-        Intent endSec = new Intent(this, EndingActivity.class);
-        endSec.putExtra("complete", false);
-        startActivity(endSec);
-           /* } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-        } */
+        //TODO implement
     }
-
 
     @OnClick(R.id.btn_Continue)
     void onBtnContinueClick() {
+        //TODO implement
 
-        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
-        if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {
-                Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
+        if (ValidateForm()) {
 
-                finish();
+//            if (SaveDraft()) {
 
-                Intent secNext = new Intent(this, Section8Activity.class);
-                startActivity(secNext);
+            Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
+
+//                if (UpdateDB()) {
+//                    Intent sec3_intent = new Intent(this, Section3Activity.class);
+//                    startActivity(sec3_intent);
+//                } else {
+//                    Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
+//                }
+        }
+    }
+
+    public boolean ValidateForm() {
+
+//        7.02
+
+        if (!mn070299.isChecked()) {
+            if (mn070201.getText().toString().isEmpty() && mn070202.getText().toString().isEmpty()) {
+                Toast.makeText(this, "" + getString(R.string.mn0702), Toast.LENGTH_SHORT).show();
+                mn070201.setError("This is inValid");
+                return false;
             } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                mn070201.setError(null);
+            }
+        } else {
+            mn070201.setError(null);
+        }
+
+//        7.03
+
+        if (mn0703.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mn0703), Toast.LENGTH_SHORT).show();
+            mn07031.setError("This is inValid");
+            return false;
+        } else {
+            mn07031.setError(null);
+        }
+
+//        7.04
+
+        if (mn0704.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mn0704), Toast.LENGTH_SHORT).show();
+            mn07041.setError("This is inValid");
+            return false;
+        } else {
+            mn07041.setError(null);
+        }
+
+//        7.05
+
+        if (mn0705.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mn0705), Toast.LENGTH_SHORT).show();
+            mn07051.setError("This is inValid");
+            return false;
+        } else {
+            mn07051.setError(null);
+        }
+
+//        7.06
+
+        if (mn0706.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mn0706), Toast.LENGTH_SHORT).show();
+            mn070699.setError("This is inValid");
+            return false;
+        } else {
+            mn070699.setError(null);
+        }
+
+        if (!mn07061.isChecked()) {
+
+//        7.07
+
+            if (mn0707.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "" + getString(R.string.mn0707), Toast.LENGTH_SHORT).show();
+                mn07072.setError("This is inValid");
+                return false;
+            } else {
+                mn07072.setError(null);
+            }
+
+//        7.08
+
+            if (mn07071.isChecked()) {
+                if (mn0708.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "" + getString(R.string.mn0708), Toast.LENGTH_SHORT).show();
+                    mn070888.setError("This is inValid");
+                    return false;
+                } else {
+                    mn070888.setError(null);
+                }
             }
         }
-    }
 
-    private boolean UpdateDB() {
-        SRCDBHelper db = new SRCDBHelper(this);
+//        7.09
 
-        int updcount = db.updateS7();
-
-        if (updcount == 1) {
-            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
-            return true;
-        } else {
-            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+        if (mn0709.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mn0709), Toast.LENGTH_SHORT).show();
+            mn07092.setError("This is inValid");
             return false;
+        } else {
+            mn07092.setError(null);
         }
 
-    }
+//        7.10
 
-    private void SaveDraft() throws JSONException {
-        Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
+        if (mn07092.isChecked()) {
+            if (!mn071001.isChecked() && !mn071002.isChecked() && !mn071003.isChecked() && !mn071004.isChecked()
+                    && !mn071005.isChecked() && !mn071006.isChecked() && !mn071088.isChecked()) {
+                Toast.makeText(this, "" + getString(R.string.mn0710), Toast.LENGTH_SHORT).show();
+                mn071088.setError("This is inValid");
+                return false;
+            } else {
+                mn071088.setError(null);
+            }
 
-        JSONObject s7 = new JSONObject();
+            if(mn071088.isChecked() && mn071088x.getText().toString().isEmpty()){
+                Toast.makeText(this, "" + getString(R.string.mn0710), Toast.LENGTH_SHORT).show();
+                mn071088x.setError("This is inValid");
+                return false;
+            } else {
+                mn071088x.setError(null);
+            }
+        }
 
-        s7.put("mn0701", dob);
-        s7.put("mn070201", mn070201.getText().toString());
-        s7.put("mn070202", mn070202.getText().toString());
-        s7.put("mn070299", mn070299.isChecked() ? "99" : "0");
-        s7.put("mn0703", mn070301.isChecked() ? "1" : mn070302.isChecked() ? "2" : "0");
-        s7.put("mn0704", mn070401.isChecked() ? "1" : mn070402.isChecked() ? "2" : "0");
-        s7.put("mn0705", mn070501.isChecked() ? "1" : mn070502.isChecked() ? "2" : "0");
-        s7.put("mn0706", mn070601.isChecked() ? "1" : mn070602.isChecked() ? "2" : mn070699.isChecked() ? "99" : "0");
-        s7.put("mn0707", mn070701.isChecked() ? "1" : mn070702.isChecked() ? "2" : "0");
-        s7.put("mn0708", mn070801.isChecked() ? "1" : mn070802.isChecked() ? "2" : mn070803.isChecked() ? "3"
-                : mn070804.isChecked() ? "4" : mn070805.isChecked() ? "5" : mn070806.isChecked() ? "6"
-                : mn070888.isChecked() ? "88" : mn070899.isChecked() ? "99" : "0");
-        s7.put("mn070888x", mn070888x.getText().toString());
-        s7.put("mn0709", mn070901.isChecked() ? "1" : mn070902.isChecked() ? "2" : "0");
-        //Check Box
-        s7.put("mn071001", mn071001.isChecked() ? "1" : "0");
-        s7.put("mn071002", mn071002.isChecked() ? "1" : "0");
-        s7.put("mn071003", mn071003.isChecked() ? "1" : "0");
-        s7.put("mn071004", mn071004.isChecked() ? "1" : "0");
-        s7.put("mn071005", mn071005.isChecked() ? "1" : "0");
-        s7.put("mn071006", mn071006.isChecked() ? "1" : "0");
-        s7.put("mn071007", mn071088.isChecked() ? "1" : "0");
-        s7.put("mn071088x", mn071088x.getText().toString());
-        s7.put("mn0711", mn071101.isChecked() ? "1" : mn071102.isChecked() ? "2" : mn071103.isChecked() ? "3" : "0");
-        s7.put("mn071102x", mn071102x.getText().toString());
-        s7.put("mn071103x", mn071103x.getText().toString());
-        s7.put("mn0712", mn071201.isChecked() ? "1" : mn071202.isChecked() ? "2" : mn071299.isChecked() ? "99" : "0");
-        s7.put("mn0713", mn071301.isChecked() ? "1" : mn071302.isChecked() ? "2" : "0");
-        s7.put("mn071301x", mn071301x.getText().toString());
-        s7.put("mn071302x", mn071302x.getText().toString());
-        s7.put("mn071401", mn071401.isChecked() ? "1" : "0");
-        s7.put("mn071402", mn071402.isChecked() ? "1" : "0");
-        s7.put("mn071403", mn071403.isChecked() ? "1" : "0");
-        s7.put("mn071404", mn071404.isChecked() ? "1" : "0");
-        s7.put("mn071405", mn071405.isChecked() ? "1" : "0");
-        s7.put("mn071406", mn071406.isChecked() ? "1" : "0");
-        s7.put("mn071488", mn071488.isChecked() ? "1" : "0");
-        s7.put("mn071488x", mn071488x.getText().toString());
-        s7.put("mn0715", mn071501.isChecked() ? "1" : mn071502.isChecked() ? "2" : "0");
+//        7.11
 
-        s7.put("mn071601", mn071601.isChecked() ? "1" : "0");
-        s7.put("mn071602", mn071602.isChecked() ? "1" : "0");
-        s7.put("mn071603", mn071603.isChecked() ? "1" : "0");
-        s7.put("mn071604", mn071604.isChecked() ? "1" : "0");
-        s7.put("mn071605", mn071605.isChecked() ? "1" : "0");
-        s7.put("mn071606", mn071606.isChecked() ? "1" : "0");
-        s7.put("mn071607", mn071607.isChecked() ? "1" : "0");
-        s7.put("mn071608", mn071608.isChecked() ? "1" : "0");
-        s7.put("mn071609", mn071609.isChecked() ? "1" : "0");
-        s7.put("mn071688", mn071688.isChecked() ? "1" : "0");
-        s7.put("mn071688x", mn071688x.getText().toString());
-        s7.put("mn071701", mn071701.isChecked() ? "1" : "0");
-        s7.put("mn071702", mn071702.isChecked() ? "1" : "0");
-        s7.put("mn071703", mn071703.isChecked() ? "1" : "0");
-        s7.put("mn071704", mn071704.isChecked() ? "1" : "0");
-        s7.put("mn071705", mn071705.isChecked() ? "1" : "0");
-        s7.put("mn071706", mn071706.isChecked() ? "1" : "0");
-        s7.put("mn071707", mn071707.isChecked() ? "1" : "0");
-        s7.put("mn071708", mn071708.isChecked() ? "1" : "0");
-        s7.put("mn071709", mn071709.isChecked() ? "1" : "0");
-        s7.put("mn071777", mn071777.isChecked() ? "1" : "0");
-        s7.put("mn071788", mn071788.isChecked() ? "1" : "0");
-        s7.put("mn071788x", mn071788x.getText().toString());
-        s7.put("mn0718", mn071801.isChecked() ? "1" : mn071802.isChecked() ? "2" : mn071803.isChecked() ? "3" : "0");
-        s7.put("mn0719", mn071901.isChecked() ? "1" : mn071902.isChecked() ? "2" : mn071903.isChecked() ? "3"
-                : mn071904.isChecked() ? "4" : mn071905.isChecked() ? "5" : mn071906.isChecked() ? "6"
-                : mn071907.isChecked() ? "7" : mn071988.isChecked() ? "88" : "0");
-        s7.put("mn071988x", mn071988x.getText().toString());
-        s7.put("mn072001", mn072001.isChecked() ? "1" : "0");
-        s7.put("mn072002", mn072002.isChecked() ? "1" : "0");
-        s7.put("mn072003", mn072003.isChecked() ? "1" : "0");
-        s7.put("mn072004", mn072004.isChecked() ? "1" : "0");
-        s7.put("mn0721", mn072101.isChecked() ? "1" : mn072102.isChecked() ? "2" : "0");
-        s7.put("mn072201", mn072201.getText().toString());
-        s7.put("mn072202", mn072202.getText().toString());
-        s7.put("mn072203", mn072203.getText().toString());
+        if (mn0711.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mn0711), Toast.LENGTH_SHORT).show();
+            mn071101.setError("This is inValid");
+            return false;
+        } else {
+            mn071101.setError(null);
+        }
 
-        SRCApp.fc.setROW_S7(String.valueOf(s7));
+//        7.12
 
-        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
+        if (mn0712.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mn0712), Toast.LENGTH_SHORT).show();
+            mn07121.setError("This is inValid");
+            return false;
+        } else {
+            mn07121.setError(null);
+        }
 
-    }
+//        7.13
 
-    private boolean formValidation() {
+        if (mn07121.isChecked()) {
+            if (mn0713.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "" + getString(R.string.mn0713), Toast.LENGTH_SHORT).show();
+                mn071301.setError("This is inValid");
+                return false;
+            } else {
+                mn071301.setError(null);
+            }
+        }
+
+//        7.14
+
+        if (!mn071401.isChecked() && !mn071402.isChecked() && !mn071403.isChecked() && !mn071404.isChecked()
+                && !mn071405.isChecked() && !mn071406.isChecked() && !mn071488.isChecked()) {
+            Toast.makeText(this, "" + getString(R.string.mn0714), Toast.LENGTH_SHORT).show();
+            mn071488.setError("This is inValid");
+            return false;
+        } else {
+            mn071488.setError(null);
+        }
+
+        if(mn071488.isChecked() && mn071488x.getText().toString().isEmpty()){
+            Toast.makeText(this, "" + getString(R.string.mn0714), Toast.LENGTH_SHORT).show();
+            mn071488x.setError("This is inValid");
+            return false;
+        } else {
+            mn071488x.setError(null);
+        }
+
+//        7.15
+
+        if (mn0715.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mn0715), Toast.LENGTH_SHORT).show();
+            mn07151.setError("This is inValid");
+            return false;
+        } else {
+            mn07151.setError(null);
+        }
+
+        if (mn07151.isChecked()) {
+//        7.16
+
+            if (!mn071601.isChecked() && !mn071602.isChecked() && !mn071603.isChecked() && !mn071604.isChecked()
+                    && !mn071605.isChecked() && !mn071606.isChecked() && !mn071607.isChecked() && !mn071608.isChecked() &&
+                    !mn071609.isChecked() && !mn071688.isChecked()) {
+                Toast.makeText(this, "" + getString(R.string.mn0716), Toast.LENGTH_SHORT).show();
+                mn071688.setError("This is inValid");
+                return false;
+            } else {
+                mn071688.setError(null);
+            }
+
+            if(mn071688.isChecked() && mn071688x.getText().toString().isEmpty()){
+                Toast.makeText(this, "" + getString(R.string.mn0716), Toast.LENGTH_SHORT).show();
+                mn071688x.setError("This is inValid");
+                return false;
+            } else {
+                mn071688x.setError(null);
+            }
 
 
-        Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
+//        7.17
+
+            if (!mn071701.isChecked() && !mn071702.isChecked() && !mn071703.isChecked() && !mn071704.isChecked()
+                    && !mn071705.isChecked() && !mn071706.isChecked() && !mn071707.isChecked() && !mn071708.isChecked() &&
+                    !mn071709.isChecked() && !mn071777.isChecked() && !mn071788.isChecked()) {
+                Toast.makeText(this, "" + getString(R.string.mn0717), Toast.LENGTH_SHORT).show();
+                mn071788.setError("This is inValid");
+                return false;
+            } else {
+                mn071788.setError(null);
+            }
+
+            if(mn071788.isChecked() && mn071788x.getText().toString().isEmpty()){
+                Toast.makeText(this, "" + getString(R.string.mn0717), Toast.LENGTH_SHORT).show();
+                mn071788x.setError("This is inValid");
+                return false;
+            } else {
+                mn071788x.setError(null);
+            }
+
+//        7.18
+
+            if (mn0718.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "" + getString(R.string.mn0718), Toast.LENGTH_SHORT).show();
+                mn071801.setError("This is inValid");
+                return false;
+            } else {
+                mn071801.setError(null);
+            }
+
+        }
+
+//        7.19
+
+        if (mn07151.isChecked()) {
+
+            if (mn071802.isChecked()) {
+
+                if (mn0719.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "" + getString(R.string.mn0719), Toast.LENGTH_SHORT).show();
+                    mn0701901.setError("This is inValid");
+                    return false;
+                } else {
+                    mn0701901.setError(null);
+                }
+
+                if (mn0701988.isChecked() && mn071988x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "Empty:" + getString(R.string.mn0719), Toast.LENGTH_SHORT).show();
+                    mn0701988.setError("This is inValid");
+                    return false;
+                } else {
+                    mn0701988.setError(null);
+                }
+
+            }
+        }
+
+        if (mn07152.isChecked() || mn071801.isChecked()) {
+
+//        7.20
+
+            if (!mn072001.isChecked() && !mn072002.isChecked() && !mn072003.isChecked() && !mn072004.isChecked()) {
+                Toast.makeText(this, "" + getString(R.string.mn0720), Toast.LENGTH_SHORT).show();
+                mn072001.setError("This is inValid");
+                return false;
+            } else {
+                mn072001.setError(null);
+            }
+
+//        7.21
+
+            if (mn0721.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "" + getString(R.string.mn0721), Toast.LENGTH_SHORT).show();
+                mn07211.setError("This is inValid");
+                return false;
+            } else {
+                mn07211.setError(null);
+            }
+
+//      7.22
+
+            if (mn07211.isChecked()) {
+                if (mn072201.getText().toString().isEmpty() && mn072202.getText().toString().isEmpty()
+                        && mn072203.getText().toString().isEmpty()) {
+
+                    Toast.makeText(this, "" + getString(R.string.mn0722), Toast.LENGTH_SHORT).show();
+                    mn072201.setError("This is inValid");
+                    return false;
+                } else {
+                    mn072201.setError(null);
+                }
+            }
+        }
+
 
         return true;
     }
 
-
     @Override
-    public void onBackPressed() {
-        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+        if (group.getId() == R.id.mn0706) {
+
+            if (mn07061.isChecked()) {
+                mn07078.setVisibility(View.GONE);
+                mn070888x.setText(null);
+            } else {
+                mn07078.setVisibility(View.VISIBLE);
+                mn070888x.setText(null);
+            }
+        } else if (group.getId() == R.id.mn0707) {
+            if (mn07072.isChecked()) {
+                mn07088.setVisibility(View.GONE);
+                mn070888x.setText(null);
+            } else {
+                mn07088.setVisibility(View.VISIBLE);
+                mn070888x.setText(null);
+            }
+        } else if (group.getId() == R.id.mn0709) {
+            if (mn07091.isChecked()) {
+                mn07010Grp.setVisibility(View.GONE);
+                mn071088x.setText(null);
+            } else {
+                mn07010Grp.setVisibility(View.VISIBLE);
+                mn071088x.setText(null);
+            }
+        } else if (group.getId() == R.id.mn0712) {
+            if (!mn07121.isChecked()) {
+                mn07013Grp.setVisibility(View.GONE);
+            } else {
+                mn07013Grp.setVisibility(View.VISIBLE);
+            }
+        } else if (group.getId() == R.id.mn0715) {
+
+            if (mn07152.isChecked()) {
+                mn07016BigGrp.setVisibility(View.GONE);
+            } else {
+                mn07016BigGrp.setVisibility(View.VISIBLE);
+            }
+
+            mn071688x.setText(null);
+            mn071788x.setText(null);
+            mn071988x.setText(null);
+        } else if (group.getId() == R.id.mn0718) {
+            if (mn071801.isChecked()) {
+                mn07019Grp.setVisibility(View.GONE);
+                mn07019BigGrp.setVisibility(View.VISIBLE);
+
+                mn071688x.setText(null);
+            } else if (mn071803.isChecked()) {
+                mn07019Grp.setVisibility(View.GONE);
+                mn07019BigGrp.setVisibility(View.GONE);
+
+                mn071688x.setText(null);
+            } else {
+                mn07019Grp.setVisibility(View.VISIBLE);
+                mn07019BigGrp.setVisibility(View.VISIBLE);
+            }
+        } else if (group.getId() == R.id.mn0721) {
+            if (mn07212.isChecked()) {
+                mn07022Grp.setVisibility(View.GONE);
+            } else {
+                mn07022Grp.setVisibility(View.VISIBLE);
+            }
+        }
+
+        if (group.getId() == R.id.mn0708) {
+            if (mn070888.isChecked()) {
+                mn070888x.setVisibility(View.VISIBLE);
+                mn070888x.setText(null);
+            } else {
+                mn070888x.setVisibility(View.GONE);
+                mn070888x.setText(null);
+            }
+        }
+
+
     }
 
+    @Override
+    public void onCheckedChanged(CompoundButton v, boolean b) {
 
+        if (v.getId() == R.id.mn071088) {
+            if (b) {
+                mn071088x.setVisibility(View.VISIBLE);
+                mn071088x.setText(null);
+            } else {
+                mn071088x.setVisibility(View.GONE);
+                mn071088x.setText(null);
+            }
+        }
+
+        if (v.getId() == R.id.mn071488) {
+            if (b) {
+                mn071488x.setVisibility(View.VISIBLE);
+                mn071488x.setText(null);
+            } else {
+                mn071488x.setVisibility(View.GONE);
+                mn071488x.setText(null);
+            }
+        }
+
+        if (v.getId() == R.id.mn071688) {
+            if (b) {
+                mn071688x.setVisibility(View.VISIBLE);
+                mn071688x.setText(null);
+            } else {
+                mn071688x.setVisibility(View.GONE);
+                mn071688x.setText(null);
+            }
+        }
+
+        if (v.getId() == R.id.mn071788) {
+            if (b) {
+                mn071788x.setVisibility(View.VISIBLE);
+                mn071788x.setText(null);
+            } else {
+                mn071788x.setVisibility(View.GONE);
+                mn071788x.setText(null);
+            }
+        }
+    }
 }

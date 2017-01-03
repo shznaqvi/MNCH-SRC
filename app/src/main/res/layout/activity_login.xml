@@ -44,6 +44,7 @@
                 android:imeActionLabel="@string/action_sign_in_short"
                 android:imeOptions="actionUnspecified"
                 android:inputType="text"
+                android:text="admin"
                 android:maxLines="1"
                 android:singleLine="true" />
 
@@ -62,6 +63,7 @@
                 android:imeActionLabel="@string/action_sign_in_short"
                 android:imeOptions="actionUnspecified"
                 android:inputType="textPassword"
+                android:text="admin.123"
                 android:maxLines="1"
                 android:singleLine="true" />
 
@@ -95,6 +97,7 @@
                     android:imeActionLabel="@string/urlusers"
                     android:imeOptions="actionUnspecified"
                     android:inputType="text"
+                    android:text="http://10.198.96.85:8080/src/users_login.php"
                     android:maxLines="1"
                     android:singleLine="true" />
 

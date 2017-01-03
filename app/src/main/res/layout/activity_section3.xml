@@ -49,6 +49,12 @@
                 android:text="" />
 
             <TextView
+                android:id="@+id/wcount"
+                style="@style/txtquestion"
+                android:layoutDirection="ltr"
+                android:text="" />
+
+            <TextView
                 android:id="@+id/lbl_s3q301a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -290,6 +296,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/baseline_s3q301i"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
+
 
             <RadioGroup
                 android:id="@+id/radio_s3q301i"
