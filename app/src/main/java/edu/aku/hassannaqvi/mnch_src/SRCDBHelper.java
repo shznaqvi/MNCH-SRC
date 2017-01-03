@@ -29,21 +29,12 @@ import edu.aku.hassannaqvi.mnch_src.VillageContract.VillageEntry;
  */
 public class SRCDBHelper extends SQLiteOpenHelper {
 
-    private static final String TAG = "Sec1";
-    private static final String DATABASE_NAME = "src.db";
-    private static final int DATABASE_VERSION = 1;
-
     public static final String SQL_CREATE_USERS = "CREATE TABLE IF NOT EXISTS " + UsersContract.singleUser.TABLE_NAME + "("
             + UsersContract.singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + UsersContract.singleUser.ROW_USERNAME + " TEXT,"
             + UsersContract.singleUser.ROW_PASSWORD + " TEXT,"
             + UsersContract.singleUser.ROW_USERSTATUS + " TEXT,"
             + UsersContract.singleUser.ROW_ISADMIN + " TEXT );";
-
-    private static final String SQL_DELETE_USERS =
-            "DROP TABLE IF EXISTS " + UsersContract.singleUser.TABLE_NAME;
-
-
     /*******************************
      * Section 1
      ******************************/
@@ -78,12 +69,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec1Entry.ROW_GPS_LAT + " TEXT,"
             + Sec1Entry.ROW_GPS_DT + " TEXT,"
             + Sec1Entry.ROW_GPS_ACC + " TEXT);";
-
-
-    private static final String SQL_DELETE_SEC1 =
-            "DROP TABLE IF EXISTS " + Sec1Entry.TABLE_NAME;
-
-
     public static final String SQL_CREATE_BASELINE_SEC3 = "CREATE TABLE IF NOT EXISTS " + Sec3Entry.TABLE_NAME + "("
             + Sec3Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Sec3Entry.ROW_DEVID + " TEXT,"
@@ -103,11 +88,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec3Entry.ROW_s3q301j + " INTEGER,"
             + Sec3Entry.ROW_s3q301k + " INTEGER,"
             + Sec3Entry.ROW_UID + " TEXT);";
-
-    private static final String SQL_DELETE_SEC3 =
-            "DROP TABLE IF EXISTS " + Sec3Entry.TABLE_NAME;
-
-
     public static final String SQL_CREATE_BASELINE_SEC4 = "CREATE TABLE IF NOT EXISTS " + Section4Entry.TABLE_NAME + "("
             + Section4Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Section4Entry.ROW_DEVID + " TEXT,"
@@ -181,12 +161,13 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + Sec1Entry.TABLE_NAME;
     private static final String SQL_DELETE_SEC3 =
             "DROP TABLE IF EXISTS " + Sec3Entry.TABLE_NAME;
+    private static final String SQL_DELETE_SEC1 =
+            "DROP TABLE IF EXISTS " + Sec1Entry.TABLE_NAME;
+    private static final String SQL_DELETE_SEC3 =
+            "DROP TABLE IF EXISTS " + Sec3Entry.TABLE_NAME;
     private static final String SQL_DELETE_SEC4 =
             "DROP TABLE IF EXISTS " + Section4Entry.TABLE_NAME;
-    private static final String SQL_DELETE_SEC_7_IM =
-            "DROP TABLE IF EXISTS " + single7Im.TABLE_NAME;
-    private static final String SQL_DELETE_SEC4b =
-            "DROP TABLE IF EXISTS " + Section4Entry.TABLE_NAME;
+
 
     SRCDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -852,6 +833,114 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public int updateS5() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Sec1Entry.ROW_S5, SRCApp.fc.getROW_S5());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + SRCApp.fc.get_ID();
+        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
+
+        int count = db.update(Sec1Entry.TABLE_NAME,
+                values,
+                selection,
+                null);
+        return count;
+    }
+
+    public int updateS5b() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Sec1Entry.ROW_S5b, SRCApp.fc.getROW_S5b());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + SRCApp.fc.get_ID();
+        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
+
+        int count = db.update(Sec1Entry.TABLE_NAME,
+                values,
+                selection,
+                null);
+        return count;
+    }
+
+    public int updateS5c() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Sec1Entry.ROW_S5c, SRCApp.fc.getROW_S5c());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + SRCApp.fc.get_ID();
+        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
+
+        int count = db.update(Sec1Entry.TABLE_NAME,
+                values,
+                selection,
+                null);
+        return count;
+    }
+
+    public int updateS6() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Sec1Entry.ROW_S6, SRCApp.fc.getROW_S6());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + SRCApp.fc.get_ID();
+        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
+
+        int count = db.update(Sec1Entry.TABLE_NAME,
+                values,
+                selection,
+                null);
+        return count;
+    }
+
+    public int updateS7() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Sec1Entry.ROW_S7, SRCApp.fc.getROW_S7());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + SRCApp.fc.get_ID();
+        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
+
+        int count = db.update(Sec1Entry.TABLE_NAME,
+                values,
+                selection,
+                null);
+        return count;
+    }
+
+
+    public int updateS8() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Sec1Entry.ROW_S8, SRCApp.fc.getROW_S8());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + SRCApp.fc.get_ID();
+        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
+
+        int count = db.update(Sec1Entry.TABLE_NAME,
+                values,
+                selection,
+                null);
+        return count;
+    }
 
 
     public List<FormContract> getAllForms() {
