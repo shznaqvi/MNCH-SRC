@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class SyncVillages extends AsyncTask<String, String, String> {
 
-    private final String TAG = "GetCluster";
+    private final String TAG = "GetVillages";
     HttpURLConnection urlConnection;
     private Context mContext;
 

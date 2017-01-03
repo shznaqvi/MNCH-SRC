@@ -15,6 +15,7 @@ public final class FormContract implements BaseColumns {
     Long _ID;
     String ROW_DEVID = SRCApp.DEVID;
     String ROW_FORM_ID;
+    String ROW_HHCODE;
     String ROW_S1Q101;
     String ROW_S1Q102;
     String ROW_S1Q103;
@@ -359,10 +360,21 @@ public final class FormContract implements BaseColumns {
         this.ROW_USERID = ROW_USERID;
     }
 
+
+    public String getROW_HHCODE() {
+        return this.ROW_HHCODE;
+    }
+
+    public void setROW_HHCODE(String ROW_HHCODE) {
+        this.ROW_HHCODE = ROW_HHCODE;
+    }
+
+
     public JSONObject toJSONObject() throws JSONException {
         JSONObject json = new JSONObject();
         json.put(Sec1Entry._ID, this._ID);
         json.put(Sec1Entry.ROW_FORM_ID, this.ROW_FORM_ID);
+        json.put(Sec1Entry.ROW_HHCODE, this.ROW_HHCODE);
         json.put(Sec1Entry.ROW_S1Q101, this.ROW_S1Q101);
         json.put(Sec1Entry.ROW_S1Q102, this.ROW_S1Q102);
         json.put(Sec1Entry.ROW_S1Q103, this.ROW_S1Q103);
@@ -403,6 +415,7 @@ public final class FormContract implements BaseColumns {
 
         public static final String ROW_DEVID = "devid";
         public static final String ROW_FORM_ID = "formid";
+        public static final String ROW_HHCODE = "hhcode";
         public static final String ROW_S1Q101 = "s1q101";
         public static final String ROW_S1Q102 = "s1q102";
         public static final String ROW_S1Q103 = "s1q103";

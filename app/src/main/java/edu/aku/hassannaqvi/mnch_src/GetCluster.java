@@ -106,9 +106,9 @@ public class GetCluster extends Activity {
                 Collection<Members> lst = db.getVillages();
 
                 if (lst.size() == 0) {
-                    Toast.makeText(this, "Could not obtained list of Cluster / UC List ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Could not obtained list of villages ", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(this, "Got the list of Cluster / UC List ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Got the list of Villages ", Toast.LENGTH_SHORT).show();
                 }
 
                 //new SyncForms_Section2(this).execute(stringUrl);

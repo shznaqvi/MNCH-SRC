@@ -114,7 +114,7 @@ public class LoginActivity extends Activity {
             Toast.makeText(LoginActivity.this, "Error: users could not be populated ", Toast.LENGTH_LONG).show();
         } else {
             vu_syncusers.setVisibility(View.GONE);
-            var.setUrl_sync_users("http://10.198.96.103:8080/mapps/users_login.php");
+            var.setUrl_sync_usr("http://10.198.96.103:8080/mapps/users_login.php");
             Toast.makeText(LoginActivity.this, "Users populated successfully", Toast.LENGTH_LONG).show();
         }
     }

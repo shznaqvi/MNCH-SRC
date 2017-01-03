@@ -33,7 +33,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "src.db";
     private static final int DATABASE_VERSION = 1;
 
-    public static final String SQL_CREATE_USERS = "CREATE TABLE IF NOT EXISTS " + UsersContract.singleUser.TABLE_NAME + "("
+    public static final String SQL_CREATE_USERS = "CREATE TABLE " + UsersContract.singleUser.TABLE_NAME + "("
             + UsersContract.singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + UsersContract.singleUser.ROW_USERNAME + " TEXT,"
             + UsersContract.singleUser.ROW_PASSWORD + " TEXT,"
@@ -48,10 +48,10 @@ public class SRCDBHelper extends SQLiteOpenHelper {
      * Section 1
      ******************************/
 
-    public static final String SQL_CREATE_BASELINE_SEC1 = "CREATE TABLE IF NOT EXISTS " + Sec1Entry.TABLE_NAME + "("
+    public static final String SQL_CREATE_BASELINE_SEC1 = "CREATE TABLE " + Sec1Entry.TABLE_NAME + "("
             + Sec1Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Sec1Entry.ROW_DEVID + " TEXT,"
-            + Sec1Entry.ROW_FORM_ID + " INTEGER,"
+            + Sec1Entry.ROW_FORM_ID + " TEXT,"
             + Sec1Entry.ROW_S1Q101 + " TEXT,"
             + Sec1Entry.ROW_S1Q102 + " TEXT,"
             + Sec1Entry.ROW_S1Q103 + " INTEGER,"
@@ -77,7 +77,9 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec1Entry.ROW_GPS_LNG + " TEXT,"
             + Sec1Entry.ROW_GPS_LAT + " TEXT,"
             + Sec1Entry.ROW_GPS_DT + " TEXT,"
-            + Sec1Entry.ROW_GPS_ACC + " TEXT);";
+            + Sec1Entry.ROW_GPS_ACC + " TEXT,"
+            + Sec1Entry.ROW_ENTRYDATE + " TEXT,"
+            + Sec1Entry.ROW_USERID + " TEXT);";
 
 
     private static final String SQL_DELETE_SEC1 =
@@ -88,7 +90,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
      * Section 3
      ******************************/
 
-    public static final String SQL_CREATE_BASELINE_SEC3 = "CREATE TABLE IF NOT EXISTS " + Sec3Entry.TABLE_NAME + "("
+    public static final String SQL_CREATE_BASELINE_SEC3 = "CREATE TABLE " + Sec3Entry.TABLE_NAME + "("
             + Sec3Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Sec3Entry.ROW_DEVID + " TEXT,"
             + Sec3Entry.ROW_FORM_ID + " INTEGER,"
@@ -116,7 +118,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
      * Section 4a
      ******************************/
 
-    public static final String SQL_CREATE_BASELINE_SEC4 = "CREATE TABLE IF NOT EXISTS " + Section4Entry.TABLE_NAME + "("
+    public static final String SQL_CREATE_BASELINE_SEC4 = "CREATE TABLE " + Section4Entry.TABLE_NAME + "("
             + Section4Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Section4Entry.ROW_DEVID + " TEXT,"
             + Section4Entry.ROW_FORM_ID + " INTEGER,"
@@ -139,7 +141,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
      * Section 4b
      ******************************/
 
-    public static final String SQL_CREATE_BASELINE_SEC4b = "CREATE TABLE IF NOT EXISTS " + Section4aEntry.TABLE_NAME + "("
+    public static final String SQL_CREATE_BASELINE_SEC4b = "CREATE TABLE " + Section4aEntry.TABLE_NAME + "("
             + Section4aEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Section4aEntry.ROW_DEVID + " TEXT,"
             + Section4aEntry.ROW_FORM_ID + " INTEGER,"
@@ -165,7 +167,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
      ******************************/
 
 
-    public static final String SQL_CREATE_CLUSTER = "CREATE TABLE IF NOT EXISTS " + ClusterEntry.TABLE_NAME + "("
+    public static final String SQL_CREATE_CLUSTER = "CREATE TABLE " + ClusterEntry.TABLE_NAME + "("
             + ClusterEntry.ROW_UCCODE + " TEXT,"
             + ClusterEntry.ROW_UCNAME + " TEXT);";
 
@@ -174,7 +176,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
      ******************************/
 
 
-    public static final String SQL_CREATE_VILLAGE = "CREATE TABLE IF NOT EXISTS " + VillageEntry.TABLE_NAME + "("
+    public static final String SQL_CREATE_VILLAGE = "CREATE TABLE " + VillageEntry.TABLE_NAME + "("
             + VillageEntry.ROW_VCODE + " TEXT,"
             + VillageEntry.ROW_VNAME + " TEXT,"
             + VillageEntry.ROW_UCNAME + " TEXT);";
@@ -198,10 +200,10 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        //db.execSQL(SQL_DELETE_USERS);
-        //db.execSQL(SQL_DELETE_SEC1);
-        //db.execSQL(SQL_DELETE_SEC3);
-        //db.execSQL(SQL_DELETE_SEC4);
+        db.execSQL(SQL_DELETE_USERS);
+        db.execSQL(SQL_DELETE_SEC1);
+        db.execSQL(SQL_DELETE_SEC3);
+        db.execSQL(SQL_DELETE_SEC4);
 
         onCreate(db);
     }
@@ -532,6 +534,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             values.put(Sec1Entry.ROW_S1Q111, fc.getROW_S1Q111());
             values.put(Sec1Entry.ROW_S1Q111OTH, fc.getROW_S1Q111oth());
             values.put(Sec1Entry.ROW_S1Q112, fc.getROW_S1Q112());
+            values.put(Sec1Entry.ROW_ENTRYDATE, fc.getROW_ENTRYDATE());
+            values.put(Sec1Entry.ROW_USERID, fc.getROW_USERID());
             values.put(Sec1Entry.ROW_GPS_LAT, fc.getROW_GPS_LAT());
             values.put(Sec1Entry.ROW_GPS_LNG, fc.getROW_GPS_LANG());
             values.put(Sec1Entry.ROW_GPS_ACC, fc.getROW_GPS_ACC());
@@ -704,8 +708,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
 
-                SRCApp.fc.setROW_FORM_ID(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_FORM_ID)));
                 SRCApp.fc.set_ID(Long.parseLong(cursor.getString(cursor.getColumnIndex(Sec1Entry._ID))));
+                SRCApp.fc.setROW_FORM_ID(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_FORM_ID)));
 
                 SRCApp.fc.setROW_DEVID(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_DEVID)));
                 SRCApp.fc.setROW_GPS_LAT(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_GPS_LAT)));
@@ -713,20 +717,183 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 SRCApp.fc.setROW_GPS_ACC(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_GPS_ACC)));
                 SRCApp.fc.setROW_GPS_DT(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_GPS_DT)));
                 SRCApp.fc.setROW_S1Q101(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q101)));
-                SRCApp.fc.setROW_S1Q102(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q102)));
-                SRCApp.fc.setROW_S1Q103(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q103)));
-                SRCApp.fc.setROW_S1Q104(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q104)));
-                SRCApp.fc.setROW_S1Q105(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q105)));
-                SRCApp.fc.setROW_S1Q106a(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q106a)));
-                SRCApp.fc.setROW_S1Q106b(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q106b)));
-                SRCApp.fc.setROW_S1Q107(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q107)));
-                SRCApp.fc.setROW_S1Q108(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q108)));
-                SRCApp.fc.setROW_S1Q109a(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q109a)));
-                SRCApp.fc.setROW_S1Q109b(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q109b)));
-                SRCApp.fc.setROW_S1Q110(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q110)));
-                SRCApp.fc.setROW_S1Q111(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q111)));
-                SRCApp.fc.setROW_S1Q111oth(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q111OTH)));
-                SRCApp.fc.setROW_S1Q112(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q112)));
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q102)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q102)) == null) {
+                    SRCApp.fc.setROW_S1Q102("");
+                } else {
+                    SRCApp.fc.setROW_S1Q102(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q102)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q103)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q103)) == null) {
+                    SRCApp.fc.setROW_S1Q103("");
+                } else {
+                    SRCApp.fc.setROW_S1Q103(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q103)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q104)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q104)) == null) {
+                    SRCApp.fc.setROW_S1Q104("");
+                } else {
+                    SRCApp.fc.setROW_S1Q104(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q104)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q105)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q105)) == null) {
+                    SRCApp.fc.setROW_S1Q105("");
+                } else {
+                    SRCApp.fc.setROW_S1Q105(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q105)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q106a)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q106a)) == null) {
+                    SRCApp.fc.setROW_S1Q106a("");
+                } else {
+                    SRCApp.fc.setROW_S1Q106a(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q106a)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q106b)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q106b)) == null) {
+                    SRCApp.fc.setROW_S1Q106b("");
+                } else {
+                    SRCApp.fc.setROW_S1Q106b(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q106b)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q107)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q107)) == null) {
+                    SRCApp.fc.setROW_S1Q107("");
+                } else {
+                    SRCApp.fc.setROW_S1Q107(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q107)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q108)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q108)) == null) {
+                    SRCApp.fc.setROW_S1Q108("");
+                } else {
+                    SRCApp.fc.setROW_S1Q108(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q108)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q108b)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q108b)) == null) {
+                    SRCApp.fc.setROW_S1Q108b("");
+                } else {
+                    SRCApp.fc.setROW_S1Q108b(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q108b)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q110)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q110)) == null) {
+                    SRCApp.fc.setROW_S1Q110("");
+                } else {
+                    SRCApp.fc.setROW_S1Q110(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q110)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q111)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q111)) == null) {
+                    SRCApp.fc.setROW_S1Q111("");
+                } else {
+                    SRCApp.fc.setROW_S1Q111(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q111)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q111OTH)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q111OTH)) == null) {
+                    SRCApp.fc.setROW_S1Q111oth("");
+                } else {
+                    SRCApp.fc.setROW_S1Q111oth(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q111OTH)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q112)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q112)) == null) {
+                    SRCApp.fc.setROW_S1Q112("");
+                } else {
+                    SRCApp.fc.setROW_S1Q112(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q112)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S2)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S2)) == null) {
+                    SRCApp.fc.setROW_S2("");
+                } else {
+                    SRCApp.fc.setROW_S2(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S2)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S3)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S3)) == null) {
+                    SRCApp.fc.setROW_S3("");
+                } else {
+                    SRCApp.fc.setROW_S3(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S3)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S4)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S4)) == null) {
+                    SRCApp.fc.setROW_S4("");
+                } else {
+                    SRCApp.fc.setROW_S4(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S4)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S5)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S5)) == null) {
+                    SRCApp.fc.setROW_S5("");
+                } else {
+                    SRCApp.fc.setROW_S5(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S5)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S6)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S6)) == null) {
+                    SRCApp.fc.setROW_S6("");
+                } else {
+                    SRCApp.fc.setROW_S6(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S6)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S7)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S7)) == null) {
+                    SRCApp.fc.setROW_S7("");
+                } else {
+                    SRCApp.fc.setROW_S7(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S7)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S8)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S8)) == null) {
+                    SRCApp.fc.setROW_S8("");
+                } else {
+                    SRCApp.fc.setROW_S8(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S8)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_ENTRYDATE)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_ENTRYDATE)) == null) {
+                    SRCApp.fc.setROW_ENTRYDATE("");
+                } else {
+                    SRCApp.fc.setROW_ENTRYDATE(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_ENTRYDATE)));
+                }
+
+
+                if (cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_USERID)) == "" ||
+                        cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_USERID)) == null) {
+                    SRCApp.fc.setROW_USERID("");
+                } else {
+                    SRCApp.fc.setROW_USERID(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_USERID)));
+                }
+
 
                 // Adding contact to list
                 formList.add(SRCApp.fc);
