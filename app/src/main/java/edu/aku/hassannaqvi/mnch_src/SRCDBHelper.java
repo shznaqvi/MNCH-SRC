@@ -21,28 +21,33 @@ import edu.aku.hassannaqvi.mnch_src.FormContract.Sec1Entry;
 import edu.aku.hassannaqvi.mnch_src.Sec3Contract.Sec3Entry;
 import edu.aku.hassannaqvi.mnch_src.Sec7ImContract.single7Im;
 import edu.aku.hassannaqvi.mnch_src.Section4Contract.Section4Entry;
-import edu.aku.hassannaqvi.mnch_src.Section4aContract.Section4aEntry;
+import edu.aku.hassannaqvi.mnch_src.Section4bContract.Section4bEntry;
+import edu.aku.hassannaqvi.mnch_src.UsersContract.singleUser;
 import edu.aku.hassannaqvi.mnch_src.VillageContract.VillageEntry;
+
 
 /**
  * Created by isd on 20/10/2016.
  */
 public class SRCDBHelper extends SQLiteOpenHelper {
 
-    public static final String SQL_CREATE_USERS = "CREATE TABLE IF NOT EXISTS " + UsersContract.singleUser.TABLE_NAME + "("
+    public static final String SQL_CREATE_USERS = "CREATE TABLE " + UsersContract.singleUser.TABLE_NAME + "("
             + UsersContract.singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + UsersContract.singleUser.ROW_USERNAME + " TEXT,"
             + UsersContract.singleUser.ROW_PASSWORD + " TEXT,"
             + UsersContract.singleUser.ROW_USERSTATUS + " TEXT,"
-            + UsersContract.singleUser.ROW_ISADMIN + " TEXT );";
-    /*******************************
-     * Section 1
-     ******************************/
-
-    public static final String SQL_CREATE_BASELINE_SEC1 = "CREATE TABLE IF NOT EXISTS " + Sec1Entry.TABLE_NAME + "("
+            + UsersContract.singleUser.ROW_ISADMIN + " TEXT);";
+    public static final String SQL_CREATE_CLUSTER = "CREATE TABLE IF NOT EXISTS " + ClusterEntry.TABLE_NAME + "("
+            + ClusterEntry.ROW_UCCODE + " TEXT,"
+            + ClusterEntry.ROW_UCNAME + " TEXT);";
+    public static final String SQL_CREATE_VILLAGE = "CREATE TABLE IF NOT EXISTS " + VillageEntry.TABLE_NAME + "("
+            + VillageEntry.ROW_VCODE + " TEXT,"
+            + VillageEntry.ROW_VNAME + " TEXT,"
+            + VillageEntry.ROW_UCNAME + " TEXT);";
+    public static final String SQL_CREATE_BASELINE_SEC1 = "CREATE TABLE " + Sec1Entry.TABLE_NAME + "("
             + Sec1Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Sec1Entry.ROW_DEVID + " TEXT,"
-            + Sec1Entry.ROW_FORM_ID + " INTEGER,"
+            + Sec1Entry.ROW_FORM_ID + " TEXT,"
             + Sec1Entry.ROW_S1Q101 + " TEXT,"
             + Sec1Entry.ROW_S1Q102 + " TEXT,"
             + Sec1Entry.ROW_S1Q103 + " INTEGER,"
@@ -68,8 +73,10 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec1Entry.ROW_GPS_LNG + " TEXT,"
             + Sec1Entry.ROW_GPS_LAT + " TEXT,"
             + Sec1Entry.ROW_GPS_DT + " TEXT,"
-            + Sec1Entry.ROW_GPS_ACC + " TEXT);";
-    public static final String SQL_CREATE_BASELINE_SEC3 = "CREATE TABLE IF NOT EXISTS " + Sec3Entry.TABLE_NAME + "("
+            + Sec1Entry.ROW_GPS_ACC + " TEXT,"
+            + Sec1Entry.ROW_ENTRYDATE + " TEXT,"
+            + Sec1Entry.ROW_USERID + " TEXT);";
+    public static final String SQL_CREATE_BASELINE_SEC3 = "CREATE TABLE " + Sec3Entry.TABLE_NAME + "("
             + Sec3Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Sec3Entry.ROW_DEVID + " TEXT,"
             + Sec3Entry.ROW_FORM_ID + " INTEGER,"
@@ -88,7 +95,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec3Entry.ROW_s3q301j + " INTEGER,"
             + Sec3Entry.ROW_s3q301k + " INTEGER,"
             + Sec3Entry.ROW_UID + " TEXT);";
-    public static final String SQL_CREATE_BASELINE_SEC4 = "CREATE TABLE IF NOT EXISTS " + Section4Entry.TABLE_NAME + "("
+    public static final String SQL_CREATE_BASELINE_SEC4 = "CREATE TABLE " + Section4Entry.TABLE_NAME + "("
             + Section4Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Section4Entry.ROW_DEVID + " TEXT,"
             + Section4Entry.ROW_FORM_ID + " INTEGER,"
@@ -102,6 +109,22 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Section4Entry.ROW_s4q41d + " TEXT,"
             + Section4Entry.ROW_s4q41e + " TEXT,"
             + Section4Entry.ROW_UID + " TEXT);";
+    public static final String SQL_CREATE_BASELINE_SEC4b = "CREATE TABLE IF NOT EXISTS " + Section4bEntry.TABLE_NAME + "("
+            + Section4bEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + Section4bEntry.ROW_DEVID + " TEXT,"
+            + Section4bEntry.ROW_FORM_ID + " INTEGER,"
+            + Section4bEntry.ROW_HHCODE + " TEXT,"
+            + Section4bEntry.ROW_SNO + " TEXT,"
+            + Section4bEntry.ROW_s4q42a + " TEXT,"
+            + Section4bEntry.ROW_s4q42b + " TEXT,"
+            + Section4bEntry.ROW_s4q42c + " TEXT,"
+            + Section4bEntry.ROW_s4q42d + " TEXT,"
+            + Section4bEntry.ROW_s4q42d1 + " TEXT,"
+            + Section4bEntry.ROW_s4q42d2 + " TEXT,"
+            + Section4bEntry.ROW_s4q42e + " TEXT,"
+            + Section4bEntry.ROW_s4q42eoth + " TEXT,"
+            + Section4bEntry.ROW_s4q42f + " TEXT,"
+            + Section4bEntry.ROW_UID + " TEXT);";
     public static final String SQL_CREATE_SEC_7_IM = "CREATE TABLE IF NOT EXISTS " + single7Im.TABLE_NAME + "("
             + single7Im._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + single7Im.ROW_DEVID + " TEXT,"
@@ -115,58 +138,25 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + single7Im.ROW_GPS_DT + " TEXT,"
             + single7Im.ROW_GPS_ACC + " TEXT,"
             + single7Im.ROW_UID + " TEXT);";
-    /*******************************
-     * Section 4b
-     ******************************/
-
-    public static final String SQL_CREATE_BASELINE_SEC4b = "CREATE TABLE IF NOT EXISTS " + Section4aEntry.TABLE_NAME + "("
-            + Section4aEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + Section4aEntry.ROW_DEVID + " TEXT,"
-            + Section4aEntry.ROW_FORM_ID + " INTEGER,"
-            + Section4aEntry.ROW_HHCODE + " TEXT,"
-            + Section4aEntry.ROW_SNO + " TEXT,"
-            + Section4aEntry.ROW_s4q42a + " TEXT,"
-            + Section4aEntry.ROW_s4q42b + " TEXT,"
-            + Section4aEntry.ROW_s4q42c + " TEXT,"
-            + Section4aEntry.ROW_s4q42d + " TEXT,"
-            + Section4aEntry.ROW_s4q42d1 + " TEXT,"
-            + Section4aEntry.ROW_s4q42d2 + " TEXT,"
-            + Section4aEntry.ROW_s4q42e + " TEXT,"
-            + Section4aEntry.ROW_s4q42eoth + " TEXT,"
-            + Section4aEntry.ROW_s4q42f + " TEXT,"
-            + Section4aEntry.ROW_UID + " TEXT);";
-    /*******************************
-     * Get Cluster / UC
-     ******************************/
-
-
-    public static final String SQL_CREATE_CLUSTER = "CREATE TABLE IF NOT EXISTS " + ClusterEntry.TABLE_NAME + "("
-            + ClusterEntry.ROW_UCCODE + " TEXT,"
-            + ClusterEntry.ROW_UCNAME + " TEXT);";
-    /*******************************
-     * Get Villages
-     ******************************/
-
-
-    public static final String SQL_CREATE_VILLAGE = "CREATE TABLE IF NOT EXISTS " + VillageEntry.TABLE_NAME + "("
-            + VillageEntry.ROW_VCODE + " TEXT,"
-            + VillageEntry.ROW_VNAME + " TEXT,"
-            + VillageEntry.ROW_UCNAME + " TEXT);";
     private static final String TAG = "Sec1";
     private static final String DATABASE_NAME = "src.db";
     private static final int DATABASE_VERSION = 1;
     private static final String SQL_DELETE_USERS =
-            "DROP TABLE IF EXISTS " + UsersContract.singleUser.TABLE_NAME;
-    private static final String SQL_DELETE_SEC1 =
-            "DROP TABLE IF EXISTS " + Sec1Entry.TABLE_NAME;
-    private static final String SQL_DELETE_SEC3 =
-            "DROP TABLE IF EXISTS " + Sec3Entry.TABLE_NAME;
+            "DROP TABLE IF EXISTS " + singleUser.TABLE_NAME;
+    private static final String SQL_DELETE_CLUSTERS =
+            "DROP TABLE IF EXISTS " + ClusterEntry.TABLE_NAME;
+    private static final String SQL_DELETE_VILLAGES =
+            "DROP TABLE IF EXISTS " + VillageEntry.TABLE_NAME;
     private static final String SQL_DELETE_SEC1 =
             "DROP TABLE IF EXISTS " + Sec1Entry.TABLE_NAME;
     private static final String SQL_DELETE_SEC3 =
             "DROP TABLE IF EXISTS " + Sec3Entry.TABLE_NAME;
     private static final String SQL_DELETE_SEC4 =
             "DROP TABLE IF EXISTS " + Section4Entry.TABLE_NAME;
+    private static final String SQL_DELETE_SEC4B =
+            "DROP TABLE IF EXISTS " + Section4bEntry.TABLE_NAME;
+    private static final String SQL_DELETE_SEC7IM =
+            "DROP TABLE IF EXISTS " + single7Im.TABLE_NAME;
 
 
     SRCDBHelper(Context context) {
@@ -183,16 +173,22 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_BASELINE_SEC1);
         db.execSQL(SQL_CREATE_BASELINE_SEC3);
         db.execSQL(SQL_CREATE_BASELINE_SEC4);
-        db.execSQL(SQL_CREATE_SEC_7_IM);
         db.execSQL(SQL_CREATE_BASELINE_SEC4b);
+        db.execSQL(SQL_CREATE_SEC_7_IM);
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL(SQL_DELETE_USERS);
+        db.execSQL(SQL_DELETE_CLUSTERS);
+        db.execSQL(SQL_DELETE_VILLAGES);
+
         db.execSQL(SQL_DELETE_SEC1);
         db.execSQL(SQL_DELETE_SEC3);
         db.execSQL(SQL_DELETE_SEC4);
+        db.execSQL(SQL_DELETE_SEC4B);
+        db.execSQL(SQL_DELETE_SEC7IM);
 
         onCreate(db);
     }
@@ -337,7 +333,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         try {
 
             CVars var = new CVars();
-            String QUERY = "SELECT * FROM " + Section4aEntry.TABLE_NAME + " WHERE formid = '"
+            String QUERY = "SELECT * FROM " + Section4bEntry.TABLE_NAME + " WHERE formid = '"
                     + var.GetHHNO() + "'";
 
             Cursor cursor = db.rawQuery(QUERY, null);
@@ -604,31 +600,31 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     }
 
 
-    public Long InsertRecord_Section4b(Section4aContract fc) {
+    public Long InsertRecord_Section4b(Section4bContract fc) {
         long newRowId = 0;
         SQLiteDatabase db = this.getWritableDatabase();
         try {
             ContentValues values = new ContentValues();
 
-            values.put(Section4aEntry.ROW_DEVID, fc.get_deviceid());
-            values.put(Section4aEntry.ROW_FORM_ID, fc.get_form_id());
-            values.put(Section4aEntry.ROW_HHCODE, fc.get_hhcdoe());
+            values.put(Section4bEntry.ROW_DEVID, fc.get_deviceid());
+            values.put(Section4bEntry.ROW_FORM_ID, fc.get_form_id());
+            values.put(Section4bEntry.ROW_HHCODE, fc.get_hhcdoe());
 
-            values.put(Section4aEntry.ROW_SNO, fc.get_sno());
+            values.put(Section4bEntry.ROW_SNO, fc.get_sno());
 
-            values.put(Section4aEntry.ROW_s4q42a, fc.get_s4q42a());
-            values.put(Section4aEntry.ROW_s4q42b, fc.get_s4q42b());
-            values.put(Section4aEntry.ROW_s4q42c, fc.get_s4q42c());
-            values.put(Section4aEntry.ROW_s4q42d, fc.get_s4q42d());
-            values.put(Section4aEntry.ROW_s4q42d1, fc.get_s4q42d1());
-            values.put(Section4aEntry.ROW_s4q42d2, fc.get_s4q42d2());
-            values.put(Section4aEntry.ROW_s4q42e, fc.get_s4q42e());
-            values.put(Section4aEntry.ROW_s4q42eoth, fc.get_s4q42eoth());
-            values.put(Section4aEntry.ROW_s4q42f, fc.get_s4q42f());
+            values.put(Section4bEntry.ROW_s4q42a, fc.get_s4q42a());
+            values.put(Section4bEntry.ROW_s4q42b, fc.get_s4q42b());
+            values.put(Section4bEntry.ROW_s4q42c, fc.get_s4q42c());
+            values.put(Section4bEntry.ROW_s4q42d, fc.get_s4q42d());
+            values.put(Section4bEntry.ROW_s4q42d1, fc.get_s4q42d1());
+            values.put(Section4bEntry.ROW_s4q42d2, fc.get_s4q42d2());
+            values.put(Section4bEntry.ROW_s4q42e, fc.get_s4q42e());
+            values.put(Section4bEntry.ROW_s4q42eoth, fc.get_s4q42eoth());
+            values.put(Section4bEntry.ROW_s4q42f, fc.get_s4q42f());
 
-            values.put(Section4aEntry.ROW_UID, SRCApp.fc.getROW_UUID());
+            values.put(Section4bEntry.ROW_UID, SRCApp.fc.getROW_UUID());
 
-            newRowId = db.insert(Section4aEntry.TABLE_NAME, null, values);
+            newRowId = db.insert(Section4bEntry.TABLE_NAME, null, values);
             db.close();
 
         } catch (Exception e) {
@@ -833,114 +829,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    public int updateS5() {
-        SQLiteDatabase db = this.getReadableDatabase();
 
-// New value for one column
-        ContentValues values = new ContentValues();
-        values.put(Sec1Entry.ROW_S5, SRCApp.fc.getROW_S5());
-
-// Which row to update, based on the ID
-        String selection = " _ID = " + SRCApp.fc.get_ID();
-        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
-
-        int count = db.update(Sec1Entry.TABLE_NAME,
-                values,
-                selection,
-                null);
-        return count;
-    }
-
-    public int updateS5b() {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-// New value for one column
-        ContentValues values = new ContentValues();
-        values.put(Sec1Entry.ROW_S5b, SRCApp.fc.getROW_S5b());
-
-// Which row to update, based on the ID
-        String selection = " _ID = " + SRCApp.fc.get_ID();
-        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
-
-        int count = db.update(Sec1Entry.TABLE_NAME,
-                values,
-                selection,
-                null);
-        return count;
-    }
-
-    public int updateS5c() {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-// New value for one column
-        ContentValues values = new ContentValues();
-        values.put(Sec1Entry.ROW_S5c, SRCApp.fc.getROW_S5c());
-
-// Which row to update, based on the ID
-        String selection = " _ID = " + SRCApp.fc.get_ID();
-        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
-
-        int count = db.update(Sec1Entry.TABLE_NAME,
-                values,
-                selection,
-                null);
-        return count;
-    }
-
-    public int updateS6() {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-// New value for one column
-        ContentValues values = new ContentValues();
-        values.put(Sec1Entry.ROW_S6, SRCApp.fc.getROW_S6());
-
-// Which row to update, based on the ID
-        String selection = " _ID = " + SRCApp.fc.get_ID();
-        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
-
-        int count = db.update(Sec1Entry.TABLE_NAME,
-                values,
-                selection,
-                null);
-        return count;
-    }
-
-    public int updateS7() {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-// New value for one column
-        ContentValues values = new ContentValues();
-        values.put(Sec1Entry.ROW_S7, SRCApp.fc.getROW_S7());
-
-// Which row to update, based on the ID
-        String selection = " _ID = " + SRCApp.fc.get_ID();
-        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
-
-        int count = db.update(Sec1Entry.TABLE_NAME,
-                values,
-                selection,
-                null);
-        return count;
-    }
-
-
-    public int updateS8() {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-// New value for one column
-        ContentValues values = new ContentValues();
-        values.put(Sec1Entry.ROW_S8, SRCApp.fc.getROW_S8());
-
-// Which row to update, based on the ID
-        String selection = " _ID = " + SRCApp.fc.get_ID();
-        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
-
-        int count = db.update(Sec1Entry.TABLE_NAME,
-                values,
-                selection,
-                null);
-        return count;
-    }
 
 
     public List<FormContract> getAllForms() {
@@ -1155,7 +1044,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
                     Members m = new Members();
 
-                    Section4aContract sc = new Section4aContract();
+                    Section4bContract sc = new Section4bContract();
                     sc.set_sno(cursor.getString(cursor.getColumnIndex(Sec3Entry._ID)));
                     sc.set_s4q42a(cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301a)));
 

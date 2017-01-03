@@ -176,7 +176,7 @@ public class Section4aActivity extends Activity {
 
     private boolean SaveDraft() {
 
-        SRCApp.sc4b = new Section4aContract();
+        SRCApp.sc4b = new Section4bContract();
 
         CVars var = new CVars();
 

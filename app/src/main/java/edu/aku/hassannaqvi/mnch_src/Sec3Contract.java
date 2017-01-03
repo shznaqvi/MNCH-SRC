@@ -12,6 +12,7 @@ public class Sec3Contract implements BaseColumns {
     Long _ID;
     String ROW_DEVID = SRCApp.DEVID;
     String ROW_FORM_ID;
+    String ROW_HHCODE;
 
     String ROW_SNO;
 
@@ -32,6 +33,15 @@ public class Sec3Contract implements BaseColumns {
 
     public Sec3Contract() {
 
+    }
+
+
+    public String getROW_HHCODE() {
+        return this.ROW_HHCODE;
+    }
+
+    public void setROW_HHCODE(String ROW_HHCODE) {
+        this.ROW_HHCODE = ROW_HHCODE;
     }
 
 
@@ -69,112 +79,109 @@ public class Sec3Contract implements BaseColumns {
         this.ROW_FORM_ID = ROW_FORM_ID;
     }
 
-
-    public void set_s3q301a(String ROW_s3q301a) {
-        this.ROW_s3q301a = ROW_s3q301a;
-    }
-
     public String get_s3q301a() {
         return this.ROW_s3q301a;
     }
 
-    public void set_s3q301b(String ROW_s3q301b) {
-        this.ROW_s3q301b = ROW_s3q301b;
+    public void set_s3q301a(String ROW_s3q301a) {
+        this.ROW_s3q301a = ROW_s3q301a;
     }
 
     public String get_s3q301b() {
         return this.ROW_s3q301b;
     }
 
-    public void set_s3q301c(String ROW_s3q301c) {
-        this.ROW_s3q301c = ROW_s3q301c;
+    public void set_s3q301b(String ROW_s3q301b) {
+        this.ROW_s3q301b = ROW_s3q301b;
     }
 
     public String get_s3q301c() {
         return this.ROW_s3q301c;
     }
 
-    public void set_s3q301d(String ROW_s3q301d) {
-        this.ROW_s3q301d = ROW_s3q301d;
+    public void set_s3q301c(String ROW_s3q301c) {
+        this.ROW_s3q301c = ROW_s3q301c;
     }
 
     public String get_s3q301d() {
         return this.ROW_s3q301d;
     }
 
-    public void set_s3q301e(String ROW_s3q301e) {
-        this.ROW_s3q301e = ROW_s3q301e;
+    public void set_s3q301d(String ROW_s3q301d) {
+        this.ROW_s3q301d = ROW_s3q301d;
     }
 
     public String get_s3q301e() {
         return this.ROW_s3q301e;
     }
 
-    public void set_s3q301f(String ROW_s3q301f) {
-        this.ROW_s3q301f = ROW_s3q301f;
+    public void set_s3q301e(String ROW_s3q301e) {
+        this.ROW_s3q301e = ROW_s3q301e;
     }
 
     public String get_s3q301f() {
         return this.ROW_s3q301f;
     }
 
-    public void set_s3q301f1(String ROW_s3q301f1) {
-        this.ROW_s3q301f1 = ROW_s3q301f1;
+    public void set_s3q301f(String ROW_s3q301f) {
+        this.ROW_s3q301f = ROW_s3q301f;
     }
 
     public String get_s3q301f1() {
         return this.ROW_s3q301f1;
     }
 
-    public void set_s3q301g(String ROW_s3q301g) {
-        this.ROW_s3q301g = ROW_s3q301g;
+    public void set_s3q301f1(String ROW_s3q301f1) {
+        this.ROW_s3q301f1 = ROW_s3q301f1;
     }
 
     public String get_s3q301g() {
         return this.ROW_s3q301g;
     }
 
-    public void set_s3q301h(String ROW_s3q301h) {
-        this.ROW_s3q301h = ROW_s3q301h;
+    public void set_s3q301g(String ROW_s3q301g) {
+        this.ROW_s3q301g = ROW_s3q301g;
     }
 
     public String get_s3q301h() {
         return this.ROW_s3q301h;
     }
 
-    public void set_s3q301i(String ROW_s3q301i) {
-        this.ROW_s3q301i = ROW_s3q301i;
+    public void set_s3q301h(String ROW_s3q301h) {
+        this.ROW_s3q301h = ROW_s3q301h;
     }
 
     public String get_s3q301i() {
         return this.ROW_s3q301i;
     }
 
-    public void set_s3q301j(String ROW_s3q301j) {
-        this.ROW_s3q301j = ROW_s3q301j;
+    public void set_s3q301i(String ROW_s3q301i) {
+        this.ROW_s3q301i = ROW_s3q301i;
     }
 
     public String get_s3q301j() {
         return this.ROW_s3q301j;
     }
 
-    public void set_s3q301k(String ROW_s3q301k) {
-        this.ROW_s3q301k = ROW_s3q301k;
+    public void set_s3q301j(String ROW_s3q301j) {
+        this.ROW_s3q301j = ROW_s3q301j;
     }
 
     public String get_s3q301k() {
         return this.ROW_s3q301k;
     }
 
-
-    public void set_s3q301l(String ROW_s3q301l) {
-        this.ROW_s3q301l = ROW_s3q301l;
+    public void set_s3q301k(String ROW_s3q301k) {
+        this.ROW_s3q301k = ROW_s3q301k;
     }
 
     public String get_s3q301l() {
         return this.ROW_s3q301l;
     }
 
+    public void set_s3q301l(String ROW_s3q301l) {
+        this.ROW_s3q301l = ROW_s3q301l;
+    }
 
     public static abstract class Sec3Entry implements BaseColumns {
         public static final String TABLE_NAME = "sec3";
@@ -182,6 +189,7 @@ public class Sec3Contract implements BaseColumns {
 
         public static final String ROW_DEVID = "devid";
         public static final String ROW_FORM_ID = "formid";
+        public static final String ROW_HHCODE = "hcode";
 
         public static final String ROW_SNO = "sno";
 

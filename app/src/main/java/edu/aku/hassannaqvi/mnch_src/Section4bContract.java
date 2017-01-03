@@ -9,7 +9,7 @@ import org.json.JSONObject;
  * Created by isd on 26/12/2016.
  */
 
-public class Section4aContract implements BaseColumns {
+public class Section4bContract implements BaseColumns {
 
     Long _ID;
     String ROW_DEVID = SRCApp.DEVID;
@@ -30,7 +30,7 @@ public class Section4aContract implements BaseColumns {
     String ROW_UID;
 
 
-    public Section4aContract() {
+    public Section4bContract() {
 
     }
 
@@ -149,27 +149,27 @@ public class Section4aContract implements BaseColumns {
     public JSONObject toJSONObject() throws JSONException {
         JSONObject json = new JSONObject();
 
-        json.put(Section4aContract.Section4aEntry._ID, this._ID);
-        json.put(Section4aContract.Section4aEntry.ROW_DEVID, this.ROW_DEVID);
-        json.put(Section4aContract.Section4aEntry.ROW_FORM_ID, this.ROW_FORM_ID);
-        json.put(Section4aContract.Section4aEntry.ROW_HHCODE, this.ROW_HHCODE);
-        json.put(Section4aContract.Section4aEntry.ROW_SNO, this.ROW_SNO);
+        json.put(Section4bContract.Section4bEntry._ID, this._ID);
+        json.put(Section4bContract.Section4bEntry.ROW_DEVID, this.ROW_DEVID);
+        json.put(Section4bContract.Section4bEntry.ROW_FORM_ID, this.ROW_FORM_ID);
+        json.put(Section4bContract.Section4bEntry.ROW_HHCODE, this.ROW_HHCODE);
+        json.put(Section4bContract.Section4bEntry.ROW_SNO, this.ROW_SNO);
 
-        json.put(Section4aContract.Section4aEntry.ROW_s4q42a, this.ROW_s4q42a);
-        json.put(Section4aContract.Section4aEntry.ROW_s4q42b, this.ROW_s4q42b);
-        json.put(Section4aContract.Section4aEntry.ROW_s4q42c, this.ROW_s4q42c);
-        json.put(Section4aContract.Section4aEntry.ROW_s4q42d, this.ROW_s4q42d);
-        json.put(Section4aContract.Section4aEntry.ROW_s4q42d1, this.ROW_s4q42d1);
-        json.put(Section4aContract.Section4aEntry.ROW_s4q42d2, this.ROW_s4q42d2);
-        json.put(Section4aContract.Section4aEntry.ROW_s4q42e, this.ROW_s4q42e);
-        json.put(Section4aContract.Section4aEntry.ROW_s4q42f, this.ROW_s4q42f);
-        json.put(Section4aContract.Section4aEntry.ROW_UID, this.ROW_UID);
+        json.put(Section4bContract.Section4bEntry.ROW_s4q42a, this.ROW_s4q42a);
+        json.put(Section4bContract.Section4bEntry.ROW_s4q42b, this.ROW_s4q42b);
+        json.put(Section4bContract.Section4bEntry.ROW_s4q42c, this.ROW_s4q42c);
+        json.put(Section4bContract.Section4bEntry.ROW_s4q42d, this.ROW_s4q42d);
+        json.put(Section4bContract.Section4bEntry.ROW_s4q42d1, this.ROW_s4q42d1);
+        json.put(Section4bContract.Section4bEntry.ROW_s4q42d2, this.ROW_s4q42d2);
+        json.put(Section4bContract.Section4bEntry.ROW_s4q42e, this.ROW_s4q42e);
+        json.put(Section4bContract.Section4bEntry.ROW_s4q42f, this.ROW_s4q42f);
+        json.put(Section4bContract.Section4bEntry.ROW_UID, this.ROW_UID);
 
         return json;
     }
 
 
-    public class Section4aEntry implements BaseColumns {
+    public class Section4bEntry implements BaseColumns {
 
         public static final String TABLE_NAME = "sec4b";
         public static final String _ID = "_ID";
