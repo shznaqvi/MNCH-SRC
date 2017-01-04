@@ -45,7 +45,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="6">
+                <requestFocus/>
+                </EditText>
 
             <TextView
                 android:id="@+id/lbl_s1q105"
@@ -73,7 +76,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="10" />
+                android:ems="10"
+                />
 
             <TextView
                 android:id="@+id/lbl_s1q101"
@@ -88,7 +92,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="text" />
+                android:inputType="text"
+                android:maxLength="6"/>
 
             <TextView
                 android:id="@+id/lbl_s1q102"
@@ -103,7 +108,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="text" />
+                android:inputType="text"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
 
             <TextView
                 android:id="@+id/lbl_s1q103"
@@ -144,7 +150,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2"
+                />
 
             <TextView
                 android:id="@+id/lbl_s1q106b"
@@ -159,7 +167,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2"/>
 
             <TextView
                 android:id="@+id/lbl_s1q107"
@@ -189,7 +198,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="11"/>
 
             <TextView
                 android:id="@+id/lbl_s1q108b"
@@ -204,7 +214,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="11"/>
 
             <TextView
                 android:id="@+id/lbl_s1q110"

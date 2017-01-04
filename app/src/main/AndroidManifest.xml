@@ -41,6 +41,7 @@
             android:name=".MainPage"
             android:label="Main"
             android:screenOrientation="portrait" />
+        <activity android:name=".GetCluster"/>
         <activity
             android:name=".Section1Activity"
             android:screenOrientation="portrait" />
@@ -55,7 +56,9 @@
         <activity android:name=".Section6Activity" />
         <activity android:name=".Section7Activity" />
         <activity android:name=".Section8Activity" />
-        <activity android:name=".Section5bActivity"></activity>
+        <activity android:name=".Section5bActivity">
+
+        </activity>
     </application>
 
 </manifest>

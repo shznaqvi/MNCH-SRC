@@ -44,6 +44,10 @@ public class MainPage extends Activity {
     public void OpenForm(View v) {
         Intent sec1_intent = new Intent(this, Section1Activity.class);
         startActivity(sec1_intent);
+
+
+
+
     }
 
     public void Logout(View v) {

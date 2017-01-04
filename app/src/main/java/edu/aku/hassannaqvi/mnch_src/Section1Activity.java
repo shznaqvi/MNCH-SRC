@@ -145,6 +145,7 @@ public class Section1Activity extends Activity {
 
         vu_s1q112 = (LinearLayout) findViewById(R.id.vu_s1q112);
 
+        formid.requestFocus();
 
         ArrayList<String> lst_hhcode = GetHHCode();
 
@@ -432,6 +433,8 @@ public class Section1Activity extends Activity {
         }
 
 
+
+
         rdo_s1q103 = radioS1q103.getCheckedRadioButtonId();
 
         if (rdo_s1q103 == -1) {
@@ -451,6 +454,24 @@ public class Section1Activity extends Activity {
         } else {
             s1q104.setError(null);
         }
+
+        // Check on Age
+        String age = getS1q104().getText().toString();
+        int age1 = 0;
+        try {
+            age1 = Integer.parseInt(age);
+        } catch (NumberFormatException nfe)
+        {
+            if (age1 < 18 || age1 > 99) {
+                s1q104.setError("Age of Respondent should be 18 to 99 years");
+                Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s1q104.requestFocus();
+            } else {
+                s1q104.setError(null);
+            }
+
+        }
+
 
 
         if (getS1q106b().getText().toString().isEmpty() || s1q106b.getText().toString() == null) {
@@ -499,7 +520,7 @@ public class Section1Activity extends Activity {
         }
 
 
-        if (var_s1q103 == "2" && getS1q111oth().getText().toString().isEmpty() || var_s1q103 == "2" && s1q111oth.getText().toString() == null) {
+        if (var_s1q112 == "2" && getS1q111oth().getText().toString().isEmpty() || var_s1q103 == "2" && s1q111oth.getText().toString() == null) {
             s1q111oth.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please specify status of visit if others  \r\n", Toast.LENGTH_LONG).show();
             s1q111oth.requestFocus();
