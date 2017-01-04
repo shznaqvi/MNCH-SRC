@@ -5,8 +5,8 @@ android {
     buildToolsVersion "24.0.3"
     defaultConfig {
         applicationId "edu.aku.hassannaqvi.mnch_src"
-        minSdkVersion 22
-        targetSdkVersion 22
+        minSdkVersion 19
+        targetSdkVersion 19
         versionCode 1
         versionName "1.0"
     }
