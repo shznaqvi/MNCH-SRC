@@ -97,7 +97,7 @@
                     android:imeActionLabel="@string/urlusers"
                     android:imeOptions="actionUnspecified"
                     android:inputType="text"
-                    android:text="http://10.198.96.85:8080/src/users_login.php"
+                    android:text="http://10.1.42.126:8080/src/users_login.php"
                     android:maxLines="1"
                     android:singleLine="true" />
 
