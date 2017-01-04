@@ -53,7 +53,7 @@ public class SRCApp extends Application {
     public static int chCount = 0;
     public static int chTotal = 0;
     protected static LocationManager locationManager;
-
+/*df*/
 
     @Override
     public void onCreate() {
