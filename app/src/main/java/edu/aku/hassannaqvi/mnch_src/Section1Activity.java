@@ -8,8 +8,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
@@ -30,7 +34,7 @@ import java.util.Collection;
 import java.util.Date;
 
 
-public class Section1Activity extends Activity {
+public class Section1Activity extends Activity implements TextWatcher {
 
     private static final String TAG = "Sec1";
     public static JSONObject s1;
@@ -50,7 +54,7 @@ public class Section1Activity extends Activity {
     private TextView lblS1q105;
     private TextView lblS1q106a;
     private TextView lblS1q106b;
-    private TextView lblS1q107;
+    //private TextView lblS1q107;
     private TextView lblS1q108;
     private TextView lblS1q110;
     private TextView lblS1q111;
@@ -71,7 +75,7 @@ public class Section1Activity extends Activity {
     private Spinner s1q105;
     private Spinner s1q106a;
     private EditText s1q106b;
-    private EditText s1q107;
+    //private EditText s1q107;
     private EditText s1q108;
     private EditText s1q108b;
     private DatePicker s1q110;
@@ -111,7 +115,7 @@ public class Section1Activity extends Activity {
         lblS1q105 = (TextView) findViewById(R.id.lbl_s1q105);
         lblS1q106a = (TextView) findViewById(R.id.lbl_s1q106a);
         lblS1q106b = (TextView) findViewById(R.id.lbl_s1q106b);
-        lblS1q107 = (TextView) findViewById(R.id.lbl_s1q107);
+        //lblS1q107 = (TextView) findViewById(R.id.lbl_s1q107);
         lblS1q108 = (TextView) findViewById(R.id.lbl_s1q108);
         lblS1q110 = (TextView) findViewById(R.id.lbl_s1q110);
         lblS1q111 = (TextView) findViewById(R.id.lbl_s1q111);
@@ -137,15 +141,16 @@ public class Section1Activity extends Activity {
         s1q105 = (Spinner) findViewById(R.id.s1q105);
         s1q106a = (Spinner) findViewById(R.id.s1q106a);
         s1q106b = (EditText) findViewById(R.id.s1q106b);
-        s1q107 = (EditText) findViewById(R.id.s1q107);
+        //s1q107 = (EditText) findViewById(R.id.s1q107);
         s1q108 = (EditText) findViewById(R.id.s1q108);
         s1q108b = (EditText) findViewById(R.id.s1q108b);
+
         s1q110 = (DatePicker) findViewById(R.id.s1q110);
         s1q111oth = (EditText) findViewById(R.id.s1q111oth);
 
         vu_s1q112 = (LinearLayout) findViewById(R.id.vu_s1q112);
 
-        formid.requestFocus();
+
 
         ArrayList<String> lst_hhcode = GetHHCode();
 
@@ -223,6 +228,10 @@ public class Section1Activity extends Activity {
         radioS1q111.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+                //View view = this.getCurrentFocus();
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(rDOS1q1111.getWindowToken(), 0);
+
                 if (checkedId == rDOS1q1114.getId()) {
 
                     vu_s1q112.setVisibility(View.VISIBLE);
@@ -253,9 +262,9 @@ public class Section1Activity extends Activity {
         return (EditText) findViewById(R.id.s1q106b);
     }
 
-    private EditText getS1q107() {
-        return (EditText) findViewById(R.id.s1q107);
-    }
+    //private EditText getS1q107() {
+        //return (EditText) findViewById(R.id.s1q107);
+    //}
 
     private EditText getS1q108() {
         return (EditText) findViewById(R.id.s1q108);
@@ -351,7 +360,7 @@ public class Section1Activity extends Activity {
         SRCApp.fc.setROW_S1Q106a(vcode);
 
         SRCApp.fc.setROW_S1Q106b(s1q106b.getText().toString());
-        SRCApp.fc.setROW_S1Q107(s1q107.getText().toString());
+        //SRCApp.fc.setROW_S1Q107(s1q107.getText().toString());
         SRCApp.fc.setROW_S1Q108(s1q108.getText().toString());
         SRCApp.fc.setROW_S1Q108b(s1q108b.getText().toString());
         SRCApp.fc.setROW_S1Q110(spDateT);
@@ -455,23 +464,7 @@ public class Section1Activity extends Activity {
             s1q104.setError(null);
         }
 
-        // Check on Age
-        String age = getS1q104().getText().toString();
-        int age1 = 0;
-        try {
-            age1 = Integer.parseInt(age);
-        } catch (NumberFormatException nfe)
-        {
-            if (age1 < 18 || age1 > 99) {
-                s1q104.setError("Age of Respondent should be 18 to 99 years");
-                Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
-                s1q104.requestFocus();
-            } else {
-                s1q104.setError(null);
-            }
-
-        }
-
+        getS1q104().addTextChangedListener(this);
 
 
         if (getS1q106b().getText().toString().isEmpty() || s1q106b.getText().toString() == null) {
@@ -483,14 +476,14 @@ public class Section1Activity extends Activity {
             s1q106b.setError(null);
         }
 
-        if (getS1q107().getText().toString().isEmpty() || s1q107.getText().toString() == null) {
+        /*if (getS1q107().getText().toString().isEmpty() || s1q107.getText().toString() == null) {
             s1q107.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter Family ID \r\n", Toast.LENGTH_LONG).show();
             s1q107.requestFocus();
             return false;
         } else {
             s1q107.setError(null);
-        }
+        }*/
 
 
         if (getS1q108().getText().toString().isEmpty() || s1q108.getText().toString() == null) {
@@ -591,5 +584,38 @@ public class Section1Activity extends Activity {
     public void onBackPressed() {
         AlertDialog alert1 = alert.create();
         alert1.show();
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        // Check on Age
+        String age = getS1q104().getText().toString();
+        int age1 = 0;
+        try {
+            age1 = Integer.parseInt(age);
+            if (age1 < 18 || age1 > 99) {
+                s1q104.setError("Age of Respondent should be 18 to 99 years");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s1q104.requestFocus();
+            } else {
+                s1q104.setError(null);
+            }
+
+        } catch (NumberFormatException nfe)
+        {
+
+        }
+
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
     }
 }

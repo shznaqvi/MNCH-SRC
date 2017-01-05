@@ -46,7 +46,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:maxLength="6">
+                android:maxLength="4">
                 <requestFocus/>
                 </EditText>
 
@@ -93,7 +93,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="text"
-                android:maxLength="6"/>
+                />
 
             <TextView
                 android:id="@+id/lbl_s1q102"
@@ -108,8 +108,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="text"
-                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
+                android:inputType="textCapWords"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "/>
 
             <TextView
                 android:id="@+id/lbl_s1q103"
@@ -170,7 +170,7 @@
                 android:inputType="number"
                 android:maxLength="2"/>
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/lbl_s1q107"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -183,7 +183,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number" />-->
 
             <TextView
                 android:id="@+id/lbl_s1q108"
@@ -198,7 +198,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number"
+                android:inputType="phone"
                 android:maxLength="11"/>
 
             <TextView
@@ -214,7 +214,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number"
+                android:inputType="phone"
                 android:maxLength="11"/>
 
             <TextView

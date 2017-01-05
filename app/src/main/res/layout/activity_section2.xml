@@ -55,7 +55,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="text" />
+                android:inputType="textCapWords"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ " />
 
             <TextView
                 android:id="@+id/lbl_s2q202"
@@ -70,7 +71,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2"/>
 
             <TextView
                 android:id="@+id/lbl_s2q203"
@@ -111,7 +113,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2"/>
 
             <TextView
                 android:id="@+id/lbl_s2q205"
@@ -179,29 +182,32 @@
                     android:layout_height="wrap_content"
                     android:text="@string/baseline_s2q205_9" />
 
-                <RadioButton
-                    android:id="@+id/RDO_s2q205_10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/baseline_s2q205_10" />
 
                 <RadioButton
-                    android:id="@+id/RDO_s2q205_11"
+                    android:id="@+id/RDO_s2q205_10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/baseline_s2q205_11" />
 
                 <RadioButton
-                    android:id="@+id/RDO_s2q205_12"
+                    android:id="@+id/RDO_s2q205_11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/baseline_s2q205_12" />
 
                 <RadioButton
-                    android:id="@+id/RDO_s2q205_13"
+                    android:id="@+id/RDO_s2q205_12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/baseline_s2q205_13" />
+
+                <RadioButton
+                    android:id="@+id/RDO_s2q205_88"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baseline_s2q205_10" />
+
+
 
             </RadioGroup>
 

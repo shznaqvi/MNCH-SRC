@@ -3,8 +3,11 @@ package edu.aku.hassannaqvi.mnch_src;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Activity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +22,11 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
-public class Section2Activity extends Activity {
+import static android.graphics.Color.*;
+import static edu.aku.hassannaqvi.mnch_src.R.color.gray;
+import static edu.aku.hassannaqvi.mnch_src.R.drawable.background_grad;
+
+public class Section2Activity extends Activity implements TextWatcher {
 
     private static final String TAG = "Sec2";
     private ScrollView scrollView01;
@@ -46,7 +53,7 @@ public class Section2Activity extends Activity {
     private RadioButton rDOS2q20510;
     private RadioButton rDOS2q20511;
     private RadioButton rDOS2q20512;
-    private RadioButton rDOS2q20513;
+    private RadioButton rDOS2q20588;
     private TextView lblS2q206;
     private TextView lblS2q206a;
     private TextView lblS2q206b;
@@ -109,7 +116,7 @@ public class Section2Activity extends Activity {
         rDOS2q20510 = (RadioButton) findViewById(R.id.RDO_s2q205_10);
         rDOS2q20511 = (RadioButton) findViewById(R.id.RDO_s2q205_11);
         rDOS2q20512 = (RadioButton) findViewById(R.id.RDO_s2q205_12);
-        rDOS2q20513 = (RadioButton) findViewById(R.id.RDO_s2q205_13);
+        rDOS2q20588 = (RadioButton) findViewById(R.id.RDO_s2q205_88);
         lblS2q206 = (TextView) findViewById(R.id.lbl_s2q206);
         lblS2q206a = (TextView) findViewById(R.id.lbl_s2q206a);
         lblS2q206b = (TextView) findViewById(R.id.lbl_s2q206b);
@@ -138,7 +145,7 @@ public class Section2Activity extends Activity {
         radioS2q205.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == rDOS2q20510.getId()) {
+                if (checkedId == rDOS2q20588.getId()) {
 
                     vu_s2q205oth.setVisibility(View.VISIBLE);
                     s2q205oth.requestFocus();
@@ -153,6 +160,31 @@ public class Section2Activity extends Activity {
                 }
             }
         });
+
+        // Check for gender
+        radioS2q203.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == rDOS2q2031.getId()) {
+
+                    rDOS2q20512.setEnabled(false);
+
+
+                } else {
+
+                    rDOS2q20512.setEnabled(true);
+
+                }
+            }
+        });
+
+        s2q204.addTextChangedListener(this);
+
+        s2q202.addTextChangedListener(this);
+        s2q206a.addTextChangedListener(this);
+        s2q206b.addTextChangedListener(this);
+        s2q206c.addTextChangedListener(this);
+
 
     }
 
@@ -287,8 +319,8 @@ public class Section2Activity extends Activity {
                 case R.id.RDO_s2q205_12:
                     var_s2q205 = "12";
                     break;
-                case R.id.RDO_s2q205_13:
-                    var_s2q205 = "13";
+                case R.id.RDO_s2q205_88:
+                    var_s2q205 = "88";
                     break;
             }
 
@@ -424,14 +456,14 @@ public class Section2Activity extends Activity {
                 var_s2q205 = "12";
                 break;
 
-            case R.id.RDO_s2q205_13:
-                var_s2q205 = "13";
+            case R.id.RDO_s2q205_88:
+                var_s2q205 = "88";
                 break;
         }
 
 
-        if (var_s2q205 == "10" && getS2q205oth().getText().toString().isEmpty() ||
-                var_s2q205 == "10" && s2q205oth.getText().toString() == null) {
+        if (var_s2q205 == "88" && getS2q205oth().getText().toString().isEmpty() ||
+                var_s2q205 == "88" && s2q205oth.getText().toString() == null) {
             s2q205oth.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please specify occupation if others \r\n", Toast.LENGTH_LONG).show();
             s2q205oth.requestFocus();
@@ -568,5 +600,139 @@ public class Section2Activity extends Activity {
 
         Toast.makeText(Section2Activity.this, "GPS set", Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        int totalMembers = 0;
+        int total = 0;
+
+        try{
+            totalMembers = Integer.parseInt(s2q206a.getText().toString());
+            total = (Integer.parseInt(s2q206b.getText().toString()) + Integer.parseInt(s2q206c.getText().toString())
+                    + Integer.parseInt(s2q206d.getText().toString()) + Integer.parseInt(s2q206e.getText().toString())
+                    + Integer.parseInt(s2q206f.getText().toString()) + Integer.parseInt(s2q206g.getText().toString())
+                    + Integer.parseInt(s2q206h.getText().toString()));
+        } catch (NumberFormatException nfe)
+        {
+        }
+
+        // Check for schooling
+
+        if(s2q204.getText().hashCode() == s.hashCode())
+        {
+            String education = s2q204.getText().toString();
+            int edu= 0;
+            try {
+                edu = Integer.parseInt(education);
+                if (edu == 91 || edu == 92) {
+                    rDOS2q2051.setEnabled(false);
+                } else {
+                    rDOS2q2051.setEnabled(true);
+                }
+
+            } catch (NumberFormatException nfe) {
+
+            }
+
+        } else if(s2q202.getText().hashCode() == s.hashCode())
+        {
+            // Check on Age
+            String age = s2q202.getText().toString();
+            int age1 = 0;
+            try {
+                age1 = Integer.parseInt(age);
+                if (age1 < 18 || age1 > 99) {
+                    s2q202.setError("Age of Respondent should be 18 to 99 years");
+                    //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                    s2q202.requestFocus();
+                } else {
+                    s2q202.setError(null);
+                }
+            } catch (NumberFormatException nfe)
+            {
+
+            }
+        } else if(s2q206b.getText().hashCode() == s.hashCode())
+        {
+            // Check on males
+
+            String mm = s2q206b.getText().toString();
+
+
+            int male = 0;
+
+            try {
+                //total = Integer.parseInt(tm);
+               male = Integer.parseInt(mm);
+
+                if (totalMembers != total) {
+                    s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                    //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                    s2q206a.requestFocus();
+                } else {
+                    s2q206a.setError(null);
+                }
+                if(male == total) {
+                    s2q206c.setEnabled(false);
+                    s2q206c.setBackgroundColor(Color.GRAY);
+                    s2q206d.setEnabled(false);
+                    s2q206d.setBackgroundColor(Color.GRAY);
+                    s2q206e.setEnabled(false);
+                    s2q206e.setBackgroundColor(Color.GRAY);
+                    s2q206f.setEnabled(false);
+                    s2q206f.setBackgroundColor(Color.GRAY);
+                    s2q206g.setEnabled(false);
+                    s2q206g.setBackgroundColor(Color.GRAY);
+                    s2q206h.setEnabled(false);
+                    s2q206h.setBackgroundColor(Color.GRAY);
+                } else
+                {
+
+                    s2q206c.setEnabled(true);
+                    s2q206c.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206d.setEnabled(true);
+                    s2q206d.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206e.setEnabled(true);
+                    s2q206e.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206f.setEnabled(true);
+                    s2q206f.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206g.setEnabled(true);
+                    s2q206g.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206h.setEnabled(true);
+                    s2q206g.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                }
+
+
+           } catch (NumberFormatException nfe)
+            {
+
+            }
+
+        }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
+    }
+
 
 }
