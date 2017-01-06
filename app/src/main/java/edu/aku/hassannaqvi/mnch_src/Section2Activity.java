@@ -26,7 +26,7 @@ import static android.graphics.Color.*;
 import static edu.aku.hassannaqvi.mnch_src.R.color.gray;
 import static edu.aku.hassannaqvi.mnch_src.R.drawable.background_grad;
 
-public class Section2Activity extends Activity implements TextWatcher {
+public class Section2Activity extends Activity  {
 
     private static final String TAG = "Sec2";
     private ScrollView scrollView01;
@@ -178,12 +178,315 @@ public class Section2Activity extends Activity implements TextWatcher {
             }
         });
 
-        s2q204.addTextChangedListener(this);
+        // schooling
+        s2q204.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-        s2q202.addTextChangedListener(this);
-        s2q206a.addTextChangedListener(this);
-        s2q206b.addTextChangedListener(this);
-        s2q206c.addTextChangedListener(this);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Check for schooling
+                    String education = s2q204.getText().toString();
+                    int edu= 0;
+                    try {
+                        edu = Integer.parseInt(education);
+                        if (edu == 91 || edu == 92) {
+                            rDOS2q2051.setEnabled(false);
+                        } else {
+                            rDOS2q2051.setEnabled(true);
+                        }
+
+                    } catch (NumberFormatException nfe) {
+
+                    }
+
+                }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        //age
+        s2q202.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Check on Age
+                String age = s2q202.getText().toString();
+                int age1 = 0;
+                try {
+                    age1 = Integer.parseInt(age);
+                    if (age1 < 18 || age1 > 99) {
+                        s2q202.setError("Age of Respondent should be 18 to 99 years");
+                        //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                        s2q202.requestFocus();
+                    } else {
+                        s2q202.setError(null);
+                    }
+                } catch (NumberFormatException nfe)
+                {
+
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        // Total male in home
+        s2q206b.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                int totalMembers= 0;
+                int mm = 0;
+
+                try{
+                    totalMembers = Integer.parseInt(s2q206a.getText().toString());
+                    mm = Integer.parseInt(s2q206b.getText().toString());
+
+                } catch (NumberFormatException nfe)
+                {
+                    nfe.printStackTrace();
+                }
+
+                if(mm == totalMembers)
+                {
+                    s2q206c.setEnabled(false);
+                    s2q206c.setBackgroundColor(Color.GRAY);
+                    s2q206c.setText(null);
+                    s2q206d.setEnabled(false);
+                    s2q206d.setBackgroundColor(Color.GRAY);
+                    s2q206d.setText(null);
+                    s2q206e.setEnabled(false);
+                    s2q206e.setBackgroundColor(Color.GRAY);
+                    s2q206e.setText(null);
+                    s2q206f.setEnabled(false);
+                    s2q206f.setBackgroundColor(Color.GRAY);
+                    s2q206f.setText(null);
+                    s2q206g.setEnabled(false);
+                    s2q206g.setBackgroundColor(Color.GRAY);
+                    s2q206g.setText(null);
+                    s2q206h.setEnabled(false);
+                    s2q206h.setBackgroundColor(Color.GRAY);
+                    s2q206h.setText(null);
+                } else
+                {
+
+                    s2q206c.setEnabled(true);
+                    s2q206c.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206d.setEnabled(true);
+                    s2q206d.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206e.setEnabled(true);
+                    s2q206e.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206f.setEnabled(true);
+                    s2q206f.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206g.setEnabled(true);
+                    s2q206g.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206h.setEnabled(true);
+                    s2q206h.setBackgroundColor(Color.parseColor("#e0e0e0"));
+
+                }
+
+                if(mm > totalMembers)
+                {
+                    s2q206a.requestFocus();
+                    s2q206a.setError("Total members are " +totalMembers + " Check again");
+                }else
+                {
+                    s2q206a.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        // Total female in home
+        s2q206c.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                int totalMembers= 0;
+                int fm = 0;
+
+                try{
+                    totalMembers = Integer.parseInt(s2q206a.getText().toString());
+                    fm = Integer.parseInt(s2q206c.getText().toString());
+
+                } catch (NumberFormatException nfe)
+                {
+                    nfe.printStackTrace();
+                }
+
+
+                if(fm == totalMembers)
+                {
+                    s2q206b.setEnabled(false);
+                    s2q206b.setBackgroundColor(Color.GRAY);
+                    s2q206b.setText(null);
+                    s2q206d.setEnabled(false);
+                    s2q206d.setBackgroundColor(Color.GRAY);
+                    s2q206d.setText(null);
+                    s2q206e.setEnabled(false);
+                    s2q206e.setBackgroundColor(Color.GRAY);
+                    s2q206e.setText(null);
+                    s2q206f.setEnabled(false);
+                    s2q206f.setBackgroundColor(Color.GRAY);
+                    s2q206f.setText(null);
+                    s2q206g.setEnabled(false);
+                    s2q206g.setBackgroundColor(Color.GRAY);
+                    s2q206g.setText(null);
+                    s2q206h.setEnabled(false);
+                    s2q206h.setBackgroundColor(Color.GRAY);
+                    s2q206h.setText(null);
+                } else
+                {
+
+                    s2q206b.setEnabled(true);
+                    s2q206b.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206d.setEnabled(true);
+                    s2q206d.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206e.setEnabled(true);
+                    s2q206e.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206f.setEnabled(true);
+                    s2q206f.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206g.setEnabled(true);
+                    s2q206g.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206h.setEnabled(true);
+                    s2q206h.setBackgroundColor(Color.parseColor("#e0e0e0"));
+
+                }
+
+                if(fm > totalMembers)
+                {
+                    s2q206a.requestFocus();
+                    s2q206a.setError("Total members are " +totalMembers + " Check again");
+                }else
+                {
+                    s2q206a.setError(null);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        // Check on unmarried woman
+
+        s2q206g.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                int fm =0; int unmarriedfm= 0;
+
+                try{
+                    fm = Integer.parseInt(s2q206c.getText().toString());
+                    unmarriedfm = Integer.parseInt(s2q206g.getText().toString());
+
+                } catch (NumberFormatException nfe)
+                {
+                    nfe.printStackTrace();
+                }
+
+                if(unmarriedfm > fm)
+                {
+                    s2q206c.requestFocus();
+                    s2q206c.setError("Total women are " +fm + " Check Again");
+                } else
+                {
+                    s2q206c.setError(null);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        s2q206h.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                int totalMembers= 0;
+                int total=0; int mm = 0;  int fm = 0; int child0_28 =0;
+                int child1_5=0; int child5_14=0; int unmarriedfm=0; int marriedfm=0;
+
+
+                try{
+                    totalMembers = Integer.parseInt(s2q206a.getText().toString());
+                    mm = Integer.parseInt(s2q206b.getText().toString());
+                    fm = Integer.parseInt(s2q206c.getText().toString());
+                    child0_28 = Integer.parseInt(s2q206d.getText().toString());
+                    child1_5 = Integer.parseInt(s2q206e.getText().toString());
+                    child5_14 = Integer.parseInt(s2q206f.getText().toString());
+                    unmarriedfm = Integer.parseInt(s2q206g.getText().toString());
+                    marriedfm = Integer.parseInt(s2q206h.getText().toString());
+
+                } catch (NumberFormatException nfe)
+                {
+                    nfe.printStackTrace();
+                }
+
+                total = (mm+ fm + child0_28 + child1_5 + child5_14 + unmarriedfm + marriedfm);
+
+                if(total > totalMembers)
+                {
+                    s2q206a.requestFocus();
+                    s2q206a.setError("Total members are " + totalMembers + " Check all values again!");
+                }else{
+                    s2q206a.setError(null);
+                }
+
+                if(marriedfm > fm)
+                {
+                    s2q206c.requestFocus();
+                    s2q206c.setError("Total women are " +fm + " Check again!");
+                }
+                else{
+                    s2q206c.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
 
     }
@@ -600,7 +903,7 @@ public class Section2Activity extends Activity implements TextWatcher {
 
         Toast.makeText(Section2Activity.this, "GPS set", Toast.LENGTH_SHORT).show();
     }
-
+/*
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -608,88 +911,70 @@ public class Section2Activity extends Activity implements TextWatcher {
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-        int totalMembers = 0;
-        int total = 0;
+        int totalMembers= 0;
+        int total=0; int mm = 0;  int fm = 0; int child0_28 =0;
+        int child1_5=0; int child5_14=0; int unmarriedfm=0; int marriedfm=0;
+
 
         try{
             totalMembers = Integer.parseInt(s2q206a.getText().toString());
-            total = (Integer.parseInt(s2q206b.getText().toString()) + Integer.parseInt(s2q206c.getText().toString())
-                    + Integer.parseInt(s2q206d.getText().toString()) + Integer.parseInt(s2q206e.getText().toString())
-                    + Integer.parseInt(s2q206f.getText().toString()) + Integer.parseInt(s2q206g.getText().toString())
-                    + Integer.parseInt(s2q206h.getText().toString()));
+            mm = Integer.parseInt(s2q206b.getText().toString());
+            fm = Integer.parseInt(s2q206c.getText().toString());
+            child0_28 = Integer.parseInt(s2q206d.getText().toString());
+            child1_5 = Integer.parseInt(s2q206e.getText().toString());
+            child5_14 = Integer.parseInt(s2q206f.getText().toString());
+            unmarriedfm = Integer.parseInt(s2q206g.getText().toString());
+            marriedfm = Integer.parseInt(s2q206h.getText().toString());
+
         } catch (NumberFormatException nfe)
         {
+            nfe.printStackTrace();
         }
 
-        // Check for schooling
+        total = (mm+ fm + child0_28 + child1_5 + child5_14 + unmarriedfm + marriedfm);
 
-        if(s2q204.getText().hashCode() == s.hashCode())
-        {
-            String education = s2q204.getText().toString();
-            int edu= 0;
-            try {
-                edu = Integer.parseInt(education);
-                if (edu == 91 || edu == 92) {
-                    rDOS2q2051.setEnabled(false);
-                } else {
-                    rDOS2q2051.setEnabled(true);
-                }
-
-            } catch (NumberFormatException nfe) {
-
-            }
-
-        } else if(s2q202.getText().hashCode() == s.hashCode())
-        {
-            // Check on Age
-            String age = s2q202.getText().toString();
-            int age1 = 0;
-            try {
-                age1 = Integer.parseInt(age);
-                if (age1 < 18 || age1 > 99) {
-                    s2q202.setError("Age of Respondent should be 18 to 99 years");
-                    //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
-                    s2q202.requestFocus();
-                } else {
-                    s2q202.setError(null);
-                }
-            } catch (NumberFormatException nfe)
-            {
-
-            }
-        } else if(s2q206b.getText().hashCode() == s.hashCode())
+        }
         {
             // Check on males
+              ///1  if (totalMembers < total) {
+                    //s2q206a.requestFocus();
+                    //s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
 
-            String mm = s2q206b.getText().toString();
+                    //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+
+                //} else
 
 
-            int male = 0;
-
-            try {
-                //total = Integer.parseInt(tm);
-               male = Integer.parseInt(mm);
-
-                if (totalMembers != total) {
+        } else if(s2q206c.getText().hashCode() == s.hashCode())
+        {
+            // Check on Female
+                /*if (totalMembers < total) {
+                    s2q206a.requestFocus();
                     s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
                     //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
-                    s2q206a.requestFocus();
+
                 } else {
                     s2q206a.setError(null);
-                }
-                if(male == total) {
-                    s2q206c.setEnabled(false);
-                    s2q206c.setBackgroundColor(Color.GRAY);
+                }*/
+ /*               if(fm == totalMembers) {
+                    s2q206b.setEnabled(false);
+                    s2q206b.setBackgroundColor(Color.GRAY);
+                    s2q206b.setText(null);
                     s2q206d.setEnabled(false);
                     s2q206d.setBackgroundColor(Color.GRAY);
+                    s2q206d.setText(null);
                     s2q206e.setEnabled(false);
                     s2q206e.setBackgroundColor(Color.GRAY);
+                    s2q206e.setText(null);
                     s2q206f.setEnabled(false);
                     s2q206f.setBackgroundColor(Color.GRAY);
+                    s2q206f.setText(null);
                     s2q206g.setEnabled(false);
                     s2q206g.setBackgroundColor(Color.GRAY);
+                    s2q206g.setText(null);
                     s2q206h.setEnabled(false);
                     s2q206h.setBackgroundColor(Color.GRAY);
+                    s2q206h.setText(null);
                 } else
                 {
 
@@ -706,15 +991,199 @@ public class Section2Activity extends Activity implements TextWatcher {
                     s2q206h.setEnabled(true);
                     s2q206g.setBackgroundColor(Color.parseColor("#e0e0e0"));
                 }
+                if (fm == 0) {
+                    s2q206c.setError("Required Field!" );
+                    //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                    s2q206c.requestFocus();
+                } else {
+                    s2q206c.setError(null);
+                }
 
 
-           } catch (NumberFormatException nfe)
+        }else if(s2q206d.getText().hashCode() == s.hashCode())
+        {
+            // Check on Children of age 0 to 28 days
+            if (totalMembers < total) {
+                s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206a.requestFocus();
+            } else {
+                s2q206a.setError(null);
+            }
+            if(child0_28 == totalMembers) {
+                s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206a.requestFocus();
+
+            } else
             {
+
+                s2q206a.setError(null);
+            }
+
+
+        }else if(s2q206e.getText().hashCode() == s.hashCode())
+        {
+            // Check on Children of age 1 month to 5 years
+            if (totalMembers < total) {
+                s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206a.requestFocus();
+            } else {
+                s2q206a.setError(null);
+            }
+            if(child1_5 == totalMembers) {
+                s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206a.requestFocus();
+
+            } else
+            {
+
+                s2q206a.setError(null);
+            }
+
+
+        }else if(s2q206f.getText().hashCode() == s.hashCode())
+        {
+            // Check on Children of age 5 to 14 days
+            if (totalMembers < total) {
+                s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206a.requestFocus();
+            } else {
+                s2q206a.setError(null);
+            }
+            if(child5_14 == totalMembers) {
+                s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206a.requestFocus();
+
+            } else
+            {
+
+                s2q206a.setError(null);
+            }
+
+
+        }else if(s2q206g.getText().hashCode() == s.hashCode())
+        {
+            fm = (unmarriedfm + marriedfm);
+            // Check on Unmarried Women of age 15 to 49
+            if (totalMembers < total) {
+                s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206a.requestFocus();
+            } else {
+                s2q206a.setError(null);
+            }
+            if(fm < unmarriedfm) {
+                s2q206c.setError("Total Women are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206c.requestFocus();
+
+            } else
+            {
+
+                s2q206c.setError(null);
+            }
+            if(unmarriedfm == totalMembers) {
+                s2q206b.setEnabled(false);
+                s2q206b.setBackgroundColor(Color.GRAY);
+                s2q206b.setText(null);
+                s2q206d.setEnabled(false);
+                s2q206d.setBackgroundColor(Color.GRAY);
+                s2q206d.setText(null);
+                s2q206e.setEnabled(false);
+                s2q206e.setBackgroundColor(Color.GRAY);
+                s2q206e.setText(null);
+                s2q206f.setEnabled(false);
+                s2q206f.setBackgroundColor(Color.GRAY);
+                s2q206f.setText(null);
+                s2q206h.setEnabled(false);
+                s2q206h.setBackgroundColor(Color.GRAY);
+                s2q206h.setText(null);
+
+            } else
+            {
+
+                s2q206c.setEnabled(true);
+                s2q206c.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                s2q206d.setEnabled(true);
+                s2q206d.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                s2q206e.setEnabled(true);
+                s2q206e.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                s2q206f.setEnabled(true);
+                s2q206f.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                s2q206h.setEnabled(true);
+                s2q206h.setBackgroundColor(Color.parseColor("#e0e0e0"));
 
             }
 
+
+
+        }else if(s2q206h.getText().hashCode() == s.hashCode())
+        {
+            fm = (unmarriedfm + marriedfm);
+            // Check on Unmarried Women of age 15 to 49
+            if (totalMembers < total) {
+                s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206a.requestFocus();
+            } else {
+                s2q206a.setError(null);
+            }
+            if(fm < marriedfm) {
+                s2q206c.setError("Total Women are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206c.requestFocus();
+
+            } else
+            {
+
+                s2q206c.setError(null);
+            }
+            if(marriedfm == totalMembers) {
+                s2q206b.setEnabled(false);
+                s2q206b.setBackgroundColor(Color.GRAY);
+                s2q206b.setText(null);
+                s2q206d.setEnabled(false);
+                s2q206d.setBackgroundColor(Color.GRAY);
+                s2q206d.setText(null);
+                s2q206e.setEnabled(false);
+                s2q206e.setBackgroundColor(Color.GRAY);
+                s2q206e.setText(null);
+                s2q206f.setEnabled(false);
+                s2q206f.setBackgroundColor(Color.GRAY);
+                s2q206f.setText(null);
+                s2q206g.setEnabled(false);
+                s2q206g.setBackgroundColor(Color.GRAY);
+                s2q206g.setText(null);
+
+            } else
+            {
+
+                s2q206c.setEnabled(true);
+                s2q206c.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                s2q206d.setEnabled(true);
+                s2q206d.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                s2q206e.setEnabled(true);
+                s2q206e.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                s2q206f.setEnabled(true);
+                s2q206f.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                s2q206g.setEnabled(true);
+                s2q206g.setBackgroundColor(Color.parseColor("#e0e0e0"));
+
+            }
+
+
+
         }
-        }
+
+
+
+
+    }
 
 
 
@@ -732,7 +1201,7 @@ public class Section2Activity extends Activity implements TextWatcher {
     @Override
     public void afterTextChanged(Editable s) {
 
-    }
+    }*/
 
 
 }
