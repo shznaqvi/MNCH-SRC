@@ -627,6 +627,18 @@ public class Section3Activity extends Activity {
             s3q301b.setError(null);
         }
 
+        //Age Limit
+
+        if ( (Integer.parseInt(s3q301b.getText().toString()) < 15)
+                || Integer.parseInt(s3q301b.getText().toString()) > 49) {
+            s3q301b.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "Please enter age in 15-49 years \r\n", Toast.LENGTH_LONG).show();
+            s3q301b.requestFocus();
+            return false;
+        } else {
+            s3q301b.setError(null);
+        }
+
         if (getS3q301c().getText().toString().isEmpty() || s3q301c.getText().toString() == null) {
             s3q301c.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter education status \r\n", Toast.LENGTH_LONG).show();
