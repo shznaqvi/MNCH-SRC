@@ -244,6 +244,45 @@ public class Section2Activity extends Activity  {
             }
         });
 
+        s2q206a.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                int totalMembers=0;
+                try{
+                    totalMembers = Integer.parseInt(s2q206a.getText().toString());
+
+
+                } catch (NumberFormatException nfe)
+                {
+                    nfe.printStackTrace();
+                }
+
+                if(totalMembers == 0)
+                {
+                    s2q206a.requestFocus();
+                    s2q206a.setError("Required field...");
+
+                }else
+                {
+                    s2q206a.setError(null);
+                }
+
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
         // Total male in home
         s2q206b.addTextChangedListener(new TextWatcher() {
             @Override
