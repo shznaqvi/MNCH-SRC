@@ -46,7 +46,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:maxLength="4">
+                android:maxLength="4"
+                android:hint="@string/baseline_formid">
                 <requestFocus/>
                 </EditText>
 
@@ -109,7 +110,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textCapWords"
-                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "/>
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                android:hint="@string/baseline_s1q102"/>
 
             <TextView
                 android:id="@+id/lbl_s1q103"
@@ -152,6 +154,7 @@
                 android:ems="10"
                 android:inputType="number"
                 android:maxLength="2"
+                android:hint="@string/baseline_s1q104"
                 />
 
             <TextView
@@ -168,7 +171,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:maxLength="2"/>
+                android:maxLength="2"
+                android:hint="@string/baseline_s1q106b"/>
 
             <!--<TextView
                 android:id="@+id/lbl_s1q107"
@@ -199,7 +203,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="phone"
-                android:maxLength="11"/>
+                android:maxLength="11"
+                android:hint="@string/baseline_s1q108"/>
 
             <TextView
                 android:id="@+id/lbl_s1q108b"
@@ -215,7 +220,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="phone"
-                android:maxLength="11"/>
+                android:maxLength="11"
+                android:hint="@string/baseline_s1q108"/>
 
             <TextView
                 android:id="@+id/lbl_s1q110"
@@ -292,7 +298,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:hint="@string/baseline_s1q111oth"/>
 
             </LinearLayout>
 

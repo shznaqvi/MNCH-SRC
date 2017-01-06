@@ -56,7 +56,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textCapWords"
-                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ " />
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                android:hint="@string/baseline_s2q201"/>
 
             <TextView
                 android:id="@+id/lbl_s2q202"
@@ -72,7 +73,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:maxLength="2"/>
+                android:maxLength="2"
+                android:hint="@string/baseline_s2q202"/>
 
             <TextView
                 android:id="@+id/lbl_s2q203"
@@ -114,7 +116,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:maxLength="2"/>
+                android:maxLength="2"
+                android:hint="@string/baseline_s2q204"/>
 
             <TextView
                 android:id="@+id/lbl_s2q205"
@@ -231,7 +234,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:hint="@string/baseline_s2q205oth"/>
 
             </LinearLayout>
 
@@ -256,7 +260,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:maxLength="2" />
+                android:maxLength="2"
+                android:hint="@string/baseline_s2q206a"/>
 
             <TextView
                 android:id="@+id/lbl_s2q206b"
@@ -272,7 +277,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:maxLength="2" />
+                android:maxLength="2"
+                android:hint="@string/baseline_s2q206b"/>
 
             <TextView
                 android:id="@+id/lbl_s2q206c"
@@ -288,7 +294,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:maxLength="2" />
+                android:maxLength="2"
+                android:hint="@string/baseline_s2q206c"/>
 
             <TextView
                 android:id="@+id/lbl_s2q206d"
@@ -304,7 +311,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:maxLength="2" />
+                android:maxLength="2"
+                android:hint="@string/baseline_s2q206d"/>
 
             <TextView
                 android:id="@+id/lbl_s2q206e"
@@ -320,7 +328,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:maxLength="2" />
+                android:maxLength="2"
+                android:hint="@string/baseline_s2q206e"/>
 
             <TextView
                 android:id="@+id/lbl_s2q206f"
@@ -336,7 +345,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:maxLength="2" />
+                android:maxLength="2"
+                android:hint="@string/baseline_s2q206f" />
 
             <TextView
                 android:id="@+id/lbl_s2q206g"
@@ -352,7 +362,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:maxLength="2" />
+                android:maxLength="2"
+                android:hint="@string/baseline_s2q206g"/>
 
             <TextView
                 android:id="@+id/lbl_s2q206h"
@@ -368,7 +379,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:maxLength="2" />
+                android:maxLength="2"
+                android:hint="@string/baseline_s2q206h"/>
 
             <Button
                 android:id="@+id/btnnext"
