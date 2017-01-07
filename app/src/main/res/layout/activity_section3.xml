@@ -67,8 +67,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                android:inputType="text" />
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                android:inputType="text"
+                android:hint="@string/baseline_s3q301a"/>
 
             <TextView
                 android:id="@+id/lbl_s3q301b"
@@ -83,7 +84,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:hint="@string/baseline_s3q301b"/>
 
             <TextView
                 android:id="@+id/lbl_s3q301c"
@@ -98,7 +100,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:hint="@string/baseline_s3q301c"/>
 
             <TextView
                 android:id="@+id/lbl_s3q301d"
@@ -173,7 +176,8 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number"
-                    android:maxLength="2" />
+                    android:maxLength="2"
+                    android:hint="@string/baseline_s3q301e"/>
 
             </LinearLayout>
 
@@ -386,7 +390,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:hint="@string/mnother"/>
 
             </LinearLayout>
 
@@ -472,7 +477,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:hint="@string/mnother"/>
 
             </LinearLayout>
 
@@ -489,7 +495,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:hint="@string/baseline_s3q301k"/>
 
             <Button
                 android:id="@+id/btnadd"

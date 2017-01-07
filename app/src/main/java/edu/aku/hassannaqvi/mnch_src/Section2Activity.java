@@ -252,22 +252,26 @@ public class Section2Activity extends Activity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                int totalMembers = 0;
-                try {
+                int totalMembers=0;
+                try{
                     totalMembers = Integer.parseInt(s2q206a.getText().toString());
 
 
-                } catch (NumberFormatException nfe) {
+                } catch (NumberFormatException nfe)
+                {
                     nfe.printStackTrace();
                 }
 
-                if (totalMembers == 0) {
+                if(totalMembers == 0)
+                {
                     s2q206a.requestFocus();
                     s2q206a.setError("Required field...");
 
-                } else {
+                }else
+                {
                     s2q206a.setError(null);
                 }
+
 
 
             }
@@ -287,18 +291,20 @@ public class Section2Activity extends Activity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int totalMembers = 0;
+                int totalMembers= 0;
                 int mm = 0;
 
-                try {
+                try{
                     totalMembers = Integer.parseInt(s2q206a.getText().toString());
                     mm = Integer.parseInt(s2q206b.getText().toString());
 
-                } catch (NumberFormatException nfe) {
+                } catch (NumberFormatException nfe)
+                {
                     nfe.printStackTrace();
                 }
 
-                if (mm == totalMembers) {
+                if(mm == totalMembers)
+                {
                     s2q206c.setEnabled(false);
                     s2q206c.setBackgroundColor(Color.GRAY);
                     s2q206c.setText(null);
@@ -317,7 +323,8 @@ public class Section2Activity extends Activity {
                     s2q206h.setEnabled(false);
                     s2q206h.setBackgroundColor(Color.GRAY);
                     s2q206h.setText(null);
-                } else {
+                } else
+                {
 
                     s2q206c.setEnabled(true);
                     s2q206c.setBackgroundColor(Color.parseColor("#e0e0e0"));
@@ -334,10 +341,12 @@ public class Section2Activity extends Activity {
 
                 }
 
-                if (mm > totalMembers) {
+                if(mm > totalMembers)
+                {
                     s2q206a.requestFocus();
-                    s2q206a.setError("Total members are " + totalMembers + " Check again");
-                } else {
+                    s2q206a.setError("Total members are " +totalMembers + " Check again");
+                }else
+                {
                     s2q206a.setError(null);
                 }
             }
@@ -357,19 +366,21 @@ public class Section2Activity extends Activity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int totalMembers = 0;
+                int totalMembers= 0;
                 int fm = 0;
 
-                try {
+                try{
                     totalMembers = Integer.parseInt(s2q206a.getText().toString());
                     fm = Integer.parseInt(s2q206c.getText().toString());
 
-                } catch (NumberFormatException nfe) {
+                } catch (NumberFormatException nfe)
+                {
                     nfe.printStackTrace();
                 }
 
 
-                if (fm == totalMembers) {
+                if(fm == totalMembers)
+                {
                     s2q206b.setEnabled(false);
                     s2q206b.setBackgroundColor(Color.GRAY);
                     s2q206b.setText(null);
@@ -388,7 +399,8 @@ public class Section2Activity extends Activity {
                     s2q206h.setEnabled(false);
                     s2q206h.setBackgroundColor(Color.GRAY);
                     s2q206h.setText(null);
-                } else {
+                } else
+                {
 
                     s2q206b.setEnabled(true);
                     s2q206b.setBackgroundColor(Color.parseColor("#e0e0e0"));
@@ -405,10 +417,12 @@ public class Section2Activity extends Activity {
 
                 }
 
-                if (fm > totalMembers) {
+                if(fm > totalMembers)
+                {
                     s2q206a.requestFocus();
-                    s2q206a.setError("Total members are " + totalMembers + " Check again");
-                } else {
+                    s2q206a.setError("Total members are " +totalMembers + " Check again");
+                }else
+                {
                     s2q206a.setError(null);
                 }
 
@@ -431,21 +445,23 @@ public class Section2Activity extends Activity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                int fm = 0;
-                int unmarriedfm = 0;
+                int fm =0; int unmarriedfm= 0;
 
-                try {
+                try{
                     fm = Integer.parseInt(s2q206c.getText().toString());
                     unmarriedfm = Integer.parseInt(s2q206g.getText().toString());
 
-                } catch (NumberFormatException nfe) {
+                } catch (NumberFormatException nfe)
+                {
                     nfe.printStackTrace();
                 }
 
-                if (unmarriedfm > fm) {
+                if(unmarriedfm > fm)
+                {
                     s2q206c.requestFocus();
-                    s2q206c.setError("Total women are " + fm + " Check Again");
-                } else {
+                    s2q206c.setError("Total women are " +fm + " Check Again");
+                } else
+                {
                     s2q206c.setError(null);
                 }
 
@@ -464,18 +480,12 @@ public class Section2Activity extends Activity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int totalMembers = 0;
-                int total = 0;
-                int mm = 0;
-                int fm = 0;
-                int child0_28 = 0;
-                int child1_5 = 0;
-                int child5_14 = 0;
-                int unmarriedfm = 0;
-                int marriedfm = 0;
+                int totalMembers= 0;
+                int total=0; int mm = 0;  int fm = 0; int child0_28 =0;
+                int child1_5=0; int child5_14=0; int unmarriedfm=0; int marriedfm=0;
 
 
-                try {
+                try{
                     totalMembers = Integer.parseInt(s2q206a.getText().toString());
                     mm = Integer.parseInt(s2q206b.getText().toString());
                     fm = Integer.parseInt(s2q206c.getText().toString());
@@ -485,23 +495,27 @@ public class Section2Activity extends Activity {
                     unmarriedfm = Integer.parseInt(s2q206g.getText().toString());
                     marriedfm = Integer.parseInt(s2q206h.getText().toString());
 
-                } catch (NumberFormatException nfe) {
+                } catch (NumberFormatException nfe)
+                {
                     nfe.printStackTrace();
                 }
 
-                total = (mm + fm + child0_28 + child1_5 + child5_14 + unmarriedfm + marriedfm);
+                total = (mm+ fm + child0_28 + child1_5 + child5_14 + unmarriedfm + marriedfm);
 
-                if (total > totalMembers) {
+                if(total > totalMembers)
+                {
                     s2q206a.requestFocus();
                     s2q206a.setError("Total members are " + totalMembers + " Check all values again!");
-                } else {
+                }else{
                     s2q206a.setError(null);
                 }
 
-                if (marriedfm > fm) {
+                if(marriedfm > fm)
+                {
                     s2q206c.requestFocus();
-                    s2q206c.setError("Total women are " + fm + " Check again!");
-                } else {
+                    s2q206c.setError("Total women are " +fm + " Check again!");
+                }
+                else{
                     s2q206c.setError(null);
                 }
             }
@@ -573,21 +587,8 @@ public class Section2Activity extends Activity {
                 Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
 
                 if (UpdateDB()) {
-
-                    SRCApp.MWomen = Integer.parseInt(s2q206h.getText().toString());
-
-                    if(SRCApp.MWomen > 0) {
-
-                        SRCApp.MWomen -= 1;
-
-                        SRCApp.MWomenFlag = false;
-
-                        Intent sec3_intent = new Intent(this, Section3Activity.class);
-                        startActivity(sec3_intent);
-                    }else {
-                        Intent sec4_intent = new Intent(this, Section4Activity.class);
-                        startActivity(sec4_intent);
-                    }
+                    Intent sec3_intent = new Intent(this, Section3Activity.class);
+                    startActivity(sec3_intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
                 }
@@ -601,6 +602,7 @@ public class Section2Activity extends Activity {
         db.updateS2();
         return true;
     }
+
 
     private boolean SaveDraft() {
         JSONObject s2 = new JSONObject();
@@ -689,6 +691,7 @@ public class Section2Activity extends Activity {
 
         return true;
     }
+
 
     private boolean ValidateForm() {
         //Toast.makeText(getApplicationContext(), "Validating Form", Toast.LENGTH_SHORT).show();
@@ -938,4 +941,305 @@ public class Section2Activity extends Activity {
 
         Toast.makeText(Section2Activity.this, "GPS set", Toast.LENGTH_SHORT).show();
     }
+/*
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        int totalMembers= 0;
+        int total=0; int mm = 0;  int fm = 0; int child0_28 =0;
+        int child1_5=0; int child5_14=0; int unmarriedfm=0; int marriedfm=0;
+
+
+        try{
+            totalMembers = Integer.parseInt(s2q206a.getText().toString());
+            mm = Integer.parseInt(s2q206b.getText().toString());
+            fm = Integer.parseInt(s2q206c.getText().toString());
+            child0_28 = Integer.parseInt(s2q206d.getText().toString());
+            child1_5 = Integer.parseInt(s2q206e.getText().toString());
+            child5_14 = Integer.parseInt(s2q206f.getText().toString());
+            unmarriedfm = Integer.parseInt(s2q206g.getText().toString());
+            marriedfm = Integer.parseInt(s2q206h.getText().toString());
+
+        } catch (NumberFormatException nfe)
+        {
+            nfe.printStackTrace();
+        }
+
+        total = (mm+ fm + child0_28 + child1_5 + child5_14 + unmarriedfm + marriedfm);
+
+        }
+        {
+            // Check on males
+              ///1  if (totalMembers < total) {
+                    //s2q206a.requestFocus();
+                    //s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+
+                    //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+
+                //} else
+
+
+        } else if(s2q206c.getText().hashCode() == s.hashCode())
+        {
+            // Check on Female
+                /*if (totalMembers < total) {
+                    s2q206a.requestFocus();
+                    s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                    //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+
+                } else {
+                    s2q206a.setError(null);
+                }*/
+ /*               if(fm == totalMembers) {
+                    s2q206b.setEnabled(false);
+                    s2q206b.setBackgroundColor(Color.GRAY);
+                    s2q206b.setText(null);
+                    s2q206d.setEnabled(false);
+                    s2q206d.setBackgroundColor(Color.GRAY);
+                    s2q206d.setText(null);
+                    s2q206e.setEnabled(false);
+                    s2q206e.setBackgroundColor(Color.GRAY);
+                    s2q206e.setText(null);
+                    s2q206f.setEnabled(false);
+                    s2q206f.setBackgroundColor(Color.GRAY);
+                    s2q206f.setText(null);
+                    s2q206g.setEnabled(false);
+                    s2q206g.setBackgroundColor(Color.GRAY);
+                    s2q206g.setText(null);
+                    s2q206h.setEnabled(false);
+                    s2q206h.setBackgroundColor(Color.GRAY);
+                    s2q206h.setText(null);
+                } else
+                {
+
+                    s2q206c.setEnabled(true);
+                    s2q206c.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206d.setEnabled(true);
+                    s2q206d.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206e.setEnabled(true);
+                    s2q206e.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206f.setEnabled(true);
+                    s2q206f.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206g.setEnabled(true);
+                    s2q206g.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                    s2q206h.setEnabled(true);
+                    s2q206g.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                }
+                if (fm == 0) {
+                    s2q206c.setError("Required Field!" );
+                    //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                    s2q206c.requestFocus();
+                } else {
+                    s2q206c.setError(null);
+                }
+
+
+        }else if(s2q206d.getText().hashCode() == s.hashCode())
+        {
+            // Check on Children of age 0 to 28 days
+            if (totalMembers < total) {
+                s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206a.requestFocus();
+            } else {
+                s2q206a.setError(null);
+            }
+            if(child0_28 == totalMembers) {
+                s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206a.requestFocus();
+
+            } else
+            {
+
+                s2q206a.setError(null);
+            }
+
+
+        }else if(s2q206e.getText().hashCode() == s.hashCode())
+        {
+            // Check on Children of age 1 month to 5 years
+            if (totalMembers < total) {
+                s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206a.requestFocus();
+            } else {
+                s2q206a.setError(null);
+            }
+            if(child1_5 == totalMembers) {
+                s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206a.requestFocus();
+
+            } else
+            {
+
+                s2q206a.setError(null);
+            }
+
+
+        }else if(s2q206f.getText().hashCode() == s.hashCode())
+        {
+            // Check on Children of age 5 to 14 days
+            if (totalMembers < total) {
+                s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206a.requestFocus();
+            } else {
+                s2q206a.setError(null);
+            }
+            if(child5_14 == totalMembers) {
+                s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206a.requestFocus();
+
+            } else
+            {
+
+                s2q206a.setError(null);
+            }
+
+
+        }else if(s2q206g.getText().hashCode() == s.hashCode())
+        {
+            fm = (unmarriedfm + marriedfm);
+            // Check on Unmarried Women of age 15 to 49
+            if (totalMembers < total) {
+                s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206a.requestFocus();
+            } else {
+                s2q206a.setError(null);
+            }
+            if(fm < unmarriedfm) {
+                s2q206c.setError("Total Women are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206c.requestFocus();
+
+            } else
+            {
+
+                s2q206c.setError(null);
+            }
+            if(unmarriedfm == totalMembers) {
+                s2q206b.setEnabled(false);
+                s2q206b.setBackgroundColor(Color.GRAY);
+                s2q206b.setText(null);
+                s2q206d.setEnabled(false);
+                s2q206d.setBackgroundColor(Color.GRAY);
+                s2q206d.setText(null);
+                s2q206e.setEnabled(false);
+                s2q206e.setBackgroundColor(Color.GRAY);
+                s2q206e.setText(null);
+                s2q206f.setEnabled(false);
+                s2q206f.setBackgroundColor(Color.GRAY);
+                s2q206f.setText(null);
+                s2q206h.setEnabled(false);
+                s2q206h.setBackgroundColor(Color.GRAY);
+                s2q206h.setText(null);
+
+            } else
+            {
+
+                s2q206c.setEnabled(true);
+                s2q206c.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                s2q206d.setEnabled(true);
+                s2q206d.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                s2q206e.setEnabled(true);
+                s2q206e.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                s2q206f.setEnabled(true);
+                s2q206f.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                s2q206h.setEnabled(true);
+                s2q206h.setBackgroundColor(Color.parseColor("#e0e0e0"));
+
+            }
+
+
+
+        }else if(s2q206h.getText().hashCode() == s.hashCode())
+        {
+            fm = (unmarriedfm + marriedfm);
+            // Check on Unmarried Women of age 15 to 49
+            if (totalMembers < total) {
+                s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206a.requestFocus();
+            } else {
+                s2q206a.setError(null);
+            }
+            if(fm < marriedfm) {
+                s2q206c.setError("Total Women are: " + totalMembers + " Check Again");
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                s2q206c.requestFocus();
+
+            } else
+            {
+
+                s2q206c.setError(null);
+            }
+            if(marriedfm == totalMembers) {
+                s2q206b.setEnabled(false);
+                s2q206b.setBackgroundColor(Color.GRAY);
+                s2q206b.setText(null);
+                s2q206d.setEnabled(false);
+                s2q206d.setBackgroundColor(Color.GRAY);
+                s2q206d.setText(null);
+                s2q206e.setEnabled(false);
+                s2q206e.setBackgroundColor(Color.GRAY);
+                s2q206e.setText(null);
+                s2q206f.setEnabled(false);
+                s2q206f.setBackgroundColor(Color.GRAY);
+                s2q206f.setText(null);
+                s2q206g.setEnabled(false);
+                s2q206g.setBackgroundColor(Color.GRAY);
+                s2q206g.setText(null);
+
+            } else
+            {
+
+                s2q206c.setEnabled(true);
+                s2q206c.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                s2q206d.setEnabled(true);
+                s2q206d.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                s2q206e.setEnabled(true);
+                s2q206e.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                s2q206f.setEnabled(true);
+                s2q206f.setBackgroundColor(Color.parseColor("#e0e0e0"));
+                s2q206g.setEnabled(true);
+                s2q206g.setBackgroundColor(Color.parseColor("#e0e0e0"));
+
+            }
+
+
+
+        }
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
+    }*/
+
+
 }
