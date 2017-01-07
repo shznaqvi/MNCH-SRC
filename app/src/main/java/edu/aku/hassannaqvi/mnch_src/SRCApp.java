@@ -56,6 +56,7 @@ public class SRCApp extends Application {
 
     //    MWomen means married women
     public static int MWomen = 0;
+    public static Boolean MWomenFlag = true;
 
     //    UMWomen means un-married women
     public static int UMWomen = 0;

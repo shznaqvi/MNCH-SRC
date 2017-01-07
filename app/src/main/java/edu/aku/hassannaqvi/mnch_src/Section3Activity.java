@@ -393,7 +393,7 @@ public class Section3Activity extends Activity {
     }
 
     public void gotoSection4(View view) {
-        Intent sec4_intent = new Intent(this, Section4Activity.class);
+        Intent sec4_intent = new Intent(this, Section2Activity.class);
         startActivity(sec4_intent);
     }
 
