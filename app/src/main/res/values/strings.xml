@@ -842,6 +842,12 @@
     <string name="mn082304"> جواب ڏيندڙ گهر ۾ موجود ناهي </string>
     <string name="mn082305"> جواب ڏيندڙ انڪار ڪري ڇڏيو </string>
     <string name="end"> end </string>
+
+
+    <string name="countMDeath"> No of Maternal Death </string>
+    <string name="maternalDeath"> Is there any Maternal Death </string>
+    <string name="skip"> Skip Section </string>
+    <string name="Continue"> Continue </string>
     <!-- Section 6 -->
 
 </resources>

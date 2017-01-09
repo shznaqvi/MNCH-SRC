@@ -79,6 +79,35 @@ public class GetCluster extends Activity {
         }
     }
 
+    public void getHFNew(View v) {
+
+            ConnectivityManager connMgr = (ConnectivityManager)
+                    getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+            if (networkInfo != null && networkInfo.isConnected()) {
+
+                CVars var = new CVars();
+                var.setUrl_sync_hf("http://"+SRCApp._DefaultIP + "/src/getdistrict.php");
+
+                SyncCluster gf1 = new SyncCluster(this);
+                gf1.execute();
+
+                SRCDBHelper db = new SRCDBHelper(this);
+                Collection<Members> lst = db.getCluster();
+
+                if (lst.size() == 0) {
+                    Toast.makeText(this, "Could not obtained list of Cluster / UC List ", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Got the list of Cluster / UC List ", Toast.LENGTH_SHORT).show();
+                }
+
+                //new SyncForms_Section2(this).execute(stringUrl);
+            } else {
+                Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
+            }
+
+    }
+
 
     public void getVillages(View v) {
 
@@ -118,6 +147,34 @@ public class GetCluster extends Activity {
         }
     }
 
+    public void getVillagesNew(View v) {
+
+            ConnectivityManager connMgr = (ConnectivityManager)
+                    getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+            if (networkInfo != null && networkInfo.isConnected()) {
+
+                CVars var = new CVars();
+                var.setUrl_sync_lhw("http://"+SRCApp._DefaultIP + "/src/getvillages.php");
+
+                SyncVillages gf1 = new SyncVillages(this);
+                gf1.execute();
+
+                SRCDBHelper db = new SRCDBHelper(this);
+                Collection<Members> lst = db.getVillages();
+
+                if (lst.size() == 0) {
+                    Toast.makeText(this, "Could not obtained list of Village ", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Got the list of Village ", Toast.LENGTH_SHORT).show();
+                }
+
+                //new SyncForms_Section2(this).execute(stringUrl);
+            } else {
+                Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
+            }
+    }
+
 
     public void getUsers(View v) {
 
@@ -153,6 +210,33 @@ public class GetCluster extends Activity {
             } else {
                 Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
             }
+        }
+    }
+
+    public void getUsersNew(View v) {
+
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+
+            CVars var = new CVars();
+            var.setUrl_sync_usr("http://"+SRCApp._DefaultIP + "/src/users_login.php");
+
+            GetUsers gf1 = new GetUsers(this);
+            gf1.execute();
+
+            SRCDBHelper db = new SRCDBHelper(this);
+            Collection<UsersContract> lst = db.getAllUsers();
+
+            if (lst.size() == 0) {
+                Toast.makeText(this, "Could not obtained list of Cluster / UC List ", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Got the list of Cluster / UC List ", Toast.LENGTH_SHORT).show();
+            }
+
+        } else {
+            Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
         }
     }
 }

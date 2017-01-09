@@ -2,8 +2,10 @@ package edu.aku.hassannaqvi.mnch_src;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -31,6 +33,7 @@ public class LoginActivity extends Activity {
     private LinearLayout vu_syncusers;
     private Button btnSyncUsers;
     private EditText txturl;
+    private EditText txturlNew;
 
     private AlertDialog.Builder alert;
 
@@ -43,6 +46,7 @@ public class LoginActivity extends Activity {
         vu_syncusers = (LinearLayout) findViewById(R.id.vu_syncusers);
         btnSyncUsers = (Button) findViewById(R.id.btnSynchUsers);
         txturl = (EditText) findViewById(R.id.txturl);
+        txturlNew = (EditText) findViewById(R.id.txturlNew);
 
         SRCDBHelper db = new SRCDBHelper(this);
         ArrayList<UsersContract> lstUsers = db.getAllUsers();
@@ -114,57 +118,108 @@ public class LoginActivity extends Activity {
         }
     }
 
+    public void SyncUsersNew(View v) {
+        CVars var = new CVars();
+
+        SRCApp._DefaultIP = txturlNew.getText().toString();
+
+        var.setUrl_sync_usr("http://"+SRCApp._DefaultIP + "/src/users_login.php");
+
+        GetUsers user = new GetUsers(this);
+        user.execute();
+
+        SRCDBHelper db = new SRCDBHelper(this);
+        ArrayList<UsersContract> lstUsers = db.getAllUsers();
+
+        if (lstUsers.size() <= 0) {
+            vu_syncusers.setVisibility(View.VISIBLE);
+            Toast.makeText(LoginActivity.this, "Error: users could not be populated ", Toast.LENGTH_LONG).show();
+        } else {
+            vu_syncusers.setVisibility(View.GONE);
+            var.setUrl_sync_usr("http://"+SRCApp._DefaultIP + "/mapps/users_login.php");
+            Toast.makeText(LoginActivity.this, "Users populated successfully", Toast.LENGTH_LONG).show();
+        }
+    }
+
     public void loginUser(View view) {
 
-        String username = userid.getText().toString();
-        String password = mPasswordView.getText().toString();
-        try {
+        LocationManager mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
 
-            // Reset errors.
-            userid.setError(null);
-            mPasswordView.setError(null);
+            String username = userid.getText().toString();
+            String password = mPasswordView.getText().toString();
+            try {
 
-            boolean cancel = false;
-            View focusView = null;
-
-            // Check for a valid email address.
-            if (TextUtils.isEmpty(username)) {
-                userid.setError(getString(R.string.error_field_required));
-                focusView = userid;
-                cancel = true;
-            } else {
+                // Reset errors.
                 userid.setError(null);
-            }
-
-            if (TextUtils.isEmpty(password)) {
-                mPasswordView.setError(getString(R.string.error_field_required));
-                focusView = mPasswordView;
-                cancel = true;
-            } else {
                 mPasswordView.setError(null);
-            }
 
+                boolean cancel = false;
+                View focusView = null;
 
-            if (cancel == false) {
-
-                SRCDBHelper db = new SRCDBHelper(LoginActivity.this);
-
-                if (db.Login(username, password)) {
-                    Toast.makeText(LoginActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
-
-                    CVars var = new CVars();
-                    var.StoreUser(username);
-                    Intent login_intent = new Intent(this, MainPage.class);
-
-                    startActivity(login_intent);
+                // Check for a valid email address.
+                if (TextUtils.isEmpty(username)) {
+                    userid.setError(getString(R.string.error_field_required));
+                    focusView = userid;
+                    cancel = true;
                 } else {
-                    Toast.makeText(LoginActivity.this, "Invalid Username/Password", Toast.LENGTH_LONG).show();
+                    userid.setError(null);
                 }
-                db.close();
-            }
 
-        } catch (Exception e) {
-            Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                if (TextUtils.isEmpty(password)) {
+                    mPasswordView.setError(getString(R.string.error_field_required));
+                    focusView = mPasswordView;
+                    cancel = true;
+                } else {
+                    mPasswordView.setError(null);
+                }
+
+
+                if (cancel == false) {
+
+                    SRCDBHelper db = new SRCDBHelper(LoginActivity.this);
+
+                    if (db.Login(username, password)) {
+                        Toast.makeText(LoginActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
+
+                        CVars var = new CVars();
+                        var.StoreUser(username);
+                        Intent login_intent = new Intent(this, MainPage.class);
+
+                        startActivity(login_intent);
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Invalid Username/Password", Toast.LENGTH_LONG).show();
+                    }
+                    db.close();
+                }
+
+            } catch (Exception e) {
+                Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        }else {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    LoginActivity.this);
+            alertDialogBuilder
+                    .setMessage("GPS is disabled in your device. Enable it?")
+                    .setCancelable(false)
+                    .setPositiveButton("Enable GPS",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,
+                                                    int id) {
+                                    Intent callGPSSettingIntent = new Intent(
+                                            android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                                    startActivity(callGPSSettingIntent);
+                                }
+                            });
+            alertDialogBuilder.setNegativeButton("Cancel",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert = alertDialogBuilder.create();
+            alert.show();
+
         }
     }
 

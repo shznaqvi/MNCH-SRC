@@ -97,7 +97,7 @@
                     android:imeActionLabel="@string/urlusers"
                     android:imeOptions="actionUnspecified"
                     android:inputType="text"
-                    android:text="http://10.1.42.126:8080/src/users_login.php"
+                    android:text="10.1.42.61"
                     android:maxLines="1"
                     android:singleLine="true" />
 
@@ -107,6 +107,26 @@
                     android:layout_marginTop="20dp"
                     android:onClick="SyncUsers"
                     android:text="Sync Users" />
+
+                <EditText
+                    android:id="@+id/txturlNew"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="30"
+                    android:imeActionId="@+id/login"
+                    android:imeActionLabel="@string/urlusers"
+                    android:imeOptions="actionUnspecified"
+                    android:inputType="text"
+                    android:text="10.1.42.61"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <Button
+                    android:id="@+id/btnSynchUsersNew"
+                    style="@style/buttons"
+                    android:layout_marginTop="20dp"
+                    android:onClick="SyncUsersNew"
+                    android:text="Sync Users New" />
 
             </LinearLayout>
         </LinearLayout>

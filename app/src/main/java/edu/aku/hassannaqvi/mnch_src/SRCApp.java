@@ -17,6 +17,7 @@ import android.view.View;
 
 public class SRCApp extends Application {
     //public static final String _IP = "192.168.1.10"; // Test NODE server
+    public static String _DefaultIP = "http://10.1.42.41"; // Test PHP server
     public static final String _IP = "http://10.1.42.41"; // Test PHP server
     public static final Integer _PORT = 80; // Port - with colon (:)
     public static final String _HOST_URL = "10.198.96.103:8080";
@@ -41,7 +42,7 @@ public class SRCApp extends Application {
     public static String GPS_ACC;
     public static FormContract fc;
     public static Sec3Contract sc3;
-    public static Section4Contract sc4;
+    public static Section4Contract sc4a;
     public static Section4bContract sc4b;
     public static Sec7ImContract sec7im;
     public static String deviceId;
@@ -58,6 +59,9 @@ public class SRCApp extends Application {
     public static int MWomen = 0;
     public static Boolean MWomenFlag = true;
 
+    public static Boolean MaternalDeath = true;
+    public static int NoMaternalDeath = 0;
+
     //    UMWomen means un-married women
     public static int UMWomen = 0;
 
@@ -67,7 +71,7 @@ public class SRCApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/JameelNooriNastaleeq.ttf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
+//        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/JameelNooriNastaleeq.ttf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
 
         deviceId = Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID);
