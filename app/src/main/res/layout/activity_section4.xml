@@ -128,7 +128,8 @@
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                     android:ems="10"
                     android:hint="@string/baseline_s4q41a"
-                    android:inputType="text" />
+                    android:inputType="textCapWords"
+                    />
 
                 <TextView
                     android:id="@+id/lbl_s4q41b"
@@ -350,7 +351,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/baseline_s4q41e"
-                    android:inputType="text" />
+                    android:inputType="textCapWords" />
 
                 <Button
                     android:id="@+id/btnadd"
