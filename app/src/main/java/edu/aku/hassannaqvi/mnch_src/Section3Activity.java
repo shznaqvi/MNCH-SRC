@@ -214,18 +214,7 @@ public class Section3Activity extends Activity {
 
         btnnext.setEnabled(false);
 
-
-
-//        Checking Married Women
-
-        CVars var = new CVars();
-        if (var.GetReproductionAgeWoman() == 0){
-            startActivity(new Intent(Section3Activity.this,Section4Activity.class));
-        }
-//
-
-
-
+        // ================ Q 3.01d If lady is pregnant ask gestational Age ====================
         radioS3q301d.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -340,7 +329,7 @@ public class Section3Activity extends Activity {
 
                 } else {
                     vu_s3q301ioth.setVisibility(View.GONE);
-                    s3q301ioth.setText("");
+                    s3q301ioth.setText(null);
                 }
             }
         });
@@ -431,18 +420,18 @@ public class Section3Activity extends Activity {
 
 
     private void ClearFields() {
-        s3q301a.setText("");
-        s3q301b.setText("");
-        s3q301c.setText("");
+        s3q301a.setText(null);
+        s3q301b.setText(null);
+        s3q301c.setText(null);
         radioS3q301d.clearCheck();
-        s3q301e.setText("");
+        s3q301e.setText(null);
         radioS3q301f1.clearCheck();
         radioS3q301f.clearCheck();
         radioS3q301g.clearCheck();
         radioS3q301h.clearCheck();
         radioS3q301i.clearCheck();
         radioS3q301j.clearCheck();
-        s3q301k.setText("");
+        s3q301k.setText(null);
     }
 
     public void gotoSection4(View view) {
