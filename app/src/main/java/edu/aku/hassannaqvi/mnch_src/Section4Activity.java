@@ -148,8 +148,13 @@ public class Section4Activity extends Activity {
         maternalDeath.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+                md02.setError(null);
+
                 if (md01.isChecked()){
                     md03.setVisibility(View.VISIBLE);
+                }else {
+                    md03.setVisibility(View.GONE);
+                    countMDeath.setText(null);
                 }
             }
         });
@@ -160,8 +165,6 @@ public class Section4Activity extends Activity {
     public void gotoSection4a(View view) {
 
         if(md01.isChecked() || md02.isChecked()) {
-
-            md02.setError(null);
 
             if (md01.isChecked()) {
                 if (!countMDeath.getText().toString().isEmpty() && Integer.parseInt(countMDeath.getText().toString()) > 0) {

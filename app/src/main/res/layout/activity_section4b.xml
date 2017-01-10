@@ -84,11 +84,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/countMDeath"
+                    android:text="@string/countCMortality"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <EditText
-                    android:id="@+id/countMDeath"
+                    android:id="@+id/countCMortality"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -97,14 +97,17 @@
                     android:hint="@string/countMDeath"
                     android:inputType="number" />
 
-                <Button
-                    android:id="@+id/btncontinue"
-                    style="@style/buttons"
-                    android:layout_marginTop="20dp"
-                    android:onClick="gotoSection4a"
-                    android:text="@string/Continue" />
-
             </LinearLayout>
+
+            <Button
+                android:id="@+id/btncontinue"
+                style="@style/buttons"
+                android:layout_marginTop="20dp"
+                android:onClick="gotoSection5a"
+                android:text="@string/Continue" />
+
+
+
 
             <LinearLayout
                 android:id="@+id/md04"
@@ -344,14 +347,14 @@
                     android:onClick="AddChild"
                     android:text="@string/btnaddchild" />
 
-            </LinearLayout>
+                <Button
+                    android:id="@+id/btnNext"
+                    style="@style/buttons"
+                    android:layout_marginTop="20dp"
+                    android:onClick="gotoSection5"
+                    android:text="@string/sec5" />
 
-            <!--<Button-->
-            <!--android:id="@+id/btnnext"-->
-            <!--style="@style/buttons"-->
-            <!--android:layout_marginTop="20dp"-->
-            <!--android:onClick="gotoSection5"-->
-            <!--android:text="@string/sec5" />-->
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

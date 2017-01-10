@@ -845,13 +845,13 @@
 
 
     <string name="countMDeath"> مري ويل مائن جو تعداد </string>
-    <string name="maternalDeath">ڇا هن گهر ۾ حمل يا ويم کان 40 ڏينهن تائين ڪا ماء مري وئي هئي؟</string>
+    <string name="maternalDeath"> ڇا هن گهر ۾ حمل يا ويم کان 40 ڏينهن تائين ڪا ماء مري وئي هئي؟ </string>
     <string name="skip"> Skip Section </string>
     <string name="Continue"> Continue </string>
     <!-- Section 6 -->
 
-    <string name="countCMortality">مري ويل ٻارن جو تعداد</string>
-    <string name="childMortality"> ڇا هن گهر ۾ پوئين 5 سالن دوران ڪو ٻار مري ويو هو؟</string>
+    <string name="countCMortality"> مري ويل ٻارن جو تعداد </string>
+    <string name="childMortality"> ڇا هن گهر ۾ پوئين 5 سالن دوران ڪو ٻار مري ويو هو؟ </string>
 
 
 </resources>
