@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 
-public class Section4aActivity extends Activity {
+public class Section4bActivity extends Activity {
 
     private static final String TAG = "Sec4a";
 
@@ -61,7 +61,7 @@ public class Section4aActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_section4a);
+        setContentView(R.layout.activity_section4b);
 
 
         appHeader = (TextView) findViewById(R.id.app_header1);
@@ -109,7 +109,7 @@ public class Section4aActivity extends Activity {
                     m.getNME());
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(Section4aActivity.this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(Section4bActivity.this,
                 android.R.layout.simple_spinner_item, arr_members);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s4q42a.setAdapter(adapter);

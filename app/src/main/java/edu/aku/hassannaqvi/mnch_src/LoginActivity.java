@@ -174,7 +174,6 @@ public class LoginActivity extends Activity {
                     mPasswordView.setError(null);
                 }
 
-
                 if (cancel == false) {
 
                     SRCDBHelper db = new SRCDBHelper(LoginActivity.this);

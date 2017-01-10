@@ -137,6 +137,8 @@ public class Section4Activity extends Activity {
             maternalDeathFlag.setVisibility(View.GONE);
             md03.setVisibility(View.GONE);
             md04.setVisibility(View.VISIBLE);
+
+            btnskip.setEnabled(false);
         }
 
         maternalDeath.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -146,20 +148,23 @@ public class Section4Activity extends Activity {
                     md03.setVisibility(View.VISIBLE);
                 }
                 else {
-                    startActivity(new Intent(Section4Activity.this,Section4aActivity.class));
+                    startActivity(new Intent(Section4Activity.this,Section4bActivity.class));
                 }
             }
         });
 
         if(SRCApp.NoMaternalDeath < 1 && !SRCApp.MaternalDeath){
-            startActivity(new Intent(Section4Activity.this,Section4aActivity.class));
-        }
+//            startActivity(new Intent(Section4Activity.this,Section4bActivity.class));
 
+            btnadd.setEnabled(false);
+            btnskip.setText("Section 4b");
+            btnskip.setEnabled(true);
+        }
     }
 
     public void gotoSection4a(View view) {
 
-        if(!countMDeath.getText().toString().isEmpty() || Integer.parseInt(countMDeath.getText().toString()) > 0) {
+        if(!countMDeath.getText().toString().isEmpty() && Integer.parseInt(countMDeath.getText().toString()) > 0) {
 
             SRCApp.MaternalDeath = false;
 
@@ -178,7 +183,7 @@ public class Section4Activity extends Activity {
 
 
     public void gotoSection5(View view) {
-        startActivity(new Intent(Section4Activity.this,Section4aActivity.class));
+        startActivity(new Intent(Section4Activity.this,Section4bActivity.class));
     }
 
     private int counter = 0;
@@ -447,6 +452,10 @@ public class Section4Activity extends Activity {
 
     @Override
     public void onBackPressed() {
+
+
+        SRCApp.MaternalDeath = true;
+
         super.onBackPressed();
     }
 }

@@ -207,6 +207,17 @@ public class Section3Activity extends Activity {
         btnnext.setEnabled(false);
 
 
+
+//        Checking Married Women
+
+        CVars var = new CVars();
+        if (var.GetReproductionAgeWoman() == 0){
+            startActivity(new Intent(Section3Activity.this,Section4Activity.class));
+        }
+//
+
+
+
         radioS3q301d.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -393,7 +404,7 @@ public class Section3Activity extends Activity {
     }
 
     public void gotoSection4(View view) {
-        Intent sec4_intent = new Intent(this, Section2Activity.class);
+        Intent sec4_intent = new Intent(this, Section4Activity.class);
         startActivity(sec4_intent);
     }
 

@@ -52,7 +52,7 @@
             android:name=".Section3Activity"
             android:screenOrientation="portrait" />
         <activity android:name=".Section4Activity" />
-        <activity android:name=".Section4aActivity" />
+        <activity android:name=".Section4bActivity" />
         <activity android:name=".Section5Activity" />
         <activity android:name=".Section6Activity" />
         <activity android:name=".Section7Activity" />

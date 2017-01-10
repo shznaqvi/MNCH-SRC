@@ -62,6 +62,9 @@ public class SRCApp extends Application {
     public static Boolean MaternalDeath = true;
     public static int NoMaternalDeath = 0;
 
+    public static Boolean ChildMortality = true;
+    public static int NoChildMortality = 0;
+
     //    UMWomen means un-married women
     public static int UMWomen = 0;
 
