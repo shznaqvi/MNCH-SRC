@@ -584,13 +584,13 @@ public class Section2Activity extends Activity {
 
             if (SaveDraft()) {
 
-                Toast.makeText(this, "Storing Values", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
 
                 if (UpdateDB()) {
                     Intent sec3_intent = new Intent(this, Section3Activity.class);
                     startActivity(sec3_intent);
                 } else {
-                    Toast.makeText(this, "Unable to update database", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -694,11 +694,11 @@ public class Section2Activity extends Activity {
 
 
     private boolean ValidateForm() {
-        //Toast.makeText(this, "Validating Form", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "Validating Form", Toast.LENGTH_SHORT).show();
 
         if (getS2q201().getText().toString().isEmpty() || s2q201.getText().toString() == null) {
             s2q201.setError(getString(R.string.txterr));
-            Toast.makeText(this, "Please enter household head name \r\n", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter household head name \r\n", Toast.LENGTH_LONG).show();
             s2q201.requestFocus();
             return false;
         } else {
@@ -707,7 +707,7 @@ public class Section2Activity extends Activity {
 
         if (getS2q202().getText().toString().isEmpty() || s2q202.getText().toString() == null) {
             s2q202.setError(getString(R.string.txterr));
-            Toast.makeText(this, "Please enter household head age \r\n", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter household head age \r\n", Toast.LENGTH_LONG).show();
             s2q202.requestFocus();
             return false;
         } else {
@@ -718,7 +718,7 @@ public class Section2Activity extends Activity {
 
         if (rdo_s2q203 == -1) {
             rDOS2q2031.setError(getString(R.string.rdoerr));
-            Toast.makeText(this, getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             rDOS2q2031.requestFocus();
             return false;
         } else {
@@ -728,7 +728,7 @@ public class Section2Activity extends Activity {
 
         if (getS2q204().getText().toString().isEmpty() || s2q204.getText().toString() == null) {
             s2q204.setError(getString(R.string.txterr));
-            Toast.makeText(this, "Please enter years of schooling head of household \r\n", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter years of schooling head of household \r\n", Toast.LENGTH_LONG).show();
             s2q204.requestFocus();
             return false;
         } else {
@@ -740,7 +740,7 @@ public class Section2Activity extends Activity {
 
         if (rdo_s2q205 == -1) {
             rDOS2q2051.setError(getString(R.string.rdoerr));
-            Toast.makeText(this, getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             rDOS2q2051.requestFocus();
             return false;
         } else {
@@ -806,7 +806,7 @@ public class Section2Activity extends Activity {
         if (var_s2q205 == "88" && getS2q205oth().getText().toString().isEmpty() ||
                 var_s2q205 == "88" && s2q205oth.getText().toString() == null) {
             s2q205oth.setError(getString(R.string.txterr));
-            Toast.makeText(this, "Please specify occupation if others \r\n", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please specify occupation if others \r\n", Toast.LENGTH_LONG).show();
             s2q205oth.requestFocus();
             return false;
         } else {
@@ -815,7 +815,7 @@ public class Section2Activity extends Activity {
 
         if (getS2q206a().getText().toString().isEmpty() || s2q206a.getText().toString() == null) {
             s2q206a.setError(getString(R.string.txterr));
-            Toast.makeText(this, "Please enter total number of members \r\n", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter total number of members \r\n", Toast.LENGTH_LONG).show();
             s2q206a.requestFocus();
             return false;
         } else {
@@ -825,7 +825,7 @@ public class Section2Activity extends Activity {
 
         if (getS2q206b().getText().toString().isEmpty()) {
             s2q206b.setError(getString(R.string.txterr));
-            Toast.makeText(this, "Please enter number of males \r\n", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter number of males \r\n", Toast.LENGTH_LONG).show();
             s2q206b.requestFocus();
             return false;
         } else {
@@ -835,7 +835,7 @@ public class Section2Activity extends Activity {
 
         if (getS2q206c().getText().toString().isEmpty() || s2q206c.getText().toString() == null) {
             s2q206c.setError(getString(R.string.txterr));
-            Toast.makeText(this, "Please enter number of females \r\n", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter number of females \r\n", Toast.LENGTH_LONG).show();
             s2q206c.requestFocus();
             return false;
         } else {
@@ -845,7 +845,7 @@ public class Section2Activity extends Activity {
 
         if (getS2q206d().getText().toString().isEmpty() || s2q206d.getText().toString() == null) {
             s2q206d.setError(getString(R.string.txterr));
-            Toast.makeText(this, "Please enter neonates 0 - 28 \r\n", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter neonates 0 - 28 \r\n", Toast.LENGTH_LONG).show();
             s2q206d.requestFocus();
             return false;
         } else {
@@ -854,7 +854,7 @@ public class Section2Activity extends Activity {
 
         if (getS2q206e().getText().toString().isEmpty() || s2q206e.getText().toString() == null) {
             s2q206e.setError(getString(R.string.txterr));
-            Toast.makeText(this, "Please enter children 1 - 5 years \r\n", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter children 1 - 5 years \r\n", Toast.LENGTH_LONG).show();
             s2q206e.requestFocus();
             return false;
         } else {
@@ -864,7 +864,7 @@ public class Section2Activity extends Activity {
 
         if (getS2q206f().getText().toString().isEmpty() || s2q206f.getText().toString() == null) {
             s2q206f.setError(getString(R.string.txterr));
-            Toast.makeText(this, "Please enter children 5 - 14  \r\n", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter children 5 - 14  \r\n", Toast.LENGTH_LONG).show();
             s2q206f.requestFocus();
             return false;
         } else {
@@ -873,7 +873,7 @@ public class Section2Activity extends Activity {
 
         if (getS2q206g().getText().toString().isEmpty() || s2q206g.getText().toString() == null) {
             s2q206g.setError(getString(R.string.txterr));
-            Toast.makeText(this, "Please enter women of 15 - 49 \r\n", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter women of 15 - 49 \r\n", Toast.LENGTH_LONG).show();
             s2q206g.requestFocus();
             return false;
         } else {
@@ -882,7 +882,7 @@ public class Section2Activity extends Activity {
 
         if (getS2q206h().getText().toString().isEmpty() || s2q206h.getText().toString() == null) {
             s2q206h.setError(getString(R.string.txterr));
-            Toast.makeText(this, "Please enter married women of 15 - 49 \r\n", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter married women of 15 - 49 \r\n", Toast.LENGTH_LONG).show();
             s2q206h.requestFocus();
             return false;
         } else {
@@ -892,7 +892,7 @@ public class Section2Activity extends Activity {
 
         if (Integer.parseInt(s2q202.getText().toString()) < 18 ||
                 Integer.parseInt(s2q202.getText().toString()) > 99) {
-            Toast.makeText(this, "Head of household age must be between 18 - 99 \r\n", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Head of household age must be between 18 - 99 \r\n", Toast.LENGTH_LONG).show();
             s2q202.requestFocus();
             return false;
         }
@@ -904,7 +904,7 @@ public class Section2Activity extends Activity {
                 || Integer.parseInt(s2q204.getText().toString()) > 16
                 && Integer.parseInt(s2q204.getText().toString()) != 91
                 && Integer.parseInt(s2q204.getText().toString()) != 92) {
-            Toast.makeText(this, "Years of schooling of head of household must be 0 - 16 or 91 or 92 \r\n", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Years of schooling of head of household must be 0 - 16 or 91 or 92 \r\n", Toast.LENGTH_LONG).show();
             s2q204.requestFocus();
             return false;
         }
@@ -919,7 +919,7 @@ public class Section2Activity extends Activity {
                 Integer.parseInt(s2q206h.getText().toString());
 
         if (!s2q206a.getText().toString().equals(String.valueOf(result))) {
-            Toast.makeText(this, "Total number of members mismatch \r\n", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Total number of members mismatch \r\n", Toast.LENGTH_LONG).show();
             s2q206a.requestFocus();
             return false;
         }
@@ -978,7 +978,7 @@ public class Section2Activity extends Activity {
                     //s2q206a.requestFocus();
                     //s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
 
-                    //Toast.makeText(this, "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
 
                 //} else
 
@@ -989,7 +989,7 @@ public class Section2Activity extends Activity {
                 /*if (totalMembers < total) {
                     s2q206a.requestFocus();
                     s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
-                    //Toast.makeText(this, "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
 
                 } else {
                     s2q206a.setError(null);
@@ -1031,7 +1031,7 @@ public class Section2Activity extends Activity {
                 }
                 if (fm == 0) {
                     s2q206c.setError("Required Field!" );
-                    //Toast.makeText(this, "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
                     s2q206c.requestFocus();
                 } else {
                     s2q206c.setError(null);
@@ -1043,14 +1043,14 @@ public class Section2Activity extends Activity {
             // Check on Children of age 0 to 28 days
             if (totalMembers < total) {
                 s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
-                //Toast.makeText(this, "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
                 s2q206a.requestFocus();
             } else {
                 s2q206a.setError(null);
             }
             if(child0_28 == totalMembers) {
                 s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
-                //Toast.makeText(this, "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
                 s2q206a.requestFocus();
 
             } else
@@ -1065,14 +1065,14 @@ public class Section2Activity extends Activity {
             // Check on Children of age 1 month to 5 years
             if (totalMembers < total) {
                 s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
-                //Toast.makeText(this, "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
                 s2q206a.requestFocus();
             } else {
                 s2q206a.setError(null);
             }
             if(child1_5 == totalMembers) {
                 s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
-                //Toast.makeText(this, "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
                 s2q206a.requestFocus();
 
             } else
@@ -1087,14 +1087,14 @@ public class Section2Activity extends Activity {
             // Check on Children of age 5 to 14 days
             if (totalMembers < total) {
                 s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
-                //Toast.makeText(this, "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
                 s2q206a.requestFocus();
             } else {
                 s2q206a.setError(null);
             }
             if(child5_14 == totalMembers) {
                 s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
-                //Toast.makeText(this, "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
                 s2q206a.requestFocus();
 
             } else
@@ -1110,14 +1110,14 @@ public class Section2Activity extends Activity {
             // Check on Unmarried Women of age 15 to 49
             if (totalMembers < total) {
                 s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
-                //Toast.makeText(this, "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
                 s2q206a.requestFocus();
             } else {
                 s2q206a.setError(null);
             }
             if(fm < unmarriedfm) {
                 s2q206c.setError("Total Women are: " + totalMembers + " Check Again");
-                //Toast.makeText(this, "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
                 s2q206c.requestFocus();
 
             } else
@@ -1166,14 +1166,14 @@ public class Section2Activity extends Activity {
             // Check on Unmarried Women of age 15 to 49
             if (totalMembers < total) {
                 s2q206a.setError("Total Members are: " + totalMembers + " Check Again");
-                //Toast.makeText(this, "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
                 s2q206a.requestFocus();
             } else {
                 s2q206a.setError(null);
             }
             if(fm < marriedfm) {
                 s2q206c.setError("Total Women are: " + totalMembers + " Check Again");
-                //Toast.makeText(this, "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Please Correct the age \r\n", Toast.LENGTH_LONG).show();
                 s2q206c.requestFocus();
 
             } else

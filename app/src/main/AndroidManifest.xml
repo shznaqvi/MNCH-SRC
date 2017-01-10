@@ -52,13 +52,14 @@
             android:name=".Section3Activity"
             android:screenOrientation="portrait" />
         <activity android:name=".Section4Activity" />
-        <activity android:name=".Section4bActivity" />
+        <activity android:name=".Section4aActivity" />
         <activity android:name=".Section5Activity" />
         <activity android:name=".Section6Activity" />
         <activity android:name=".Section7Activity" />
         <activity android:name=".Section8Activity" />
-        <activity android:name=".Section5bActivity" />
-        <activity android:name=".EndingActivity" />
+        <activity android:name=".Section5bActivity">
+
+        </activity>
     </application>
 
 </manifest>

@@ -68,7 +68,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
-                android:inputType="text"
+                android:inputType="textCapWords"
                 android:hint="@string/baseline_s3q301a"/>
 
             <TextView
@@ -137,11 +137,31 @@
                 android:visibility="gone">
 
                 <TextView
-                    android:id="@+id/lbl_s3q301f1"
+                    android:id="@+id/lbl_s3q301e"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/baseline_s3q301f1"
+                    android:text="@string/baseline_s3q301e"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <EditText
+                    android:id="@+id/s3q301e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:hint="@string/baseline_s3q301e"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/lbl_s3q301f1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/baseline_s3q301f1"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <RadioGroup
                     android:id="@+id/radio_s3q301f1"
@@ -162,24 +182,13 @@
 
                 </RadioGroup>
 
-                <TextView
-                    android:id="@+id/lbl_s3q301e"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/baseline_s3q301e"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <EditText
-                    android:id="@+id/s3q301e"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    android:hint="@string/baseline_s3q301e"/>
-
-            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/vu_s3q301f"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
 
             <TextView
                 android:id="@+id/lbl_s3q301f"
@@ -470,15 +479,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/baseline_s3q301joth"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <EditText
-                    android:id="@+id/s3q301joth"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:hint="@string/mnother"/>
+                 <EditText
+                     android:id="@+id/s3q301joth"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:ems="10"
+                     android:inputType="text"
+                     android:hint="@string/mnother"/>
 
             </LinearLayout>
 
@@ -497,6 +505,7 @@
                 android:ems="10"
                 android:inputType="number"
                 android:hint="@string/baseline_s3q301k"/>
+        </LinearLayout>
 
             <Button
                 android:id="@+id/btnadd"
