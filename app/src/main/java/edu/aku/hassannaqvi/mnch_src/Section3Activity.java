@@ -91,6 +91,9 @@ public class Section3Activity extends Activity {
     private LinearLayout vu_s3q301ioth;
     private LinearLayout vu_s3q301joth;
 
+    public LinearLayout vu_s3q301f;
+
+
     private EditText s3q301a;
     private EditText s3q301b;
     private EditText s3q301c;
@@ -200,13 +203,18 @@ public class Section3Activity extends Activity {
         s3q301k = (EditText) findViewById(R.id.s3q301k);
         s3q301ioth = (EditText) findViewById(R.id.s3q301ioth);
         s3q301joth = (EditText) findViewById(R.id.s3q301joth);
+        vu_s3q301d = (LinearLayout) findViewById(R.id.vu_s3q301d);
+
+        vu_s3q301f = (LinearLayout) findViewById(R.id.vu_s3q301f);
+        //vu_s3q301f1 = (LinearLayout) findViewById(R.id.vu_s3q301f1);
+        vu_s3q301g = (LinearLayout) findViewById(R.id.vu_s3q301g);
 
         btnnext = (Button) findViewById(R.id.btnnext);
         btnadd = (Button) findViewById(R.id.btnadd);
 
         btnnext.setEnabled(false);
 
-
+        // ================ Q 3.01d If lady is pregnant ask gestational Age ====================
         radioS3q301d.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -222,58 +230,92 @@ public class Section3Activity extends Activity {
 
                     vu_s3q301d.setVisibility(View.GONE);
                     radioS3q301f1.clearCheck();
-                    s3q301e.setText("");
+                    s3q301e.setText(null);
 
                 }
             }
         });
 
+        // ==================  Q 3.01f If lady was pregnant in last two years Probe: ==============
+        radioS3q301f1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                if (checkedId == rDOS3q301f12.getId()) {
+
+                    vu_s3q301f.setVisibility(View.GONE);
+                    radioS3q301f.clearCheck();
+                    radioS3q301g.clearCheck();
+                    radioS3q301h.clearCheck();
+                    radioS3q301i.clearCheck();
+                    s3q301ioth.setText(null);
+                    radioS3q301j.clearCheck();
+                    s3q301joth.setText(null);
+                    s3q301k.setText(null);
+
+                } else  {
+
+                    vu_s3q301f.setVisibility(View.VISIBLE);
+
+
+                }
+            }
+        });
+
+        // ==================  Q 3.01f Outcome ==============
 
         radioS3q301f.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-                if (checkedId == rDOS3q301f1.getId()) {
+                if (checkedId == rDOS3q301f1.getId() || checkedId == rDOS3q301f2.getId()) {
 
-                    vu_s3q301h.setVisibility(View.GONE);
                     vu_s3q301g.setVisibility(View.GONE);
-
-                    radioS3q301h.clearCheck();
-                    radioS3q301g.clearCheck();
-
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(radioS3q301i.getWindowToken(), 0);
-
-                } else if (checkedId == rDOS3q301f2.getId()) {
-
                     vu_s3q301h.setVisibility(View.GONE);
-                    vu_s3q301g.setVisibility(View.GONE);
-
-                    radioS3q301h.clearCheck();
                     radioS3q301g.clearCheck();
+                    radioS3q301h.clearCheck();
 
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(radioS3q301i.getWindowToken(), 0);
+                } else if (checkedId == rDOS3q301f3.getId())  {
 
-                } else if (checkedId == rDOS3q301f3.getId()) {
-
+                    vu_s3q301g.setVisibility(View.GONE);
+                    radioS3q301g.clearCheck();
                     vu_s3q301h.setVisibility(View.VISIBLE);
-                    vu_s3q301g.setVisibility(View.GONE);
 
-                    radioS3q301g.clearCheck();
-
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(radioS3q301h.getWindowToken(), 0);
-
-                } else if (checkedId == rDOS3q301f4.getId()) {
+                }else if (checkedId == rDOS3q301f4.getId())  {
 
                     vu_s3q301g.setVisibility(View.VISIBLE);
+                    vu_s3q301h.setVisibility(View.GONE);
+                    radioS3q301h.clearCheck();
 
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(radioS3q301g.getWindowToken(), 0);
                 }
+
             }
         });
+
+        // ==================  Q 3.01g If outcome was Live Birth ==============
+
+        radioS3q301g.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                if (checkedId == rDOS3q301g2.getId() || checkedId == rDOS3q301g3.getId()) {
+
+                    vu_s3q301h.setVisibility(View.VISIBLE);
+
+                } else  {
+
+
+                    vu_s3q301h.setVisibility(View.GONE);
+                    radioS3q301h.clearCheck();
+
+                }
+
+            }
+        });
+
+
+
+
 
         radioS3q301i.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -287,7 +329,7 @@ public class Section3Activity extends Activity {
 
                 } else {
                     vu_s3q301ioth.setVisibility(View.GONE);
-                    s3q301ioth.setText("");
+                    s3q301ioth.setText(null);
                 }
             }
         });
@@ -305,7 +347,7 @@ public class Section3Activity extends Activity {
 
                 } else {
                     vu_s3q301joth.setVisibility(View.GONE);
-                    s3q301joth.setText("");
+                    s3q301joth.setText(null);
                 }
             }
         });
@@ -378,18 +420,18 @@ public class Section3Activity extends Activity {
 
 
     private void ClearFields() {
-        s3q301a.setText("");
-        s3q301b.setText("");
-        s3q301c.setText("");
+        s3q301a.setText(null);
+        s3q301b.setText(null);
+        s3q301c.setText(null);
         radioS3q301d.clearCheck();
-        s3q301e.setText("");
+        s3q301e.setText(null);
         radioS3q301f1.clearCheck();
         radioS3q301f.clearCheck();
         radioS3q301g.clearCheck();
         radioS3q301h.clearCheck();
         radioS3q301i.clearCheck();
         radioS3q301j.clearCheck();
-        s3q301k.setText("");
+        s3q301k.setText(null);
     }
 
     public void gotoSection4(View view) {

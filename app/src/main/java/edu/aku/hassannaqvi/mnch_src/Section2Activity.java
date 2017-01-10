@@ -875,8 +875,10 @@ public class Section2Activity extends Activity {
         {
             s2q206a.requestFocus();
             s2q206a.setError("Total members are " + totalMembers + " Check all values again!");
+            return false;
         }else{
             s2q206a.setError(null);
+
         }
 
         if(marriedfm > fm)
