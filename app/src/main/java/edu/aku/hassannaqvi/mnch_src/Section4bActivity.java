@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -56,6 +57,19 @@ public class Section4bActivity extends Activity {
 
     private int sno = 0;
     private int counter = 0;
+
+    private RadioGroup childMortality;
+    private RadioButton md01;
+    private RadioButton md02;
+    private LinearLayout md03;
+    private LinearLayout md04;
+    private LinearLayout childMortalityFlag;
+    private EditText countCMortality;
+
+
+    private Button btnNext;
+    private Button btnadd;
+    private Button btncontinue;
 
 
     @Override
@@ -131,6 +145,44 @@ public class Section4bActivity extends Activity {
             }
         });
 
+        childMortality = (RadioGroup) findViewById(R.id.childMortality);
+        md01 = (RadioButton) findViewById(R.id.md01);
+        md02 = (RadioButton) findViewById(R.id.md02);
+        md03 = (LinearLayout) findViewById(R.id.md03);
+        md04 = (LinearLayout) findViewById(R.id.md04);
+        childMortalityFlag = (LinearLayout) findViewById(R.id.childMortalityFlag);
+        countCMortality = (EditText) findViewById(R.id.countCMortality);
+
+        btnNext = (Button) findViewById(R.id.btnNext);
+        btnadd = (Button) findViewById(R.id.btnadd);
+        btncontinue = (Button) findViewById(R.id.btncontinue);
+
+        if (SRCApp.ChildMortality) {
+            childMortalityFlag.setVisibility(View.VISIBLE);
+        } else {
+            childMortalityFlag.setVisibility(View.GONE);
+            md03.setVisibility(View.GONE);
+            md04.setVisibility(View.VISIBLE);
+
+            btnNext.setEnabled(false);
+
+            btncontinue.setVisibility(View.GONE);
+        }
+
+        childMortality.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                md02.setError(null);
+
+                if (md01.isChecked()) {
+                    md03.setVisibility(View.VISIBLE);
+                } else {
+                    md03.setVisibility(View.GONE);
+                    countCMortality.setText(null);
+                }
+            }
+        });
+
     }
 
 
@@ -148,6 +200,15 @@ public class Section4bActivity extends Activity {
                     vu_s4q42eoth.setVisibility(View.GONE);
                     s4q42a.requestFocus();
 
+                    if (SRCApp.NoChildMortality < 1 && !SRCApp.ChildMortality) {
+                        btnadd.setEnabled(false);
+                        btnNext.setEnabled(true);
+                    } else {
+
+                        startActivity(new Intent(Section4bActivity.this, Section5Activity.class));
+
+                        finish();
+                    }
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
@@ -156,6 +217,35 @@ public class Section4bActivity extends Activity {
         }
     }
 
+    public void gotoSection5a(View view) {
+
+        if (md01.isChecked() || md02.isChecked()) {
+
+            if (md01.isChecked()) {
+                if (!countCMortality.getText().toString().isEmpty() && Integer.parseInt(countCMortality.getText().toString()) > 0) {
+
+                    SRCApp.MaternalDeath = false;
+
+                    SRCApp.NoMaternalDeath = Integer.parseInt(countCMortality.getText().toString());
+
+                    md03.setVisibility(View.GONE);
+                    childMortalityFlag.setVisibility(View.GONE);
+                    btnNext.setVisibility(View.VISIBLE);
+                    md04.setVisibility(View.VISIBLE);
+
+                    btncontinue.setVisibility(View.GONE);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error: Invalid", Toast.LENGTH_SHORT).show();
+                    countCMortality.setError("Invalid");
+                }
+            } else {
+                startActivity(new Intent(Section4bActivity.this, Section5Activity.class));
+            }
+        } else {
+            Toast.makeText(this, getString(R.string.childMortality), Toast.LENGTH_LONG).show();
+            md02.setError("Error: Invalid");
+        }
+    }
 
     private void ClearFields() {
         s4q42b.setText("");

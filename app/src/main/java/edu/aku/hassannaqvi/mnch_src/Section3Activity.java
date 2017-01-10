@@ -214,6 +214,14 @@ public class Section3Activity extends Activity {
 
         btnnext.setEnabled(false);
 
+//        Checking Married Women
+
+        CVars var = new CVars();
+        if (var.GetReproductionAgeWoman() == 0) {
+            startActivity(new Intent(Section3Activity.this, Section4Activity.class));
+        }
+//
+
         // ================ Q 3.01d If lady is pregnant ask gestational Age ====================
         radioS3q301d.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -253,7 +261,7 @@ public class Section3Activity extends Activity {
                     s3q301joth.setText(null);
                     s3q301k.setText(null);
 
-                } else  {
+                } else {
 
                     vu_s3q301f.setVisibility(View.VISIBLE);
 
@@ -275,13 +283,13 @@ public class Section3Activity extends Activity {
                     radioS3q301g.clearCheck();
                     radioS3q301h.clearCheck();
 
-                } else if (checkedId == rDOS3q301f3.getId())  {
+                } else if (checkedId == rDOS3q301f3.getId()) {
 
                     vu_s3q301g.setVisibility(View.GONE);
                     radioS3q301g.clearCheck();
                     vu_s3q301h.setVisibility(View.VISIBLE);
 
-                }else if (checkedId == rDOS3q301f4.getId())  {
+                } else if (checkedId == rDOS3q301f4.getId()) {
 
                     vu_s3q301g.setVisibility(View.VISIBLE);
                     vu_s3q301h.setVisibility(View.GONE);
@@ -302,7 +310,7 @@ public class Section3Activity extends Activity {
 
                     vu_s3q301h.setVisibility(View.VISIBLE);
 
-                } else  {
+                } else {
 
 
                     vu_s3q301h.setVisibility(View.GONE);
@@ -312,9 +320,6 @@ public class Section3Activity extends Activity {
 
             }
         });
-
-
-
 
 
         radioS3q301i.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -671,7 +676,7 @@ public class Section3Activity extends Activity {
 
         //Age Limit
 
-        if ( (Integer.parseInt(s3q301b.getText().toString()) < 15)
+        if ((Integer.parseInt(s3q301b.getText().toString()) < 15)
                 || Integer.parseInt(s3q301b.getText().toString()) > 49) {
             s3q301b.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter age in 15-49 years \r\n", Toast.LENGTH_LONG).show();
