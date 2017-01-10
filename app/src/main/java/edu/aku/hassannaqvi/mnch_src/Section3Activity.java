@@ -772,107 +772,108 @@ public class Section3Activity extends Activity {
                 break;
         }
 
-        if(rDOS3q301f11.isChecked()) {
+        if (rDOS3q301f11.isChecked()) {
 
             if (rdo_s3q301f == -1) {
                 rDOS3q301f1.setError(getString(R.string.rdoerr));
-                Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.rdoerr) + " 1", Toast.LENGTH_LONG).show();
                 rDOS3q301f1.requestFocus();
                 return false;
             } else {
                 rDOS3q301f1.setError(null);
             }
+
+
+            rdo_s3q301g = radioS3q301g.getCheckedRadioButtonId();
+
+            if (var_s3q301f == "4" && rdo_s3q301g == -1) {
+                rDOS3q301g1.setError(getString(R.string.rdoerr));
+                Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+                rDOS3q301g1.requestFocus();
+                return false;
+            } else {
+                rDOS3q301g1.setError(null);
+            }
+
+
+            rdo_s3q301h = radioS3q301h.getCheckedRadioButtonId();
+
+            if (var_s3q301f == "4" && rdo_s3q301h == -1 || var_s3q301f == "3" && rdo_s3q301h == -1) {
+                rDOS3q301h1.setError(getString(R.string.rdoerr));
+                Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+                rDOS3q301f1.requestFocus();
+                return false;
+            } else {
+                rDOS3q301h1.setError(null);
+            }
+
+
+            rdo_s3q301i = radioS3q301i.getCheckedRadioButtonId();
+
+            switch (rdo_s3q301i) {
+                case R.id.RDO_s3q301i_10:
+                    var_s3q301i = "10";
+                    break;
+            }
+
+            if (rdo_s3q301i == -1) {
+                rDOS3q301i1.setError(getString(R.string.rdoerr));
+                Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+                rDOS3q301i1.requestFocus();
+                return false;
+            } else {
+                rDOS3q301i1.setError(null);
+            }
+
+
+            if (var_s3q301i == "10" && getS3q301ioth().getText().toString().isEmpty() || s3q301ioth.getText().toString() == null) {
+                s3q301ioth.setError(getString(R.string.txterr));
+                Toast.makeText(getApplicationContext(), "Please specify place of delivery if others  \r\n", Toast.LENGTH_LONG).show();
+                s3q301ioth.requestFocus();
+                return false;
+            } else {
+                s3q301ioth.setError(null);
+            }
+
+
+            rdo_s3q301j = radioS3q301j.getCheckedRadioButtonId();
+
+            switch (rdo_s3q301j) {
+                case R.id.RDO_s3q301j_8:
+                    var_s3q301j = "8";
+                    break;
+            }
+
+            if (rdo_s3q301j == -1) {
+                rDOS3q301j1.setError(getString(R.string.rdoerr));
+                Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+                rDOS3q301j1.requestFocus();
+                return false;
+            } else {
+                rDOS3q301j1.setError(null);
+            }
+
+
+            if (var_s3q301j == "8" && getS3q301joth().getText().toString().isEmpty() || s3q301joth.getText().toString() == null) {
+                s3q301joth.setError(getString(R.string.txterr));
+                Toast.makeText(getApplicationContext(), "Please specify delivery conducted by if others  \r\n", Toast.LENGTH_LONG).show();
+                s3q301joth.requestFocus();
+                return false;
+            } else {
+                s3q301joth.setError(null);
+            }
+
+
+            if (getS3q301k().getText().toString().isEmpty() || s3q301k.getText().toString() == null) {
+                s3q301k.setError(getString(R.string.txterr));
+                Toast.makeText(getApplicationContext(), "Please specify cost of delivery  \r\n", Toast.LENGTH_LONG).show();
+                s3q301k.requestFocus();
+                return false;
+            } else {
+                s3q301k.setError(null);
+            }
+
         }
-
-        rdo_s3q301g = radioS3q301g.getCheckedRadioButtonId();
-
-        if (var_s3q301f == "4" && rdo_s3q301g == -1) {
-            rDOS3q301g1.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
-            rDOS3q301g1.requestFocus();
-            return false;
-        } else {
-            rDOS3q301g1.setError(null);
-        }
-
-
-        rdo_s3q301h = radioS3q301h.getCheckedRadioButtonId();
-
-        if (var_s3q301f == "4" && rdo_s3q301h == -1 || var_s3q301f == "3" && rdo_s3q301h == -1) {
-            rDOS3q301h1.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
-            rDOS3q301f1.requestFocus();
-            return false;
-        } else {
-            rDOS3q301h1.setError(null);
-        }
-
-
-        rdo_s3q301i = radioS3q301i.getCheckedRadioButtonId();
-
-        switch (rdo_s3q301i) {
-            case R.id.RDO_s3q301i_10:
-                var_s3q301i = "10";
-                break;
-        }
-
-        if (rdo_s3q301i == -1) {
-            rDOS3q301i1.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
-            rDOS3q301i1.requestFocus();
-            return false;
-        } else {
-            rDOS3q301i1.setError(null);
-        }
-
-
-        if (var_s3q301i == "10" && getS3q301ioth().getText().toString().isEmpty() || s3q301ioth.getText().toString() == null) {
-            s3q301ioth.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "Please specify place of delivery if others  \r\n", Toast.LENGTH_LONG).show();
-            s3q301ioth.requestFocus();
-            return false;
-        } else {
-            s3q301ioth.setError(null);
-        }
-
-
-        rdo_s3q301j = radioS3q301j.getCheckedRadioButtonId();
-
-        switch (rdo_s3q301j) {
-            case R.id.RDO_s3q301j_8:
-                var_s3q301j = "8";
-                break;
-        }
-
-        if (rdo_s3q301j == -1) {
-            rDOS3q301j1.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
-            rDOS3q301j1.requestFocus();
-            return false;
-        } else {
-            rDOS3q301j1.setError(null);
-        }
-
-
-        if (var_s3q301j == "8" && getS3q301joth().getText().toString().isEmpty() || s3q301joth.getText().toString() == null) {
-            s3q301joth.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "Please specify delivery conducted by if others  \r\n", Toast.LENGTH_LONG).show();
-            s3q301joth.requestFocus();
-            return false;
-        } else {
-            s3q301joth.setError(null);
-        }
-
-
-        if (getS3q301k().getText().toString().isEmpty() || s3q301k.getText().toString() == null) {
-            s3q301k.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "Please specify cost of delivery  \r\n", Toast.LENGTH_LONG).show();
-            s3q301k.requestFocus();
-            return false;
-        } else {
-            s3q301k.setError(null);
-        }
-
 
         if (Integer.parseInt(s3q301c.getText().toString()) < 0
                 && Integer.parseInt(s3q301c.getText().toString()) != 91

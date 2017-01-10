@@ -202,6 +202,8 @@ public class Section4bActivity extends Activity {
                     vu_s4q42eoth.setVisibility(View.GONE);
                     s4q42a.requestFocus();
 
+                    SRCApp.NoChildMortality-=1 ;
+
                     if (SRCApp.NoChildMortality < 1 && !SRCApp.ChildMortality) {
                         btnadd.setEnabled(false);
                         btnNext.setEnabled(true);
