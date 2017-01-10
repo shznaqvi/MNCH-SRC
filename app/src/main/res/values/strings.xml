@@ -850,4 +850,8 @@
     <string name="Continue"> Continue </string>
     <!-- Section 6 -->
 
+    <string name="countCMortality"> No of Child Mortality </string>
+    <string name="childMortality"> Is there any Child Mortality </string>
+
+
 </resources>

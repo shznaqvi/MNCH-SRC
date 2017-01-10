@@ -392,18 +392,6 @@ public class Section8Activity extends Activity {
     EditText mn082219;
     @BindView(R.id.mn082220)
     EditText mn082220;
-    @BindView(R.id.mn0823)
-    RadioGroup mn0823;
-    @BindView(R.id.mn082301)
-    RadioButton mn082301;
-    @BindView(R.id.mn082302)
-    RadioButton mn082302;
-    @BindView(R.id.mn082303)
-    RadioButton mn082303;
-    @BindView(R.id.mn082304)
-    RadioButton mn082304;
-    @BindView(R.id.mn082302x)
-    EditText mn082302x;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -785,9 +773,7 @@ public class Section8Activity extends Activity {
         s8.put("mn082218", mn082218.getText().toString());
         s8.put("mn082219", mn082219.getText().toString());
         s8.put("mn082220", mn082220.getText().toString());
-        s8.put("mn0823", mn082301.isChecked() ? "1" : mn082302.isChecked() ? "2" : mn082303.isChecked() ? "3"
-                : mn082304.isChecked() ? "4" : "0");
-        s8.put("mn082302x", mn082302x.getText().toString());
+
 
         SRCApp.fc.setROW_S8(String.valueOf(s8));
 
@@ -1350,55 +1336,6 @@ public class Section8Activity extends Activity {
                 mn082220.setError(null);
             }
         }
-
-        // ============ Q 8.23 =======================
-        // RadioGroup
-        if (mn0823.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0823), Toast.LENGTH_LONG).show();
-            mn082304.setError("This data is Required!");    // Set Error on last radio button
-
-            Log.i(TAG, "mn0823: This data is Required!");
-            return false;
-        } else {
-            mn082304.setError(null);
-        }
-
-        // =========== Skip Check Q 8.23 =============
-
-        if (mn082302.isChecked()) {
-            mn082302x.setEnabled(true);
-            if (mn082302x.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0823), Toast.LENGTH_LONG).show();
-                mn082302x.setError("This data is Required!");    // Set Error on last radio button
-
-                Log.i(TAG, "mn0823: This data is Required!");
-                return false;
-            } else {
-                mn082302x.setError(null);
-            }
-
-        } else {
-            mn082302x.setEnabled(false);
-            mn082302x.setText(null);
-            mn082302x.setError(null);
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         return true;
     }

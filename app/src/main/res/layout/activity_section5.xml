@@ -1143,6 +1143,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:inputType="number"
+                        android:digits="0123456789"
                         android:hint="@string/mn0517days" />
 
                     <EditText
@@ -1150,6 +1152,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:inputType="number"
+                        android:digits="0123456789"
                         android:hint="@string/mn0517month" />
                 </LinearLayout>
 
@@ -1260,6 +1264,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:inputType="number"
+                        android:digits="0123456789"
                         android:hint="@string/mn0517days" />
 
                     <EditText
@@ -1267,6 +1273,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:inputType="number"
+                        android:digits="0123456789"
                         android:hint="@string/mn0517month" />
                 </LinearLayout>
 
@@ -1377,6 +1385,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:inputType="number"
+                        android:digits="0123456789"
                         android:hint="@string/mn0517days" />
 
                     <EditText
@@ -1384,6 +1394,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:inputType="number"
+                        android:digits="0123456789"
                         android:hint="@string/mn0517month" />
                 </LinearLayout>
 
