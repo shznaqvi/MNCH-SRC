@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -285,10 +287,8 @@ public class Section4bActivity extends Activity {
             SRCApp.sc4b.set_sno(String.valueOf(sno));
         }
 
-
         SRCDBHelper db = new SRCDBHelper(this);
         String val = db.getID_Woman_Reproductive_Age(s4q42a.getSelectedItem().toString());
-
 
         SRCApp.sc4b.set_s4q42a(val);
         SRCApp.sc4b.set_s4q42b(s4q42b.getText().toString());

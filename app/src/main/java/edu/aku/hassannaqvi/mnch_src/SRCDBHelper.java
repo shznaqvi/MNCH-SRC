@@ -830,8 +830,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     }
 
 
-
-
     public List<FormContract> getAllForms() {
 
         SRCApp.fc = new FormContract();
@@ -987,6 +985,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         }
         return allOC;
     }
+
     private FormContract hydrate(Cursor c) {
         FormContract fc = new FormContract();
 
@@ -1047,6 +1046,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                     Section4bContract sc = new Section4bContract();
                     sc.set_sno(cursor.getString(cursor.getColumnIndex(Sec3Entry._ID)));
                     sc.set_s4q42a(cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301a)));
+
+                    userList.add(new Members("99", "NA"));
 
                     userList.add(new Members(String.valueOf(sc.get_sno()), sc.get_s4q42a()));
                 }
