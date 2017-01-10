@@ -721,16 +721,15 @@ public class Section3Activity extends Activity {
 
         rdo_s3q301f1 = radioS3q301f1.getCheckedRadioButtonId();
 
-        switch (rdo_s3q301f) {
-            case R.id.RDO_s3q301f_1:
+        switch (rdo_s3q301f1) {
+            case R.id.RDO_s3q301f1_1:
                 var_s3q301f1 = "1";
                 break;
 
-            case R.id.RDO_s3q301f_2:
+            case R.id.RDO_s3q301f1_2:
                 var_s3q301f1 = "2";
                 break;
         }
-
 
         if (var_s3q301d == "1") {
             if (rdo_s3q301f1 == -1) {
@@ -753,7 +752,6 @@ public class Section3Activity extends Activity {
             s3q301e.setError(null);
         }
 
-
         rdo_s3q301f = radioS3q301f.getCheckedRadioButtonId();
 
         switch (rdo_s3q301f) {
@@ -774,14 +772,16 @@ public class Section3Activity extends Activity {
                 break;
         }
 
+        if(rDOS3q301f11.isChecked()) {
 
-        if (rdo_s3q301f == -1) {
-            rDOS3q301f1.setError(getString(R.string.rdoerr));
-            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
-            rDOS3q301f1.requestFocus();
-            return false;
-        } else {
-            rDOS3q301f1.setError(null);
+            if (rdo_s3q301f == -1) {
+                rDOS3q301f1.setError(getString(R.string.rdoerr));
+                Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+                rDOS3q301f1.requestFocus();
+                return false;
+            } else {
+                rDOS3q301f1.setError(null);
+            }
         }
 
         rdo_s3q301g = radioS3q301g.getCheckedRadioButtonId();
@@ -887,6 +887,11 @@ public class Section3Activity extends Activity {
 
 
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 
 

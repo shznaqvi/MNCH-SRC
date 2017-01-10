@@ -288,8 +288,13 @@ public class Section4bActivity extends Activity {
         }
 
         SRCDBHelper db = new SRCDBHelper(this);
-        String val = db.getID_Woman_Reproductive_Age(s4q42a.getSelectedItem().toString());
 
+        String val;
+        if(s4q42a.getSelectedItem().toString() != "NA") {
+            val = db.getID_Woman_Reproductive_Age(s4q42a.getSelectedItem().toString());
+        }else {
+            val = "99";
+        }
         SRCApp.sc4b.set_s4q42a(val);
         SRCApp.sc4b.set_s4q42b(s4q42b.getText().toString());
 
@@ -503,6 +508,11 @@ public class Section4bActivity extends Activity {
         }
 
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 
 }

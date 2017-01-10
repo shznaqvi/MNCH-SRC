@@ -53,7 +53,7 @@ public class EndingActivity extends Activity  {
 
                 finish();
 
-                Intent secNext = new Intent(this, MainActivity.class);
+                Intent secNext = new Intent(this, MainPage.class);
                 startActivity(secNext);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -129,4 +129,8 @@ public class EndingActivity extends Activity  {
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+    }
 }

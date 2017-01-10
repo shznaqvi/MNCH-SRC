@@ -123,12 +123,6 @@
                     android:text="@string/baseline_s4q42a"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                <CheckBox
-                    android:id="@+id/mn050701"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn050701" />
-
                 <Spinner
                     android:id="@+id/s4q42a"
                     android:layout_width="match_parent"

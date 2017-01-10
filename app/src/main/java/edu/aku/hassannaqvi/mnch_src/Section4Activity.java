@@ -474,10 +474,6 @@ public class Section4Activity extends Activity {
 
     @Override
     public void onBackPressed() {
-
-
-        SRCApp.MaternalDeath = true;
-
-        super.onBackPressed();
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 }

@@ -92,8 +92,6 @@ public class Section1Activity extends Activity implements TextWatcher {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section1);
 
-        setGPS();
-
         SRCApp.DEVID = Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID);
 
@@ -326,6 +324,8 @@ public class Section1Activity extends Activity implements TextWatcher {
 
     private boolean SaveDraft() {
         SRCApp.fc = new FormContract();
+
+        setGPS();
 
         SRCApp.fc.setROW_DEVID(SRCApp.DEVID);
         SRCApp.fc.setROW_FORM_ID(formid.getText().toString());
@@ -618,4 +618,6 @@ public class Section1Activity extends Activity implements TextWatcher {
     public void afterTextChanged(Editable s) {
 
     }
+
+
 }

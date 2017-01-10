@@ -1038,6 +1038,10 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             Cursor cursor = db.rawQuery(QUERY, null);
             int num = cursor.getCount();
 
+            if (num == 0) {
+                userList.add(new Members("99", "NA"));
+            }
+
             if (!cursor.isLast()) {
                 while (cursor.moveToNext()) {
 
@@ -1046,8 +1050,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                     Section4bContract sc = new Section4bContract();
                     sc.set_sno(cursor.getString(cursor.getColumnIndex(Sec3Entry._ID)));
                     sc.set_s4q42a(cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301a)));
-
-                    userList.add(new Members("99", "NA"));
 
                     userList.add(new Members(String.valueOf(sc.get_sno()), sc.get_s4q42a()));
                 }

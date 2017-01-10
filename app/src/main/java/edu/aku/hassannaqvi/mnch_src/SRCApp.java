@@ -17,7 +17,7 @@ import android.view.View;
 
 public class SRCApp extends Application {
     //public static final String _IP = "192.168.1.10"; // Test NODE server
-    public static String _DefaultIP = "http://10.1.42.41"; // Test PHP server
+    public static String _DefaultIP = "http://10.1.42.64"; // Test PHP server
     public static final String _IP = "http://10.1.42.41"; // Test PHP server
     public static final Integer _PORT = 80; // Port - with colon (:)
     public static final String _HOST_URL = "10.198.96.103:8080";
