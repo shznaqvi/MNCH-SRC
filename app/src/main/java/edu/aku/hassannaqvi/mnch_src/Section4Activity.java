@@ -153,13 +153,7 @@ public class Section4Activity extends Activity {
             }
         });
 
-        if(SRCApp.NoMaternalDeath < 1 && !SRCApp.MaternalDeath){
-//            startActivity(new Intent(Section4Activity.this,Section4bActivity.class));
 
-            btnadd.setEnabled(false);
-            btnskip.setText("Section 4b");
-            btnskip.setEnabled(true);
-        }
     }
 
     public void gotoSection4a(View view) {
@@ -423,9 +417,21 @@ public class Section4Activity extends Activity {
 
                     SRCApp.NoMaternalDeath-=1 ;
 
-                    startActivity(new Intent(Section4Activity.this,Section4Activity.class));
+                    if(SRCApp.NoMaternalDeath < 1 && !SRCApp.MaternalDeath){
+//            startActivity(new Intent(Section4Activity.this,Section4bActivity.class));
 
-                    finish();
+                        btnadd.setEnabled(false);
+                        btnskip.setText("Section 4b");
+                        btnskip.setEnabled(true);
+                    }
+                    else {
+
+
+                        startActivity(new Intent(Section4Activity.this,Section4Activity.class));
+
+                        finish();
+                    }
+
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();

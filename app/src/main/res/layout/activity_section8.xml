@@ -1471,49 +1471,49 @@
                 android:hint="@string/mn082220"
                 android:inputType="number" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/mn0823"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="16dp"-->
+                <!--android:text="@string/mn0823"-->
+                <!--android:textAppearance="?android:attr/textAppearanceLarge" />-->
 
-            <RadioGroup
-                android:id="@+id/mn0823"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <!--<RadioGroup-->
+                <!--android:id="@+id/mn0823"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                <RadioButton
-                    android:id="@+id/mn082301"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn082301" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/mn082301"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/mn082301" />-->
 
-                <RadioButton
-                    android:id="@+id/mn082302"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn082302" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/mn082302"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/mn082302" />-->
 
-                <RadioButton
-                    android:id="@+id/mn082303"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn082304" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/mn082303"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/mn082304" />-->
 
-                <RadioButton
-                    android:id="@+id/mn082304"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn082305" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/mn082304"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/mn082305" />-->
 
-            </RadioGroup>
+            <!--</RadioGroup>-->
 
-            <EditText
-                android:id="@+id/mn082302x"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mn082303" />
+            <!--<EditText-->
+                <!--android:id="@+id/mn082302x"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:hint="@string/mn082303" />-->
 
 
             <!--  = = = = =  END OF FORM FIELDS - Section C = = = = = -->
