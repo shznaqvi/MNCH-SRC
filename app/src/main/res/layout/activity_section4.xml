@@ -97,14 +97,14 @@
                     android:ems="10"
                     android:inputType="number" />
 
-                <Button
-                    android:id="@+id/btncontinue"
-                    style="@style/buttons"
-                    android:layout_marginTop="20dp"
-                    android:onClick="gotoSection4a"
-                    android:text="@string/Continue" />
-
             </LinearLayout>
+
+            <Button
+                android:id="@+id/btncontinue"
+                style="@style/buttons"
+                android:layout_marginTop="20dp"
+                android:onClick="gotoSection4a"
+                android:text="@string/Continue" />
 
             <LinearLayout
                 android:id="@+id/md04"
@@ -359,21 +359,14 @@
                     android:onClick="AddWoman"
                     android:text="@string/btnadd" />
 
-                <!--<Button-->
-                    <!--android:id="@+id/btnnext"-->
-                    <!--style="@style/buttons"-->
-                    <!--android:layout_marginTop="20dp"-->
-                    <!--android:onClick="gotoSection5"-->
-                    <!--android:text="@string/sec4b" />-->
+                <Button
+                    android:id="@+id/btnNext"
+                    style="@style/buttons"
+                    android:layout_marginTop="20dp"
+                    android:onClick="gotoSection5"
+                    android:text="@string/sec4b" />
 
             </LinearLayout>
-
-            <Button
-                android:id="@+id/btnskip"
-                style="@style/buttons"
-                android:layout_marginTop="20dp"
-                android:onClick="gotoSection5"
-                android:text="@string/skip" />
 
         </LinearLayout>
     </ScrollView>

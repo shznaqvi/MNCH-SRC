@@ -62,8 +62,9 @@ public class Section4Activity extends Activity {
     private EditText countMDeath;
 
 
-    private Button btnskip;
+    private Button btnNext;
     private Button btnadd;
+    private Button btncontinue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,8 +129,9 @@ public class Section4Activity extends Activity {
         maternalDeathFlag = (LinearLayout) findViewById(R.id.maternalDeathFlag);
         countMDeath = (EditText) findViewById(R.id.countMDeath);
 
-        btnskip = (Button)findViewById(R.id.btnskip);
+        btnNext = (Button)findViewById(R.id.btnNext);
         btnadd = (Button)findViewById(R.id.btnadd);
+        btncontinue = (Button)findViewById(R.id.btncontinue);
 
         if(SRCApp.MaternalDeath){
             maternalDeathFlag.setVisibility(View.VISIBLE);
@@ -138,7 +140,9 @@ public class Section4Activity extends Activity {
             md03.setVisibility(View.GONE);
             md04.setVisibility(View.VISIBLE);
 
-            btnskip.setEnabled(false);
+            btnNext.setEnabled(false);
+
+            btncontinue.setVisibility(View.GONE);
         }
 
         maternalDeath.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -146,9 +150,6 @@ public class Section4Activity extends Activity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (md01.isChecked()){
                     md03.setVisibility(View.VISIBLE);
-                }
-                else {
-                    startActivity(new Intent(Section4Activity.this,Section4bActivity.class));
                 }
             }
         });
@@ -158,23 +159,36 @@ public class Section4Activity extends Activity {
 
     public void gotoSection4a(View view) {
 
-        if(!countMDeath.getText().toString().isEmpty() && Integer.parseInt(countMDeath.getText().toString()) > 0) {
+        if(md01.isChecked() || md02.isChecked()) {
 
-            SRCApp.MaternalDeath = false;
+            md02.setError(null);
 
-            SRCApp.NoMaternalDeath = Integer.parseInt(countMDeath.getText().toString());
+            if (md01.isChecked()) {
+                if (!countMDeath.getText().toString().isEmpty() && Integer.parseInt(countMDeath.getText().toString()) > 0) {
 
-            md03.setVisibility(View.GONE);
-            maternalDeathFlag.setVisibility(View.GONE);
-            btnskip.setVisibility(View.VISIBLE);
-            md04.setVisibility(View.VISIBLE);
+                    SRCApp.MaternalDeath = false;
+
+                    SRCApp.NoMaternalDeath = Integer.parseInt(countMDeath.getText().toString());
+
+                    md03.setVisibility(View.GONE);
+                    maternalDeathFlag.setVisibility(View.GONE);
+                    btnNext.setVisibility(View.VISIBLE);
+                    md04.setVisibility(View.VISIBLE);
+
+                    btncontinue.setVisibility(View.GONE);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error: Invalid", Toast.LENGTH_SHORT).show();
+                    countMDeath.setError("Invalid");
+                }
+            } else {
+                startActivity(new Intent(Section4Activity.this, Section4bActivity.class));
+            }
         }
         else {
-            Toast.makeText(getApplicationContext(), "Error: Invalid", Toast.LENGTH_SHORT).show();
-            countMDeath.setError("Invalid");
+            Toast.makeText(this, getString(R.string.maternalDeath), Toast.LENGTH_LONG).show();
+            md02.setError("Error: Invalid");
         }
     }
-
 
     public void gotoSection5(View view) {
         startActivity(new Intent(Section4Activity.this,Section4bActivity.class));
@@ -421,8 +435,7 @@ public class Section4Activity extends Activity {
 //            startActivity(new Intent(Section4Activity.this,Section4bActivity.class));
 
                         btnadd.setEnabled(false);
-                        btnskip.setText("Section 4b");
-                        btnskip.setEnabled(true);
+                        btnNext.setEnabled(true);
                     }
                     else {
 
