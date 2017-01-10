@@ -85,7 +85,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:hint="@string/baseline_s3q301b"/>
+                android:hint="@string/baseline_s3q301b"
+                android:maxLength="2"/>
 
             <TextView
                 android:id="@+id/lbl_s3q301c"

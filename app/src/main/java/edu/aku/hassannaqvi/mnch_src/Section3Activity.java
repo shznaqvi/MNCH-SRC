@@ -678,7 +678,7 @@ public class Section3Activity extends Activity {
 
         if ((Integer.parseInt(s3q301b.getText().toString()) < 15)
                 || Integer.parseInt(s3q301b.getText().toString()) > 49) {
-            s3q301b.setError(getString(R.string.txterr));
+            s3q301b.setError("Age Limit should be 15 to 49");
             Toast.makeText(getApplicationContext(), "Please enter age in 15-49 years \r\n", Toast.LENGTH_LONG).show();
             s3q301b.requestFocus();
             return false;
