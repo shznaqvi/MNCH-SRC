@@ -852,6 +852,7 @@ public class Section2Activity extends Activity {
         int totalMembers= 0;
         int total=0; int mm = 0;  int fm = 0; int child0_28 =0;
         int child1_5=0; int child5_14=0; int unmarriedfm=0; int marriedfm=0;
+        int totalWomen = 0;
 
 
         try{
@@ -869,7 +870,8 @@ public class Section2Activity extends Activity {
             nfe.printStackTrace();
         }
 
-        total = (mm+ fm + child0_28 + child1_5 + child5_14 + unmarriedfm + marriedfm);
+        total = (mm+ fm + child0_28 + child1_5 + child5_14);
+        totalWomen = (marriedfm + unmarriedfm);
 
         if(total > totalMembers)
         {
@@ -881,13 +883,14 @@ public class Section2Activity extends Activity {
 
         }
 
-        if(marriedfm > fm)
+        if(fm > 0 && totalWomen != fm)
         {
-            s2q206c.requestFocus();
-            s2q206c.setError("Total women are " +fm + " Check again!");
+            s2q206g.requestFocus();
+            s2q206g.setError("Total women are " +fm + " Please mention women are married or unmarried");
+            return false;
         }
-        else{
-            s2q206c.setError(null);
+        else if(fm == totalWomen){
+            s2q206g.setError(null);
         }
 
 
