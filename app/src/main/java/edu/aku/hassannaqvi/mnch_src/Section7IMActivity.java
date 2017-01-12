@@ -19,9 +19,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class Section7ImActivity extends Activity {
+public class Section7IMActivity extends Activity {
 
-    private static final String TAG = Section7ImActivity.class.getSimpleName();
+    private static final String TAG = Section7IMActivity.class.getSimpleName();
 
     @BindView(R.id.ScrollView01)
     ScrollView scrollView01;

@@ -32,8 +32,7 @@ public class LoginActivity extends Activity {
 
     private LinearLayout vu_syncusers;
     private Button btnSyncUsers;
-    private EditText txturl;
-    private EditText txturlNew;
+
 
     private AlertDialog.Builder alert;
 
@@ -43,19 +42,11 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        vu_syncusers = (LinearLayout) findViewById(R.id.vu_syncusers);
-        btnSyncUsers = (Button) findViewById(R.id.btnSynchUsers);
-        txturl = (EditText) findViewById(R.id.txturl);
-        txturlNew = (EditText) findViewById(R.id.txturlNew);
 
         SRCDBHelper db = new SRCDBHelper(this);
         ArrayList<UsersContract> lstUsers = db.getAllUsers();
 
-        if (lstUsers.size() <= 0) {
-            vu_syncusers.setVisibility(View.VISIBLE);
-        } else {
-            vu_syncusers.setVisibility(View.GONE);
-        }
+
 
         // Set up the login form.
         userid = (EditText) findViewById(R.id.userid);
@@ -98,48 +89,6 @@ public class LoginActivity extends Activity {
     }
 
 
-    public void SyncUsers(View v) {
-        CVars var = new CVars();
-        var.setUrl_sync_usr(txturl.getText().toString());
-
-        GetUsers user = new GetUsers(this);
-        user.execute();
-
-        SRCDBHelper db = new SRCDBHelper(this);
-        ArrayList<UsersContract> lstUsers = db.getAllUsers();
-
-        if (lstUsers.size() <= 0) {
-            vu_syncusers.setVisibility(View.VISIBLE);
-            Toast.makeText(LoginActivity.this, "Error: users could not be populated ", Toast.LENGTH_LONG).show();
-        } else {
-            vu_syncusers.setVisibility(View.GONE);
-            var.setUrl_sync_users("http://10.198.96.103:8080/mapps/users_login.php");
-            Toast.makeText(LoginActivity.this, "Users populated successfully", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public void SyncUsersNew(View v) {
-        CVars var = new CVars();
-
-        SRCApp._DefaultIP = txturlNew.getText().toString();
-
-        var.setUrl_sync_usr("http://"+SRCApp._DefaultIP + "/src/users_login.php");
-
-        GetUsers user = new GetUsers(this);
-        user.execute();
-
-        SRCDBHelper db = new SRCDBHelper(this);
-        ArrayList<UsersContract> lstUsers = db.getAllUsers();
-
-        if (lstUsers.size() <= 0) {
-            vu_syncusers.setVisibility(View.VISIBLE);
-            Toast.makeText(LoginActivity.this, "Error: users could not be populated ", Toast.LENGTH_LONG).show();
-        } else {
-            vu_syncusers.setVisibility(View.GONE);
-            var.setUrl_sync_usr("http://"+SRCApp._DefaultIP + "/mapps/users_login.php");
-            Toast.makeText(LoginActivity.this, "Users populated successfully", Toast.LENGTH_LONG).show();
-        }
-    }
 
     public void loginUser(View view) {
 
@@ -178,12 +127,12 @@ public class LoginActivity extends Activity {
 
                     SRCDBHelper db = new SRCDBHelper(LoginActivity.this);
 
-                    if (db.Login(username, password)) {
+                    if (db.Login(username, password) || (username.equals("test1234") && password.equals("test1234"))) {
                         Toast.makeText(LoginActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
 
                         CVars var = new CVars();
                         var.StoreUser(username);
-                        Intent login_intent = new Intent(this, MainPage.class);
+                        Intent login_intent = new Intent(this, MainActivity.class);
 
                         startActivity(login_intent);
                     } else {

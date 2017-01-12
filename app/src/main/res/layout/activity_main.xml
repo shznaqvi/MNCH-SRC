@@ -23,12 +23,6 @@
             <Button
                 style="@style/buttons"
                 android:layout_marginTop="20dp"
-                android:onClick="syncUser"
-                android:text="Sync User" />
-
-            <Button
-                style="@style/buttons"
-                android:layout_marginTop="20dp"
                 android:onClick="OpenDB"
                 android:text="OpenDatabaseManager" />
 
