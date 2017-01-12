@@ -243,7 +243,17 @@ public class Section4bActivity extends Activity {
                     countCMortality.setError("Invalid");
                 }
             } else {
-                startActivity(new Intent(Section4bActivity.this, Section5Activity.class));
+//                startActivity(new Intent(Section4bActivity.this, Section5Activity.class));
+                CVars var = new CVars();
+                if (var.GetReproductionAgeWoman() != 0) {
+                    startActivity(new Intent(this, Section5Activity.class));
+                }
+                else if (var.getNeonatesChild() != 0) {
+                    startActivity(new Intent(this, Section7Activity.class));
+                }
+                else {
+                    startActivity(new Intent(this, Section7ImActivity.class));
+                }
             }
         } else {
             Toast.makeText(this, getString(R.string.childMortality), Toast.LENGTH_LONG).show();
@@ -376,8 +386,20 @@ public class Section4bActivity extends Activity {
     }
 
     public void gotoSection5(View view) {
-        Intent sec4_intent = new Intent(this, Section5Activity.class);
-        startActivity(sec4_intent);
+
+        //        Checking Married Women
+
+        CVars var = new CVars();
+        if (var.GetReproductionAgeWoman() != 0) {
+            startActivity(new Intent(this, Section5Activity.class));
+        }
+        else if (var.getNeonatesChild() != 0) {
+            startActivity(new Intent(this, Section7Activity.class));
+        }
+        else {
+            startActivity(new Intent(this, Section7ImActivity.class));
+        }
+//
     }
 
 

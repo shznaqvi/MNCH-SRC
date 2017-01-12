@@ -44,8 +44,8 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.activity_login);
 
         vu_syncusers = (LinearLayout) findViewById(R.id.vu_syncusers);
-        btnSyncUsers = (Button) findViewById(R.id.btnSynchUsers);
-        txturl = (EditText) findViewById(R.id.txturl);
+//        btnSyncUsers = (Button) findViewById(R.id.btnSynchUsers);
+//        txturl = (EditText) findViewById(R.id.txturl);
         txturlNew = (EditText) findViewById(R.id.txturlNew);
 
         SRCDBHelper db = new SRCDBHelper(this);

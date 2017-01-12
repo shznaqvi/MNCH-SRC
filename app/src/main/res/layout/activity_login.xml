@@ -88,25 +88,25 @@
                     android:layout_marginTop="20dp"
                     android:text="@string/urlusers" />
 
-                <EditText
-                    android:id="@+id/txturl"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="30"
-                    android:imeActionId="@+id/login"
-                    android:imeActionLabel="@string/urlusers"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="text"
-                    android:text="10.1.42.61"
-                    android:maxLines="1"
-                    android:singleLine="true" />
+                <!--<EditText-->
+                    <!--android:id="@+id/txturl"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:ems="30"-->
+                    <!--android:imeActionId="@+id/login"-->
+                    <!--android:imeActionLabel="@string/urlusers"-->
+                    <!--android:imeOptions="actionUnspecified"-->
+                    <!--android:inputType="text"-->
+                    <!--android:text="10.1.42.61"-->
+                    <!--android:maxLines="1"-->
+                    <!--android:singleLine="true" />-->
 
-                <Button
-                    android:id="@+id/btnSynchUsers"
-                    style="@style/buttons"
-                    android:layout_marginTop="20dp"
-                    android:onClick="SyncUsers"
-                    android:text="Sync Users" />
+                <!--<Button-->
+                    <!--android:id="@+id/btnSynchUsers"-->
+                    <!--style="@style/buttons"-->
+                    <!--android:layout_marginTop="20dp"-->
+                    <!--android:onClick="SyncUsers"-->
+                    <!--android:text="Sync Users" />-->
 
                 <EditText
                     android:id="@+id/txturlNew"
@@ -117,7 +117,7 @@
                     android:imeActionLabel="@string/urlusers"
                     android:imeOptions="actionUnspecified"
                     android:inputType="text"
-                    android:text="10.1.42.61"
+                    android:text="43.245.131.159:8080"
                     android:maxLines="1"
                     android:singleLine="true" />
 

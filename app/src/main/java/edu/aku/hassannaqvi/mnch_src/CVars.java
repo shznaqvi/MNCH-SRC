@@ -8,6 +8,8 @@ public class CVars {
     public static String myuser;
     public static String url_sync_users;
     public static int repro_age_woman;
+    public static int neonates_child;
+    public static int im_child;
     public static String hhno;
     public static String hhcode;
     public static String isadmin;
@@ -98,5 +100,21 @@ public class CVars {
 
     public int GetReproductionAgeWoman() {
         return repro_age_woman;
+    }
+
+    public void setNeonatesChild(int neonates_child) {
+        CVars.neonates_child = neonates_child;
+    }
+
+    public int getNeonatesChild() {
+        return neonates_child;
+    }
+
+    public void setIMChild(int im_child) {
+        CVars.im_child = im_child;
+    }
+
+    public int getIMChild() {
+        return im_child;
     }
 }

@@ -30,14 +30,14 @@ public class GetCluster extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_cluster);
 
-        txturl = (EditText) findViewById(R.id.txturl);
+//        txturl = (EditText) findViewById(R.id.txturl);
         btnGetHF = (Button) findViewById(R.id.btnGetHF);
 
-        txturlvillages = (EditText) findViewById(R.id.txturlvillages);
-        btnGetVillages = (Button) findViewById(R.id.btnGetVillages);
-
-        txturlusers = (EditText) findViewById(R.id.txturl_users);
-        btnGetUsers = (Button) findViewById(R.id.btnGetUsers);
+//        txturlvillages = (EditText) findViewById(R.id.txturlvillages);
+//        btnGetVillages = (Button) findViewById(R.id.btnGetVillages);
+//
+//        txturlusers = (EditText) findViewById(R.id.txturl_users);
+//        btnGetUsers = (Button) findViewById(R.id.btnGetUsers);
 
     }
 
@@ -87,7 +87,7 @@ public class GetCluster extends Activity {
             if (networkInfo != null && networkInfo.isConnected()) {
 
                 CVars var = new CVars();
-                var.setUrl_sync_hf("http://"+SRCApp._DefaultIP + "/src/getdistrict.php");
+                var.setUrl_sync_hf("http://"+SRCApp._DefaultIP + "/src/getdistricts.php");
 
                 SyncCluster gf1 = new SyncCluster(this);
                 gf1.execute();

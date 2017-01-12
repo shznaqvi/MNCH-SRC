@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.mnch_src;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +35,7 @@ public class GetUsers extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
+
             //URL url = new URL("http://10.198.96.103:8080/src/users_login.php");
 
             CVars var = new CVars();
@@ -82,11 +84,6 @@ public class GetUsers extends AsyncTask<String, String, String> {
         }
         db.getAllUsers();
     }
-
-
-
-
-
 /*        try {
 
             JSONObject obj = new JSONObject(json);

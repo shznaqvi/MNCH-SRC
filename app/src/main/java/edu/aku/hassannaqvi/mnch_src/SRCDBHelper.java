@@ -351,7 +351,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         try {
             userList = new ArrayList<UsersContract>();
             String QUERY = "SELECT * FROM " + UsersContract.singleUser.TABLE_NAME;
-            Cursor cursor = db.rawQuery(QUERY, null);
+             Cursor cursor = db.rawQuery(QUERY, null);
             int num = cursor.getCount();
             if (!cursor.isLast()) {
                 while (cursor.moveToNext()) {

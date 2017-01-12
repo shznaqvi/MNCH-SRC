@@ -596,13 +596,26 @@ public class Section2Activity extends Activity {
             s2.put("s2q206g", s2q206g.getText().toString());
             s2.put("s2q206h", s2q206h.getText().toString());
 
+            CVars var = new CVars();
             if (s2q206h.getText().toString() != "") {
-                CVars var = new CVars();
                 var.StoreReporductionAgeWoman(Integer.parseInt(s2q206h.getText().toString()));
             } else {
-                CVars var = new CVars();
                 var.StoreReporductionAgeWoman(Integer.parseInt("0"));
             }
+
+            if (s2q206d.getText().toString() != "") {
+                var.setNeonatesChild(Integer.parseInt(s2q206d.getText().toString()));
+            } else {
+                var.setNeonatesChild(Integer.parseInt("0"));
+            }
+
+//            if (s2q206d.getText().toString() != "") {
+//                var.setNeonatesChild(Integer.parseInt(s2q206d.getText().toString()));
+//            } else {
+//                var.setNeonatesChild(Integer.parseInt("0"));
+//            }
+
+
 
             SRCApp.fc.setROW_S2(s2.toString());
 

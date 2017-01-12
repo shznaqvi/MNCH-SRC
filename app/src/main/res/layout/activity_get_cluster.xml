@@ -60,77 +60,77 @@
             </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/lblurl"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:text="@string/urlusers" />
+            <!--<TextView-->
+                <!--android:id="@+id/lblurl"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:text="@string/urlusers" />-->
 
-            <EditText
-                android:id="@+id/txturl"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="30"
-                android:inputType="text"
-                android:maxLines="1"
-                android:singleLine="true" />
+            <!--<EditText-->
+                <!--android:id="@+id/txturl"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:ems="30"-->
+                <!--android:inputType="text"-->
+                <!--android:maxLines="1"-->
+                <!--android:singleLine="true" />-->
 
-            <Button
-                android:id="@+id/btnGetHF"
-                style="@style/buttons"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:onClick="getHF"
-                android:text="@string/btnGetHF1" />
+            <!--<Button-->
+                <!--android:id="@+id/btnGetHF"-->
+                <!--style="@style/buttons"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:onClick="getHF"-->
+                <!--android:text="@string/btnGetHF1" />-->
 
-            <TextView
-                android:id="@+id/lblurllhw"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:text="@string/urlusers" />
+            <!--<TextView-->
+                <!--android:id="@+id/lblurllhw"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:text="@string/urlusers" />-->
 
-            <EditText
-                android:id="@+id/txturlvillages"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="30"
-                android:inputType="text"
-                android:maxLines="1"
-                android:singleLine="true" />
+            <!--<EditText-->
+                <!--android:id="@+id/txturlvillages"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:ems="30"-->
+                <!--android:inputType="text"-->
+                <!--android:maxLines="1"-->
+                <!--android:singleLine="true" />-->
 
-            <Button
-                android:id="@+id/btnGetVillages"
-                style="@style/buttons"
-                android:layout_width="match_parent"
-                android:layout_marginTop="20dp"
-                android:onClick="getVillages"
-                android:text="@string/btnGetVillages" />
+            <!--<Button-->
+                <!--android:id="@+id/btnGetVillages"-->
+                <!--style="@style/buttons"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:onClick="getVillages"-->
+                <!--android:text="@string/btnGetVillages" />-->
 
-            <TextView
-                android:id="@+id/lblurl_users"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:text="@string/urlusers" />
+            <!--<TextView-->
+                <!--android:id="@+id/lblurl_users"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:text="@string/urlusers" />-->
 
-            <EditText
-                android:id="@+id/txturl_users"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="30"
-                android:inputType="text"
-                android:maxLines="1"
-                android:singleLine="true" />
+            <!--<EditText-->
+                <!--android:id="@+id/txturl_users"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:ems="30"-->
+                <!--android:inputType="text"-->
+                <!--android:maxLines="1"-->
+                <!--android:singleLine="true" />-->
 
-            <Button
-                android:id="@+id/btnGetUsers"
-                style="@style/buttons"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:onClick="getUsers"
-                android:text="@string/btnGetUsers" />
+            <!--<Button-->
+                <!--android:id="@+id/btnGetUsers"-->
+                <!--style="@style/buttons"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:onClick="getUsers"-->
+                <!--android:text="@string/btnGetUsers" />-->
 
         </LinearLayout>
     </ScrollView>
