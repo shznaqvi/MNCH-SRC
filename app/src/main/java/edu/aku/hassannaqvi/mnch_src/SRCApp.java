@@ -16,11 +16,9 @@ import android.view.View;
  */
 
 public class SRCApp extends Application {
-    //public static final String _IP = "192.168.1.10"; // Test NODE server
-    public static String _DefaultIP = "http://10.1.42.64"; // Test PHP server
-    public static final String _IP = "http://10.1.42.41"; // Test PHP server
-    public static final Integer _PORT = 80; // Port - with colon (:)
-    public static final String _HOST_URL = "10.198.96.103:8080";
+    public static final String _IP = "43.245.131.159"; // Test PHP server
+    public static final Integer _PORT = 8080; // Port - with colon (:)
+    public static final String _HOST_URL = "http://" + _IP + ":" + _PORT + "/";
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
     private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000; // in Milliseconds
     private static final int TWENTY_MINUTES = 1000 * 60 * 20;
@@ -35,6 +33,8 @@ public class SRCApp extends Application {
         public static final String _IP = "43.245.131.159"; // Test server
     */
     public static final long MILLISECONDS_IN_YEAR = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_YEAR;
+    //public static final String _IP = "192.168.1.10"; // Test NODE server
+    public static String _DefaultIP = "http://10.1.42.64"; // Test PHP server
     public static String DEVID;
     public static String GPS_LAT;
     public static String GPS_LNG;
@@ -53,20 +53,16 @@ public class SRCApp extends Application {
     public static String mnb1 = "TEST";
     public static int chCount = 0;
     public static int chTotal = 0;
-    protected static LocationManager locationManager;
-
     //    MWomen means married women
     public static int MWomen = 0;
     public static Boolean MWomenFlag = true;
-
     public static Boolean MaternalDeath = true;
     public static int NoMaternalDeath = 0;
-
     public static Boolean ChildMortality = true;
     public static int NoChildMortality = 0;
-
     //    UMWomen means un-married women
     public static int UMWomen = 0;
+    protected static LocationManager locationManager;
 
 
 /*df*/

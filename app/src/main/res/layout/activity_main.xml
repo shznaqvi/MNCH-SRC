@@ -21,10 +21,11 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/btnOpenForm"
                 style="@style/buttons"
                 android:layout_marginTop="20dp"
-                android:onClick="syncUser"
-                android:text="Sync User" />
+                android:onClick="OpenForm"
+                android:text="@string/btnOpenForm" />
 
             <Button
                 style="@style/buttons"

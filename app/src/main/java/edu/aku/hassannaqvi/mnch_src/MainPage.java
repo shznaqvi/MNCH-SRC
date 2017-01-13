@@ -29,11 +29,6 @@ public class MainPage extends Activity {
         }
 
 
-        if (CVars.isadmin.equals("1")) {
-            vu_opendb.setVisibility(View.VISIBLE);
-        } else {
-            vu_opendb.setVisibility(View.GONE);
-        }
     }
 
     public void OpenGetHF(View view) {

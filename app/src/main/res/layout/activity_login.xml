@@ -44,9 +44,9 @@
                 android:imeActionLabel="@string/action_sign_in_short"
                 android:imeOptions="actionUnspecified"
                 android:inputType="text"
-                android:text="admin"
                 android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:text="admin" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -63,9 +63,9 @@
                 android:imeActionLabel="@string/action_sign_in_short"
                 android:imeOptions="actionUnspecified"
                 android:inputType="textPassword"
-                android:text="admin.123"
                 android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:text="admin.123" />
 
             <Button
                 android:id="@+id/email_sign_in_button"
@@ -74,61 +74,6 @@
                 android:onClick="loginUser"
                 android:text="@string/action_sign_in" />
 
-            <LinearLayout
-                android:id="@+id/vu_syncusers"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/lblurl"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/urlusers" />
-
-                <!--<EditText-->
-                    <!--android:id="@+id/txturl"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:ems="30"-->
-                    <!--android:imeActionId="@+id/login"-->
-                    <!--android:imeActionLabel="@string/urlusers"-->
-                    <!--android:imeOptions="actionUnspecified"-->
-                    <!--android:inputType="text"-->
-                    <!--android:text="10.1.42.61"-->
-                    <!--android:maxLines="1"-->
-                    <!--android:singleLine="true" />-->
-
-                <!--<Button-->
-                    <!--android:id="@+id/btnSynchUsers"-->
-                    <!--style="@style/buttons"-->
-                    <!--android:layout_marginTop="20dp"-->
-                    <!--android:onClick="SyncUsers"-->
-                    <!--android:text="Sync Users" />-->
-
-                <EditText
-                    android:id="@+id/txturlNew"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="30"
-                    android:imeActionId="@+id/login"
-                    android:imeActionLabel="@string/urlusers"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="text"
-                    android:text="43.245.131.159:8080"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
-                <Button
-                    android:id="@+id/btnSynchUsersNew"
-                    style="@style/buttons"
-                    android:layout_marginTop="20dp"
-                    android:onClick="SyncUsersNew"
-                    android:text="Sync Users New" />
-
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

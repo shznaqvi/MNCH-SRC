@@ -17,16 +17,17 @@ import java.net.URL;
 import java.util.ArrayList;
 
 /**
- * Created by hassan.naqvi on 4/28/2016.
+ * Created by hassan.naqvi on 11/30/2016.
  */
-public class GetUsers extends AsyncTask<String, String, String> {
 
-    private final String TAG = "GetUsers()";
+public class GetVillages extends AsyncTask<String, String, String> {
+
+    private final String TAG = "GetVillages()";
     HttpURLConnection urlConnection;
     private Context mContext;
     private ProgressDialog pd;
 
-    public GetUsers(Context context) {
+    public GetVillages(Context context) {
         mContext = context;
     }
 
@@ -34,7 +35,7 @@ public class GetUsers extends AsyncTask<String, String, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         pd = new ProgressDialog(mContext);
-        pd.setTitle("Syncing Users");
+        pd.setTitle("Syncing Villages");
         pd.setMessage("Getting connected to server...");
         pd.show();
     }
@@ -58,19 +59,19 @@ public class GetUsers extends AsyncTask<String, String, String> {
         //json = json.replaceAll("\\[", "").replaceAll("\\]","");
         Log.d(TAG, result);
         if (json.length() > 0) {
-            ArrayList<UsersContract> userArrayList;
+            ArrayList<VillageContract> villageArrayList;
             SRCDBHelper db = new SRCDBHelper(mContext);
             try {
-                userArrayList = new ArrayList<UsersContract>();
+                villageArrayList = new ArrayList<VillageContract>();
                 //JSONObject jsonObject = new JSONObject(json);
                 JSONArray jsonArray = new JSONArray(json);
-                db.syncUser(jsonArray);
+                db.syncVillages(jsonArray);
                 pd.setMessage("Received: " + jsonArray.length());
                 pd.show();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            //db.getAllUsers();
+            //db.getAllVillages();
         } else {
             pd.setMessage("Received: " + json.length() + "");
             pd.show();
@@ -80,14 +81,14 @@ public class GetUsers extends AsyncTask<String, String, String> {
     // Given a URL, establishes an HttpUrlConnection and retrieves
 // the web page content as a InputStream, which it returns as
 // a string.
-    private String downloadUrl(String userUrl) throws IOException {
+    private String downloadUrl(String villageUrl) throws IOException {
         InputStream is = null;
         // Only display the first 500 characters of the retrieved
         // web page content.
         int len = 500;
 
         try {
-            URL url = new URL(userUrl);
+            URL url = new URL(villageUrl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setReadTimeout(10000 /* milliseconds */);
             conn.setConnectTimeout(15000 /* milliseconds */);
