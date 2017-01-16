@@ -66,10 +66,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="10"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
-                android:inputType="textCapWords"
-                android:hint="@string/baseline_s3q301a"/>
+                android:ems="10"
+                android:hint="@string/baseline_s3q301a"
+                android:inputType="textCapWords" />
 
             <TextView
                 android:id="@+id/lbl_s3q301b"
@@ -84,8 +84,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number"
                 android:hint="@string/baseline_s3q301b"
+                android:inputType="number"
                 android:maxLength="2"/>
 
             <TextView
@@ -101,9 +101,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/baseline_s3q301c"
                 android:inputType="number"
-                android:maxLength="2"
-                android:hint="@string/baseline_s3q301c"/>
+                android:maxLength="2" />
 
             <TextView
                 android:id="@+id/lbl_s3q301d"
@@ -136,7 +136,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/lbl_s3q301e"
@@ -151,9 +151,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:hint="هفتا"
                     android:inputType="number"
-                    android:maxLength="2"
-                    android:hint="@string/baseline_s3q301e"/>
+                    android:maxLength="2" />
 
             </LinearLayout>
 
@@ -401,8 +401,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text"
-                    android:hint="@string/mnother"/>
+                    android:hint="@string/mnother"
+                    android:inputType="text" />
 
             </LinearLayout>
 
@@ -487,8 +487,8 @@
                      android:layout_height="wrap_content"
                      android:layout_weight="1"
                      android:ems="10"
-                     android:inputType="text"
-                     android:hint="@string/mnother"/>
+                     android:hint="@string/mnother"
+                     android:inputType="text" />
 
             </LinearLayout>
 
@@ -505,8 +505,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number"
-                android:hint="@string/baseline_s3q301k"/>
+                android:hint="@string/baseline_s3q301k"
+                android:inputType="number" />
         </LinearLayout>
 
             <Button
