@@ -45,9 +45,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/baseline_formid"
                 android:inputType="number"
-                android:maxLength="4"
-                android:hint="@string/baseline_formid">
+                android:maxLength="4">
                 <requestFocus/>
                 </EditText>
 
@@ -55,22 +55,40 @@
                 android:id="@+id/lbl_s1q105"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/baseline_s1q105"
+                android:text="@string/baseline_s1q106a"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <Spinner
-                android:id="@+id/s1q105"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10" />
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/s1q105"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10" />
+
+                <EditText
+                    android:id="@+id/s1q106b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:ems="10"
+                    android:hint="@string/baseline_s1q106b"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/lbl_s1q106a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/baseline_s1q106a"
+                android:text="@string/baseline_s1q105"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
+
 
             <Spinner
                 android:id="@+id/s1q106a"
@@ -108,10 +126,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textCapWords"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
-                android:hint="@string/baseline_s1q102"/>
+                android:ems="10"
+                android:hint="@string/baseline_s1q102"
+                android:inputType="textCapWords" />
 
             <TextView
                 android:id="@+id/lbl_s1q103"
@@ -152,12 +170,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/baseline_s1q104"
                 android:inputType="number"
                 android:maxLength="2"
-                android:hint="@string/baseline_s1q104"
                 />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/lbl_s1q106b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -172,7 +190,7 @@
                 android:ems="10"
                 android:inputType="number"
                 android:maxLength="2"
-                android:hint="@string/baseline_s1q106b"/>
+                android:hint="@string/baseline_s1q106b"/>-->
 
             <!--<TextView
                 android:id="@+id/lbl_s1q107"
@@ -202,9 +220,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/baseline_s1q108"
                 android:inputType="phone"
-                android:maxLength="11"
-                android:hint="@string/baseline_s1q108"/>
+                android:maxLength="11" />
 
             <TextView
                 android:id="@+id/lbl_s1q108b"
@@ -219,9 +237,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/baseline_s1q108"
                 android:inputType="phone"
-                android:maxLength="11"
-                android:hint="@string/baseline_s1q108"/>
+                android:maxLength="11" />
 
             <TextView
                 android:id="@+id/lbl_s1q110"
@@ -240,7 +258,7 @@
                 android:ems="10"
                 android:spinnersShown="true" />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/lbl_s1q111"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -283,7 +301,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/lbl_s1q111oth"
@@ -301,7 +319,7 @@
                     android:inputType="text"
                     android:hint="@string/baseline_s1q111oth"/>
 
-            </LinearLayout>
+            </LinearLayout>-->
 
             <TextView
                 android:id="@+id/lbl_s1q112"

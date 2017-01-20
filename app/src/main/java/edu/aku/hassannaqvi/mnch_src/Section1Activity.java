@@ -8,12 +8,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
@@ -112,18 +110,18 @@ public class Section1Activity extends Activity implements TextWatcher {
         lblS1q104 = (TextView) findViewById(R.id.lbl_s1q104);
         lblS1q105 = (TextView) findViewById(R.id.lbl_s1q105);
         lblS1q106a = (TextView) findViewById(R.id.lbl_s1q106a);
-        lblS1q106b = (TextView) findViewById(R.id.lbl_s1q106b);
+        //lblS1q106b = (TextView) findViewById(R.id.lbl_s1q106b);
         //lblS1q107 = (TextView) findViewById(R.id.lbl_s1q107);
         lblS1q108 = (TextView) findViewById(R.id.lbl_s1q108);
         lblS1q110 = (TextView) findViewById(R.id.lbl_s1q110);
-        lblS1q111 = (TextView) findViewById(R.id.lbl_s1q111);
-        radioS1q111 = (RadioGroup) findViewById(R.id.radio_s1q111);
-        rDOS1q1111 = (RadioButton) findViewById(R.id.RDO_s1q111_1);
-        rDOS1q1112 = (RadioButton) findViewById(R.id.RDO_s1q111_2);
-        rDOS1q1113 = (RadioButton) findViewById(R.id.RDO_s1q111_3);
-        rDOS1q1114 = (RadioButton) findViewById(R.id.RDO_s1q111_4);
-        lblS1q111oth = (TextView) findViewById(R.id.lbl_s1q111oth);
-        s1q111oth = (EditText) findViewById(R.id.s1q111oth);
+        //lblS1q111 = (TextView) findViewById(R.id.lbl_s1q111);
+        //radioS1q111 = (RadioGroup) findViewById(R.id.radio_s1q111);
+        //rDOS1q1111 = (RadioButton) findViewById(R.id.RDO_s1q111_1);
+        //rDOS1q1112 = (RadioButton) findViewById(R.id.RDO_s1q111_2);
+        //rDOS1q1113 = (RadioButton) findViewById(R.id.RDO_s1q111_3);
+        //rDOS1q1114 = (RadioButton) findViewById(R.id.RDO_s1q111_4);
+        //lblS1q111oth = (TextView) findViewById(R.id.lbl_s1q111oth);
+        //s1q111oth = (EditText) findViewById(R.id.s1q111oth);
         lblS1q112 = (TextView) findViewById(R.id.lbl_s1q112);
         radioS1q112 = (RadioGroup) findViewById(R.id.radio_s1q112);
         rDOS1q1121 = (RadioButton) findViewById(R.id.RDO_s1q112_1);
@@ -144,13 +142,15 @@ public class Section1Activity extends Activity implements TextWatcher {
         s1q108b = (EditText) findViewById(R.id.s1q108b);
 
         s1q110 = (DatePicker) findViewById(R.id.s1q110);
-        s1q111oth = (EditText) findViewById(R.id.s1q111oth);
+        //s1q111oth = (EditText) findViewById(R.id.s1q111oth);
 
-        vu_s1q112 = (LinearLayout) findViewById(R.id.vu_s1q112);
+        //vu_s1q112 = (LinearLayout) findViewById(R.id.vu_s1q112);
 
 
 
         ArrayList<String> lst_hhcode = GetHHCode();
+
+        getS1q104().addTextChangedListener(this);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(Section1Activity.this,
                 android.R.layout.simple_spinner_item, lst_hhcode);
@@ -223,7 +223,7 @@ public class Section1Activity extends Activity implements TextWatcher {
                     }
                 });
 
-        radioS1q111.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        /*radioS1q111.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 //View view = this.getCurrentFocus();
@@ -240,7 +240,7 @@ public class Section1Activity extends Activity implements TextWatcher {
                     s1q111oth.setText("");
                 }
             }
-        });
+        });*/
 
     }
 
@@ -272,9 +272,9 @@ public class Section1Activity extends Activity implements TextWatcher {
         return (DatePicker) findViewById(R.id.s1q110);
     }
 
-    private EditText getS1q111oth() {
+    /*private EditText getS1q111oth() {
         return (EditText) findViewById(R.id.s1q111oth);
-    }
+    }*/
 
     public void gotoSection2(View view) {
 
@@ -303,7 +303,7 @@ public class Section1Activity extends Activity implements TextWatcher {
                         Intent sec2_intent = new Intent(this, Section2Activity.class);
                         startActivity(sec2_intent);
                     } else {
-                        Intent sec2_intent = new Intent(this, MainPage.class);
+                        Intent sec2_intent = new Intent(this, Section8Activity.class);
                         startActivity(sec2_intent);
                     }
                 } else {
@@ -365,7 +365,7 @@ public class Section1Activity extends Activity implements TextWatcher {
         SRCApp.fc.setROW_S1Q108b(s1q108b.getText().toString());
         SRCApp.fc.setROW_S1Q110(spDateT);
 
-        switch (radioS1q111.getCheckedRadioButtonId()) {
+        /*switch (radioS1q111.getCheckedRadioButtonId()) {
             case R.id.RDO_s1q111_1:
                 var_s1q111 = "1";
                 break;
@@ -378,10 +378,10 @@ public class Section1Activity extends Activity implements TextWatcher {
             case R.id.RDO_s1q111_4:
                 var_s1q111 = "4";
                 break;
-        }
+        }*/
 
-        SRCApp.fc.setROW_S1Q111(var_s1q111.toString());
-        SRCApp.fc.setROW_S1Q111oth(String.valueOf(s1q111oth.getText().toString()));
+        //SRCApp.fc.setROW_S1Q111(var_s1q111.toString());
+        //SRCApp.fc.setROW_S1Q111oth(String.valueOf(s1q111oth.getText().toString()));
 
         switch (radioS1q112.getCheckedRadioButtonId()) {
             case R.id.RDO_s1q112_1:
@@ -464,10 +464,8 @@ public class Section1Activity extends Activity implements TextWatcher {
             s1q104.setError(null);
         }
 
-        getS1q104().addTextChangedListener(this);
 
-
-        if (getS1q106b().getText().toString().isEmpty() || s1q106b.getText().toString() == null) {
+        if (getS1q106b().getText().toString().isEmpty()) {
             s1q106b.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter uc code \r\n", Toast.LENGTH_LONG).show();
             s1q106b.requestFocus();
@@ -486,7 +484,7 @@ public class Section1Activity extends Activity implements TextWatcher {
         }*/
 
 
-        if (getS1q108().getText().toString().isEmpty() || s1q108.getText().toString() == null) {
+        if (getS1q108().getText().toString().isEmpty()) {
             s1q108.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter telephone number \r\n", Toast.LENGTH_LONG).show();
             s1q108.requestFocus();
@@ -496,7 +494,7 @@ public class Section1Activity extends Activity implements TextWatcher {
         }
 
 
-        rdo_s1q111 = radioS1q111.getCheckedRadioButtonId();
+        /*rdo_s1q111 = radioS1q111.getCheckedRadioButtonId();
 
         if (rdo_s1q111 == -1) {
             rDOS1q1111.setError(getString(R.string.rdoerr));
@@ -513,14 +511,14 @@ public class Section1Activity extends Activity implements TextWatcher {
         }
 
 
-        if (var_s1q112 == "2" && getS1q111oth().getText().toString().isEmpty() || var_s1q103 == "2" && s1q111oth.getText().toString() == null) {
+        if(var_s1q112 == "2" && getS1q111oth().getText().toString().isEmpty() || var_s1q103 == "2" && s1q111oth.getText().toString() == null) {
             s1q111oth.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please specify status of visit if others  \r\n", Toast.LENGTH_LONG).show();
             s1q111oth.requestFocus();
             return false;
         } else {
             s1q111oth.setError(null);
-        }
+        }*/
 
 
         rdo_s1q112 = radioS1q112.getCheckedRadioButtonId();
