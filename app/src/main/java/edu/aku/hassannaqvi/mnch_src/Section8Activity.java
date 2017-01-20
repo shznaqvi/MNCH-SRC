@@ -392,6 +392,28 @@ public class Section8Activity extends Activity {
     EditText mn082219;
     @BindView(R.id.mn082220)
     EditText mn082220;
+    @BindView(R.id.mn0823)
+    RadioGroup mn0823;
+    @BindView(R.id.mn082301)
+    RadioButton mn082301;
+    @BindView(R.id.mn082302)
+    RadioButton mn082302;
+    @BindView(R.id.mn082303)
+    RadioButton mn082303;
+    @BindView(R.id.mn082304)
+    RadioButton mn082304;
+    @BindView(R.id.mn082302x)
+    EditText mn082302x;
+    @BindView(R.id.fldGrpConsent)
+    LinearLayout fldGrpConsent;
+    @BindView(R.id.fldGrpmn0823Reason)
+    LinearLayout fldGrpmn0823Reason;
+    @BindView(R.id.mn0823Reason)
+    RadioGroup mn0823Reason;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -401,7 +423,23 @@ public class Section8Activity extends Activity {
 
         appHeader.setText("SRC - > Section 8");
 
-        // ============= Q 5.09 Skip Pattern =================
+        String data = getIntent().getExtras().getString("Data","var_s1q112");
+        if(data.equals("2"))
+        {
+            fldGrpConsent.setVisibility(View.GONE);
+            fldGrpmn0823Reason.setVisibility(View.VISIBLE);
+            mn082301.setEnabled(false);
+            mn082302.setChecked(true);
+
+
+        }else {
+            fldGrpConsent.setVisibility(View.VISIBLE);
+            fldGrpmn0823Reason.setVisibility(View.GONE);
+            mn082301.setEnabled(true);
+            mn082302.setChecked(false);
+        }
+
+        // ============= Q 8.09 Skip Pattern =================
 
         mn0809.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -774,6 +812,9 @@ public class Section8Activity extends Activity {
         s8.put("mn082219", mn082219.getText().toString());
         s8.put("mn082220", mn082220.getText().toString());
 
+        s8.put("mn0823", mn082301.isChecked() ? "1" : mn082302.isChecked() ? "2" : "0");
+        s8.put("mn0823Reason", mn082303.isChecked() ? "3" : mn082304.isChecked() ? "4" : "0");
+        s8.put("mn082302x", mn082302x.getText().toString());
 
         SRCApp.fc.setROW_S8(String.valueOf(s8));
 
@@ -1335,6 +1376,21 @@ public class Section8Activity extends Activity {
             } else {
                 mn082220.setError(null);
             }
+
+            if(mn082302.isChecked())
+            {
+                if(mn0823Reason.getCheckedRadioButtonId() == -1 && mn082302x.getText().toString().isEmpty()){
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082303), Toast.LENGTH_LONG).show();
+                mn082302x.setError("Please specify reason");    // Set Error on last radio button
+
+                Log.i(TAG, "mn082303: This data is Required!");
+
+                return false;
+            } else {
+                mn082302x.setError(null);
+            }
+            }
+
         }
 
         return true;

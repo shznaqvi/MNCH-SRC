@@ -299,11 +299,12 @@ public class Section1Activity extends Activity implements TextWatcher {
 
                 if (UpdateDB()) {
 
-                    if (var_s1q112 == "1") {
+                    if (var_s1q112.equals("1")) {
                         Intent sec2_intent = new Intent(this, Section2Activity.class);
                         startActivity(sec2_intent);
                     } else {
                         Intent sec2_intent = new Intent(this, Section8Activity.class);
+                        sec2_intent.putExtra("Data", var_s1q112);
                         startActivity(sec2_intent);
                     }
                 } else {
