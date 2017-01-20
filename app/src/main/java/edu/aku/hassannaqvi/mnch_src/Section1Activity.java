@@ -303,7 +303,7 @@ public class Section1Activity extends Activity implements TextWatcher {
                         Intent sec2_intent = new Intent(this, Section2Activity.class);
                         startActivity(sec2_intent);
                     } else {
-                        Intent sec2_intent = new Intent(this, Section8Activity.class);
+                        Intent sec2_intent = new Intent(this, EndingActivity.class);
                         sec2_intent.putExtra("Data", var_s1q112);
                         startActivity(sec2_intent);
                     }

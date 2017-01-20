@@ -48,26 +48,57 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mn082302" />
-
-                <RadioButton
-                    android:id="@+id/mn082303"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn082304" />
-
-                <RadioButton
-                    android:id="@+id/mn082304"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mn082305" />
-
             </RadioGroup>
 
-            <EditText
-                android:id="@+id/mn082302x"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mn082303" />
+                android:visibility="gone"
+                android:id="@+id/fldGrpmn0823Reason"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/mn082303"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <RadioGroup
+                    android:id="@+id/mn0823Reason"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <RadioButton
+                        android:id="@+id/mn082303"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mn082304" />
+
+                    <RadioButton
+                        android:id="@+id/mn082304"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mn082305" />
+
+                    <RadioButton
+                        android:id="@+id/mn0823other"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mnother" />
+
+
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/mn082302x"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mn082303"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
 
             <!--  = = = = =  END OF FORM FIELDS - Section C = = = = = -->
 
