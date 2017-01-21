@@ -106,16 +106,17 @@
     <string name="baseline_s2q206b">مرد</string>
     <string name="baseline_s2q206c">عورتون</string>
     <string name="baseline_s2q206d">نو مولود ٻار 28 - 0 ڏينهن تائين</string>
-    <string name="baseline_s2q206e"> ٻار1کان 5 - 1 سالن تائين</string>
+    <string name="baseline_s2q206e"> ٻار 1 مهيني کان 5 سالن تائين</string>
     <string name="baseline_s2q206f">ٻار 5 کان 14 سالن تائين جي عمر جا</string>
     <string name="baseline_s2q206g">عورتون 15 کان 49 سالن تائين</string>
     <string name="baseline_s2q206h">شادي شده عورتون 15کان 49 سالن تائين</string>
+    <string name="educationType">91 ـ مذهبي تعليم  / 92 ـ ڪڏهن به اسڪول نه ويو</string>
 
     <!-- Section 3 -->
 
     <string name="baseline_s3q301a">شادي شده عورت جونالو</string>
     <string name="baseline_s3q301b">عمر</string>
-    <string name="baseline_s3q301c">حاصل ڪيل تعليم سڪول/ڪاليج /يونيورسٽي جاا ڪاميابي سان مڪمل ڪيل سال مذهبي تعليم ڪڏھن به اسڪول ڪو نه ويو</string>
+    <string name="baseline_s3q301c">حاصل ڪيل تعليم سڪول/ڪاليج /يونيورسٽي جاا ڪاميابي سان مڪمل ڪيل سال</string>
     <string name="baseline_s3q301d">موجود حامله عورتون</string>
     <string name="baseline_s3q301d_1">ها</string>
     <string name="baseline_s3q301d_2">نه</string>

@@ -22,6 +22,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
     }
 
 
@@ -53,6 +55,7 @@ public class MainActivity extends Activity {
 
             editor.apply();
 
+
         } else {
             Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
         }
@@ -65,8 +68,12 @@ public class MainActivity extends Activity {
     }
 
     public void OpenForm(View v) {
+
         Intent sec1_intent = new Intent(this, Section1Activity.class);
         startActivity(sec1_intent);
 
     }
+
+
+
 }

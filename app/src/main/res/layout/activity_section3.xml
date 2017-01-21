@@ -38,19 +38,16 @@
                 android:layout_gravity="center_horizontal" />
 
             <TextView
-                android:id="@+id/lbl_hhhead"
-                style="@style/txtquestion"
-                android:text="" />
-
-            <TextView
                 android:id="@+id/lbl_wcount"
                 style="@style/txtquestion"
+                android:gravity="center"
                 android:layoutDirection="ltr"
-                android:text="" />
+                android:text="Reprodutive Woman Listing" />
 
             <TextView
                 android:id="@+id/wcount"
                 style="@style/txtquestion"
+                android:gravity="center"
                 android:layoutDirection="ltr"
                 android:text="" />
 
@@ -94,6 +91,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/baseline_s3q301c"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/dullWhile"
+                android:text="@string/educationType"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/s3q301c"
@@ -509,12 +514,12 @@
                 android:inputType="number" />
         </LinearLayout>
 
-            <Button
+            <!--<Button
                 android:id="@+id/btnadd"
                 style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="AddWoman"
-                android:text="@string/btnadd" />
+                android:text="@string/btnadd" />-->
 
             <Button
                 android:id="@+id/btnnext"

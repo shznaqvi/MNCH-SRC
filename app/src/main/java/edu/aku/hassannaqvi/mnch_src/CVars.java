@@ -102,19 +102,19 @@ public class CVars {
         return repro_age_woman;
     }
 
-    public void setNeonatesChild(int neonates_child) {
-        CVars.neonates_child = neonates_child;
-    }
-
     public int getNeonatesChild() {
         return neonates_child;
     }
 
-    public void setIMChild(int im_child) {
-        CVars.im_child = im_child;
+    public void setNeonatesChild(int neonates_child) {
+        CVars.neonates_child = neonates_child;
     }
 
     public int getIMChild() {
         return im_child;
+    }
+
+    public void setIMChild(int im_child) {
+        CVars.im_child = im_child;
     }
 }

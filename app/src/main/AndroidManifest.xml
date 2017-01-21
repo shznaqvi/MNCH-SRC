@@ -44,21 +44,40 @@
         <activity android:name=".GetCluster"/>
         <activity
             android:name=".Section1Activity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".Section2Activity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".Section3Activity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".Section4Activity" />
-        <activity android:name=".Section4bActivity" />
-        <activity android:name=".Section5Activity" />
-        <activity android:name=".Section6Activity" />
-        <activity android:name=".Section7Activity" />
-        <activity android:name=".Section8Activity" />
-        <activity android:name=".Section5bActivity" />
-        <activity android:name=".EndingActivity" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".Section4Activity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".Section4bActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".Section5Activity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".Section6Activity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".Section7Activity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".Section8Activity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".Section5bActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".EndingActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
     </application>
 
 </manifest>

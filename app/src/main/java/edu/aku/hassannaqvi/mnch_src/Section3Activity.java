@@ -3,7 +3,6 @@ package edu.aku.hassannaqvi.mnch_src;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +23,7 @@ public class Section3Activity extends Activity {
     private static final String TAG = "Sec3";
     public static JSONObject s1;
     public LinearLayout vu_s3q301f;
+    public int wcount1;
     String var_s3q301d = "";
     String var_s3q301f1 = "";
     String var_s3q301f = "";
@@ -198,19 +198,30 @@ public class Section3Activity extends Activity {
         vu_s3q301g = (LinearLayout) findViewById(R.id.vu_s3q301g);
 
         btnnext = (Button) findViewById(R.id.btnnext);
-        btnadd = (Button) findViewById(R.id.btnadd);
+        //btnadd = (Button) findViewById(R.id.btnadd);
         lbl_wcount = (TextView) findViewById(R.id.lbl_wcount);
+        wcount = (TextView) findViewById(R.id.wcount);
 
         CVars var = new CVars();
 
         lbl_hhhead = (TextView) findViewById(R.id.lbl_hhhead);
-        lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
+        //lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
 
 
-        lbl_wcount.setText("Total Reproductive Woman : " + var.GetReproductionAgeWoman());
-        lbl_wcount.setTextColor(Color.RED);
+        //lbl_wcount.setText("Total Reproductive Woman : " + var.GetReproductionAgeWoman());
+        wcount.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Woman " + SRCApp.tcount + " of " + var.GetReproductionAgeWoman() + ")");
+        //wcount.setTextColor(Color.RED);
+        //wcount1 = Integer.parseInt(wcount.getText().toString());
 
-        btnnext.setEnabled(false);
+        if (SRCApp.tcount < var.GetReproductionAgeWoman()) {
+            btnnext.setVisibility(View.VISIBLE);
+            btnnext.setText("Add Woman");
+
+        } else if (SRCApp.tcount == var.GetReproductionAgeWoman()) {
+            btnnext.setText("Section 4");
+        }
+
+        //btnnext.setEnabled(false);
 
 //        Checking Married Women
 
@@ -410,31 +421,24 @@ public class Section3Activity extends Activity {
 
     public void AddWoman(View view) {
 
-        CVars var = new CVars();
+        //CVars var = new CVars();
 
         Log.d(TAG, "counter: " + counter);
-        Log.d(TAG, "getwoman: " + var.GetReproductionAgeWoman());
+        //Log.d(TAG, "getwoman: " + var.GetReproductionAgeWoman());
 
-        if (var.GetReproductionAgeWoman() > counter) {
 
             if (ValidateForm()) {
 
-                if (SaveDraft()) {
+                SaveDraft();
 
-                    Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
+                if (UpdateDB()) {
+                    //counter++;
+                    //SRCApp.tcount++;
 
-                    if (UpdateDB()) {
+                    Intent fA = new Intent(this, Section3Activity.class);
+                    startActivity(fA);
 
-                        ClearFields();
-                        counter++;
-
-                        vu_s3q301d.setVisibility(View.GONE);
-                        vu_s3q301g.setVisibility(View.GONE);
-                        vu_s3q301h.setVisibility(View.GONE);
-                        vu_s3q301ioth.setVisibility(View.GONE);
-                        vu_s3q301joth.setVisibility(View.GONE);
-
-                        s3q301a.requestFocus();
+                    //s3q301a.requestFocus();
 
 
                     } else {
@@ -443,40 +447,45 @@ public class Section3Activity extends Activity {
                 }
             }
 
-        } else {
-            btnadd.setEnabled(false);
-            btnnext.setEnabled(true);
-        }
-    }
 
 
-    private void ClearFields() {
-        s3q301a.setText(null);
-        s3q301b.setText(null);
-        s3q301c.setText(null);
-        radioS3q301d.clearCheck();
-        s3q301e.setText(null);
-        radioS3q301f1.clearCheck();
-        radioS3q301f.clearCheck();
-        radioS3q301g.clearCheck();
-        radioS3q301h.clearCheck();
-        radioS3q301i.clearCheck();
-        radioS3q301j.clearCheck();
-        s3q301k.setText(null);
-    }
+
 
     public void gotoSection4(View view) {
-        Intent sec4_intent = new Intent(this, Section4Activity.class);
-        startActivity(sec4_intent);
+
+        CVars var = new CVars();
+        if (ValidateForm()) {
+            for (int i = 1; i <= var.GetReproductionAgeWoman(); i++) {
+                if (var.GetReproductionAgeWoman() >= SRCApp.tcount) {
+                    SRCApp.tcount++;
+                    AddWoman(view);
+                } else {
+                    break;
+                }
+            }
+        }
+        if (ValidateForm()) {
+            SaveDraft();
+            if (UpdateDB()) {
+                Intent sec4_intent = new Intent(this, Section4Activity.class);
+                startActivity(sec4_intent);
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 
+    // ============== Update DB================
     private boolean UpdateDB() {
         SRCDBHelper db = new SRCDBHelper(this);
         Long rowId = db.InsertRecord_Section3(SRCApp.sc3);
         return true;
     }
 
+
+    // ============== Form Saving================
 
     private boolean SaveDraft() {
 
@@ -694,10 +703,11 @@ public class Section3Activity extends Activity {
     }
 
 
+    // ============= Form Validation===============
     private boolean ValidateForm() {
         //Toast.makeText(getApplicationContext(), "Validating Form", Toast.LENGTH_SHORT).show();
 
-        if (getS3q301a().getText().toString().isEmpty() || s3q301a.getText().toString() == null) {
+        if (getS3q301a().getText().toString().isEmpty()) {
             s3q301a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter name of a married woman \r\n", Toast.LENGTH_LONG).show();
             s3q301a.requestFocus();
@@ -706,7 +716,7 @@ public class Section3Activity extends Activity {
             s3q301a.setError(null);
         }
 
-        if (getS3q301b().getText().toString().isEmpty() || s3q301b.getText().toString() == null) {
+        if (getS3q301b().getText().toString().isEmpty()) {
             s3q301b.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter age in years \r\n", Toast.LENGTH_LONG).show();
             s3q301b.requestFocus();
@@ -727,7 +737,7 @@ public class Section3Activity extends Activity {
             s3q301b.setError(null);
         }
 
-        if (getS3q301c().getText().toString().isEmpty() || s3q301c.getText().toString() == null) {
+        if (getS3q301c().getText().toString().isEmpty()) {
             s3q301c.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter education status \r\n", Toast.LENGTH_LONG).show();
             s3q301c.requestFocus();
@@ -773,7 +783,6 @@ public class Section3Activity extends Activity {
         }
 
 
-        if (var_s3q301d == "1") {
             if (rdo_s3q301f1 == -1) {
                 rDOS3q301f11.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
@@ -782,11 +791,10 @@ public class Section3Activity extends Activity {
             } else {
                 rDOS3q301f11.setError(null);
             }
-        }
 
 
-        if (var_s3q301d == "1") {
-            if (var_s3q301f1 == "1" && getS3q301e().getText().toString().isEmpty() || var_s3q301f1 == "1" && s3q301e.getText().toString() == null) {
+        if (var_s3q301d.equals("1")) {
+            if (var_s3q301f1.equals("1") && getS3q301e().getText().toString().isEmpty() || var_s3q301f1.equals("1")) {
                 s3q301e.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "Please enter gestational age \r\n", Toast.LENGTH_LONG).show();
                 s3q301e.requestFocus();
@@ -844,7 +852,7 @@ public class Section3Activity extends Activity {
             }
 
 
-            if (var_s3q301f == "4" && rdo_s3q301g == -1) {
+            if (var_s3q301f.equals("4") && rdo_s3q301g == -1) {
                 rDOS3q301g1.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
                 rDOS3q301g1.requestFocus();
@@ -868,7 +876,7 @@ public class Section3Activity extends Activity {
                     break;
             }
 
-            if (var_s3q301f == "3" && rdo_s3q301h == -1) {
+            if (var_s3q301f.equals("3") && rdo_s3q301h == -1) {
 
                 rDOS3q301h1.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
@@ -925,7 +933,7 @@ public class Section3Activity extends Activity {
             }
 
 
-            if (var_s3q301i == "") {
+            if (var_s3q301i.equals("")) {
                 rDOS3q301i1.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
                 rDOS3q301i1.requestFocus();
@@ -935,7 +943,7 @@ public class Section3Activity extends Activity {
             }
 
 
-            if (var_s3q301i == "10" && getS3q301ioth().getText().toString().isEmpty() || s3q301ioth.getText().toString() == null) {
+            if (var_s3q301i.equals("10") && getS3q301ioth().getText().toString().isEmpty()) {
                 s3q301ioth.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "Please specify place of delivery if others  \r\n", Toast.LENGTH_LONG).show();
                 s3q301ioth.requestFocus();
@@ -992,7 +1000,7 @@ public class Section3Activity extends Activity {
             }
 
 
-            if (var_s3q301j == "8" && getS3q301joth().getText().toString().isEmpty() || s3q301joth.getText().toString() == null) {
+            if (var_s3q301j.equals("8") && getS3q301joth().getText().toString().isEmpty()) {
                 s3q301joth.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "Please specify delivery conducted by if others  \r\n", Toast.LENGTH_LONG).show();
                 s3q301joth.requestFocus();
@@ -1002,7 +1010,7 @@ public class Section3Activity extends Activity {
             }
 
 
-            if (getS3q301k().getText().toString().isEmpty() || s3q301k.getText().toString() == null) {
+            if (getS3q301k().getText().toString().isEmpty()) {
                 s3q301k.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "Please specify cost of delivery  \r\n", Toast.LENGTH_LONG).show();
                 s3q301k.requestFocus();
@@ -1012,7 +1020,7 @@ public class Section3Activity extends Activity {
             }
 
 
-            if (s3q301e.getText().toString().isEmpty() || s3q301e.getText().toString() == null) {
+            if (s3q301e.getText().toString().isEmpty()) {
 
             } else {
                 if (Integer.parseInt(s3q301e.getText().toString()) <= 2 || Integer.parseInt(s3q301e.getText().toString()) > 43) {
@@ -1023,15 +1031,18 @@ public class Section3Activity extends Activity {
             }
 
 
-            if (Integer.parseInt(s3q301c.getText().toString()) < 0
+            if (Integer.parseInt(s3q301c.getText().toString()) == 0
                     && Integer.parseInt(s3q301c.getText().toString()) != 91
                     && Integer.parseInt(s3q301c.getText().toString()) != 92
                     || Integer.parseInt(s3q301c.getText().toString()) > 16
                     && Integer.parseInt(s3q301c.getText().toString()) != 91
                     && Integer.parseInt(s3q301c.getText().toString()) != 92) {
-                Toast.makeText(getApplicationContext(), "Years of schooling of woman must be 0 - 16 or 91 or 92 \r\n", Toast.LENGTH_LONG).show();
                 s3q301c.requestFocus();
+                Toast.makeText(getApplicationContext(), "Years of schooling of woman must be 0 - 16 or 91 or 92 \r\n", Toast.LENGTH_LONG).show();
+                s3q301c.setError("Years of schooling of woman must be 0 - 16 or 91 or 92");
                 return false;
+            } else {
+                s3q301c.setError(null);
             }
 
 

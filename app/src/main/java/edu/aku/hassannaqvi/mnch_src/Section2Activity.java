@@ -1,34 +1,31 @@
 package edu.aku.hassannaqvi.mnch_src;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.app.Activity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import org.json.JSONObject;
 
-import static android.graphics.Color.*;
-import static edu.aku.hassannaqvi.mnch_src.R.color.gray;
-import static edu.aku.hassannaqvi.mnch_src.R.drawable.background_grad;
-
 public class Section2Activity extends Activity {
 
     private static final String TAG = "Sec2";
+    String var_s2q203 = "";
+    String var_s2q205 = "";
     private ScrollView scrollView01;
     private TextView appHeader;
     private TextView lblS2q201;
@@ -63,7 +60,6 @@ public class Section2Activity extends Activity {
     private TextView lblS2q206f;
     private TextView lblS2q206g;
     private TextView lblS2q206h;
-
     private EditText s2q201;
     private EditText s2q202;
     private EditText s2q204;
@@ -76,14 +72,9 @@ public class Section2Activity extends Activity {
     private EditText s2q206f;
     private EditText s2q206g;
     private EditText s2q206h;
-
     private LinearLayout vu_s2q205oth;
-
     private int rdo_s2q203;
     private int rdo_s2q205;
-
-    String var_s2q203 = "";
-    String var_s2q205 = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -736,8 +727,7 @@ public class Section2Activity extends Activity {
         }
 
 
-        if (var_s2q205 == "88" && getS2q205oth().getText().toString().isEmpty() ||
-                var_s2q205 == "88" && s2q205oth.getText().toString() == null) {
+        if (var_s2q205.equals("88") && getS2q205oth().getText().toString().isEmpty()) {
             s2q205oth.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please specify occupation if others \r\n", Toast.LENGTH_LONG).show();
             s2q205oth.requestFocus();
@@ -746,7 +736,7 @@ public class Section2Activity extends Activity {
             s2q205oth.setError(null);
         }
 
-        if (getS2q206a().getText().toString().isEmpty() || s2q206a.getText().toString() == null) {
+        if (getS2q206a().getText().toString().isEmpty()) {
             s2q206a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter total number of members \r\n", Toast.LENGTH_LONG).show();
             s2q206a.requestFocus();
@@ -866,6 +856,7 @@ public class Section2Activity extends Activity {
         int total=0; int mm = 0;  int fm = 0; int child0_28 =0;
         int child1_5=0; int child5_14=0; int unmarriedfm=0; int marriedfm=0;
         int totalWomen = 0;
+        int totalM = 0;
 
 
         try{
@@ -885,10 +876,11 @@ public class Section2Activity extends Activity {
             nfe.printStackTrace();
         }
 
-        total = (mm+ fm + child0_28 + child1_5 + child5_14);
+        total = (mm + fm);
         totalWomen = (marriedfm + unmarriedfm);
+        totalM = (child0_28 + child1_5 + child5_14 + marriedfm + unmarriedfm);
 
-        if(total > totalMembers)
+        if (total > totalMembers || total != totalMembers)
         {
             s2q206a.requestFocus();
             s2q206a.setError("Total members are " + totalMembers + " Check all values again!");
@@ -898,14 +890,23 @@ public class Section2Activity extends Activity {
 
         }
 
-        if(fm > 0 && fm != totalWomen )
+        if ((fm > 0 && totalWomen == 0) || (fm > 0 && totalWomen > fm))
         {
             //s2q206g.requestFocus();
             s2q206g.setError("Total women are " +fm + " Please mention women are married or unmarried");
+            Toast.makeText(getApplicationContext(), "Check values of total women, married and unmarried women \r\n", Toast.LENGTH_LONG).show();
             return false;
-        }
-        else if(totalWomen == fm){
+        } else {
             s2q206g.setError(null);
+        }
+
+        if (totalM > totalMembers) {
+            //s2q206g.requestFocus();
+            s2q206a.setError("Total Members are " + totalMembers + " Please check again1");
+            Toast.makeText(getApplicationContext(), "Total Members are less... Check Again \r\n", Toast.LENGTH_LONG).show();
+            return false;
+        } else {
+            s2q206a.setError(null);
         }
 
 

@@ -54,10 +54,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textCapWords"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
-                android:hint="@string/baseline_s2q201"/>
+                android:ems="10"
+                android:hint="@string/baseline_s2q201"
+                android:inputType="textCapWords" />
 
             <TextView
                 android:id="@+id/lbl_s2q202"
@@ -72,9 +72,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/baseline_s2q202"
                 android:inputType="number"
-                android:maxLength="2"
-                android:hint="@string/baseline_s2q202"/>
+                android:maxLength="2" />
 
             <TextView
                 android:id="@+id/lbl_s2q203"
@@ -109,15 +109,25 @@
                 android:text="@string/baseline_s2q204"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/dullWhile"
+                android:text="@string/educationType"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
+
+
             <EditText
                 android:id="@+id/s2q204"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/baseline_s2q204"
                 android:inputType="number"
-                android:maxLength="2"
-                android:hint="@string/baseline_s2q204"/>
+                android:maxLength="2" />
+
 
             <TextView
                 android:id="@+id/lbl_s2q205"
@@ -234,8 +244,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text"
-                    android:hint="@string/baseline_s2q205oth"/>
+                    android:hint="@string/baseline_s2q205oth"
+                    android:inputType="text" />
 
             </LinearLayout>
 
@@ -259,9 +269,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/baseline_s2q206a"
                 android:inputType="number"
-                android:maxLength="2"
-                android:hint="@string/baseline_s2q206a"/>
+                android:maxLength="2" />
 
             <TextView
                 android:id="@+id/lbl_s2q206b"
@@ -276,9 +286,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/baseline_s2q206b"
                 android:inputType="number"
-                android:maxLength="2"
-                android:hint="@string/baseline_s2q206b"/>
+                android:maxLength="2" />
 
             <TextView
                 android:id="@+id/lbl_s2q206c"
@@ -293,9 +303,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/baseline_s2q206c"
                 android:inputType="number"
-                android:maxLength="2"
-                android:hint="@string/baseline_s2q206c"/>
+                android:maxLength="2" />
 
             <TextView
                 android:id="@+id/lbl_s2q206d"
@@ -310,9 +320,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/baseline_s2q206d"
                 android:inputType="number"
-                android:maxLength="2"
-                android:hint="@string/baseline_s2q206d"/>
+                android:maxLength="2" />
 
             <TextView
                 android:id="@+id/lbl_s2q206e"
@@ -327,9 +337,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/baseline_s2q206e"
                 android:inputType="number"
-                android:maxLength="2"
-                android:hint="@string/baseline_s2q206e"/>
+                android:maxLength="2" />
 
             <TextView
                 android:id="@+id/lbl_s2q206f"
@@ -344,9 +354,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/baseline_s2q206f"
                 android:inputType="number"
-                android:maxLength="2"
-                android:hint="@string/baseline_s2q206f" />
+                android:maxLength="2" />
 
             <TextView
                 android:id="@+id/lbl_s2q206g"
@@ -361,9 +371,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/baseline_s2q206g"
                 android:inputType="number"
-                android:maxLength="2"
-                android:hint="@string/baseline_s2q206g"/>
+                android:maxLength="2" />
 
             <TextView
                 android:id="@+id/lbl_s2q206h"
@@ -378,9 +388,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/baseline_s2q206h"
                 android:inputType="number"
-                android:maxLength="2"
-                android:hint="@string/baseline_s2q206h"/>
+                android:maxLength="2" />
 
             <Button
                 android:id="@+id/btnnext"
