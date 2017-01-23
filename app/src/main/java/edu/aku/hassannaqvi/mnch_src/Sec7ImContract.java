@@ -10,7 +10,7 @@ import org.json.JSONObject;
  * Created by isd on 28/10/2016.
  */
 
-public final class Sec7ImContract implements BaseColumns {
+public class Sec7ImContract implements BaseColumns {
     private static final String TAG = "SEC1_CONTRACT";
 
     Long _ID;

@@ -153,8 +153,8 @@ public class Section1Activity extends Activity implements TextWatcher {
         getS1q104().addTextChangedListener(this);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(Section1Activity.this,
-                android.R.layout.simple_spinner_item, lst_hhcode);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                android.R.layout.simple_spinner_dropdown_item, lst_hhcode);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s1q101.setAdapter(adapter);
 
 
@@ -171,8 +171,8 @@ public class Section1Activity extends Activity implements TextWatcher {
 
 
         ArrayAdapter<String> adapter_cluster = new ArrayAdapter<>(Section1Activity.this,
-                android.R.layout.simple_spinner_item, arr_members);
-        adapter_cluster.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                android.R.layout.simple_spinner_dropdown_item, arr_members);
+//        adapter_cluster.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s1q105.setAdapter(adapter_cluster);
 
 
@@ -195,8 +195,8 @@ public class Section1Activity extends Activity implements TextWatcher {
 
 
                 ArrayAdapter<String> adapter1 = new ArrayAdapter<>(Section1Activity.this,
-                        android.R.layout.simple_spinner_item, arr_members1);
-                adapter1.setDropDownViewResource(android.R.layout.simple_list_item_1);
+                        android.R.layout.simple_spinner_dropdown_item, arr_members1);
+//                adapter1.setDropDownViewResource(android.R.layout.simple_list_item_1);
                 s1q106a.setAdapter(adapter1);
 
             }
@@ -205,15 +205,13 @@ public class Section1Activity extends Activity implements TextWatcher {
                 // TODO Auto-generated method stub
             }
         });
-
-
         alert = new AlertDialog.Builder(this);
         alert.setTitle("Confirm Exit");
         alert.setMessage("Are you sure you want to cancel the entry of this form and go back to main menu ?")
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Intent intent = new Intent(Section1Activity.this, MainPage.class);
+                        Intent intent = new Intent(Section1Activity.this, MainActivity.class);
                         startActivity(intent);
                     }
                 })
@@ -241,6 +239,10 @@ public class Section1Activity extends Activity implements TextWatcher {
                 }
             }
         });*/
+
+        getS1q104().addTextChangedListener(this);
+
+//        s1q101.setBackgroundColor(getResources().getColor(R.color.dullWhile));
 
     }
 
