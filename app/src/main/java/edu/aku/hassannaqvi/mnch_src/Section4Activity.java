@@ -15,7 +15,9 @@ import android.widget.Toast;
 public class Section4Activity extends Activity {
 
     private static final String TAG = "Sec4";
-
+    public static String data = null;
+    public TextView tcount;
+    public int countM = 0;
     private EditText s4q41a;
     private EditText s4q41b;
     private EditText s4q41b1;
@@ -41,30 +43,16 @@ public class Section4Activity extends Activity {
     private RadioButton rdo_s4q41d_9;
     private RadioButton rdo_s4q41d_10;
     private EditText s4q41doth;
-
     private int rdo_s4q41d;
     private EditText s4q41e;
-
     private LinearLayout vu_s4q41doth;
-
     private String var_s4q41c;
     private String var_s4q41d;
-
-
+    //private Button btncontinue;
     private TextView app_header;
-
-    private RadioGroup maternalDeath;
-    private RadioButton md01;
-    private RadioButton md02;
-    private LinearLayout md03;
-    private LinearLayout md04;
-    private LinearLayout maternalDeathFlag;
-    private EditText countMDeath;
-
-
     private Button btnNext;
     private Button btnadd;
-    private Button btncontinue;
+    private int sno = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +61,7 @@ public class Section4Activity extends Activity {
 
         app_header = (TextView) findViewById(R.id.app_header);
         app_header.setText("SRC - > Section4a");
+        tcount = (TextView) findViewById(R.id.tcount);
 
         s4q41a = (EditText) findViewById(R.id.s4q41a);
         s4q41b = (EditText) findViewById(R.id.s4q41b);
@@ -105,6 +94,18 @@ public class Section4Activity extends Activity {
 
         vu_s4q41doth = (LinearLayout) findViewById(R.id.vu_s4q41doth);
 
+        btnNext = (Button) findViewById(R.id.btnNext);
+        btnadd = (Button) findViewById(R.id.btnadd);
+        btnNext.setVisibility(View.GONE);
+
+        CVars var = new CVars();
+        //data = getIntent().getStringExtra("myDataKey");
+        if (getIntent().hasExtra("myDataKey")) {
+            data = getIntent().getExtras().getString("myDataKey");
+        }
+
+        tcount.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Deceased Mother " + SRCApp.tcount + " of " + data + ")");
+
         radio_s4q41d.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -121,84 +122,65 @@ public class Section4Activity extends Activity {
             }
         });
 
-        maternalDeath = (RadioGroup) findViewById(R.id.maternalDeath);
-        md01 = (RadioButton) findViewById(R.id.md01);
-        md02 = (RadioButton) findViewById(R.id.md02);
-        md03 = (LinearLayout) findViewById(R.id.md03);
-        md04 = (LinearLayout) findViewById(R.id.md04);
-        maternalDeathFlag = (LinearLayout) findViewById(R.id.maternalDeathFlag);
-        countMDeath = (EditText) findViewById(R.id.countMDeath);
+        try {
+            countM = Integer.parseInt(data);
+        } catch (NumberFormatException nfe) {
 
-        btnNext = (Button)findViewById(R.id.btnNext);
-        btnadd = (Button)findViewById(R.id.btnadd);
-        btncontinue = (Button)findViewById(R.id.btncontinue);
-
-        if(SRCApp.MaternalDeath){
-            maternalDeathFlag.setVisibility(View.VISIBLE);
-        }else {
-            maternalDeathFlag.setVisibility(View.GONE);
-            md03.setVisibility(View.GONE);
-            md04.setVisibility(View.VISIBLE);
-
-            btnNext.setEnabled(false);
-
-            btncontinue.setVisibility(View.GONE);
         }
 
-        maternalDeath.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                md02.setError(null);
 
-                if (md01.isChecked()){
-                    md03.setVisibility(View.VISIBLE);
-                }else {
-                    md03.setVisibility(View.GONE);
-                    countMDeath.setText(null);
-                }
-            }
-        });
+        if (SRCApp.tcount < countM) {
+            btnadd.setVisibility(View.VISIBLE);
+            btnNext.setVisibility(View.GONE);
+
+        } else {
+            btnNext.setVisibility(View.VISIBLE);
+            btnadd.setVisibility(View.GONE);
+        }
 
 
     }
 
-    public void gotoSection4a(View view) {
+    public void AddWoman(View view) {
 
-        if(md01.isChecked() || md02.isChecked()) {
+        if (ValidateForm()) {
 
-            if (md01.isChecked()) {
-                if (!countMDeath.getText().toString().isEmpty() && Integer.parseInt(countMDeath.getText().toString()) > 0) {
+            if (SaveDraft()) {
 
-                    SRCApp.MaternalDeath = false;
+                Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
 
-                    SRCApp.NoMaternalDeath = Integer.parseInt(countMDeath.getText().toString());
+                if (UpdateDB()) {
 
-                    md03.setVisibility(View.GONE);
-                    maternalDeathFlag.setVisibility(View.GONE);
-                    btnNext.setVisibility(View.VISIBLE);
-                    md04.setVisibility(View.VISIBLE);
+                    SRCApp.tcount++;
+                    Intent fA = new Intent(this, Section4Activity.class);
+                    startActivity(fA);
 
-                    btncontinue.setVisibility(View.GONE);
+                    vu_s4q41doth.setVisibility(View.GONE);
+
+                }
+
+
                 } else {
-                    Toast.makeText(getApplicationContext(), "Error: Invalid", Toast.LENGTH_SHORT).show();
-                    countMDeath.setError("Invalid");
+                Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
                 }
-            } else {
-                startActivity(new Intent(Section4Activity.this, Section4bActivity.class));
             }
         }
-        else {
-            Toast.makeText(this, getString(R.string.maternalDeath), Toast.LENGTH_LONG).show();
-            md02.setError("Error: Invalid");
-        }
-    }
 
     public void gotoSection5(View view) {
-        startActivity(new Intent(Section4Activity.this,Section4bActivity.class));
-    }
 
-    private int counter = 0;
-    private int sno = 0;
+        //tcount.setVisibility(View.VISIBLE);
+
+        if (ValidateForm()) {
+            SaveDraft();
+            if (UpdateDB()) {
+                Intent sec4b_intent = new Intent(this, Section4bActivity.class);
+                startActivity(sec4b_intent);
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
+
+        }
+    }
 
     private boolean SaveDraft() {
 
@@ -208,6 +190,7 @@ public class Section4Activity extends Activity {
 
         SRCApp.sc4a.set_FORM_ID(var.GetHHNO());
         SRCApp.sc4a.set_HHCODE(var.GetHHCode());
+        //SRCApp.countM.set
 
 
         if (sno == 0) {
@@ -297,7 +280,7 @@ public class Section4Activity extends Activity {
     }
 
     private boolean ValidateForm() {
-        if (s4q41a.getText().toString().isEmpty() || s4q41a.getText().toString() == null) {
+        if (s4q41a.getText().toString().isEmpty()) {
             s4q41a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please specify name of deceased mother name ", Toast.LENGTH_LONG).show();
             s4q41a.requestFocus();
@@ -305,7 +288,7 @@ public class Section4Activity extends Activity {
         } else {
             s4q41a.setError(null);
         }
-        if (s4q41b.getText().toString().isEmpty() || s4q41b.getText().toString() == null) {
+        if (s4q41b.getText().toString().isEmpty()) {
             s4q41b.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please specify days ", Toast.LENGTH_LONG).show();
             s4q41b.requestFocus();
@@ -392,8 +375,8 @@ public class Section4Activity extends Activity {
                 break;
         }
 
-        if (var_s4q41d == "10") {
-            if (s4q41doth.getText().toString().isEmpty() || s4q41doth.getText().toString() == null) {
+        if (var_s4q41d.equals("10")) {
+            if (s4q41doth.getText().toString().isEmpty()) {
                 s4q41doth.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "Please specify others ", Toast.LENGTH_LONG).show();
                 s4q41doth.requestFocus();
@@ -404,7 +387,7 @@ public class Section4Activity extends Activity {
         }
 
 
-        if (s4q41e.getText().toString().isEmpty() || s4q41e.getText().toString() == null) {
+        if (s4q41e.getText().toString().isEmpty()) {
             s4q41e.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please specify cause of death ", Toast.LENGTH_LONG).show();
             s4q41e.requestFocus();
@@ -416,45 +399,6 @@ public class Section4Activity extends Activity {
         return true;
     }
 
-    public void AddWoman(View view) {
-        if (ValidateForm()) {
-
-            if (SaveDraft()) {
-
-                Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
-
-                if (UpdateDB()) {
-
-                    ClearFields();
-                    counter = counter + 1;
-
-                    vu_s4q41doth.setVisibility(View.GONE);
-
-//                    s4q41a.requestFocus();
-
-                    SRCApp.NoMaternalDeath-=1 ;
-
-                    if(SRCApp.NoMaternalDeath < 1 && !SRCApp.MaternalDeath){
-//            startActivity(new Intent(Section4Activity.this,Section4bActivity.class));
-
-                        btnadd.setEnabled(false);
-                        btnNext.setEnabled(true);
-                    }
-                    else {
-
-
-                        startActivity(new Intent(Section4Activity.this,Section4Activity.class));
-
-                        finish();
-                    }
-
-
-                } else {
-                    Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }
-    }
 
     private boolean UpdateDB() {
         SRCDBHelper db = new SRCDBHelper(this);
@@ -462,15 +406,6 @@ public class Section4Activity extends Activity {
         return true;
     }
 
-    private void ClearFields() {
-        s4q41a.setText("");
-        s4q41b.setText("");
-        s4q41b1.setText("");
-        s4q41b2.setText("");
-        radio_s4q41c.clearCheck();
-        radio_s4q41d.clearCheck();
-        s4q41e.setText("");
-    }
 
     @Override
     public void onBackPressed() {

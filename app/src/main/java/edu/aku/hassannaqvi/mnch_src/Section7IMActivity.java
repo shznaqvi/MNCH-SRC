@@ -19,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class Section7ImActivity extends Activity {
+class Section7ImActivity extends Activity {
 
     private static final String TAG = Section7ImActivity.class.getSimpleName();
 

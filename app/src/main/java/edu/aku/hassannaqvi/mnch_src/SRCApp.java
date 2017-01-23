@@ -63,6 +63,9 @@ public class SRCApp extends Application {
     //    UMWomen means un-married women
     public static int UMWomen = 0;
     public static int tcount = 1;
+    public static int counter = 1;
+
+    public static int countM = 0;
     protected static LocationManager locationManager;
 
 

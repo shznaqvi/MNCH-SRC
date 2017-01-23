@@ -1,0 +1,121 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_grad"
+    tools:context="edu.aku.hassannaqvi.mnch_src.Section4Activity">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ScrollView01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:background="#d6d6d6"
+        android:scrollbars="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/app_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="30sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/app_header1"
+                style="@style/myheading"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/lbl_hhhead"
+                style="@style/txtquestion"
+                android:gravity="center"
+                android:layoutDirection="ltr"
+                android:text="Deceased Mother Listing" />
+
+            <TextView
+                android:id="@+id/tcount"
+                style="@style/txtquestion"
+                android:gravity="center"
+                android:layoutDirection="ltr"
+                android:text="" />
+
+
+            <LinearLayout
+                android:id="@+id/maternalDeathFlag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/maternalDeath" />
+
+                <RadioGroup
+                    android:id="@+id/maternalDeath"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/md01"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mnyes" />
+
+                    <RadioButton
+                        android:id="@+id/md02"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mnno" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/md03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/countMDeath"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <EditText
+                    android:id="@+id/countMDeath"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="1234567890"
+
+                    android:ems="10"
+                    android:hint="@string/countMDeath"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btncontinue"
+                style="@style/buttons"
+                android:layout_marginTop="20dp"
+                android:onClick="gotoSection4a"
+                android:text="@string/Continue" />
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

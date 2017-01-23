@@ -41,7 +41,7 @@
             android:name=".MainPage"
             android:label="Main"
             android:screenOrientation="portrait" />
-        <activity android:name=".GetCluster"/>
+        <activity android:name=".GetCluster" />
         <activity
             android:name=".Section1Activity"
             android:screenOrientation="portrait"
@@ -78,6 +78,7 @@
         <activity
             android:name=".EndingActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".Section4AMaternalCount"></activity>
     </application>
 
 </manifest>

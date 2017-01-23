@@ -40,78 +40,16 @@
             <TextView
                 android:id="@+id/lbl_hhhead"
                 style="@style/txtquestion"
+                android:gravity="center"
+                android:layoutDirection="ltr"
+                android:text="Deceased Mother Listing" />
+
+            <TextView
+                android:id="@+id/tcount"
+                style="@style/txtquestion"
+                android:gravity="center"
+                android:layoutDirection="ltr"
                 android:text="" />
-
-            <LinearLayout
-                android:id="@+id/maternalDeathFlag"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/maternalDeath" />
-
-                <RadioGroup
-                    android:id="@+id/maternalDeath"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
-                        android:id="@+id/md01"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/mnyes" />
-
-                    <RadioButton
-                        android:id="@+id/md02"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/mnno" />
-                </RadioGroup>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/md03"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/countMDeath"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <EditText
-                    android:id="@+id/countMDeath"
-                    android:hint="@string/countMDeath"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:digits="1234567890"
-                    android:ems="10"
-                    android:inputType="number" />
-
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/btncontinue"
-                style="@style/buttons"
-                android:layout_marginTop="20dp"
-                android:onClick="gotoSection4a"
-                android:text="@string/Continue" />
-
-            <LinearLayout
-                android:id="@+id/md04"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/lbl_s4q41a"
@@ -330,7 +268,7 @@
                         android:id="@+id/s4q41doth"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+
                         android:ems="10"
                         android:hint="@string/mnother"
                         android:inputType="text" />
@@ -365,9 +303,9 @@
                     style="@style/buttons"
                     android:layout_marginTop="20dp"
                     android:onClick="gotoSection5"
-                    android:text="@string/sec4b" />
+                    android:text="@string/sec4b"
+                    android:visibility="gone" />
 
-            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

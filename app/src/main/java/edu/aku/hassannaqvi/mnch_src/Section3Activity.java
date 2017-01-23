@@ -205,13 +205,9 @@ public class Section3Activity extends Activity {
         CVars var = new CVars();
 
         lbl_hhhead = (TextView) findViewById(R.id.lbl_hhhead);
-        //lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
 
 
-        //lbl_wcount.setText("Total Reproductive Woman : " + var.GetReproductionAgeWoman());
         wcount.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Woman " + SRCApp.tcount + " of " + var.GetReproductionAgeWoman() + ")");
-        //wcount.setTextColor(Color.RED);
-        //wcount1 = Integer.parseInt(wcount.getText().toString());
 
         if (SRCApp.tcount < var.GetReproductionAgeWoman()) {
             btnadd.setVisibility(View.VISIBLE);
@@ -222,13 +218,8 @@ public class Section3Activity extends Activity {
             btnadd.setVisibility(View.GONE);
         }
 
-        //btnnext.setEnabled(false);
-
-//        Checking Married Women
-
-        //CVars var = new CVars();
         if (var.GetReproductionAgeWoman() == 0) {
-            startActivity(new Intent(Section3Activity.this, Section4Activity.class));
+            startActivity(new Intent(Section3Activity.this, Section4AMaternalCount.class));
         }
 //
 
@@ -454,12 +445,12 @@ public class Section3Activity extends Activity {
 
     public void gotoSection4(View view) {
 
-        //CVars var = new CVars();
+
 
         if (ValidateForm()) {
             SaveDraft();
             if (UpdateDB()) {
-                Intent sec4_intent = new Intent(this, Section4Activity.class);
+                Intent sec4_intent = new Intent(this, Section4AMaternalCount.class);
                 startActivity(sec4_intent);
             }
         } else {
