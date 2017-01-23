@@ -600,11 +600,12 @@ public class Section2Activity extends Activity {
                 var.setNeonatesChild(Integer.parseInt("0"));
             }
 
-//            if (s2q206d.getText().toString() != "") {
-//                var.setNeonatesChild(Integer.parseInt(s2q206d.getText().toString()));
-//            } else {
-//                var.setNeonatesChild(Integer.parseInt("0"));
-//            }
+            if (s2q206e.getText().toString() != "") {
+                var.setIMChild(var.getNeonatesChild() + Integer.parseInt(s2q206e.getText().toString()));
+            }
+            else {
+                var.setIMChild(var.getNeonatesChild());
+            }
 
 
 

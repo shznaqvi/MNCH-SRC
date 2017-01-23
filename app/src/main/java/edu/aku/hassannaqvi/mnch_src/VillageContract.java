@@ -6,7 +6,7 @@ import android.provider.BaseColumns;
  * Created by isd on 30/12/2016.
  */
 
-public final class VillageContract implements BaseColumns {
+public class VillageContract implements BaseColumns {
     private static final String TAG = "cluster_contract";
 
     String ROW_VCODE;
