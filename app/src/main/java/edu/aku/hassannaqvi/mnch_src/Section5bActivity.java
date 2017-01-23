@@ -381,11 +381,10 @@ public class Section5bActivity extends Activity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (mn054001.isChecked()) {
                     fldGrpmn0541.setVisibility(View.VISIBLE);
-                    fldGrpmn0544.setVisibility(View.GONE);
-                    mn0545.clearCheck();
+                    fldGrpmn0544.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpmn0541.setVisibility(View.GONE);
-                    fldGrpmn0544.setVisibility(View.VISIBLE);
+                    fldGrpmn0544.setVisibility(View.GONE);
                     // Check Box
                     mn054201.setChecked(false);
                     mn054202.setChecked(false);
@@ -398,6 +397,7 @@ public class Section5bActivity extends Activity {
                     mn0541.clearCheck();
                     mn0543.clearCheck();
                     mn0544.clearCheck();
+                    mn0545.clearCheck();
 
                 }
             }
@@ -988,7 +988,6 @@ public class Section5bActivity extends Activity {
                 mn054488x.setError(null);
             }
 
-        } else if (mn054002.isChecked()) {
             //  Skip Check 5.45 Radio
             if (mn0545.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0545), Toast.LENGTH_LONG).show();
@@ -1009,8 +1008,6 @@ public class Section5bActivity extends Activity {
             } else {
                 mn054588x.setError(null);
             }
-
-
         }
 
         return true;

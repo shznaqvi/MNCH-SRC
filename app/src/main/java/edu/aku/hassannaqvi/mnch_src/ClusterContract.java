@@ -9,7 +9,7 @@ import android.provider.BaseColumns;
 /**
  * Created by isd on 20/10/2016.
  */
-public final class ClusterContract implements BaseColumns {
+public class ClusterContract implements BaseColumns {
     private static final String TAG = "cluster_contract";
     String ROW_UCCODE;
     String ROW_UCNAME;
