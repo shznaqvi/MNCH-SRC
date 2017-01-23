@@ -891,7 +891,7 @@ public class Section2Activity extends Activity {
 
         }
 
-        if ((fm > 0 && totalWomen == 0) || (fm > 0 && totalWomen > fm))
+        if (fm > 0 && totalWomen > fm)
         {
             //s2q206g.requestFocus();
             s2q206g.setError("Total women are " +fm + " Please mention women are married or unmarried");
