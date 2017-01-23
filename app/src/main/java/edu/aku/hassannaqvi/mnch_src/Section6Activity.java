@@ -232,8 +232,21 @@ public class Section6Activity extends Activity {
 
                 finish();
 
-                Intent secNext = new Intent(this, Section7Activity.class);
-                startActivity(secNext);
+//                Intent secNext = new Intent(this, Section7Activity.class);
+//                startActivity(secNext);
+
+                CVars var = new CVars();
+                if (var.getNeonatesChild() != 0) {
+                    startActivity(new Intent(this, Section7Activity.class));
+                }
+                else if (var.getIMChild() != 0){
+                    startActivity(new Intent(this, Section7ImActivity.class));
+                }
+                else {
+                    startActivity(new Intent(this, Section8Activity.class));
+                }
+
+
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }

@@ -5,7 +5,7 @@ import android.provider.BaseColumns;
 /**
  * Created by isd on 20/10/2016.
  */
-public final class UsersContract implements BaseColumns {
+public class UsersContract implements BaseColumns {
     private static final String TAG = "Users_CONTRACT";
     Long _ID;
     String ROW_USERNAME;
