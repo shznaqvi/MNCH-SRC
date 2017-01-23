@@ -198,7 +198,7 @@ public class Section3Activity extends Activity {
         vu_s3q301g = (LinearLayout) findViewById(R.id.vu_s3q301g);
 
         btnnext = (Button) findViewById(R.id.btnnext);
-        //btnadd = (Button) findViewById(R.id.btnadd);
+        btnadd = (Button) findViewById(R.id.btnadd);
         lbl_wcount = (TextView) findViewById(R.id.lbl_wcount);
         wcount = (TextView) findViewById(R.id.wcount);
 
@@ -214,11 +214,12 @@ public class Section3Activity extends Activity {
         //wcount1 = Integer.parseInt(wcount.getText().toString());
 
         if (SRCApp.tcount < var.GetReproductionAgeWoman()) {
-            btnnext.setVisibility(View.VISIBLE);
-            btnnext.setText("Add Woman");
+            btnadd.setVisibility(View.VISIBLE);
+            btnnext.setVisibility(View.GONE);
 
-        } else if (SRCApp.tcount == var.GetReproductionAgeWoman()) {
-            btnnext.setText("Section 4");
+        } else {
+            btnnext.setVisibility(View.VISIBLE);
+            btnadd.setVisibility(View.GONE);
         }
 
         //btnnext.setEnabled(false);
@@ -421,10 +422,10 @@ public class Section3Activity extends Activity {
 
     public void AddWoman(View view) {
 
-        //CVars var = new CVars();
+        CVars var = new CVars();
 
         Log.d(TAG, "counter: " + counter);
-        //Log.d(TAG, "getwoman: " + var.GetReproductionAgeWoman());
+        Log.d(TAG, "getwoman: " + var.GetReproductionAgeWoman());
 
 
             if (ValidateForm()) {
@@ -433,12 +434,12 @@ public class Section3Activity extends Activity {
 
                 if (UpdateDB()) {
                     //counter++;
-                    //SRCApp.tcount++;
+                    SRCApp.tcount++;
 
                     Intent fA = new Intent(this, Section3Activity.class);
                     startActivity(fA);
 
-                    //s3q301a.requestFocus();
+                    s3q301a.requestFocus();
 
 
                     } else {
@@ -453,17 +454,8 @@ public class Section3Activity extends Activity {
 
     public void gotoSection4(View view) {
 
-        CVars var = new CVars();
-        if (ValidateForm()) {
-            for (int i = 1; i <= var.GetReproductionAgeWoman(); i++) {
-                if (var.GetReproductionAgeWoman() >= SRCApp.tcount) {
-                    SRCApp.tcount++;
-                    AddWoman(view);
-                } else {
-                    break;
-                }
-            }
-        }
+        //CVars var = new CVars();
+
         if (ValidateForm()) {
             SaveDraft();
             if (UpdateDB()) {
@@ -472,8 +464,8 @@ public class Section3Activity extends Activity {
             }
         } else {
             Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
-        }
 
+        }
     }
 
 
@@ -794,7 +786,7 @@ public class Section3Activity extends Activity {
 
 
         if (var_s3q301d.equals("1")) {
-            if (var_s3q301f1.equals("1") && getS3q301e().getText().toString().isEmpty() || var_s3q301f1.equals("1")) {
+            if (var_s3q301d.equals("1") && getS3q301e().getText().toString().isEmpty()) {
                 s3q301e.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "Please enter gestational age \r\n", Toast.LENGTH_LONG).show();
                 s3q301e.requestFocus();
@@ -803,6 +795,27 @@ public class Section3Activity extends Activity {
                 s3q301e.setError(null);
             }
         }
+
+        int gestation = 0;
+
+
+        try {
+            gestation = Integer.parseInt(s3q301e.getText().toString());
+
+
+            if (gestation < 3 || gestation > 42) {
+                s3q301e.setError(getString(R.string.txterr));
+                Toast.makeText(getApplicationContext(), "Gestational age should be 3 - 42 weeks  \r\n", Toast.LENGTH_LONG).show();
+                s3q301e.requestFocus();
+                return false;
+            } else {
+                s3q301e.setError(null);
+            }
+
+        } catch (NumberFormatException nfe) {
+
+        }
+
 
 
         rdo_s3q301f = radioS3q301f.getCheckedRadioButtonId();

@@ -404,7 +404,6 @@
                     android:id="@+id/s3q301ioth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/mnother"
                     android:inputType="text" />
@@ -490,7 +489,7 @@
                      android:id="@+id/s3q301joth"
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
-                     android:layout_weight="1"
+
                      android:ems="10"
                      android:hint="@string/mnother"
                      android:inputType="text" />
@@ -508,18 +507,18 @@
                 android:id="@+id/s3q301k"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+
                 android:ems="10"
                 android:hint="@string/baseline_s3q301k"
                 android:inputType="number" />
         </LinearLayout>
 
-            <!--<Button
+            <Button
                 android:id="@+id/btnadd"
                 style="@style/buttons"
                 android:layout_marginTop="20dp"
                 android:onClick="AddWoman"
-                android:text="@string/btnadd" />-->
+                android:text="@string/btnadd" />
 
             <Button
                 android:id="@+id/btnnext"
