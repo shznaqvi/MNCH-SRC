@@ -281,24 +281,21 @@ public class Section5bActivity extends Activity {
         mn0530.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (mn053001.isChecked()) {
+                if (checkedId == mn053001.getId()) {
                     fldGrpmn0531.setVisibility(View.GONE);
                     fldGrpmn0532.setVisibility(View.VISIBLE);
                     mn0531.clearCheck();
 
                 } else {
+
                     fldGrpmn0531.setVisibility(View.VISIBLE);
                     fldGrpmn0532.setVisibility(View.GONE);
                     mn0532.clearCheck();
                     mn053288x.setText(null);
-                }
-            }
-        });
 
-        // ========================= Q 5.30 Others============================
-        mn0530.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                }
+
                 if (checkedId == mn053088.getId()) {
 
                     mn053088x.setVisibility(View.VISIBLE);
@@ -314,6 +311,7 @@ public class Section5bActivity extends Activity {
                 }
             }
         });
+
 
         // ================================== Q 5.32 Others =========================
         mn0532.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

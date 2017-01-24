@@ -2195,6 +2195,8 @@ public class Section5Activity extends Activity {
                 mn052888x.setError(null);
             }
 
+
+        } else {
             if (!(mn052901.isChecked()
                     || mn052902.isChecked()
                     || mn052903.isChecked()
@@ -2218,7 +2220,7 @@ public class Section5Activity extends Activity {
             } else {
                 mn052988x.setError(null);
             }
-        } // Skip till start of 5.30
+        }
         return true;
     }
 

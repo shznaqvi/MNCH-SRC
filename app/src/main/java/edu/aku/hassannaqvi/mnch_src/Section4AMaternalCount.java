@@ -102,10 +102,9 @@ public class Section4AMaternalCount extends Activity {
                     countMDeath.setError("Invalid");
                 }
             } else {
-
-                Intent sec4a_intent = new Intent(this, Section4Activity.class);
-                sec4a_intent.putExtra("myDataKey", countMDeath.getText().toString());
-                startActivity(sec4a_intent);
+                Intent sec4b_intent = new Intent(this, Section4bActivity.class);
+                sec4b_intent.putExtra("myDataKey", countMDeath.getText().toString());
+                startActivity(sec4b_intent);
             }
         } else {
             Toast.makeText(this, getString(R.string.maternalDeath), Toast.LENGTH_LONG).show();

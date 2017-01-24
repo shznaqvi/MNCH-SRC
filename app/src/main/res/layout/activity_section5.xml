@@ -2189,7 +2189,9 @@
                         android:visibility="gone" />
                 </LinearLayout>
 
-                <TextView
+            </LinearLayout> <!--fldGrpmn0524-->
+
+            <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -2244,7 +2246,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/mnother" />
-            </LinearLayout> <!--fldGrpmn0524-->
+
 
             <!--  = = = = =  END OF FORM FIELDS - Section C = = = = = -->
 
