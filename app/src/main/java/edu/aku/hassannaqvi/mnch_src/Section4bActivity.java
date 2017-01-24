@@ -73,6 +73,7 @@ public class Section4bActivity extends Activity {
     private Button btnadd;
     private Button btncontinue;
 
+    private static int mortalityCounter = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +86,14 @@ public class Section4bActivity extends Activity {
 
         lbl_hhhead = (TextView) findViewById(R.id.lbl_hhhead);
         CVars var = new CVars();
-        lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
+
+
+        if(!SRCApp.ChildMortality){
+            lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Child Mortality " + mortalityCounter + " of " + countCMortality.getText().toString() + ")");
+        }
+        else {
+            lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
+        }
 
 
         s4q42a = (Spinner) findViewById(R.id.s4q42a);
@@ -204,14 +212,19 @@ public class Section4bActivity extends Activity {
 
                     SRCApp.NoChildMortality-=1 ;
 
+                    if (mortalityCounter < Integer.parseInt(countCMortality.getText().toString())) {
+                        mortalityCounter++;
+                    }
+
+                    CVars var = new CVars();
+                    lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Child Mortality " + mortalityCounter + " of " + countCMortality.getText().toString() + ")");
+
                     if (SRCApp.NoChildMortality < 1 && !SRCApp.ChildMortality) {
                         btnadd.setEnabled(false);
                         btnNext.setEnabled(true);
-                    } else {
-
-                        startActivity(new Intent(Section4bActivity.this, Section5Activity.class));
-
-                        finish();
+                    }
+                    else {
+                        btnNext.setEnabled(false);
                     }
 
                 } else {
@@ -228,16 +241,22 @@ public class Section4bActivity extends Activity {
             if (md01.isChecked()) {
                 if (!countCMortality.getText().toString().isEmpty() && Integer.parseInt(countCMortality.getText().toString()) > 0) {
 
-                    SRCApp.MaternalDeath = false;
+                    SRCApp.ChildMortality = false;
 
-                    SRCApp.NoMaternalDeath = Integer.parseInt(countCMortality.getText().toString());
+                    SRCApp.NoChildMortality = Integer.parseInt(countCMortality.getText().toString());
 
                     md03.setVisibility(View.GONE);
+
                     childMortalityFlag.setVisibility(View.GONE);
                     btnNext.setVisibility(View.VISIBLE);
                     md04.setVisibility(View.VISIBLE);
 
                     btncontinue.setVisibility(View.GONE);
+
+                    CVars var = new CVars();
+                    lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Child Mortality " + mortalityCounter + " of " + countCMortality.getText().toString() + ")");
+
+
                 } else {
                     Toast.makeText(getApplicationContext(), "Error: Invalid", Toast.LENGTH_SHORT).show();
                     countCMortality.setError("Invalid");
@@ -399,8 +418,11 @@ public class Section4bActivity extends Activity {
         else if (var.getNeonatesChild() != 0) {
             startActivity(new Intent(this, Section7Activity.class));
         }
-        else {
+        else if (var.getIMChild() != 0){
             startActivity(new Intent(this, Section7ImActivity.class));
+        }
+        else {
+            startActivity(new Intent(this, Section8Activity.class));
         }
 //
     }
