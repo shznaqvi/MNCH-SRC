@@ -775,14 +775,14 @@ public class Section2Activity extends Activity {
 
 
         try{
-            totalMembers = Integer.parseInt(s2q206a.getText().toString().equals("") ? "0" : s2q206a.getText().toString());
-            mm = Integer.parseInt(s2q206b.getText().toString().equals("") ? "0" : s2q206b.getText().toString());
-            fm = Integer.parseInt(s2q206c.getText().toString().equals("") ? "0" : s2q206c.getText().toString());
-            child0_28 = Integer.parseInt(s2q206d.getText().toString().equals("") ? "0" : s2q206d.getText().toString());
-            child1_5 = Integer.parseInt(s2q206e.getText().toString().equals("") ? "0" : s2q206e.getText().toString());
-            child5_14 = Integer.parseInt(s2q206f.getText().toString().equals("") ? "0" : s2q206f.getText().toString());
-            unmarriedfm = Integer.parseInt(s2q206g.getText().toString().equals("") ? "0" : s2q206g.getText().toString());
-            marriedfm = Integer.parseInt(s2q206h.getText().toString().equals("") ? "0" : s2q206h.getText().toString());
+            totalMembers = Integer.parseInt(s2q206a.getText().toString());
+            mm = Integer.parseInt(s2q206b.getText().toString());
+            fm = Integer.parseInt(s2q206c.getText().toString());
+            child0_28 = Integer.parseInt(s2q206d.getText().toString());
+            child1_5 = Integer.parseInt(s2q206e.getText().toString());
+            child5_14 = Integer.parseInt(s2q206f.getText().toString());
+            unmarriedfm = Integer.parseInt(s2q206g.getText().toString());
+            marriedfm = Integer.parseInt(s2q206h.getText().toString());
 
 
 
@@ -823,6 +823,7 @@ public class Section2Activity extends Activity {
         } else {
             s2q206a.setError(null);
         }
+
 
         return true;
     }
