@@ -662,8 +662,7 @@ public class Section8Activity extends Activity {
 
                 finish();
 
-                Intent secNext = new Intent(this, EndingActivity.class);
-                startActivity(secNext);
+                startActivity(new Intent(this, EndingActivity.class).putExtra("check",true));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
@@ -1340,9 +1339,6 @@ public class Section8Activity extends Activity {
                 } else {
                     mn082220.setError(null);
                 }
-
-
-
 
         }
 

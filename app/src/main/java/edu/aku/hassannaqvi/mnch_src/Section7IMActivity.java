@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -19,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-class Section7ImActivity extends Activity {
+public class Section7ImActivity extends Activity {
 
     private static final String TAG = Section7ImActivity.class.getSimpleName();
 
@@ -248,11 +249,38 @@ class Section7ImActivity extends Activity {
     @BindView(R.id.mnui)
     RadioButton mnui;
 
+    @BindView(R.id.btn_Continue)
+    Button btn_Continue;
+
+
+
+    int counterIM = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section7_im);
         ButterKnife.bind(this);
+
+//        counterIM = Integer.parseInt(getIntent().getExtras().getString("IMChild"));
+
+        CVars var = new CVars();
+
+        if (SRCApp.IMCount > 1){
+            btn_Continue.setText("Next Section");
+
+            appHeader.setText("Section 7IM Child:"+ (var.getIMChild() - (SRCApp.IMCount - 1)) + " out of "+ var.getIMChild());
+
+        }else {
+            btn_Continue.setText("Section 8");
+
+            appHeader.setText("Section 7IM Child:"+ var.getIMChild() + " out of "+ var.getIMChild());
+        }
+
+        if (SRCApp.IMCount < 1) {
+            finish();
+            startActivity(new Intent(this, Section8Activity.class));
+        }
 
     }
 
@@ -290,8 +318,20 @@ class Section7ImActivity extends Activity {
 
                 finish();
 
-                Intent Sec8 = new Intent(this, Section8Activity.class);
-                startActivity(Sec8);
+//                CVars var =new CVars();
+//
+//                if (counterIM < var.getIMChild()){
+//                    startActivity(new Intent(this, Section7ImActivity.class).putExtra("IMChild",var.getIMChild()));
+//                }
+
+                SRCApp.IMCount -= 1;
+
+                finish();
+                startActivity(new Intent(this, Section7ImActivity.class));
+
+
+//                Intent Sec8 = new Intent(this, Section8Activity.class);
+//                startActivity(Sec8);
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -412,5 +452,10 @@ class Section7ImActivity extends Activity {
 
         return true;
     }
+
+//    @Override
+//    public void onBackPressed() {
+//        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+//    }
 
 }

@@ -222,6 +222,7 @@
                 android:ems="10"
                 android:hint="@string/baseline_s1q108"
                 android:inputType="phone"
+                android:digits="0123456789"
                 android:maxLength="11" />
 
             <TextView
@@ -239,6 +240,7 @@
                 android:ems="10"
                 android:hint="@string/baseline_s1q108"
                 android:inputType="phone"
+                android:digits="0123456789"
                 android:maxLength="11" />
 
             <TextView

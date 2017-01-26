@@ -219,12 +219,12 @@ public class Section4bActivity extends Activity {
                     CVars var = new CVars();
                     lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Child Mortality " + mortalityCounter + " of " + countCMortality.getText().toString() + ")");
 
-                    if (SRCApp.NoChildMortality < 1 && !SRCApp.ChildMortality) {
-                        btnadd.setEnabled(false);
-                        btnNext.setEnabled(true);
-                    }
-                    else {
-                        btnNext.setEnabled(false);
+                    if(SRCApp.NoChildMortality > 1){
+                        btnNext.setVisibility(View.GONE);
+                        btnadd.setVisibility(View.VISIBLE);
+                    }else {
+                        btnNext.setVisibility(View.VISIBLE);
+                        btnadd.setVisibility(View.GONE);
                     }
 
                 } else {
@@ -248,7 +248,15 @@ public class Section4bActivity extends Activity {
                     md03.setVisibility(View.GONE);
 
                     childMortalityFlag.setVisibility(View.GONE);
-                    btnNext.setVisibility(View.VISIBLE);
+
+                    if (Integer.parseInt(countCMortality.getText().toString()) == 1 ){
+                        btnNext.setVisibility(View.VISIBLE);
+                        btnadd.setVisibility(View.GONE);
+                    }else {
+                        btnNext.setVisibility(View.GONE);
+                        btnadd.setVisibility(View.VISIBLE);
+                    }
+
                     md04.setVisibility(View.VISIBLE);
 
                     btncontinue.setVisibility(View.GONE);
@@ -409,22 +417,37 @@ public class Section4bActivity extends Activity {
 
     public void gotoSection5(View view) {
 
-        //        Checking Married Women
+        if(SRCApp.NoChildMortality == 1){
+            if (ValidateForm()) {
 
-        CVars var = new CVars();
-        if (var.GetReproductionAgeWoman() != 0) {
-            startActivity(new Intent(this, Section5Activity.class));
-        }
-        else if (var.getNeonatesChild() != 0) {
-            startActivity(new Intent(this, Section7Activity.class));
-        }
-        else if (var.getIMChild() != 0){
-            startActivity(new Intent(this, Section7ImActivity.class));
-        }
-        else {
-            startActivity(new Intent(this, Section8Activity.class));
-        }
+                if (SaveDraft()) {
+
+                    Toast.makeText(this, "Storing Values", Toast.LENGTH_SHORT).show();
+
+                    if (UpdateDB()) {
+
+                        //        Checking Married Women
+
+                        CVars var = new CVars();
+                        if (var.GetReproductionAgeWoman() != 0) {
+                            startActivity(new Intent(this, Section5Activity.class));
+                        }
+                        else if (var.getNeonatesChild() != 0) {
+                            startActivity(new Intent(this, Section7Activity.class));
+                        }
+                        else if (var.getIMChild() != 0){
+                            startActivity(new Intent(this, Section7ImActivity.class));
+                        }
+                        else {
+                            startActivity(new Intent(this, Section8Activity.class));
+                        }
 //
+                    }
+                }
+            }
+        }
+
+
     }
 
 

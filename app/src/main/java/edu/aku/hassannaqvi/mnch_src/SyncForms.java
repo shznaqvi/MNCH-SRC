@@ -4,9 +4,11 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -32,11 +34,11 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
     }
 
     public static void longInfo(String str) {
-        if (str.length() > 4000) {
-            Log.i("TAG: ", str.substring(0, 4000));
-            longInfo(str.substring(4000));
-        } else
-            Log.i("TAG: ", str);
+//        if (str.length() > 4000) {
+//            Log.i("TAG: ", str.substring(0, 4000));
+//            longInfo(str.substring(4000));
+//        } else
+//            Log.i("TAG: ", str);
     }
 
 
@@ -52,12 +54,19 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... params) {
+        try {
+            return downloadUrl("http://"+SRCApp._DefaultIP+"/forms");
+        } catch (IOException e) {
+            return "Unable to upload data. Server may be down.";
+        }
+    }
 
+    private String downloadUrl(String myurl) throws IOException {
         String line = "No Response";
 
         HttpURLConnection connection = null;
         try {
-            String request = "http://10.198.96.103:8080";
+            String request = myurl;
             //String request = "http://10.1.42.30:3000/forms";
 
             URL url = new URL(request);
@@ -124,9 +133,33 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        pd.setMessage("Server Response: " + result);
-        pd.setTitle("Please wait... Done Forms");
-        pd.show();
+        int sSynced = 0;
+        JSONArray json = null;
+        try {
+            json = new JSONArray(result);
+            SRCDBHelper db = new SRCDBHelper(mContext);
+            for (int i = 0; i < json.length(); i++) {
+                JSONObject jsonObject = new JSONObject(json.getString(i));
+                if(jsonObject.getString("status").equals("1")){
+                    db.updateForms(jsonObject.getString("id"));
+                    sSynced++;
+                }
+            }
+            Toast.makeText(mContext, sSynced+" Forms synced." + String.valueOf(json.length()-sSynced) + " Errors.", Toast.LENGTH_SHORT).show();
+
+            pd.setMessage(sSynced+" Forms synced." + String.valueOf(json.length()-sSynced) + " Errors.");
+            pd.setTitle("Done uploading Forms data");
+            pd.show();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(mContext, "Failed Sync " + result, Toast.LENGTH_SHORT).show();
+
+            pd.setMessage(result);
+            pd.setTitle("Formss Sync Failed");
+            pd.show();
+
+
+        }
     }
 
 

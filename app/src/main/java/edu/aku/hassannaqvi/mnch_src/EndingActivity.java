@@ -50,20 +50,16 @@ public class EndingActivity extends Activity  {
         setContentView(R.layout.activity_ending);
         ButterKnife.bind(this);
 
-        String data = getIntent().getExtras().getString("Data","var_s1q112");
-        if(data.equals("2"))
+        if(SRCApp.fc.getROW_S1Q112().equals("2") || getIntent().getBooleanExtra("check",false))
         {
-
             fldGrpmn0823Reason.setVisibility(View.VISIBLE);
             mn082301.setEnabled(false);
             mn082302.setChecked(true);
 
-
         }else {
-
             fldGrpmn0823Reason.setVisibility(View.GONE);
-            mn082301.setEnabled(true);
-            mn082302.setChecked(false);
+            mn082301.setChecked(true);
+            mn082302.setEnabled(false);
         }
 
         mn0823Reason.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -99,13 +95,12 @@ public class EndingActivity extends Activity  {
 
                 finish();
 
-                Intent secNext = new Intent(this, MainPage.class);
+                Intent secNext = new Intent(this, MainActivity.class);
                 startActivity(secNext);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
         }
-
     }
 
     private boolean UpdateDB() {

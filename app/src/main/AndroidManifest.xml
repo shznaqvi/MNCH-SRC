@@ -70,10 +70,16 @@
             android:name=".Section7Activity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
+            android:name=".Section7ImActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
             android:name=".Section8Activity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".Section5bActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".Section5cActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".EndingActivity"

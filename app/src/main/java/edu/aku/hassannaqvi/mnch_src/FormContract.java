@@ -49,6 +49,9 @@ public class FormContract implements BaseColumns {
     String ROW_GPS_DT;
     String ROW_GPS_ACC;
 
+    String COLUMN_SYNCED;
+    String COLUMN_SYNCED_DATE;
+
     FormContract(String devid, String formid, String s1q101, String s1q102, String s1q103, String s1q104, String s1q105,
                  String s1q106a, String s1q106b, String s1q107, String s1q108, String s1q108b, String s1q109a, String s1q109b, String s1q110,
                  String s1q111, String s1q111oth, String s1q112) {
@@ -134,6 +137,9 @@ public class FormContract implements BaseColumns {
         this.ROW_GPS_DT = jsonObject.getString(Sec1Entry.ROW_GPS_DT);
         this.ROW_GPS_ACC = jsonObject.getString(Sec1Entry.ROW_GPS_ACC);
 
+        this.COLUMN_SYNCED = jsonObject.getString(Sec1Entry.COLUMN_SYNCED);
+        this.COLUMN_SYNCED_DATE = jsonObject.getString(Sec1Entry.COLUMN_SYNCED_DATE);
+
         return this;
     }
 
@@ -173,6 +179,9 @@ public class FormContract implements BaseColumns {
         this.ROW_GPS_LAT = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_GPS_LAT));
         this.ROW_GPS_DT = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_GPS_DT));
         this.ROW_GPS_ACC = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_GPS_ACC));
+
+        this.COLUMN_SYNCED = cursor.getString(cursor.getColumnIndex(Sec1Entry.COLUMN_SYNCED));
+        this.COLUMN_SYNCED_DATE = cursor.getString(cursor.getColumnIndex(Sec1Entry.COLUMN_SYNCED_DATE));
 
         return this;
     }
@@ -425,6 +434,23 @@ public class FormContract implements BaseColumns {
         this.ROW_GPS_DT = ROW_GPS_DT;
     }
 
+    public String getColumnSynced() {
+        return COLUMN_SYNCED;
+    }
+
+    public void setColumnSynced(String ColumnSynced) {
+        this.COLUMN_SYNCED = ColumnSynced;
+    }
+
+    public String getColumnSyncedDate() {
+        return COLUMN_SYNCED_DATE;
+    }
+
+    public void setColumnSyncedDate(String ColumnSyncedDate) {
+        this.COLUMN_SYNCED_DATE = ColumnSyncedDate;
+    }
+
+
     public String getROW_GPS_ACC() {
         return ROW_GPS_ACC;
     }
@@ -494,6 +520,9 @@ public class FormContract implements BaseColumns {
         json.put(Sec1Entry.ROW_GPS_ACC, this.ROW_GPS_ACC);
         json.put(Sec1Entry.ROW_GPS_DT, this.ROW_GPS_DT);
 
+        json.put(Sec1Entry.COLUMN_SYNCED, this.COLUMN_SYNCED);
+        json.put(Sec1Entry.COLUMN_SYNCED_DATE, this.COLUMN_SYNCED_DATE);
+
         return json;
     }
 
@@ -536,5 +565,8 @@ public class FormContract implements BaseColumns {
         public static final String ROW_GPS_LAT = "gps_lat";
         public static final String ROW_GPS_DT = "gps_dt";
         public static final String ROW_GPS_ACC = "gps_acc";
+
+        public static final String COLUMN_SYNCED = "sync";
+        public static final String COLUMN_SYNCED_DATE = "sync_date";
     }
 }

@@ -14,6 +14,8 @@ import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -30,6 +32,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class Section1Activity extends Activity implements TextWatcher {
@@ -63,9 +68,7 @@ public class Section1Activity extends Activity implements TextWatcher {
     private RadioButton rDOS1q1114;
     private TextView lblS1q111oth;
     private TextView lblS1q112;
-    private RadioGroup radioS1q112;
-    private RadioButton rDOS1q1121;
-    private RadioButton rDOS1q1122;
+
     private EditText s1q102;
     private EditText formid;
     private Spinner s1q101;
@@ -85,10 +88,23 @@ public class Section1Activity extends Activity implements TextWatcher {
     private AlertDialog.Builder alert;
     private String spDateT;
 
+    @BindView(R.id.btnnext)
+    Button btnNext;
+
+    @BindView(R.id.radio_s1q112)
+    RadioGroup radioS1q112;
+    @BindView(R.id.RDO_s1q112_1)
+    RadioButton rDOS1q1121;
+    @BindView(R.id.RDO_s1q112_2)
+    RadioButton rDOS1q1122;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section1);
+
+        ButterKnife.bind(this);
 
         SRCApp.DEVID = Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID);
@@ -244,6 +260,33 @@ public class Section1Activity extends Activity implements TextWatcher {
 
 //        s1q101.setBackgroundColor(getResources().getColor(R.color.dullWhile));
 
+
+        rDOS1q1122.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    btnNext.setText(R.string.end_interview);
+                }
+                else {
+                    btnNext.setText("Section 2");
+                }
+            }
+        });
+
+//        radioS1q112.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//                if (rDOS1q1122.isChecked()){
+//                    btnNext.setText(R.string.end_interview);
+//                }
+//                else {
+//                    btnNext.setText("Section 2");
+//                }
+//            }
+//        });
+
+
+
     }
 
     private EditText getFormid() {
@@ -306,7 +349,6 @@ public class Section1Activity extends Activity implements TextWatcher {
                         startActivity(sec2_intent);
                     } else {
                         Intent sec2_intent = new Intent(this, EndingActivity.class);
-                        sec2_intent.putExtra("Data", var_s1q112);
                         startActivity(sec2_intent);
                     }
                 } else {
@@ -320,6 +362,8 @@ public class Section1Activity extends Activity implements TextWatcher {
         SRCDBHelper db = new SRCDBHelper(this);
         SRCApp.fc.set_ID(db.InsertRecord(SRCApp.fc));
         SRCApp.fc.setROW_UUID(SRCApp.fc.getROW_DEVID() + SRCApp.fc.get_ID());
+
+        SRCApp.fc.get_ID();
 
         return true;
     }

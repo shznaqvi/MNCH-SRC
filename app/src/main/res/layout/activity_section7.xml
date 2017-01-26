@@ -330,7 +330,7 @@
 
             <LinearLayout
                 android:id="@+id/mn07010Grp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:orientation="vertical">
@@ -462,7 +462,7 @@
 
             <LinearLayout
                 android:id="@+id/mn07013Grp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:orientation="vertical">
@@ -489,6 +489,8 @@
                         android:id="@+id/mn071301x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:digits="0123456789"
+                        android:inputType="number"
                         android:hint="@string/mn071301" />
 
                     <RadioButton
@@ -501,6 +503,8 @@
                         android:id="@+id/mn071302x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:digits="0123456789"
+                        android:inputType="number"
                         android:hint="@string/mn071302" />
 
                 </RadioGroup>
@@ -593,7 +597,7 @@
 
             <LinearLayout
                 android:id="@+id/mn07016BigGrp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:orientation="vertical">
@@ -788,7 +792,7 @@
 
                 <LinearLayout
                     android:id="@+id/mn07019Grp"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:orientation="vertical">
@@ -872,7 +876,7 @@
 
             <LinearLayout
                 android:id="@+id/mn07019BigGrp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:orientation="vertical">
@@ -937,7 +941,7 @@
 
                 <LinearLayout
                     android:id="@+id/mn07022Grp"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:orientation="vertical">
@@ -952,17 +956,20 @@
                     <EditText
                         android:id="@+id/mn072201"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:hint="1"/>
 
                     <EditText
                         android:id="@+id/mn072202"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:hint="2"/>
 
                     <EditText
                         android:id="@+id/mn072203"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:hint="3"/>
 
                 </LinearLayout>
 
@@ -972,7 +979,7 @@
             <!--  = = = = =  END OF FORM FIELDS - Section 7 = = = = = -->
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:orientation="horizontal">

@@ -16,7 +16,7 @@ import android.view.View;
  */
 
 public class SRCApp extends Application {
-    public static final String _IP = "43.245.131.159"; // Test PHP server
+    public static final String _IP = "10.198.97.73"; // Test PHP server
     public static final Integer _PORT = 8080; // Port - with colon (:)
     public static final String _HOST_URL = "http://" + _IP + ":" + _PORT + "/";
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
@@ -34,7 +34,7 @@ public class SRCApp extends Application {
     */
     public static final long MILLISECONDS_IN_YEAR = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_YEAR;
     //public static final String _IP = "192.168.1.10"; // Test NODE server
-    public static String _DefaultIP = "http://10.1.42.64"; // Test PHP server
+    public static String _DefaultIP = "http://10.198.97.73"; // Test PHP server
     public static String DEVID;
     public static String GPS_LAT;
     public static String GPS_LNG;
@@ -64,6 +64,10 @@ public class SRCApp extends Application {
     public static int UMWomen = 0;
     public static int tcount = 1;
     public static int counter = 1;
+
+    //IM Child
+    public static int IMCount = 0;
+
 
     public static int countM = 0;
     protected static LocationManager locationManager;

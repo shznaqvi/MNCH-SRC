@@ -106,7 +106,7 @@ public class Section6Activity extends Activity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (mn060101.isChecked()) {
-                    fldGrpmn0602.setVisibility(View.GONE);
+                    fldGrpmn0602.setVisibility(View.VISIBLE);
 
                 } else {
                     fldGrpmn0602.setVisibility(View.GONE);

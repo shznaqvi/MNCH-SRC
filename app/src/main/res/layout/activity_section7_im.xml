@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_grad"
-    tools:context="edu.aku.hassannaqvi.mnch_src.Section7IMActivity">
+    tools:context="edu.aku.hassannaqvi.mnch_src.Section7ImActivity">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/ScrollView01"
@@ -68,7 +68,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn07im02"
-                android:inputType="textPersonName" />
+                android:digits="0123456789"
+                android:inputType="number" />
 
 
             <TextView

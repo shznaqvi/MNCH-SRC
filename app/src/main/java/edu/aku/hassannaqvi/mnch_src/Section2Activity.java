@@ -510,8 +510,16 @@ public class Section2Activity extends Activity {
 
     private boolean UpdateDB() {
         SRCDBHelper db = new SRCDBHelper(this);
-        db.updateS2();
-        return true;
+
+        int updcount = db.updateS2();
+
+        if (updcount == 1) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
 
@@ -588,23 +596,27 @@ public class Section2Activity extends Activity {
             s2.put("s2q206h", s2q206h.getText().toString());
 
             CVars var = new CVars();
-            if (s2q206h.getText().toString() != "") {
+            if (!s2q206h.getText().toString().isEmpty()) {
                 var.StoreReporductionAgeWoman(Integer.parseInt(s2q206h.getText().toString()));
             } else {
                 var.StoreReporductionAgeWoman(Integer.parseInt("0"));
             }
 
-            if (s2q206d.getText().toString() != "") {
+            if (!s2q206d.getText().toString().isEmpty()) {
                 var.setNeonatesChild(Integer.parseInt(s2q206d.getText().toString()));
             } else {
                 var.setNeonatesChild(Integer.parseInt("0"));
             }
 
-            if (s2q206e.getText().toString() != "") {
+            if (!s2q206e.getText().toString().isEmpty()) {
                 var.setIMChild(var.getNeonatesChild() + Integer.parseInt(s2q206e.getText().toString()));
+
+                SRCApp.IMCount = var.getIMChild();
             }
             else {
                 var.setIMChild(var.getNeonatesChild());
+
+                SRCApp.IMCount = var.getIMChild();
             }
 
 
@@ -843,9 +855,9 @@ public class Section2Activity extends Activity {
         Toast.makeText(Section2Activity.this, "GPS set", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
-    }
+//    @Override
+//    public void onBackPressed() {
+//        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+//    }
 
 }

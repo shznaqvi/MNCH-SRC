@@ -113,7 +113,6 @@
                     style="@style/buttons"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:onClick="endInterview"
                     android:text="@string/end_interview"
                     android:textColor="#ff1e1e" />
 
