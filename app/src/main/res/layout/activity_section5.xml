@@ -32,6 +32,13 @@
                 android:layout_height="2dp"
                 android:background="@color/colorPrimary" />
 
+            <TextView
+                android:id="@+id/lbl_hhhead1"
+                style="@style/txtquestion"
+                android:gravity="center"
+                android:layoutDirection="rtl"
+                android:text="@string/section5Label" />
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -92,7 +99,7 @@
                         android:text="@string/mnno" />
 
                 </RadioGroup>
-            </LinearLayout>
+
 
             <LinearLayout
                 android:id="@+id/fldGrpmn0503"
@@ -131,6 +138,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/mn050303" />
                 </RadioGroup>
+            </LinearLayout>
             </LinearLayout>
 
             <TextView
@@ -380,9 +388,9 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:digits="0123456789"
                         android:hint="@string/mn051001"
                         android:inputType="number"
-                        android:digits="0123456789"
                         android:maxLength="3" />
                 </LinearLayout>
 
@@ -816,8 +824,8 @@
                                 android:layout_weight="1"
                                 android:digits="0123456789"
                                 android:hint="@string/mn0517days"
-                                android:maxLength="2"
-                                android:inputType="number" />
+                                android:inputType="number"
+                                android:maxLength="2" />
 
                             <EditText
                                 android:id="@+id/mn0517a2m"
@@ -826,8 +834,8 @@
                                 android:layout_weight="1"
                                 android:digits="123456789"
                                 android:hint="@string/mn0517month"
-                                android:maxLength="1"
-                                android:inputType="number" />
+                                android:inputType="number"
+                                android:maxLength="1" />
                         </LinearLayout>
 
                         <TextView
@@ -1709,11 +1717,6 @@
 
                 </RadioGroup>
 
-                <LinearLayout
-                    android:id="@+id/fldGrpmn0522"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1751,7 +1754,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/mn052204" />
                     </RadioGroup>
-                </LinearLayout>
+
             </LinearLayout>
 
             <TextView
@@ -1883,7 +1886,14 @@
                         android:hint="@string/mnother" />
                 </LinearLayout>
 
-                <TextView
+                <LinearLayout
+                    android:id="@+id/fldGrpmn0526"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -2223,6 +2233,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/mnother" />
+
+            </LinearLayout>
 
             </LinearLayout>
 

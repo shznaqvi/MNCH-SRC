@@ -41,8 +41,8 @@
                 android:id="@+id/lbl_hhhead"
                 style="@style/txtquestion"
                 android:gravity="center"
-                android:layoutDirection="ltr"
-                android:text="Woman Pregnant or Delivered and Died during last 1 year "
+                android:layoutDirection="rtl"
+                android:text="@string/maternalLabel"
                 android:textSize="20sp" />
 
             <TextView
@@ -106,7 +106,7 @@
                     android:ems="10"
                     android:hint="@string/countMDeath"
                     android:inputType="number"
-                    android:maxLength="2" />
+                    android:maxLength="1" />
 
             </LinearLayout>
 

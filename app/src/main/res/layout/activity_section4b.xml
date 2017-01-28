@@ -38,8 +38,16 @@
                 android:layout_gravity="center_horizontal" />
 
             <TextView
+                android:id="@+id/lbl_hhhead1"
+                style="@style/txtquestion"
+                android:gravity="center"
+                android:layoutDirection="rtl"
+                android:text="@string/childLabel" />
+
+            <TextView
                 android:id="@+id/lbl_hhhead"
                 style="@style/txtquestion"
+                android:gravity="center"
                 android:text="" />
 
             <LinearLayout
@@ -94,9 +102,9 @@
                     android:layout_weight="1"
                     android:digits="1234567890"
                     android:ems="10"
-                    android:maxLength="2"
                     android:hint="@string/countMDeath"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="1" />
 
             </LinearLayout>
 
@@ -185,9 +193,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:digits="0123456789"
                     android:ems="10"
                     android:hint="@string/baseline_s4q42d"
-                    android:digits="0123456789"
                     android:inputType="number"
                     android:maxLength="2" />
 
@@ -203,9 +211,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:digits="0123456789"
                     android:ems="10"
                     android:hint="@string/baseline_s4q42d1"
-                    android:digits="0123456789"
                     android:inputType="number"
                     android:maxLength="2" />
 
@@ -221,9 +229,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:digits="0123456789"
                     android:ems="10"
                     android:hint="@string/baseline_s4q42d2"
-                    android:digits="0123456789"
                     android:inputType="number"
                     android:maxLength="1" />
 

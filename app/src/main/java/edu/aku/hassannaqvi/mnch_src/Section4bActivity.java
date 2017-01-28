@@ -3,11 +3,11 @@ package edu.aku.hassannaqvi.mnch_src;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -23,12 +23,11 @@ import java.util.Collection;
 public class Section4bActivity extends Activity {
 
     private static final String TAG = "Sec4a";
-
+    private static int mortalityCounter = 1;
+    public int count = 0;
     private TextView appHeader;
     private TextView lbl_hhhead;
-
     private LinearLayout vu_s4q42eoth;
-
     private Spinner s4q42a;
     private EditText s4q42b;
     private RadioGroup radio_s4q42c;
@@ -50,16 +49,12 @@ public class Section4bActivity extends Activity {
     private RadioButton rdo_s4q42e_9;
     private RadioButton rdo_s4q42e_10;
     private EditText s4q42eoth;
-
     private int rdo_s4q42e;
     private EditText s4q42f;
-
     private String var_s4q42c;
     private String var_s4q42e;
-
     private int sno = 0;
     private int counter = 0;
-
     private RadioGroup childMortality;
     private RadioButton md01;
     private RadioButton md02;
@@ -67,13 +62,10 @@ public class Section4bActivity extends Activity {
     private LinearLayout md04;
     private LinearLayout childMortalityFlag;
     private EditText countCMortality;
-
-
     private Button btnNext;
     private Button btnadd;
     private Button btncontinue;
-
-    private static int mortalityCounter = 1;
+    private TextView lbl_hhhead1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +73,11 @@ public class Section4bActivity extends Activity {
         setContentView(R.layout.activity_section4b);
 
 
-        appHeader = (TextView) findViewById(R.id.app_header1);
+        appHeader = (TextView) findViewById(R.id.app_header);
         appHeader.setText("SRC - > Section4b");
 
         lbl_hhhead = (TextView) findViewById(R.id.lbl_hhhead);
+        lbl_hhhead1 = (TextView) findViewById(R.id.lbl_hhhead1);
 
 
 
@@ -185,12 +178,37 @@ public class Section4bActivity extends Activity {
             }
         });
 
+        countCMortality.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    count = Integer.parseInt(countCMortality.getText().toString());
+                    if (count < 1 || count > 5) {
+                        countCMortality.setError("Cant be less than 1 or greater than 5.");
+                        countCMortality.requestFocus();
+                    } else countCMortality.setError(null);
+                } catch (NumberFormatException nfe) {
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
 
         CVars var = new CVars();
 
 
         if(!SRCApp.ChildMortality){
-            lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Child Mortality " + mortalityCounter + " of " + countCMortality.getText().toString() + ")");
+            lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Deceased Child " + mortalityCounter + " of " + countCMortality.getText().toString() + ")");
         }
         else {
             lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
@@ -221,6 +239,7 @@ public class Section4bActivity extends Activity {
 
                     CVars var = new CVars();
                     lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Child Mortality " + mortalityCounter + " of " + countCMortality.getText().toString() + ")");
+                    s4q42b.requestFocus();
 
                     if(SRCApp.NoChildMortality > 1){
                         btnNext.setVisibility(View.GONE);

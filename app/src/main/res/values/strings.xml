@@ -267,7 +267,7 @@
     <string name="mnno">نه</string>
     <string name="mn0515"> توهان پنهنجي حمل جو بنيادي چيڪپ ڇوڪرايو هيو؟ </string>
     <string name="mn051501"> نئين ڄمڻ واري ٻار جي افزائش ڄاڻڻ لاءِ </string>
-    <string name="mn051502"> طريقي سان ٿي سگھي ٿو ويم ڪھڙيِ </string>
+    <string name="mn051502">ويم ڪهڙي طريقي سان ٿي سگهي ٿوِ </string>
     <string name="mn051503"> ويم جي تاريخ ڄاڻڻ لاءِ </string>
     <string name="mn051504"> ٽي ٽيِ ويڪسين لڳرائڻ جي لاءِ </string>
     <string name="mn051505"> بلڊ پريشر جي معائني لاء </string>
@@ -303,9 +303,9 @@
     <string name="mn0517ovit"> Other vitamins </string>
 
     <string name="mn0518"> حمل جي بنيادي چيڪپ دوران ڇا توهان کي هيٺ ڏنل صلاحِ ڏني وئي هئي؟ </string>
-    <string name="mn051801"> ۽ ويم جي خطرناڪ علامتن باري ۾ حمل </string>
+    <string name="mn051801"> حمل ۽ ويم جي خطرناڪ علامتن باري ۾ </string>
     <string name="mn051802"> کاڌ يا خوراڪ جي باري ۾ </string>
-    <string name="mn051803"> فوليٽ سپليمينٽ آئرن </string>
+    <string name="mn051803"> آئرن فوليٽ سپليمينٽ </string>
     <string name="mn051804"> خانداني منصوبابندي جي باري ۾ </string>
     <string name="mn051805"> ڄمڻ واري ٻار جو انتظام ڪرڻ </string>
     <string name="mn051806"> ٻار کي صرف ۽ صرف پنهنجو کير </string>
@@ -325,7 +325,7 @@
     <string name="mn052201"> هڪ ڀيرو </string>
     <string name="mn052202"> ٻه ڀيرا </string>
     <string name="mn052203"> ٽي ڀيرا </string>
-    <string name="mn052204"> وڌيڪ کان ٽن ڀيرن </string>
+    <string name="mn052204"> ٽن ڀيرن کان وڌيڪ </string>
     <string name="mn0523"> ڇا توهان کي پنهنجي آخري حمل دوران ڪاپيچيدگي ٿي هئي؟ </string>
     <string name="mn0524"> جيڪڏهن ها ته اوهان صحت مرڪز تي وقت تي پهچندا آهيو؟ ها، نه </string>
     <string name="mn0525"> جيڪڏهن نه ته اوهان صحت مرڪز تي ڇو نه پهتا هو؟ </string>
@@ -850,12 +850,16 @@
 
     <string name="countMDeath"> مري ويل مائن جو تعداد </string>
     <string name="maternalDeath"> ڇا هن گهر ۾ حمل يا ويم کان 40 ڏينهن تائين ڪا ماء مري وئي هئي؟ </string>
+    <string name="maternalLabel"> 1 سال جي دوران حمل يا ويم کان 40 ڏينهن تائين مري ويل مائون </string>
+    <string name="childLabel"> گذريل 5 سالن جي دوران 5 سالن جي عمر تائين مري ويل ٻار </string>
     <string name="skip"> Skip Section </string>
     <string name="Continue"> Continue </string>
     <!-- Section 6 -->
 
     <string name="countCMortality"> مري ويل ٻارن جو تعداد </string>
     <string name="childMortality"> ڇا هن گهر ۾ پوئين 5 سالن دوران ڪو ٻار مري ويو هو؟ </string>
+    <string name="section5Label"> صرف حامله عورتن لاء (گذشته هڪ سال دوران) </string>
+    <string name="section5bLabel"> آخري ويم </string>
 
     <string name="death"> مري ويل </string>
 

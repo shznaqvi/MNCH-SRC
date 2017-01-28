@@ -427,8 +427,8 @@ public class Section5Activity extends Activity {
     RadioButton mn052002;
     @BindView(R.id.fldGrpmn0521)
     LinearLayout fldGrpmn0521;
-    @BindView(R.id.fldGrpmn0522)
-    LinearLayout fldGrpmn0522;
+    //@BindView(R.id.fldGrpmn0522)
+    //LinearLayout fldGrpmn0522;
     @BindView(R.id.mn0521)
     RadioGroup mn0521;
     @BindView(R.id.mn052101)
@@ -593,6 +593,8 @@ public class Section5Activity extends Activity {
     LinearLayout fldGrpmn0509;
     @BindView(R.id.fldGrpmn0515)
     LinearLayout fldGrpmn0515;
+    @BindView(R.id.fldGrpmn0526)
+    LinearLayout fldGrpmn0526;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -965,7 +967,7 @@ public class Section5Activity extends Activity {
                 }
             }
         });
-        mn0521.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+       /* mn0521.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (mn052101.isChecked()) {
@@ -975,7 +977,7 @@ public class Section5Activity extends Activity {
                     mn0522.clearCheck();
                 }
             }
-        });
+        });*/
         mn0523.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -1027,8 +1029,28 @@ public class Section5Activity extends Activity {
 
                 if (mn052401.isChecked()) {
                     fldGrpmn0525.setVisibility(View.GONE);
+                    fldGrpmn0526.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpmn0525.setVisibility(View.VISIBLE);
+                    fldGrpmn0526.setVisibility(View.GONE);
+                    mn052601.setChecked(false);
+                    mn052602.setChecked(false);
+                    mn052603.setChecked(false);
+                    mn052604.setChecked(false);
+                    mn052605.setChecked(false);
+                    mn052606.setChecked(false);
+                    mn052607.setChecked(false);
+                    mn052608.setChecked(false);
+                    mn052609.setChecked(false);
+                    mn052610.setChecked(false);
+                    mn052611.setChecked(false);
+                    mn052612.setChecked(false);
+                    mn052613.setChecked(false);
+                    mn052614.setChecked(false);
+                    mn052615.setChecked(false);
+                    mn052688.setChecked(false);
+                    mn052688x.setText(null);
+
                 }
             }
         });
