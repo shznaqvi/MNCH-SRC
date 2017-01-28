@@ -882,11 +882,6 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/mn051407" />
 
-                            <RadioButton
-                                android:id="@+id/mn0517a377"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/mndns" />
                         </RadioGroup>
                     </LinearLayout>
 
@@ -1011,11 +1006,6 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/mn051407" />
 
-                            <RadioButton
-                                android:id="@+id/mn0517b377"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/mndns" />
                         </RadioGroup>
                     </LinearLayout>
 
@@ -1141,11 +1131,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/mn051407" />
 
-                            <RadioButton
-                                android:id="@+id/mn0517c377"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/mndns" />
+
                         </RadioGroup>
                     </LinearLayout>
 
@@ -1270,12 +1256,6 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/mn051407" />
 
-                            <RadioButton
-                                android:id="@+id/mn0517d377"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/mndns" />
-
                         </RadioGroup>
 
                     </LinearLayout>
@@ -1398,12 +1378,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/mn051407" />
-
-                            <RadioButton
-                                android:id="@+id/mn0517e377"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/mndns" />
 
                         </RadioGroup>
                     </LinearLayout>
@@ -1528,12 +1502,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/mn051407" />
-
-                            <RadioButton
-                                android:id="@+id/mn0517f377"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/mndns" />
 
                         </RadioGroup>
 
@@ -2194,6 +2162,12 @@
 
             </LinearLayout> <!--fldGrpmn0524-->
 
+        <LinearLayout
+            android:id="@+id/fldGrpmn0529"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -2249,6 +2223,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/mnother" />
+
+            </LinearLayout>
 
 
             <!--  = = = = =  END OF FORM FIELDS - Section C = = = = = -->
