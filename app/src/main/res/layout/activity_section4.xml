@@ -5,7 +5,7 @@
     android:background="@drawable/background_grad"
     tools:context="edu.aku.hassannaqvi.mnch_src.Section4Activity">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:id="@+id/ScrollView01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,6 +83,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/baseline_s4q41b"
+                    android:digits="1234567890"
                     android:inputType="number"
                     android:maxLength="2" />
 
@@ -100,6 +101,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/baseline_s4q41b1"
+                    android:digits="1234567890"
                     android:inputType="number"
                     android:maxLength="2" />
 
@@ -117,6 +119,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/baseline_s4q41b2"
+                    android:digits="1234567890"
                     android:inputType="number"
                     android:maxLength="2" />
 

@@ -94,6 +94,7 @@
                     android:layout_weight="1"
                     android:digits="1234567890"
                     android:ems="10"
+                    android:maxLength="2"
                     android:hint="@string/countMDeath"
                     android:inputType="number" />
 
@@ -186,6 +187,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/baseline_s4q42d"
+                    android:digits="0123456789"
                     android:inputType="number"
                     android:maxLength="2" />
 
@@ -203,6 +205,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/baseline_s4q42d1"
+                    android:digits="0123456789"
                     android:inputType="number"
                     android:maxLength="2" />
 
@@ -220,6 +223,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/baseline_s4q42d2"
+                    android:digits="0123456789"
                     android:inputType="number"
                     android:maxLength="1" />
 

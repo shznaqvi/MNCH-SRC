@@ -122,7 +122,7 @@
     <string name="baseline_s3q301d_2">نه</string>
     <string name="baseline_s3q301e">اي حمل جو دورانيو</string>
 
-    <string name="baseline_s3q301f1">ڇا هي عورت پوئين 2 سالن دوران حمل سان ٿي آهي</string>
+    <string name="baseline_s3q301f1">ڇا هي عورت پوئين 1 سالن دوران حمل سان ٿي آهي</string>
     <string name="baseline_s3q301f1_1">ها</string>
     <string name="baseline_s3q301f1_2">نه</string>
 
@@ -138,6 +138,9 @@
     <string name="baseline_s3q301h"> زندهه پيدائش جي ڇا صورتحال آھي</string>
     <string name="baseline_s3q301h_1">زندهه</string>
     <string name="baseline_s3q301h_2">مري</string>
+    <string name="baseline_s3q301h_3">ٻئي زنده آهن </string>
+    <string name="baseline_s3q301h_4">هڪ مري ويو ۽ هڪ زنده آهي </string>
+    <string name="baseline_s3q301h_5">ٻئي مري ويا آهن </string>
     <string name="baseline_s3q301i">ويم جي جڳھه</string>
     <string name="baseline_s3q301i_1">گهر</string>
     <string name="baseline_s3q301i_2">گورنمينٽ ڊسپينسري</string>

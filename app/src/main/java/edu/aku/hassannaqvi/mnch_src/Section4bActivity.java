@@ -85,15 +85,7 @@ public class Section4bActivity extends Activity {
         appHeader.setText("SRC - > Section4b");
 
         lbl_hhhead = (TextView) findViewById(R.id.lbl_hhhead);
-        CVars var = new CVars();
 
-
-        if(!SRCApp.ChildMortality){
-            lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Child Mortality " + mortalityCounter + " of " + countCMortality.getText().toString() + ")");
-        }
-        else {
-            lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
-        }
 
 
         s4q42a = (Spinner) findViewById(R.id.s4q42a);
@@ -192,6 +184,17 @@ public class Section4bActivity extends Activity {
                 }
             }
         });
+
+
+        CVars var = new CVars();
+
+
+        if(!SRCApp.ChildMortality){
+            lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Child Mortality " + mortalityCounter + " of " + countCMortality.getText().toString() + ")");
+        }
+        else {
+            lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
+        }
 
     }
 
@@ -510,6 +513,20 @@ public class Section4bActivity extends Activity {
             return false;
         } else {
             s4q42d2.setError(null);
+        }
+
+        if ((Integer.parseInt(s4q42d.getText().toString()) < 0 || Integer.parseInt(s4q42d.getText().toString()) > 29)
+                &&
+                (Integer.parseInt(s4q42d1.getText().toString()) < 0 || Integer.parseInt(s4q42d1.getText().toString()) > 11)
+                &&
+                (Integer.parseInt(s4q42d2.getText().toString()) < 0 || Integer.parseInt(s4q42d2.getText().toString()) > 5)){
+
+            s4q42d1.setError("Invalid:"+getString(R.string.baseline_s4q42d));
+            Toast.makeText(getApplicationContext(), "Invalid:"+getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
+            s4q42d1.requestFocus();
+            return false;
+        } else {
+            s4q42d1.setError(null);
         }
 
 
