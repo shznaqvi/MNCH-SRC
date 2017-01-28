@@ -237,8 +237,8 @@ public class Section5Activity extends Activity {
     RadioButton mn0517a306;
     @BindView(R.id.mn0517a307)
     RadioButton mn0517a307;
-    @BindView(R.id.mn0517a377)
-    RadioButton mn0517a377;
+//    @BindView(R.id.mn0517a377)
+//    RadioButton mn0517a377;
     @BindView(R.id.mn0517b1)
     RadioGroup mn0517b1;
     @BindView(R.id.mn0517b101)
@@ -265,8 +265,8 @@ public class Section5Activity extends Activity {
     RadioButton mn0517b306;
     @BindView(R.id.mn0517b307)
     RadioButton mn0517b307;
-    @BindView(R.id.mn0517b377)
-    RadioButton mn0517b377;
+//    @BindView(R.id.mn0517b377)
+//    RadioButton mn0517b377;
     @BindView(R.id.mn0517c1)
     RadioGroup mn0517c1;
     @BindView(R.id.mn0517c101)
@@ -293,8 +293,8 @@ public class Section5Activity extends Activity {
     RadioButton mn0517c306;
     @BindView(R.id.mn0517c307)
     RadioButton mn0517c307;
-    @BindView(R.id.mn0517c377)
-    RadioButton mn0517c377;
+//    @BindView(R.id.mn0517c377)
+//    RadioButton mn0517c377;
     @BindView(R.id.mn0517d1)
     RadioGroup mn0517d1;
     @BindView(R.id.mn0517d101)
@@ -321,8 +321,8 @@ public class Section5Activity extends Activity {
     RadioButton mn0517d306;
     @BindView(R.id.mn0517d307)
     RadioButton mn0517d307;
-    @BindView(R.id.mn0517d377)
-    RadioButton mn0517d377;
+//    @BindView(R.id.mn0517d377)
+//    RadioButton mn0517d377;
     @BindView(R.id.mn0517e1)
     RadioGroup mn0517e1;
     @BindView(R.id.mn0517e101)
@@ -349,8 +349,8 @@ public class Section5Activity extends Activity {
     RadioButton mn0517e306;
     @BindView(R.id.mn0517e307)
     RadioButton mn0517e307;
-    @BindView(R.id.mn0517e377)
-    RadioButton mn0517e377;
+//    @BindView(R.id.mn0517e377)
+//    RadioButton mn0517e377;
     @BindView(R.id.mn0517f1)
     RadioGroup mn0517f1;
     @BindView(R.id.mn0517f101)
@@ -377,8 +377,8 @@ public class Section5Activity extends Activity {
     RadioButton mn0517f306;
     @BindView(R.id.mn0517f307)
     RadioButton mn0517f307;
-    @BindView(R.id.mn0517f377)
-    RadioButton mn0517f377;
+//    @BindView(R.id.mn0517f377)
+//    RadioButton mn0517f377;
     @BindView(R.id.mn051801)
     CheckBox mn051801;
     @BindView(R.id.mn051802)
@@ -1460,7 +1460,7 @@ public class Section5Activity extends Activity {
                 : mn0517a305.isChecked() ? "5"
                 : mn0517a306.isChecked() ? "6"
                 : mn0517a307.isChecked() ? "7"
-                : mn0517a377.isChecked() ? "77"
+//                : mn0517a377.isChecked() ? "77"
                 : "0");
         s5.put("mn0517b1", mn0517b101.isChecked() ? "1" : mn0517b102.isChecked() ? "2" : "0");
         s5.put("mn0517b2d", mn0517b2d.getText().toString());
@@ -1473,7 +1473,7 @@ public class Section5Activity extends Activity {
                 : mn0517b305.isChecked() ? "5"
                 : mn0517b306.isChecked() ? "6"
                 : mn0517b307.isChecked() ? "7"
-                : mn0517b377.isChecked() ? "77"
+//                : mn0517b377.isChecked() ? "77"
                 : "0");
         s5.put("mn0517c1", mn0517c101.isChecked() ? "1" : mn0517c102.isChecked() ? "2" : "0");
         s5.put("mn0517c2d", mn0517c2d.getText().toString());
@@ -1486,7 +1486,7 @@ public class Section5Activity extends Activity {
                 : mn0517c305.isChecked() ? "5"
                 : mn0517c306.isChecked() ? "6"
                 : mn0517c307.isChecked() ? "7"
-                : mn0517c377.isChecked() ? "77"
+//                : mn0517c377.isChecked() ? "77"
                 : "0");
         s5.put("mn0517d1", mn0517d101.isChecked() ? "1" : mn0517d102.isChecked() ? "2" : "0");
         s5.put("mn0517d2d", mn0517d2d.getText().toString());
@@ -1499,7 +1499,7 @@ public class Section5Activity extends Activity {
                 : mn0517d305.isChecked() ? "5"
                 : mn0517d306.isChecked() ? "6"
                 : mn0517d307.isChecked() ? "7"
-                : mn0517d377.isChecked() ? "77"
+//                : mn0517d377.isChecked() ? "77"
                 : "0");
         s5.put("mn0517e1", mn0517e101.isChecked() ? "1" : mn0517e102.isChecked() ? "2" : "0");
         s5.put("mn0517e2d", mn0517e2d.getText().toString());
@@ -1512,7 +1512,7 @@ public class Section5Activity extends Activity {
                 : mn0517e305.isChecked() ? "5"
                 : mn0517e306.isChecked() ? "6"
                 : mn0517e307.isChecked() ? "7"
-                : mn0517e377.isChecked() ? "77"
+//                : mn0517e377.isChecked() ? "77"
                 : "0");
         s5.put("mn0517f1", mn0517f101.isChecked() ? "1" : mn0517f102.isChecked() ? "2" : "0");
         s5.put("mn0517f2d", mn0517f2d.getText().toString());
@@ -1525,7 +1525,7 @@ public class Section5Activity extends Activity {
                 : mn0517f305.isChecked() ? "5"
                 : mn0517f306.isChecked() ? "6"
                 : mn0517f307.isChecked() ? "7"
-                : mn0517f377.isChecked() ? "77"
+//                : mn0517f377.isChecked() ? "77"
                 : "0");
         // CheckBox
         s5.put("mn051801", mn051801.isChecked() ? "1" : "0");
@@ -1927,11 +1927,11 @@ public class Section5Activity extends Activity {
                     }
                     if (mn0517a3.getCheckedRadioButtonId() == -1) {
                         Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0517vitd) + " - " + getString(R.string.mn0517src), Toast.LENGTH_LONG).show();
-                        mn0517a377.setError("This data is Required!");    // Set Error on last radio button
+                        mn0517a301.setError("This data is Required!");    // Set Error on last radio button
                         Log.i(TAG, "mn0517a: This data is Required!");
                         return false;
                     } else {
-                        mn0517a377.setError(null);
+                        mn0517a301.setError(null);
                     }
                 }
 
@@ -1956,11 +1956,11 @@ public class Section5Activity extends Activity {
                     }
                     if (mn0517b3.getCheckedRadioButtonId() == -1) {
                         Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0517iron) + " - " + getString(R.string.mn0517src), Toast.LENGTH_LONG).show();
-                        mn0517b377.setError("This data is Required!");    // Set Error on last radio button
+                        mn0517b301.setError("This data is Required!");    // Set Error on last radio button
                         Log.i(TAG, "mn0517b: This data is Required!");
                         return false;
                     } else {
-                        mn0517b377.setError(null);
+                        mn0517b301.setError(null);
                     }
                 }
 
@@ -1987,11 +1987,11 @@ public class Section5Activity extends Activity {
 
                     if (mn0517c3.getCheckedRadioButtonId() == -1) {
                         Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0517folic) + " - " + getString(R.string.mn0517src), Toast.LENGTH_LONG).show();
-                        mn0517c377.setError("This data is Required!");    // Set Error on last radio button
+                        mn0517c301.setError("This data is Required!");    // Set Error on last radio button
                         Log.i(TAG, "mn0517c: This data is Required!");
                         return false;
                     } else {
-                        mn0517c377.setError(null);
+                        mn0517c301.setError(null);
                     }
                 }
 
@@ -2018,11 +2018,11 @@ public class Section5Activity extends Activity {
 
                     if (mn0517d3.getCheckedRadioButtonId() == -1) {
                         Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0517micro) + " - " + getString(R.string.mn0517src), Toast.LENGTH_LONG).show();
-                        mn0517d377.setError("This data is Required!");    // Set Error on last radio button
+                        mn0517d301.setError("This data is Required!");    // Set Error on last radio button
                         Log.i(TAG, "mn0517d: This data is Required!");
                         return false;
                     } else {
-                        mn0517d377.setError(null);
+                        mn0517d301.setError(null);
                     }
                 }
 
@@ -2050,11 +2050,11 @@ public class Section5Activity extends Activity {
 
                     if (mn0517e3.getCheckedRadioButtonId() == -1) {
                         Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0517calcium) + " - " + getString(R.string.mn0517src), Toast.LENGTH_LONG).show();
-                        mn0517e377.setError("This data is Required!");    // Set Error on last radio button
+                        mn0517e301.setError("This data is Required!");    // Set Error on last radio button
                         Log.i(TAG, "mn0517e: This data is Required!");
                         return false;
                     } else {
-                        mn0517e377.setError(null);
+                        mn0517e301.setError(null);
                     }
                 }
 
@@ -2081,11 +2081,11 @@ public class Section5Activity extends Activity {
 
                     if (mn0517f3.getCheckedRadioButtonId() == -1) {
                         Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0517ovit) + " - " + getString(R.string.mn0517src), Toast.LENGTH_LONG).show();
-                        mn0517f377.setError("This data is Required!");    // Set Error on last radio button
+                        mn0517f301.setError("This data is Required!");    // Set Error on last radio button
                         Log.i(TAG, "mn0517f: This data is Required!");
                         return false;
                     } else {
-                        mn0517f377.setError(null);
+                        mn0517f301.setError(null);
                     }
                 }
 
