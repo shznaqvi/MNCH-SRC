@@ -17,7 +17,7 @@ import java.util.Date;
 public class MainActivity extends Activity {
 
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
-
+    private Boolean exit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,6 @@ public class MainActivity extends Activity {
 
 
     }
-
 
     public void syncData(View v) {
         //String formsUrl = SRCApp._HOST_URL + "src/forms.php";
@@ -62,7 +61,6 @@ public class MainActivity extends Activity {
         }
     }
 
-
     public void OpenDB(View v) {
         Intent dbmanager = new Intent(getApplicationContext(), AndroidDatabaseManager.class);
         startActivity(dbmanager);
@@ -75,14 +73,13 @@ public class MainActivity extends Activity {
 
     }
 
-    public void OpenSection7(View v) {
+    public void OpenSection4(View v) {
 
-        Intent sec1_intent = new Intent(this, Section7ImActivity.class);
+        Intent sec1_intent = new Intent(this, Section4AMaternalCount.class);
         startActivity(sec1_intent);
 
     }
 
-    private Boolean exit = false;
     @Override
     public void onBackPressed() {
         if (exit) {

@@ -836,6 +836,53 @@ public class Section2Activity extends Activity {
             s2q206a.setError(null);
         }
 
+        if (s2q206d.getText().toString().isEmpty()) {
+            s2q206d.setError("Please enter 0 or any number ");
+            Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
+            return false;
+        } else {
+            s2q206d.setError(null);
+
+        }
+
+        if (s2q206e.getText().toString().isEmpty()) {
+            s2q206e.setError("Please enter 0 or any number ");
+            Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
+            return false;
+        } else {
+            s2q206e.setError(null);
+
+        }
+
+        if (s2q206f.getText().toString().isEmpty()) {
+            s2q206f.setError("Please enter 0 or any number ");
+            Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
+            return false;
+        } else {
+            s2q206f.setError(null);
+
+        }
+
+        if (s2q206g.getText().toString().isEmpty()) {
+            s2q206g.setError("Please enter 0 or any number ");
+            Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
+            return false;
+        } else {
+            s2q206g.setError(null);
+
+        }
+
+        if (s2q206h.getText().toString().isEmpty()) {
+            s2q206h.setError("Please enter 0 or any number ");
+            Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
+            return false;
+        } else {
+            s2q206h.setError(null);
+
+        }
+
+
+
 
         return true;
     }

@@ -42,7 +42,8 @@
                 style="@style/txtquestion"
                 android:gravity="center"
                 android:layoutDirection="ltr"
-                android:text="Deceased Mother Listing" />
+                android:text="Woman Pregnant or Delivered and Died during last 1 year "
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tcount"
@@ -81,9 +82,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:digits="1234567890"
                     android:ems="10"
                     android:hint="@string/baseline_s4q41b"
-                    android:digits="1234567890"
                     android:inputType="number"
                     android:maxLength="2" />
 
@@ -99,9 +100,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:digits="1234567890"
                     android:ems="10"
                     android:hint="@string/baseline_s4q41b1"
-                    android:digits="1234567890"
                     android:inputType="number"
                     android:maxLength="2" />
 
@@ -117,9 +118,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:digits="1234567890"
                     android:ems="10"
                     android:hint="@string/baseline_s4q41b2"
-                    android:digits="1234567890"
                     android:inputType="number"
                     android:maxLength="2" />
 
