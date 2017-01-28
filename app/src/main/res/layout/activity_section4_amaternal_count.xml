@@ -42,7 +42,8 @@
                 style="@style/txtquestion"
                 android:gravity="center"
                 android:layoutDirection="ltr"
-                android:text="Deceased Mother Listing" />
+                android:text="Woman Pregnant or Delivered and Died during last 1 year "
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tcount"
@@ -102,10 +103,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:digits="1234567890"
-                    android:maxLength="2"
                     android:ems="10"
                     android:hint="@string/countMDeath"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="2" />
 
             </LinearLayout>
 

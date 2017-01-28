@@ -32,24 +32,6 @@
                 android:layout_height="2dp"
                 android:background="@color/colorPrimary" />
 
-            <TextView
-                android:id="@+id/lbl_formid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/baseline_formid"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <EditText
-                android:id="@+id/formid"
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/baseline_formid"
-                android:inputType="number"
-                android:maxLength="4">
-                <requestFocus/>
-                </EditText>
 
             <TextView
                 android:id="@+id/lbl_s1q105"
@@ -99,6 +81,26 @@
                 />
 
             <TextView
+                android:id="@+id/lbl_formid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/baseline_formid"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/formid"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/baseline_formid"
+                android:inputType="number"
+                android:maxLength="4">
+
+            </EditText>
+
+
+            <TextView
                 android:id="@+id/lbl_s1q101"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -113,6 +115,7 @@
                 android:ems="10"
                 android:inputType="text"
                 />
+
 
             <TextView
                 android:id="@+id/lbl_s1q102"
@@ -219,10 +222,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:digits="0123456789"
                 android:ems="10"
                 android:hint="@string/baseline_s1q108"
                 android:inputType="phone"
-                android:digits="0123456789"
                 android:maxLength="11" />
 
             <TextView
@@ -237,10 +240,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:digits="0123456789"
                 android:ems="10"
                 android:hint="@string/baseline_s1q108"
                 android:inputType="phone"
-                android:digits="0123456789"
                 android:maxLength="11" />
 
             <TextView

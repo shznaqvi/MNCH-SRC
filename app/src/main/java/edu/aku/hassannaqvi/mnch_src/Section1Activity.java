@@ -44,6 +44,14 @@ public class Section1Activity extends Activity implements TextWatcher {
     String var_s1q103 = "";
     String var_s1q111 = "";
     String var_s1q112 = "";
+    @BindView(R.id.btnnext)
+    Button btnNext;
+    @BindView(R.id.radio_s1q112)
+    RadioGroup radioS1q112;
+    @BindView(R.id.RDO_s1q112_1)
+    RadioButton rDOS1q1121;
+    @BindView(R.id.RDO_s1q112_2)
+    RadioButton rDOS1q1122;
     private TextView appheader;
     private ScrollView activitySection1;
     private TextView lblFormid;
@@ -68,7 +76,6 @@ public class Section1Activity extends Activity implements TextWatcher {
     private RadioButton rDOS1q1114;
     private TextView lblS1q111oth;
     private TextView lblS1q112;
-
     private EditText s1q102;
     private EditText formid;
     private Spinner s1q101;
@@ -87,17 +94,6 @@ public class Section1Activity extends Activity implements TextWatcher {
     private int rdo_s1q112;
     private AlertDialog.Builder alert;
     private String spDateT;
-
-    @BindView(R.id.btnnext)
-    Button btnNext;
-
-    @BindView(R.id.radio_s1q112)
-    RadioGroup radioS1q112;
-    @BindView(R.id.RDO_s1q112_1)
-    RadioButton rDOS1q1121;
-    @BindView(R.id.RDO_s1q112_2)
-    RadioButton rDOS1q1122;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -457,11 +453,33 @@ public class Section1Activity extends Activity implements TextWatcher {
     private ArrayList GetHHCode() {
         ArrayList lst_hhcode = new ArrayList<>();
 
-        lst_hhcode.add(0, "X");
-        lst_hhcode.add(1, "A");
-        lst_hhcode.add(2, "B");
-        lst_hhcode.add(3, "C");
-        lst_hhcode.add(4, "D");
+        lst_hhcode.add(0, "...");
+        lst_hhcode.add(1, "X");
+        lst_hhcode.add(2, "A");
+        lst_hhcode.add(3, "B");
+        lst_hhcode.add(4, "C");
+        lst_hhcode.add(5, "D");
+        lst_hhcode.add(6, "E");
+        lst_hhcode.add(7, "F");
+        lst_hhcode.add(8, "G");
+        lst_hhcode.add(9, "H");
+        lst_hhcode.add(10, "I");
+        lst_hhcode.add(11, "J");
+        lst_hhcode.add(12, "K");
+        lst_hhcode.add(13, "L");
+        lst_hhcode.add(14, "M");
+        lst_hhcode.add(15, "N");
+        lst_hhcode.add(16, "O");
+        lst_hhcode.add(17, "P");
+        lst_hhcode.add(18, "Q");
+        lst_hhcode.add(19, "R");
+        lst_hhcode.add(20, "S");
+        lst_hhcode.add(21, "T");
+        lst_hhcode.add(22, "U");
+        lst_hhcode.add(23, "V");
+        lst_hhcode.add(24, "W");
+        lst_hhcode.add(25, "Y");
+        lst_hhcode.add(26, "Z");
 
         return lst_hhcode;
     }
@@ -470,7 +488,7 @@ public class Section1Activity extends Activity implements TextWatcher {
     private boolean ValidateForm() {
         //Toast.makeText(getApplicationContext(), "Validating Form", Toast.LENGTH_SHORT).show();
 
-        if (getFormid().getText().toString().isEmpty() || formid.getText().toString() == null) {
+        if (getFormid().getText().toString().isEmpty()) {
             formid.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter form id \r\n", Toast.LENGTH_LONG).show();
             formid.requestFocus();
@@ -479,7 +497,16 @@ public class Section1Activity extends Activity implements TextWatcher {
             formid.setError(null);
         }
 
-        if (getS1q102().getText().toString().isEmpty() || s1q102.getText().toString() == null) {
+        if (s1q101.getSelectedItem().toString().equals("...")) {
+            formid.setError("Please enter Household number extension");
+            Toast.makeText(getApplicationContext(), "Please enter Household number extension \r\n", Toast.LENGTH_LONG).show();
+            formid.requestFocus();
+            return false;
+        } else {
+            formid.setError(null);
+        }
+
+        if (getS1q102().getText().toString().isEmpty()) {
             s1q102.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter respondent name \r\n", Toast.LENGTH_LONG).show();
             s1q102.requestFocus();
@@ -502,7 +529,7 @@ public class Section1Activity extends Activity implements TextWatcher {
             rDOS1q1031.setError(null);
         }
 
-        if (getS1q104().getText().toString().isEmpty() || s1q104.getText().toString() == null) {
+        if (getS1q104().getText().toString().isEmpty()) {
             s1q104.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter respondent age \r\n", Toast.LENGTH_LONG).show();
             s1q104.requestFocus();
