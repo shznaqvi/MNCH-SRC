@@ -35,6 +35,14 @@
                 android:background="@color/colorPrimary" />
 
             <TextView
+                android:id="@+id/lbl_hhhead1"
+                style="@style/txtquestion"
+                android:gravity="center"
+                android:layoutDirection="rtl"
+                android:text="@string/section5bLabel" />
+
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mn0530"

@@ -267,6 +267,8 @@ public class Section5bActivity extends Activity {
     LinearLayout fldGrpmn0532;
     @BindView(R.id.fldGrpmn0536)
     LinearLayout fldGrpmn0536;
+    @BindView(R.id.lbl_hhhead1)
+    TextView lbl_hhhdead1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

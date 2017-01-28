@@ -859,6 +859,7 @@
     <string name="countCMortality"> مري ويل ٻارن جو تعداد </string>
     <string name="childMortality"> ڇا هن گهر ۾ پوئين 5 سالن دوران ڪو ٻار مري ويو هو؟ </string>
     <string name="section5Label"> صرف حامله عورتن لاء (گذشته هڪ سال دوران) </string>
+    <string name="section5bLabel"> آخري ويم </string>
 
     <string name="death"> مري ويل </string>
 
