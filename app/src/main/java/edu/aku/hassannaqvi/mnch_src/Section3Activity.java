@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -57,6 +58,9 @@ public class Section3Activity extends Activity {
     private RadioGroup radioS3q301h;
     private RadioButton rDOS3q301h1;
     private RadioButton rDOS3q301h2;
+    private RadioButton rDOS3q301h3;
+    private RadioButton rDOS3q301h4;
+    private RadioButton rDOS3q301h5;
     private RadioGroup radioS3q301g;
     private RadioButton rDOS3q301g1;
     private RadioButton rDOS3q301g2;
@@ -136,7 +140,7 @@ public class Section3Activity extends Activity {
         lblS3q301d = (TextView) findViewById(R.id.lbl_s3q301d);
         radioS3q301d = (RadioGroup) findViewById(R.id.radio_s3q301d);
         rDOS3q301d1 = (RadioButton) findViewById(R.id.RDO_s3q301d_1);
-        rDOS3q301d2 = (RadioButton) findViewById(R.id.RDO_s3q301d_2);
+        rDOS3q301d2 = (RadioButton) findViewById(R.id.rDOS3q301d2);
         lblS3q301e = (TextView) findViewById(R.id.lbl_s3q301e);
         lblS3q301f = (TextView) findViewById(R.id.lbl_s3q301f);
 
@@ -158,6 +162,9 @@ public class Section3Activity extends Activity {
         radioS3q301h = (RadioGroup) findViewById(R.id.radio_s3q301h);
         rDOS3q301h1 = (RadioButton) findViewById(R.id.RDO_s3q301h_1);
         rDOS3q301h2 = (RadioButton) findViewById(R.id.RDO_s3q301h_2);
+        rDOS3q301h3 = (RadioButton) findViewById(R.id.RDO_s3q301h_3);
+        rDOS3q301h4 = (RadioButton) findViewById(R.id.RDO_s3q301h_4);
+        rDOS3q301h5 = (RadioButton) findViewById(R.id.RDO_s3q301h_5);
         lblS3q301i = (TextView) findViewById(R.id.lbl_s3q301i);
         radioS3q301i = (RadioGroup) findViewById(R.id.radio_s3q301i);
         rDOS3q301i1 = (RadioButton) findViewById(R.id.RDO_s3q301i_1);
@@ -230,15 +237,14 @@ public class Section3Activity extends Activity {
                 if (checkedId == rDOS3q301d1.getId()) {
                     vu_s3q301d.setVisibility(View.VISIBLE);
 
-                    radioS3q301f1.requestFocus();
-
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(s3q301e.getWindowToken(), 0);
+//                    radioS3q301f1.requestFocus();
+//
+//                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//                    imm.hideSoftInputFromWindow(s3q301e.getWindowToken(), 0);
 
                 } else {
 
                     vu_s3q301d.setVisibility(View.GONE);
-                    radioS3q301f1.clearCheck();
                     s3q301e.setText(null);
 
                 }
@@ -250,17 +256,18 @@ public class Section3Activity extends Activity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-                if (checkedId == rDOS3q301f12.getId()) {
+                radioS3q301f.clearCheck();
+                radioS3q301g.clearCheck();
+                radioS3q301h.clearCheck();
+                radioS3q301i.clearCheck();
+                s3q301ioth.setText(null);
+                radioS3q301j.clearCheck();
+                s3q301joth.setText(null);
+                s3q301k.setText(null);
+
+                if (rDOS3q301f12.isChecked()) {
 
                     vu_s3q301f.setVisibility(View.GONE);
-                    radioS3q301f.clearCheck();
-                    radioS3q301g.clearCheck();
-                    radioS3q301h.clearCheck();
-                    radioS3q301i.clearCheck();
-                    s3q301ioth.setText(null);
-                    radioS3q301j.clearCheck();
-                    s3q301joth.setText(null);
-                    s3q301k.setText(null);
 
                 } else {
 
@@ -273,76 +280,76 @@ public class Section3Activity extends Activity {
 
         // ==================  Q 3.01f Outcome ==============
 
-        radioS3q301f.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-
-                if (checkedId == rDOS3q301f1.getId()) {
-
-                    vu_s3q301h.setVisibility(View.GONE);
-                    vu_s3q301g.setVisibility(View.GONE);
-
-                    radioS3q301h.clearCheck();
-                    radioS3q301g.clearCheck();
-
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(radioS3q301i.getWindowToken(), 0);
-
-                } else if (checkedId == rDOS3q301f2.getId()) {
-
-                    vu_s3q301h.setVisibility(View.GONE);
-                    vu_s3q301g.setVisibility(View.GONE);
-
-                    radioS3q301h.clearCheck();
-                    radioS3q301g.clearCheck();
-
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(radioS3q301i.getWindowToken(), 0);
-
-                } else if (checkedId == rDOS3q301f3.getId()) {
-
-                    vu_s3q301h.setVisibility(View.VISIBLE);
-                    vu_s3q301g.setVisibility(View.GONE);
-
-                    radioS3q301g.clearCheck();
-
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(radioS3q301h.getWindowToken(), 0);
-
-                } else if (checkedId == rDOS3q301f4.getId()) {
-
-                    vu_s3q301g.setVisibility(View.VISIBLE);
-                    vu_s3q301h.setVisibility(View.GONE);
-
-                    radioS3q301h.clearCheck();
-
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(radioS3q301g.getWindowToken(), 0);
-                }
-
-            }
-        });
+//        radioS3q301f.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//
+//                if (checkedId == rDOS3q301f1.getId()) {
+//
+//                    vu_s3q301h.setVisibility(View.GONE);
+//                    vu_s3q301g.setVisibility(View.GONE);
+//
+//                    radioS3q301h.clearCheck();
+//                    radioS3q301g.clearCheck();
+//
+//                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//                    imm.hideSoftInputFromWindow(radioS3q301i.getWindowToken(), 0);
+//
+//                } else if (checkedId == rDOS3q301f2.getId()) {
+//
+//                    vu_s3q301h.setVisibility(View.GONE);
+//                    vu_s3q301g.setVisibility(View.GONE);
+//
+//                    radioS3q301h.clearCheck();
+//                    radioS3q301g.clearCheck();
+//
+//                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//                    imm.hideSoftInputFromWindow(radioS3q301i.getWindowToken(), 0);
+//
+//                } else if (checkedId == rDOS3q301f3.getId()) {
+//
+//                    vu_s3q301h.setVisibility(View.VISIBLE);
+//                    vu_s3q301g.setVisibility(View.GONE);
+//
+//                    radioS3q301g.clearCheck();
+//
+//                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//                    imm.hideSoftInputFromWindow(radioS3q301h.getWindowToken(), 0);
+//
+//                } else if (checkedId == rDOS3q301f4.getId()) {
+//
+//                    vu_s3q301g.setVisibility(View.VISIBLE);
+//                    vu_s3q301h.setVisibility(View.GONE);
+//
+//                    radioS3q301h.clearCheck();
+//
+//                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//                    imm.hideSoftInputFromWindow(radioS3q301g.getWindowToken(), 0);
+//                }
+//
+//            }
+//        });
 
         // ==================  Q 3.01g If outcome was Live Birth ==============
 
-        radioS3q301g.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-
-                if (checkedId == rDOS3q301g2.getId() || checkedId == rDOS3q301g3.getId()) {
-
-                    vu_s3q301h.setVisibility(View.VISIBLE);
-
-                } else {
-
-
-                    vu_s3q301h.setVisibility(View.GONE);
-                    radioS3q301h.clearCheck();
-
-                }
-
-            }
-        });
+//        radioS3q301g.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//
+//                if (checkedId == rDOS3q301g2.getId() || checkedId == rDOS3q301g3.getId()) {
+//
+//                    vu_s3q301h.setVisibility(View.VISIBLE);
+//
+//                } else {
+//
+//
+//                    vu_s3q301h.setVisibility(View.GONE);
+//                    radioS3q301h.clearCheck();
+//
+//                }
+//
+//            }
+//        });
 
 
         radioS3q301i.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -379,6 +386,79 @@ public class Section3Activity extends Activity {
                 }
             }
         });
+
+
+        //Question f
+
+        radioS3q301f.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                radioS3q301h.clearCheck();
+                radioS3q301g.clearCheck();
+
+                if (rDOS3q301f1.isChecked() || rDOS3q301f2.isChecked()) {
+
+                    vu_s3q301h.setVisibility(View.GONE);
+                    vu_s3q301g.setVisibility(View.GONE);
+
+                } else if (rDOS3q301f3.isChecked()) {
+
+                    vu_s3q301h.setVisibility(View.VISIBLE);
+                    vu_s3q301g.setVisibility(View.GONE);
+
+                    rDOS3q301h1.setEnabled(true);
+                    rDOS3q301h2.setEnabled(true);
+
+                    rDOS3q301h3.setEnabled(false);
+                    rDOS3q301h4.setEnabled(false);
+                    rDOS3q301h5.setEnabled(false);
+                } else if (rDOS3q301f4.isChecked()) {
+
+                    vu_s3q301h.setVisibility(View.GONE);
+                    vu_s3q301g.setVisibility(View.VISIBLE);
+
+                    rDOS3q301h3.setEnabled(true);
+                    rDOS3q301h4.setEnabled(true);
+                    rDOS3q301h5.setEnabled(true);
+
+                    rDOS3q301h1.setEnabled(false);
+                    rDOS3q301h2.setEnabled(false);
+                }
+            }
+        });
+
+
+        radioS3q301g.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                radioS3q301h.clearCheck();
+
+                if (rDOS3q301g1.isChecked()) {
+                    vu_s3q301h.setVisibility(View.GONE);
+                } else if (rDOS3q301g2.isChecked()) {
+                    vu_s3q301h.setVisibility(View.VISIBLE);
+
+                    rDOS3q301h1.setEnabled(true);
+                    rDOS3q301h2.setEnabled(true);
+
+                    rDOS3q301h3.setEnabled(false);
+                    rDOS3q301h4.setEnabled(false);
+                    rDOS3q301h5.setEnabled(false);
+                } else if (rDOS3q301g3.isChecked()) {
+                    vu_s3q301h.setVisibility(View.VISIBLE);
+
+                    rDOS3q301h3.setEnabled(true);
+                    rDOS3q301h4.setEnabled(true);
+                    rDOS3q301h5.setEnabled(true);
+
+                    rDOS3q301h1.setEnabled(false);
+                    rDOS3q301h2.setEnabled(false);
+                }
+            }
+        });
+
 
     }
 
@@ -419,32 +499,28 @@ public class Section3Activity extends Activity {
         Log.d(TAG, "getwoman: " + var.GetReproductionAgeWoman());
 
 
-            if (ValidateForm()) {
+        if (ValidateForm()) {
 
-                SaveDraft();
+            SaveDraft();
 
-                if (UpdateDB()) {
-                    //counter++;
-                    SRCApp.tcount++;
+            if (UpdateDB()) {
+                //counter++;
+                SRCApp.tcount++;
 
-                    Intent fA = new Intent(this, Section3Activity.class);
-                    startActivity(fA);
+                Intent fA = new Intent(this, Section3Activity.class);
+                startActivity(fA);
 
-                    s3q301a.requestFocus();
+                s3q301a.requestFocus();
 
 
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
-                    }
-                }
+            } else {
+                Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
             }
-
-
-
+        }
+    }
 
 
     public void gotoSection4(View view) {
-
 
 
         if (ValidateForm()) {
@@ -510,7 +586,7 @@ public class Section3Activity extends Activity {
                     var_s3q301d = "1";
                     break;
 
-                case R.id.RDO_s3q301d_2:
+                case R.id.rDOS3q301d2:
                     var_s3q301d = "2";
                     break;
             }
@@ -563,12 +639,12 @@ public class Section3Activity extends Activity {
             rdo_s3q301g = radioS3q301g.getCheckedRadioButtonId();
 
             switch (rdo_s3q301g) {
-                case R.id.RDO_s3q301g_1:
-                    var_s3q301g = "1";
-                    break;
-
                 case R.id.RDO_s3q301g_2:
                     var_s3q301g = "2";
+                    break;
+
+                case R.id.RDO_s3q301g_3:
+                    var_s3q301g = "3";
                     break;
             }
 
@@ -737,7 +813,7 @@ public class Section3Activity extends Activity {
                 var_s3q301d = "1";
                 break;
 
-            case R.id.RDO_s3q301d_2:
+            case R.id.rDOS3q301d2:
                 var_s3q301d = "2";
                 break;
         }
@@ -765,19 +841,8 @@ public class Section3Activity extends Activity {
                 break;
         }
 
-
-            if (rdo_s3q301f1 == -1) {
-                rDOS3q301f11.setError(getString(R.string.rdoerr));
-                Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
-                rDOS3q301f11.requestFocus();
-                return false;
-            } else {
-                rDOS3q301f11.setError(null);
-            }
-
-
-        if (var_s3q301d.equals("1")) {
-            if (var_s3q301d.equals("1") && getS3q301e().getText().toString().isEmpty()) {
+        if (rDOS3q301d1.isChecked()) {
+            if (s3q301e.getText().toString().isEmpty()) {
                 s3q301e.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "Please enter gestational age \r\n", Toast.LENGTH_LONG).show();
                 s3q301e.requestFocus();
@@ -786,6 +851,18 @@ public class Section3Activity extends Activity {
                 s3q301e.setError(null);
             }
         }
+
+        if (rdo_s3q301f1 == -1) {
+            rDOS3q301f11.setError(getString(R.string.rdoerr));
+            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+            rDOS3q301f11.requestFocus();
+            return false;
+        } else {
+            rDOS3q301f11.setError(null);
+        }
+
+
+
 
         int gestation = 0;
 
@@ -806,7 +883,6 @@ public class Section3Activity extends Activity {
         } catch (NumberFormatException nfe) {
 
         }
-
 
 
         rdo_s3q301f = radioS3q301f.getCheckedRadioButtonId();
@@ -846,12 +922,12 @@ public class Section3Activity extends Activity {
             rdo_s3q301g = radioS3q301g.getCheckedRadioButtonId();
 
             switch (rdo_s3q301g) {
-                case R.id.RDO_s3q301g_1:
-                    var_s3q301g = "1";
-                    break;
-
                 case R.id.RDO_s3q301g_2:
                     var_s3q301g = "2";
+                    break;
+
+                case R.id.RDO_s3q301g_3:
+                    var_s3q301g = "3";
                     break;
             }
 
@@ -880,7 +956,8 @@ public class Section3Activity extends Activity {
                     break;
             }
 
-            if (var_s3q301f.equals("3") && rdo_s3q301h == -1) {
+            if ((var_s3q301f.equals("3") && rdo_s3q301h == -1) ||
+                    ((var_s3q301g.equals("2") || var_s3q301g.equals("3")) && rdo_s3q301h == -1)) {
 
                 rDOS3q301h1.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
@@ -1023,6 +1100,16 @@ public class Section3Activity extends Activity {
                 s3q301k.setError(null);
             }
 
+            if (Integer.parseInt(getS3q301k().getText().toString()) < 100 ||
+                    Integer.parseInt(getS3q301k().getText().toString()) > 100000) {
+                s3q301k.setError(getString(R.string.txterr));
+                Toast.makeText(getApplicationContext(), "Invalid specify cost of delivery  \r\n", Toast.LENGTH_LONG).show();
+                s3q301k.requestFocus();
+                return false;
+            } else {
+                s3q301k.setError(null);
+            }
+
 
             if (s3q301e.getText().toString().isEmpty()) {
 
@@ -1055,10 +1142,10 @@ public class Section3Activity extends Activity {
         return true;
     }
 
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
-    }
+//    @Override
+//    public void onBackPressed() {
+//        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+//    }
 
 
 }

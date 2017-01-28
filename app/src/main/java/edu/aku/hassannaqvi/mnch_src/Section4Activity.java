@@ -296,6 +296,21 @@ public class Section4Activity extends Activity {
         } else {
             s4q41b.setError(null);
         }
+
+        if ((Integer.parseInt(s4q41b.getText().toString()) < 0 || Integer.parseInt(s4q41b.getText().toString()) > 29)
+                &&
+                (Integer.parseInt(s4q41b1.getText().toString()) < 0 || Integer.parseInt(s4q41b1.getText().toString()) > 11)
+                &&
+                (Integer.parseInt(s4q41b2.getText().toString()) < 15 || Integer.parseInt(s4q41b2.getText().toString()) > 49)){
+
+            s4q41b1.setError("Invalid:"+getString(R.string.baseline_s4q41b));
+            Toast.makeText(getApplicationContext(), "Invalid:"+getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
+            s4q41b1.requestFocus();
+            return false;
+        } else {
+            s4q41b1.setError(null);
+        }
+
         rdo_s4q41c = radio_s4q41c.getCheckedRadioButtonId();
 
         if (rdo_s4q41c == -1) {
@@ -407,8 +422,8 @@ public class Section4Activity extends Activity {
     }
 
 
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
-    }
+//    @Override
+//    public void onBackPressed() {
+//        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+//    }
 }

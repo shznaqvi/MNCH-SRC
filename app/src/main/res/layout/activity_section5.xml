@@ -382,6 +382,7 @@
                         android:layout_weight="1"
                         android:hint="@string/mn051001"
                         android:inputType="number"
+                        android:digits="0123456789"
                         android:maxLength="3" />
                 </LinearLayout>
 
@@ -578,11 +579,11 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mn051407" />
 
-                <CheckBox
-                    android:id="@+id/mn051477"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mndns" />
+                <!--<CheckBox-->
+                    <!--android:id="@+id/mn051477"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/mndns" />-->
 
                 <CheckBox
                     android:id="@+id/mn051488"
@@ -815,6 +816,7 @@
                                 android:layout_weight="1"
                                 android:digits="0123456789"
                                 android:hint="@string/mn0517days"
+                                android:maxLength="2"
                                 android:inputType="number" />
 
                             <EditText
@@ -824,6 +826,7 @@
                                 android:layout_weight="1"
                                 android:digits="123456789"
                                 android:hint="@string/mn0517month"
+                                android:maxLength="1"
                                 android:inputType="number" />
                         </LinearLayout>
 

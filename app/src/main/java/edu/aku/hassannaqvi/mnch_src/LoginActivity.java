@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -169,10 +170,5 @@ public class LoginActivity extends Activity {
             alert.show();
 
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(LoginActivity.this, "Back button is disabled", Toast.LENGTH_LONG).show();
     }
 }
