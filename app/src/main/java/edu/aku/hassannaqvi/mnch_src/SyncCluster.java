@@ -68,16 +68,16 @@ public class SyncCluster extends AsyncTask<String, String, String> {
         String json = result;
         //json = json.replaceAll("\\[", "").replaceAll("\\]","");
         Log.d(TAG, result);
-        ArrayList<ClusterContract> userArrayList;
+        ArrayList<DistrictsContract> userArrayList;
         SRCDBHelper db = new SRCDBHelper(mContext);
         try {
-            userArrayList = new ArrayList<ClusterContract>();
+            userArrayList = new ArrayList<DistrictsContract>();
             //JSONObject jsonObject = new JSONObject(json);
             JSONArray jsonArray = new JSONArray(json);
-            db.syncCluster(jsonArray);
+            db.syncDistrict(jsonArray);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        db.getCluster();
+        db.getDistricts();
     }
 }

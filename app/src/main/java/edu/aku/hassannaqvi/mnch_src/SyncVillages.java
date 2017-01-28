@@ -69,13 +69,13 @@ public class SyncVillages extends AsyncTask<String, String, String> {
         String json = result;
         //json = json.replaceAll("\\[", "").replaceAll("\\]","");
         Log.d(TAG, result);
-        ArrayList<VillageContract> userArrayList;
+        ArrayList<VillagesContract> userArrayList;
         SRCDBHelper db = new SRCDBHelper(mContext);
         try {
-            userArrayList = new ArrayList<VillageContract>();
+            userArrayList = new ArrayList<VillagesContract>();
             //JSONObject jsonObject = new JSONObject(json);
             JSONArray jsonArray = new JSONArray(json);
-            db.syncVillages(jsonArray);
+            db.syncVILLAGES(jsonArray);
         } catch (JSONException e) {
             e.printStackTrace();
         }

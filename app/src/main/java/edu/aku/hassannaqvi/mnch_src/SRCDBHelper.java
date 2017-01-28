@@ -17,14 +17,14 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import edu.aku.hassannaqvi.mnch_src.ClusterContract.ClusterEntry;
+import edu.aku.hassannaqvi.mnch_src.DistrictsContract.singleDistrict;
 import edu.aku.hassannaqvi.mnch_src.FormContract.Sec1Entry;
 import edu.aku.hassannaqvi.mnch_src.Sec3Contract.Sec3Entry;
 import edu.aku.hassannaqvi.mnch_src.Sec7ImContract.single7Im;
 import edu.aku.hassannaqvi.mnch_src.Section4Contract.Section4Entry;
 import edu.aku.hassannaqvi.mnch_src.Section4bContract.Section4bEntry;
 import edu.aku.hassannaqvi.mnch_src.UsersContract.singleUser;
-import edu.aku.hassannaqvi.mnch_src.VillageContract.VillageEntry;
+import edu.aku.hassannaqvi.mnch_src.VillagesContract.singleVillages;
 
 
 /**
@@ -38,13 +38,17 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + UsersContract.singleUser.ROW_PASSWORD + " TEXT,"
             + UsersContract.singleUser.ROW_USERSTATUS + " TEXT,"
             + UsersContract.singleUser.ROW_ISADMIN + " TEXT);";
-    public static final String SQL_CREATE_CLUSTER = "CREATE TABLE IF NOT EXISTS " + ClusterEntry.TABLE_NAME + "("
-            + ClusterEntry.ROW_UCCODE + " TEXT,"
-            + ClusterEntry.ROW_UCNAME + " TEXT);";
-    public static final String SQL_CREATE_VILLAGE = "CREATE TABLE IF NOT EXISTS " + VillageEntry.TABLE_NAME + "("
-            + VillageEntry.ROW_VCODE + " TEXT,"
-            + VillageEntry.ROW_VNAME + " TEXT,"
-            + VillageEntry.ROW_UCNAME + " TEXT);";
+    final String SQL_CREATE_DISTRICT_TABLE = "CREATE TABLE " + singleDistrict.TABLE_NAME + " (" +
+            singleDistrict._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            singleDistrict.COLUMN_DISTRICT_CODE + " TEXT, " +
+            singleDistrict.COLUMN_DISTRICT_NAME + " TEXT " +
+            ");";
+    final String SQL_CREATE_VILLAGES_TABLE = "CREATE TABLE " + singleVillages.TABLE_NAME + " (" +
+            singleVillages._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            singleVillages.COLUMN_VILLAGES_CODE + " TEXT, " +
+            singleVillages.COLUMN_VILLAGES_NAME + " TEXT, " +
+            singleVillages.COLUMN_DISTRICT_CODE + " TEXT " +
+            ");";
     public static final String SQL_CREATE_BASELINE_SEC1 = "CREATE TABLE " + Sec1Entry.TABLE_NAME + "("
             + Sec1Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Sec1Entry.ROW_DEVID + " TEXT,"
@@ -148,10 +152,10 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 2;
     private static final String SQL_DELETE_USERS =
             "DROP TABLE IF EXISTS " + singleUser.TABLE_NAME;
-    private static final String SQL_DELETE_CLUSTERS =
-            "DROP TABLE IF EXISTS " + ClusterEntry.TABLE_NAME;
+    private static final String SQL_DELETE_DISTRICTS =
+            "DROP TABLE IF EXISTS " + singleDistrict.TABLE_NAME;
     private static final String SQL_DELETE_VILLAGES =
-            "DROP TABLE IF EXISTS " + VillageEntry.TABLE_NAME;
+            "DROP TABLE IF EXISTS " + singleVillages.TABLE_NAME;
     private static final String SQL_DELETE_SEC1 =
             "DROP TABLE IF EXISTS " + Sec1Entry.TABLE_NAME;
     private static final String SQL_DELETE_SEC3 =
@@ -172,8 +176,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_USERS);
-        db.execSQL(SQL_CREATE_CLUSTER);
-        db.execSQL(SQL_CREATE_VILLAGE);
+        db.execSQL(SQL_CREATE_DISTRICT_TABLE);
+        db.execSQL(SQL_CREATE_VILLAGES_TABLE);
 
         db.execSQL(SQL_CREATE_BASELINE_SEC1);
         db.execSQL(SQL_CREATE_BASELINE_SEC3);
@@ -186,7 +190,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL(SQL_DELETE_USERS);
-        db.execSQL(SQL_DELETE_CLUSTERS);
+        db.execSQL(SQL_DELETE_DISTRICTS);
         db.execSQL(SQL_DELETE_VILLAGES);
 
         db.execSQL(SQL_DELETE_SEC1);
@@ -196,6 +200,149 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_SEC7IM);
 
         onCreate(db);
+    }
+
+    public Collection<DistrictsContract> getAllDistricts() {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                singleDistrict._ID,
+                singleDistrict.COLUMN_DISTRICT_CODE,
+                singleDistrict.COLUMN_DISTRICT_NAME
+        };
+
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                singleDistrict._ID + " ASC";
+
+        Collection<DistrictsContract> allDC = new ArrayList<DistrictsContract>();
+        try {
+            c = db.query(
+                    singleDistrict.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                DistrictsContract dc = new DistrictsContract();
+                allDC.add(dc.hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allDC;
+    }
+
+    public Collection<VillagesContract> getAllVillagesByDistrict(String district_code) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                singleVillages._ID,
+                singleVillages.COLUMN_VILLAGES_CODE,
+                singleVillages.COLUMN_VILLAGES_NAME,
+                singleVillages.COLUMN_DISTRICT_CODE
+        };
+
+        String whereClause = singleVillages.COLUMN_DISTRICT_CODE + " = ?";
+        String[] whereArgs = {district_code};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                singleVillages.COLUMN_VILLAGES_CODE + " ASC";
+
+        Collection<VillagesContract> allPC = new ArrayList<VillagesContract>();
+        try {
+            c = db.query(
+                    singleVillages.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                VillagesContract pc = new VillagesContract();
+                allPC.add(pc.hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allPC;
+    }
+
+    public void syncDistrict(JSONArray dcList) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(singleDistrict.TABLE_NAME, null, null);
+
+        try {
+            JSONArray jsonArray = dcList;
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectDistrict = jsonArray.getJSONObject(i);
+
+                DistrictsContract dc = new DistrictsContract();
+                dc.sync(jsonObjectDistrict);
+
+                ContentValues values = new ContentValues();
+
+                values.put(singleDistrict.COLUMN_DISTRICT_CODE, dc.getDistrictCode());
+                values.put(singleDistrict.COLUMN_DISTRICT_NAME, dc.getDistrictName());
+
+                db.insert(singleDistrict.TABLE_NAME, null, values);
+            }
+            db.close();
+
+        } catch (Exception e) {
+
+        }
+    }
+
+    public void syncVILLAGES(JSONArray pcList) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(singleVillages.TABLE_NAME, null, null);
+
+        try {
+            JSONArray jsonArray = pcList;
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectVILLAGES = jsonArray.getJSONObject(i);
+
+                VillagesContract vc = new VillagesContract();
+                vc.sync(jsonObjectVILLAGES);
+
+                ContentValues values = new ContentValues();
+
+                values.put(singleVillages.COLUMN_VILLAGES_CODE, vc.getVILLAGESCode());
+                values.put(singleVillages.COLUMN_VILLAGES_NAME, vc.getVILLAGESName());
+                values.put(singleVillages.COLUMN_DISTRICT_CODE, vc.getDistrictCode());
+
+                db.insert(singleVillages.TABLE_NAME, null, values);
+            }
+            db.close();
+
+        } catch (Exception e) {
+
+        }
     }
 
 
@@ -244,56 +391,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void syncCluster(JSONArray test) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(ClusterContract.ClusterEntry.TABLE_NAME, null, null);
 
-        try {
-            JSONArray jsonArray = test;
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObjectUser = jsonArray.getJSONObject(i);
-                String uccode = jsonObjectUser.getString("uccode");
-                String ucname = jsonObjectUser.getString("ucname");
-
-                ContentValues values = new ContentValues();
-
-                values.put(ClusterEntry.ROW_UCCODE, uccode);
-                values.put(ClusterEntry.ROW_UCNAME, ucname);
-
-                db.insert(ClusterEntry.TABLE_NAME, null, values);
-            }
-            db.close();
-
-        } catch (Exception e) {
-        }
-    }
-
-    public void syncVillages(JSONArray test) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(VillageEntry.TABLE_NAME, null, null);
-
-        try {
-            JSONArray jsonArray = test;
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObjectUser = jsonArray.getJSONObject(i);
-
-                String vcode = jsonObjectUser.getString("vcode");
-                String vname = jsonObjectUser.getString("vname");
-                String ucname = jsonObjectUser.getString("ucname");
-
-                ContentValues values = new ContentValues();
-
-                values.put(VillageEntry.ROW_VCODE, vcode);
-                values.put(VillageEntry.ROW_VNAME, vname);
-                values.put(VillageEntry.ROW_UCNAME, ucname);
-
-                db.insert(VillageEntry.TABLE_NAME, null, values);
-            }
-            db.close();
-
-        } catch (Exception e) {
-        }
-    }
 
 
     public int getSNO() {
@@ -1122,22 +1220,30 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     }
 
 
-    public ArrayList<Members> getCluster() {
+    public ArrayList<Members> getDistricts() {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<Members> userList = null;
         try {
             userList = new ArrayList<Members>();
-            String QUERY = "SELECT * FROM " + ClusterEntry.TABLE_NAME;
+            String QUERY = "SELECT * FROM " + singleDistrict.TABLE_NAME;
             Cursor cursor = db.rawQuery(QUERY, null);
 
+            int num = cursor.getCount();
+
+            if (num == 0) {
+                userList.add(new Members("0", "..."));
+            }
+
             if (!cursor.isLast()) {
+                userList.add(new Members("0", "..."));
+
                 while (cursor.moveToNext()) {
-                    ClusterContract hf = new ClusterContract();
+                    DistrictsContract dc = new DistrictsContract();
 
-                    hf.setROW_UCCODE(cursor.getString(0));
-                    hf.setROW_UCNAME(cursor.getString(1));
+                    dc.setDistrictCode(cursor.getString(0));
+                    dc.setDistrictName(cursor.getString(1));
 
-                    userList.add(new Members(hf.getROW_UCCODE(), hf.getROW_UCNAME()));
+                    userList.add(new Members(dc.getDistrictCode(), dc.getDistrictName()));
                 }
             }
             db.close();
@@ -1147,30 +1253,30 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     }
 
 
-    public ArrayList<Members> getVillages(String ucname) {
+    public ArrayList<Members> getVillages(String uccode) {
         SQLiteDatabase db = this.getReadableDatabase();
-        ArrayList<Members> userList = null;
+        ArrayList<Members> villageList = null;
         try {
-            userList = new ArrayList<Members>();
-            String QUERY = "SELECT * FROM " + VillageEntry.TABLE_NAME + " WHERE "
-                    + VillageEntry.ROW_UCNAME + "='" + ucname + "'";
+            villageList = new ArrayList<Members>();
+            String QUERY = "SELECT * FROM " + singleVillages.TABLE_NAME + " WHERE "
+                    + singleVillages.COLUMN_DISTRICT_CODE + "='" + uccode + "'";
 
             Cursor cursor = db.rawQuery(QUERY, null);
 
             if (!cursor.isLast()) {
                 while (cursor.moveToNext()) {
-                    VillageContract hf = new VillageContract();
+                    VillagesContract vc = new VillagesContract();
 
-                    hf.setROW_VCODE(cursor.getString(0));
-                    hf.setROW_VNAME(cursor.getString(1));
+                    vc.setVILLAGESCode(cursor.getString(0));
+                    vc.setVILLAGESName(cursor.getString(1));
 
-                    userList.add(new Members(hf.getROW_VCODE(), hf.getROW_VNAME()));
+                    villageList.add(new Members(vc.getVILLAGESCode(), vc.getVILLAGESName()));
                 }
             }
             db.close();
         } catch (Exception e) {
         }
-        return userList;
+        return villageList;
     }
 
     public ArrayList<Members> getVillages() {
@@ -1178,18 +1284,18 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         ArrayList<Members> userList = null;
         try {
             userList = new ArrayList<Members>();
-            String QUERY = "SELECT * FROM " + VillageEntry.TABLE_NAME;
+            String QUERY = "SELECT * FROM " + singleVillages.TABLE_NAME;
 
             Cursor cursor = db.rawQuery(QUERY, null);
 
             if (!cursor.isLast()) {
                 while (cursor.moveToNext()) {
-                    VillageContract hf = new VillageContract();
+                    VillagesContract vc = new VillagesContract();
 
-                    hf.setROW_VCODE(cursor.getString(0));
-                    hf.setROW_VNAME(cursor.getString(1));
+                    vc.setVILLAGESCode(cursor.getString(0));
+                    vc.setVILLAGESName(cursor.getString(1));
 
-                    userList.add(new Members(hf.getROW_VCODE(), hf.getROW_VNAME()));
+                    userList.add(new Members(vc.getVILLAGESCode(), vc.getVILLAGESName()));
                 }
             }
             db.close();
@@ -1199,13 +1305,13 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     }
 
 
-    public String getUCCode(String ucname) {
+    public String getDistrictCode(String ucname) {
         SQLiteDatabase db = this.getReadableDatabase();
         String uccode = "";
 
         try {
-            String QUERY = "SELECT * FROM " + ClusterEntry.TABLE_NAME + " WHERE " +
-                    ClusterEntry.ROW_UCNAME + " = '" + ucname + "'";
+            String QUERY = "SELECT * FROM " + singleDistrict.TABLE_NAME + " WHERE " +
+                    singleDistrict.COLUMN_DISTRICT_CODE + " = '" + ucname + "'";
 
             Cursor cursor = db.rawQuery(QUERY, null);
 
@@ -1221,14 +1327,14 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     }
 
 
-    public String getVCode(String ucname, String vname) {
+    public String getVCode(String uccode, String vname) {
         SQLiteDatabase db = this.getReadableDatabase();
         String vcode = "";
 
         try {
-            String QUERY = "SELECT * FROM " + VillageEntry.TABLE_NAME + " WHERE " +
-                    VillageEntry.ROW_UCNAME + " = '" + ucname + "' AND " +
-                    VillageEntry.ROW_VNAME + " = '" + vname + "'";
+            String QUERY = "SELECT * FROM " + singleVillages.TABLE_NAME + " WHERE " +
+                    singleVillages.COLUMN_DISTRICT_CODE + " = '" + uccode + "' AND " +
+                    singleVillages.COLUMN_VILLAGES_NAME + " = '" + vname + "'";
 
             Cursor cursor = db.rawQuery(QUERY, null);
 

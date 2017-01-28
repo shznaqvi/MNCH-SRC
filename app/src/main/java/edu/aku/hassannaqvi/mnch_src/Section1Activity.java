@@ -11,6 +11,7 @@ import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -32,6 +33,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -94,6 +96,8 @@ public class Section1Activity extends Activity implements TextWatcher {
     private int rdo_s1q112;
     private AlertDialog.Builder alert;
     private String spDateT;
+
+    public List<String> psuCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -170,53 +174,152 @@ public class Section1Activity extends Activity implements TextWatcher {
         s1q101.setAdapter(adapter);
 
 
-        ArrayList<String> arr_members = new ArrayList<>();
-        final ArrayList<String> arr_members1 = new ArrayList<>();
-
+//        final ArrayList<String> arr_members = new ArrayList<>();
+//        final ArrayList<String> arr_members1 = new ArrayList<>();
+//
         final SRCDBHelper db = new SRCDBHelper(this);
-        final Collection<Members> members = db.getCluster();
+//        final Collection<Members> members = db.getDistricts();
+//
+//        final ArrayList<Members> member = new ArrayList<>();
+//
+//        for (Members m : members) {
+//            arr_members.add(m.getNME());
+//        }
+//
+//        for (Members m : members) {
+//            member.add(new Members(m.getID(),m.getNME()));
+//        }
+//
+////        Toast.makeText(getApplicationContext(),""+member.get(1).getID(),Toast.LENGTH_LONG).show();
+//
+//
+//        ArrayAdapter<String> adapter_cluster = new ArrayAdapter<>(Section1Activity.this,
+//                android.R.layout.simple_spinner_dropdown_item, arr_members);
+////        adapter_cluster.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        s1q105.setAdapter(adapter_cluster);
+//
+//
+//        final CVars var = new CVars();
+//
+//        s1q105.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+//                // TODO Auto-generated method stub
+//
+//                if (position != 0) {
+//
+//                    s1q106a.setEnabled(true);
+//                    s1q106b.setEnabled(true);
+//
+////                    String item = s1q105.getSelectedItem().toString();
+//
+//
+//                    String item = member.get(position).getID();
+//
+//                    Toast.makeText(getApplicationContext(),item,Toast.LENGTH_LONG).show();
+//
+//                    //var.setClusterName(item);
+//
+//                    final Collection<Members> members1 = db.getVillages(item);
+//
+//                    arr_members1.clear();
+//
+//                    for (Members m : members1) {
+//                        arr_members1.add(m.getNME());
+//                    }
+//
+//
+//                    ArrayAdapter<String> adapter1 = new ArrayAdapter<>(Section1Activity.this,
+//                            android.R.layout.simple_spinner_dropdown_item, arr_members1);
+////                adapter1.setDropDownViewResource(android.R.layout.simple_list_item_1);
+//                    s1q106a.setAdapter(adapter1);
+//
+//                }else {
+//                    s1q106a.setEnabled(false);
+//                    s1q106b.setEnabled(false);
+//                }
+//            }
+//
+//            public void onNothingSelected(AdapterView<?> arg0) {
+//                // TODO Auto-generated method stub
+//            }
+//        });
 
 
-        for (Members m : members) {
-            arr_members.add(m.getNME());
+        // Spinner Drop down elements
+        List<String> districtNames = new ArrayList<String>();
+        final List<String> districtCodes = new ArrayList<String>();
+        Collection<DistrictsContract> dc = db.getAllDistricts();
+        Log.d(TAG, "onCreate: " + dc.size());
+        for (DistrictsContract d : dc) {
+            districtNames.add(d.getDistrictName());
+            districtCodes.add(d.getDistrictCode());
         }
 
+        // Creating adapter for spinner
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_dropdown_item, districtNames);
 
-        ArrayAdapter<String> adapter_cluster = new ArrayAdapter<>(Section1Activity.this,
-                android.R.layout.simple_spinner_dropdown_item, arr_members);
-//        adapter_cluster.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        s1q105.setAdapter(adapter_cluster);
+        // Drop down layout style - list view with radio button
+//        dataAdapter
+//                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-
-        final CVars var = new CVars();
+        // attaching data adapter to spinner
+        s1q105.setAdapter(dataAdapter);
 
         s1q105.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-                // TODO Auto-generated method stub
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                SRCApp.hh01txt = districtCodes.get(position);
 
-                String item = s1q105.getSelectedItem().toString();
-                //var.setClusterName(item);
-
-                final Collection<Members> members1 = db.getVillages(item);
-
-                arr_members1.clear();
-
-                for (Members m : members1) {
-                    arr_members1.add(m.getNME());
+                psuCode = new ArrayList<String>();
+                Collection<VillagesContract> pc = db.getAllVillagesByDistrict(districtCodes.get(position));
+                for (VillagesContract p : pc) {
+                    psuCode.add(p.getVILLAGESName());
                 }
+                ArrayAdapter<String> villagesAdapter = new ArrayAdapter<String>(Section1Activity.this,
+                        android.R.layout.simple_spinner_dropdown_item, psuCode);
 
-
-                ArrayAdapter<String> adapter1 = new ArrayAdapter<>(Section1Activity.this,
-                        android.R.layout.simple_spinner_dropdown_item, arr_members1);
-//                adapter1.setDropDownViewResource(android.R.layout.simple_list_item_1);
-                s1q106a.setAdapter(adapter1);
+//                villagesAdapter
+//                        .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                s1q106a.setAdapter(villagesAdapter);
 
             }
 
-            public void onNothingSelected(AdapterView<?> arg0) {
-                // TODO Auto-generated method stub
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
+
+        s1q106a.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                SRCApp.hh02txt = psuCode.get(position);
+
+                Collection<VillagesContract> pc = db.getAllVillagesByDistrict(s1q105.getSelectedItem().toString());
+                for (VillagesContract p : pc) {
+                    Log.d(TAG, "onItemSelected: " + p.getVILLAGESCode() + " -" + SRCApp.hh02txt);
+
+//                    if (p.getVILLAGESCode().equals(SRCApp.hh02txt)) {
+//                        Log.d(TAG, "onItemSelected: " + p.getVILLAGESName());
+//                        String[] psuNameS = p.getVILLAGESName().toString().split("\\|");
+//                        districtN.setText(psuNameS[0]);
+//                        Log.d(TAG, "onItemSelected: " + psuNameS[0]);
+//                        ucN.setText(psuNameS[1]);
+//                        Log.d(TAG, "onItemSelected: " + psuNameS[1]);
+//                        /*psuN.setText(psuNameS[2]);
+//                        Log.d(TAG, "onItemSelected: " + psuNameS[2]);*/
+//
+//                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         alert = new AlertDialog.Builder(this);
         alert.setTitle("Confirm Exit");
         alert.setMessage("Are you sure you want to cancel the entry of this form and go back to main menu ?")
@@ -395,7 +498,7 @@ public class Section1Activity extends Activity implements TextWatcher {
 
 
         SRCDBHelper db = new SRCDBHelper(this);
-        String uccode = db.getUCCode(s1q105.getSelectedItem().toString());
+        String uccode = db.getDistrictCode(s1q105.getSelectedItem().toString());
         String vcode = db.getVCode(s1q105.getSelectedItem().toString(), s1q106a.getSelectedItem().toString());
 
 

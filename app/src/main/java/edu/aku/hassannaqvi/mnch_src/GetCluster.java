@@ -64,7 +64,7 @@ public class GetCluster extends Activity {
                 gf1.execute();
 
                 SRCDBHelper db = new SRCDBHelper(this);
-                Collection<Members> lst = db.getCluster();
+                Collection<Members> lst = db.getDistricts();
 
                 if (lst.size() == 0) {
                     Toast.makeText(this, "Could not obtained list of Cluster / UC List ", Toast.LENGTH_SHORT).show();
@@ -93,7 +93,7 @@ public class GetCluster extends Activity {
                 gf1.execute();
 
                 SRCDBHelper db = new SRCDBHelper(this);
-                Collection<Members> lst = db.getCluster();
+                Collection<Members> lst = db.getDistricts();
 
                 if (lst.size() == 0) {
                     Toast.makeText(this, "Could not obtained list of Cluster / UC List ", Toast.LENGTH_SHORT).show();

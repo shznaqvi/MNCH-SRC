@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
             Toast.makeText(getApplicationContext(), "Getting Users", Toast.LENGTH_SHORT).show();
             new GetUsers(this).execute(usersUrl);
             Toast.makeText(getApplicationContext(), "Getting Districts", Toast.LENGTH_SHORT).show();
-            new GetClusters(this).execute(clustersUrl);
+            new GetDistricts(this).execute(clustersUrl);
             Toast.makeText(getApplicationContext(), "Getting Villages", Toast.LENGTH_SHORT).show();
             new GetVillages(this).execute(villagesUrl);
 

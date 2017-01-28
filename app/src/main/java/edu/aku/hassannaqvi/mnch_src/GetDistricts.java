@@ -19,26 +19,29 @@ import java.util.ArrayList;
 /**
  * Created by hassan.naqvi on 4/28/2016.
  */
-public class GetVillages extends AsyncTask<String, String, String> {
+public class GetDistricts extends AsyncTask<String, String, String> {
 
-    private final String TAG = "GetVillages()";
+    private final String TAG = "GetUsers()";
     HttpURLConnection urlConnection;
     private Context mContext;
     private ProgressDialog pd;
 
-    public GetVillages(Context context) {
+
+    public GetDistricts(Context context) {
         mContext = context;
     }
+
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
         pd = new ProgressDialog(mContext);
-        pd.setTitle("Getting Clusters");
+        pd.setTitle("Getting Districts");
         pd.setMessage("Preparing...");
         pd.show();
 
     }
+
 
     @Override
     protected String doInBackground(String... args) {
@@ -46,7 +49,7 @@ public class GetVillages extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            URL url = new URL(SRCApp._HOST_URL + "/src/getvillages.php");
+            URL url = new URL(SRCApp._HOST_URL + "/src/getdistricts.php");
             urlConnection = (HttpURLConnection) url.openConnection();
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 //pd.show();
@@ -57,13 +60,11 @@ public class GetVillages extends AsyncTask<String, String, String> {
 
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    //pd.show();
-                    Log.i(TAG, "Clusters In: " + line);
+                    Log.i(TAG, "District In: " + line);
                     result.append(line);
                 }
             } else {
                 result.append("URL not found");
-
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,7 +72,6 @@ public class GetVillages extends AsyncTask<String, String, String> {
 
         } finally {
             urlConnection.disconnect();
-
         }
 
 
@@ -83,29 +83,27 @@ public class GetVillages extends AsyncTask<String, String, String> {
 
         //Do something with the JSON string
         if (result != "URL not found") {
-
             String json = result;
             //json = json.replaceAll("\\[", "").replaceAll("\\]","");
             Log.d(TAG, result);
-            ArrayList<VillagesContract> VILLAGESArrayList;
+            ArrayList<DistrictsContract> districtArrayList;
             SRCDBHelper db = new SRCDBHelper(mContext);
             try {
-                VILLAGESArrayList = new ArrayList<VillagesContract>();
+                districtArrayList = new ArrayList<DistrictsContract>();
                 //JSONObject jsonObject = new JSONObject(json);
                 JSONArray jsonArray = new JSONArray(json);
-                pd.setMessage("Received: " + jsonArray.length() + " Villages");
-                pd.setTitle("Done... Synced Villages");
-                db.syncVILLAGES(jsonArray);
+                db.syncDistrict(jsonArray);
+                pd.setMessage("Received: " + jsonArray.length() + " Districts");
+                pd.setTitle("Done... Synced Districts");
+
             } catch (JSONException e) {
                 e.printStackTrace();
-                pd.setMessage("Received: 0 Villages");
-                pd.setTitle("Error... Syncing Villages");
+                pd.setMessage("Received: 0 Districts");
+                pd.setTitle("Error... Syncing Districts");
             }
-//            db.getAllDistricts();
+            db.getAllDistricts();
             pd.show();
         }
-
-
 
 /*        try {
             JSONObject obj = new JSONObject(json);

@@ -16,7 +16,7 @@ import android.view.View;
  */
 
 public class SRCApp extends Application {
-    public static final String _IP = "10.198.97.73"; // Test PHP server
+    public static final String _IP = "43.245.131.159"; // Test PHP server
     public static final Integer _PORT = 8080; // Port - with colon (:)
     public static final String _HOST_URL = "http://" + _IP + ":" + _PORT + "/";
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
@@ -71,6 +71,8 @@ public class SRCApp extends Application {
 
     public static int countM = 0;
     protected static LocationManager locationManager;
+    public static String hh01txt; //District
+    public static String hh02txt; //Village
 
 
 /*df*/
