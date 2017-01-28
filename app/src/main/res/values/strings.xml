@@ -850,6 +850,8 @@
 
     <string name="countMDeath"> مري ويل مائن جو تعداد </string>
     <string name="maternalDeath"> ڇا هن گهر ۾ حمل يا ويم کان 40 ڏينهن تائين ڪا ماء مري وئي هئي؟ </string>
+    <string name="maternalLabel"> 1 سال جي دوران حمل يا ويم کان 40 ڏينهن تائين مري ويل مائون </string>
+    <string name="childLabel"> گذريل 5 سالن جي دوران 5 سالن جي عمر تائين مري ويل ٻار </string>
     <string name="skip"> Skip Section </string>
     <string name="Continue"> Continue </string>
     <!-- Section 6 -->

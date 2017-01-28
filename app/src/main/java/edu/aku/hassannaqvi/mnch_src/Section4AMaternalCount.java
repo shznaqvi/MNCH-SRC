@@ -3,6 +3,8 @@ package edu.aku.hassannaqvi.mnch_src;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +21,7 @@ import butterknife.OnClick;
 
 public class Section4AMaternalCount extends Activity {
 
+    public int count = 0;
     @BindView(R.id.ScrollView01)
     ScrollView scrollView01;
     @BindView(R.id.app_header)
@@ -43,7 +46,6 @@ public class Section4AMaternalCount extends Activity {
     EditText countMDeath;
     @BindView(R.id.btncontinue)
     Button btncontinue;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,32 @@ public class Section4AMaternalCount extends Activity {
                     md03.setVisibility(View.GONE);
                     countMDeath.setText(null);
                 }
+            }
+        });
+
+        countMDeath.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                try {
+                    count = Integer.parseInt(countMDeath.getText().toString());
+                    if (count < 1 || count > 3) {
+                        countMDeath.setError("Cant be less than 1 or greater than 3.");
+                        countMDeath.requestFocus();
+                    } else countMDeath.setError(null);
+                } catch (NumberFormatException nfe) {
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
 
