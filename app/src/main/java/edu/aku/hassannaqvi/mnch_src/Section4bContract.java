@@ -1,5 +1,6 @@
 package edu.aku.hassannaqvi.mnch_src;
 
+import android.database.Cursor;
 import android.provider.BaseColumns;
 
 import org.json.JSONException;
@@ -149,25 +150,62 @@ public class Section4bContract implements BaseColumns {
     public JSONObject toJSONObject() throws JSONException {
         JSONObject json = new JSONObject();
 
-        json.put(Section4bContract.Section4bEntry._ID, this._ID);
-        json.put(Section4bContract.Section4bEntry.ROW_DEVID, this.ROW_DEVID);
-        json.put(Section4bContract.Section4bEntry.ROW_FORM_ID, this.ROW_FORM_ID);
-        json.put(Section4bContract.Section4bEntry.ROW_HHCODE, this.ROW_HHCODE);
-        json.put(Section4bContract.Section4bEntry.ROW_SNO, this.ROW_SNO);
+        json.put(Section4bEntry._ID, this._ID);
+        json.put(Section4bEntry.ROW_DEVID, this.ROW_DEVID);
+        json.put(Section4bEntry.ROW_FORM_ID, this.ROW_FORM_ID);
+        json.put(Section4bEntry.ROW_HHCODE, this.ROW_HHCODE);
+        json.put(Section4bEntry.ROW_SNO, this.ROW_SNO);
 
-        json.put(Section4bContract.Section4bEntry.ROW_s4q42a, this.ROW_s4q42a);
-        json.put(Section4bContract.Section4bEntry.ROW_s4q42b, this.ROW_s4q42b);
-        json.put(Section4bContract.Section4bEntry.ROW_s4q42c, this.ROW_s4q42c);
-        json.put(Section4bContract.Section4bEntry.ROW_s4q42d, this.ROW_s4q42d);
-        json.put(Section4bContract.Section4bEntry.ROW_s4q42d1, this.ROW_s4q42d1);
-        json.put(Section4bContract.Section4bEntry.ROW_s4q42d2, this.ROW_s4q42d2);
-        json.put(Section4bContract.Section4bEntry.ROW_s4q42e, this.ROW_s4q42e);
-        json.put(Section4bContract.Section4bEntry.ROW_s4q42f, this.ROW_s4q42f);
-        json.put(Section4bContract.Section4bEntry.ROW_UID, this.ROW_UID);
+        json.put(Section4bEntry.ROW_s4q42a, this.ROW_s4q42a);
+        json.put(Section4bEntry.ROW_s4q42b, this.ROW_s4q42b);
+        json.put(Section4bEntry.ROW_s4q42c, this.ROW_s4q42c);
+        json.put(Section4bEntry.ROW_s4q42d, this.ROW_s4q42d);
+        json.put(Section4bEntry.ROW_s4q42d1, this.ROW_s4q42d1);
+        json.put(Section4bEntry.ROW_s4q42d2, this.ROW_s4q42d2);
+        json.put(Section4bEntry.ROW_s4q42e, this.ROW_s4q42e);
+        json.put(Section4bEntry.ROW_s4q42f, this.ROW_s4q42f);
+        json.put(Section4bEntry.ROW_UID, this.ROW_UID);
 
         return json;
     }
 
+    public Section4bContract sync(JSONObject jsonObject) throws JSONException {
+        this._ID = jsonObject.getLong(Section4bEntry._ID);
+        this.ROW_DEVID = jsonObject.getString(Section4bEntry.ROW_DEVID);
+        this.ROW_FORM_ID = jsonObject.getString(Section4bEntry.ROW_FORM_ID);
+        this.ROW_HHCODE = jsonObject.getString(Section4bEntry.ROW_HHCODE);
+        this.ROW_SNO = jsonObject.getString(Section4bEntry.ROW_SNO);
+        this.ROW_s4q42a = jsonObject.getString(Section4bEntry.ROW_s4q42a);
+        this.ROW_s4q42b = jsonObject.getString(Section4bEntry.ROW_s4q42b);
+        this.ROW_s4q42c = jsonObject.getString(Section4bEntry.ROW_s4q42c);
+        this.ROW_s4q42d = jsonObject.getString(Section4bEntry.ROW_s4q42d);
+        this.ROW_s4q42d1 = jsonObject.getString(Section4bEntry.ROW_s4q42d1);
+        this.ROW_s4q42d2 = jsonObject.getString(Section4bEntry.ROW_s4q42d2);
+        this.ROW_s4q42e = jsonObject.getString(Section4bEntry.ROW_s4q42e);
+        this.ROW_s4q42f = jsonObject.getString(Section4bEntry.ROW_s4q42f);
+        this.ROW_UID = jsonObject.getString(Section4bEntry.ROW_UID);
+
+        return this;
+    }
+
+    public Section4bContract Hydrate(Cursor cursor) {
+        this._ID = cursor.getLong(cursor.getColumnIndex(Section4bEntry._ID));
+        this.ROW_DEVID = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_DEVID));
+        this.ROW_FORM_ID = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_FORM_ID));
+        this.ROW_HHCODE = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_HHCODE));
+        this.ROW_SNO = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_SNO));
+        this.ROW_s4q42a = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_s4q42a));
+        this.ROW_s4q42b = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_s4q42b));
+        this.ROW_s4q42c = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_s4q42c));
+        this.ROW_s4q42d = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_s4q42d));
+        this.ROW_s4q42d1 = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_s4q42d1));
+        this.ROW_s4q42d2 = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_s4q42d2));
+        this.ROW_s4q42e = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_s4q42e));
+        this.ROW_s4q42f = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_s4q42f));
+        this.ROW_UID = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_UID));
+
+        return this;
+    }
 
     public class Section4bEntry implements BaseColumns {
 

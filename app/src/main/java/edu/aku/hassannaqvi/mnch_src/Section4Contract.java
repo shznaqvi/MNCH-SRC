@@ -1,5 +1,6 @@
 package edu.aku.hassannaqvi.mnch_src;
 
+import android.database.Cursor;
 import android.provider.BaseColumns;
 
 import org.json.JSONException;
@@ -158,6 +159,42 @@ public class Section4Contract implements BaseColumns {
         json.put(Section4Entry.ROW_UID, this.ROW_UID);
 
         return json;
+    }
+
+    public Section4Contract sync(JSONObject jsonObject) throws JSONException {
+        this._ID = jsonObject.getLong(Section4Entry._ID);
+        this.ROW_DEVID = jsonObject.getString(Section4Entry.ROW_DEVID);
+        this.ROW_FORM_ID = jsonObject.getString(Section4Entry.ROW_FORM_ID);
+        this.ROW_HHCODE = jsonObject.getString(Section4Entry.ROW_HHCODE);
+        this.ROW_SNO = jsonObject.getString(Section4Entry.ROW_SNO);
+        this.ROW_s4q41a = jsonObject.getString(Section4Entry.ROW_s4q41a);
+        this.ROW_s4q41b = jsonObject.getString(Section4Entry.ROW_s4q41b);
+        this.ROW_s4q41b1 = jsonObject.getString(Section4Entry.ROW_s4q41b1);
+        this.ROW_s4q41b2 = jsonObject.getString(Section4Entry.ROW_s4q41b2);
+        this.ROW_s4q41c = jsonObject.getString(Section4Entry.ROW_s4q41c);
+        this.ROW_s4q41d = jsonObject.getString(Section4Entry.ROW_s4q41d);
+        this.ROW_s4q41e = jsonObject.getString(Section4Entry.ROW_s4q41e);
+        this.ROW_UID = jsonObject.getString(Section4Entry.ROW_UID);
+
+        return this;
+    }
+
+    public Section4Contract Hydrate(Cursor cursor) {
+        this._ID = cursor.getLong(cursor.getColumnIndex(Section4Entry._ID));
+        this.ROW_DEVID = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_DEVID));
+        this.ROW_FORM_ID = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_FORM_ID));
+        this.ROW_HHCODE = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_HHCODE));
+        this.ROW_SNO = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_SNO));
+        this.ROW_s4q41a = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41a));
+        this.ROW_s4q41b = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41b));
+        this.ROW_s4q41b1 = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41b1));
+        this.ROW_s4q41b2 = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41b2));
+        this.ROW_s4q41c = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41c));
+        this.ROW_s4q41d = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41d));
+        this.ROW_s4q41e = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41e));
+        this.ROW_UID = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_UID));
+
+        return this;
     }
 
 

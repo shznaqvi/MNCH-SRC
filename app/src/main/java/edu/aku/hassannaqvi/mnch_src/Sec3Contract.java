@@ -1,6 +1,10 @@
 package edu.aku.hassannaqvi.mnch_src;
 
+import android.database.Cursor;
 import android.provider.BaseColumns;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by isd on 03/11/2016.
@@ -13,9 +17,7 @@ public class Sec3Contract implements BaseColumns {
     String ROW_DEVID = SRCApp.DEVID;
     String ROW_FORM_ID;
     String ROW_HHCODE;
-
     String ROW_SNO;
-
     String ROW_s3q301a;
     String ROW_s3q301b;
     String ROW_s3q301c;
@@ -182,6 +184,67 @@ public class Sec3Contract implements BaseColumns {
     public void set_s3q301l(String ROW_s3q301l) {
         this.ROW_s3q301l = ROW_s3q301l;
     }
+
+    public Sec3Contract sync(JSONObject jsonObject) throws JSONException {
+        this._ID = jsonObject.getLong(Sec3Entry._ID);
+        this.ROW_DEVID = jsonObject.getString(Sec3Entry.ROW_DEVID);
+        this.ROW_FORM_ID = jsonObject.getString(Sec3Entry.ROW_FORM_ID);
+        this.ROW_s3q301a = jsonObject.getString(Sec3Entry.ROW_s3q301a);
+        this.ROW_s3q301b = jsonObject.getString(Sec3Entry.ROW_s3q301b);
+        this.ROW_s3q301c = jsonObject.getString(Sec3Entry.ROW_s3q301c);
+        this.ROW_s3q301d = jsonObject.getString(Sec3Entry.ROW_s3q301d);
+        this.ROW_s3q301e = jsonObject.getString(Sec3Entry.ROW_s3q301e);
+        this.ROW_s3q301f1 = jsonObject.getString(Sec3Entry.ROW_s3q301f1);
+        this.ROW_s3q301f = jsonObject.getString(Sec3Entry.ROW_s3q301f);
+        this.ROW_s3q301g = jsonObject.getString(Sec3Entry.ROW_s3q301g);
+        this.ROW_s3q301h = jsonObject.getString(Sec3Entry.ROW_s3q301h);
+        this.ROW_s3q301i = jsonObject.getString(Sec3Entry.ROW_s3q301i);
+        this.ROW_s3q301j = jsonObject.getString(Sec3Entry.ROW_s3q301j);
+        this.ROW_s3q301k = jsonObject.getString(Sec3Entry.ROW_s3q301k);
+
+        return this;
+    }
+
+    public Sec3Contract Hydrate(Cursor cursor) {
+        this._ID = cursor.getLong(cursor.getColumnIndex(Sec3Entry._ID));
+        this.ROW_DEVID = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_DEVID));
+        this.ROW_FORM_ID = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_FORM_ID));
+        this.ROW_s3q301a = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301a));
+        this.ROW_s3q301b = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301b));
+        this.ROW_s3q301c = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301c));
+        this.ROW_s3q301d = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301d));
+        this.ROW_s3q301e = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301e));
+        this.ROW_s3q301f1 = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301f1));
+        this.ROW_s3q301f = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301f));
+        this.ROW_s3q301g = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301g));
+        this.ROW_s3q301h = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301h));
+        this.ROW_s3q301i = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301i));
+        this.ROW_s3q301j = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301j));
+        this.ROW_s3q301k = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301k));
+
+        return this;
+    }
+
+    public JSONObject toJSONObject() throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put(Sec3Entry._ID, this._ID);
+        json.put(Sec3Entry.ROW_FORM_ID, this.ROW_FORM_ID);
+        json.put(Sec3Entry.ROW_s3q301a, this.ROW_s3q301a);
+        json.put(Sec3Entry.ROW_s3q301b, this.ROW_s3q301b);
+        json.put(Sec3Entry.ROW_s3q301c, this.ROW_s3q301c);
+        json.put(Sec3Entry.ROW_s3q301d, this.ROW_s3q301d);
+        json.put(Sec3Entry.ROW_s3q301e, this.ROW_s3q301e);
+        json.put(Sec3Entry.ROW_s3q301f1, this.ROW_s3q301f1);
+        json.put(Sec3Entry.ROW_s3q301f, this.ROW_s3q301f);
+        json.put(Sec3Entry.ROW_s3q301g, this.ROW_s3q301g);
+        json.put(Sec3Entry.ROW_s3q301h, this.ROW_s3q301h);
+        json.put(Sec3Entry.ROW_s3q301i, this.ROW_s3q301i);
+        json.put(Sec3Entry.ROW_s3q301j, this.ROW_s3q301j);
+        json.put(Sec3Entry.ROW_s3q301k, this.ROW_s3q301k);
+
+        return json;
+    }
+
 
     public static abstract class Sec3Entry implements BaseColumns {
         public static final String TABLE_NAME = "sec3";
