@@ -52,7 +52,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn07im01"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName">
+
+                <requestFocus />
+            </EditText>
 
 
             <TextView
@@ -67,8 +70,8 @@
                 android:id="@+id/mn07im02"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mn07im02"
                 android:digits="0123456789"
+                android:hint="@string/mn07im02"
                 android:inputType="number" />
 
 

@@ -391,9 +391,9 @@
     <string name="mn053008"> ايل ايڇ ڊبليو جي گهر ۾ </string>
     <string name="mn0531"> جڏهن اوهان کي هڪ اسپتال (THQ، DHQ، پرائيويٽ ڪلينڪ، اسپتال) تي پهچائي ويو ته ڇا ا وهان کي پنهنجي ويجھي BHU ۽ LHV جي طرف ريفر ڪيو ويو؟ </string>
     <string name="mn0532"> جيڪڏهن گهر ۾ ويم ٿيوهيو،ته ان جوڪارڻ ڇا هيو </string>
-    <string name="mn053201"> ضروري نه سمجهيو </string>
+    <string name="mn053201"> سار سنڀال ضروري نه سمجهي </string>
     <string name="mn053202"> پيئسه ڪو نه هئا </string>
-    <string name="mn053203"> سواريجي سهولتڪو نه هئي </string>
+    <string name="mn053203"> سواري جي سهولت ڪو نه هئي </string>
     <string name="mn053204"> ڪوئي ساڻ وٺي هلڻ وارو نه هيو </string>
     <string name="mn053205"> صحت مرڪز پري هيو </string>
     <string name="mn053206"> وڏن جي اجازت نه هئي </string>
@@ -852,6 +852,7 @@
     <string name="maternalDeath"> ڇا هن گهر ۾ حمل يا ويم کان 40 ڏينهن تائين ڪا ماء مري وئي هئي؟ </string>
     <string name="maternalLabel"> 1 سال جي دوران حمل يا ويم کان 40 ڏينهن تائين مري ويل مائون </string>
     <string name="childLabel"> گذريل 5 سالن جي دوران 5 سالن جي عمر تائين مري ويل ٻار </string>
+
     <string name="skip"> Skip Section </string>
     <string name="Continue"> Continue </string>
     <!-- Section 6 -->
@@ -860,7 +861,8 @@
     <string name="childMortality"> ڇا هن گهر ۾ پوئين 5 سالن دوران ڪو ٻار مري ويو هو؟ </string>
     <string name="section5Label"> صرف حامله عورتن لاء (گذشته هڪ سال دوران) </string>
     <string name="section5bLabel"> آخري ويم </string>
-
+    <string name="section5cLabel"> ويم کان پوء 7 ڏينهن تائين سار سنڀال </string>
+    <string name="section6Label"> خانداني منصوبه بندي </string>
     <string name="death"> مري ويل </string>
 
 

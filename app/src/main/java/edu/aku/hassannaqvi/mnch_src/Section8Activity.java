@@ -392,6 +392,8 @@ public class Section8Activity extends Activity {
     EditText mn082219;
     @BindView(R.id.mn082220)
     EditText mn082220;
+    @BindView(R.id.fldGrpmn0812)
+    LinearLayout fldGrpmn0812;
 
 
 
@@ -404,6 +406,28 @@ public class Section8Activity extends Activity {
         ButterKnife.bind(this);
 
         appHeader.setText("SRC - > Section 8");
+
+
+        // ============== 8.12 ============
+
+        mn0812.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (mn081201.isChecked()) {
+                    fldGrpmn0812.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpmn0812.setVisibility(View.GONE);
+                    mn081301.setChecked(false);
+                    mn081302.setChecked(false);
+                    mn081303.setChecked(false);
+                    mn081304.setChecked(false);
+                    mn081305.setChecked(false);
+                    mn081306.setChecked(false);
+                    mn081388.setChecked(false);
+                    mn081388x.setText(null);
+                }
+            }
+        });
 
 
         // ============= Q 8.09 Skip Pattern =================
@@ -1008,6 +1032,7 @@ public class Section8Activity extends Activity {
             }
 
             // ==================== Q 8.13 =========================
+        if (mn081201.isChecked()) {
             if (!(mn081301.isChecked() || mn081302.isChecked() || mn081303.isChecked() || mn081304.isChecked()
                     || mn081304.isChecked() || mn081305.isChecked() || mn081306.isChecked() || mn081388.isChecked())) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0813), Toast.LENGTH_LONG).show();
@@ -1017,6 +1042,7 @@ public class Section8Activity extends Activity {
             } else {
                 mn081388.setError(null);
             }
+        }
 
             // =================== Edit Text / Q 8.13 Others =================
             if (mn081388.isChecked() && mn081388x.getText().toString().isEmpty()) {
@@ -1126,8 +1152,9 @@ public class Section8Activity extends Activity {
 
             // =========== Skip Check Q 8.20 =============
 
-            if (mn082001.isChecked()) {
-                if (mn0821.getCheckedRadioButtonId() == -1 || mn082101.getText().toString().isEmpty() || mn082102.getText().toString().isEmpty()) {
+        if (mn082001.isChecked()) {
+            if (!(mn082199.isChecked())) {
+                if (mn082101.getText().toString().isEmpty() || mn082102.getText().toString().isEmpty()) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0821), Toast.LENGTH_LONG).show();
                     mn082199.setError("This data is Required!");    // Set Error on last radio button
 
@@ -1136,7 +1163,7 @@ public class Section8Activity extends Activity {
                 } else {
                     mn082199.setError(null);
                 }
-
+            }
             }
 
             if (mn082002.isChecked()) {

@@ -90,6 +90,8 @@ public class Section6Activity extends Activity {
     RadioButton mn060502;
     @BindView(R.id.fldGrpmn0604)
     LinearLayout fldGrpmn0604;
+    @BindView(R.id.lbl_hhhead1)
+    TextView lbl_hhhdead1;
 
 
     @Override
@@ -99,6 +101,39 @@ public class Section6Activity extends Activity {
         ButterKnife.bind(this);
 
         appHeader.setText("SRC - > Section 6");
+
+        // ================ Q 6.02===========
+
+        mn060305.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    fldGrpmn0604.setVisibility(View.VISIBLE);
+                    mn060301.setEnabled(false);
+                    mn060301.setChecked(false);
+                    mn060302.setEnabled(false);
+                    mn060302.setChecked(false);
+                    mn060303.setEnabled(false);
+                    mn060303.setChecked(false);
+                    mn060304.setEnabled(false);
+                    mn060304.setChecked(false);
+                    mn060388.setEnabled(false);
+                    mn060388.setChecked(false);
+                    mn060388x.setEnabled(false);
+                    mn060388x.setText(null);
+                } else {
+                    fldGrpmn0604.setVisibility(View.GONE);
+                    mn0604.clearCheck();
+                    mn060301.setEnabled(true);
+                    mn060302.setEnabled(true);
+                    mn060303.setEnabled(true);
+                    mn060304.setEnabled(true);
+                    mn060388.setEnabled(true);
+                    mn060388x.setEnabled(true);
+
+                }
+            }
+        });
 
 // ============= Q 6.01 Skip Pattern =================
 
@@ -158,20 +193,6 @@ public class Section6Activity extends Activity {
             }
         });
 
-        //  =========================== Q 6.03 Skip Pattern ================================
-        mn060305.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    fldGrpmn0604.setVisibility(View.VISIBLE);
-
-                } else {
-                    fldGrpmn0604.setVisibility(View.GONE);
-                    mn0604.clearCheck();
-
-                }
-            }
-        });
 
 
         // =============================== Q 6.04 Others ========================

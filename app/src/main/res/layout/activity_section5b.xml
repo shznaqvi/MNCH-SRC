@@ -794,11 +794,11 @@
                             android:layout_height="wrap_content"
                             android:text="@string/mn054407" />
 
-                        <RadioButton
+                        <!--<RadioButton
                             android:id="@+id/mn054477"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/mndns" />
+                            android:text="@string/mndns" />-->
 
                         <RadioButton
                             android:id="@+id/mn054488"
@@ -816,7 +816,11 @@
                         android:hint="@string/mnother" />
                 </LinearLayout>
 
-
+                <LinearLayout
+                    android:id="@+id/fldGrpmn0545"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -878,6 +882,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/mnother" />
+
+                </LinearLayout>
 
             </LinearLayout>
 

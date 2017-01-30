@@ -1,20 +1,18 @@
 package edu.aku.hassannaqvi.mnch_src;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.CheckBox;
-import android.widget.RadioGroup;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.Button;
+import android.widget.RadioGroup;
+import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -291,6 +289,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         appHeader.setText("SRC - > Section 7");
         mn0701.setMaxDate(new Date().getTime());
         dob = new SimpleDateFormat("dd-MM-yyyy").format(mn0701.getCalendarView().getDate());
+
 
         mn0706.setOnCheckedChangeListener(this);
         mn0707.setOnCheckedChangeListener(this);
@@ -875,6 +874,20 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             } else {
                 mn071788x.setVisibility(View.GONE);
                 mn071788x.setText(null);
+            }
+        }
+        if (v.getId() == R.id.mn072004) {
+            if (mn072004.isChecked()) {
+                mn072001.setEnabled(false);
+                mn072001.setChecked(false);
+                mn072002.setEnabled(false);
+                mn072002.setChecked(false);
+                mn072003.setEnabled(false);
+                mn072003.setChecked(false);
+            } else {
+                mn072001.setEnabled(true);
+                mn072002.setEnabled(true);
+                mn072003.setEnabled(true);
             }
         }
     }

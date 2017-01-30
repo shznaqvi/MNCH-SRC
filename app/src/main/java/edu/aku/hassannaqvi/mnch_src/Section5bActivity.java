@@ -239,8 +239,8 @@ public class Section5bActivity extends Activity {
     RadioButton mn054406;
     @BindView(R.id.mn054407)
     RadioButton mn054407;
-    @BindView(R.id.mn054477)
-    RadioButton mn054477;
+    //@BindView(R.id.mn054477)
+    //RadioButton mn054477;
     @BindView(R.id.mn054488)
     RadioButton mn054488;
     @BindView(R.id.mn054488x)
@@ -269,6 +269,8 @@ public class Section5bActivity extends Activity {
     LinearLayout fldGrpmn0536;
     @BindView(R.id.lbl_hhhead1)
     TextView lbl_hhhdead1;
+    @BindView(R.id.fldGrpmn0545)
+    LinearLayout fldGrpmn0545;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -277,6 +279,48 @@ public class Section5bActivity extends Activity {
         ButterKnife.bind(this);
 
         appHeader.setText("SRC - > Section 5B");
+
+        // ================ 5.32======================
+
+        mn053307.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mn053301.setEnabled(false);
+                    mn053301.setChecked(false);
+                    mn053302.setEnabled(false);
+                    mn053302.setChecked(false);
+                    mn053303.setEnabled(false);
+                    mn053303.setChecked(false);
+                    mn053304.setEnabled(false);
+                    mn053304.setChecked(false);
+                    mn053305.setEnabled(false);
+                    mn053305.setChecked(false);
+                    mn053306.setEnabled(false);
+                    mn053306.setChecked(false);
+                    mn053308.setEnabled(false);
+                    mn053308.setChecked(false);
+                    mn053388.setEnabled(false);
+                    mn053388.setChecked(false);
+                    mn053388x.setEnabled(false);
+                    mn053388.setText(null);
+
+
+                } else {
+                    mn053301.setEnabled(true);
+                    mn053302.setEnabled(true);
+                    mn053303.setEnabled(true);
+                    mn053304.setEnabled(true);
+                    mn053305.setEnabled(true);
+                    mn053306.setEnabled(true);
+                    mn053307.setEnabled(true);
+                    mn053308.setEnabled(true);
+                    mn053388.setEnabled(true);
+                    mn053388x.setEnabled(true);
+                }
+            }
+        });
 
         // ============= Q 5.30 Skip Pattern =================
 
@@ -403,24 +447,21 @@ public class Section5bActivity extends Activity {
             }
         });
 
-        // ============================= Q 5.44 Skip Pattern ========================
+        // ============================= Q 5.43 Skip Pattern ========================
         mn0543.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (mn054377.isChecked()) {
                     fldGrpmn0544.setVisibility(View.GONE);
+                    fldGrpmn0545.setVisibility(View.VISIBLE);
                     mn0544.clearCheck();
                     mn054488x.setText(null);
                 } else {
                     fldGrpmn0544.setVisibility(View.VISIBLE);
+                    fldGrpmn0545.setVisibility(View.GONE);
+                    mn0545.clearCheck();
                 }
-            }
-        });
 
-        // ========================== Q 5.43 Others ==========================
-        mn0543.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == mn054388.getId()) {
 
                     mn054388x.setVisibility(View.VISIBLE);
@@ -436,6 +477,7 @@ public class Section5bActivity extends Activity {
                 }
             }
         });
+
 
         // =============================== Q 5.44 Others ========================
         mn0544.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -704,7 +746,7 @@ public class Section5bActivity extends Activity {
         // Radio Group
         s5b.put("mn0544", mn054401.isChecked() ? "1" : mn054402.isChecked() ? "2" : mn054403.isChecked() ? "3"
                 : mn054404.isChecked() ? "4" : mn054405.isChecked() ? "5" : mn054406.isChecked() ? "6"
-                : mn054407.isChecked() ? "7" : mn054477.isChecked() ? "77" : mn054488.isChecked() ? "88" : "0");
+                : mn054407.isChecked() ? "7" : mn054488.isChecked() ? "88" : "0");
 
         //Edit Text
         s5b.put("mn054488x", mn054488x.getText().toString());
@@ -936,7 +978,7 @@ public class Section5bActivity extends Activity {
             }
             // Skip Check 5.42 Check Box
             if (!(mn054201.isChecked() || mn054202.isChecked() || mn054203.isChecked() || mn054204.isChecked()
-                    || mn054205.isChecked() || mn053688.isChecked())) {
+                    || mn054205.isChecked() || mn054288.isChecked())) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0542), Toast.LENGTH_LONG).show();
                 mn054288.setError("This data is Required!");    // Set Error on last radio button
                 Log.i(TAG, "mn0542: This data is Required!");
