@@ -10,7 +10,7 @@ import org.json.JSONObject;
  * Created by isd on 26/12/2016.
  */
 
-public class Section4bContract implements BaseColumns {
+public class Sec4bContract implements BaseColumns {
 
     Long _ID;
     String ROW_DEVID = SRCApp.DEVID;
@@ -31,7 +31,7 @@ public class Section4bContract implements BaseColumns {
     String ROW_UID;
 
 
-    public Section4bContract() {
+    public Sec4bContract() {
 
     }
 
@@ -169,7 +169,7 @@ public class Section4bContract implements BaseColumns {
         return json;
     }
 
-    public Section4bContract sync(JSONObject jsonObject) throws JSONException {
+    public Sec4bContract sync(JSONObject jsonObject) throws JSONException {
         this._ID = jsonObject.getLong(Section4bEntry._ID);
         this.ROW_DEVID = jsonObject.getString(Section4bEntry.ROW_DEVID);
         this.ROW_FORM_ID = jsonObject.getString(Section4bEntry.ROW_FORM_ID);
@@ -188,7 +188,7 @@ public class Section4bContract implements BaseColumns {
         return this;
     }
 
-    public Section4bContract Hydrate(Cursor cursor) {
+    public Sec4bContract Hydrate(Cursor cursor) {
         this._ID = cursor.getLong(cursor.getColumnIndex(Section4bEntry._ID));
         this.ROW_DEVID = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_DEVID));
         this.ROW_FORM_ID = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_FORM_ID));

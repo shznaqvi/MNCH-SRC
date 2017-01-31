@@ -42,8 +42,8 @@ public class SRCApp extends Application {
     public static String GPS_ACC;
     public static FormContract fc;
     public static Sec3Contract sc3;
-    public static Section4Contract sc4a;
-    public static Section4bContract sc4b;
+    public static Sec4aContract sc4a;
+    public static Sec4bContract sc4b;
     public static Sec7ImContract sec7im;
     public static String deviceId;
     public static String uid;
@@ -70,9 +70,9 @@ public class SRCApp extends Application {
 
 
     public static int countM = 0;
-    protected static LocationManager locationManager;
     public static String hh01txt; //District
     public static String hh02txt; //Village
+    protected static LocationManager locationManager;
 
 
 /*df*/

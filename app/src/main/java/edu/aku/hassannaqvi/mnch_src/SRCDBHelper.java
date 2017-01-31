@@ -20,9 +20,9 @@ import java.util.List;
 import edu.aku.hassannaqvi.mnch_src.DistrictsContract.singleDistrict;
 import edu.aku.hassannaqvi.mnch_src.FormContract.Sec1Entry;
 import edu.aku.hassannaqvi.mnch_src.Sec3Contract.Sec3Entry;
+import edu.aku.hassannaqvi.mnch_src.Sec4aContract.Section4Entry;
+import edu.aku.hassannaqvi.mnch_src.Sec4bContract.Section4bEntry;
 import edu.aku.hassannaqvi.mnch_src.Sec7ImContract.single7Im;
-import edu.aku.hassannaqvi.mnch_src.Section4Contract.Section4Entry;
-import edu.aku.hassannaqvi.mnch_src.Section4bContract.Section4bEntry;
 import edu.aku.hassannaqvi.mnch_src.UsersContract.singleUser;
 import edu.aku.hassannaqvi.mnch_src.VillagesContract.singleVillages;
 
@@ -38,17 +38,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + UsersContract.singleUser.ROW_PASSWORD + " TEXT,"
             + UsersContract.singleUser.ROW_USERSTATUS + " TEXT,"
             + UsersContract.singleUser.ROW_ISADMIN + " TEXT);";
-    final String SQL_CREATE_DISTRICT_TABLE = "CREATE TABLE " + singleDistrict.TABLE_NAME + " (" +
-            singleDistrict._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            singleDistrict.COLUMN_DISTRICT_CODE + " TEXT, " +
-            singleDistrict.COLUMN_DISTRICT_NAME + " TEXT " +
-            ");";
-    final String SQL_CREATE_VILLAGES_TABLE = "CREATE TABLE " + singleVillages.TABLE_NAME + " (" +
-            singleVillages._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            singleVillages.COLUMN_VILLAGES_CODE + " TEXT, " +
-            singleVillages.COLUMN_VILLAGES_NAME + " TEXT, " +
-            singleVillages.COLUMN_DISTRICT_CODE + " TEXT " +
-            ");";
     public static final String SQL_CREATE_BASELINE_SEC1 = "CREATE TABLE " + Sec1Entry.TABLE_NAME + "("
             + Sec1Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Sec1Entry.ROW_DEVID + " TEXT,"
@@ -166,6 +155,17 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + Section4bEntry.TABLE_NAME;
     private static final String SQL_DELETE_SEC7IM =
             "DROP TABLE IF EXISTS " + single7Im.TABLE_NAME;
+    final String SQL_CREATE_DISTRICT_TABLE = "CREATE TABLE " + singleDistrict.TABLE_NAME + " (" +
+            singleDistrict._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            singleDistrict.COLUMN_DISTRICT_CODE + " TEXT, " +
+            singleDistrict.COLUMN_DISTRICT_NAME + " TEXT " +
+            ");";
+    final String SQL_CREATE_VILLAGES_TABLE = "CREATE TABLE " + singleVillages.TABLE_NAME + " (" +
+            singleVillages._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            singleVillages.COLUMN_VILLAGES_CODE + " TEXT, " +
+            singleVillages.COLUMN_VILLAGES_NAME + " TEXT, " +
+            singleVillages.COLUMN_DISTRICT_CODE + " TEXT " +
+            ");";
 
 
     SRCDBHelper(Context context) {
@@ -674,7 +674,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     }
 
 
-    public Long InsertRecord_Section4a(Section4Contract fc) {
+    public Long InsertRecord_Section4a(Sec4aContract fc) {
         long newRowId = 0;
         SQLiteDatabase db = this.getWritableDatabase();
         try {
@@ -706,7 +706,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     }
 
 
-    public Long InsertRecord_Section4b(Section4bContract fc) {
+    public Long InsertRecord_Section4b(Sec4bContract fc) {
         long newRowId = 0;
         SQLiteDatabase db = this.getWritableDatabase();
         try {
@@ -1180,7 +1180,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
                     Members m = new Members();
 
-                    Section4bContract sc = new Section4bContract();
+                    Sec4bContract sc = new Sec4bContract();
                     sc.set_sno(cursor.getString(cursor.getColumnIndex(Sec3Entry._ID)));
                     sc.set_s4q42a(cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301a)));
 

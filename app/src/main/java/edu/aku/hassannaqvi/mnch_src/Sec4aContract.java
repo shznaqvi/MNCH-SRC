@@ -10,7 +10,7 @@ import org.json.JSONObject;
  * Created by isd on 14/12/2016.
  */
 
-public class Section4Contract implements BaseColumns {
+public class Sec4aContract implements BaseColumns {
 
     private static final String TAG = "SEC4_CONTRACT";
 
@@ -30,7 +30,7 @@ public class Section4Contract implements BaseColumns {
     String ROW_s4q41e;
     String ROW_UID;
 
-    public Section4Contract() {
+    public Sec4aContract() {
 
     }
 
@@ -161,7 +161,7 @@ public class Section4Contract implements BaseColumns {
         return json;
     }
 
-    public Section4Contract sync(JSONObject jsonObject) throws JSONException {
+    public Sec4aContract sync(JSONObject jsonObject) throws JSONException {
         this._ID = jsonObject.getLong(Section4Entry._ID);
         this.ROW_DEVID = jsonObject.getString(Section4Entry.ROW_DEVID);
         this.ROW_FORM_ID = jsonObject.getString(Section4Entry.ROW_FORM_ID);
@@ -179,7 +179,7 @@ public class Section4Contract implements BaseColumns {
         return this;
     }
 
-    public Section4Contract Hydrate(Cursor cursor) {
+    public Sec4aContract Hydrate(Cursor cursor) {
         this._ID = cursor.getLong(cursor.getColumnIndex(Section4Entry._ID));
         this.ROW_DEVID = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_DEVID));
         this.ROW_FORM_ID = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_FORM_ID));
