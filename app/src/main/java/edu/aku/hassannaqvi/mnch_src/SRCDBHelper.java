@@ -103,23 +103,24 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             ");";
     public static final String SQL_CREATE_BASELINE_SEC4 = "CREATE TABLE " + Section4Entry.TABLE_NAME + "("
             + Section4Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + Section4Entry.ROW_DEVID + " TEXT,"
-            + Section4Entry.ROW_FORM_ID + " TEXT,"
-            + Section4Entry.ROW_FORM_DATE + " TEXT,"
-            + Section4Entry.ROW_USERID + " TEXT,"
-            + Section4Entry.ROW_HHCODE + " TEXT,"
-            + Section4Entry.ROW_SNO + " TEXT,"
-            + Section4Entry.ROW_s4q41a + " TEXT,"
-            + Section4Entry.ROW_s4q41b + " TEXT,"
-            + Section4Entry.ROW_s4q41b1 + " TEXT,"
-            + Section4Entry.ROW_s4q41b2 + " TEXT,"
-            + Section4Entry.ROW_s4q41c + " TEXT,"
-            + Section4Entry.ROW_s4q41d + " TEXT,"
-            + Section4Entry.ROW_s4q41e + " TEXT,"
-            + Section4Entry.ROW_UID + " TEXT,"
-            + Section4Entry.ROW_UUID + " TEXT,"
-            + Section4Entry.ROW_SYNCED + " TEXT,"
-            + Section4Entry.ROW_SYNCED_DATE + " TEXT"
+            + Section4Entry.ROW_DEVID + " TEXT," +
+            Section4Entry.ROW_FORM_ID + " TEXT," +
+            Section4Entry.ROW_FORM_DATE + " TEXT," +
+            Section4Entry.ROW_USERID + " TEXT," +
+            Section4Entry.ROW_HHCODE + " TEXT," +
+            Section4Entry.ROW_SNO + " TEXT," +
+            Section4Entry.ROW_S4Q41A + " TEXT," +
+            Section4Entry.ROW_S4Q41B + " TEXT," +
+            Section4Entry.ROW_S4Q41B1 + " TEXT," +
+            Section4Entry.ROW_S4Q41B2 + " TEXT," +
+            Section4Entry.ROW_S4Q41C + " TEXT," +
+            Section4Entry.ROW_S4Q41D + " TEXT," +
+            Section4Entry.ROW_S4Q41E + " TEXT," +
+            Section4Entry.ROW_UID + " TEXT," +
+            Section4Entry.ROW_UUID + " TEXT," +
+            Section4Entry.ROW_SYNCED + " TEXT," +
+            Section4Entry.ROW_SYNCED_DATE + " TEXT"
+
             + ");";
     public static final String SQL_CREATE_BASELINE_SEC4b = "CREATE TABLE IF NOT EXISTS " + Section4bEntry.TABLE_NAME + "("
             + Section4bEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -698,18 +699,18 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
             values.put(Section4Entry.ROW_DEVID, sec4a.get_DEVID());
             values.put(Section4Entry.ROW_FORM_ID, sec4a.get_FORM_ID());
-            values.put(Section4Entry.ROW_FORM_DATE, sec4a.getROW_FORM_DATE());
+            values.put(Section4Entry.ROW_FORM_DATE, sec4a.get_FORM_DATE());
             values.put(Section4Entry.ROW_HHCODE, sec4a.get_HHCODE());
 
             values.put(Section4Entry.ROW_SNO, sec4a.get_SNO());
 
-            values.put(Section4Entry.ROW_s4q41a, sec4a.get_s4q41a());
-            values.put(Section4Entry.ROW_s4q41b, sec4a.get_s4q41b());
-            values.put(Section4Entry.ROW_s4q41b1, sec4a.get_s4q41b1());
-            values.put(Section4Entry.ROW_s4q41b2, sec4a.get_s4q41b2());
-            values.put(Section4Entry.ROW_s4q41c, sec4a.get_s4q41c());
-            values.put(Section4Entry.ROW_s4q41d, sec4a.get_s4q41d());
-            values.put(Section4Entry.ROW_s4q41e, sec4a.get_s4q41e());
+            values.put(Section4Entry.ROW_S4Q41A, sec4a.get_s4q41a());
+            values.put(Section4Entry.ROW_S4Q41B, sec4a.get_s4q41b());
+            values.put(Section4Entry.ROW_S4Q41B1, sec4a.get_s4q41b1());
+            values.put(Section4Entry.ROW_S4Q41B2, sec4a.get_s4q41b2());
+            values.put(Section4Entry.ROW_S4Q41C, sec4a.get_s4q41c());
+            values.put(Section4Entry.ROW_S4Q41D, sec4a.get_s4q41d());
+            values.put(Section4Entry.ROW_S4Q41E, sec4a.get_s4q41e());
             values.put(Section4Entry.ROW_UID, sec4a.get_UID());
             values.put(Section4Entry.ROW_UUID, SRCApp.fc.getROW_UUID());
             // No need to update SYNC fields in this function
@@ -964,6 +965,43 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
+    public Long addSec4a(Sec4aContract sec4a) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(Section4Entry._ID, sec4a.get_ID());
+        values.put(Section4Entry.ROW_DEVID, sec4a.get_DEVID());
+        values.put(Section4Entry.ROW_FORM_ID, sec4a.get_FORM_ID());
+        values.put(Section4Entry.ROW_FORM_DATE, sec4a.get_FORM_DATE());
+        values.put(Section4Entry.ROW_USERID, sec4a.get_USERID());
+        values.put(Section4Entry.ROW_HHCODE, sec4a.get_HHCODE());
+        values.put(Section4Entry.ROW_SNO, sec4a.get_SNO());
+        values.put(Section4Entry.ROW_S4Q41A, sec4a.get_s4q41a());
+        values.put(Section4Entry.ROW_S4Q41B, sec4a.get_s4q41b());
+        values.put(Section4Entry.ROW_S4Q41B1, sec4a.get_s4q41b1());
+        values.put(Section4Entry.ROW_S4Q41B2, sec4a.get_s4q41b2());
+        values.put(Section4Entry.ROW_S4Q41C, sec4a.get_s4q41c());
+        values.put(Section4Entry.ROW_S4Q41D, sec4a.get_s4q41d());
+        values.put(Section4Entry.ROW_S4Q41E, sec4a.get_s4q41e());
+        values.put(Section4Entry.ROW_UID, sec4a.get_UID());
+        values.put(Section4Entry.ROW_UUID, sec4a.getROW_UUID());
+        values.put(Section4Entry.ROW_SYNCED, sec4a.getROW_SYNCED());
+        values.put(Section4Entry.ROW_SYNCED_DATE, sec4a.getROW_SYNCED_DATE());
+
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                Section4Entry.TABLE_NAME,
+                null,
+                values);
+
+        return newRowId;
+    }
+
     public int updateS7im() {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -1123,6 +1161,64 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 Sec3Contract oc = new Sec3Contract();
+                allEntries.add(oc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEntries;
+    }
+
+    public Collection<Sec4aContract> getAllSec4a() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                Section4Entry._ID,
+                Section4Entry.ROW_DEVID,
+                Section4Entry.ROW_FORM_ID,
+                Section4Entry.ROW_FORM_DATE,
+                Section4Entry.ROW_USERID,
+                Section4Entry.ROW_HHCODE,
+                Section4Entry.ROW_SNO,
+                Section4Entry.ROW_S4Q41A,
+                Section4Entry.ROW_S4Q41B,
+                Section4Entry.ROW_S4Q41B1,
+                Section4Entry.ROW_S4Q41B2,
+                Section4Entry.ROW_S4Q41C,
+                Section4Entry.ROW_S4Q41D,
+                Section4Entry.ROW_S4Q41E,
+                Section4Entry.ROW_UID,
+                Section4Entry.ROW_UUID,
+                Section4Entry.ROW_SYNCED,
+                Section4Entry.ROW_SYNCED_DATE,
+
+        };
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                Section4Entry._ID + " ASC";
+
+        Collection<Sec4aContract> allEntries = new ArrayList<>();
+        try {
+            c = db.query(
+                    Section4Entry.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                Sec4aContract oc = new Sec4aContract();
                 allEntries.add(oc.Hydrate(c));
             }
         } finally {

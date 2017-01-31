@@ -18,6 +18,7 @@ public class Sec4aContract implements BaseColumns {
     String ROW_DEVID = SRCApp.DEVID;
     String ROW_FORM_ID;
     String ROW_FORM_DATE;
+    String ROW_USERID;
     String ROW_HHCODE;
     String ROW_SNO;
     String ROW_s4q41a;
@@ -34,6 +35,15 @@ public class Sec4aContract implements BaseColumns {
 
     public Sec4aContract() {
 
+    }
+
+
+    public String get_USERID() {
+        return ROW_USERID;
+    }
+
+    public void set_USERID(String ROW_USERID) {
+        this.ROW_USERID = ROW_USERID;
     }
 
     public String get_s4q41b1() {
@@ -86,11 +96,11 @@ public class Sec4aContract implements BaseColumns {
         this.ROW_FORM_ID = ROW_FORM_ID;
     }
 
-    public String getROW_FORM_DATE() {
+    public String get_FORM_DATE() {
         return ROW_FORM_DATE;
     }
 
-    public void setROW_FORM_DATE(String ROW_FORM_DATE) {
+    public void set_FORM_DATE(String ROW_FORM_DATE) {
         this.ROW_FORM_DATE = ROW_FORM_DATE;
     }
 
@@ -178,20 +188,24 @@ public class Sec4aContract implements BaseColumns {
     public JSONObject toJSONObject() throws JSONException {
         JSONObject json = new JSONObject();
 
-        json.put(Section4Entry._ID, this._ID);
-        json.put(Section4Entry.ROW_DEVID, this.ROW_DEVID);
-        json.put(Section4Entry.ROW_FORM_ID, this.ROW_FORM_ID);
-        json.put(Section4Entry.ROW_FORM_DATE, this.ROW_FORM_DATE);
-        json.put(Section4Entry.ROW_HHCODE, this.ROW_HHCODE);
-        json.put(Section4Entry.ROW_SNO, this.ROW_SNO);
-        json.put(Section4Entry.ROW_s4q41a, this.ROW_s4q41a);
-        json.put(Section4Entry.ROW_s4q41b, this.ROW_s4q41b);
-        json.put(Section4Entry.ROW_s4q41b1, this.ROW_s4q41b1);
-        json.put(Section4Entry.ROW_s4q41b2, this.ROW_s4q41b2);
-        json.put(Section4Entry.ROW_s4q41c, this.ROW_s4q41c);
-        json.put(Section4Entry.ROW_s4q41d, this.ROW_s4q41d);
-        json.put(Section4Entry.ROW_s4q41e, this.ROW_s4q41e);
-        json.put(Section4Entry.ROW_UID, this.ROW_UID);
+        json.put(Section4Entry._ID, this._ID == null ? JSONObject.NULL : this._ID);
+        json.put(Section4Entry.ROW_DEVID, this.ROW_DEVID == null ? JSONObject.NULL : this.ROW_DEVID);
+        json.put(Section4Entry.ROW_FORM_ID, this.ROW_FORM_ID == null ? JSONObject.NULL : this.ROW_FORM_ID);
+        json.put(Section4Entry.ROW_FORM_DATE, this.ROW_FORM_DATE == null ? JSONObject.NULL : this.ROW_FORM_DATE);
+        json.put(Section4Entry.ROW_USERID, this.ROW_USERID == null ? JSONObject.NULL : this.ROW_USERID);
+        json.put(Section4Entry.ROW_HHCODE, this.ROW_HHCODE == null ? JSONObject.NULL : this.ROW_HHCODE);
+        json.put(Section4Entry.ROW_SNO, this.ROW_SNO == null ? JSONObject.NULL : this.ROW_SNO);
+        json.put(Section4Entry.ROW_S4Q41A, this.ROW_s4q41a == null ? JSONObject.NULL : this.ROW_s4q41a);
+        json.put(Section4Entry.ROW_S4Q41B, this.ROW_s4q41b == null ? JSONObject.NULL : this.ROW_s4q41b);
+        json.put(Section4Entry.ROW_S4Q41B1, this.ROW_s4q41b1 == null ? JSONObject.NULL : this.ROW_s4q41b1);
+        json.put(Section4Entry.ROW_S4Q41B2, this.ROW_s4q41b2 == null ? JSONObject.NULL : this.ROW_s4q41b2);
+        json.put(Section4Entry.ROW_S4Q41C, this.ROW_s4q41c == null ? JSONObject.NULL : this.ROW_s4q41c);
+        json.put(Section4Entry.ROW_S4Q41D, this.ROW_s4q41d == null ? JSONObject.NULL : this.ROW_s4q41d);
+        json.put(Section4Entry.ROW_S4Q41E, this.ROW_s4q41e == null ? JSONObject.NULL : this.ROW_s4q41e);
+        json.put(Section4Entry.ROW_UID, this.ROW_UID == null ? JSONObject.NULL : this.ROW_UID);
+        json.put(Section4Entry.ROW_UUID, this.ROW_UUID == null ? JSONObject.NULL : this.ROW_UUID);
+        json.put(Section4Entry.ROW_SYNCED, this.ROW_SYNCED == null ? JSONObject.NULL : this.ROW_SYNCED);
+        json.put(Section4Entry.ROW_SYNCED_DATE, this.ROW_SYNCED_DATE == null ? JSONObject.NULL : this.ROW_SYNCED_DATE);
 
         return json;
     }
@@ -201,19 +215,21 @@ public class Sec4aContract implements BaseColumns {
         this.ROW_DEVID = jsonObject.getString(Section4Entry.ROW_DEVID);
         this.ROW_FORM_ID = jsonObject.getString(Section4Entry.ROW_FORM_ID);
         this.ROW_FORM_DATE = jsonObject.getString(Section4Entry.ROW_FORM_DATE);
+        this.ROW_USERID = jsonObject.getString(Section4Entry.ROW_USERID);
         this.ROW_HHCODE = jsonObject.getString(Section4Entry.ROW_HHCODE);
         this.ROW_SNO = jsonObject.getString(Section4Entry.ROW_SNO);
-        this.ROW_s4q41a = jsonObject.getString(Section4Entry.ROW_s4q41a);
-        this.ROW_s4q41b = jsonObject.getString(Section4Entry.ROW_s4q41b);
-        this.ROW_s4q41b1 = jsonObject.getString(Section4Entry.ROW_s4q41b1);
-        this.ROW_s4q41b2 = jsonObject.getString(Section4Entry.ROW_s4q41b2);
-        this.ROW_s4q41c = jsonObject.getString(Section4Entry.ROW_s4q41c);
-        this.ROW_s4q41d = jsonObject.getString(Section4Entry.ROW_s4q41d);
-        this.ROW_s4q41e = jsonObject.getString(Section4Entry.ROW_s4q41e);
+        this.ROW_s4q41a = jsonObject.getString(Section4Entry.ROW_S4Q41A);
+        this.ROW_s4q41b = jsonObject.getString(Section4Entry.ROW_S4Q41B);
+        this.ROW_s4q41b1 = jsonObject.getString(Section4Entry.ROW_S4Q41B1);
+        this.ROW_s4q41b2 = jsonObject.getString(Section4Entry.ROW_S4Q41B2);
+        this.ROW_s4q41c = jsonObject.getString(Section4Entry.ROW_S4Q41C);
+        this.ROW_s4q41d = jsonObject.getString(Section4Entry.ROW_S4Q41D);
+        this.ROW_s4q41e = jsonObject.getString(Section4Entry.ROW_S4Q41E);
         this.ROW_UID = jsonObject.getString(Section4Entry.ROW_UID);
         this.ROW_UUID = jsonObject.getString(Section4Entry.ROW_UUID);
         this.ROW_SYNCED = jsonObject.getString(Section4Entry.ROW_SYNCED);
         this.ROW_SYNCED_DATE = jsonObject.getString(Section4Entry.ROW_SYNCED_DATE);
+
 
         return this;
     }
@@ -223,19 +239,21 @@ public class Sec4aContract implements BaseColumns {
         this.ROW_DEVID = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_DEVID));
         this.ROW_FORM_ID = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_FORM_ID));
         this.ROW_FORM_DATE = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_FORM_DATE));
+        this.ROW_USERID = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_USERID));
         this.ROW_HHCODE = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_HHCODE));
         this.ROW_SNO = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_SNO));
-        this.ROW_s4q41a = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41a));
-        this.ROW_s4q41b = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41b));
-        this.ROW_s4q41b1 = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41b1));
-        this.ROW_s4q41b2 = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41b2));
-        this.ROW_s4q41c = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41c));
-        this.ROW_s4q41d = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41d));
-        this.ROW_s4q41e = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41e));
+        this.ROW_s4q41a = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_S4Q41A));
+        this.ROW_s4q41b = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_S4Q41B));
+        this.ROW_s4q41b1 = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_S4Q41B1));
+        this.ROW_s4q41b2 = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_S4Q41B2));
+        this.ROW_s4q41c = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_S4Q41C));
+        this.ROW_s4q41d = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_S4Q41D));
+        this.ROW_s4q41e = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_S4Q41E));
         this.ROW_UID = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_UID));
         this.ROW_UUID = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_UUID));
         this.ROW_SYNCED = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_SYNCED));
         this.ROW_SYNCED_DATE = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_SYNCED_DATE));
+
 
         return this;
     }
@@ -243,22 +261,24 @@ public class Sec4aContract implements BaseColumns {
 
     public static abstract class Section4Entry implements BaseColumns {
         public static final String TABLE_NAME = "sec4";
-        public static final String _ID = "_ID";
-        public static final String ROW_DEVID = "devid";
-        public static final String ROW_FORM_ID = "formid";
-        public static final String ROW_FORM_DATE = "form_date";
-        public static final String ROW_HHCODE = "hcode";
-        public static final String ROW_SNO = "sno";
-        public static final String ROW_s4q41a = "s4q41a";
-        public static final String ROW_s4q41b = "s4q41b";
-        public static final String ROW_s4q41b1 = "s4q41b1";
-        public static final String ROW_s4q41b2 = "s4q41b2";
-        public static final String ROW_s4q41c = "s4q41c";
-        public static final String ROW_s4q41d = "s4q41d";
-        public static final String ROW_s4q41e = "s4q41e";
-        public static final String ROW_UID = "UID";
-        public static final String ROW_UUID = "uuid";
-        public static final String ROW_SYNCED = "synced";
-        public static final String ROW_SYNCED_DATE = "synced_date";
+        public static final String _ID = "_id";
+        public static final String ROW_DEVID = "row_devid";
+        public static final String ROW_FORM_ID = "row_form_id";
+        public static final String ROW_FORM_DATE = "row_form_date";
+        public static final String ROW_USERID = "row_userid";
+        public static final String ROW_HHCODE = "row_hhcode";
+        public static final String ROW_SNO = "row_sno";
+        public static final String ROW_S4Q41A = "row_s4q41a";
+        public static final String ROW_S4Q41B = "row_s4q41b";
+        public static final String ROW_S4Q41B1 = "row_s4q41b1";
+        public static final String ROW_S4Q41B2 = "row_s4q41b2";
+        public static final String ROW_S4Q41C = "row_s4q41c";
+        public static final String ROW_S4Q41D = "row_s4q41d";
+        public static final String ROW_S4Q41E = "row_s4q41e";
+        public static final String ROW_UID = "row_uid";
+        public static final String ROW_UUID = "row_uuid";
+        public static final String ROW_SYNCED = "row_synced";
+        public static final String ROW_SYNCED_DATE = "row_synced_date";
+
     }
 }

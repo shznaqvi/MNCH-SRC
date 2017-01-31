@@ -247,7 +247,7 @@ public class Sec4bContract implements BaseColumns {
         return this;
     }
 
-    public class Section4bEntry implements BaseColumns {
+    public static abstract class Section4bEntry implements BaseColumns {
 
         public static final String TABLE_NAME = "sec4b";
         public static final String _ID = "_ID";
