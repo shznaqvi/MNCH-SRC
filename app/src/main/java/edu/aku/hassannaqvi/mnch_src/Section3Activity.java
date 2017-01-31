@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -555,11 +554,10 @@ public class Section3Activity extends Activity {
             CVars var = new CVars();
 
             SRCApp.sc3.setROW_DEVID(SRCApp.DEVID);
-            SRCApp.sc3.setROW_UID(SRCApp.uid);
-
+            SRCApp.sc3.setROW_UUID(SRCApp.fc.ROW_UUID);
+            SRCApp.sc3.setROW_FORM_DATE(SRCApp.fc.ROW_ENTRYDATE);
             SRCApp.sc3.setROW_FORM_ID(var.GetHHNO());
             SRCApp.sc3.setROW_HHCODE(var.GetHHCode());
-
             SRCApp.sc3.set_s3q301a(s3q301a.getText().toString());
             SRCApp.sc3.set_s3q301b(s3q301b.getText().toString());
             SRCApp.sc3.set_s3q301c(s3q301c.getText().toString());
