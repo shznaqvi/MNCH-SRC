@@ -141,7 +141,7 @@ public class SyncSec7Im extends AsyncTask<Void, Void, String> {
             for (int i = 0; i < json.length(); i++) {
                 JSONObject jsonObject = new JSONObject(json.getString(i));
                 if (jsonObject.getString("status").equals("1")) {
-                    db.updateSec7Im(jsonObject.getString("id"));
+                    db.updateSyncedSec7Im(jsonObject.getString("id"));
                     sSynced++;
                 }
             }

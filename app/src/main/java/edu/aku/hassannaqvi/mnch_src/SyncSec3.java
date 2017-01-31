@@ -141,7 +141,7 @@ public class SyncSec3 extends AsyncTask<Void, Void, String> {
             for (int i = 0; i < json.length(); i++) {
                 JSONObject jsonObject = new JSONObject(json.getString(i));
                 if (jsonObject.getString("status").equals("1")) {
-                    db.updateSec3(jsonObject.getString("id"));
+                    db.updateSyncedSec3(jsonObject.getString("id"));
                     sSynced++;
                 }
             }

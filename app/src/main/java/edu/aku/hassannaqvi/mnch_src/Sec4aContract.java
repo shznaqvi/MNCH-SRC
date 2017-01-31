@@ -17,10 +17,9 @@ public class Sec4aContract implements BaseColumns {
     Long _ID;
     String ROW_DEVID = SRCApp.DEVID;
     String ROW_FORM_ID;
+    String ROW_FORM_DATE;
     String ROW_HHCODE;
-
     String ROW_SNO;
-
     String ROW_s4q41a;
     String ROW_s4q41b;
     String ROW_s4q41b1;
@@ -29,6 +28,9 @@ public class Sec4aContract implements BaseColumns {
     String ROW_s4q41d;
     String ROW_s4q41e;
     String ROW_UID;
+    String ROW_UUID;
+    String ROW_SYNCED;
+    String ROW_SYNCED_DATE;
 
     public Sec4aContract() {
 
@@ -84,6 +86,14 @@ public class Sec4aContract implements BaseColumns {
         this.ROW_FORM_ID = ROW_FORM_ID;
     }
 
+    public String getROW_FORM_DATE() {
+        return ROW_FORM_DATE;
+    }
+
+    public void setROW_FORM_DATE(String ROW_FORM_DATE) {
+        this.ROW_FORM_DATE = ROW_FORM_DATE;
+    }
+
     public String get_DEVID() {
         return this.ROW_DEVID;
     }
@@ -99,6 +109,7 @@ public class Sec4aContract implements BaseColumns {
     public void set_UID(String ROW_UID) {
         this.ROW_UID = ROW_UID;
     }
+
 
     public String get_s4q41a() {
         return this.ROW_s4q41a;
@@ -140,15 +151,39 @@ public class Sec4aContract implements BaseColumns {
         this.ROW_s4q41e = ROW_s4q41e;
     }
 
+    public String getROW_UUID() {
+        return ROW_UUID;
+    }
+
+    public void setROW_UUID(String ROW_UUID) {
+        this.ROW_UUID = ROW_UUID;
+    }
+
+    public String getROW_SYNCED() {
+        return ROW_SYNCED;
+    }
+
+    public void setROW_SYNCED(String ROW_SYNCED) {
+        this.ROW_SYNCED = ROW_SYNCED;
+    }
+
+    public String getROW_SYNCED_DATE() {
+        return ROW_SYNCED_DATE;
+    }
+
+    public void setROW_SYNCED_DATE(String ROW_SYNCED_DATE) {
+        this.ROW_SYNCED_DATE = ROW_SYNCED_DATE;
+    }
+
     public JSONObject toJSONObject() throws JSONException {
         JSONObject json = new JSONObject();
 
         json.put(Section4Entry._ID, this._ID);
         json.put(Section4Entry.ROW_DEVID, this.ROW_DEVID);
         json.put(Section4Entry.ROW_FORM_ID, this.ROW_FORM_ID);
+        json.put(Section4Entry.ROW_FORM_DATE, this.ROW_FORM_DATE);
         json.put(Section4Entry.ROW_HHCODE, this.ROW_HHCODE);
         json.put(Section4Entry.ROW_SNO, this.ROW_SNO);
-
         json.put(Section4Entry.ROW_s4q41a, this.ROW_s4q41a);
         json.put(Section4Entry.ROW_s4q41b, this.ROW_s4q41b);
         json.put(Section4Entry.ROW_s4q41b1, this.ROW_s4q41b1);
@@ -165,6 +200,7 @@ public class Sec4aContract implements BaseColumns {
         this._ID = jsonObject.getLong(Section4Entry._ID);
         this.ROW_DEVID = jsonObject.getString(Section4Entry.ROW_DEVID);
         this.ROW_FORM_ID = jsonObject.getString(Section4Entry.ROW_FORM_ID);
+        this.ROW_FORM_DATE = jsonObject.getString(Section4Entry.ROW_FORM_DATE);
         this.ROW_HHCODE = jsonObject.getString(Section4Entry.ROW_HHCODE);
         this.ROW_SNO = jsonObject.getString(Section4Entry.ROW_SNO);
         this.ROW_s4q41a = jsonObject.getString(Section4Entry.ROW_s4q41a);
@@ -175,6 +211,9 @@ public class Sec4aContract implements BaseColumns {
         this.ROW_s4q41d = jsonObject.getString(Section4Entry.ROW_s4q41d);
         this.ROW_s4q41e = jsonObject.getString(Section4Entry.ROW_s4q41e);
         this.ROW_UID = jsonObject.getString(Section4Entry.ROW_UID);
+        this.ROW_UUID = jsonObject.getString(Section4Entry.ROW_UUID);
+        this.ROW_SYNCED = jsonObject.getString(Section4Entry.ROW_SYNCED);
+        this.ROW_SYNCED_DATE = jsonObject.getString(Section4Entry.ROW_SYNCED_DATE);
 
         return this;
     }
@@ -183,6 +222,7 @@ public class Sec4aContract implements BaseColumns {
         this._ID = cursor.getLong(cursor.getColumnIndex(Section4Entry._ID));
         this.ROW_DEVID = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_DEVID));
         this.ROW_FORM_ID = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_FORM_ID));
+        this.ROW_FORM_DATE = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_FORM_DATE));
         this.ROW_HHCODE = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_HHCODE));
         this.ROW_SNO = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_SNO));
         this.ROW_s4q41a = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41a));
@@ -193,6 +233,9 @@ public class Sec4aContract implements BaseColumns {
         this.ROW_s4q41d = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41d));
         this.ROW_s4q41e = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_s4q41e));
         this.ROW_UID = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_UID));
+        this.ROW_UUID = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_UUID));
+        this.ROW_SYNCED = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_SYNCED));
+        this.ROW_SYNCED_DATE = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_SYNCED_DATE));
 
         return this;
     }
@@ -203,10 +246,9 @@ public class Sec4aContract implements BaseColumns {
         public static final String _ID = "_ID";
         public static final String ROW_DEVID = "devid";
         public static final String ROW_FORM_ID = "formid";
+        public static final String ROW_FORM_DATE = "form_date";
         public static final String ROW_HHCODE = "hcode";
-
         public static final String ROW_SNO = "sno";
-
         public static final String ROW_s4q41a = "s4q41a";
         public static final String ROW_s4q41b = "s4q41b";
         public static final String ROW_s4q41b1 = "s4q41b1";
@@ -214,6 +256,9 @@ public class Sec4aContract implements BaseColumns {
         public static final String ROW_s4q41c = "s4q41c";
         public static final String ROW_s4q41d = "s4q41d";
         public static final String ROW_s4q41e = "s4q41e";
-        public static final String ROW_UID = "UUID";
+        public static final String ROW_UID = "UID";
+        public static final String ROW_UUID = "uuid";
+        public static final String ROW_SYNCED = "synced";
+        public static final String ROW_SYNCED_DATE = "synced_date";
     }
 }

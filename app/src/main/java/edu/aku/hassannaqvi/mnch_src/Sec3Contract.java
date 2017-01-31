@@ -17,6 +17,7 @@ public class Sec3Contract implements BaseColumns {
     String ROW_DEVID = SRCApp.DEVID;
     String ROW_FORM_ID;
     String ROW_FORM_DATE;
+    String ROW_USERID;
     String ROW_HHCODE;
     String ROW_SNO;
     String ROW_s3q301a;
@@ -41,6 +42,13 @@ public class Sec3Contract implements BaseColumns {
 
     }
 
+    public Long get_ID() {
+        return _ID;
+    }
+
+    public void set_ID(Long _ID) {
+        this._ID = _ID;
+    }
 
     public String getROW_HHCODE() {
         return this.ROW_HHCODE;
@@ -98,6 +106,14 @@ public class Sec3Contract implements BaseColumns {
 
     public void setROW_FORM_DATE(String ROW_FORM_DATE) {
         this.ROW_FORM_DATE = ROW_FORM_DATE;
+    }
+
+    public String getROW_USERID() {
+        return ROW_USERID;
+    }
+
+    public void setROW_USERID(String ROW_USERID) {
+        this.ROW_USERID = ROW_USERID;
     }
 
     public String get_s3q301a() {
@@ -224,18 +240,28 @@ public class Sec3Contract implements BaseColumns {
         this._ID = jsonObject.getLong(Sec3Entry._ID);
         this.ROW_DEVID = jsonObject.getString(Sec3Entry.ROW_DEVID);
         this.ROW_FORM_ID = jsonObject.getString(Sec3Entry.ROW_FORM_ID);
-        this.ROW_s3q301a = jsonObject.getString(Sec3Entry.ROW_s3q301a);
-        this.ROW_s3q301b = jsonObject.getString(Sec3Entry.ROW_s3q301b);
-        this.ROW_s3q301c = jsonObject.getString(Sec3Entry.ROW_s3q301c);
-        this.ROW_s3q301d = jsonObject.getString(Sec3Entry.ROW_s3q301d);
-        this.ROW_s3q301e = jsonObject.getString(Sec3Entry.ROW_s3q301e);
-        this.ROW_s3q301f1 = jsonObject.getString(Sec3Entry.ROW_s3q301f1);
-        this.ROW_s3q301f = jsonObject.getString(Sec3Entry.ROW_s3q301f);
-        this.ROW_s3q301g = jsonObject.getString(Sec3Entry.ROW_s3q301g);
-        this.ROW_s3q301h = jsonObject.getString(Sec3Entry.ROW_s3q301h);
-        this.ROW_s3q301i = jsonObject.getString(Sec3Entry.ROW_s3q301i);
-        this.ROW_s3q301j = jsonObject.getString(Sec3Entry.ROW_s3q301j);
-        this.ROW_s3q301k = jsonObject.getString(Sec3Entry.ROW_s3q301k);
+        this.ROW_FORM_DATE = jsonObject.getString(Sec3Entry.ROW_FORM_DATE);
+        this.ROW_USERID = jsonObject.getString(Sec3Entry.ROW_USERID);
+        this.ROW_HHCODE = jsonObject.getString(Sec3Entry.ROW_HHCODE);
+        this.ROW_SNO = jsonObject.getString(Sec3Entry.ROW_SNO);
+        this.ROW_s3q301a = jsonObject.getString(Sec3Entry.ROW_S3Q301A);
+        this.ROW_s3q301b = jsonObject.getString(Sec3Entry.ROW_S3Q301B);
+        this.ROW_s3q301c = jsonObject.getString(Sec3Entry.ROW_S3Q301C);
+        this.ROW_s3q301d = jsonObject.getString(Sec3Entry.ROW_S3Q301D);
+        this.ROW_s3q301e = jsonObject.getString(Sec3Entry.ROW_S3Q301E);
+        this.ROW_s3q301f1 = jsonObject.getString(Sec3Entry.ROW_S3Q301F1);
+        this.ROW_s3q301f = jsonObject.getString(Sec3Entry.ROW_S3Q301F);
+        this.ROW_s3q301g = jsonObject.getString(Sec3Entry.ROW_S3Q301G);
+        this.ROW_s3q301h = jsonObject.getString(Sec3Entry.ROW_S3Q301H);
+        this.ROW_s3q301i = jsonObject.getString(Sec3Entry.ROW_S3Q301I);
+        this.ROW_s3q301j = jsonObject.getString(Sec3Entry.ROW_S3Q301J);
+        this.ROW_s3q301k = jsonObject.getString(Sec3Entry.ROW_S3Q301K);
+        this.ROW_s3q301l = jsonObject.getString(Sec3Entry.ROW_S3Q301L);
+        this.ROW_UUID = jsonObject.getString(Sec3Entry.ROW_UUID);
+        this.ROW_UID = jsonObject.getString(Sec3Entry.ROW_UID);
+        this.ROW_SYNCED = jsonObject.getString(Sec3Entry.ROW_SYNCED);
+        this.ROW_SYNCED_DATE = jsonObject.getString(Sec3Entry.ROW_SYNCED_DATE);
+
 
         return this;
     }
@@ -244,38 +270,57 @@ public class Sec3Contract implements BaseColumns {
         this._ID = cursor.getLong(cursor.getColumnIndex(Sec3Entry._ID));
         this.ROW_DEVID = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_DEVID));
         this.ROW_FORM_ID = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_FORM_ID));
-        this.ROW_s3q301a = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301a));
-        this.ROW_s3q301b = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301b));
-        this.ROW_s3q301c = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301c));
-        this.ROW_s3q301d = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301d));
-        this.ROW_s3q301e = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301e));
-        this.ROW_s3q301f1 = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301f1));
-        this.ROW_s3q301f = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301f));
-        this.ROW_s3q301g = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301g));
-        this.ROW_s3q301h = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301h));
-        this.ROW_s3q301i = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301i));
-        this.ROW_s3q301j = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301j));
-        this.ROW_s3q301k = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_s3q301k));
+        this.ROW_FORM_DATE = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_FORM_DATE));
+        this.ROW_USERID = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_USERID));
+        this.ROW_HHCODE = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_HHCODE));
+        this.ROW_SNO = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_SNO));
+        this.ROW_s3q301a = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301A));
+        this.ROW_s3q301b = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301B));
+        this.ROW_s3q301c = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301C));
+        this.ROW_s3q301d = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301D));
+        this.ROW_s3q301e = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301E));
+        this.ROW_s3q301f1 = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301F1));
+        this.ROW_s3q301f = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301F));
+        this.ROW_s3q301g = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301G));
+        this.ROW_s3q301h = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301H));
+        this.ROW_s3q301i = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301I));
+        this.ROW_s3q301j = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301J));
+        this.ROW_s3q301k = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301K));
+        this.ROW_s3q301l = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301L));
+        this.ROW_UUID = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_UUID));
+        this.ROW_UID = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_UID));
+        this.ROW_SYNCED = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_SYNCED));
+        this.ROW_SYNCED_DATE = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_SYNCED_DATE));
 
         return this;
     }
 
     public JSONObject toJSONObject() throws JSONException {
         JSONObject json = new JSONObject();
-        json.put(Sec3Entry._ID, this._ID);
-        json.put(Sec3Entry.ROW_FORM_ID, this.ROW_FORM_ID);
-        json.put(Sec3Entry.ROW_s3q301a, this.ROW_s3q301a);
-        json.put(Sec3Entry.ROW_s3q301b, this.ROW_s3q301b);
-        json.put(Sec3Entry.ROW_s3q301c, this.ROW_s3q301c);
-        json.put(Sec3Entry.ROW_s3q301d, this.ROW_s3q301d);
-        json.put(Sec3Entry.ROW_s3q301e, this.ROW_s3q301e);
-        json.put(Sec3Entry.ROW_s3q301f1, this.ROW_s3q301f1);
-        json.put(Sec3Entry.ROW_s3q301f, this.ROW_s3q301f);
-        json.put(Sec3Entry.ROW_s3q301g, this.ROW_s3q301g);
-        json.put(Sec3Entry.ROW_s3q301h, this.ROW_s3q301h);
-        json.put(Sec3Entry.ROW_s3q301i, this.ROW_s3q301i);
-        json.put(Sec3Entry.ROW_s3q301j, this.ROW_s3q301j);
-        json.put(Sec3Entry.ROW_s3q301k, this.ROW_s3q301k);
+        json.put(Sec3Entry._ID, this._ID == null ? JSONObject.NULL : this._ID);
+        json.put(Sec3Entry.ROW_DEVID, this.ROW_DEVID == null ? JSONObject.NULL : this.ROW_DEVID);
+        json.put(Sec3Entry.ROW_FORM_ID, this.ROW_FORM_ID == null ? JSONObject.NULL : this.ROW_FORM_ID);
+        json.put(Sec3Entry.ROW_FORM_DATE, this.ROW_FORM_DATE == null ? JSONObject.NULL : this.ROW_FORM_DATE);
+        json.put(Sec3Entry.ROW_USERID, this.ROW_USERID == null ? JSONObject.NULL : this.ROW_USERID);
+        json.put(Sec3Entry.ROW_HHCODE, this.ROW_HHCODE == null ? JSONObject.NULL : this.ROW_HHCODE);
+        json.put(Sec3Entry.ROW_SNO, this.ROW_SNO == null ? JSONObject.NULL : this.ROW_SNO);
+        json.put(Sec3Entry.ROW_S3Q301A, this.ROW_s3q301a == null ? JSONObject.NULL : this.ROW_s3q301a);
+        json.put(Sec3Entry.ROW_S3Q301B, this.ROW_s3q301b == null ? JSONObject.NULL : this.ROW_s3q301b);
+        json.put(Sec3Entry.ROW_S3Q301C, this.ROW_s3q301c == null ? JSONObject.NULL : this.ROW_s3q301c);
+        json.put(Sec3Entry.ROW_S3Q301D, this.ROW_s3q301d == null ? JSONObject.NULL : this.ROW_s3q301d);
+        json.put(Sec3Entry.ROW_S3Q301E, this.ROW_s3q301e == null ? JSONObject.NULL : this.ROW_s3q301e);
+        json.put(Sec3Entry.ROW_S3Q301F1, this.ROW_s3q301f1 == null ? JSONObject.NULL : this.ROW_s3q301f1);
+        json.put(Sec3Entry.ROW_S3Q301F, this.ROW_s3q301f == null ? JSONObject.NULL : this.ROW_s3q301f);
+        json.put(Sec3Entry.ROW_S3Q301G, this.ROW_s3q301g == null ? JSONObject.NULL : this.ROW_s3q301g);
+        json.put(Sec3Entry.ROW_S3Q301H, this.ROW_s3q301h == null ? JSONObject.NULL : this.ROW_s3q301h);
+        json.put(Sec3Entry.ROW_S3Q301I, this.ROW_s3q301i == null ? JSONObject.NULL : this.ROW_s3q301i);
+        json.put(Sec3Entry.ROW_S3Q301J, this.ROW_s3q301j == null ? JSONObject.NULL : this.ROW_s3q301j);
+        json.put(Sec3Entry.ROW_S3Q301K, this.ROW_s3q301k == null ? JSONObject.NULL : this.ROW_s3q301k);
+        json.put(Sec3Entry.ROW_S3Q301L, this.ROW_s3q301l == null ? JSONObject.NULL : this.ROW_s3q301l);
+        json.put(Sec3Entry.ROW_UUID, this.ROW_UUID == null ? JSONObject.NULL : this.ROW_UUID);
+        json.put(Sec3Entry.ROW_UID, this.ROW_UID == null ? JSONObject.NULL : this.ROW_UID);
+        json.put(Sec3Entry.ROW_SYNCED, this.ROW_SYNCED == null ? JSONObject.NULL : this.ROW_SYNCED);
+        json.put(Sec3Entry.ROW_SYNCED_DATE, this.ROW_SYNCED_DATE == null ? JSONObject.NULL : this.ROW_SYNCED_DATE);
 
         return json;
     }
@@ -283,27 +328,30 @@ public class Sec3Contract implements BaseColumns {
 
     public static abstract class Sec3Entry implements BaseColumns {
         public static final String TABLE_NAME = "sec3";
-        public static final String _ID = "_ID";
-        public static final String ROW_DEVID = "devid";
-        public static final String ROW_FORM_ID = "formid";
-        public static final String ROW_FORM_DATE = "form_date";
-        public static final String ROW_HHCODE = "hcode";
-        public static final String ROW_SNO = "sno";
-        public static final String ROW_s3q301a = "s3q301a";
-        public static final String ROW_s3q301b = "s3q301b";
-        public static final String ROW_s3q301c = "s3q301c";
-        public static final String ROW_s3q301d = "s3q301d";
-        public static final String ROW_s3q301f1 = "s3q301f1";
-        public static final String ROW_s3q301e = "s3q301e";
-        public static final String ROW_s3q301f = "s3q301f";
-        public static final String ROW_s3q301g = "s3q301g";
-        public static final String ROW_s3q301h = "s3q301h";
-        public static final String ROW_s3q301i = "s3q301i";
-        public static final String ROW_s3q301j = "s3q301j";
-        public static final String ROW_s3q301k = "s3q301k";
-        public static final String ROW_UID = "uid";
-        public static final String ROW_UUID = "uuid";
-        public static final String ROW_SYNCED = "synced";
-        public static final String ROW_SYNCED_DATE = "synced_date";
+        public static final String _ID = "_id";
+        public static final String ROW_DEVID = "row_devid";
+        public static final String ROW_FORM_ID = "row_form_id";
+        public static final String ROW_FORM_DATE = "row_form_date";
+        public static final String ROW_USERID = "row_userid";
+        public static final String ROW_HHCODE = "row_hhcode";
+        public static final String ROW_SNO = "row_sno";
+        public static final String ROW_S3Q301A = "row_s3q301a";
+        public static final String ROW_S3Q301B = "row_s3q301b";
+        public static final String ROW_S3Q301C = "row_s3q301c";
+        public static final String ROW_S3Q301D = "row_s3q301d";
+        public static final String ROW_S3Q301E = "row_s3q301e";
+        public static final String ROW_S3Q301F1 = "row_s3q301f1";
+        public static final String ROW_S3Q301F = "row_s3q301f";
+        public static final String ROW_S3Q301G = "row_s3q301g";
+        public static final String ROW_S3Q301H = "row_s3q301h";
+        public static final String ROW_S3Q301I = "row_s3q301i";
+        public static final String ROW_S3Q301J = "row_s3q301j";
+        public static final String ROW_S3Q301K = "row_s3q301k";
+        public static final String ROW_S3Q301L = "row_s3q301l";
+        public static final String ROW_UUID = "row_uuid";
+        public static final String ROW_UID = "row_uid";
+        public static final String ROW_SYNCED = "row_synced";
+        public static final String ROW_SYNCED_DATE = "row_synced_date";
+
     }
 }
