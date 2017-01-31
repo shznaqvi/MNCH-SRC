@@ -119,7 +119,7 @@ public class Sec7ImContract implements BaseColumns {
         this.ROW_UID = ROW_UID;
     }
 
-    public String gethousehold() {
+    public String getHousehold() {
         return household;
     }
 

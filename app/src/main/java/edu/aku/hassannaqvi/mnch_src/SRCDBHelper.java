@@ -146,7 +146,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + single7Im.ROW_ENTRYDATE + " TEXT,"
             + single7Im.ROW_USERID + " TEXT,"
             + single7Im.ROW_UUID + " TEXT,"
-            + single7Im.ROW_HOUSEHOLD + " TEXT,"
+            + single7Im.HOUSEHOLD + " TEXT,"
             + single7Im.ROW_7IM + " TEXT,"
             + single7Im.ROW_GPS_LNG + " TEXT,"
             + single7Im.ROW_GPS_LAT + " TEXT,"
@@ -728,10 +728,10 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         try {
             ContentValues values = new ContentValues();
 
-            values.put(Section4bEntry.ROW_DEVID, sec4b.get_deviceid());
-            values.put(Section4bEntry.ROW_FORM_ID, sec4b.get_form_id());
-            values.put(Section4bEntry.ROW_FORM_DATE, sec4b.get_form_id());
-            values.put(Section4bEntry.ROW_HHCODE, sec4b.get_hhcdoe());
+            values.put(Section4bEntry.ROW_DEVID, sec4b.getROW_DEVID());
+            values.put(Section4bEntry.ROW_FORM_ID, sec4b.getROW_FORM_ID());
+            values.put(Section4bEntry.ROW_FORM_DATE, sec4b.getROW_FORM_DATE());
+            values.put(Section4bEntry.ROW_HHCODE, sec4b.getROW_HHCODE());
 
             values.put(Section4bEntry.ROW_SNO, sec4b.get_sno());
 
@@ -899,7 +899,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         values.put(single7Im.ROW_USERID, sec7Im.getROW_USERID());
         values.put(single7Im.ROW_UUID, sec7Im.getROW_UUID());
         values.put(single7Im.ROW_UID, sec7Im.getROW_UID());
-        values.put(single7Im.HOUSEHOLD, sec7Im.gethousehold());
+        values.put(single7Im.HOUSEHOLD, sec7Im.getHousehold());
         values.put(single7Im.ROW_7IM, sec7Im.getROW_7IM());
         values.put(single7Im.ROW_GPS_LNG, sec7Im.getROW_GPS_LNG());
         values.put(single7Im.ROW_GPS_LAT, sec7Im.getROW_GPS_LAT());
@@ -1268,7 +1268,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return allEntries;
     }
 
-    public Collection<Sec4bContract> getAllSec4() {
+    public Collection<Sec4bContract> getAllSec4b() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
