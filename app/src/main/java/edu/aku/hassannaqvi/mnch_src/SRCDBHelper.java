@@ -123,26 +123,23 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
             + ");";
     public static final String SQL_CREATE_BASELINE_SEC4b = "CREATE TABLE IF NOT EXISTS " + Section4bEntry.TABLE_NAME + "("
-            + Section4bEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + Section4bEntry.ROW_DEVID + " TEXT,"
-            + Section4bEntry.ROW_FORM_ID + " TEXT,"
-            + Section4bEntry.ROW_FORM_DATE + " TEXT,"
-            + Section4bEntry.ROW_USERID + " TEXT,"
-            + Section4bEntry.ROW_HHCODE + " TEXT,"
-            + Section4bEntry.ROW_SNO + " TEXT,"
-            + Section4bEntry.ROW_s4q42a + " TEXT,"
-            + Section4bEntry.ROW_s4q42b + " TEXT,"
-            + Section4bEntry.ROW_s4q42c + " TEXT,"
-            + Section4bEntry.ROW_s4q42d + " TEXT,"
-            + Section4bEntry.ROW_s4q42d1 + " TEXT,"
-            + Section4bEntry.ROW_s4q42d2 + " TEXT,"
-            + Section4bEntry.ROW_s4q42e + " TEXT,"
-            + Section4bEntry.ROW_s4q42eoth + " TEXT,"
-            + Section4bEntry.ROW_s4q42f + " TEXT,"
-            + Section4bEntry.ROW_UID + " TEXT,"
-            + Section4bEntry.ROW_UUID + " TEXT,"
-            + Section4bEntry.ROW_SYNCED + " TEXT,"
-            + Section4bEntry.ROW_SYNCED_DATE + " TEXT);";
+            + single7Im._ID + " TEXT," +
+            single7Im.ROW_DEVID + " TEXT," +
+            single7Im.ROW_ENTRYDATE + " TEXT," +
+            single7Im.ROW_USERID + " TEXT," +
+            single7Im.ROW_UUID + " TEXT," +
+            single7Im.ROW_UID + " TEXT," +
+            single7Im.HOUSEHOLD + " TEXT," +
+            single7Im.ROW_7IM + " TEXT," +
+            single7Im.ROW_GPS_LNG + " TEXT," +
+            single7Im.ROW_GPS_LAT + " TEXT," +
+            single7Im.ROW_GPS_DT + " TEXT," +
+            single7Im.ROW_GPS_ACC + " TEXT," +
+            single7Im.ROW_SYNCED + " TEXT," +
+            single7Im.ROW_SYNCED_DATE + " TEXT," +
+
+            ");";
+
     public static final String SQL_CREATE_SEC_7_IM = "CREATE TABLE IF NOT EXISTS " + single7Im.TABLE_NAME + "("
             + single7Im._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + single7Im.ROW_DEVID + " TEXT,"
@@ -889,28 +886,27 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    public Long addSec7Im(Sec7ImContract s7im) {
+    public Long addSec7Im(Sec7ImContract sec7Im) {
 
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
 
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(single7Im._ID, s7im.get_ID());
-        values.put(single7Im.ROW_DEVID, s7im.getROW_DEVID());
-        values.put(single7Im.ROW_ENTRYDATE, s7im.getROW_ENTRYDATE());
-        values.put(single7Im.ROW_USERID, s7im.getROW_USERID());
-        values.put(single7Im.ROW_UUID, s7im.getROW_UUID());
-        values.put(single7Im.ROW_UID, s7im.getROW_UID());
-        values.put(single7Im.ROW_HOUSEHOLD, s7im.getHousehold());
-        values.put(single7Im.ROW_7IM, s7im.getROW_7IM());
-        values.put(single7Im.ROW_GPS_LNG, s7im.getROW_GPS_LNG());
-        values.put(single7Im.ROW_GPS_LAT, s7im.getROW_GPS_LAT());
-        values.put(single7Im.ROW_GPS_DT, s7im.getROW_GPS_DT());
-        values.put(single7Im.ROW_GPS_ACC, s7im.getROW_GPS_ACC());
-        values.put(single7Im.ROW_SYNCED, s7im.getROW_GPS_ACC());
-        values.put(single7Im.ROW_SYNCED_DATE, s7im.getROW_GPS_ACC());
-        
+        values.put(single7Im._ID, sec7Im.get_ID());
+        values.put(single7Im.ROW_DEVID, sec7Im.getROW_DEVID());
+        values.put(single7Im.ROW_ENTRYDATE, sec7Im.getROW_ENTRYDATE());
+        values.put(single7Im.ROW_USERID, sec7Im.getROW_USERID());
+        values.put(single7Im.ROW_UUID, sec7Im.getROW_UUID());
+        values.put(single7Im.ROW_UID, sec7Im.getROW_UID());
+        values.put(single7Im.HOUSEHOLD, sec7Im.gethousehold());
+        values.put(single7Im.ROW_7IM, sec7Im.getROW_7IM());
+        values.put(single7Im.ROW_GPS_LNG, sec7Im.getROW_GPS_LNG());
+        values.put(single7Im.ROW_GPS_LAT, sec7Im.getROW_GPS_LAT());
+        values.put(single7Im.ROW_GPS_DT, sec7Im.getROW_GPS_DT());
+        values.put(single7Im.ROW_GPS_ACC, sec7Im.getROW_GPS_ACC());
+        values.put(single7Im.ROW_SYNCED, sec7Im.getROW_SYNCED());
+        values.put(single7Im.ROW_SYNCED_DATE, sec7Im.getROW_SYNCED_DATE());
 
 
         // Insert the new row, returning the primary key value of the new row
@@ -964,6 +960,46 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
         return newRowId;
     }
+
+
+    public Long addSec4b(Sec4bContract sec4b) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(Section4bEntry._ID, sec4b.get_ID());
+        values.put(Section4bEntry.ROW_DEVID, sec4b.getROW_DEVID());
+        values.put(Section4bEntry.ROW_FORM_ID, sec4b.getROW_FORM_ID());
+        values.put(Section4bEntry.ROW_FORM_DATE, sec4b.getROW_FORM_DATE());
+        values.put(Section4bEntry.ROW_HHCODE, sec4b.getROW_HHCODE());
+        values.put(Section4bEntry.ROW_USERID, sec4b.getROW_USERID());
+        values.put(Section4bEntry.ROW_SNO, sec4b.getROW_SNO());
+        values.put(Section4bEntry.ROW_S4Q42A, sec4b.get_s4q42a());
+        values.put(Section4bEntry.ROW_S4Q42B, sec4b.get_s4q42b());
+        values.put(Section4bEntry.ROW_S4Q42C, sec4b.get_s4q42c());
+        values.put(Section4bEntry.ROW_S4Q42D, sec4b.get_s4q42d());
+        values.put(Section4bEntry.ROW_S4Q42D1, sec4b.get_s4q42d1());
+        values.put(Section4bEntry.ROW_S4Q42D2, sec4b.get_s4q42d2());
+        values.put(Section4bEntry.ROW_S4Q42E, sec4b.get_s4q42e());
+        values.put(Section4bEntry.ROW_S4Q42EOTH, sec4b.get_s4q42eoth());
+        values.put(Section4bEntry.ROW_S4Q42F, sec4b.get_s4q42f());
+        values.put(Section4bEntry.ROW_UID, sec4b.getROW_UID());
+        values.put(Section4bEntry.ROW_UUID, sec4b.getROW_UUID());
+        values.put(Section4bEntry.ROW_SYNCED, sec4b.getROW_SYNCED());
+        values.put(Section4bEntry.ROW_SYNCED_DATE, sec4b.getROW_SYNCED_DATE());
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                Section4bEntry.TABLE_NAME,
+                null,
+                values);
+
+        return newRowId;
+    }
+
 
     public Long addSec4a(Sec4aContract sec4a) {
 
@@ -1232,6 +1268,67 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return allEntries;
     }
 
+    public Collection<Sec4bContract> getAllSec4() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                Section4bEntry._ID,
+                Section4bEntry.ROW_DEVID,
+                Section4bEntry.ROW_FORM_ID,
+                Section4bEntry.ROW_FORM_DATE,
+                Section4bEntry.ROW_HHCODE,
+                Section4bEntry.ROW_USERID,
+                Section4bEntry.ROW_SNO,
+                Section4bEntry.ROW_S4Q42A,
+                Section4bEntry.ROW_S4Q42B,
+                Section4bEntry.ROW_S4Q42C,
+                Section4bEntry.ROW_S4Q42D,
+                Section4bEntry.ROW_S4Q42D1,
+                Section4bEntry.ROW_S4Q42D2,
+                Section4bEntry.ROW_S4Q42E,
+                Section4bEntry.ROW_S4Q42EOTH,
+                Section4bEntry.ROW_S4Q42F,
+                Section4bEntry.ROW_UID,
+                Section4bEntry.ROW_UUID,
+                Section4bEntry.ROW_SYNCED,
+                Section4bEntry.ROW_SYNCED_DATE,
+
+        };
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                Section4bEntry._ID + " ASC";
+
+        Collection<Sec4bContract> allEntries = new ArrayList<>();
+        try {
+            c = db.query(
+                    Sec3Entry.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                Sec4bContract oc = new Sec4bContract();
+                allEntries.add(oc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEntries;
+    }
+
+
 
     public Collection<FormContract> getAllForms_old() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -1301,7 +1398,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 single7Im.ROW_USERID,
                 single7Im.ROW_UUID,
                 single7Im.ROW_UID,
-                single7Im.ROW_HOUSEHOLD,
+                single7Im.HOUSEHOLD,
                 single7Im.ROW_7IM,
                 single7Im.ROW_GPS_LNG,
                 single7Im.ROW_GPS_LAT,
@@ -1309,6 +1406,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 single7Im.ROW_GPS_ACC,
                 single7Im.ROW_SYNCED,
                 single7Im.ROW_SYNCED_DATE,
+
         };
         String whereClause = null;
         String[] whereArgs = null;

@@ -25,6 +25,9 @@ public class Sec7ImContract implements BaseColumns {
     String ROW_GPS_LAT = "";
     String ROW_GPS_DT = "";
     String ROW_GPS_ACC = "";
+    String ROW_SYNCED;
+    String ROW_SYNCED_DATE;
+
 
 
     public Sec7ImContract() {
@@ -38,12 +41,14 @@ public class Sec7ImContract implements BaseColumns {
         this.ROW_USERID = jsonObject.getString(single7Im.ROW_USERID);
         this.ROW_UUID = jsonObject.getString(single7Im.ROW_UUID);
         this.ROW_UID = jsonObject.getString(single7Im.ROW_UID);
-        this.household = jsonObject.getString(single7Im.ROW_HOUSEHOLD);
+        this.household = jsonObject.getString(single7Im.HOUSEHOLD);
         this.ROW_7IM = jsonObject.getString(single7Im.ROW_7IM);
         this.ROW_GPS_LNG = jsonObject.getString(single7Im.ROW_GPS_LNG);
         this.ROW_GPS_LAT = jsonObject.getString(single7Im.ROW_GPS_LAT);
         this.ROW_GPS_DT = jsonObject.getString(single7Im.ROW_GPS_DT);
         this.ROW_GPS_ACC = jsonObject.getString(single7Im.ROW_GPS_ACC);
+        this.ROW_SYNCED = jsonObject.getString(single7Im.ROW_SYNCED);
+        this.ROW_SYNCED_DATE = jsonObject.getString(single7Im.ROW_SYNCED_DATE);
         return this;
     }
 
@@ -54,12 +59,14 @@ public class Sec7ImContract implements BaseColumns {
         this.ROW_USERID = cursor.getString(cursor.getColumnIndex(single7Im.ROW_USERID));
         this.ROW_UUID = cursor.getString(cursor.getColumnIndex(single7Im.ROW_UUID));
         this.ROW_UID = cursor.getString(cursor.getColumnIndex(single7Im.ROW_UID));
-        this.household = cursor.getString(cursor.getColumnIndex(single7Im.ROW_HOUSEHOLD));
+        this.household = cursor.getString(cursor.getColumnIndex(single7Im.HOUSEHOLD));
         this.ROW_7IM = cursor.getString(cursor.getColumnIndex(single7Im.ROW_7IM));
         this.ROW_GPS_LNG = cursor.getString(cursor.getColumnIndex(single7Im.ROW_GPS_LNG));
         this.ROW_GPS_LAT = cursor.getString(cursor.getColumnIndex(single7Im.ROW_GPS_LAT));
         this.ROW_GPS_DT = cursor.getString(cursor.getColumnIndex(single7Im.ROW_GPS_DT));
         this.ROW_GPS_ACC = cursor.getString(cursor.getColumnIndex(single7Im.ROW_GPS_ACC));
+        this.ROW_SYNCED = cursor.getString(cursor.getColumnIndex(single7Im.ROW_SYNCED));
+        this.ROW_SYNCED_DATE = cursor.getString(cursor.getColumnIndex(single7Im.ROW_SYNCED_DATE));
 
         return this;
     }
@@ -112,7 +119,7 @@ public class Sec7ImContract implements BaseColumns {
         this.ROW_UID = ROW_UID;
     }
 
-    public String getHousehold() {
+    public String gethousehold() {
         return household;
     }
 
@@ -160,6 +167,22 @@ public class Sec7ImContract implements BaseColumns {
         this.ROW_GPS_ACC = ROW_GPS_ACC;
     }
 
+    public String getROW_SYNCED() {
+        return ROW_SYNCED;
+    }
+
+    public void setROW_SYNCED(String ROW_SYNCED) {
+        this.ROW_SYNCED = ROW_SYNCED;
+    }
+
+    public String getROW_SYNCED_DATE() {
+        return ROW_SYNCED_DATE;
+    }
+
+    public void setROW_SYNCED_DATE(String ROW_SYNCED_DATE) {
+        this.ROW_SYNCED_DATE = ROW_SYNCED_DATE;
+    }
+
     public JSONObject toJSONObject() throws JSONException {
 
         JSONObject json = new JSONObject();
@@ -169,30 +192,34 @@ public class Sec7ImContract implements BaseColumns {
         json.put(single7Im.ROW_USERID, this.ROW_USERID == null ? JSONObject.NULL : this.ROW_USERID);
         json.put(single7Im.ROW_UUID, this.ROW_UUID == null ? JSONObject.NULL : this.ROW_UUID);
         json.put(single7Im.ROW_UID, this.ROW_UID == null ? JSONObject.NULL : this.ROW_UID);
-        json.put(single7Im.ROW_HOUSEHOLD, this.household == null ? JSONObject.NULL : this.household);
+        json.put(single7Im.HOUSEHOLD, this.household == null ? JSONObject.NULL : this.household);
         json.put(single7Im.ROW_7IM, this.ROW_7IM == null ? JSONObject.NULL : this.ROW_7IM);
         json.put(single7Im.ROW_GPS_LNG, this.ROW_GPS_LNG == null ? JSONObject.NULL : this.ROW_GPS_LNG);
         json.put(single7Im.ROW_GPS_LAT, this.ROW_GPS_LAT == null ? JSONObject.NULL : this.ROW_GPS_LAT);
         json.put(single7Im.ROW_GPS_DT, this.ROW_GPS_DT == null ? JSONObject.NULL : this.ROW_GPS_DT);
         json.put(single7Im.ROW_GPS_ACC, this.ROW_GPS_ACC == null ? JSONObject.NULL : this.ROW_GPS_ACC);
+        json.put(single7Im.ROW_SYNCED, this.ROW_SYNCED == null ? JSONObject.NULL : this.ROW_SYNCED);
+        json.put(single7Im.ROW_SYNCED_DATE, this.ROW_SYNCED_DATE == null ? JSONObject.NULL : this.ROW_SYNCED_DATE);
 
         return json;
     }
 
     public static abstract class single7Im implements BaseColumns {
         public static final String TABLE_NAME = "sec1";
-        public static final String _ID = "id";
-        public static final String ROW_DEVID = "devid ";
-        public static final String ROW_ENTRYDATE = "entrydate ";
-        public static final String ROW_USERID = "userid ";
-        public static final String ROW_UUID = "uuid ";
-        public static final String ROW_UID = "uid ";
-        public static final String ROW_HOUSEHOLD = "household ";
-        public static final String ROW_7IM = "s7im ";
-        public static final String ROW_GPS_LNG = "gps_lng ";
-        public static final String ROW_GPS_LAT = "gps_lat ";
-        public static final String ROW_GPS_DT = "gps_dt ";
-        public static final String ROW_GPS_ACC = "gps_acc ";
+        public static final String _ID = "_id;";
+        public static final String ROW_DEVID = "row_devid";
+        public static final String ROW_ENTRYDATE = "row_entrydate";
+        public static final String ROW_USERID = "row_userid";
+        public static final String ROW_UUID = "row_uuid";
+        public static final String ROW_UID = "row_uid";
+        public static final String HOUSEHOLD = "household";
+        public static final String ROW_7IM = "row_7im";
+        public static final String ROW_GPS_LNG = "row_gps_lng";
+        public static final String ROW_GPS_LAT = "row_gps_lat";
+        public static final String ROW_GPS_DT = "row_gps_dt";
+        public static final String ROW_GPS_ACC = "row_gps_acc";
+        public static final String ROW_SYNCED = "row_synced";
+        public static final String ROW_SYNCED_DATE = "row_synced_date";
 
     }
 }
