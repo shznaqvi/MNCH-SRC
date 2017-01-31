@@ -1030,6 +1030,9 @@ public class Section5Activity extends Activity {
                 if (mn052401.isChecked()) {
                     fldGrpmn0525.setVisibility(View.GONE);
                     fldGrpmn0526.setVisibility(View.VISIBLE);
+                    mn0525.clearCheck();
+                    mn052588x.setText(null);
+
                 } else {
                     fldGrpmn0525.setVisibility(View.VISIBLE);
                     fldGrpmn0526.setVisibility(View.GONE);
@@ -2339,8 +2342,9 @@ public class Section5Activity extends Activity {
                 }
             }
 
+        }
 
-        } else {
+        if (mn052777.isChecked()) {
             if (!(mn052901.isChecked()
                     || mn052902.isChecked()
                     || mn052903.isChecked()
@@ -2364,6 +2368,17 @@ public class Section5Activity extends Activity {
             } else {
                 mn052988x.setError(null);
             }
+        } else {
+            mn052901.setChecked(false);
+            mn052902.setChecked(false);
+            mn052903.setChecked(false);
+            mn052904.setChecked(false);
+            mn052905.setChecked(false);
+            mn052906.setChecked(false);
+            mn052988.setChecked(false);
+            mn052988x.setText(null);
+
+
         }
         return true;
     }

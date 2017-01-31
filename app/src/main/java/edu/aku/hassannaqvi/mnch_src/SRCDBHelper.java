@@ -75,24 +75,29 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec1Entry.ROW_ENTRYDATE + " TEXT,"
             + Sec1Entry.ROW_USERID + " TEXT);";
     public static final String SQL_CREATE_BASELINE_SEC3 = "CREATE TABLE " + Sec3Entry.TABLE_NAME + "("
-            + Sec3Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + Sec3Entry.ROW_DEVID + " TEXT,"
-            + Sec3Entry.ROW_FORM_ID + " INTEGER,"
-            + Sec3Entry.ROW_HHCODE + " TEXT,"
-            + Sec3Entry.ROW_SNO + " TEXT,"
-            + Sec3Entry.ROW_s3q301a + " TEXT,"
-            + Sec3Entry.ROW_s3q301b + " TEXT,"
-            + Sec3Entry.ROW_s3q301c + " INTEGER,"
-            + Sec3Entry.ROW_s3q301d + " INTEGER,"
-            + Sec3Entry.ROW_s3q301f1 + " INTEGER,"
-            + Sec3Entry.ROW_s3q301e + " INTEGER,"
-            + Sec3Entry.ROW_s3q301f + " INTEGER,"
-            + Sec3Entry.ROW_s3q301g + " INTEGER,"
-            + Sec3Entry.ROW_s3q301h + " INTEGER,"
-            + Sec3Entry.ROW_s3q301i + " INTEGER,"
-            + Sec3Entry.ROW_s3q301j + " INTEGER,"
-            + Sec3Entry.ROW_s3q301k + " INTEGER,"
-            + Sec3Entry.ROW_UID + " TEXT);";
+            + Sec3Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            Sec3Entry.ROW_DEVID + " TEXT," +
+            Sec3Entry.ROW_FORM_ID + " TEXT," +
+            Sec3Entry.ROW_FORM_DATE + " TEXT," +
+            Sec3Entry.ROW_HHCODE + " TEXT," +
+            Sec3Entry.ROW_SNO + " TEXT," +
+            Sec3Entry.ROW_s3q301a + " TEXT," +
+            Sec3Entry.ROW_s3q301b + " TEXT," +
+            Sec3Entry.ROW_s3q301c + " TEXT," +
+            Sec3Entry.ROW_s3q301d + " TEXT," +
+            Sec3Entry.ROW_s3q301e + " TEXT," +
+            Sec3Entry.ROW_s3q301f1 + " TEXT," +
+            Sec3Entry.ROW_s3q301f + " TEXT," +
+            Sec3Entry.ROW_s3q301g + " TEXT," +
+            Sec3Entry.ROW_s3q301h + " TEXT," +
+            Sec3Entry.ROW_s3q301i + " TEXT," +
+            Sec3Entry.ROW_s3q301j + " TEXT," +
+            Sec3Entry.ROW_s3q301k + " TEXT," +
+            Sec3Entry.ROW_UUID + " TEXT," +
+            Sec3Entry.ROW_UID + " TEXT," +
+            Sec3Entry.ROW_SYNCED + " TEXT," +
+            Sec3Entry.ROW_SYNCED_DATE + " TEXT" +
+            ");";
     public static final String SQL_CREATE_BASELINE_SEC4 = "CREATE TABLE " + Section4Entry.TABLE_NAME + "("
             + Section4Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + Section4Entry.ROW_DEVID + " TEXT,"
@@ -392,8 +397,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     }
 
 
-
-
     public int getSNO() {
         SQLiteDatabase db = this.getReadableDatabase();
         int sno = 0;
@@ -454,7 +457,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         try {
             userList = new ArrayList<UsersContract>();
             String QUERY = "SELECT * FROM " + UsersContract.singleUser.TABLE_NAME;
-             Cursor cursor = db.rawQuery(QUERY, null);
+            Cursor cursor = db.rawQuery(QUERY, null);
             int num = cursor.getCount();
             if (!cursor.isLast()) {
                 while (cursor.moveToNext()) {
@@ -637,32 +640,32 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     }
 
 
-    public Long InsertRecord_Section3(Sec3Contract fc) {
+    public Long InsertRecord_Section3(Sec3Contract sec3) {
         long newRowId = 0;
         SQLiteDatabase db = this.getWritableDatabase();
         try {
             ContentValues values = new ContentValues();
 
-            values.put(Sec3Entry.ROW_DEVID, fc.getROW_DEVID());
-            values.put(Sec3Entry.ROW_FORM_ID, fc.getROW_FORM_ID());
-            values.put(Sec3Entry.ROW_HHCODE, fc.getROW_HHCODE());
-
-            values.put(Sec3Entry.ROW_SNO, fc.getROW_SNO());
-
-            values.put(Sec3Entry.ROW_s3q301a, fc.get_s3q301a());
-            values.put(Sec3Entry.ROW_s3q301b, fc.get_s3q301b());
-            values.put(Sec3Entry.ROW_s3q301c, fc.get_s3q301c());
-            values.put(Sec3Entry.ROW_s3q301d, fc.get_s3q301d());
-            values.put(Sec3Entry.ROW_s3q301f1, fc.get_s3q301f1());
-            values.put(Sec3Entry.ROW_s3q301e, fc.get_s3q301e());
-            values.put(Sec3Entry.ROW_s3q301f, fc.get_s3q301f());
-            values.put(Sec3Entry.ROW_s3q301g, fc.get_s3q301g());
-            values.put(Sec3Entry.ROW_s3q301h, fc.get_s3q301h());
-            values.put(Sec3Entry.ROW_s3q301i, fc.get_s3q301i());
-            values.put(Sec3Entry.ROW_s3q301j, fc.get_s3q301j());
-            values.put(Sec3Entry.ROW_s3q301k, fc.get_s3q301k());
-
-            values.put(Sec3Entry.ROW_UID, SRCApp.fc.getROW_UUID());
+            values.put(Sec3Entry.ROW_DEVID, sec3.getROW_DEVID());
+            values.put(Sec3Entry.ROW_FORM_ID, sec3.getROW_FORM_ID());
+            values.put(Sec3Entry.ROW_FORM_DATE, sec3.getROW_FORM_DATE());
+            values.put(Sec3Entry.ROW_HHCODE, sec3.getROW_HHCODE());
+            values.put(Sec3Entry.ROW_SNO, sec3.getROW_SNO());
+            values.put(Sec3Entry.ROW_s3q301a, sec3.get_s3q301a());
+            values.put(Sec3Entry.ROW_s3q301b, sec3.get_s3q301b());
+            values.put(Sec3Entry.ROW_s3q301c, sec3.get_s3q301c());
+            values.put(Sec3Entry.ROW_s3q301d, sec3.get_s3q301d());
+            values.put(Sec3Entry.ROW_s3q301f1, sec3.get_s3q301f1());
+            values.put(Sec3Entry.ROW_s3q301e, sec3.get_s3q301e());
+            values.put(Sec3Entry.ROW_s3q301f, sec3.get_s3q301f());
+            values.put(Sec3Entry.ROW_s3q301g, sec3.get_s3q301g());
+            values.put(Sec3Entry.ROW_s3q301h, sec3.get_s3q301h());
+            values.put(Sec3Entry.ROW_s3q301i, sec3.get_s3q301i());
+            values.put(Sec3Entry.ROW_s3q301j, sec3.get_s3q301j());
+            values.put(Sec3Entry.ROW_s3q301k, sec3.get_s3q301k());
+            values.put(Sec3Entry.ROW_UUID, SRCApp.fc.getROW_UUID()); // get primary key of main Form UUID
+            values.put(Sec3Entry.ROW_UID, sec3.getROW_UID());
+            // No need to update SYNC fields in this function
 
             newRowId = db.insert(Sec3Entry.TABLE_NAME, null, values);
             db.close();
@@ -1061,6 +1064,57 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             }
         }
         return allFC;
+    }
+
+    public Collection<Sec3Contract> getAllSec3() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                single7Im._ID,
+                single7Im.ROW_DEVID,
+                single7Im.ROW_ENTRYDATE,
+                single7Im.ROW_USERID,
+                single7Im.ROW_UUID,
+                single7Im.ROW_UID,
+                single7Im.ROW_HOUSEHOLD,
+                single7Im.ROW_7IM,
+                single7Im.ROW_GPS_LNG,
+                single7Im.ROW_GPS_LAT,
+                single7Im.ROW_GPS_DT,
+                single7Im.ROW_GPS_ACC,
+        };
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                single7Im._ID + " ASC";
+
+        Collection<Sec3Contract> allOC = new ArrayList<Sec3Contract>();
+        try {
+            c = db.query(
+                    single7Im.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                Sec3Contract s7Im = new Sec3Contract();
+                allOC.add(s7Im.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allOC;
     }
 
     public Collection<Sec7ImContract> getAllSec7Im() {

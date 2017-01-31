@@ -62,16 +62,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:digits="0123456789"
-                android:inputType="number"
-                android:hint="@string/mn070201" />
+                android:hint="@string/mn070201"
+                android:inputType="number" />
 
             <EditText
                 android:id="@+id/mn070202"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:digits="0123456789"
-                android:inputType="number"
-                android:hint="@string/mn070202" />
+                android:hint="@string/mn070202"
+                android:inputType="number" />
 
             <CheckBox
                 android:id="@+id/mn070299"
@@ -110,7 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/mn0703"
+                android:text="@string/mn0704"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <RadioGroup
@@ -136,7 +136,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/mn0703"
+                android:text="@string/mn0705"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <RadioGroup
@@ -490,8 +490,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:digits="0123456789"
-                        android:inputType="number"
-                        android:hint="@string/mn071301" />
+                        android:hint="@string/mn071301"
+                        android:inputType="number" />
 
                     <RadioButton
                         android:id="@+id/mn071302"
@@ -504,8 +504,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:digits="0123456789"
-                        android:inputType="number"
-                        android:hint="@string/mn071302" />
+                        android:hint="@string/mn071302"
+                        android:inputType="number" />
 
                 </RadioGroup>
 

@@ -32,6 +32,13 @@
                 android:layout_height="2dp"
                 android:background="@color/colorPrimary" />
 
+            <TextView
+                android:id="@+id/lbl_hhhead1"
+                style="@style/txtquestion"
+                android:gravity="center"
+                android:layoutDirection="rtl"
+                android:text="@string/section6Label" />
+
 
             <TextView
                 android:layout_width="match_parent"

@@ -34,6 +34,14 @@
                 android:background="@color/colorPrimary" />
 
             <TextView
+                android:id="@+id/lbl_hhhead1"
+                style="@style/txtquestion"
+                android:gravity="center"
+                android:layoutDirection="rtl"
+                android:text="@string/section5cLabel" />
+
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -115,11 +123,11 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mn054707" />
 
-                <CheckBox
+                <!--<CheckBox
                     android:id="@+id/mn054777"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/mndns" />
+                    android:text="@string/mndns" />-->
 
                 <CheckBox
                     android:id="@+id/mn054788"
@@ -512,13 +520,13 @@
                             android:id="@+id/mn055405"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/mn055505" />
+                            android:text="@string/mn055405" />
 
-                        <RadioButton
+                        <!--<RadioButton
                             android:id="@+id/mn055477"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/mndns" />
+                            android:text="@string/mndns" />-->
 
                         <RadioButton
                             android:id="@+id/mn055488"
@@ -540,7 +548,8 @@
                     android:id="@+id/fldGrpmn0555"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
 
                     <TextView

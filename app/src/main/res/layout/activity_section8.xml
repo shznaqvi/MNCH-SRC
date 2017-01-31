@@ -396,7 +396,9 @@
                 android:id="@+id/mn0804"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mn0804" />
+                android:hint="@string/mn0804"
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -873,9 +875,16 @@
 
             </RadioGroup>
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/fldGrpmn0812"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/mn0813"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -927,6 +936,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mnother" />
+
+            </LinearLayout>
 
 
             <TextView
@@ -1026,7 +1037,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/mn0814c"
+                android:text="@string/mn0815"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <RadioGroup

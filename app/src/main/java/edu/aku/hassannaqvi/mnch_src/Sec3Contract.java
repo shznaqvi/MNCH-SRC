@@ -16,6 +16,7 @@ public class Sec3Contract implements BaseColumns {
     Long _ID;
     String ROW_DEVID = SRCApp.DEVID;
     String ROW_FORM_ID;
+    String ROW_FORM_DATE;
     String ROW_HHCODE;
     String ROW_SNO;
     String ROW_s3q301a;
@@ -31,7 +32,10 @@ public class Sec3Contract implements BaseColumns {
     String ROW_s3q301j;
     String ROW_s3q301k;
     String ROW_s3q301l;
+    String ROW_UUID;
     String ROW_UID;
+    String ROW_SYNCED;
+    String ROW_SYNCED_DATE;
 
     public Sec3Contract() {
 
@@ -64,6 +68,13 @@ public class Sec3Contract implements BaseColumns {
         this.ROW_UID = ROW_UID;
     }
 
+    public String getROW_UUID() {
+        return ROW_UUID;
+    }
+
+    public void setROW_UUID(String ROW_UUID) {
+        this.ROW_UUID = ROW_UUID;
+    }
 
     public String getROW_DEVID() {
         return ROW_DEVID;
@@ -79,6 +90,14 @@ public class Sec3Contract implements BaseColumns {
 
     public void setROW_FORM_ID(String ROW_FORM_ID) {
         this.ROW_FORM_ID = ROW_FORM_ID;
+    }
+
+    public String getROW_FORM_DATE() {
+        return ROW_FORM_DATE;
+    }
+
+    public void setROW_FORM_DATE(String ROW_FORM_DATE) {
+        this.ROW_FORM_DATE = ROW_FORM_DATE;
     }
 
     public String get_s3q301a() {
@@ -185,6 +204,22 @@ public class Sec3Contract implements BaseColumns {
         this.ROW_s3q301l = ROW_s3q301l;
     }
 
+    public String getROW_SYNCED() {
+        return ROW_SYNCED;
+    }
+
+    public void setROW_SYNCED(String ROW_SYNCED) {
+        this.ROW_SYNCED = ROW_SYNCED;
+    }
+
+    public String getROW_SYNCED_DATE() {
+        return ROW_SYNCED_DATE;
+    }
+
+    public void setROW_SYNCED_DATE(String ROW_SYNCED_DATE) {
+        this.ROW_SYNCED_DATE = ROW_SYNCED_DATE;
+    }
+
     public Sec3Contract sync(JSONObject jsonObject) throws JSONException {
         this._ID = jsonObject.getLong(Sec3Entry._ID);
         this.ROW_DEVID = jsonObject.getString(Sec3Entry.ROW_DEVID);
@@ -249,13 +284,11 @@ public class Sec3Contract implements BaseColumns {
     public static abstract class Sec3Entry implements BaseColumns {
         public static final String TABLE_NAME = "sec3";
         public static final String _ID = "_ID";
-
         public static final String ROW_DEVID = "devid";
         public static final String ROW_FORM_ID = "formid";
+        public static final String ROW_FORM_DATE = "form_date";
         public static final String ROW_HHCODE = "hcode";
-
         public static final String ROW_SNO = "sno";
-
         public static final String ROW_s3q301a = "s3q301a";
         public static final String ROW_s3q301b = "s3q301b";
         public static final String ROW_s3q301c = "s3q301c";
@@ -269,5 +302,8 @@ public class Sec3Contract implements BaseColumns {
         public static final String ROW_s3q301j = "s3q301j";
         public static final String ROW_s3q301k = "s3q301k";
         public static final String ROW_UID = "uid";
+        public static final String ROW_UUID = "uuid";
+        public static final String ROW_SYNCED = "synced";
+        public static final String ROW_SYNCED_DATE = "synced_date";
     }
 }
