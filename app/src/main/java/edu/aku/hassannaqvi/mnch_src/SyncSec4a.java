@@ -141,7 +141,7 @@ public class SyncSec4a extends AsyncTask<Void, Void, String> {
             for (int i = 0; i < json.length(); i++) {
                 JSONObject jsonObject = new JSONObject(json.getString(i));
                 if (jsonObject.getString("status").equals("1")) {
-                    db.updateSec4a(jsonObject.getString("id"));
+                    db.updateSyncedSec4a(jsonObject.getString("id"));
                     sSynced++;
                 }
             }
