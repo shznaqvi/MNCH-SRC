@@ -595,29 +595,33 @@ public class Section2Activity extends Activity {
             s2.put("s2q206g", s2q206g.getText().toString());
             s2.put("s2q206h", s2q206h.getText().toString());
 
-            CVars var = new CVars();
-            if (!s2q206h.getText().toString().isEmpty()) {
-                var.StoreReporductionAgeWoman(Integer.parseInt(s2q206h.getText().toString()));
-            } else {
-                var.StoreReporductionAgeWoman(Integer.parseInt("0"));
-            }
+            SRCApp.mwras = Integer.parseInt(s2q206h.getText().toString());
+            SRCApp.chTotal = Integer.parseInt(s2q206d.getText().toString()) + Integer.parseInt(s2q206e.getText().toString());
 
-            if (!s2q206d.getText().toString().isEmpty()) {
-                var.setNeonatesChild(Integer.parseInt(s2q206d.getText().toString()));
-            } else {
-                var.setNeonatesChild(Integer.parseInt("0"));
-            }
-
-            if (!s2q206e.getText().toString().isEmpty()) {
-                var.setIMChild(var.getNeonatesChild() + Integer.parseInt(s2q206e.getText().toString()));
-
-                SRCApp.IMCount = var.getIMChild();
-            }
-            else {
-                var.setIMChild(var.getNeonatesChild());
-
-                SRCApp.IMCount = var.getIMChild();
-            }
+//
+//            CVars var = new CVars();
+//            if (!s2q206h.getText().toString().isEmpty()) {
+//                var.StoreReporductionAgeWoman(Integer.parseInt(s2q206h.getText().toString()));
+//            } else {
+//                var.StoreReporductionAgeWoman(Integer.parseInt("0"));
+//            }
+//
+//            if (!s2q206d.getText().toString().isEmpty()) {
+//                var.setNeonatesChild(Integer.parseInt(s2q206d.getText().toString()));
+//            } else {
+//                var.setNeonatesChild(Integer.parseInt("0"));
+//            }
+//
+//            if (!s2q206e.getText().toString().isEmpty()) {
+//                var.setIMChild(var.getNeonatesChild() + Integer.parseInt(s2q206e.getText().toString()));
+//
+//                SRCApp.chTotal = var.getIMChild();
+//            }
+//            else {
+//                var.setIMChild(var.getNeonatesChild());
+//
+//                SRCApp.chTotal = var.getIMChild();
+//            }
 
 
 

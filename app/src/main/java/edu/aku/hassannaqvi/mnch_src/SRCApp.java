@@ -65,13 +65,13 @@ public class SRCApp extends Application {
     public static int tcount = 1;
     public static int counter = 1;
 
-    //IM Child
-    public static int IMCount = 0;
+
 
 
     public static int countM = 0;
     public static String hh01txt; //District
     public static String hh02txt; //Village
+    public static int mwras;
     protected static LocationManager locationManager;
 
 

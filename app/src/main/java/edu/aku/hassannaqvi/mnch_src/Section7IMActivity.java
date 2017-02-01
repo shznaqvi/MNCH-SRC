@@ -266,10 +266,10 @@ public class Section7ImActivity extends Activity {
 
         CVars var = new CVars();
 
-        if (SRCApp.IMCount > 1){
+        if (SRCApp.chTotal > 1) {
             btn_Continue.setText("Next Section");
 
-            appHeader.setText("Section 7IM Child:"+ (var.getIMChild() - (SRCApp.IMCount - 1)) + " out of "+ var.getIMChild());
+            appHeader.setText("Section 7IM Child:" + (var.getIMChild() - (SRCApp.chTotal - 1)) + " out of " + var.getIMChild());
 
         }else {
             btn_Continue.setText("Section 8");
@@ -277,7 +277,7 @@ public class Section7ImActivity extends Activity {
             appHeader.setText("Section 7IM Child:"+ var.getIMChild() + " out of "+ var.getIMChild());
         }
 
-        if (SRCApp.IMCount < 1) {
+        if (SRCApp.chTotal < 1) {
             finish();
             startActivity(new Intent(this, Section8Activity.class));
         }
@@ -324,7 +324,7 @@ public class Section7ImActivity extends Activity {
 //                    startActivity(new Intent(this, Section7ImActivity.class).putExtra("IMChild",var.getIMChild()));
 //                }
 
-                SRCApp.IMCount -= 1;
+                SRCApp.chTotal -= 1;
 
                 finish();
                 startActivity(new Intent(this, Section7ImActivity.class));
