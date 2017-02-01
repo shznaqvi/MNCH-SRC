@@ -538,7 +538,10 @@ public class Section3Activity extends Activity {
     // ============== Update DB================
     private boolean UpdateDB() {
         SRCDBHelper db = new SRCDBHelper(this);
-        Long rowId = db.InsertRecord_Section3(SRCApp.sc3);
+        SRCApp.sc3.set_ID(db.InsertRecord_Section3(SRCApp.sc3));
+        SRCApp.sc3.setROW_UID(SRCApp.sc3.getROW_DEVID() + SRCApp.sc3.get_ID().toString());
+        db.updateSec3UID();
+
         return true;
     }
 

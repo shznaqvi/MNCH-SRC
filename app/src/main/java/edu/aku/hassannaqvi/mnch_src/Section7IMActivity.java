@@ -349,8 +349,8 @@ public class Section7ImActivity extends Activity {
 
         if (rowId != null) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
-            SRCApp.sec7im.setROW_UID(
-                    (SRCApp.sec7im.getROW_DEVID() + SRCApp.sec7im.get_ID()));
+            SRCApp.sec7im.setROW_UID((SRCApp.sec7im.getROW_DEVID() + SRCApp.sec7im.get_ID()));
+            db.updateS7ImUID();
             Toast.makeText(this, "Current Form No: " + SRCApp.sec7im.getROW_UID(), Toast.LENGTH_SHORT).show();
             return true;
         } else {

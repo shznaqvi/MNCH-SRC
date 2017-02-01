@@ -334,9 +334,23 @@ public class Section4bActivity extends Activity {
     }
 
     private boolean UpdateDB() {
+        Long rowId;
         SRCDBHelper db = new SRCDBHelper(this);
-        Long rowId = db.InsertRecord_Section4b(SRCApp.sc4b);
-        return true;
+
+        rowId = db.addSec4b(SRCApp.sc4b);
+
+        SRCApp.sc4b.set_ID(rowId);
+
+        if (rowId != null) {
+            Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
+            SRCApp.sc4b.setROW_UID((SRCApp.sc4b.getROW_DEVID() + SRCApp.sc4b.get_ID()));
+            db.updateSec4bUID();
+            Toast.makeText(this, "Current Form No: " + SRCApp.sc4b.getROW_UID(), Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
     private boolean SaveDraft() {

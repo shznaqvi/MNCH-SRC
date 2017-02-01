@@ -1081,20 +1081,91 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    public void updateForms(String id) {
+    public void updateFormsUID() {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(Sec1Entry.COLUMN_SYNCED, true);
-        values.put(Sec1Entry.COLUMN_SYNCED_DATE, new Date().toString());
+        values.put(Sec1Entry.ROW_UUID, SRCApp.fc.getROW_UUID());
 
 // Which row to update, based on the title
-        String where = Sec1Entry._ID + " LIKE ?";
-        String[] whereArgs = {id};
+        String where = Sec1Entry._ID + " = ?";
+        String[] whereArgs = {SRCApp.fc.get_ID().toString()};
 
         int count = db.update(
                 Sec1Entry.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public void updateSec3UID() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Sec3Entry.ROW_UID, SRCApp.sc3.getROW_UID());
+
+        // Which row to update, based on the title
+        String where = Sec3Entry._ID + " = ?";
+        String[] whereArgs = {SRCApp.sc3.get_ID().toString()};
+
+        int count = db.update(
+                Sec3Entry.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public void updateSec4aUID() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Section4Entry.ROW_UID, SRCApp.sc4a.get_ID());
+
+        // Which row to update, based on the title
+        String where = Section4Entry._ID + " = ?";
+        String[] whereArgs = {SRCApp.sc4a.get_ID().toString()};
+
+        int count = db.update(
+                Section4Entry.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public void updateSec4bUID() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Section4bEntry.ROW_UID, SRCApp.sc4b.get_ID());
+
+        // Which row to update, based on the title
+        String where = Section4bEntry._ID + " = ?";
+        String[] whereArgs = {SRCApp.sc4b.get_ID().toString()};
+
+        int count = db.update(
+                Section4bEntry.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public void updateS7ImUID() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // New value for one column
+        ContentValues values = new ContentValues();
+        values.put(single7Im.ROW_UID, SRCApp.sec7im.get_ID());
+
+        // Which row to update, based on the title
+        String where = single7Im._ID + " = ?";
+        String[] whereArgs = {SRCApp.sec7im.get_ID().toString()};
+
+        int count = db.update(
+                Section4bEntry.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
@@ -1216,6 +1287,72 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return allEntries;
     }
 
+
+    public Collection<Sec3Contract> getUnsyncedSec3() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                Sec3Entry._ID,
+                Sec3Entry.ROW_DEVID,
+                Sec3Entry.ROW_FORM_ID,
+                Sec3Entry.ROW_FORM_DATE,
+                Sec3Entry.ROW_USERID,
+                Sec3Entry.ROW_HHCODE,
+                Sec3Entry.ROW_SNO,
+                Sec3Entry.ROW_S3Q301A,
+                Sec3Entry.ROW_S3Q301B,
+                Sec3Entry.ROW_S3Q301C,
+                Sec3Entry.ROW_S3Q301D,
+                Sec3Entry.ROW_S3Q301E,
+                Sec3Entry.ROW_S3Q301F1,
+                Sec3Entry.ROW_S3Q301F,
+                Sec3Entry.ROW_S3Q301G,
+                Sec3Entry.ROW_S3Q301H,
+                Sec3Entry.ROW_S3Q301I,
+                Sec3Entry.ROW_S3Q301J,
+                Sec3Entry.ROW_S3Q301K,
+                Sec3Entry.ROW_S3Q301L,
+                Sec3Entry.ROW_UUID,
+                Sec3Entry.ROW_UID,
+                Sec3Entry.ROW_SYNCED,
+                Sec3Entry.ROW_SYNCED_DATE,
+
+        };
+        String whereClause = Sec3Entry.ROW_SYNCED + " is null";
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                Sec3Entry._ID + " ASC";
+
+        Collection<Sec3Contract> allEntries = new ArrayList<>();
+        try {
+            c = db.query(
+                    Sec3Entry.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                Sec3Contract oc = new Sec3Contract();
+                allEntries.add(oc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEntries;
+    }
+
+
     public Collection<Sec4aContract> getAllSec4a() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -1241,6 +1378,64 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
         };
         String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                Section4Entry._ID + " ASC";
+
+        Collection<Sec4aContract> allEntries = new ArrayList<>();
+        try {
+            c = db.query(
+                    Section4Entry.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                Sec4aContract oc = new Sec4aContract();
+                allEntries.add(oc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEntries;
+    }
+
+    public Collection<Sec4aContract> getUnsyncedSec4a() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                Section4Entry._ID,
+                Section4Entry.ROW_DEVID,
+                Section4Entry.ROW_FORM_ID,
+                Section4Entry.ROW_FORM_DATE,
+                Section4Entry.ROW_USERID,
+                Section4Entry.ROW_HHCODE,
+                Section4Entry.ROW_SNO,
+                Section4Entry.ROW_S4Q41A,
+                Section4Entry.ROW_S4Q41B,
+                Section4Entry.ROW_S4Q41B1,
+                Section4Entry.ROW_S4Q41B2,
+                Section4Entry.ROW_S4Q41C,
+                Section4Entry.ROW_S4Q41D,
+                Section4Entry.ROW_S4Q41E,
+                Section4Entry.ROW_UID,
+                Section4Entry.ROW_UUID,
+                Section4Entry.ROW_SYNCED,
+                Section4Entry.ROW_SYNCED_DATE,
+
+        };
+        String whereClause = Section4Entry.ROW_SYNCED + " is null";
         String[] whereArgs = null;
         String groupBy = null;
         String having = null;
@@ -1334,6 +1529,65 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return allEntries;
     }
 
+    public Collection<Sec4bContract> getUnsyncedSec4b() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                Section4bEntry._ID,
+                Section4bEntry.ROW_DEVID,
+                Section4bEntry.ROW_FORM_ID,
+                Section4bEntry.ROW_FORM_DATE,
+                Section4bEntry.ROW_HHCODE,
+                Section4bEntry.ROW_USERID,
+                Section4bEntry.ROW_SNO,
+                Section4bEntry.ROW_S4Q42A,
+                Section4bEntry.ROW_S4Q42B,
+                Section4bEntry.ROW_S4Q42C,
+                Section4bEntry.ROW_S4Q42D,
+                Section4bEntry.ROW_S4Q42D1,
+                Section4bEntry.ROW_S4Q42D2,
+                Section4bEntry.ROW_S4Q42E,
+                Section4bEntry.ROW_S4Q42EOTH,
+                Section4bEntry.ROW_S4Q42F,
+                Section4bEntry.ROW_UID,
+                Section4bEntry.ROW_UUID,
+                Section4bEntry.ROW_SYNCED,
+                Section4bEntry.ROW_SYNCED_DATE,
+
+        };
+        String whereClause = Section4bEntry.ROW_SYNCED + " is null";
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                Section4bEntry._ID + " ASC";
+
+        Collection<Sec4bContract> allEntries = new ArrayList<>();
+        try {
+            c = db.query(
+                    Sec3Entry.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                Sec4bContract oc = new Sec4bContract();
+                allEntries.add(oc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEntries;
+    }
 
 
     public Collection<FormContract> getAllForms_old() {
@@ -1391,7 +1645,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         }
         return allFC;
     }
-
 
 
     public Collection<Sec7ImContract> getAllSec7Im() {
@@ -1734,6 +1987,25 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
         int count = db.update(
                 Section4Entry.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public void updateSyncedSec4b(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Section4bEntry.ROW_SYNCED, true);
+        values.put(Section4bEntry.ROW_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = Section4bEntry._ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                Section4bEntry.TABLE_NAME,
                 values,
                 where,
                 whereArgs);

@@ -461,8 +461,7 @@ public class Section1Activity extends Activity implements TextWatcher {
         SRCDBHelper db = new SRCDBHelper(this);
         SRCApp.fc.set_ID(db.InsertRecord(SRCApp.fc));
         SRCApp.fc.setROW_UUID(SRCApp.fc.getROW_DEVID() + SRCApp.fc.get_ID());
-
-        SRCApp.fc.get_ID();
+        db.updateFormsUID();
 
         return true;
     }
@@ -470,8 +469,6 @@ public class Section1Activity extends Activity implements TextWatcher {
 
     private boolean SaveDraft() {
         SRCApp.fc = new FormContract();
-
-        setGPS();
 
         SRCApp.fc.setROW_DEVID(SRCApp.DEVID);
         SRCApp.fc.setROW_FORM_ID(formid.getText().toString());
