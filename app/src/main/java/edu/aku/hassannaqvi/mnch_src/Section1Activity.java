@@ -43,6 +43,7 @@ public class Section1Activity extends Activity implements TextWatcher {
 
     private static final String TAG = "Sec1";
     public static JSONObject s1;
+    public List<String> psuCode;
     String var_s1q103 = "";
     String var_s1q111 = "";
     String var_s1q112 = "";
@@ -96,8 +97,6 @@ public class Section1Activity extends Activity implements TextWatcher {
     private int rdo_s1q112;
     private AlertDialog.Builder alert;
     private String spDateT;
-
-    public List<String> psuCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -461,8 +460,7 @@ public class Section1Activity extends Activity implements TextWatcher {
         SRCDBHelper db = new SRCDBHelper(this);
         SRCApp.fc.set_ID(db.InsertRecord(SRCApp.fc));
         SRCApp.fc.setROW_UUID(SRCApp.fc.getROW_DEVID() + SRCApp.fc.get_ID());
-
-        SRCApp.fc.get_ID();
+        db.updateFormsUID();
 
         return true;
     }
@@ -470,8 +468,6 @@ public class Section1Activity extends Activity implements TextWatcher {
 
     private boolean SaveDraft() {
         SRCApp.fc = new FormContract();
-
-        setGPS();
 
         SRCApp.fc.setROW_DEVID(SRCApp.DEVID);
         SRCApp.fc.setROW_FORM_ID(formid.getText().toString());

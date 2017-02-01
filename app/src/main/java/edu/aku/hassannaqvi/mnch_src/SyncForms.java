@@ -141,7 +141,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
             for (int i = 0; i < json.length(); i++) {
                 JSONObject jsonObject = new JSONObject(json.getString(i));
                 if(jsonObject.getString("status").equals("1")){
-                    db.updateForms(jsonObject.getString("id"));
+                    db.updateSyncedForms(jsonObject.getString("id"));
                     sSynced++;
                 }
             }

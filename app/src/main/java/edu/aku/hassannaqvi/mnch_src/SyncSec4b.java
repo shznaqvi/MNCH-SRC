@@ -85,7 +85,7 @@ public class SyncSec4b extends AsyncTask<Void, Void, String> {
 
             DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
             SRCDBHelper db = new SRCDBHelper(mContext);
-            Collection<Sec4bContract> Sec4b = db.getAllSec4b();
+            Collection<Sec4bContract> Sec4b = db.getUnsyncedSec4b();
             Log.d(TAG, String.valueOf(Sec4b.size()));
 //            pd.setMessage("Total Sec4b: " );
             for (Sec4bContract fc : Sec4b) {
@@ -141,7 +141,7 @@ public class SyncSec4b extends AsyncTask<Void, Void, String> {
             for (int i = 0; i < json.length(); i++) {
                 JSONObject jsonObject = new JSONObject(json.getString(i));
                 if (jsonObject.getString("status").equals("1")) {
-                    db.updateSyncedSec4a(jsonObject.getString("id"));
+                    db.updateSyncedSec4b(jsonObject.getString("id"));
                     sSynced++;
                 }
             }
