@@ -283,25 +283,25 @@ public class Sec4bContract implements BaseColumns {
 
         public static final String TABLE_NAME = "sec4b";
         public static final String _ID = "_id";
-        public static final String ROW_DEVID = "row_devid";
-        public static final String ROW_FORM_ID = "row_form_id";
-        public static final String ROW_FORM_DATE = "row_form_date";
-        public static final String ROW_HHCODE = "row_hhcode";
-        public static final String ROW_USERID = "row_userid";
-        public static final String ROW_SNO = "row_sno";
-        public static final String ROW_S4Q42A = "row_s4q42a";
-        public static final String ROW_S4Q42B = "row_s4q42b";
-        public static final String ROW_S4Q42C = "row_s4q42c";
-        public static final String ROW_S4Q42D = "row_s4q42d";
-        public static final String ROW_S4Q42D1 = "row_s4q42d1";
-        public static final String ROW_S4Q42D2 = "row_s4q42d2";
-        public static final String ROW_S4Q42E = "row_s4q42e";
-        public static final String ROW_S4Q42EOTH = "row_s4q42eoth";
-        public static final String ROW_S4Q42F = "row_s4q42f";
-        public static final String ROW_UID = "row_uid";
-        public static final String ROW_UUID = "row_uuid";
-        public static final String ROW_SYNCED = "row_synced";
-        public static final String ROW_SYNCED_DATE = "row_synced_date";
+        public static final String ROW_DEVID = "devid";
+        public static final String ROW_FORM_ID = "form_id";
+        public static final String ROW_FORM_DATE = "form_date";
+        public static final String ROW_HHCODE = "hhcode";
+        public static final String ROW_USERID = "userid";
+        public static final String ROW_SNO = "sno";
+        public static final String ROW_S4Q42A = "s4q42a";
+        public static final String ROW_S4Q42B = "s4q42b";
+        public static final String ROW_S4Q42C = "s4q42c";
+        public static final String ROW_S4Q42D = "s4q42d";
+        public static final String ROW_S4Q42D1 = "s4q42d1";
+        public static final String ROW_S4Q42D2 = "s4q42d2";
+        public static final String ROW_S4Q42E = "s4q42e";
+        public static final String ROW_S4Q42EOTH = "s4q42eoth";
+        public static final String ROW_S4Q42F = "s4q42f";
+        public static final String ROW_UID = "uid";
+        public static final String ROW_UUID = "uuid";
+        public static final String ROW_SYNCED = "synced";
+        public static final String ROW_SYNCED_DATE = "synced_date";
 
     }
 }

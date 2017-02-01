@@ -205,21 +205,21 @@ public class Sec7ImContract implements BaseColumns {
     }
 
     public static abstract class single7Im implements BaseColumns {
-        public static final String TABLE_NAME = "sec1";
-        public static final String _ID = "_id;";
-        public static final String ROW_DEVID = "row_devid";
-        public static final String ROW_ENTRYDATE = "row_entrydate";
-        public static final String ROW_USERID = "row_userid";
-        public static final String ROW_UUID = "row_uuid";
-        public static final String ROW_UID = "row_uid";
+        public static final String TABLE_NAME = "sec7im";
+        public static final String _ID = "_id";
+        public static final String ROW_DEVID = "devid";
+        public static final String ROW_ENTRYDATE = "entrydate";
+        public static final String ROW_USERID = "userid";
+        public static final String ROW_UUID = "uuid";
+        public static final String ROW_UID = "uid";
         public static final String HOUSEHOLD = "household";
-        public static final String ROW_7IM = "row_7im";
-        public static final String ROW_GPS_LNG = "row_gps_lng";
-        public static final String ROW_GPS_LAT = "row_gps_lat";
-        public static final String ROW_GPS_DT = "row_gps_dt";
-        public static final String ROW_GPS_ACC = "row_gps_acc";
-        public static final String ROW_SYNCED = "row_synced";
-        public static final String ROW_SYNCED_DATE = "row_synced_date";
+        public static final String ROW_7IM = "sec7im";
+        public static final String ROW_GPS_LNG = "gps_lng";
+        public static final String ROW_GPS_LAT = "gps_lat";
+        public static final String ROW_GPS_DT = "gps_dt";
+        public static final String ROW_GPS_ACC = "gps_acc";
+        public static final String ROW_SYNCED = "synced";
+        public static final String ROW_SYNCED_DATE = "synced_date";
 
     }
 }

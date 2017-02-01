@@ -158,7 +158,6 @@ public class SyncSec7Im extends AsyncTask<Void, Void, String> {
             pd.setTitle("Sec7Im Sync Failed");
             pd.show();
 
-
         }
     }
 

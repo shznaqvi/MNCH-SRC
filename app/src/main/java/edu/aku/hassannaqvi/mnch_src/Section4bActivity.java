@@ -336,19 +336,19 @@ public class Section4bActivity extends Activity {
 
         CVars var = new CVars();
 
-        SRCApp.sc4b.set_form_id(var.GetHHNO());
-        SRCApp.sc4b.set_hhcode(var.GetHHCode());
+        SRCApp.sc4b.setROW_FORM_ID(var.GetHHNO());
+        SRCApp.sc4b.setROW_HHCODE(var.GetHHCode());
 
 
         if (sno == 0) {
-            SRCApp.sc4b.set_sno("1");
+            SRCApp.sc4b.setROW_SNO("1");
             sno = 1;
         } else {
 
             SRCDBHelper db = new SRCDBHelper(this);
 
             sno = db.getSNO2();
-            SRCApp.sc4b.set_sno(String.valueOf(sno));
+            SRCApp.sc4b.setROW_SNO(String.valueOf(sno));
         }
 
         SRCDBHelper db = new SRCDBHelper(this);

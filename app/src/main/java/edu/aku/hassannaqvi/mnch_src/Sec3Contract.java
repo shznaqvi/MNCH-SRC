@@ -329,29 +329,29 @@ public class Sec3Contract implements BaseColumns {
     public static abstract class Sec3Entry implements BaseColumns {
         public static final String TABLE_NAME = "sec3";
         public static final String _ID = "_id";
-        public static final String ROW_DEVID = "row_devid";
-        public static final String ROW_FORM_ID = "row_form_id";
-        public static final String ROW_FORM_DATE = "row_form_date";
-        public static final String ROW_USERID = "row_userid";
-        public static final String ROW_HHCODE = "row_hhcode";
-        public static final String ROW_SNO = "row_sno";
-        public static final String ROW_S3Q301A = "row_s3q301a";
-        public static final String ROW_S3Q301B = "row_s3q301b";
-        public static final String ROW_S3Q301C = "row_s3q301c";
-        public static final String ROW_S3Q301D = "row_s3q301d";
-        public static final String ROW_S3Q301E = "row_s3q301e";
-        public static final String ROW_S3Q301F1 = "row_s3q301f1";
-        public static final String ROW_S3Q301F = "row_s3q301f";
-        public static final String ROW_S3Q301G = "row_s3q301g";
-        public static final String ROW_S3Q301H = "row_s3q301h";
-        public static final String ROW_S3Q301I = "row_s3q301i";
-        public static final String ROW_S3Q301J = "row_s3q301j";
-        public static final String ROW_S3Q301K = "row_s3q301k";
-        public static final String ROW_S3Q301L = "row_s3q301l";
-        public static final String ROW_UUID = "row_uuid";
-        public static final String ROW_UID = "row_uid";
-        public static final String ROW_SYNCED = "row_synced";
-        public static final String ROW_SYNCED_DATE = "row_synced_date";
+        public static final String ROW_DEVID = "devid";
+        public static final String ROW_FORM_ID = "form_id";
+        public static final String ROW_FORM_DATE = "form_date";
+        public static final String ROW_USERID = "userid";
+        public static final String ROW_HHCODE = "hhcode";
+        public static final String ROW_SNO = "sno";
+        public static final String ROW_S3Q301A = "s3q301a";
+        public static final String ROW_S3Q301B = "s3q301b";
+        public static final String ROW_S3Q301C = "s3q301c";
+        public static final String ROW_S3Q301D = "s3q301d";
+        public static final String ROW_S3Q301E = "s3q301e";
+        public static final String ROW_S3Q301F1 = "s3q301f1";
+        public static final String ROW_S3Q301F = "s3q301f";
+        public static final String ROW_S3Q301G = "s3q301g";
+        public static final String ROW_S3Q301H = "s3q301h";
+        public static final String ROW_S3Q301I = "s3q301i";
+        public static final String ROW_S3Q301J = "s3q301j";
+        public static final String ROW_S3Q301K = "s3q301k";
+        public static final String ROW_S3Q301L = "s3q301l";
+        public static final String ROW_UUID = "uuid";
+        public static final String ROW_UID = "uid";
+        public static final String ROW_SYNCED = "synced";
+        public static final String ROW_SYNCED_DATE = "synced_date";
 
     }
 }
