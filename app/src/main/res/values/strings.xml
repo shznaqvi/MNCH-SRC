@@ -635,9 +635,6 @@
     <string name="mnbirth"> At Birth </string>
     <string name="mnbcg"> BCG </string>
     <string name="mnbcgsrc"> Source </string>
-    <string name="mnbcgsrc01"> کارڈ </string>
-    <string name="mnbcgsrc02"> جوابدہندہ </string>
-    <string name="mnbcgsrc03"> یاد نہیں </string>
     <string name="mnbcgscar"> Presence of Scar </string>
     <string name="mnopv0"> OPV 0 </string>
     <string name="mnopv0src"> Source </string>
