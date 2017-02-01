@@ -54,6 +54,21 @@ public class Section4Activity extends Activity {
     private Button btnadd;
     private int sno = 0;
 
+    public static boolean dobValidation(int y, int m, int d) {
+
+        if ((y == 49
+                || y > 49)
+                && (m > 11
+                || m > 0)) {
+            return true;
+        } else if ((y < 15)
+                && (m > 11
+                || m > 0)) {
+            return true;
+        } else return (d > 29 || d < 0)
+                && (m > 11 || m < 0);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -297,11 +312,7 @@ public class Section4Activity extends Activity {
             s4q41b.setError(null);
         }
 
-        if ((Integer.parseInt(s4q41b.getText().toString()) < 0 || Integer.parseInt(s4q41b.getText().toString()) > 29)
-                &&
-                (Integer.parseInt(s4q41b1.getText().toString()) < 0 || Integer.parseInt(s4q41b1.getText().toString()) > 11)
-                &&
-                (Integer.parseInt(s4q41b2.getText().toString()) < 15 || Integer.parseInt(s4q41b2.getText().toString()) > 49)){
+        if (dobValidation(Integer.parseInt(s4q41b2.getText().toString()), Integer.parseInt(s4q41b1.getText().toString()), Integer.parseInt(s4q41b.getText().toString()))) {
 
             s4q41b1.setError("Invalid:"+getString(R.string.baseline_s4q41b));
             Toast.makeText(getApplicationContext(), "Invalid:"+getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
@@ -310,6 +321,19 @@ public class Section4Activity extends Activity {
         } else {
             s4q41b1.setError(null);
         }
+//        if ((Integer.parseInt(s4q41b.getText().toString()) < 0 || Integer.parseInt(s4q41b.getText().toString()) > 29)
+//                &&
+//                (Integer.parseInt(s4q41b1.getText().toString()) < 0 || Integer.parseInt(s4q41b1.getText().toString()) > 11)
+//                &&
+//                (Integer.parseInt(s4q41b2.getText().toString()) < 15 || Integer.parseInt(s4q41b2.getText().toString()) > 49)){
+//
+//            s4q41b1.setError("Invalid:"+getString(R.string.baseline_s4q41b));
+//            Toast.makeText(getApplicationContext(), "Invalid:"+getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
+//            s4q41b1.requestFocus();
+//            return false;
+//        } else {
+//            s4q41b1.setError(null);
+//        }
 
         rdo_s4q41c = radio_s4q41c.getCheckedRadioButtonId();
 
@@ -414,16 +438,14 @@ public class Section4Activity extends Activity {
         return true;
     }
 
-
     private boolean UpdateDB() {
         SRCDBHelper db = new SRCDBHelper(this);
         Long rowId = db.InsertRecord_Section4a(SRCApp.sc4a);
         return true;
     }
 
-
-//    @Override
-//    public void onBackPressed() {
-//        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
-//    }
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+    }
 }

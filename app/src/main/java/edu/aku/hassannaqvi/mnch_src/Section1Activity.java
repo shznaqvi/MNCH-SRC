@@ -43,6 +43,7 @@ public class Section1Activity extends Activity implements TextWatcher {
 
     private static final String TAG = "Sec1";
     public static JSONObject s1;
+    public List<String> psuCode;
     String var_s1q103 = "";
     String var_s1q111 = "";
     String var_s1q112 = "";
@@ -96,8 +97,6 @@ public class Section1Activity extends Activity implements TextWatcher {
     private int rdo_s1q112;
     private AlertDialog.Builder alert;
     private String spDateT;
-
-    public List<String> psuCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -447,8 +446,9 @@ public class Section1Activity extends Activity implements TextWatcher {
                         Intent sec2_intent = new Intent(this, Section2Activity.class);
                         startActivity(sec2_intent);
                     } else {
-                        Intent sec2_intent = new Intent(this, EndingActivity.class);
-                        startActivity(sec2_intent);
+                        Intent end_intent = new Intent(this, EndingActivity.class);
+//                        end_intent.putExtra("check", false);
+                        startActivity(end_intent);
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();

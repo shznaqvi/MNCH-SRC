@@ -131,13 +131,13 @@ public class Section5Activity extends Activity {
     RadioButton mn051102;
     @BindView(R.id.fldGrpmn0512)
     LinearLayout fldGrpmn0512;
-//    @BindView(R.id.mn0512)
+    //    @BindView(R.id.mn0512)
 //    RadioGroup mn0512;
     @BindView(R.id.mn051201)
     EditText mn051201;
     @BindView(R.id.mn051202)
     CheckBox mn051202;
-//    @BindView(R.id.mn051201x)
+    //    @BindView(R.id.mn051201x)
 //    EditText mn051201x;
 //    @BindView(R.id.mn0513)
 //    RadioGroup mn0513;
@@ -145,7 +145,7 @@ public class Section5Activity extends Activity {
     EditText mn051301;
     @BindView(R.id.mn051302)
     CheckBox mn051302;
-//    @BindView(R.id.mn051301x)
+    //    @BindView(R.id.mn051301x)
 //    EditText mn051301x;
     @BindView(R.id.mn051401)
     CheckBox mn051401;
@@ -161,7 +161,7 @@ public class Section5Activity extends Activity {
     CheckBox mn051406;
     @BindView(R.id.mn051407)
     CheckBox mn051407;
-//    @BindView(R.id.mn051477)
+    //    @BindView(R.id.mn051477)
 //    CheckBox mn051477;
     @BindView(R.id.mn051488)
     CheckBox mn051488;
@@ -237,7 +237,7 @@ public class Section5Activity extends Activity {
     RadioButton mn0517a306;
     @BindView(R.id.mn0517a307)
     RadioButton mn0517a307;
-//    @BindView(R.id.mn0517a377)
+    //    @BindView(R.id.mn0517a377)
 //    RadioButton mn0517a377;
     @BindView(R.id.mn0517b1)
     RadioGroup mn0517b1;
@@ -265,7 +265,7 @@ public class Section5Activity extends Activity {
     RadioButton mn0517b306;
     @BindView(R.id.mn0517b307)
     RadioButton mn0517b307;
-//    @BindView(R.id.mn0517b377)
+    //    @BindView(R.id.mn0517b377)
 //    RadioButton mn0517b377;
     @BindView(R.id.mn0517c1)
     RadioGroup mn0517c1;
@@ -293,7 +293,7 @@ public class Section5Activity extends Activity {
     RadioButton mn0517c306;
     @BindView(R.id.mn0517c307)
     RadioButton mn0517c307;
-//    @BindView(R.id.mn0517c377)
+    //    @BindView(R.id.mn0517c377)
 //    RadioButton mn0517c377;
     @BindView(R.id.mn0517d1)
     RadioGroup mn0517d1;
@@ -321,7 +321,7 @@ public class Section5Activity extends Activity {
     RadioButton mn0517d306;
     @BindView(R.id.mn0517d307)
     RadioButton mn0517d307;
-//    @BindView(R.id.mn0517d377)
+    //    @BindView(R.id.mn0517d377)
 //    RadioButton mn0517d377;
     @BindView(R.id.mn0517e1)
     RadioGroup mn0517e1;
@@ -349,7 +349,7 @@ public class Section5Activity extends Activity {
     RadioButton mn0517e306;
     @BindView(R.id.mn0517e307)
     RadioButton mn0517e307;
-//    @BindView(R.id.mn0517e377)
+    //    @BindView(R.id.mn0517e377)
 //    RadioButton mn0517e377;
     @BindView(R.id.mn0517f1)
     RadioGroup mn0517f1;
@@ -377,7 +377,7 @@ public class Section5Activity extends Activity {
     RadioButton mn0517f306;
     @BindView(R.id.mn0517f307)
     RadioButton mn0517f307;
-//    @BindView(R.id.mn0517f377)
+    //    @BindView(R.id.mn0517f377)
 //    RadioButton mn0517f377;
     @BindView(R.id.mn051801)
     CheckBox mn051801;
@@ -1086,18 +1086,21 @@ public class Section5Activity extends Activity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-                if (mn052777.isChecked()){
+                if (mn052777.isChecked()) {
                     fldGrpmn0528.setVisibility(View.GONE);
                     fldGrpmn0529.setVisibility(View.VISIBLE);
                     mn0528.clearCheck();
                     mn052888x.setText(null);
-                }
-                else {
+                } else {
                     fldGrpmn0529.setVisibility(View.GONE);
                     fldGrpmn0528.setVisibility(View.VISIBLE);
 
-                    mn052901.setChecked(false);mn052902.setChecked(false);mn052903.setChecked(false);
-                    mn052904.setChecked(false);mn052905.setChecked(false);mn052906.setChecked(false);
+                    mn052901.setChecked(false);
+                    mn052902.setChecked(false);
+                    mn052903.setChecked(false);
+                    mn052904.setChecked(false);
+                    mn052905.setChecked(false);
+                    mn052906.setChecked(false);
                     mn052988x.setText(null);
                 }
             }
@@ -1330,9 +1333,6 @@ public class Section5Activity extends Activity {
 //        });
 
 
-
-
-
     }
 
     @OnClick(R.id.btn_End)
@@ -1347,7 +1347,7 @@ public class Section5Activity extends Activity {
             if (UpdateDB()) {*/
         Toast.makeText(this, "Starting Form Ending Section", Toast.LENGTH_SHORT).show();
         Intent endSec = new Intent(this, EndingActivity.class);
-        endSec.putExtra("complete", false);
+        endSec.putExtra("check", false);
         startActivity(endSec);
            /* } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -1738,7 +1738,7 @@ public class Section5Activity extends Activity {
                 mn050802.setError(null);
             }
 
-            if(mn050802.isChecked()) {
+            if (mn050802.isChecked()) {
 
                 if (!(mn050901.isChecked()
                         || mn050902.isChecked()
@@ -1871,7 +1871,7 @@ public class Section5Activity extends Activity {
             }
 
 //            if(mn051477.isChecked() || mn051488.isChecked()) {
-            if(mn051488.isChecked()) {
+            if (mn051488.isChecked()) {
                 if (!mn051501.isChecked()
                         || !mn051502.isChecked()
                         || !mn051503.isChecked()
@@ -2143,7 +2143,7 @@ public class Section5Activity extends Activity {
 
         } // Skip Till Start of mn0519
 
-        if(!mn051101.isChecked()) {
+        if (!mn051101.isChecked()) {
             if (!(mn051901.isChecked()
                     || mn051902.isChecked()
                     || mn051903.isChecked()
@@ -2344,7 +2344,7 @@ public class Section5Activity extends Activity {
 
         }
 
-        if (mn052777.isChecked()) {
+        if (!mn052302.isChecked() && mn052777.isChecked()) {
             if (!(mn052901.isChecked()
                     || mn052902.isChecked()
                     || mn052903.isChecked()
@@ -2368,18 +2368,20 @@ public class Section5Activity extends Activity {
             } else {
                 mn052988x.setError(null);
             }
-        } else {
-            mn052901.setChecked(false);
-            mn052902.setChecked(false);
-            mn052903.setChecked(false);
-            mn052904.setChecked(false);
-            mn052905.setChecked(false);
-            mn052906.setChecked(false);
-            mn052988.setChecked(false);
-            mn052988x.setText(null);
-
-
         }
+
+//        else {
+//            mn052901.setChecked(false);
+//            mn052902.setChecked(false);
+//            mn052903.setChecked(false);
+//            mn052904.setChecked(false);
+//            mn052905.setChecked(false);
+//            mn052906.setChecked(false);
+//            mn052988.setChecked(false);
+//            mn052988x.setText(null);
+//
+//
+//        }
         return true;
     }
 

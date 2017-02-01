@@ -348,10 +348,10 @@ public class Section8Activity extends Activity {
     EditText mn082101;
     @BindView(R.id.mn082102)
     EditText mn082102;
-    @BindView(R.id.mn0821)
-    RadioGroup mn0821;
+    //    @BindView(R.id.mn0821)
+//    RadioGroup mn0821;
     @BindView(R.id.mn082199)
-    RadioButton mn082199;
+    CheckBox mn082199;
     @BindView(R.id.mn082201)
     EditText mn082201;
     @BindView(R.id.mn082202)
@@ -474,7 +474,8 @@ public class Section8Activity extends Activity {
                     fldGrpmn0821.setVisibility(View.GONE);
                     mn082101.setText(null);
                     mn082102.setText(null);
-                    mn0821.clearCheck();
+//                    mn0821.clearCheck();
+                    mn082199.setChecked(false);
                 }
             }
         });
@@ -482,15 +483,14 @@ public class Section8Activity extends Activity {
         mn082199.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mn082101.setText(null);
+                mn082102.setText(null);
                 if (isChecked) {
-                    mn082101.setEnabled(false);
-                    mn082102.setEnabled(false);
-                    mn082101.setText(null);
-                    mn082102.setText(null);
+                    mn082101.setVisibility(View.GONE);
+                    mn082102.setVisibility(View.GONE);
                 } else {
-                    mn082101.setEnabled(true);
-                    mn082102.setEnabled(true);
-
+                    mn082101.setVisibility(View.VISIBLE);
+                    mn082102.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -1164,7 +1164,7 @@ public class Section8Activity extends Activity {
                     mn082199.setError(null);
                 }
             }
-            }
+        }
 
             if (mn082002.isChecked()) {
                 if (mn082201.getText().toString().isEmpty()) {

@@ -67,6 +67,17 @@ public class Section4bActivity extends Activity {
     private Button btncontinue;
     private TextView lbl_hhhead1;
 
+    public static boolean dobValidation(int y, int m, int d) {
+
+        if ((y == 5
+                || y >= 5)
+                && (m > 11
+                || m > 0)) {
+            return true;
+        } else return (d > 29 || d < 0)
+                && (m > 11 || m < 0);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -216,7 +227,6 @@ public class Section4bActivity extends Activity {
 
     }
 
-
     public void AddChild(View view) {
         if (ValidateForm()) {
 
@@ -296,13 +306,12 @@ public class Section4bActivity extends Activity {
                 CVars var = new CVars();
                 if (var.GetReproductionAgeWoman() != 0) {
                     startActivity(new Intent(this, Section5Activity.class));
-                }
-                else if (var.getNeonatesChild() != 0) {
+                } else if (var.getIMChild() != 0) {
                     startActivity(new Intent(this, Section7Activity.class));
                 }
-                else if (var.getIMChild() != 0){
-                    startActivity(new Intent(this, Section7ImActivity.class));
-                }
+//                else if (var.getIMChild() != 0){
+//                    startActivity(new Intent(this, Section7ImActivity.class));
+//                }
                 else {
                     startActivity(new Intent(this, Section8Activity.class));
                 }
@@ -472,7 +481,6 @@ public class Section4bActivity extends Activity {
 
     }
 
-
     private boolean ValidateForm() {
 
 
@@ -534,12 +542,7 @@ public class Section4bActivity extends Activity {
             s4q42d2.setError(null);
         }
 
-        if ((Integer.parseInt(s4q42d.getText().toString()) < 0 || Integer.parseInt(s4q42d.getText().toString()) > 29)
-                &&
-                (Integer.parseInt(s4q42d1.getText().toString()) < 0 || Integer.parseInt(s4q42d1.getText().toString()) > 11)
-                &&
-                (Integer.parseInt(s4q42d2.getText().toString()) < 0 || Integer.parseInt(s4q42d2.getText().toString()) > 5)){
-
+        if (dobValidation(Integer.parseInt(s4q42d2.getText().toString()), Integer.parseInt(s4q42d1.getText().toString()), Integer.parseInt(s4q42d.getText().toString()))) {
             s4q42d1.setError("Invalid:"+getString(R.string.baseline_s4q42d));
             Toast.makeText(getApplicationContext(), "Invalid:"+getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
             s4q42d1.requestFocus();
@@ -547,6 +550,20 @@ public class Section4bActivity extends Activity {
         } else {
             s4q42d1.setError(null);
         }
+
+//        if ((Integer.parseInt(s4q42d.getText().toString()) < 0 || Integer.parseInt(s4q42d.getText().toString()) > 29)
+//                &&
+//                (Integer.parseInt(s4q42d1.getText().toString()) < 0 || Integer.parseInt(s4q42d1.getText().toString()) > 11)
+//                &&
+//                (Integer.parseInt(s4q42d2.getText().toString()) < 0 || Integer.parseInt(s4q42d2.getText().toString()) > 5)){
+//
+//            s4q42d1.setError("Invalid:"+getString(R.string.baseline_s4q42d));
+//            Toast.makeText(getApplicationContext(), "Invalid:"+getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
+//            s4q42d1.requestFocus();
+//            return false;
+//        } else {
+//            s4q42d1.setError(null);
+//        }
 
 
         rdo_s4q42e = radio_s4q42e.getCheckedRadioButtonId();

@@ -1043,24 +1043,26 @@ public class Section5bActivity extends Activity {
             }
 
             //  Skip Check 5.45 Radio
-            if (mn0545.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0545), Toast.LENGTH_LONG).show();
-                mn054588.setError("This data is Required!");    // Set Error on last radio button
+            if (!mn054377.isChecked()) {
+                if (mn0545.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0545), Toast.LENGTH_LONG).show();
+                    mn054588.setError("This data is Required!");    // Set Error on last radio button
 
-                Log.i(TAG, "mn0545: This data is Required!");
-                return false;
-            } else {
-                mn054588.setError(null);
-            }
+                    Log.i(TAG, "mn0545: This data is Required!");
+                    return false;
+                } else {
+                    mn054588.setError(null);
+                }
 
-            // Others / EditText Q 5.45
-            if (mn054588.isChecked() && mn054588x.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0545) + " - " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
-                mn054588x.setError("This data is Required!");    // Set Error on last radio button
-                Log.i(TAG, "mn0545: This data is Required!");
-                return false;
-            } else {
-                mn054588x.setError(null);
+                // Others / EditText Q 5.45
+                if (mn054588.isChecked() && mn054588x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0545) + " - " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
+                    mn054588x.setError("This data is Required!");    // Set Error on last radio button
+                    Log.i(TAG, "mn0545: This data is Required!");
+                    return false;
+                } else {
+                    mn054588x.setError(null);
+                }
             }
         }
 

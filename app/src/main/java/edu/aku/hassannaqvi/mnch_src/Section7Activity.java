@@ -306,6 +306,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         mn071488.setOnCheckedChangeListener(this);
         mn071688.setOnCheckedChangeListener(this);
         mn071788.setOnCheckedChangeListener(this);
+        mn070299.setOnCheckedChangeListener(this);
 
 
     }
@@ -888,6 +889,19 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 mn072001.setEnabled(true);
                 mn072002.setEnabled(true);
                 mn072003.setEnabled(true);
+            }
+        }
+        if (v.getId() == R.id.mn070299) {
+
+            mn070201.setText(null);
+            mn070202.setText(null);
+
+            if (mn070299.isChecked()) {
+                mn070201.setVisibility(View.GONE);
+                mn070202.setVisibility(View.GONE);
+            } else {
+                mn070201.setVisibility(View.VISIBLE);
+                mn070202.setVisibility(View.VISIBLE);
             }
         }
     }

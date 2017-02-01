@@ -257,12 +257,12 @@ public class Section6Activity extends Activity {
 //                startActivity(secNext);
 
                 CVars var = new CVars();
-                if (var.getNeonatesChild() != 0) {
+                if (var.getIMChild() != 0) {
                     startActivity(new Intent(this, Section7Activity.class));
                 }
-                else if (var.getIMChild() != 0){
-                    startActivity(new Intent(this, Section7ImActivity.class));
-                }
+//                else if (var.getIMChild() != 0){
+//                    startActivity(new Intent(this, Section7ImActivity.class));
+//                }
                 else {
                     startActivity(new Intent(this, Section8Activity.class));
                 }
