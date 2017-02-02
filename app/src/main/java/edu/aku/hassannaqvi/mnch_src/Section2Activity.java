@@ -502,9 +502,17 @@ public class Section2Activity extends Activity {
                         Intent sec3_intent = new Intent(this, Section3Activity.class);
                         SRCApp.mwCount++;
                         startActivity(sec3_intent);
-                    } else {
+                    } else if (SRCApp.mdCount < SRCApp.mdTotal) {
                         Intent sec4_intent = new Intent(this, Section4Activity.class);
+                        SRCApp.mdCount++;
                         startActivity(sec4_intent);
+                    } else if (SRCApp.cmCount < SRCApp.cmTotal) {
+                        Intent sec4b_intent = new Intent(this, Section4bActivity.class);
+                        SRCApp.cmCount++;
+                        startActivity(sec4b_intent);
+                    } else {
+                        Intent sec5_intent = new Intent(this, Section5Activity.class);
+                        startActivity(sec5_intent);
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();

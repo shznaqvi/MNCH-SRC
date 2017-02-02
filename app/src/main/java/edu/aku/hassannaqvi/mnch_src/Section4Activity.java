@@ -156,7 +156,7 @@ public class Section4Activity extends Activity {
 
     }
 
-    public void AddWoman(View view) {
+    /*public void AddWoman(View view) {
 
         if (ValidateForm()) {
 
@@ -179,17 +179,25 @@ public class Section4Activity extends Activity {
                 Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
                 }
             }
-        }
+        }*/
 
-    public void gotoSection5(View view) {
+    public void NextSection(View view) {
 
         //tcount.setVisibility(View.VISIBLE);
 
         if (ValidateForm()) {
             SaveDraft();
             if (UpdateDB()) {
-                Intent sec4b_intent = new Intent(this, Section4bActivity.class);
-                startActivity(sec4b_intent);
+                if (SRCApp.mdCount < SRCApp.mdTotal) {
+                    Intent sec4_intent = new Intent(this, Section4Activity.class);
+                    SRCApp.mdCount++;
+                    startActivity(sec4_intent);
+                } else {
+                    Intent sec4b_intent = new Intent(this, Section4bActivity.class);
+                    SRCApp.mdCount = 0;
+                    SRCApp.mdTotal = 0;
+                    startActivity(sec4b_intent);
+                }
             }
         } else {
             Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
@@ -455,6 +463,19 @@ public class Section4Activity extends Activity {
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
+        }
+    }
+
+    public void endInterview(View view) {
+        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+        if (ValidateForm()) {
+            SaveDraft();
+            if (UpdateDB()) {
+                Intent end_intent = new Intent(this, EndingActivity.class);
+                startActivity(end_intent);
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
