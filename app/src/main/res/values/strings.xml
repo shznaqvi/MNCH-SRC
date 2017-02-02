@@ -15,13 +15,23 @@
         completions."
     </string>
 
+    <string name="end_interview"> اختتام </string>
+    <string name="start_interview"> انٹرویو شروع کریں </string>
+
     <string name="app_header1">HouseHold Number</string>
+
+    <string name="btnGetHF">Get Cluster / Villages / Users </string>
+    <string name="btnGetHF1">Get Cluster / UC</string>
+    <string name="btnGetVillages">Get Village List</string>
+    <string name="btnGetUsers">Get Users List</string>
 
     <string name="btnDBAccess">Database Access</string>
     <string name="btnadd">Add Another Woman</string>
+    <string name="btnaddchild">Add Another Child</string>
     <string name="sec2">Section 2</string>
     <string name="sec3">Section 3</string>
     <string name="sec4">Section 4</string>
+    <string name="sec4b">Section 4b</string>
     <string name="sec5">Section 5</string>
     <string name="sec6">Section 6</string>
     <string name="sec7">Section 7</string>
@@ -153,8 +163,10 @@
 
     <!-- Section 4a -->
 
-    <string name="baseline_s4q41a">مري ويل ماءُ جو مڪمل نالو  اي</string>
-    <string name="baseline_s4q41b">مرڻ وقت عمر</string>
+    <string name="baseline_s4q41a">مري ويل ماءُ جو مڪمل نالو اي</string>
+    <string name="baseline_s4q41b">مرڻ وقت عمر(ڏينهن)</string>
+    <string name="baseline_s4q41b1">مرڻ وقت عمر(مهينو)</string>
+    <string name="baseline_s4q41b2">مرڻ وقت عمر(سال)</string>
     <string name="baseline_s4q41c">ويم يا حمل جو نتيجو</string>
     <string name="baseline_s4q41c_1">پيٽ ۾ مري ويو</string>
     <string name="baseline_s4q41c_2">مرده پيدائش</string>
@@ -181,11 +193,16 @@
 
     <string name="baseline_s4q42a">ساڳيوماءُ جو فهرست نمبر استعمال ڪريو سوال 20 ۾</string>
     <string name="baseline_s4q42b">مريويل  ٻار جو مڪمل نالو</string>
+    <string name="baseline_s4q42c">جنس</string>
     <string name="baseline_s4q42c_1">مرد</string>
     <string name="baseline_s4q42c_2">عورت</string>
-    <string name="baseline_s4q42d">موت وقت عمر</string>
+    <string name="baseline_s4q42d">موت وقت عمر(ڏينهن)</string>
+    <string name="baseline_s4q42d1">موت وقت عمر(مهينو)</string>
+    <string name="baseline_s4q42d2">موت وقت عمر(سال)</string>
+    <string name="baseline_s4q42e">موت جي جڳھه</string>
+    <string name="baseline_s4q42eoth">وضاحت سان لکو</string>
     <string name="baseline_s4q42e_1">گهر</string>
-    <string name="baseline_s4q42e_2">گورنمينٽ ڊسپينسري  </string>
+    <string name="baseline_s4q42e_2">گورنمينٽ ڊسپينسري</string>
     <string name="baseline_s4q42e_3">بي ايڇ يو</string>
     <string name="baseline_s4q42e_4">رورل هيلٿ سينٽر</string>
     <string name="baseline_s4q42e_5">تعلقي اسپتال</string>
@@ -329,12 +346,12 @@
     <string name="mn052612"> رت اچڻ </string>
 
 
-    <string name="mn052615"> ٻچيداني مان مواد جواخراج </string>
+    <string name="mn052613"> ٻچيداني مان مواد جواخراج </string>
 
 
-    <string name="mn052618"> چڪر اچڻ/بي هوشي </string>
+    <string name="mn052614"> چڪر اچڻ/بي هوشي </string>
 
-    <string name="mn052620"> پيٽ ۾ ٻار جو حرڪتنه ڪرڻ </string>
+    <string name="mn052615"> پيٽ ۾ ٻار جو حرڪتنه ڪرڻ </string>
 
     <string name="mn0527"> آخري حمل دوران پيچيدگي هئڻ جي صورت ۾ توهان پنهنجو علاج ڪٿان ڪرايو هيو؟ </string>
     <string name="mn052701"> ايل ايڇ ڊبليو صحت گهر </string>
@@ -344,7 +361,7 @@
     <string name="mn052705"> ضلعه اسپتال </string>
     <string name="mn052706"> نجي ڪلينڪ </string>
     <string name="mn052707"> نجي اسپتال </string>
-    <string name="mn0528"> آخري حمل دوران پيچيدگي هئڻ جي صورت ۾ توهان پنهنجو علاج ڪنهن کان ڪرايوهيو؟ </string>
+    <string name="mn0528"> ڇاتوهان ڪڏهن به صحت جي حوالي سان هن صحت مرڪز جو علاج خاطر وزٽ ڪيو آهي؟ </string>
     <string name="mn052801"> ليڊي هيلٿ ورڪر </string>
     <string name="mn052802"> دائي </string>
     <string name="mn052803"> ڪميونٽي مڊ وائف </string>
@@ -398,7 +415,7 @@
     <string name="mn053604"> اينٽيسيپٽڪ لوشن </string>
     <string name="mn053605"> خاڪ/مٽي </string>
     <string name="mn053606"> ڪلورهيگذيڊين </string>
-    <string name="mn0537"> ۾ ويم جي دوران ڇا ليڊي هيلٿ ورڪرموجود هئي؟ گهر </string>
+    <string name="mn0537"> گهر ۾ ويم جي دوران ڇا ليڊي هيلٿ ورڪرموجود هئي؟ </string>
     <string name="mn0538"> ويم ڪنهن ڪرايو </string>
     <string name="mn053801"> دائي </string>
     <string name="mn053802"> ليڊي هيلٿ وزيٽرر/ نرس </string>
@@ -523,6 +540,10 @@
     <string name="mn060403"> ڪوئي ساڻ وٺي هلڻ وارو نه هيو </string>
     <string name="mn060404"> صحت مرڪز پري هيو </string>
     <string name="mn060405"> وڏن جي اجازت نه هئي </string>
+
+    <string name="mn07im01"> Name of Child </string>
+    <string name="mn07im02"> Age of Child (Months) </string>
+    <string name="mn07im03"> Card available </string>
     <string name="mn0605"> ڇا اوهان هاڻي فيملي پلاننگ جو طريقو استعمال ڪري رهيا آهيو؟ </string>
     <string name="mn0701"> ٻار جي ڄمڻ جي تاريخ </string>
     <string name="mn0702"> پيدائش وقت ٻار جو وزن ڇا هيو </string>
@@ -604,12 +625,15 @@
     <string name="mn0721"> ڇا توهان جي ٻار کي پوئين ڇهن مهينن ۾ ڪا اهڙي بيماري ٿي هئي جنهنجي ڪري انکي اسپتال ۾ داخل ڪيو ويو هيو </string>
     <string name="mn0722"> جيڪڏهن ها.ته اهڙي ڪهڙي بيماري ٿي هئي جنهن جي ڪري انکي اسپتال ۾ داخل ڪيو ويو هيو </string>
     <string name="mn0723"> (گھر ۾ موجودهرپنج سالن کان ننڍي عمرجي ٻار کي فارم ۾ شامل ڪريو) حفاظتي ٽڪن جي تفصیلات </string>
-    <string name="mn07im01"> Name of Child </string>
-    <string name="mn07im02"> Age of Child (Months) </string>
-    <string name="mn07im03"> Card available </string>
+    <string name="mnnoc"> Name of Child </string>
+    <string name="mnagem"> Age of Child (Months) </string>
+    <string name="mnca"> Card available </string>
     <string name="mnbirth"> At Birth </string>
     <string name="mnbcg"> BCG </string>
     <string name="mnbcgsrc"> Source </string>
+    <string name="mnbcgsrc01"> کارڈ </string>
+    <string name="mnbcgsrc02"> جوابدہندہ </string>
+    <string name="mnbcgsrc03"> یاد نہیں </string>
     <string name="mnbcgscar"> Presence of Scar </string>
     <string name="mnopv0"> OPV 0 </string>
     <string name="mnopv0src"> Source </string>
@@ -714,42 +738,42 @@
     <string name="mn080611"> گهر ۾ کاڌو نه پچايو ويندو آهي </string>
     <string name="mn0807"> گهر ۾ پيئڻ جي پاڻي جو اهم ذريعوڪهڙو آهي؟ </string>
     <string name="mn0807a"> نل جو پاڻي </string>
-    <string name="mn0807a01"> گهر جو نلڪو </string>
-    <string name="mn0807a02"> ٻاهريون نلڪو </string>
-    <string name="mn0807a03"> گهٽي ۾ لڳل نلڪو </string>
-    <string name="mn0807a04"> ٽيوب ويل </string>
-    <string name="mn0807a05"> نلڪو </string>
+    <string name="mn080701"> گهر جو نلڪو </string>
+    <string name="mn080702"> ٻاهريون نلڪو </string>
+    <string name="mn080703"> گهٽي ۾ لڳل نلڪو </string>
+    <string name="mn080704"> ٽيوب ويل </string>
+    <string name="mn080705"> نلڪو </string>
     <string name="mn0807b"> کوٽيل کوهه </string>
-    <string name="mn0807b01"> ڍڪيل کوهه </string>
-    <string name="mn0807b02"> اڻ ڍڪيل کوهه </string>
-    <string name="mn0807b03"> محفوظ چشمو </string>
-    <string name="mn0807b04"> غير محفوظ چشمو </string>
+    <string name="mn080706"> ڍڪيل کوهه </string>
+    <string name="mn080707"> اڻ ڍڪيل کوهه </string>
+    <string name="mn080708"> محفوظ چشمو </string>
+    <string name="mn080709"> غير محفوظ چشمو </string>
     <string name="mn0807c"> ٻيا ذريعا </string>
-    <string name="mn0807c01"> برساتي پاڻي </string>
-    <string name="mn0807c02"> ٽينڪر يا ٽرڪ </string>
-    <string name="mn0807c03"> فلٽر ٿيل پاڻي </string>
-    <string name="mn0807c04"> ريڙهي واري ٽانڪي </string>
-    <string name="mn0807c05"> زميني سطح وارو پاڻي (ندي، ڊيم، ڍنڍ ، تلا، وهندڙ پاڻي، ڪينال) </string>
-    <string name="mn0807c06"> گهگهي وارو پاڻي </string>
+    <string name="mn080710"> برساتي پاڻي </string>
+    <string name="mn080711"> ٽينڪر يا ٽرڪ </string>
+    <string name="mn080712"> فلٽر ٿيل پاڻي </string>
+    <string name="mn080713"> ريڙهي واري ٽانڪي </string>
+    <string name="mn080714"> زميني سطح وارو پاڻي (ندي، ڊيم، ڍنڍ ، تلا، وهندڙ پاڻي، ڪينال) </string>
+    <string name="mn080715"> گهگهي وارو پاڻي </string>
     <string name="mn0808"> گهر ۾ ٻين ڪم ڪارين جي لاءِ جهڙوڪ رڌ پچاءَ هٿ ڌوئڻ وغيره لاءِ استعمال ٿيندڙ پاڻي جو اهم ذريعو ڪهڙو آهي؟ </string>
     <string name="mn0808a"> نل جو پاڻي </string>
-    <string name="mn0808a01"> گهر جو نلڪو </string>
-    <string name="mn0808a02"> ٻاهريون نلڪو </string>
-    <string name="mn0808a03"> گهٽي ۾ لڳل نلڪو </string>
-    <string name="mn0808a04"> ٽيوب ويل </string>
-    <string name="mn0808a05"> نلڪو </string>
+    <string name="mn080801"> گهر جو نلڪو </string>
+    <string name="mn080802"> ٻاهريون نلڪو </string>
+    <string name="mn080803"> گهٽي ۾ لڳل نلڪو </string>
+    <string name="mn080804"> ٽيوب ويل </string>
+    <string name="mn080805"> نلڪو </string>
     <string name="mn0808b"> کوٽيل کوهه </string>
-    <string name="mn0808b01"> ڍڪيل کوهه </string>
-    <string name="mn0808b02"> اڻ ڍڪيل کوهه </string>
-    <string name="mn0808b03"> محفوظ چشمو </string>
-    <string name="mn0808b04"> غير محفوظ چشمو </string>
+    <string name="mn080806"> ڍڪيل کوهه </string>
+    <string name="mn080807"> اڻ ڍڪيل کوهه </string>
+    <string name="mn080808"> محفوظ چشمو </string>
+    <string name="mn080809"> غير محفوظ چشمو </string>
     <string name="mn0808c"> کوٽيل </string>
-    <string name="mn0808c01"> برساتي پاڻي </string>
-    <string name="mn0808c02"> ٽينڪر يا ٽرڪ </string>
-    <string name="mn0808c03"> فلٽر ٿيل پاڻي </string>
-    <string name="mn0808c04"> ريڙهي واري ٽانڪي </string>
-    <string name="mn0808c05"> زميني سطح وارو پاڻي (ندي، ڊيم، ڍنڍ ، تلا، وهندڙ پاڻي، ڪينال) </string>
-    <string name="mn0808c06"> گهگهي وارو پاڻي </string>
+    <string name="mn080810"> برساتي پاڻي </string>
+    <string name="mn080811"> ٽينڪر يا ٽرڪ </string>
+    <string name="mn080812"> فلٽر ٿيل پاڻي </string>
+    <string name="mn080813"> ريڙهي واري ٽانڪي </string>
+    <string name="mn080814"> زميني سطح وارو پاڻي (ندي، ڊيم، ڍنڍ ، تلا، وهندڙ پاڻي، ڪينال) </string>
+    <string name="mn080815"> گهگهي وارو پاڻي </string>
     <string name="mn0809"> ڇا گهر جو ڪو ڀاتي ڪنهن وقت يا روزانو پاڻي کڻڻ لاءِ ويندو آهي؟ </string>
     <string name="mn0810"> پاڻي حاصل ڪرڻ ۽ کڻي اچڻ لاءِ ڪيترو وقت لڳي ٿو </string>
     <string name="mn0811"> گهڻو ڪري پاڻي ڀرڻ جي لاءِ گهر مان ڪير ويندو آهي؟ </string>
@@ -767,19 +791,19 @@
     <string name="mn081306"> آٺرائڻ </string>
     <string name="mn0814"> توهان جي گهر جا ڀاتي گهڻو ڪري ڪهڙي قسم جي ليٽرين استعمال ڪندا آهن؟ </string>
     <string name="mn0814a"> نيڪا ل </string>
-    <string name="mn0814a01"> نڪاسي جو باقاعدي نظام </string>
-    <string name="mn0814a02"> گٽر سان جڙيل نيڪال </string>
-    <string name="mn0814a03"> عارضي حاجت وارو نيڪال </string>
-    <string name="mn0814a04"> ٻي ڪنهن جاءِ وارو نيڪال </string>
-    <string name="mn0814a05"> ڪا به جاءِ </string>
+    <string name="mn081401"> نڪاسي جو باقاعدي نظام </string>
+    <string name="mn081402"> گٽر سان جڙيل نيڪال </string>
+    <string name="mn081403"> عارضي حاجت وارو نيڪال </string>
+    <string name="mn081404"> ٻي ڪنهن جاءِ وارو نيڪال </string>
+    <string name="mn081405"> ڪا به جاءِ </string>
     <string name="mn0814b"> عارضي حاجت واري جاءِ </string>
-    <string name="mn0814b01"> هوادار حاجت واري جاءِ </string>
-    <string name="mn0814b02"> سليب سان عارضي حاجت واري جاءِ </string>
-    <string name="mn0814b03"> سليب کان بغير کليل حاجت واري جاءِ </string>
-    <string name="mn0814b04"> بالٽي واري حاجت جي جاءِ </string>
-    <string name="mn0814b05"> ٽنگيل حاجت واري جاءِ </string>
+    <string name="mn081406"> هوادار حاجت واري جاءِ </string>
+    <string name="mn081407"> سليب سان عارضي حاجت واري جاءِ </string>
+    <string name="mn081408"> سليب کان بغير کليل حاجت واري جاءِ </string>
+    <string name="mn081409"> بالٽي واري حاجت جي جاءِ </string>
+    <string name="mn081410"> ٽنگيل حاجت واري جاءِ </string>
     <string name="mn0814c"> ٻيا </string>
-    <string name="mn0814c01"> بغير سهولت جي زمين يا ٻوڙن ۾ </string>
+    <string name="mn081411"> بغير سهولت جي زمين يا ٻوڙن ۾ </string>
     <string name="mn0815"> ڇا توهان اها ليٽرين ٻين گهرن کي به استعمال ڪرڻ ڏيندا آهيو؟ </string>
     <string name="mn0816"> جيڪڏهن ها ته ٻيا گهڻا گهرليٽرين جي اها سهولت استعمال ڪندا آهن؟ </string>
     <string name="mn0817"> ڇا توهان حاجت پوري ڪرڻ کان پوءِ پنهنجا هٿ ڌوئندا آهيو؟ </string>
@@ -789,6 +813,7 @@
     <string name="mn0821"> توهان جي گهرفرد کي ڪيترا ايڪڙ يا ڪئنال زرعي زمين آهي؟ </string>
     <string name="mn082101"> ايڪڙ </string>
     <string name="mn082102"> ڪينال </string>
+    <string name="mn0821099"> خبر نه آهي </string>
     <string name="mn0822"> جواب ڏيندڙ کان هيٺ ڏنل ملڪيت جي تعداد جي باري ۾ پڇو جيڪڏهن نه آهي ته ڪوڊ ٻڙي لکو. </string>
     <string name="mn082201"> چوپايو مال مينهن، ۽ ڳئون </string>
     <string name="mn082202"> رڍون ۽ ٻڪريون </string>
@@ -816,6 +841,19 @@
     <string name="mn082303"> (جيڪڏهن نه ته ڇو__؟) </string>
     <string name="mn082304"> جواب ڏيندڙ گهر ۾ موجود ناهي </string>
     <string name="mn082305"> جواب ڏيندڙ انڪار ڪري ڇڏيو </string>
+    <string name="end"> end </string>
+
+
+    <string name="countMDeath"> مري ويل مائن جو تعداد </string>
+    <string name="maternalDeath"> ڇا هن گهر ۾ حمل يا ويم کان 40 ڏينهن تائين ڪا ماء مري وئي هئي؟ </string>
+    <string name="skip"> Skip Section </string>
+    <string name="Continue"> Continue </string>
     <!-- Section 6 -->
+
+    <string name="countCMortality"> مري ويل ٻارن جو تعداد </string>
+    <string name="childMortality"> ڇا هن گهر ۾ پوئين 5 سالن دوران ڪو ٻار مري ويو هو؟ </string>
+
+    <string name="death"> مري ويل </string>
+
 
 </resources>

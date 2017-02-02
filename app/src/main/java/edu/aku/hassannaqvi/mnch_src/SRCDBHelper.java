@@ -9,16 +9,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import edu.aku.hassannaqvi.mnch_src.FormContract.Sec1Entry;
-import edu.aku.hassannaqvi.mnch_src.Sec3Contract.Sec3Entry;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import edu.aku.hassannaqvi.mnch_src.FormContract.Sec1Entry;
+import edu.aku.hassannaqvi.mnch_src.Sec3Contract.Sec3Entry;
 
 /**
  * Created by isd on 20/10/2016.
@@ -148,11 +147,10 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 values.put(UsersContract.singleUser.ROW_PASSWORD, password);
                 values.put(UsersContract.singleUser.ROW_USERSTATUS, userstatus);
                 values.put(UsersContract.singleUser.ROW_ISADMIN, isadmin);
-
                 db.insert(UsersContract.singleUser.TABLE_NAME, null, values);
             }
-            db.close();
 
+            db.close();
         } catch (Exception e) {
         }
     }
@@ -295,7 +293,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             values.put(Sec1Entry.ROW_GPS_LNG, fc.getROW_GPS_LANG());
             values.put(Sec1Entry.ROW_GPS_ACC, fc.getROW_GPS_ACC());
             values.put(Sec1Entry.ROW_GPS_DT, fc.getROW_GPS_DT());
-
             newRowId = db.insert(Sec1Entry.TABLE_NAME, null, values);
             db.close();
 
@@ -304,7 +301,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
         return newRowId;
     }
-
 
     public int updateS2() {
         SQLiteDatabase db = this.getReadableDatabase();

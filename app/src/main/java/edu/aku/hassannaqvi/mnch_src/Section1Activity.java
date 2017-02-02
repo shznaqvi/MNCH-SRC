@@ -10,8 +10,10 @@ import android.app.Activity;
 import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -21,8 +23,11 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 public class Section1Activity extends Activity {
@@ -56,9 +61,11 @@ public class Section1Activity extends Activity {
     private RadioButton rDOS1q1121;
     private RadioButton rDOS1q1122;
 
-    private EditText formid;
-    private EditText s1q101;
     private EditText s1q102;
+
+    private EditText formid;
+    private Spinner s1q101;
+
     private EditText s1q104;
     private EditText s1q105;
     private EditText s1q106a;
@@ -131,8 +138,11 @@ public class Section1Activity extends Activity {
         rDOS1q1122 = (RadioButton) findViewById(R.id.RDO_s1q112_2);
 
         formid = (EditText) findViewById(R.id.formid);
-        s1q101 = (EditText) findViewById(R.id.s1q101);
+        s1q101 = (Spinner) findViewById(R.id.s1q101);
+
+
         s1q102 = (EditText) findViewById(R.id.s1q102);
+
         s1q104 = (EditText) findViewById(R.id.s1q104);
         s1q105 = (EditText) findViewById(R.id.s1q105);
         s1q106a = (EditText) findViewById(R.id.s1q106a);
@@ -144,6 +154,14 @@ public class Section1Activity extends Activity {
         s1q111oth = (EditText) findViewById(R.id.s1q111oth);
 
         vu_s1q112 = (LinearLayout) findViewById(R.id.vu_s1q112);
+
+
+        ArrayList<String> lst_hhcode = GetHHCode();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(Section1Activity.this,
+                android.R.layout.simple_spinner_item, lst_hhcode);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s1q101.setAdapter(adapter);
 
 
         alert = new AlertDialog.Builder(this);
@@ -181,10 +199,6 @@ public class Section1Activity extends Activity {
 
     private EditText getFormid() {
         return (EditText) findViewById(R.id.formid);
-    }
-
-    private EditText getS1q101() {
-        return (EditText) findViewById(R.id.s1q101);
     }
 
     private EditText getS1q102() {
@@ -229,6 +243,15 @@ public class Section1Activity extends Activity {
 
         //spTimeT = mc101time.getCurrentHour() + ":" + mc101time.getCurrentMinute();
 
+        switch (radioS1q112.getCheckedRadioButtonId()) {
+            case R.id.RDO_s1q112_1:
+                var_s1q112 = "1";
+                break;
+            case R.id.RDO_s1q112_2:
+                var_s1q112 = "2";
+                break;
+        }
+
         if (ValidateForm()) {
 
             if (SaveDraft()) {
@@ -236,8 +259,14 @@ public class Section1Activity extends Activity {
                 Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
 
                 if (UpdateDB()) {
-                    Intent sec2_intent = new Intent(this, Section2Activity.class);
-                    startActivity(sec2_intent);
+
+                    if (var_s1q112 == "1") {
+                        Intent sec2_intent = new Intent(this, Section2Activity.class);
+                        startActivity(sec2_intent);
+                    } else {
+                        Intent sec2_intent = new Intent(this, MainPage.class);
+                        startActivity(sec2_intent);
+                    }
                 } else {
                     Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
                 }
