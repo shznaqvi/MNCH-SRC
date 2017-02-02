@@ -498,8 +498,13 @@ public class Section2Activity extends Activity {
                 Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
 
                 if (UpdateDB()) {
-                    Intent sec3_intent = new Intent(this, Section3Activity.class);
-                    startActivity(sec3_intent);
+                    if (SRCApp.mwCount < SRCApp.mwras) {
+                        Intent sec3_intent = new Intent(this, Section3Activity.class);
+                        startActivity(sec3_intent);
+                    } else {
+                        Intent sec4_intent = new Intent(this, Section4Activity.class);
+                        startActivity(sec4_intent);
+                    }
                 } else {
                     Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
                 }
