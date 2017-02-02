@@ -241,7 +241,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         String having = null;
 
         String orderBy =
-                singleDistrict._ID + " ASC";
+                singleDistrict.COLUMN_DISTRICT_NAME + " ASC";
 
         Collection<DistrictsContract> allDC = new ArrayList<DistrictsContract>();
         try {
@@ -285,7 +285,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         String having = null;
 
         String orderBy =
-                singleVillages.COLUMN_VILLAGES_CODE + " ASC";
+                singleVillages.COLUMN_VILLAGES_NAME + " ASC";
 
         Collection<VillagesContract> allPC = new ArrayList<VillagesContract>();
         try {

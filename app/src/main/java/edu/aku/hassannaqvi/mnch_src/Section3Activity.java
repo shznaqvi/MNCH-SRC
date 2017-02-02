@@ -124,7 +124,7 @@ public class Section3Activity extends Activity {
         scrollView01 = (ScrollView) findViewById(R.id.ScrollView01);
 
         appHeader = (TextView) findViewById(R.id.app_header);
-        appHeader.setText("(" + SRCApp.mwCount + " of " + SRCApp.mwras + ")");
+        appHeader.setText(getString(R.string.sec3) + " (" + SRCApp.mwCount + " of " + SRCApp.mwras + ")");
 
         vu_s3q301g = (LinearLayout) findViewById(R.id.vu_s3q301g);
         vu_s3q301d = (LinearLayout) findViewById(R.id.vu_s3q301d);
@@ -203,8 +203,9 @@ public class Section3Activity extends Activity {
         //vu_s3q301f1 = (LinearLayout) findViewById(R.id.vu_s3q301f1);
         vu_s3q301g = (LinearLayout) findViewById(R.id.vu_s3q301g);
 
-        btnnext = (Button) findViewById(R.id.btnnext);
-        btnadd = (Button) findViewById(R.id.btnadd);
+//        btnnext = (Button) findViewById(R.id.btnnext);
+//        btnadd = (Button) findViewById(R.id.btnadd);
+
         lbl_wcount = (TextView) findViewById(R.id.lbl_wcount);
         wcount = (TextView) findViewById(R.id.wcount);
 
@@ -213,20 +214,20 @@ public class Section3Activity extends Activity {
         lbl_hhhead = (TextView) findViewById(R.id.lbl_hhhead);
 
 
-        wcount.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Woman " + SRCApp.tcount + " of " + var.GetReproductionAgeWoman() + ")");
-
-        if (SRCApp.tcount < var.GetReproductionAgeWoman()) {
-            btnadd.setVisibility(View.VISIBLE);
-            btnnext.setVisibility(View.GONE);
-
-        } else {
-            btnnext.setVisibility(View.VISIBLE);
-            btnadd.setVisibility(View.GONE);
-        }
-
-        if (var.GetReproductionAgeWoman() == 0) {
-            startActivity(new Intent(Section3Activity.this, Section4AMaternalCount.class));
-        }
+//        wcount.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Woman " + SRCApp.tcount + " of " + var.GetReproductionAgeWoman() + ")");
+//
+//        if (SRCApp.tcount < var.GetReproductionAgeWoman()) {
+//            btnadd.setVisibility(View.VISIBLE);
+//            btnnext.setVisibility(View.GONE);
+//
+//        } else {
+//            btnnext.setVisibility(View.VISIBLE);
+//            btnadd.setVisibility(View.GONE);
+//        }
+//
+//        if (var.GetReproductionAgeWoman() == 0) {
+//            startActivity(new Intent(Section3Activity.this, Section4AMaternalCount.class));
+//        }
 //
 
         // ================ Q 3.01d If lady is pregnant ask gestational Age ====================
@@ -1120,9 +1121,9 @@ public class Section3Activity extends Activity {
                 s3q301k.setError(null);
             }
 
-            if (Integer.parseInt(getS3q301k().getText().toString()) < 100 ||
-                    Integer.parseInt(getS3q301k().getText().toString()) > 100000) {
-                s3q301k.setError(getString(R.string.txterr));
+            if (Integer.parseInt(s3q301k.getText().toString()) < 100 ||
+                    Integer.parseInt(s3q301k.getText().toString()) > 100000) {
+                s3q301k.setError("Invalid specify cost of delivery");
                 Toast.makeText(getApplicationContext(), "Invalid specify cost of delivery  \r\n", Toast.LENGTH_LONG).show();
                 s3q301k.requestFocus();
                 return false;

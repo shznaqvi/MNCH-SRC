@@ -15,8 +15,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -47,8 +45,8 @@ public class Section1Activity extends Activity implements TextWatcher {
     String var_s1q103 = "";
     String var_s1q111 = "";
     String var_s1q112 = "";
-    @BindView(R.id.btnnext)
-    Button btnNext;
+    //    @BindView(R.id.btnnext)
+//    Button btnNext;
     @BindView(R.id.radio_s1q112)
     RadioGroup radioS1q112;
     @BindView(R.id.RDO_s1q112_1)
@@ -161,7 +159,8 @@ public class Section1Activity extends Activity implements TextWatcher {
 
         //vu_s1q112 = (LinearLayout) findViewById(R.id.vu_s1q112);
 
-
+//      Focus on UC Code
+        s1q106b.requestFocus();
 
         ArrayList<String> lst_hhcode = GetHHCode();
 
@@ -359,17 +358,16 @@ public class Section1Activity extends Activity implements TextWatcher {
 //        s1q101.setBackgroundColor(getResources().getColor(R.color.dullWhile));
 
 
-        rDOS1q1122.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    btnNext.setText(R.string.end_interview);
-                }
-                else {
-                    btnNext.setText("Section 2");
-                }
-            }
-        });
+//        rDOS1q1122.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked) {
+//                    btnNext.setText(R.string.end_interview);
+//                } else {
+//                    btnNext.setText("Section 2");
+//                }
+//            }
+//        });
 
 //        radioS1q112.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 //            @Override
@@ -382,7 +380,6 @@ public class Section1Activity extends Activity implements TextWatcher {
 //                }
 //            }
 //        });
-
 
 
     }
@@ -404,7 +401,7 @@ public class Section1Activity extends Activity implements TextWatcher {
     }
 
     //private EditText getS1q107() {
-        //return (EditText) findViewById(R.id.s1q107);
+    //return (EditText) findViewById(R.id.s1q107);
     //}
 
     private EditText getS1q108() {
@@ -616,8 +613,6 @@ public class Section1Activity extends Activity implements TextWatcher {
         }
 
 
-
-
         rdo_s1q103 = radioS1q103.getCheckedRadioButtonId();
 
         if (rdo_s1q103 == -1) {
@@ -632,6 +627,15 @@ public class Section1Activity extends Activity implements TextWatcher {
         if (getS1q104().getText().toString().isEmpty()) {
             s1q104.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter respondent age \r\n", Toast.LENGTH_LONG).show();
+            s1q104.requestFocus();
+            return false;
+        } else {
+            s1q104.setError(null);
+        }
+
+        if (Integer.parseInt(getS1q104().getText().toString()) < 18 || Integer.parseInt(getS1q104().getText().toString()) > 99) {
+            s1q104.setError("Invalid respondent age");
+            Toast.makeText(getApplicationContext(), "Invalid respondent age \r\n", Toast.LENGTH_LONG).show();
             s1q104.requestFocus();
             return false;
         } else {
@@ -778,8 +782,7 @@ public class Section1Activity extends Activity implements TextWatcher {
                 s1q104.setError(null);
             }
 
-        } catch (NumberFormatException nfe)
-        {
+        } catch (NumberFormatException nfe) {
 
         }
     }

@@ -11,6 +11,7 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -76,6 +77,9 @@ public class Section2Activity extends Activity {
     private int rdo_s2q203;
     private int rdo_s2q205;
 
+    private EditText s2q207; //Maternal Death
+    private EditText s2q208; //Child Mortality
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,6 +135,10 @@ public class Section2Activity extends Activity {
         s2q206g = (EditText) findViewById(R.id.s2q206g);
         s2q206h = (EditText) findViewById(R.id.s2q206h);
 
+
+        s2q207 = (EditText) findViewById(R.id.s2q207);
+        s2q208 = (EditText) findViewById(R.id.s2q208);
+
         vu_s2q205oth = (LinearLayout) findViewById(R.id.vu_s2q205oth);
 
         radioS2q205.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -153,21 +161,32 @@ public class Section2Activity extends Activity {
         });
 
         // Check for gender
-        radioS2q203.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        rDOS2q2032.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == rDOS2q2031.getId()) {
-
-                    rDOS2q20512.setEnabled(false);
-
-
-                } else {
-
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                rDOS2q20512.setChecked(false);
+                if (isChecked) {
                     rDOS2q20512.setEnabled(true);
-
+                } else {
+                    rDOS2q20512.setEnabled(false);
                 }
             }
         });
+//        radioS2q203.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//                if (checkedId == rDOS2q2031.getId()) {
+//
+//                    rDOS2q20512.setEnabled(false);
+//
+//
+//                } else {
+//
+//                    rDOS2q20512.setEnabled(true);
+//
+//                }
+//            }
+//        });
 
         // schooling
         s2q204.addTextChangedListener(new TextWatcher() {
@@ -223,12 +242,9 @@ public class Section2Activity extends Activity {
                         s2q202.setError(null);
                     }
 
-                    if(age1 < 50)
-                    {
+                    if (age1 < 50) {
                         rDOS2q20511.setEnabled(false);
-                    }
-                    else
-                    {
+                    } else {
                         rDOS2q20511.setEnabled(true);
                     }
                 } catch (NumberFormatException nfe) {
@@ -252,26 +268,22 @@ public class Section2Activity extends Activity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                int totalMembers=0;
-                try{
+                int totalMembers = 0;
+                try {
                     totalMembers = Integer.parseInt(s2q206a.getText().toString());
 
 
-                } catch (NumberFormatException nfe)
-                {
+                } catch (NumberFormatException nfe) {
                     nfe.printStackTrace();
                 }
 
-                if(totalMembers == 0)
-                {
+                if (totalMembers == 0) {
                     s2q206a.requestFocus();
                     s2q206a.setError("Required field...");
 
-                }else
-                {
+                } else {
                     s2q206a.setError(null);
                 }
-
 
 
             }
@@ -291,24 +303,21 @@ public class Section2Activity extends Activity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int totalMembers= 0;
+                int totalMembers = 0;
                 int mm = 0;
 
-                try{
+                try {
                     totalMembers = Integer.parseInt(s2q206a.getText().toString());
                     mm = Integer.parseInt(s2q206b.getText().toString());
 
-                } catch (NumberFormatException nfe)
-                {
+                } catch (NumberFormatException nfe) {
                     nfe.printStackTrace();
                 }
 
-                if(mm > totalMembers)
-                {
+                if (mm > totalMembers) {
                     s2q206a.requestFocus();
-                    s2q206a.setError("Total members are " +totalMembers + " Check again");
-                }else
-                {
+                    s2q206a.setError("Total members are " + totalMembers + " Check again");
+                } else {
                     s2q206a.setError(null);
                 }
             }
@@ -328,25 +337,22 @@ public class Section2Activity extends Activity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int totalMembers= 0;
+                int totalMembers = 0;
                 int fm = 0;
 
-                try{
+                try {
                     totalMembers = Integer.parseInt(s2q206a.getText().toString());
                     fm = Integer.parseInt(s2q206c.getText().toString());
 
-                } catch (NumberFormatException nfe)
-                {
+                } catch (NumberFormatException nfe) {
                     nfe.printStackTrace();
                 }
 
 
-                if(fm > totalMembers)
-                {
+                if (fm > totalMembers) {
                     s2q206a.requestFocus();
-                    s2q206a.setError("Total members are " +totalMembers + " Check again");
-                }else
-                {
+                    s2q206a.setError("Total members are " + totalMembers + " Check again");
+                } else {
                     s2q206a.setError(null);
                 }
 
@@ -369,23 +375,21 @@ public class Section2Activity extends Activity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                int fm =0; int unmarriedfm= 0;
+                int fm = 0;
+                int unmarriedfm = 0;
 
-                try{
+                try {
                     fm = Integer.parseInt(s2q206c.getText().toString());
                     unmarriedfm = Integer.parseInt(s2q206g.getText().toString());
 
-                } catch (NumberFormatException nfe)
-                {
+                } catch (NumberFormatException nfe) {
                     nfe.printStackTrace();
                 }
 
-                if(unmarriedfm > fm)
-                {
+                if (unmarriedfm > fm) {
                     s2q206c.requestFocus();
-                    s2q206c.setError("Total women are " +fm + " Check Again");
-                } else
-                {
+                    s2q206c.setError("Total women are " + fm + " Check Again");
+                } else {
                     s2q206c.setError(null);
                 }
 
@@ -406,27 +410,24 @@ public class Section2Activity extends Activity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 int fm = 0;
-                int marriedfm=0;
+                int marriedfm = 0;
 
 
-                try{
+                try {
                     fm = Integer.parseInt(s2q206c.getText().toString());
                     marriedfm = Integer.parseInt(s2q206h.getText().toString());
 
-                } catch (NumberFormatException nfe)
-                {
+                } catch (NumberFormatException nfe) {
                     nfe.printStackTrace();
                 }
 
                 //total = (mm+ fm + child0_28 + child1_5 + child5_14 + unmarriedfm + marriedfm);
 
 
-                if(marriedfm > fm)
-                {
+                if (marriedfm > fm) {
                     s2q206c.requestFocus();
-                    s2q206c.setError("Total women are " +fm + " Check again!");
-                }
-                else{
+                    s2q206c.setError("Total women are " + fm + " Check again!");
+                } else {
                     s2q206c.setError(null);
                 }
             }
@@ -612,6 +613,9 @@ public class Section2Activity extends Activity {
             SRCApp.mwras = Integer.parseInt(s2q206h.getText().toString());
             SRCApp.chTotal = Integer.parseInt(s2q206d.getText().toString()) + Integer.parseInt(s2q206e.getText().toString());
 
+            SRCApp.mdTotal = Integer.parseInt(s2q207.getText().toString());
+            SRCApp.cmTotal = Integer.parseInt(s2q208.getText().toString());
+
 //
 //            CVars var = new CVars();
 //            if (!s2q206h.getText().toString().isEmpty()) {
@@ -636,7 +640,6 @@ public class Section2Activity extends Activity {
 //
 //                SRCApp.chTotal = var.getIMChild();
 //            }
-
 
 
             SRCApp.fc.setROW_S2(s2.toString());
@@ -684,6 +687,15 @@ public class Section2Activity extends Activity {
         if (getS2q204().getText().toString().isEmpty()) {
             s2q204.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter years of schooling head of household \r\n", Toast.LENGTH_LONG).show();
+            s2q204.requestFocus();
+            return false;
+        } else {
+            s2q204.setError(null);
+        }
+
+        if (Integer.parseInt(getS2q204().getText().toString()) == 0) {
+            s2q204.setError("Invalid years of schooling");
+            Toast.makeText(getApplicationContext(), "Invalid years of schooling head of household \r\n", Toast.LENGTH_LONG).show();
             s2q204.requestFocus();
             return false;
         } else {
@@ -776,6 +788,14 @@ public class Section2Activity extends Activity {
             s2q206a.setError(null);
         }
 
+        if (Integer.parseInt(s2q206a.getText().toString()) < 2) {
+            s2q206a.setError("Member greater than 1");
+            Toast.makeText(getApplicationContext(), "Total number of members greater than 1 \r\n", Toast.LENGTH_LONG).show();
+            s2q206a.requestFocus();
+            return false;
+        } else {
+            s2q206a.setError(null);
+        }
 
         if (Integer.parseInt(s2q202.getText().toString()) < 18 ||
                 Integer.parseInt(s2q202.getText().toString()) > 99) {
@@ -797,14 +817,20 @@ public class Section2Activity extends Activity {
         }
 
 
-        int totalMembers= 0;
-        int total=0; int mm = 0;  int fm = 0; int child0_28 =0;
-        int child1_5=0; int child5_14=0; int unmarriedfm=0; int marriedfm=0;
+        int totalMembers = 0;
+        int total = 0;
+        int mm = 0;
+        int fm = 0;
+        int child0_28 = 0;
+        int child1_5 = 0;
+        int child5_14 = 0;
+        int unmarriedfm = 0;
+        int marriedfm = 0;
         int totalWomen = 0;
         int totalM = 0;
 
 
-        try{
+        try {
             totalMembers = Integer.parseInt(s2q206a.getText().toString().equals("") ? "0" : s2q206a.getText().toString());
             mm = Integer.parseInt(s2q206b.getText().toString().equals("") ? "0" : s2q206b.getText().toString());
             fm = Integer.parseInt(s2q206c.getText().toString().equals("") ? "0" : s2q206c.getText().toString());
@@ -815,9 +841,7 @@ public class Section2Activity extends Activity {
             marriedfm = Integer.parseInt(s2q206h.getText().toString().equals("") ? "0" : s2q206h.getText().toString());
 
 
-
-        } catch (NumberFormatException nfe)
-        {
+        } catch (NumberFormatException nfe) {
             nfe.printStackTrace();
         }
 
@@ -825,20 +849,18 @@ public class Section2Activity extends Activity {
         totalWomen = (marriedfm + unmarriedfm);
         totalM = (child0_28 + child1_5 + child5_14 + marriedfm + unmarriedfm);
 
-        if (total > totalMembers || total != totalMembers)
-        {
+        if (total > totalMembers || total != totalMembers) {
             s2q206a.requestFocus();
             s2q206a.setError("Total members are " + totalMembers + " Check all values again!");
             return false;
-        }else{
+        } else {
             s2q206a.setError(null);
 
         }
 
-        if (fm > 0 && totalWomen > fm)
-        {
+        if (fm > 0 && totalWomen > fm) {
             //s2q206g.requestFocus();
-            s2q206g.setError("Total women are " +fm + " Please mention women are married or unmarried");
+            s2q206g.setError("Total women are " + fm + " Please mention women are married or unmarried");
             Toast.makeText(getApplicationContext(), "Check values of total women, married and unmarried women \r\n", Toast.LENGTH_LONG).show();
             return false;
         } else {
@@ -899,7 +921,23 @@ public class Section2Activity extends Activity {
 
         }
 
+        if (s2q207.getText().toString().isEmpty()) {
+            s2q207.setError("Please enter 0 or any number ");
+            Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
+            return false;
+        } else {
+            s2q207.setError(null);
 
+        }
+
+        if (s2q208.getText().toString().isEmpty()) {
+            s2q208.setError("Please enter 0 or any number ");
+            Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
+            return false;
+        } else {
+            s2q208.setError(null);
+
+        }
 
 
         return true;

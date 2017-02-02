@@ -85,7 +85,9 @@ public class Section4bActivity extends Activity {
 
 
         appHeader = (TextView) findViewById(R.id.app_header);
-        appHeader.setText("SRC - > Section4b");
+//        appHeader.setText("SRC - > Section4b");
+
+        appHeader.setText(getString(R.string.sec4b) + " (" + SRCApp.cmCount + " of " + SRCApp.cmTotal + ")");
 
         lbl_hhhead = (TextView) findViewById(R.id.lbl_hhhead);
         lbl_hhhead1 = (TextView) findViewById(R.id.lbl_hhhead1);
@@ -158,8 +160,8 @@ public class Section4bActivity extends Activity {
         childMortalityFlag = (LinearLayout) findViewById(R.id.childMortalityFlag);
         countCMortality = (EditText) findViewById(R.id.countCMortality);
 
-        btnNext = (Button) findViewById(R.id.btnNext);
-        btnadd = (Button) findViewById(R.id.btnadd);
+//        btnNext = (Button) findViewById(R.id.btnNext);
+//        btnadd = (Button) findViewById(R.id.btnadd);
         btncontinue = (Button) findViewById(R.id.btncontinue);
 
         if (SRCApp.ChildMortality) {

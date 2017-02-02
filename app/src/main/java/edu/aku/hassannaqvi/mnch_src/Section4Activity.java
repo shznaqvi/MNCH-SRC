@@ -75,7 +75,11 @@ public class Section4Activity extends Activity {
         setContentView(R.layout.activity_section4);
 
         app_header = (TextView) findViewById(R.id.app_header);
-        app_header.setText("SRC - > Section4a");
+
+//        app_header.setText("SRC - > Section4a");
+        app_header.setText(getString(R.string.sec4) + " (" + SRCApp.mdCount + " of " + SRCApp.mdTotal + ")");
+
+
         tcount = (TextView) findViewById(R.id.tcount);
 
         s4q41a = (EditText) findViewById(R.id.s4q41a);
@@ -109,9 +113,9 @@ public class Section4Activity extends Activity {
 
         vu_s4q41doth = (LinearLayout) findViewById(R.id.vu_s4q41doth);
 
-        btnNext = (Button) findViewById(R.id.btnNext);
-        btnadd = (Button) findViewById(R.id.btnadd);
-        btnNext.setVisibility(View.GONE);
+//        btnNext = (Button) findViewById(R.id.btnNext);
+//        btnadd = (Button) findViewById(R.id.btnadd);
+//        btnNext.setVisibility(View.GONE);
 
         CVars var = new CVars();
         //data = getIntent().getStringExtra("myDataKey");
@@ -119,7 +123,7 @@ public class Section4Activity extends Activity {
             data = getIntent().getExtras().getString("myDataKey");
         }
 
-        tcount.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Deceased Mother " + SRCApp.tcount + " of " + data + ")");
+//        tcount.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Deceased Mother " + SRCApp.tcount + " of " + data + ")");
 
         radio_s4q41d.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -144,14 +148,14 @@ public class Section4Activity extends Activity {
         }
 
 
-        if (SRCApp.tcount < countM) {
-            btnadd.setVisibility(View.VISIBLE);
-            btnNext.setVisibility(View.GONE);
-
-        } else {
-            btnNext.setVisibility(View.VISIBLE);
-            btnadd.setVisibility(View.GONE);
-        }
+//        if (SRCApp.tcount < countM) {
+//            btnadd.setVisibility(View.VISIBLE);
+//            btnNext.setVisibility(View.GONE);
+//
+//        } else {
+//            btnNext.setVisibility(View.VISIBLE);
+//            btnadd.setVisibility(View.GONE);
+//        }
 
 
     }
