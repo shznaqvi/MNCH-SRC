@@ -419,7 +419,7 @@ public class Section1Activity extends Activity implements TextWatcher {
         return (EditText) findViewById(R.id.s1q111oth);
     }*/
 
-    public void gotoSection2(View view) {
+    public void startInterview(View view) {
 
         spDateT = new SimpleDateFormat("dd-MM-yyyy").format(s1q110.getCalendarView().getDate());
 
@@ -792,4 +792,16 @@ public class Section1Activity extends Activity implements TextWatcher {
     }
 
 
+    public void endInterview(View view) {
+
+        Toast.makeText(this, "Processing Section A", Toast.LENGTH_SHORT).show();
+        if (ValidateForm()) {
+            SaveDraft();
+            if (UpdateDB()) {
+                Toast.makeText(this, "Starting Closing Section", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }
