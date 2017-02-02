@@ -525,16 +525,25 @@ public class Section3Activity extends Activity {
         if (ValidateForm()) {
             SaveDraft();
             if (UpdateDB()) {
-
                 if (SRCApp.mwCount < SRCApp.mwras) {
                     Intent sec3_intent = new Intent(this, Section3Activity.class);
                     SRCApp.mwCount++;
                     startActivity(sec3_intent);
-                } else {
+                }
+                if (SRCApp.mdCount < SRCApp.mdTotal) {
                     Intent sec4_intent = new Intent(this, Section4Activity.class);
-                    SRCApp.mwras = 0;// Always reset on loop exit
-                    SRCApp.mwCount = 0;// Always reset on loop exit
+                    SRCApp.mdCount++;
                     startActivity(sec4_intent);
+                } else if (SRCApp.cmCount < SRCApp.cmTotal) {
+                    Intent sec4b_intent = new Intent(this, Section4bActivity.class);
+                    SRCApp.cmCount++;
+                    startActivity(sec4b_intent);
+                } else if (SRCApp.curPreg) {
+                    Intent sec5_intent = new Intent(this, Section5Activity.class);
+                    startActivity(sec5_intent);
+                } else {
+                    Intent sec6_intent = new Intent(this, Section6Activity.class);
+                    startActivity(sec6_intent);
                 }
             }
         } else {
@@ -588,6 +597,7 @@ public class Section3Activity extends Activity {
                 SRCApp.sc3.setROW_SNO(String.valueOf(sno + 1));
             }
 
+            SRCApp.curPreg = rDOS3q301d1.isChecked();
 
             rdo_s3q301d = radioS3q301d.getCheckedRadioButtonId();
 

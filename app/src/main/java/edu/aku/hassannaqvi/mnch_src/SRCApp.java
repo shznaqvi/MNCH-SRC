@@ -77,6 +77,7 @@ public class SRCApp extends Application {
     public static int mdTotal = 0;
     public static int cmCount = 0;
     public static int cmTotal = 0;
+    public static boolean curPreg = false;
     protected static LocationManager locationManager;
 
 
