@@ -91,7 +91,6 @@ public class Section4bActivity extends Activity {
         lbl_hhhead1 = (TextView) findViewById(R.id.lbl_hhhead1);
 
 
-
         s4q42a = (Spinner) findViewById(R.id.s4q42a);
         s4q42b = (EditText) findViewById(R.id.s4q42b);
         radio_s4q42c = (RadioGroup) findViewById(R.id.radio_s4q42c);
@@ -218,16 +217,15 @@ public class Section4bActivity extends Activity {
         CVars var = new CVars();
 
 
-        if(!SRCApp.ChildMortality){
+        if (!SRCApp.ChildMortality) {
             lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Deceased Child " + mortalityCounter + " of " + countCMortality.getText().toString() + ")");
-        }
-        else {
+        } else {
             lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
         }
 
     }
 
-    public void AddChild(View view) {
+/*    public void AddChild(View view) {
         if (ValidateForm()) {
 
             if (SaveDraft()) {
@@ -264,61 +262,35 @@ public class Section4bActivity extends Activity {
                 }
             }
         }
-    }
+    }*/
 
-    public void gotoSection5a(View view) {
+    public void NextSection(View view) {
 
-        if (md01.isChecked() || md02.isChecked()) {
+        if (ValidateForm()) {
 
-            if (md01.isChecked()) {
-                if (!countCMortality.getText().toString().isEmpty() && Integer.parseInt(countCMortality.getText().toString()) > 0) {
+            if (SaveDraft()) {
 
-                    SRCApp.ChildMortality = false;
+                Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
 
-                    SRCApp.NoChildMortality = Integer.parseInt(countCMortality.getText().toString());
+                if (UpdateDB()) {
 
-                    md03.setVisibility(View.GONE);
-
-                    childMortalityFlag.setVisibility(View.GONE);
-
-                    if (Integer.parseInt(countCMortality.getText().toString()) == 1 ){
-                        btnNext.setVisibility(View.VISIBLE);
-                        btnadd.setVisibility(View.GONE);
-                    }else {
-                        btnNext.setVisibility(View.GONE);
-                        btnadd.setVisibility(View.VISIBLE);
+                    if (SRCApp.cmCount < SRCApp.cmTotal) {
+                        Intent sec4b_intent = new Intent(this, Section4bActivity.class);
+                        SRCApp.cmCount++;
+                        startActivity(sec4b_intent);
+                    } else if (SRCApp.curPreg) {
+                        Intent sec5_intent = new Intent(this, Section5Activity.class);
+                        SRCApp.curPreg = false;
+                        startActivity(sec5_intent);
+                    } else {
+                        Intent sec6_intent = new Intent(this, Section6Activity.class);
+                        startActivity(sec6_intent);
                     }
 
-                    md04.setVisibility(View.VISIBLE);
-
-                    btncontinue.setVisibility(View.GONE);
-
-                    CVars var = new CVars();
-                    lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Child Mortality " + mortalityCounter + " of " + countCMortality.getText().toString() + ")");
-
-
                 } else {
-                    Toast.makeText(getApplicationContext(), "Error: Invalid", Toast.LENGTH_SHORT).show();
-                    countCMortality.setError("Invalid");
-                }
-            } else {
-//                startActivity(new Intent(Section4bActivity.this, Section5Activity.class));
-                CVars var = new CVars();
-                if (var.GetReproductionAgeWoman() != 0) {
-                    startActivity(new Intent(this, Section5Activity.class));
-                } else if (var.getIMChild() != 0) {
-                    startActivity(new Intent(this, Section7Activity.class));
-                }
-//                else if (var.getIMChild() != 0){
-//                    startActivity(new Intent(this, Section7ImActivity.class));
-//                }
-                else {
-                    startActivity(new Intent(this, Section8Activity.class));
+                    Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
                 }
             }
-        } else {
-            Toast.makeText(this, getString(R.string.childMortality), Toast.LENGTH_LONG).show();
-            md02.setError("Error: Invalid");
         }
     }
 
@@ -377,9 +349,9 @@ public class Section4bActivity extends Activity {
         SRCDBHelper db = new SRCDBHelper(this);
 
         String val;
-        if(s4q42a.getSelectedItem().toString() != "NA") {
+        if (s4q42a.getSelectedItem().toString() != "NA") {
             val = db.getID_Woman_Reproductive_Age(s4q42a.getSelectedItem().toString());
-        }else {
+        } else {
             val = "99";
         }
         SRCApp.sc4b.set_s4q42a(val);
@@ -462,7 +434,7 @@ public class Section4bActivity extends Activity {
 
     public void gotoSection5(View view) {
 
-        if(SRCApp.NoChildMortality == 1){
+        if (SRCApp.NoChildMortality == 1) {
             if (ValidateForm()) {
 
                 if (SaveDraft()) {
@@ -476,14 +448,11 @@ public class Section4bActivity extends Activity {
                         CVars var = new CVars();
                         if (var.GetReproductionAgeWoman() != 0) {
                             startActivity(new Intent(this, Section5Activity.class));
-                        }
-                        else if (var.getNeonatesChild() != 0) {
+                        } else if (var.getNeonatesChild() != 0) {
                             startActivity(new Intent(this, Section7Activity.class));
-                        }
-                        else if (var.getIMChild() != 0){
+                        } else if (var.getIMChild() != 0) {
                             startActivity(new Intent(this, Section7ImActivity.class));
-                        }
-                        else {
+                        } else {
                             startActivity(new Intent(this, Section8Activity.class));
                         }
 //
@@ -557,8 +526,8 @@ public class Section4bActivity extends Activity {
         }
 
         if (dobValidation(Integer.parseInt(s4q42d2.getText().toString()), Integer.parseInt(s4q42d1.getText().toString()), Integer.parseInt(s4q42d.getText().toString()))) {
-            s4q42d1.setError("Invalid:"+getString(R.string.baseline_s4q42d));
-            Toast.makeText(getApplicationContext(), "Invalid:"+getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
+            s4q42d1.setError("Invalid:" + getString(R.string.baseline_s4q42d));
+            Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
             s4q42d1.requestFocus();
             return false;
         } else {

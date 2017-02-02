@@ -192,11 +192,17 @@ public class Section4Activity extends Activity {
                     Intent sec4_intent = new Intent(this, Section4Activity.class);
                     SRCApp.mdCount++;
                     startActivity(sec4_intent);
-                } else {
+                } else if (SRCApp.cmCount < SRCApp.cmTotal) {
                     Intent sec4b_intent = new Intent(this, Section4bActivity.class);
-                    SRCApp.mdCount = 0;
-                    SRCApp.mdTotal = 0;
+                    SRCApp.cmCount++;
                     startActivity(sec4b_intent);
+                } else if (SRCApp.curPreg) {
+                    Intent sec5_intent = new Intent(this, Section5Activity.class);
+                    SRCApp.curPreg = false;
+                    startActivity(sec5_intent);
+                } else {
+                    Intent sec6_intent = new Intent(this, Section6Activity.class);
+                    startActivity(sec6_intent);
                 }
             }
         } else {
