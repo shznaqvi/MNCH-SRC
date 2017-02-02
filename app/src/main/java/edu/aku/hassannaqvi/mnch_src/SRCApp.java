@@ -71,7 +71,8 @@ public class SRCApp extends Application {
     public static int countM = 0;
     public static String hh01txt; //District
     public static String hh02txt; //Village
-    public static int mwras;
+    public static int mwras = 0;
+    public static int mwCount = 0;
     protected static LocationManager locationManager;
 
 

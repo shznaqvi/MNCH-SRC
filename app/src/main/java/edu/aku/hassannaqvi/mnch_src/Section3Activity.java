@@ -124,7 +124,7 @@ public class Section3Activity extends Activity {
         scrollView01 = (ScrollView) findViewById(R.id.ScrollView01);
 
         appHeader = (TextView) findViewById(R.id.app_header);
-        appHeader.setText("SRC - > Section3");
+        appHeader.setText("(" + SRCApp.mwCount + " of " + SRCApp.mwras + ")");
 
         vu_s3q301g = (LinearLayout) findViewById(R.id.vu_s3q301g);
         vu_s3q301d = (LinearLayout) findViewById(R.id.vu_s3q301d);
@@ -490,7 +490,7 @@ public class Section3Activity extends Activity {
     }
 
 
-    public void AddWoman(View view) {
+    /*public void AddWoman(View view) {
 
         CVars var = new CVars();
 
@@ -516,7 +516,7 @@ public class Section3Activity extends Activity {
                 Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
             }
         }
-    }
+    }*/
 
 
     public void gotoSection4(View view) {
@@ -525,8 +525,17 @@ public class Section3Activity extends Activity {
         if (ValidateForm()) {
             SaveDraft();
             if (UpdateDB()) {
-                Intent sec4_intent = new Intent(this, Section4AMaternalCount.class);
-                startActivity(sec4_intent);
+
+                if (SRCApp.mwCount < SRCApp.mwras) {
+                    Intent sec3_intent = new Intent(this, Section3Activity.class);
+                    SRCApp.mwCount++;
+                    startActivity(sec3_intent);
+                } else {
+                    Intent sec4_intent = new Intent(this, Section4Activity.class);
+                    SRCApp.mwras = 0;// Always reset on loop exit
+                    SRCApp.mwCount = 0;// Always reset on loop exit
+                    startActivity(sec4_intent);
+                }
             }
         } else {
             Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
