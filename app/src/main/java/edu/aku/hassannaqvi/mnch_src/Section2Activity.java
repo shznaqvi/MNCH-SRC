@@ -912,6 +912,19 @@ public class Section2Activity extends Activity {
         Toast.makeText(Section2Activity.this, "GPS set", Toast.LENGTH_SHORT).show();
     }
 
+    public void endInterview(View view) {
+        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+        if (ValidateForm()) {
+            SaveDraft();
+            if (UpdateDB()) {
+                Intent end_intent = new Intent(this, EndingActivity.class);
+                startActivity(end_intent);
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 //    @Override
 //    public void onBackPressed() {
 //        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();

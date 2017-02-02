@@ -519,7 +519,7 @@ public class Section3Activity extends Activity {
     }*/
 
 
-    public void gotoSection4(View view) {
+    public void NextSection(View view) {
 
 
         if (ValidateForm()) {
@@ -1150,6 +1150,19 @@ public class Section3Activity extends Activity {
         }
 
         return true;
+    }
+
+    public void endInterview(View view) {
+        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+        if (ValidateForm()) {
+            SaveDraft();
+            if (UpdateDB()) {
+                Intent end_intent = new Intent(this, EndingActivity.class);
+                startActivity(end_intent);
+            } else {
+                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
 //    @Override

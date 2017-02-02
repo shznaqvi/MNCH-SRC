@@ -794,7 +794,8 @@ public class Section1Activity extends Activity implements TextWatcher {
         if (ValidateForm()) {
             SaveDraft();
             if (UpdateDB()) {
-                Toast.makeText(this, "Starting Closing Section", Toast.LENGTH_SHORT).show();
+                Intent end_intent = new Intent(this, EndingActivity.class);
+                startActivity(end_intent);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
