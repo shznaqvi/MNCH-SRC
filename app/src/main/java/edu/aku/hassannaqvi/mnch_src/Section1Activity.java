@@ -782,8 +782,6 @@ public class Section1Activity extends Activity implements TextWatcher {
         {
 
         }
-
-
     }
 
     @Override
@@ -791,10 +789,8 @@ public class Section1Activity extends Activity implements TextWatcher {
 
     }
 
-
     public void endInterview(View view) {
-
-        Toast.makeText(this, "Processing Section A", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (ValidateForm()) {
             SaveDraft();
             if (UpdateDB()) {

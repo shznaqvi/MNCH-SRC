@@ -489,7 +489,7 @@ public class Section2Activity extends Activity {
     }
 
 
-    public void gotoSection3(View view) {
+    public void NextSection(View view) {
 
         if (ValidateForm()) {
 
