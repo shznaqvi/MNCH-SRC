@@ -500,6 +500,7 @@ public class Section2Activity extends Activity {
                 if (UpdateDB()) {
                     if (SRCApp.mwCount < SRCApp.mwras) {
                         Intent sec3_intent = new Intent(this, Section3Activity.class);
+                        SRCApp.mwCount++;
                         startActivity(sec3_intent);
                     } else {
                         Intent sec4_intent = new Intent(this, Section4Activity.class);
