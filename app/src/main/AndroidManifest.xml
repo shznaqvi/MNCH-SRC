@@ -70,7 +70,7 @@
             android:name=".Section7Activity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".Section7ImActivity"
+            android:name=".Section7IMActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".Section8Activity"

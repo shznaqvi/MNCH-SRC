@@ -1,16 +1,15 @@
 package edu.aku.hassannaqvi.mnch_src;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.RadioGroup;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -50,17 +49,29 @@ public class EndingActivity extends Activity  {
         setContentView(R.layout.activity_ending);
         ButterKnife.bind(this);
 
-        if(SRCApp.fc.getROW_S1Q112().equals("2") || getIntent().getBooleanExtra("check",false))
+        if (SRCApp.fc.getROW_S1Q112().equals("1"))
         {
-            fldGrpmn0823Reason.setVisibility(View.VISIBLE);
-            mn082301.setEnabled(false);
-            mn082302.setChecked(true);
+            //fldGrpmn0823Reason.setVisibility(View.GONE);
+            mn082301.setEnabled(true);
+            mn082302.setChecked(false);
 
         }else {
-            fldGrpmn0823Reason.setVisibility(View.GONE);
-            mn082301.setChecked(true);
-            mn082302.setEnabled(false);
+            //fldGrpmn0823Reason.setVisibility(View.VISIBLE);
+            mn082301.setEnabled(false);
+            mn082301.setChecked(false);
+            mn082302.setEnabled(true);
         }
+
+        mn0823.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == mn082302.getId()) {
+                    fldGrpmn0823Reason.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpmn0823Reason.setVisibility(View.GONE);
+                }
+            }
+        });
 
         mn0823Reason.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

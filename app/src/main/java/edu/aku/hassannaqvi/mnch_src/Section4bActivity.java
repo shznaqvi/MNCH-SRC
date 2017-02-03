@@ -432,7 +432,7 @@ public class Section4bActivity extends Activity {
                         } else if (var.getNeonatesChild() != 0) {
                             startActivity(new Intent(this, Section7Activity.class));
                         } else if (var.getIMChild() != 0) {
-                            startActivity(new Intent(this, Section7ImActivity.class));
+                            startActivity(new Intent(this, Section7IMActivity.class));
                         } else {
                             startActivity(new Intent(this, Section8Activity.class));
                         }
