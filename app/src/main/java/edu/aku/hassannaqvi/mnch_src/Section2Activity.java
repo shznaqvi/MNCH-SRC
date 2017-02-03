@@ -80,6 +80,10 @@ public class Section2Activity extends Activity {
     private EditText s2q207; //Maternal Death
     private EditText s2q208; //Child Mortality
 
+    private RadioGroup childMortality;
+    private RadioButton md01;
+    private RadioButton md02;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -139,6 +143,53 @@ public class Section2Activity extends Activity {
         s2q207 = (EditText) findViewById(R.id.s2q207);
         s2q208 = (EditText) findViewById(R.id.s2q208);
 
+
+//      Child Mortality
+
+        childMortality = (RadioGroup) findViewById(R.id.childMortality);
+        md01 = (RadioButton) findViewById(R.id.md01);
+        md02 = (RadioButton) findViewById(R.id.md02);
+
+        childMortality.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                md02.setError(null);
+                s2q208.setText(null);
+
+                if (md01.isChecked()) {
+                    s2q208.setVisibility(View.VISIBLE);
+                } else {
+                    s2q208.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        s2q208.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    count = Integer.parseInt(s2q208.getText().toString());
+                    if (count < 1 || count > 5) {
+                        s2q208.setError("Cant be less than 1 or greater than 5.");
+                        s2q208.requestFocus();
+                    } else s2q208.setError(null);
+                } catch (NumberFormatException nfe) {
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+//        End Mortality
+
         vu_s2q205oth = (LinearLayout) findViewById(R.id.vu_s2q205oth);
 
         radioS2q205.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -161,17 +212,20 @@ public class Section2Activity extends Activity {
         });
 
         // Check for gender
-        rDOS2q2032.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+        radioS2q203.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
                 rDOS2q20512.setChecked(false);
-                if (isChecked) {
+
+                if (rDOS2q2032.isChecked()){
                     rDOS2q20512.setEnabled(true);
-                } else {
+                }else {
                     rDOS2q20512.setEnabled(false);
                 }
             }
         });
+
 //        radioS2q203.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 //            @Override
 //            public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -927,16 +981,35 @@ public class Section2Activity extends Activity {
             return false;
         } else {
             s2q207.setError(null);
+        }
+        if (Integer.parseInt(s2q207.getText().toString()) < 1 || Integer.parseInt(s2q207.getText().toString()) > 3) {
+            s2q207.setError("Invalid Range 1-3");
+            Toast.makeText(getApplicationContext(), "Invalid Range 1-3 \r\n", Toast.LENGTH_LONG).show();
+            return false;
+        } else {
+            s2q207.setError(null);
 
         }
 
-        if (s2q208.getText().toString().isEmpty()) {
-            s2q208.setError("Please enter 0 or any number ");
-            Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
-            return false;
-        } else {
-            s2q208.setError(null);
 
+        if(md01.isChecked()) {
+            if (s2q208.getText().toString().isEmpty()) {
+                s2q208.setError("Please enter 0 or any number ");
+                Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
+                return false;
+            } else {
+                s2q208.setError(null);
+
+            }
+
+            if (Integer.parseInt(s2q208.getText().toString()) < 1 || Integer.parseInt(s2q208.getText().toString()) > 5) {
+                s2q208.setError("Invalid Range 1-3");
+                Toast.makeText(getApplicationContext(), "Invalid Range 1-5 \r\n", Toast.LENGTH_LONG).show();
+                return false;
+            } else {
+                s2q208.setError(null);
+
+            }
         }
 
 

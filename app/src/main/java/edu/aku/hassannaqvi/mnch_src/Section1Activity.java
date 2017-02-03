@@ -652,6 +652,15 @@ public class Section1Activity extends Activity implements TextWatcher {
             s1q106b.setError(null);
         }
 
+        if (Integer.parseInt(s1q106b.getText().toString()) < 1 || Integer.parseInt(s1q106b.getText().toString()) > 10) {
+            s1q106b.setError("Invalid UC Code Range 1-10");
+            Toast.makeText(getApplicationContext(), "Invalid UC Code Range 1-10 \r\n", Toast.LENGTH_LONG).show();
+            s1q106b.requestFocus();
+            return false;
+        } else {
+            s1q106b.setError(null);
+        }
+
         /*if (getS1q107().getText().toString().isEmpty() || s1q107.getText().toString() == null) {
             s1q107.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter Family ID \r\n", Toast.LENGTH_LONG).show();

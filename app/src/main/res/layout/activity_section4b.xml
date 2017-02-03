@@ -46,77 +46,10 @@
             android:text="" />
 
         <LinearLayout
-            android:id="@+id/childMortalityFlag"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/childMortality" />
-
-            <RadioGroup
-                android:id="@+id/childMortality"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/md01"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mnyes" />
-
-                <RadioButton
-                    android:id="@+id/md02"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mnno" />
-            </RadioGroup>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/md03"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/countCMortality"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <EditText
-                android:id="@+id/countCMortality"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:digits="1234567890"
-                android:ems="10"
-                android:hint="@string/countMDeath"
-                android:inputType="number"
-                android:maxLength="1" />
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btncontinue"
-            style="@style/buttons"
-            android:layout_marginTop="20dp"
-            android:onClick="gotoSection5a"
-            android:text="@string/Continue" />
-
-
-        <LinearLayout
             android:id="@+id/md04"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/lbl_s4q42a"

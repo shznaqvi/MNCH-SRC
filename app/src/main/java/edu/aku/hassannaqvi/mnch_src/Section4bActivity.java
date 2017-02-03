@@ -55,9 +55,9 @@ public class Section4bActivity extends Activity {
     private String var_s4q42e;
     private int sno = 0;
     private int counter = 0;
-    private RadioGroup childMortality;
-    private RadioButton md01;
-    private RadioButton md02;
+//    private RadioGroup childMortality;
+//    private RadioButton md01;
+//    private RadioButton md02;
     private LinearLayout md03;
     private LinearLayout md04;
     private LinearLayout childMortalityFlag;
@@ -74,8 +74,12 @@ public class Section4bActivity extends Activity {
                 && (m > 11
                 || m > 0)) {
             return true;
-        } else return (d > 29 || d < 0)
-                && (m > 11 || m < 0);
+        } else if ((d > 29 || d < 0)
+                && (m > 11 || m < 0)){
+            return true;
+        }
+
+        return false;
     }
 
     @Override
@@ -152,78 +156,53 @@ public class Section4bActivity extends Activity {
             }
         });
 
-        childMortality = (RadioGroup) findViewById(R.id.childMortality);
-        md01 = (RadioButton) findViewById(R.id.md01);
-        md02 = (RadioButton) findViewById(R.id.md02);
-        md03 = (LinearLayout) findViewById(R.id.md03);
-        md04 = (LinearLayout) findViewById(R.id.md04);
-        childMortalityFlag = (LinearLayout) findViewById(R.id.childMortalityFlag);
-        countCMortality = (EditText) findViewById(R.id.countCMortality);
+//        childMortality = (RadioGroup) findViewById(R.id.childMortality);
+//        md01 = (RadioButton) findViewById(R.id.md01);
+//        md02 = (RadioButton) findViewById(R.id.md02);
+//        md03 = (LinearLayout) findViewById(R.id.md03);
+//        md04 = (LinearLayout) findViewById(R.id.md04);
+//        childMortalityFlag = (LinearLayout) findViewById(R.id.childMortalityFlag);
+//        countCMortality = (EditText) findViewById(R.id.countCMortality);
 
 //        btnNext = (Button) findViewById(R.id.btnNext);
 //        btnadd = (Button) findViewById(R.id.btnadd);
-        btncontinue = (Button) findViewById(R.id.btncontinue);
+//        btncontinue = (Button) findViewById(R.id.btncontinue);
+//
+//        if (SRCApp.ChildMortality) {
+//            childMortalityFlag.setVisibility(View.VISIBLE);
+//        } else {
+//            childMortalityFlag.setVisibility(View.GONE);
+//            md03.setVisibility(View.GONE);
+//            md04.setVisibility(View.VISIBLE);
+//
+//            btnNext.setEnabled(false);
+//
+//            btncontinue.setVisibility(View.GONE);
+//        }
 
-        if (SRCApp.ChildMortality) {
-            childMortalityFlag.setVisibility(View.VISIBLE);
-        } else {
-            childMortalityFlag.setVisibility(View.GONE);
-            md03.setVisibility(View.GONE);
-            md04.setVisibility(View.VISIBLE);
-
-            btnNext.setEnabled(false);
-
-            btncontinue.setVisibility(View.GONE);
-        }
-
-        childMortality.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                md02.setError(null);
-
-                if (md01.isChecked()) {
-                    md03.setVisibility(View.VISIBLE);
-                } else {
-                    md03.setVisibility(View.GONE);
-                    countCMortality.setText(null);
-                }
-            }
-        });
-
-        countCMortality.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try {
-                    count = Integer.parseInt(countCMortality.getText().toString());
-                    if (count < 1 || count > 5) {
-                        countCMortality.setError("Cant be less than 1 or greater than 5.");
-                        countCMortality.requestFocus();
-                    } else countCMortality.setError(null);
-                } catch (NumberFormatException nfe) {
-
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+//        childMortality.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//                md02.setError(null);
+//
+//                if (md01.isChecked()) {
+//                    md03.setVisibility(View.VISIBLE);
+//                } else {
+//                    md03.setVisibility(View.GONE);
+//                    countCMortality.setText(null);
+//                }
+//            }
+//        });
 
 
-        CVars var = new CVars();
-
-
-        if (!SRCApp.ChildMortality) {
-            lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Deceased Child " + mortalityCounter + " of " + countCMortality.getText().toString() + ")");
-        } else {
-            lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
-        }
+//        CVars var = new CVars();
+//
+//
+//        if (!SRCApp.ChildMortality) {
+//            lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Deceased Child " + mortalityCounter + " of " + countCMortality.getText().toString() + ")");
+//        } else {
+//            lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
+//        }
 
     }
 

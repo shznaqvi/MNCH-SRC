@@ -423,6 +423,23 @@
             android:text="@string/countCMortality"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
+        <RadioGroup
+            android:id="@+id/childMortality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/md01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mnyes" />
+
+            <RadioButton
+                android:id="@+id/md02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mnno" />
+        </RadioGroup>
 
         <EditText
             android:id="@+id/s2q208"
@@ -433,6 +450,7 @@
             android:ems="10"
             android:hint="@string/countMDeath"
             android:inputType="number"
+            android:visibility="gone"
             android:maxLength="2" />
 
         <LinearLayout
