@@ -486,6 +486,7 @@ public class Section4Activity extends Activity {
             SaveDraft();
             if (UpdateDB()) {
                 Intent end_intent = new Intent(this, EndingActivity.class);
+                end_intent.putExtra("check", false);
                 startActivity(end_intent);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();

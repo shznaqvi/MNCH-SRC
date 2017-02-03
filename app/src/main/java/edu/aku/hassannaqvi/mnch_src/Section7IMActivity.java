@@ -296,7 +296,7 @@ public class Section7IMActivity extends Activity {
             if (UpdateDB()) {
                 Toast.makeText(this, "Starting Closing Section", Toast.LENGTH_SHORT).show();
                 Intent endSec = new Intent(this, EndingActivity.class);
-                endSec.putExtra("complete", false);
+                endSec.putExtra("check", false);
                 startActivity(endSec);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();

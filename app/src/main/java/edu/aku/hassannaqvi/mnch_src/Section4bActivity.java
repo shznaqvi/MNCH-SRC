@@ -3,8 +3,6 @@ package edu.aku.hassannaqvi.mnch_src;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -261,10 +259,12 @@ public class Section4bActivity extends Activity {
                         startActivity(sec4b_intent);
                     } else if (SRCApp.curPreg) {
                         Intent sec5_intent = new Intent(this, Section5Activity.class);
+                        sec5_intent.putExtra("check", false);
                         SRCApp.curPreg = false;
                         startActivity(sec5_intent);
                     } else {
                         Intent sec6_intent = new Intent(this, Section6Activity.class);
+                        sec6_intent.putExtra("check", false);
                         startActivity(sec6_intent);
                     }
 

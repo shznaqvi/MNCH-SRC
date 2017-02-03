@@ -628,6 +628,7 @@ public class Section5bActivity extends Activity {
                 finish();
 
                 Intent secNext = new Intent(this, Section5cActivity.class);
+                secNext.putExtra("check", false);
                 startActivity(secNext);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();

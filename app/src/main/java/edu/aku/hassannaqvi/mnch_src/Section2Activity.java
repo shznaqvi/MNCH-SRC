@@ -11,7 +11,6 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -982,7 +981,7 @@ public class Section2Activity extends Activity {
         } else {
             s2q207.setError(null);
         }
-        if (Integer.parseInt(s2q207.getText().toString()) < 1 || Integer.parseInt(s2q207.getText().toString()) > 3) {
+        if (Integer.parseInt(s2q207.getText().toString()) != 0 || Integer.parseInt(s2q207.getText().toString()) > 3) {
             s2q207.setError("Invalid Range 1-3");
             Toast.makeText(getApplicationContext(), "Invalid Range 1-3 \r\n", Toast.LENGTH_LONG).show();
             return false;
@@ -1037,6 +1036,7 @@ public class Section2Activity extends Activity {
             SaveDraft();
             if (UpdateDB()) {
                 Intent end_intent = new Intent(this, EndingActivity.class);
+                end_intent.putExtra("check", false);
                 startActivity(end_intent);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();

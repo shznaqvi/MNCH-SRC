@@ -1871,15 +1871,15 @@ public class Section5Activity extends Activity {
             }
 
 //            if(mn051477.isChecked() || mn051488.isChecked()) {
-            if (mn051488.isChecked()) {
-                if (!mn051501.isChecked()
-                        || !mn051502.isChecked()
-                        || !mn051503.isChecked()
-                        || !mn051504.isChecked()
-                        || !mn051505.isChecked()
-                        || !mn051506.isChecked()
-                        || !mn051507.isChecked()
-                        || !mn051588.isChecked()) {
+            //if (!(mn051477.isChecked()) {
+            if (!(mn051501.isChecked()
+                    || mn051502.isChecked()
+                    || mn051503.isChecked()
+                    || mn051504.isChecked()
+                    || mn051505.isChecked()
+                    || mn051506.isChecked()
+                    || mn051507.isChecked()
+                    || mn051588.isChecked())) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0515), Toast.LENGTH_LONG).show();
                     mn051588.setError("This data is Required!");    // Set Error on last radio button
                     Log.i(TAG, "mn0515: This data is Required!");
@@ -1904,6 +1904,9 @@ public class Section5Activity extends Activity {
                         || mn051605.isChecked()
                         || mn051606.isChecked()
                         || mn051607.isChecked()
+                        || mn051608.isChecked()
+                        || mn051609.isChecked()
+                        || mn051610.isChecked()
                         || mn051688.isChecked())) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0516), Toast.LENGTH_LONG).show();
                     mn051688.setError("This data is Required!");    // Set Error on last radio button
@@ -2122,6 +2125,7 @@ public class Section5Activity extends Activity {
                         || mn051806.isChecked()
                         || mn051807.isChecked()
                         || mn051808.isChecked()
+                        || mn051809.isChecked()
                         || mn051888.isChecked())) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0518), Toast.LENGTH_LONG).show();
                     mn051888.setError("This data is Required!");    // Set Error on last radio button
@@ -2141,7 +2145,7 @@ public class Section5Activity extends Activity {
                 }
             }
 
-        } // Skip Till Start of mn0519
+        // Skip Till Start of mn0519
 
         if (!mn051101.isChecked()) {
             if (!(mn051901.isChecked()
@@ -2369,6 +2373,248 @@ public class Section5Activity extends Activity {
                 mn052988x.setError(null);
             }
         }
+
+        try {
+            if (Integer.parseInt(mn051001.getText().toString()) != 0 || Integer.parseInt(mn051001.getText().toString()) > 100) {
+                mn051001.setError("Range is 0 - 100 km");
+                return false;
+            } else {
+                mn051001.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+
+        try {
+            if (Integer.parseInt(mn051002.getText().toString()) != 0 || Integer.parseInt(mn051002.getText().toString()) > 100) {
+                mn051002.setError("Range is 0 - 100 km");
+                return false;
+            } else {
+                mn051002.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+
+        try {
+            if (Integer.parseInt(mn051003.getText().toString()) != 0 || Integer.parseInt(mn051003.getText().toString()) > 100) {
+                mn051003.setError("Range is 0 - 100 km");
+                return false;
+            } else {
+                mn051003.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+
+        try {
+            if (Integer.parseInt(mn051004.getText().toString()) != 0 || Integer.parseInt(mn051004.getText().toString()) > 100) {
+                mn051004.setError("Range is 0 - 100 km");
+                return false;
+            } else {
+                mn051004.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+
+        try {
+            if (Integer.parseInt(mn051301.getText().toString()) < 1 || Integer.parseInt(mn051004.getText().toString()) > 15) {
+                mn051301.setError("Range is 0 - 15 times");
+                return false;
+            } else {
+                mn051301.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+
+        try {
+            if (Integer.parseInt(mn0517a2d.getText().toString()) < 0 || Integer.parseInt(mn0517a2d.getText().toString()) > 29) {
+                mn0517a2d.setError("Range is 0 - 29 days");
+                return false;
+            } else {
+                mn0517a2d.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+        try {
+            if (Integer.parseInt(mn0517a2m.getText().toString()) < 0 || Integer.parseInt(mn0517a2m.getText().toString()) > 9) {
+                mn0517a2m.setError("Range is 0 - 9 months");
+                return false;
+            } else {
+                mn0517a2m.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+
+        try {
+            if (Integer.parseInt(mn0517b2d.getText().toString()) < 0 || Integer.parseInt(mn0517b2d.getText().toString()) > 29) {
+                mn0517b2d.setError("Range is 0 - 29 days");
+                return false;
+            } else {
+                mn0517b2d.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+        try {
+            if (Integer.parseInt(mn0517b2m.getText().toString()) < 0 || Integer.parseInt(mn0517b2m.getText().toString()) > 9) {
+                mn0517b2m.setError("Range is 0 - 9 months");
+                return false;
+            } else {
+                mn0517b2m.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+
+        try {
+            if (Integer.parseInt(mn0517c2d.getText().toString()) < 0 || Integer.parseInt(mn0517c2d.getText().toString()) > 29) {
+                mn0517c2d.setError("Range is 0 - 29 days");
+                return false;
+            } else {
+                mn0517c2d.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+        try {
+            if (Integer.parseInt(mn0517c2m.getText().toString()) < 0 || Integer.parseInt(mn0517c2m.getText().toString()) > 9) {
+                mn0517c2m.setError("Range is 0 - 9 months");
+                return false;
+            } else {
+                mn0517c2m.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+
+        try {
+            if (Integer.parseInt(mn0517d2d.getText().toString()) < 0 || Integer.parseInt(mn0517d2d.getText().toString()) > 29) {
+                mn0517d2d.setError("Range is 0 - 29 days");
+                return false;
+            } else {
+                mn0517d2d.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+        try {
+            if (Integer.parseInt(mn0517d2m.getText().toString()) < 0 || Integer.parseInt(mn0517d2m.getText().toString()) > 9) {
+                mn0517d2m.setError("Range is 0 - 9 months");
+                return false;
+            } else {
+                mn0517d2m.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+
+        try {
+            if (Integer.parseInt(mn0517e2d.getText().toString()) < 0 || Integer.parseInt(mn0517e2d.getText().toString()) > 29) {
+                mn0517e2d.setError("Range is 0 - 29 days");
+                return false;
+            } else {
+                mn0517e2d.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+        try {
+            if (Integer.parseInt(mn0517e2m.getText().toString()) < 0 || Integer.parseInt(mn0517e2m.getText().toString()) > 9) {
+                mn0517e2m.setError("Range is 0 - 9 months");
+                return false;
+            } else {
+                mn0517e2m.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+
+        try {
+            if (Integer.parseInt(mn0517f2d.getText().toString()) < 0 || Integer.parseInt(mn0517f2d.getText().toString()) > 29) {
+                mn0517f2d.setError("Range is 0 - 29 days");
+                return false;
+            } else {
+                mn0517f2d.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+        try {
+            if (Integer.parseInt(mn0517f2m.getText().toString()) < 0 || Integer.parseInt(mn0517f2m.getText().toString()) > 9) {
+                mn0517f2m.setError("Range is 0 - 9 months");
+                return false;
+            } else {
+                mn0517e2m.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+
+        if (mn0517a1.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0517) + " - " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
+            mn0517a102.setError("This data is Required!");    // Set Error on last radio button
+            Log.i(TAG, "mn0517: This data is Required!");
+            return false;
+        } else {
+            mn0517a102.setError(null);
+        }
+        if (mn0517b1.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0517) + " - " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
+            mn0517b102.setError("This data is Required!");    // Set Error on last radio button
+            Log.i(TAG, "mn0517: This data is Required!");
+            return false;
+        } else {
+            mn0517b102.setError(null);
+        }
+
+        if (mn0517c1.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0517) + " - " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
+            mn0517c102.setError("This data is Required!");    // Set Error on last radio button
+            Log.i(TAG, "mn0517: This data is Required!");
+            return false;
+        } else {
+            mn0517c102.setError(null);
+        }
+
+        if (mn0517d1.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0517) + " - " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
+            mn0517d102.setError("This data is Required!");    // Set Error on last radio button
+            Log.i(TAG, "mn0517: This data is Required!");
+            return false;
+        } else {
+            mn0517d102.setError(null);
+        }
+
+        if (mn0517e1.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0517) + " - " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
+            mn0517e102.setError("This data is Required!");    // Set Error on last radio button
+            Log.i(TAG, "mn0517: This data is Required!");
+            return false;
+        } else {
+            mn0517e102.setError(null);
+        }
+
+        if (mn0517f1.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0517) + " - " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
+            mn0517f102.setError("This data is Required!");    // Set Error on last radio button
+            Log.i(TAG, "mn0517: This data is Required!");
+            return false;
+        } else {
+            mn0517f102.setError(null);
+        }
+
+
+
+
+
+
+
+
 
 //        else {
 //            mn052901.setChecked(false);

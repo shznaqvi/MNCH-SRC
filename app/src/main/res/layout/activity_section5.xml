@@ -536,7 +536,8 @@
                     android:layout_height="wrap_content"
                     android:digits="0123456789"
                     android:hint="@string/mn051301"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="2" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -950,7 +951,8 @@
                                 android:layout_weight="1"
                                 android:digits="0123456789"
                                 android:hint="@string/mn0517days"
-                                android:inputType="number" />
+                                android:inputType="number"
+                                android:maxLength="2" />
 
                             <EditText
                                 android:id="@+id/mn0517b2m"
@@ -959,7 +961,8 @@
                                 android:layout_weight="1"
                                 android:digits="0123456789"
                                 android:hint="@string/mn0517month"
-                                android:inputType="number" />
+                                android:inputType="number"
+                                android:maxLength="1" />
                         </LinearLayout>
 
                         <TextView
@@ -1075,7 +1078,8 @@
                                 android:layout_weight="1"
                                 android:digits="0123456789"
                                 android:hint="@string/mn0517days"
-                                android:inputType="number" />
+                                android:inputType="number"
+                                android:maxLength="2" />
 
                             <EditText
                                 android:id="@+id/mn0517c2m"
@@ -1084,7 +1088,8 @@
                                 android:layout_weight="1"
                                 android:digits="0123456789"
                                 android:hint="@string/mn0517month"
-                                android:inputType="number" />
+                                android:inputType="number"
+                                android:maxLength="1" />
                         </LinearLayout>
 
                         <TextView
@@ -1200,7 +1205,8 @@
                                 android:layout_weight="1"
                                 android:digits="0123456789"
                                 android:hint="@string/mn0517days"
-                                android:inputType="number" />
+                                android:inputType="number"
+                                android:maxLength="2" />
 
                             <EditText
                                 android:id="@+id/mn0517d2m"
@@ -1209,7 +1215,8 @@
                                 android:layout_weight="1"
                                 android:digits="0123456789"
                                 android:hint="@string/mn0517month"
-                                android:inputType="number" />
+                                android:inputType="number"
+                                android:maxLength="1" />
                         </LinearLayout>
 
                         <TextView
@@ -1325,14 +1332,16 @@
                                 android:layout_weight="1"
                                 android:digits="0123456789"
                                 android:hint="@string/mn0517days"
-                                android:inputType="number" />
+                                android:inputType="number"
+                                android:maxLength="2" />
 
                             <EditText
                                 android:id="@+id/mn0517e2m"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:hint="@string/mn0517month" />
+                                android:hint="@string/mn0517month"
+                                android:maxLength="1" />
                         </LinearLayout>
 
                         <TextView
@@ -1447,7 +1456,8 @@
                                 android:layout_weight="1"
                                 android:digits="0123456789"
                                 android:hint="@string/mn0517days"
-                                android:inputType="number" />
+                                android:inputType="number"
+                                android:maxLength="2" />
 
                             <EditText
                                 android:id="@+id/mn0517f2m"
@@ -1456,7 +1466,8 @@
                                 android:layout_weight="1"
                                 android:digits="0123456789"
                                 android:hint="@string/mn0517month"
-                                android:inputType="number" />
+                                android:inputType="number"
+                                android:maxLength="1" />
                         </LinearLayout>
 
                         <TextView

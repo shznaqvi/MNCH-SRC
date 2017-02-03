@@ -43,17 +43,25 @@ public class EndingActivity extends Activity  {
     RadioGroup mn0823Reason;
     @BindView(R.id.btn_End) Button btn_End;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ending);
         ButterKnife.bind(this);
 
+        Boolean check = getIntent().getExtras().getBoolean("check");
+
         if (SRCApp.fc.getROW_S1Q112().equals("1"))
         {
-            //fldGrpmn0823Reason.setVisibility(View.GONE);
-            mn082301.setEnabled(true);
-            mn082302.setChecked(false);
+            if (check.equals(false)) {
+                mn082301.setEnabled(false);
+                mn082302.setChecked(false);
+            } else {
+                //fldGrpmn0823Reason.setVisibility(View.GONE);
+                mn082301.setEnabled(true);
+                mn082302.setChecked(false);
+            }
 
         }else {
             //fldGrpmn0823Reason.setVisibility(View.VISIBLE);
