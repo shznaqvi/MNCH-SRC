@@ -350,7 +350,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
 
                 finish();
 
-                Intent secNext = new Intent(this, Section7ImActivity.class);
+                Intent secNext = new Intent(this, Section7IMActivity.class);
                 startActivity(secNext);
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
