@@ -428,6 +428,25 @@
 
             </RadioGroup>
 
+            <EditText
+                android:id="@+id/mn071102x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mn071102"
+                android:inputType="number"
+                android:maxLength="2"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/mn071103x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mn071103"
+                android:inputType="number"
+                android:maxLength="3"
+                android:visibility="gone" />
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -493,7 +512,9 @@
                         android:layout_height="wrap_content"
                         android:digits="0123456789"
                         android:hint="@string/mn071301"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:visibility="gone" />
 
                     <RadioButton
                         android:id="@+id/mn071302"
@@ -507,12 +528,20 @@
                         android:layout_height="wrap_content"
                         android:digits="0123456789"
                         android:hint="@string/mn071302"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:visibility="gone" />
 
                 </RadioGroup>
 
 
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mn07014Grp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
 
             <TextView
@@ -570,6 +599,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/mnother"
                 android:visibility="gone" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"

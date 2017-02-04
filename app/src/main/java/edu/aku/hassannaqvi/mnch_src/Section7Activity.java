@@ -276,6 +276,12 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
     LinearLayout mn07019BigGrp;
     @BindView(R.id.mn07022Grp)
     LinearLayout mn07022Grp;
+    @BindView(R.id.mn07014Grp)
+    LinearLayout mn07014Grp;
+    @BindView(R.id.mn071102x)
+    EditText mn071102x;
+    @BindView(R.id.mn071103x)
+    EditText mn071103x;
 
     private String dob;
 
@@ -289,6 +295,98 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         appHeader.setText("SRC - > Section 7");
         mn0701.setMaxDate(new Date().getTime());
         dob = new SimpleDateFormat("dd-MM-yyyy").format(mn0701.getCalendarView().getDate());
+
+        mn0713.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (mn071301.isChecked()) {
+                    mn071302x.setVisibility(View.GONE);
+                    //mn071302x.setEnabled(false);
+                    mn071302x.setText(null);
+                    mn071301x.setVisibility(View.VISIBLE);
+                } else {
+                    mn071301x.setVisibility(View.GONE);
+                    //mn071301x.setEnabled(false);
+                    mn071301x.setText(null);
+                    mn071302x.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        mn072004.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    mn072001.setEnabled(false);
+                    mn072001.setChecked(false);
+                    mn072002.setEnabled(false);
+                    mn072002.setChecked(false);
+                    mn072003.setEnabled(false);
+                    mn072003.setChecked(false);
+
+                } else {
+                    mn072001.setEnabled(true);
+                    mn072002.setEnabled(true);
+                    mn072003.setEnabled(true);
+
+                }
+            }
+        });
+
+        mn071777.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    mn071701.setEnabled(false);
+                    mn071701.setChecked(false);
+                    mn071702.setEnabled(false);
+                    mn071702.setChecked(false);
+                    mn071703.setEnabled(false);
+                    mn071703.setChecked(false);
+                    mn071704.setEnabled(false);
+                    mn071704.setChecked(false);
+                    mn071705.setEnabled(false);
+                    mn071705.setChecked(false);
+                    mn071706.setEnabled(false);
+                    mn071706.setChecked(false);
+                    mn071707.setEnabled(false);
+                    mn071707.setChecked(false);
+                    mn071708.setEnabled(false);
+                    mn071708.setChecked(false);
+                    mn071709.setEnabled(false);
+                    mn071709.setChecked(false);
+                    mn071788.setEnabled(false);
+                    mn071788.setChecked(false);
+                    mn071788x.setText(null);
+                } else {
+                    mn071701.setEnabled(true);
+                    mn071702.setEnabled(true);
+                    mn071703.setEnabled(true);
+                    mn071704.setEnabled(true);
+                    mn071705.setEnabled(true);
+                    mn071706.setEnabled(true);
+                    mn071707.setEnabled(true);
+                    mn071708.setEnabled(true);
+                    mn071709.setEnabled(true);
+                    mn071788.setEnabled(true);
+                }
+            }
+        });
+
+        mn0711.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (mn071102.isChecked()) {
+                    mn071102x.setVisibility(View.VISIBLE);
+                    mn071103x.setVisibility(View.GONE);
+                    mn071103x.setText(null);
+                } else if (mn071103.isChecked()) {
+                    mn071103x.setVisibility(View.VISIBLE);
+                    mn071102x.setVisibility(View.GONE);
+                    mn071102x.setText(null);
+                }
+            }
+        });
 
 
         mn0706.setOnCheckedChangeListener(this);
@@ -476,7 +574,30 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
 
         }
 
-        if (!mn070299.isChecked()) {
+        try {
+            if ((Integer.parseInt(mn071102x.getText().toString()) != 0) || (Integer.parseInt(mn071102x.getText().toString()) > 23)) {
+                Toast.makeText(this, "" + "Range is 0 - 23 hours", Toast.LENGTH_SHORT).show();
+                mn071102x.setError("Range is 0 - 23 hours");
+            } else {
+                mn071102x.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+
+        try {
+            if ((Integer.parseInt(mn071103x.getText().toString()) != 0) || (Integer.parseInt(mn071103x.getText().toString()) > 180)) {
+                Toast.makeText(this, "" + "Range is 0 - 180 days", Toast.LENGTH_SHORT).show();
+                mn071103x.setError("Range is 0 - 180 days");
+            } else {
+                mn071103x.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+
+
+        if (!(mn070299.isChecked())) {
             if (mn070201.getText().toString().isEmpty() && mn070202.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mn0702), Toast.LENGTH_SHORT).show();
                 mn070201.setError("This is inValid");
@@ -802,11 +923,22 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
 
             }
         } else if (group.getId() == R.id.mn0712) {
-            if (!mn07121.isChecked()) {
+            if (!(mn07121.isChecked())) {
                 mn07013Grp.setVisibility(View.GONE);
+                mn07014Grp.setVisibility(View.VISIBLE);
                 mn0713.clearCheck();
             } else {
                 mn07013Grp.setVisibility(View.VISIBLE);
+                mn07014Grp.setVisibility(View.GONE);
+                mn071401.setChecked(false);
+                mn071402.setChecked(false);
+                mn071403.setChecked(false);
+                mn071404.setChecked(false);
+                mn071405.setChecked(false);
+                mn071406.setChecked(false);
+                mn071488.setChecked(false);
+                mn071488x.setText(null);
+
             }
         } else if (group.getId() == R.id.mn0715) {
 
@@ -823,19 +955,32 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 mn071609.setChecked(false);
                 mn071688.setChecked(false);
                 mn071688x.setText(null);
+                mn071701.setChecked(false);
+                mn071702.setChecked(false);
+                mn071703.setChecked(false);
+                mn071704.setChecked(false);
+                mn071705.setChecked(false);
+                mn071706.setChecked(false);
+                mn071707.setChecked(false);
+                mn071708.setChecked(false);
+                mn071709.setChecked(false);
+                mn071777.setChecked(false);
+                mn071788.setChecked(false);
+                mn071788x.setText(null);
+                mn0718.clearCheck();
+                mn0719.clearCheck();
+                mn071988x.setText(null);
             } else {
                 mn07016BigGrp.setVisibility(View.VISIBLE);
             }
 
-            mn071688x.setText(null);
-            mn071788x.setText(null);
-            mn071988x.setText(null);
+
         } else if (group.getId() == R.id.mn0718) {
             if (mn071801.isChecked()) {
                 mn07019Grp.setVisibility(View.GONE);
+                mn0719.clearCheck();
                 mn07019BigGrp.setVisibility(View.VISIBLE);
-
-                mn071688x.setText(null);
+                //mn071688x.setText(null);
             } else if (mn071803.isChecked()) {
                 mn07019Grp.setVisibility(View.GONE);
                 mn07019BigGrp.setVisibility(View.GONE);
@@ -851,9 +996,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             } else {
                 mn07022Grp.setVisibility(View.VISIBLE);
             }
-        }
-
-        if (group.getId() == R.id.mn0708) {
+        } else if (group.getId() == R.id.mn0708) {
             if (mn070888.isChecked()) {
                 mn070888x.setVisibility(View.VISIBLE);
                 mn070888x.setText(null);
@@ -862,7 +1005,6 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 mn070888x.setText(null);
             }
         }
-
 
     }
 
