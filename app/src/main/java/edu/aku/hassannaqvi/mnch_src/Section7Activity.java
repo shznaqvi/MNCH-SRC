@@ -294,6 +294,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
 
         appHeader.setText("SRC - > Section 7");
         mn0701.setMaxDate(new Date().getTime());
+        mn0701.setMinDate((new Date().getTime() - ((SRCApp.MILLISECONDS_IN_YEAR)+ SRCApp.MILLISECONDS_IN_DAY)));
+
         dob = new SimpleDateFormat("dd-MM-yyyy").format(mn0701.getCalendarView().getDate());
 
         mn0713.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
