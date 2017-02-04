@@ -1154,7 +1154,7 @@ public class Section8Activity extends Activity {
 
         if (mn082001.isChecked()) {
             if (!(mn082199.isChecked())) {
-                if (mn082101.getText().toString().isEmpty() || mn082102.getText().toString().isEmpty()) {
+                if (mn082101.getText().toString().isEmpty() && mn082102.getText().toString().isEmpty()) {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0821), Toast.LENGTH_LONG).show();
                     mn082199.setError("This data is Required!");    // Set Error on last radio button
 
@@ -1367,7 +1367,72 @@ public class Section8Activity extends Activity {
                     mn082220.setError(null);
                 }
 
-        }
+                try {
+                    if ((Integer.parseInt(mn0804.getText().toString()) < 1) || (Integer.parseInt(mn0804.getText().toString()) > 20)) {
+                        Toast.makeText(this, "Range is 0 - 20 Rooms", Toast.LENGTH_LONG).show();
+                        mn0804.setError("Range is 0 - 20 Rooms.. Check Again");// Set Error on last radio button
+                        return false;
+
+                    } else {
+                        mn0804.setError(null);
+                    }
+                } catch (NumberFormatException nfe) {
+
+                }
+
+                try {
+                    if ((Integer.parseInt(mn0810.getText().toString()) < 1) || (Integer.parseInt(mn0810.getText().toString()) > 180)) {
+                        Toast.makeText(this, "Range is 1 - 180 Minutes", Toast.LENGTH_LONG).show();
+                        mn0810.setError("Range is 1 - 180 Minutes.. Check Again");// Set Error on last radio button
+                        return false;
+
+                    } else {
+                        mn0810.setError(null);
+                    }
+                } catch (NumberFormatException nfe) {
+
+                }
+
+                try {
+                    if ((Integer.parseInt(mn0816.getText().toString()) < 1) || (Integer.parseInt(mn0816.getText().toString()) > 180)) {
+                        Toast.makeText(this, "Range is 1 - 20", Toast.LENGTH_LONG).show();
+                        mn0816.setError("Range is 1 - 20 .. Check Again");// Set Error on last radio button
+                        return false;
+
+                    } else {
+                        mn0816.setError(null);
+                    }
+                } catch (NumberFormatException nfe) {
+
+                }
+
+                try {
+                    if ((Integer.parseInt(mn082101.getText().toString()) < 0) || (Integer.parseInt(mn082101.getText().toString()) > 99)) {
+                        Toast.makeText(this, "Range is 0 - 999 acre", Toast.LENGTH_LONG).show();
+                        mn082101.setError("Range is 0 - 999 .. Check Again");// Set Error on last radio button
+                        return false;
+
+                    } else {
+                        mn082101.setError(null);
+                    }
+                } catch (NumberFormatException nfe) {
+
+                }
+
+                try {
+                    if ((Integer.parseInt(mn082102.getText().toString()) < 0) || (Integer.parseInt(mn082102.getText().toString()) > 99)) {
+                        Toast.makeText(this, "Range is 0 - 999 ", Toast.LENGTH_LONG).show();
+                        mn082102.setError("Range is 0 - 999 .. Check Again");// Set Error on last radio button
+                        return false;
+
+                    } else {
+                        mn082102.setError(null);
+                    }
+                } catch (NumberFormatException nfe) {
+
+                }
+
+            }
 
         return true;
     }
