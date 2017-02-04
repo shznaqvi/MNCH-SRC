@@ -61,9 +61,10 @@
                 android:id="@+id/mn070201"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:digits="0123456789"
+                android:digits="09"
                 android:hint="@string/mn070201"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/mn070202"
@@ -71,7 +72,8 @@
                 android:layout_height="wrap_content"
                 android:digits="0123456789"
                 android:hint="@string/mn070202"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="5"/>
 
             <CheckBox
                 android:id="@+id/mn070299"
@@ -999,7 +1001,7 @@
                     android:id="@+id/btn_Continue"
                     style="@style/buttons"
                     android:onClick="startInterview"
-                    android:text="@string/start_interview"
+                    android:text="@string/next_section"
                     android:textColor="#1ed61e" />
                 <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
 

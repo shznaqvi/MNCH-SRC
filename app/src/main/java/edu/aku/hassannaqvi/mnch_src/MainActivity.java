@@ -75,7 +75,7 @@ public class MainActivity extends Activity {
 
     public void OpenSection4(View v) {
 
-        Intent sec1_intent = new Intent(this, Section5Activity.class);
+        Intent sec1_intent = new Intent(this, Section7Activity.class);
         startActivity(sec1_intent);
 
     }

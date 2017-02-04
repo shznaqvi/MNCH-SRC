@@ -983,6 +983,7 @@ public class Section5Activity extends Activity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (mn052301.isChecked()) {
                     fldGrpmn0524.setVisibility(View.VISIBLE);
+
                 } else {
                     fldGrpmn0524.setVisibility(View.GONE);
                     mn0524.clearCheck();
@@ -1025,17 +1026,17 @@ public class Section5Activity extends Activity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-                mn0525.clearCheck();
+                //mn0525.clearCheck();
 
                 if (mn052401.isChecked()) {
                     fldGrpmn0525.setVisibility(View.GONE);
-                    fldGrpmn0526.setVisibility(View.VISIBLE);
+                    //fldGrpmn0526.setVisibility(View.VISIBLE);
                     mn0525.clearCheck();
                     mn052588x.setText(null);
 
                 } else {
                     fldGrpmn0525.setVisibility(View.VISIBLE);
-                    fldGrpmn0526.setVisibility(View.GONE);
+                    /*fldGrpmn0526.setVisibility(View.GONE);
                     mn052601.setChecked(false);
                     mn052602.setChecked(false);
                     mn052603.setChecked(false);
@@ -1052,7 +1053,7 @@ public class Section5Activity extends Activity {
                     mn052614.setChecked(false);
                     mn052615.setChecked(false);
                     mn052688.setChecked(false);
-                    mn052688x.setText(null);
+                    mn052688x.setText(null);*/
 
                 }
             }
@@ -1091,7 +1092,7 @@ public class Section5Activity extends Activity {
                     fldGrpmn0529.setVisibility(View.VISIBLE);
                     mn0528.clearCheck();
                     mn052888x.setText(null);
-                } else {
+                } else if (!(mn052777.isChecked())) {
                     fldGrpmn0529.setVisibility(View.GONE);
                     fldGrpmn0528.setVisibility(View.VISIBLE);
 
@@ -1102,11 +1103,18 @@ public class Section5Activity extends Activity {
                     mn052905.setChecked(false);
                     mn052906.setChecked(false);
                     mn052988x.setText(null);
+                }else if(mn052788.isChecked())
+                {
+                    mn052788x.setVisibility(View.VISIBLE);
+                } else{
+                    mn052788x.setVisibility(View.GONE);
+                    mn052788x.setText(null);
                 }
+
             }
         });
 
-        mn052788.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        /*mn052788.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -1116,7 +1124,7 @@ public class Section5Activity extends Activity {
                     mn052788x.setText(null);
                 }
             }
-        });
+        });*/
 
 //        mn052777.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 //            @Override
@@ -2233,7 +2241,7 @@ public class Section5Activity extends Activity {
             }
 
             // Skip Check 5.24
-            if (mn052401.isChecked()) {
+            if (mn052401.isChecked() || mn052402.isChecked()) {
                 if (!(mn052601.isChecked()
                         || mn052602.isChecked()
                         || mn052603.isChecked()
@@ -2318,7 +2326,7 @@ public class Section5Activity extends Activity {
                 mn052788x.setError(null);
             }
 
-            if (!mn052777.isChecked()) {
+            if (!(mn052777.isChecked())) {
                 if (!(mn052801.isChecked()
                         || mn052802.isChecked()
                         || mn052803.isChecked()
@@ -2343,6 +2351,21 @@ public class Section5Activity extends Activity {
                     return false;
                 } else {
                     mn052888x.setError(null);
+                }
+            } else if(mn052777.isChecked()){
+                if(!(mn052901.isChecked()
+                        || mn052902.isChecked()
+                        || mn052903.isChecked()
+                        || mn052904.isChecked()
+                        || mn052905.isChecked()
+                        || mn052906.isChecked()
+                        || mn052988.isChecked())){
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0529) + " - " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
+                    mn052988.setError("This data is Required!");    // Set Error on last radio button
+                    Log.i(TAG, "mn0529: This data is Required!");
+                    return false;
+                } else{
+                    mn052988.setError(null);
                 }
             }
 
@@ -2429,7 +2452,7 @@ public class Section5Activity extends Activity {
 
         }
 
-        try {
+        /*try {
             if (Integer.parseInt(mn0517a2d.getText().toString()) < 0 || Integer.parseInt(mn0517a2d.getText().toString()) > 29) {
                 mn0517a2d.setError("Range is 0 - 29 days");
                 return false;
@@ -2606,7 +2629,7 @@ public class Section5Activity extends Activity {
             return false;
         } else {
             mn0517f102.setError(null);
-        }
+        }*/
 
 
 
