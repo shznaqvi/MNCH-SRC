@@ -2371,7 +2371,7 @@ public class Section5Activity extends Activity {
 
         }
 
-        if (!mn052302.isChecked() && mn052777.isChecked()) {
+        if (!(mn052302.isChecked()) && mn052777.isChecked()) {
             if (!(mn052901.isChecked()
                     || mn052902.isChecked()
                     || mn052903.isChecked()
