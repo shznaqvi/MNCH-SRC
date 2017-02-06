@@ -525,13 +525,6 @@
                 android:text="@string/mn0807"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/mn0807"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-
             <RadioGroup
                 android:id="@+id/mn0807"
                 android:layout_width="match_parent"
@@ -632,7 +625,7 @@
                     android:id="@+id/mn080788"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mnother" />
+                    android:hint="@string/mnother" />
 
             </RadioGroup>
 
@@ -801,8 +794,9 @@
                     android:id="@+id/mn0810"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mn0810"
-                    android:inputType="number" />
+                    android:hint="@string/minutes"
+                    android:inputType="number"
+                    android:maxLength="3" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -981,7 +975,7 @@
                     android:id="@+id/mn081405"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mn081404" />
+                    android:text="@string/mn081405" />
 
                 <RadioButton
                     android:id="@+id/mn081406"
@@ -1078,7 +1072,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/mn0816"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="2" />
             </LinearLayout>
 
 
@@ -1209,7 +1204,8 @@
                     android:layout_height="wrap_content"
                     android:digits="0123456789"
                     android:hint="@string/mn082101"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="3" />
 
                 <EditText
                     android:id="@+id/mn082102"
@@ -1217,7 +1213,8 @@
                     android:layout_height="wrap_content"
                     android:digits="0123456789"
                     android:hint="@string/mn082102"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="3" />
 
 
                 <CheckBox
@@ -1246,7 +1243,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082201"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -1258,7 +1256,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082202"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -1270,7 +1269,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082203"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -1282,7 +1282,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082204"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -1294,7 +1295,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082205"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -1306,7 +1308,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082206"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -1329,7 +1332,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082208"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -1341,7 +1345,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082209"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
 
             <TextView
@@ -1354,7 +1359,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082210"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -1366,7 +1372,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082211"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -1378,7 +1385,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082212"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -1390,7 +1398,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082213"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -1402,7 +1411,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082214"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -1414,7 +1424,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082215"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -1426,7 +1437,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082216"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -1438,7 +1450,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082217"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
 
             <TextView
@@ -1451,7 +1464,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082218"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
 
             <TextView
@@ -1464,7 +1478,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082219"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -1476,7 +1491,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn082220"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
 
             <!--  = = = = =  END OF FORM FIELDS - Section C = = = = = -->
@@ -1502,7 +1518,7 @@
                     android:id="@+id/btn_Continue"
                     style="@style/buttons"
                     android:onClick="startInterview"
-                    android:text="@string/start_interview"
+                    android:text="@string/next_section"
                     android:textColor="#1ed61e" />
                 <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
 

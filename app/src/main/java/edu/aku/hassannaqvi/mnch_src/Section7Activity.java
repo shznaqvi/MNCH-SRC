@@ -577,7 +577,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         }
 
         try {
-            if ((Integer.parseInt(mn071102x.getText().toString()) != 0) || (Integer.parseInt(mn071102x.getText().toString()) > 23)) {
+            if ((Integer.parseInt(mn071102x.getText().toString()) < 0) || (Integer.parseInt(mn071102x.getText().toString()) > 23)) {
                 Toast.makeText(this, "" + "Range is 0 - 23 hours", Toast.LENGTH_SHORT).show();
                 mn071102x.setError("Range is 0 - 23 hours");
             } else {
@@ -588,7 +588,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         }
 
         try {
-            if ((Integer.parseInt(mn071103x.getText().toString()) != 0) || (Integer.parseInt(mn071103x.getText().toString()) > 180)) {
+            if ((Integer.parseInt(mn071103x.getText().toString()) < 0) || (Integer.parseInt(mn071103x.getText().toString()) > 180)) {
                 Toast.makeText(this, "" + "Range is 0 - 180 days", Toast.LENGTH_SHORT).show();
                 mn071103x.setError("Range is 0 - 180 days");
             } else {

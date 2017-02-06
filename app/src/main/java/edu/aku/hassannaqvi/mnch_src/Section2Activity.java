@@ -981,7 +981,7 @@ public class Section2Activity extends Activity {
         } else {
             s2q207.setError(null);
         }
-        if (Integer.parseInt(s2q207.getText().toString()) != 0 || Integer.parseInt(s2q207.getText().toString()) > 3) {
+        if (Integer.parseInt(s2q207.getText().toString()) < 0 || Integer.parseInt(s2q207.getText().toString()) > 3) {
             s2q207.setError("Invalid Range 1-3");
             Toast.makeText(getApplicationContext(), "Invalid Range 1-3 \r\n", Toast.LENGTH_LONG).show();
             return false;
@@ -1002,7 +1002,7 @@ public class Section2Activity extends Activity {
             }
 
             if (Integer.parseInt(s2q208.getText().toString()) < 1 || Integer.parseInt(s2q208.getText().toString()) > 5) {
-                s2q208.setError("Invalid Range 1-3");
+                s2q208.setError("Invalid Range 1-5");
                 Toast.makeText(getApplicationContext(), "Invalid Range 1-5 \r\n", Toast.LENGTH_LONG).show();
                 return false;
             } else {

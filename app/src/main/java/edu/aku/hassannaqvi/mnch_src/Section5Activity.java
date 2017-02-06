@@ -2398,7 +2398,7 @@ public class Section5Activity extends Activity {
         }
 
         try {
-            if (Integer.parseInt(mn051001.getText().toString()) != 0 || Integer.parseInt(mn051001.getText().toString()) > 100) {
+            if (Integer.parseInt(mn051001.getText().toString()) < 0 || Integer.parseInt(mn051001.getText().toString()) > 100) {
                 mn051001.setError("Range is 0 - 100 km");
                 return false;
             } else {
@@ -2409,7 +2409,7 @@ public class Section5Activity extends Activity {
         }
 
         try {
-            if (Integer.parseInt(mn051002.getText().toString()) != 0 || Integer.parseInt(mn051002.getText().toString()) > 100) {
+            if (Integer.parseInt(mn051002.getText().toString()) < 0 || Integer.parseInt(mn051002.getText().toString()) > 100) {
                 mn051002.setError("Range is 0 - 100 km");
                 return false;
             } else {
@@ -2420,7 +2420,7 @@ public class Section5Activity extends Activity {
         }
 
         try {
-            if (Integer.parseInt(mn051003.getText().toString()) != 0 || Integer.parseInt(mn051003.getText().toString()) > 100) {
+            if (Integer.parseInt(mn051003.getText().toString()) < 0 || Integer.parseInt(mn051003.getText().toString()) > 100) {
                 mn051003.setError("Range is 0 - 100 km");
                 return false;
             } else {
@@ -2431,7 +2431,7 @@ public class Section5Activity extends Activity {
         }
 
         try {
-            if (Integer.parseInt(mn051004.getText().toString()) != 0 || Integer.parseInt(mn051004.getText().toString()) > 100) {
+            if (Integer.parseInt(mn051004.getText().toString()) < 0 || Integer.parseInt(mn051004.getText().toString()) > 100) {
                 mn051004.setError("Range is 0 - 100 km");
                 return false;
             } else {
