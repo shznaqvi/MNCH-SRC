@@ -318,20 +318,16 @@ public class Section7IMActivity extends Activity {
 
                 finish();
 
-//                CVars var =new CVars();
-//
-//                if (counterIM < var.getIMChild()){
-//                    startActivity(new Intent(this, Section7ImActivity.class).putExtra("IMChild",var.getIMChild()));
-//                }
-
-                SRCApp.chTotal -= 1;
-
-                finish();
-                startActivity(new Intent(this, Section7IMActivity.class));
-
-
-//                Intent Sec8 = new Intent(this, Section8Activity.class);
-//                startActivity(Sec8);
+                if (SRCApp.chCount < SRCApp.chTotal) {
+                    Intent sec7_intent = new Intent(this, Section7Activity.class);
+                    SRCApp.chCount++;
+                    startActivity(sec7_intent);
+                } else {
+                    Intent sec8_intent = new Intent(this, Section8Activity.class);
+                    SRCApp.chCount = 0;
+                    SRCApp.chTotal = 0;
+                    startActivity(sec8_intent);
+                }
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
