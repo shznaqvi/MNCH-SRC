@@ -261,10 +261,11 @@ public class Section7IMActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section7_im);
         ButterKnife.bind(this);
+        appHeader.setText(getString(R.string.sec7IM) + " " + SRCApp.chCount + " of " + SRCApp.chTotal);
 
 //        counterIM = Integer.parseInt(getIntent().getExtras().getString("IMChild"));
 
-        CVars var = new CVars();
+     /*   CVars var = new CVars();
 
         if (SRCApp.chTotal > 1) {
             btn_Continue.setText("Next Section");
@@ -280,7 +281,7 @@ public class Section7IMActivity extends Activity {
         if (SRCApp.chTotal < 1) {
             finish();
             startActivity(new Intent(this, Section8Activity.class));
-        }
+        }*/
 
     }
 
@@ -319,7 +320,7 @@ public class Section7IMActivity extends Activity {
                 finish();
 
                 if (SRCApp.chCount < SRCApp.chTotal) {
-                    Intent sec7_intent = new Intent(this, Section7Activity.class);
+                    Intent sec7_intent = new Intent(this, Section7IMActivity.class);
                     SRCApp.chCount++;
                     startActivity(sec7_intent);
                 } else {
