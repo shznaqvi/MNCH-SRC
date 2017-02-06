@@ -444,7 +444,7 @@ public class Section1Activity extends Activity implements TextWatcher {
                         startActivity(sec2_intent);
                     } else {
                         Intent end_intent = new Intent(this, EndingActivity.class);
-//                        end_intent.putExtra("check", false);
+                        end_intent.putExtra("check", false);
                         startActivity(end_intent);
                     }
                 } else {
