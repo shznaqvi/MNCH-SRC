@@ -675,14 +675,14 @@ public class Section5bActivity extends Activity {
 
         // Checkbox
         s5b.put("mn053301", mn053301.isChecked() ? "1" : "0");
-        s5b.put("mn053302", mn053302.isChecked() ? "1" : "0");
-        s5b.put("mn053303", mn053303.isChecked() ? "1" : "0");
-        s5b.put("mn053304", mn053304.isChecked() ? "1" : "0");
-        s5b.put("mn053305", mn053305.isChecked() ? "1" : "0");
-        s5b.put("mn053306", mn053306.isChecked() ? "1" : "0");
-        s5b.put("mn053307", mn053307.isChecked() ? "1" : "0");
-        s5b.put("mn053308", mn053308.isChecked() ? "1" : "0");
-        s5b.put("mn053388", mn053388.isChecked() ? "1" : "0");
+        s5b.put("mn053302", mn053302.isChecked() ? "2" : "0");
+        s5b.put("mn053303", mn053303.isChecked() ? "3" : "0");
+        s5b.put("mn053304", mn053304.isChecked() ? "4" : "0");
+        s5b.put("mn053305", mn053305.isChecked() ? "5" : "0");
+        s5b.put("mn053306", mn053306.isChecked() ? "6" : "0");
+        s5b.put("mn053307", mn053307.isChecked() ? "7" : "0");
+        s5b.put("mn053308", mn053308.isChecked() ? "8" : "0");
+        s5b.put("mn053388", mn053388.isChecked() ? "88" : "0");
 
         //Edit Text
         s5b.put("mn053388x", mn053388x.getText().toString());
@@ -699,12 +699,12 @@ public class Section5bActivity extends Activity {
 
         // Checkbox
         s5b.put("mn053601", mn053601.isChecked() ? "1" : "0");
-        s5b.put("mn053602", mn053602.isChecked() ? "1" : "0");
-        s5b.put("mn053603", mn053603.isChecked() ? "1" : "0");
-        s5b.put("mn053604", mn053604.isChecked() ? "1" : "0");
-        s5b.put("mn053605", mn053605.isChecked() ? "1" : "0");
-        s5b.put("mn053606", mn053606.isChecked() ? "1" : "0");
-        s5b.put("mn053607", mn053688.isChecked() ? "1" : "0");
+        s5b.put("mn053602", mn053602.isChecked() ? "2" : "0");
+        s5b.put("mn053603", mn053603.isChecked() ? "3" : "0");
+        s5b.put("mn053604", mn053604.isChecked() ? "4" : "0");
+        s5b.put("mn053605", mn053605.isChecked() ? "5" : "0");
+        s5b.put("mn053606", mn053606.isChecked() ? "6" : "0");
+        s5b.put("mn053607", mn053688.isChecked() ? "88" : "0");
 
         //Edit Text
         s5b.put("mn053688x", mn053688x.getText().toString());
@@ -727,11 +727,11 @@ public class Section5bActivity extends Activity {
 
         // Checkbox
         s5b.put("mn054201", mn054201.isChecked() ? "1" : "0");
-        s5b.put("mn054202", mn054202.isChecked() ? "1" : "0");
-        s5b.put("mn054203", mn054203.isChecked() ? "1" : "0");
-        s5b.put("mn054204", mn054204.isChecked() ? "1" : "0");
-        s5b.put("mn054205", mn054205.isChecked() ? "1" : "0");
-        s5b.put("mn054206", mn054288.isChecked() ? "1" : "0");
+        s5b.put("mn054202", mn054202.isChecked() ? "2" : "0");
+        s5b.put("mn054203", mn054203.isChecked() ? "3" : "0");
+        s5b.put("mn054204", mn054204.isChecked() ? "4" : "0");
+        s5b.put("mn054205", mn054205.isChecked() ? "5" : "0");
+        s5b.put("mn054206", mn054288.isChecked() ? "88" : "0");
 
         //Edit Text
         s5b.put("mn054288x", mn054288x.getText().toString());

@@ -252,21 +252,14 @@ public class Section6Activity extends Activity {
                 Toast.makeText(this, "Starting Next Section", Toast.LENGTH_SHORT).show();
 
                 finish();
-
-//                Intent secNext = new Intent(this, Section7Activity.class);
-//                startActivity(secNext);
-
-                CVars var = new CVars();
-                if (var.getIMChild() != 0) {
-                    startActivity(new Intent(this, Section7Activity.class));
+                if (SRCApp.chCount < SRCApp.chTotal) {
+                    Intent sec7_intent = new Intent(this, Section7Activity.class);
+                    SRCApp.chCount++;
+                    startActivity(sec7_intent);
+                } else {
+                    Intent sec8_intent = new Intent(this, Section8Activity.class);
+                    startActivity(sec8_intent);
                 }
-//                else if (var.getIMChild() != 0){
-//                    startActivity(new Intent(this, Section7ImActivity.class));
-//                }
-                else {
-                    startActivity(new Intent(this, Section8Activity.class));
-                }
-
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
