@@ -484,6 +484,15 @@ public class Section4bActivity extends Activity {
             return false;
         } else {
             s4q42d.setError(null);
+
+            if (Integer.parseInt(s4q42d.getText().toString()) < 0 || Integer.parseInt(s4q42d.getText().toString()) > 29) {
+                s4q42d.setError("Invalid:" + getString(R.string.baseline_s4q42d));
+                Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q42d), Toast.LENGTH_LONG).show();
+                s4q42d.requestFocus();
+                return false;
+            } else {
+                s4q42d.setError(null);
+            }
         }
 
 
@@ -494,6 +503,14 @@ public class Section4bActivity extends Activity {
             return false;
         } else {
             s4q42d1.setError(null);
+            if (Integer.parseInt(s4q42d1.getText().toString()) < 0 || Integer.parseInt(s4q42d1.getText().toString()) > 29) {
+                s4q42d1.setError("Invalid:" + getString(R.string.baseline_s4q42d1));
+                Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q42d1), Toast.LENGTH_LONG).show();
+                s4q42d1.requestFocus();
+                return false;
+            } else {
+                s4q42d1.setError(null);
+            }
         }
 
 
@@ -504,31 +521,15 @@ public class Section4bActivity extends Activity {
             return false;
         } else {
             s4q42d2.setError(null);
+            if (Integer.parseInt(s4q42d2.getText().toString()) < 0 || Integer.parseInt(s4q42d2.getText().toString()) > 29) {
+                s4q42d2.setError("Invalid:" + getString(R.string.baseline_s4q42d2));
+                Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q42d2), Toast.LENGTH_LONG).show();
+                s4q42d2.requestFocus();
+                return false;
+            } else {
+                s4q42d2.setError(null);
+            }
         }
-
-        if (dobValidation(Integer.parseInt(s4q42d2.getText().toString()), Integer.parseInt(s4q42d1.getText().toString()), Integer.parseInt(s4q42d.getText().toString()))) {
-            s4q42d1.setError("Invalid:" + getString(R.string.baseline_s4q42d));
-            Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
-            s4q42d1.requestFocus();
-            return false;
-        } else {
-            s4q42d1.setError(null);
-        }
-
-//        if ((Integer.parseInt(s4q42d.getText().toString()) < 0 || Integer.parseInt(s4q42d.getText().toString()) > 29)
-//                &&
-//                (Integer.parseInt(s4q42d1.getText().toString()) < 0 || Integer.parseInt(s4q42d1.getText().toString()) > 11)
-//                &&
-//                (Integer.parseInt(s4q42d2.getText().toString()) < 0 || Integer.parseInt(s4q42d2.getText().toString()) > 5)){
-//
-//            s4q42d1.setError("Invalid:"+getString(R.string.baseline_s4q42d));
-//            Toast.makeText(getApplicationContext(), "Invalid:"+getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
-//            s4q42d1.requestFocus();
-//            return false;
-//        } else {
-//            s4q42d1.setError(null);
-//        }
-
 
         rdo_s4q42e = radio_s4q42e.getCheckedRadioButtonId();
 

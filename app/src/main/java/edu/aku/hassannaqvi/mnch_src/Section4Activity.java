@@ -66,7 +66,7 @@ public class Section4Activity extends Activity {
                 || m > 0)) {
             return true;
         } else if ((d > 29 || d < 0)
-                && (m > 11 || m < 0)){
+                && (m > 11 || m < 0)) {
             return true;
         }
 
@@ -325,38 +325,48 @@ public class Section4Activity extends Activity {
         } else {
             s4q41a.setError(null);
         }
-        if (s4q41b.getText().toString().isEmpty()) {
+        if (s4q41b.getText().toString().isEmpty() || s4q41b1.getText().toString().isEmpty() || s4q41b2.getText().toString().isEmpty()) {
             s4q41b.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "Please specify days ", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Cannot be empty", Toast.LENGTH_LONG).show();
             s4q41b.requestFocus();
             return false;
         } else {
             s4q41b.setError(null);
+
+
+            // AGE: DAYS 0 - 29
+            if ((Integer.parseInt(s4q41b.getText().toString()) < 0 || Integer.parseInt(s4q41b.getText().toString()) > 29)) {
+
+                s4q41b.setError("Invalid:" + getString(R.string.baseline_s4q41b));
+                Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
+                s4q41b.requestFocus();
+                return false;
+            } else {
+                s4q41b.setError(null);
+            }
+
+            // AGE: MONTHS 0 - 11
+            if ((Integer.parseInt(s4q41b1.getText().toString()) < 0 || Integer.parseInt(s4q41b1.getText().toString()) > 11)) {
+
+                s4q41b1.setError("Invalid:" + getString(R.string.baseline_s4q41b1));
+                Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q41b1), Toast.LENGTH_LONG).show();
+                s4q41b1.requestFocus();
+                return false;
+            } else {
+                s4q41b1.setError(null);
+            }
+
+            // AGE: YEARS 15 - 49
+            if ((Integer.parseInt(s4q41b2.getText().toString()) < 15 || Integer.parseInt(s4q41b2.getText().toString()) > 49)) {
+
+                s4q41b2.setError("Invalid:" + getString(R.string.baseline_s4q41b2));
+                Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q41b2), Toast.LENGTH_LONG).show();
+                s4q41b2.requestFocus();
+                return false;
+            } else {
+                s4q41b2.setError(null);
+            }
         }
-
-        if (dobValidation(Integer.parseInt(s4q41b2.getText().toString()), Integer.parseInt(s4q41b1.getText().toString()), Integer.parseInt(s4q41b.getText().toString()))) {
-
-            s4q41b1.setError("Invalid:"+getString(R.string.baseline_s4q41b));
-            Toast.makeText(getApplicationContext(), "Invalid:"+getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
-            s4q41b1.requestFocus();
-            return false;
-        } else {
-            s4q41b1.setError(null);
-        }
-//        if ((Integer.parseInt(s4q41b.getText().toString()) < 0 || Integer.parseInt(s4q41b.getText().toString()) > 29)
-//                &&
-//                (Integer.parseInt(s4q41b1.getText().toString()) < 0 || Integer.parseInt(s4q41b1.getText().toString()) > 11)
-//                &&
-//                (Integer.parseInt(s4q41b2.getText().toString()) < 15 || Integer.parseInt(s4q41b2.getText().toString()) > 49)){
-//
-//            s4q41b1.setError("Invalid:"+getString(R.string.baseline_s4q41b));
-//            Toast.makeText(getApplicationContext(), "Invalid:"+getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
-//            s4q41b1.requestFocus();
-//            return false;
-//        } else {
-//            s4q41b1.setError(null);
-//        }
-
         rdo_s4q41c = radio_s4q41c.getCheckedRadioButtonId();
 
         if (rdo_s4q41c == -1) {
