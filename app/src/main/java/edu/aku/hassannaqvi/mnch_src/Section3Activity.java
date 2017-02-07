@@ -598,8 +598,9 @@ public class Section3Activity extends Activity {
                 SRCApp.sc3.setROW_SNO(String.valueOf(sno + 1));
             }
 
-            SRCApp.curPreg = rDOS3q301d1.isChecked();
-
+            if (!SRCApp.curPreg) {
+                SRCApp.curPreg = rDOS3q301d1.isChecked();
+            }
             rdo_s3q301d = radioS3q301d.getCheckedRadioButtonId();
 
             switch (rdo_s3q301d) {
@@ -902,7 +903,7 @@ public class Section3Activity extends Activity {
 
 
             if (gestation < 3 || gestation > 42) {
-                s3q301e.setError(getString(R.string.txterr));
+                s3q301e.setError(getString(R.string.txterr) + "Gestational age should be 3 - 42 weeks");
                 Toast.makeText(getApplicationContext(), "Gestational age should be 3 - 42 weeks  \r\n", Toast.LENGTH_LONG).show();
                 s3q301e.requestFocus();
                 return false;
@@ -1130,9 +1131,10 @@ public class Section3Activity extends Activity {
                 s3q301k.setError(null);
             }
 
-            if (Integer.parseInt(s3q301k.getText().toString()) < 100 ||
-                    Integer.parseInt(s3q301k.getText().toString()) > 100000) {
-                s3q301k.setError("Invalid specify cost of delivery");
+            if (Integer.parseInt(s3q301k.getText().toString()) < 99
+                    || Integer.parseInt(s3q301k.getText().toString()) > 100000
+                    ) {
+                s3q301k.setError("Invalid specify cost of delivery (100 - 100000) and 99 for free");
                 Toast.makeText(getApplicationContext(), "Invalid specify cost of delivery  \r\n", Toast.LENGTH_LONG).show();
                 s3q301k.requestFocus();
                 return false;
