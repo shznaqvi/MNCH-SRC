@@ -227,25 +227,25 @@
 
             <CheckBox
                 android:id="@+id/mn053301"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mn053301" />
 
             <CheckBox
                 android:id="@+id/mn053302"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mn053302" />
 
             <CheckBox
                 android:id="@+id/mn053303"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mn053303" />
 
             <CheckBox
                 android:id="@+id/mn053304"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mn053304" />
 
@@ -257,26 +257,26 @@
 
             <CheckBox
                 android:id="@+id/mn053306"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mn053306" />
 
             <CheckBox
                 android:id="@+id/mn053307"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mn053307" />
 
             <CheckBox
                 android:id="@+id/mn053308"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mn053308" />
 
 
             <CheckBox
                 android:id="@+id/mn053388"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mnother" />
 
@@ -284,7 +284,8 @@
                 android:id="@+id/mn053388x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mnother" />
+                android:hint="@string/mnother"
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="match_parent"

@@ -577,6 +577,17 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         }
 
         try {
+            if (Integer.parseInt(mn070201.getText().toString()) < 0 || Integer.parseInt(mn070201.getText().toString()) > 9) {
+                Toast.makeText(this, "" + "Weight can not be less than 0 - 9 kg.. check again", Toast.LENGTH_SHORT).show();
+                mn070201.setError("Weight can not be less than 0 - 9 kg");
+            } else {
+                mn070201.setError(null);
+            }
+        } catch (NumberFormatException nfe) {
+
+        }
+
+        try {
             if ((Integer.parseInt(mn071102x.getText().toString()) < 0) || (Integer.parseInt(mn071102x.getText().toString()) > 23)) {
                 Toast.makeText(this, "" + "Range is 0 - 23 hours", Toast.LENGTH_SHORT).show();
                 mn071102x.setError("Range is 0 - 23 hours");

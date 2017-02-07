@@ -625,7 +625,7 @@
                     android:id="@+id/mn080788"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mnother" />
+                    android:text="@string/mnother" />
 
             </RadioGroup>
 
@@ -633,7 +633,7 @@
                 android:id="@+id/mn080788x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mnother" />
+                android:hint="@string/mnother" />
 
             <TextView
                 android:layout_width="match_parent"

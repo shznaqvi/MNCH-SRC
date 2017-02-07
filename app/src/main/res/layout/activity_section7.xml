@@ -61,7 +61,7 @@
                 android:id="@+id/mn070201"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:digits="09"
+                android:digits="0123456789"
                 android:hint="@string/mn070201"
                 android:inputType="number"
                 android:maxLength="1"/>

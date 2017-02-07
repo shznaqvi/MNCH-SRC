@@ -1835,7 +1835,7 @@ public class Section5Activity extends Activity {
         // Skip Check 5.11
         if (mn051101.isChecked()) {
             // EditText + CheckBox
-            if (mn051201.getText().toString().isEmpty() && !mn051202.isChecked()) {
+            if (mn051201.getText().toString().isEmpty() && !(mn051202.isChecked())) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0512), Toast.LENGTH_LONG).show();
                 mn051201.setError("This data is Required!");    // Set Error on last radio button
                 Log.i(TAG, "mn0512: This data is Required!");
