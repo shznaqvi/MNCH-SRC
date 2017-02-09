@@ -503,7 +503,7 @@ public class Section4bActivity extends Activity {
             return false;
         } else {
             s4q42d1.setError(null);
-            if (Integer.parseInt(s4q42d1.getText().toString()) < 0 || Integer.parseInt(s4q42d1.getText().toString()) > 29) {
+            if (Integer.parseInt(s4q42d1.getText().toString()) < 1 || Integer.parseInt(s4q42d1.getText().toString()) > 11) {
                 s4q42d1.setError("Invalid:" + getString(R.string.baseline_s4q42d1));
                 Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q42d1), Toast.LENGTH_LONG).show();
                 s4q42d1.requestFocus();
@@ -521,7 +521,7 @@ public class Section4bActivity extends Activity {
             return false;
         } else {
             s4q42d2.setError(null);
-            if (Integer.parseInt(s4q42d2.getText().toString()) < 0 || Integer.parseInt(s4q42d2.getText().toString()) > 29) {
+            if (Integer.parseInt(s4q42d2.getText().toString()) < 1 || Integer.parseInt(s4q42d2.getText().toString()) > 5) {
                 s4q42d2.setError("Invalid:" + getString(R.string.baseline_s4q42d2));
                 Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q42d2), Toast.LENGTH_LONG).show();
                 s4q42d2.requestFocus();

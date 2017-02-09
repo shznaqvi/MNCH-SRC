@@ -438,6 +438,15 @@ public class Section7IMActivity extends Activity {
             mn07im02.setError(null);
         }
 
+        if (Integer.parseInt(mn07im02.getText().toString()) > 59 || Integer.parseInt(mn07im02.getText().toString()) < 0) {
+            Toast.makeText(this, "Invalid: " + getString(R.string.mn07im02), Toast.LENGTH_LONG).show();
+            mn07im02.setError("Invalid: Range 0 - 59!");
+            Log.i(TAG, "mn07im02: Invalid: Range 0 - 59!");
+            return false;
+        } else {
+            mn07im02.setError(null);
+        }
+
         if (mn07im03.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn07im03), Toast.LENGTH_LONG).show();
             mn07im0302.setError("This data is Required!");

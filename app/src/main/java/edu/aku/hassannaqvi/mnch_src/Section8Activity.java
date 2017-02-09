@@ -757,12 +757,12 @@ public class Section8Activity extends Activity {
                 : mn081104.isChecked() ? "4" : "0");
         s8.put("mn0812", mn081201.isChecked() ? "1" : mn081202.isChecked() ? "2" : "0");
         s8.put("mn081301", mn081301.isChecked() ? "1" : "0");
-        s8.put("mn081302", mn081302.isChecked() ? "1" : "0");
-        s8.put("mn081303", mn081303.isChecked() ? "1" : "0");
-        s8.put("mn081304", mn081304.isChecked() ? "1" : "0");
-        s8.put("mn081305", mn081305.isChecked() ? "1" : "0");
-        s8.put("mn081306", mn081306.isChecked() ? "1" : "0");
-        s8.put("mn081388", mn081388.isChecked() ? "1" : "0");
+        s8.put("mn081302", mn081302.isChecked() ? "2" : "0");
+        s8.put("mn081303", mn081303.isChecked() ? "3" : "0");
+        s8.put("mn081304", mn081304.isChecked() ? "4" : "0");
+        s8.put("mn081305", mn081305.isChecked() ? "5" : "0");
+        s8.put("mn081306", mn081306.isChecked() ? "6" : "0");
+        s8.put("mn081388", mn081388.isChecked() ? "88" : "0");
         s8.put("mn081388x", mn081388x.getText().toString());
         s8.put("mn0814", mn081401.isChecked() ? "1" : mn081402.isChecked() ? "2" : mn081403.isChecked() ? "3"
                 : mn081404.isChecked() ? "4" : mn081405.isChecked() ? "5" : mn081406.isChecked() ? "6"

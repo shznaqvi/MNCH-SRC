@@ -335,7 +335,7 @@ public class Section4Activity extends Activity {
 
 
             // AGE: DAYS 0 - 29
-            if ((Integer.parseInt(s4q41b.getText().toString()) < 0 || Integer.parseInt(s4q41b.getText().toString()) > 29)) {
+            if ((Integer.parseInt(s4q41b.getText().toString()) < 1 || Integer.parseInt(s4q41b.getText().toString()) > 29)) {
 
                 s4q41b.setError("Invalid:" + getString(R.string.baseline_s4q41b));
                 Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
@@ -346,7 +346,7 @@ public class Section4Activity extends Activity {
             }
 
             // AGE: MONTHS 0 - 11
-            if ((Integer.parseInt(s4q41b1.getText().toString()) < 0 || Integer.parseInt(s4q41b1.getText().toString()) > 11)) {
+            if ((Integer.parseInt(s4q41b1.getText().toString()) < 1 || Integer.parseInt(s4q41b1.getText().toString()) > 11)) {
 
                 s4q41b1.setError("Invalid:" + getString(R.string.baseline_s4q41b1));
                 Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q41b1), Toast.LENGTH_LONG).show();
