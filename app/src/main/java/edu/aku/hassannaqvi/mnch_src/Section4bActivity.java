@@ -485,7 +485,7 @@ public class Section4bActivity extends Activity {
         } else {
             s4q42d.setError(null);
 
-            if (Integer.parseInt(s4q42d.getText().toString()) < 0 || Integer.parseInt(s4q42d.getText().toString()) > 29) {
+            if (Integer.parseInt(s4q42d.getText().toString()) < 1 || Integer.parseInt(s4q42d.getText().toString()) > 29) {
                 s4q42d.setError("Invalid:" + getString(R.string.baseline_s4q42d));
                 Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q42d), Toast.LENGTH_LONG).show();
                 s4q42d.requestFocus();
