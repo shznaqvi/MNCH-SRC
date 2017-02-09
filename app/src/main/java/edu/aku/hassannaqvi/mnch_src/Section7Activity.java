@@ -752,21 +752,23 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
 
 //        7.14
 
-        if (!mn071401.isChecked() && !mn071402.isChecked() && !mn071403.isChecked() && !mn071404.isChecked()
-                && !mn071405.isChecked() && !mn071406.isChecked() && !mn071488.isChecked()) {
-            Toast.makeText(this, "" + getString(R.string.mn0714), Toast.LENGTH_SHORT).show();
-            mn071488.setError("This is inValid");
-            return false;
-        } else {
-            mn071488.setError(null);
-        }
+        if (!mn07121.isChecked()) {
+            if (!mn071401.isChecked() && !mn071402.isChecked() && !mn071403.isChecked() && !mn071404.isChecked()
+                    && !mn071405.isChecked() && !mn071406.isChecked() && !mn071488.isChecked()) {
+                Toast.makeText(this, "" + getString(R.string.mn0714), Toast.LENGTH_SHORT).show();
+                mn071488.setError("This is inValid");
+                return false;
+            } else {
+                mn071488.setError(null);
+            }
 
-        if(mn071488.isChecked() && mn071488x.getText().toString().isEmpty()){
-            Toast.makeText(this, "" + getString(R.string.mn0714), Toast.LENGTH_SHORT).show();
-            mn071488x.setError("This is inValid");
-            return false;
-        } else {
-            mn071488x.setError(null);
+            if (mn071488.isChecked() && mn071488x.getText().toString().isEmpty()) {
+                Toast.makeText(this, "" + getString(R.string.mn0714), Toast.LENGTH_SHORT).show();
+                mn071488x.setError("This is inValid");
+                return false;
+            } else {
+                mn071488x.setError(null);
+            }
         }
 
 //        7.15
