@@ -24,6 +24,7 @@
     <string name="btnGetHF1">Get Cluster / UC</string>
     <string name="btnGetVillages">Get Village List</string>
     <string name="btnGetUsers">Get Users List</string>
+    <string name="nextSection">اگلا سیکشن</string>
 
     <string name="btnDBAccess">Database Access</string>
     <string name="btnadd">Add Another Woman</string>
@@ -31,10 +32,14 @@
     <string name="sec2">Section 2</string>
     <string name="sec3">Section 3</string>
     <string name="sec4">Section 4</string>
-    <string name="sec4b">Section 4b</string>
+    <string name="sec4a">Section 4A </string>
+    <string name="sec4b">Section 4B </string>
     <string name="sec5">Section 5</string>
+    <string name="sec5b">Section 5B</string>
+    <string name="sec5c">Section 5C</string>
     <string name="sec6">Section 6</string>
     <string name="sec7">Section 7</string>
+    <string name="sec7Im">Section7 IM</string>
     <string name="sec8">Section 8</string>
 
     <string name="urlusers">URL</string>
@@ -60,8 +65,8 @@
     <string name="baseline_s1q103_2">عورت</string>
     <string name="baseline_s1q104">جواب ڏيندڙ جي عمر</string>
     <string name="baseline_s1q105">ڳوٺ جو نالو</string>
-    <string name="baseline_s1q106a">يونين ڪائونسل جو نالو</string>
-    <string name="baseline_s1q106b">يونين ڪائونسل جو ڪوڊ</string>
+    <string name="baseline_s1q106a">يونين ڪائونسل جو نالو ۽ ڪوڊ</string>
+    <string name="baseline_s1q106b">ڪوڊ</string>
     <string name="baseline_s1q107">خاندان جو نمبر(ليڊي هيلٿ ورڪر جي فهرست مان حاصل ڪريو)</string>
     <string name="baseline_s1q108">گهر جي ٻن بالغ ذميوار فردن جا فون نمبر</string>
     <string name="baseline_s1q108b">گهر جي ٻن بالغ ذميوار فردن جا فون نمبر</string>
@@ -106,22 +111,23 @@
     <string name="baseline_s2q206b">مرد</string>
     <string name="baseline_s2q206c">عورتون</string>
     <string name="baseline_s2q206d">نو مولود ٻار 28 - 0 ڏينهن تائين</string>
-    <string name="baseline_s2q206e"> ٻار1کان 5 - 1 سالن تائين</string>
+    <string name="baseline_s2q206e"> ٻار 1 مهيني کان 5 سالن تائين</string>
     <string name="baseline_s2q206f">ٻار 5 کان 14 سالن تائين جي عمر جا</string>
-    <string name="baseline_s2q206g">عورتون 15 کان 49 سالن تائين</string>
+    <string name="baseline_s2q206g">غير شادي شده عورتون 15 کان 49 سالن تائين</string>
     <string name="baseline_s2q206h">شادي شده عورتون 15کان 49 سالن تائين</string>
+    <string name="educationType">91 ـ مذهبي تعليم  / 92 ـ ڪڏهن به اسڪول نه ويو</string>
 
     <!-- Section 3 -->
 
     <string name="baseline_s3q301a">شادي شده عورت جونالو</string>
     <string name="baseline_s3q301b">عمر</string>
-    <string name="baseline_s3q301c">حاصل ڪيل تعليم سڪول/ڪاليج /يونيورسٽي جاا ڪاميابي سان مڪمل ڪيل سال مذهبي تعليم ڪڏھن به اسڪول ڪو نه ويو</string>
+    <string name="baseline_s3q301c">حاصل ڪيل تعليم سڪول/ڪاليج /يونيورسٽي جاا ڪاميابي سان مڪمل ڪيل سال</string>
     <string name="baseline_s3q301d">موجود حامله عورتون</string>
     <string name="baseline_s3q301d_1">ها</string>
     <string name="baseline_s3q301d_2">نه</string>
     <string name="baseline_s3q301e">اي حمل جو دورانيو</string>
 
-    <string name="baseline_s3q301f1">ڇا هي عورت پوئين 2 سالن دوران حمل سان ٿي آهي</string>
+    <string name="baseline_s3q301f1">ڇا هي عورت پوئين 1 سالن دوران حمل سان ٿي آهي</string>
     <string name="baseline_s3q301f1_1">ها</string>
     <string name="baseline_s3q301f1_2">نه</string>
 
@@ -131,12 +137,15 @@
     <string name="baseline_s3q301f_3">زندهه ٻار جي پيدائش</string>
     <string name="baseline_s3q301f_4">جاڙن ٻارن جي  پيدائش</string>
     <string name="baseline_s3q301g">جاڙن ٻارن جي پيدائش جي نوعيت</string>
-    <string name="baseline_s3q301g_1">ٻه مرده ٻارن جي پيدائش/هڪ مرده ٻارجي پيدائش</string>
-    <string name="baseline_s3q301g_2">هڪ زنده ٻار پيدائش</string>
+    <string name="baseline_s3q301g_1">ٻه مرده ٻارن جي پيدائش</string>
+    <string name="baseline_s3q301g_2">هڪ مرده ٻارجي پيدائش / هڪ زنده ٻار پيدائش</string>
     <string name="baseline_s3q301g_3">ٻه زندهه ٻارن جي پيدائش</string>
     <string name="baseline_s3q301h"> زندهه پيدائش جي ڇا صورتحال آھي</string>
     <string name="baseline_s3q301h_1">زندهه</string>
     <string name="baseline_s3q301h_2">مري</string>
+    <string name="baseline_s3q301h_3">ٻئي زنده آهن </string>
+    <string name="baseline_s3q301h_4">هڪ مري ويو ۽ هڪ زنده آهي </string>
+    <string name="baseline_s3q301h_5">ٻئي مري ويا آهن </string>
     <string name="baseline_s3q301i">ويم جي جڳھه</string>
     <string name="baseline_s3q301i_1">گهر</string>
     <string name="baseline_s3q301i_2">گورنمينٽ ڊسپينسري</string>
@@ -263,7 +272,7 @@
     <string name="mnno">نه</string>
     <string name="mn0515"> توهان پنهنجي حمل جو بنيادي چيڪپ ڇوڪرايو هيو؟ </string>
     <string name="mn051501"> نئين ڄمڻ واري ٻار جي افزائش ڄاڻڻ لاءِ </string>
-    <string name="mn051502"> طريقي سان ٿي سگھي ٿو ويم ڪھڙيِ </string>
+    <string name="mn051502">ويم ڪهڙي طريقي سان ٿي سگهي ٿوِ </string>
     <string name="mn051503"> ويم جي تاريخ ڄاڻڻ لاءِ </string>
     <string name="mn051504"> ٽي ٽيِ ويڪسين لڳرائڻ جي لاءِ </string>
     <string name="mn051505"> بلڊ پريشر جي معائني لاء </string>
@@ -299,9 +308,9 @@
     <string name="mn0517ovit"> Other vitamins </string>
 
     <string name="mn0518"> حمل جي بنيادي چيڪپ دوران ڇا توهان کي هيٺ ڏنل صلاحِ ڏني وئي هئي؟ </string>
-    <string name="mn051801"> ۽ ويم جي خطرناڪ علامتن باري ۾ حمل </string>
+    <string name="mn051801"> حمل ۽ ويم جي خطرناڪ علامتن باري ۾ </string>
     <string name="mn051802"> کاڌ يا خوراڪ جي باري ۾ </string>
-    <string name="mn051803"> فوليٽ سپليمينٽ آئرن </string>
+    <string name="mn051803"> آئرن فوليٽ سپليمينٽ </string>
     <string name="mn051804"> خانداني منصوبابندي جي باري ۾ </string>
     <string name="mn051805"> ڄمڻ واري ٻار جو انتظام ڪرڻ </string>
     <string name="mn051806"> ٻار کي صرف ۽ صرف پنهنجو کير </string>
@@ -321,7 +330,7 @@
     <string name="mn052201"> هڪ ڀيرو </string>
     <string name="mn052202"> ٻه ڀيرا </string>
     <string name="mn052203"> ٽي ڀيرا </string>
-    <string name="mn052204"> وڌيڪ کان ٽن ڀيرن </string>
+    <string name="mn052204"> ٽن ڀيرن کان وڌيڪ </string>
     <string name="mn0523"> ڇا توهان کي پنهنجي آخري حمل دوران ڪاپيچيدگي ٿي هئي؟ </string>
     <string name="mn0524"> جيڪڏهن ها ته اوهان صحت مرڪز تي وقت تي پهچندا آهيو؟ ها، نه </string>
     <string name="mn0525"> جيڪڏهن نه ته اوهان صحت مرڪز تي ڇو نه پهتا هو؟ </string>
@@ -387,9 +396,9 @@
     <string name="mn053008"> ايل ايڇ ڊبليو جي گهر ۾ </string>
     <string name="mn0531"> جڏهن اوهان کي هڪ اسپتال (THQ، DHQ، پرائيويٽ ڪلينڪ، اسپتال) تي پهچائي ويو ته ڇا ا وهان کي پنهنجي ويجھي BHU ۽ LHV جي طرف ريفر ڪيو ويو؟ </string>
     <string name="mn0532"> جيڪڏهن گهر ۾ ويم ٿيوهيو،ته ان جوڪارڻ ڇا هيو </string>
-    <string name="mn053201"> ضروري نه سمجهيو </string>
+    <string name="mn053201"> سار سنڀال ضروري نه سمجهي </string>
     <string name="mn053202"> پيئسه ڪو نه هئا </string>
-    <string name="mn053203"> سواريجي سهولتڪو نه هئي </string>
+    <string name="mn053203"> سواري جي سهولت ڪو نه هئي </string>
     <string name="mn053204"> ڪوئي ساڻ وٺي هلڻ وارو نه هيو </string>
     <string name="mn053205"> صحت مرڪز پري هيو </string>
     <string name="mn053206"> وڏن جي اجازت نه هئي </string>
@@ -631,9 +640,6 @@
     <string name="mnbirth"> At Birth </string>
     <string name="mnbcg"> BCG </string>
     <string name="mnbcgsrc"> Source </string>
-    <string name="mnbcgsrc01"> کارڈ </string>
-    <string name="mnbcgsrc02"> جوابدہندہ </string>
-    <string name="mnbcgsrc03"> یاد نہیں </string>
     <string name="mnbcgscar"> Presence of Scar </string>
     <string name="mnopv0"> OPV 0 </string>
     <string name="mnopv0src"> Source </string>
@@ -846,13 +852,19 @@
 
     <string name="countMDeath"> مري ويل مائن جو تعداد </string>
     <string name="maternalDeath"> ڇا هن گهر ۾ حمل يا ويم کان 40 ڏينهن تائين ڪا ماء مري وئي هئي؟ </string>
+    <string name="maternalLabel"> 1 سال جي دوران حمل يا ويم کان 40 ڏينهن تائين مري ويل مائون </string>
+    <string name="childLabel"> گذريل 5 سالن جي دوران 5 سالن جي عمر تائين مري ويل ٻار </string>
+
     <string name="skip"> Skip Section </string>
     <string name="Continue"> Continue </string>
     <!-- Section 6 -->
 
     <string name="countCMortality"> مري ويل ٻارن جو تعداد </string>
     <string name="childMortality"> ڇا هن گهر ۾ پوئين 5 سالن دوران ڪو ٻار مري ويو هو؟ </string>
-
+    <string name="section5Label"> صرف حامله عورتن لاء (گذشته هڪ سال دوران) </string>
+    <string name="section5bLabel"> آخري ويم </string>
+    <string name="section5cLabel"> ويم کان پوء 7 ڏينهن تائين سار سنڀال </string>
+    <string name="section6Label"> خانداني منصوبه بندي </string>
     <string name="death"> مري ويل </string>
 
 

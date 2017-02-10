@@ -52,7 +52,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mn07im01"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName">
+
+                <requestFocus />
+            </EditText>
 
 
             <TextView
@@ -67,8 +70,9 @@
                 android:id="@+id/mn07im02"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="0123456789"
                 android:hint="@string/mn07im02"
-                android:inputType="textPersonName" />
+                android:inputType="number" />
 
 
             <TextView
@@ -146,19 +150,19 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/mncard"
+                    android:id="@+id/mnbcgsrc01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mncard" />
 
                 <RadioButton
-                    android:id="@+id/mnrbm"
+                    android:id="@+id/mnbcgsrc02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnrbm" />
 
-                 <RadioButton
-                    android:id="@+id/mnnr"
+                <RadioButton
+                    android:id="@+id/mnbcgsrc03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnnr" />
@@ -174,18 +178,18 @@
 
 
             <RadioGroup
-                android:id="@+id/bcgscar"
+                android:id="@+id/mnbcgscar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/bcgscar01"
+                    android:id="@+id/mnbcgscar01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnyes" />
 
                 <RadioButton
-                    android:id="@+id/bcgscar02"
+                    android:id="@+id/mnbcgscar02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnno" />
@@ -243,11 +247,12 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mnrbm" />
 
-                  <RadioButton
+                <RadioButton
                     android:id="@+id/mnopv0src03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnnr" />
+
 
             </RadioGroup>
 
@@ -309,7 +314,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mnrbm" />
 
- <RadioButton
+                <RadioButton
                     android:id="@+id/mnp1src03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -318,7 +323,7 @@
 
             </RadioGroup>
 
- <TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mnopv1"
@@ -368,19 +373,17 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mnrbm" />
 
-                  <RadioButton
+                <RadioButton
                     android:id="@+id/mnopv1src03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnnr" />
 
 
-
-
             </RadioGroup>
 
 
- <TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mnpcv1"
@@ -430,12 +433,11 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mnrbm" />
 
-                 <RadioButton
+                <RadioButton
                     android:id="@+id/mnpcv1src03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnnr" />
-
 
 
             </RadioGroup>
@@ -444,8 +446,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mn10w"
                 android:layout_marginTop="16dp"
+                android:text="@string/mn10w"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
@@ -499,19 +501,17 @@
                     android:text="@string/mnrbm" />
 
 
-                   <RadioButton
+                <RadioButton
                     android:id="@+id/mnp2src03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/mnnr" />
 
 
-
-
             </RadioGroup>
 
 
-                  <TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mnopv2"
@@ -559,7 +559,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mnrbm" />
 
-                 <RadioButton
+                <RadioButton
                     android:id="@+id/mnopv2src03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -569,8 +569,7 @@
             </RadioGroup>
 
 
-
-     <TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mnpcv2"
@@ -619,7 +618,7 @@
                     android:text="@string/mnrbm" />
 
 
- <RadioButton
+                <RadioButton
                     android:id="@+id/mnpcv2src03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -632,8 +631,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mn14w"
                 android:layout_marginTop="16dp"
+                android:text="@string/mn14w"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
@@ -685,7 +684,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mnrbm" />
 
-                 <RadioButton
+                <RadioButton
                     android:id="@+id/mnp3src03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -695,7 +694,7 @@
             </RadioGroup>
 
 
-              <TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mnopv3"
@@ -744,7 +743,7 @@
                     android:text="@string/mnrbm" />
 
 
- <RadioButton
+                <RadioButton
                     android:id="@+id/mnopv3src03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -754,7 +753,7 @@
             </RadioGroup>
 
 
-              <TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mnipv"
@@ -802,7 +801,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mnrbm" />
 
-                  <RadioButton
+                <RadioButton
                     android:id="@+id/mnipvsrc03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -812,7 +811,7 @@
             </RadioGroup>
 
 
-     <TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mnpcv3"
@@ -860,7 +859,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mnrbm" />
 
-                 <RadioButton
+                <RadioButton
                     android:id="@+id/mnpcv3src03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -873,11 +872,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mn09m"
                 android:layout_marginTop="16dp"
+                android:text="@string/mn09m"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
- <TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mnm1"
@@ -925,7 +924,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mnrbm" />
 
-                 <RadioButton
+                <RadioButton
                     android:id="@+id/mnm1src03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -935,14 +934,14 @@
             </RadioGroup>
 
 
-    <TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mn15m"
                 android:layout_marginTop="16dp"
+                android:text="@string/mn15m"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
- <TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mnm2"
@@ -1002,47 +1001,65 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mnis"
                 android:layout_marginTop="16dp"
+                android:text="@string/mnis"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-         <RadioGroup
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:id="@+id/mnis"
-             >
+            <RadioGroup
+                android:id="@+id/mnis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-           <RadioButton
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:id="@+id/mnfi"
-               android:text="@string/mnfi"
-               />
+                <RadioButton
+                    android:id="@+id/mnfi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnfi" />
 
-   <RadioButton
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:id="@+id/mnpi"
-               android:text="@string/mnpi"
-               />
+                <RadioButton
+                    android:id="@+id/mnpi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnpi" />
 
-    <RadioButton
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:id="@+id/mnui"
-               android:text="@string/mnui"
-               />
+                <RadioButton
+                    android:id="@+id/mnui"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mnui" />
 
-         </RadioGroup>
+            </RadioGroup>
 
 
-            <Button
-                android:id="@+id/btnnext"
-                style="@style/btn"
-                android:layout_marginTop="20dp"
-                android:onClick="gotoSection8"
-                android:text="@string/sec8" />
-             
+            <!--  = = = = =  END OF FORM FIELDS - Section 7 im = = = = = -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_End"
+                    style="@style/buttons"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:onClick="endInterview"
+                    android:text="@string/end_interview"
+                    android:textColor="#ff1e1e" />
+
+                <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+
+                <Button
+                    android:id="@+id/btn_Continue"
+                    style="@style/buttons"
+                    android:onClick="startInterview"
+                    android:text="@string/nextSection"
+                    android:textColor="#1ed61e" />
+                <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
+
+            </LinearLayout>
+
 
         </LinearLayout>
     </ScrollView>
