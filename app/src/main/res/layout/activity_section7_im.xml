@@ -71,9 +71,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:digits="0123456789"
-                android:maxLength="2"
                 android:hint="@string/mn07im02"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLength="2" />
 
 
             <TextView

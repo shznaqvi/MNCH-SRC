@@ -199,8 +199,18 @@ public class Section6Activity extends Activity {
                     mn060488x.setVisibility(View.GONE);
                     mn060488x.setText(null);
                 }
+
+                if (mn060405.isChecked()) {
+                    fldGrpmn0604.setVisibility(View.GONE);
+                    mn0604.clearCheck();
+                    mn060488x.setText(null);
+                } else {
+                    fldGrpmn0604.setVisibility(View.VISIBLE);
+                }
             }
         });
+
+
     }
 
     @OnClick(R.id.btn_End)
