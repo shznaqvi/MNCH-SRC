@@ -35,6 +35,13 @@ public class DistrictsContract {
         return this;
     }
 
+    public DistrictsContract setDefaultVal(String code,String name) {
+        this.districtCode = code;
+        this.districtName = name;
+
+        return this;
+    }
+
     public String getDistrictCode() {
         return districtCode;
     }

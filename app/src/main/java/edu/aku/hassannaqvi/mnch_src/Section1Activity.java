@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.Editable;
@@ -15,6 +16,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -53,6 +56,9 @@ public class Section1Activity extends Activity implements TextWatcher {
     RadioButton rDOS1q1121;
     @BindView(R.id.RDO_s1q112_2)
     RadioButton rDOS1q1122;
+
+    @BindView(R.id.btn_Continue)
+    Button btn_Continue;
     private TextView appheader;
     private ScrollView activitySection1;
     private TextView lblFormid;
@@ -83,11 +89,11 @@ public class Section1Activity extends Activity implements TextWatcher {
     private EditText s1q104;
     private Spinner s1q105;
     private Spinner s1q106a;
-    private EditText s1q106b;
+//    private EditText s1q106b;
     //private EditText s1q107;
     private EditText s1q108;
     private EditText s1q108b;
-    private DatePicker s1q110;
+//    private DatePicker s1q110;
     private EditText s1q111oth;
     private LinearLayout vu_s1q112;
     private int rdo_s1q103;
@@ -109,9 +115,10 @@ public class Section1Activity extends Activity implements TextWatcher {
         appheader = (TextView) findViewById(R.id.app_header);
         appheader.setText("SRC - > Section1");
 
-        s1q110 = (DatePicker) findViewById(R.id.s1q110);
+//        s1q110 = (DatePicker) findViewById(R.id.s1q110);
         //s1q110.updateDate(s1q110.getDayOfMonth(), s1q110.getMonth(), s1q110.getYear());
-        s1q110.setMaxDate(new Date().getTime());
+
+//        s1q110.setMaxDate(new Date().getTime());
 
         lblFormid = (TextView) findViewById(R.id.lbl_formid);
         lblS1q101 = (TextView) findViewById(R.id.lbl_s1q101);
@@ -126,7 +133,7 @@ public class Section1Activity extends Activity implements TextWatcher {
         //lblS1q106b = (TextView) findViewById(R.id.lbl_s1q106b);
         //lblS1q107 = (TextView) findViewById(R.id.lbl_s1q107);
         lblS1q108 = (TextView) findViewById(R.id.lbl_s1q108);
-        lblS1q110 = (TextView) findViewById(R.id.lbl_s1q110);
+//        lblS1q110 = (TextView) findViewById(R.id.lbl_s1q110);
         //lblS1q111 = (TextView) findViewById(R.id.lbl_s1q111);
         //radioS1q111 = (RadioGroup) findViewById(R.id.radio_s1q111);
         //rDOS1q1111 = (RadioButton) findViewById(R.id.RDO_s1q111_1);
@@ -136,9 +143,9 @@ public class Section1Activity extends Activity implements TextWatcher {
         //lblS1q111oth = (TextView) findViewById(R.id.lbl_s1q111oth);
         //s1q111oth = (EditText) findViewById(R.id.s1q111oth);
         lblS1q112 = (TextView) findViewById(R.id.lbl_s1q112);
-        radioS1q112 = (RadioGroup) findViewById(R.id.radio_s1q112);
-        rDOS1q1121 = (RadioButton) findViewById(R.id.RDO_s1q112_1);
-        rDOS1q1122 = (RadioButton) findViewById(R.id.RDO_s1q112_2);
+//        radioS1q112 = (RadioGroup) findViewById(R.id.radio_s1q112);
+//        rDOS1q1121 = (RadioButton) findViewById(R.id.RDO_s1q112_1);
+//        rDOS1q1122 = (RadioButton) findViewById(R.id.RDO_s1q112_2);
 
         formid = (EditText) findViewById(R.id.formid);
         s1q101 = (Spinner) findViewById(R.id.s1q101);
@@ -149,18 +156,18 @@ public class Section1Activity extends Activity implements TextWatcher {
         s1q104 = (EditText) findViewById(R.id.s1q104);
         s1q105 = (Spinner) findViewById(R.id.s1q105);
         s1q106a = (Spinner) findViewById(R.id.s1q106a);
-        s1q106b = (EditText) findViewById(R.id.s1q106b);
+//        s1q106b = (EditText) findViewById(R.id.s1q106b);
         //s1q107 = (EditText) findViewById(R.id.s1q107);
         s1q108 = (EditText) findViewById(R.id.s1q108);
         s1q108b = (EditText) findViewById(R.id.s1q108b);
 
-        s1q110 = (DatePicker) findViewById(R.id.s1q110);
+//        s1q110 = (DatePicker) findViewById(R.id.s1q110);
         //s1q111oth = (EditText) findViewById(R.id.s1q111oth);
 
         //vu_s1q112 = (LinearLayout) findViewById(R.id.vu_s1q112);
 
 //      Focus on UC Code
-        s1q106b.requestFocus();
+//        s1q106b.requestFocus();
 
         ArrayList<String> lst_hhcode = GetHHCode();
 
@@ -324,8 +331,10 @@ public class Section1Activity extends Activity implements TextWatcher {
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Intent intent = new Intent(Section1Activity.this, MainActivity.class);
-                        startActivity(intent);
+//                        Intent intent = new Intent(Section1Activity.this, MainActivity.class);
+//                        startActivity(intent);
+
+                        finish();
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -358,16 +367,16 @@ public class Section1Activity extends Activity implements TextWatcher {
 //        s1q101.setBackgroundColor(getResources().getColor(R.color.dullWhile));
 
 
-//        rDOS1q1122.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked) {
-//                    btnNext.setText(R.string.end_interview);
-//                } else {
-//                    btnNext.setText("Section 2");
-//                }
-//            }
-//        });
+        rDOS1q1122.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    btn_Continue.setEnabled(false);
+                }else {
+                    btn_Continue.setEnabled(true);
+                }
+            }
+        });
 
 //        radioS1q112.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 //            @Override
@@ -396,9 +405,9 @@ public class Section1Activity extends Activity implements TextWatcher {
         return (EditText) findViewById(R.id.s1q104);
     }
 
-    private EditText getS1q106b() {
-        return (EditText) findViewById(R.id.s1q106b);
-    }
+//    private EditText getS1q106b() {
+//        return (EditText) findViewById(R.id.s1q106b);
+//    }
 
     //private EditText getS1q107() {
     //return (EditText) findViewById(R.id.s1q107);
@@ -408,9 +417,9 @@ public class Section1Activity extends Activity implements TextWatcher {
         return (EditText) findViewById(R.id.s1q108);
     }
 
-    private DatePicker getS1q110() {
-        return (DatePicker) findViewById(R.id.s1q110);
-    }
+//    private DatePicker getS1q110() {
+//        return (DatePicker) findViewById(R.id.s1q110);
+//    }
 
     /*private EditText getS1q111oth() {
         return (EditText) findViewById(R.id.s1q111oth);
@@ -418,7 +427,7 @@ public class Section1Activity extends Activity implements TextWatcher {
 
     public void startInterview(View view) {
 
-        spDateT = new SimpleDateFormat("dd-MM-yyyy").format(s1q110.getCalendarView().getDate());
+//        spDateT = new SimpleDateFormat("dd-MM-yyyy").format(s1q110.getCalendarView().getDate());
 
         //spTimeT = mc101time.getCurrentHour() + ":" + mc101time.getCurrentMinute();
 
@@ -493,17 +502,19 @@ public class Section1Activity extends Activity implements TextWatcher {
 
         SRCDBHelper db = new SRCDBHelper(this);
         String uccode = db.getDistrictCode(s1q105.getSelectedItem().toString());
-        String vcode = db.getVCode(s1q105.getSelectedItem().toString(), s1q106a.getSelectedItem().toString());
+//        String vcode = db.getVCode(s1q105.getSelectedItem().toString(), s1q106a.getSelectedItem().toString());
+
+        //Village name
+        SRCApp.fc.setROW_S1Q105(s1q106a.getSelectedItem().toString());
 
 
-        SRCApp.fc.setROW_S1Q105(uccode);
-        SRCApp.fc.setROW_S1Q106a(vcode);
+        SRCApp.fc.setROW_S1Q106a(uccode);
 
-        SRCApp.fc.setROW_S1Q106b(s1q106b.getText().toString());
+        SRCApp.fc.setROW_S1Q106b(null);
+
         //SRCApp.fc.setROW_S1Q107(s1q107.getText().toString());
         SRCApp.fc.setROW_S1Q108(s1q108.getText().toString());
         SRCApp.fc.setROW_S1Q108b(s1q108b.getText().toString());
-        SRCApp.fc.setROW_S1Q110(spDateT);
 
         /*switch (radioS1q111.getCheckedRadioButtonId()) {
             case R.id.RDO_s1q111_1:
@@ -539,6 +550,8 @@ public class Section1Activity extends Activity implements TextWatcher {
         String dt1 = sdf.format(dt);
 
         SRCApp.fc.setROW_ENTRYDATE(dt1);
+
+        SRCApp.fc.setROW_S1Q110(dt1);
 
         SRCApp.fc.setROW_USERID(var.GetUser());
 
@@ -583,7 +596,19 @@ public class Section1Activity extends Activity implements TextWatcher {
 
 
     private boolean ValidateForm() {
-        //Toast.makeText(getApplicationContext(), "Validating Form", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Validating Form", Toast.LENGTH_SHORT).show();
+
+        TextView errorText = (TextView) s1q105.getSelectedView();
+        if (s1q105.getSelectedItemPosition() == 0) {
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an Answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an Answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 501 empty");
+            return false;
+        } else {
+            errorText.setError(null);
+        }
 
         if (getFormid().getText().toString().isEmpty()) {
             formid.setError(getString(R.string.txterr));
@@ -643,23 +668,23 @@ public class Section1Activity extends Activity implements TextWatcher {
         }
 
 
-        if (getS1q106b().getText().toString().isEmpty()) {
-            s1q106b.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "Please enter uc code \r\n", Toast.LENGTH_LONG).show();
-            s1q106b.requestFocus();
-            return false;
-        } else {
-            s1q106b.setError(null);
-        }
-
-        if (Integer.parseInt(s1q106b.getText().toString()) < 1 || Integer.parseInt(s1q106b.getText().toString()) > 10) {
-            s1q106b.setError("Invalid UC Code Range 1-10");
-            Toast.makeText(getApplicationContext(), "Invalid UC Code Range 1-10 \r\n", Toast.LENGTH_LONG).show();
-            s1q106b.requestFocus();
-            return false;
-        } else {
-            s1q106b.setError(null);
-        }
+//        if (getS1q106b().getText().toString().isEmpty()) {
+//            s1q106b.setError(getString(R.string.txterr));
+//            Toast.makeText(getApplicationContext(), "Please enter uc code \r\n", Toast.LENGTH_LONG).show();
+//            s1q106b.requestFocus();
+//            return false;
+//        } else {
+//            s1q106b.setError(null);
+//        }
+//
+//        if (Integer.parseInt(s1q106b.getText().toString()) < 1 || Integer.parseInt(s1q106b.getText().toString()) > 10) {
+//            s1q106b.setError("Invalid UC Code Range 1-10");
+//            Toast.makeText(getApplicationContext(), "Invalid UC Code Range 1-10 \r\n", Toast.LENGTH_LONG).show();
+//            s1q106b.requestFocus();
+//            return false;
+//        } else {
+//            s1q106b.setError(null);
+//        }
 
         /*if (getS1q107().getText().toString().isEmpty() || s1q107.getText().toString() == null) {
             s1q107.setError(getString(R.string.txterr));
@@ -720,17 +745,17 @@ public class Section1Activity extends Activity implements TextWatcher {
         }
 
 
-        spDateT = new SimpleDateFormat("dd-MM-yyyy").format(s1q110.getCalendarView().getDate());
+//        spDateT = new SimpleDateFormat("dd-MM-yyyy").format(s1q110.getCalendarView().getDate());
+//
+//        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+//        Date dt = new Date();
+//        String dt1 = sdf.format(dt);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        Date dt = new Date();
-        String dt1 = sdf.format(dt);
 
-
-        if (!spDateT.equals(dt1)) {
-            Toast.makeText(getApplicationContext(), "Date of visit and current date must be same", Toast.LENGTH_LONG).show();
-            return false;
-        }
+//        if (!spDateT.equals(dt1)) {
+//            Toast.makeText(getApplicationContext(), "Date of visit and current date must be same", Toast.LENGTH_LONG).show();
+//            return false;
+//        }
 
 
         return true;

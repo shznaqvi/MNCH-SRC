@@ -42,10 +42,10 @@
                     android:id="@+id/s1q105"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:ems="10" />
 
-                <EditText
+<!--                <EditText
                     android:id="@+id/s1q106b"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -53,7 +53,8 @@
                     android:ems="10"
                     android:hint="@string/baseline_s1q106b"
                     android:inputType="number"
-                    android:maxLength="2" />
+                    android:visibility="gone"
+                    android:maxLength="2" />-->
 
             </LinearLayout>
 
@@ -239,22 +240,22 @@
                 android:inputType="phone"
                 android:maxLength="11" />
 
-            <TextView
-                android:id="@+id/lbl_s1q110"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/baseline_s1q110"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+            <!--<TextView-->
+                <!--android:id="@+id/lbl_s1q110"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/baseline_s1q110"-->
+                <!--android:textAppearance="?android:attr/textAppearanceLarge" />-->
 
-            <DatePicker
-                android:id="@+id/s1q110"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:calendarViewShown="false"
-                android:datePickerMode="spinner"
-                android:ems="10"
-                android:spinnersShown="true" />
+            <!--<DatePicker-->
+                <!--android:id="@+id/s1q110"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:calendarViewShown="false"-->
+                <!--android:datePickerMode="spinner"-->
+                <!--android:ems="10"-->
+                <!--android:spinnersShown="true" />-->
 
             <!--<TextView
                 android:id="@+id/lbl_s1q111"

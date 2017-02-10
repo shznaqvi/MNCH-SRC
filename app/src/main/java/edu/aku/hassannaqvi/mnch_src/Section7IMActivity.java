@@ -261,7 +261,7 @@ public class Section7IMActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section7_im);
         ButterKnife.bind(this);
-        appHeader.setText(getString(R.string.sec7IM) + " " + SRCApp.chCount + " of " + SRCApp.chTotal);
+        appHeader.setText(getString(R.string.sec7IM) + " (" + SRCApp.chCount + " of " + SRCApp.chTotal+")");
 
 //        counterIM = Integer.parseInt(getIntent().getExtras().getString("IMChild"));
 

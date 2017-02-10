@@ -254,10 +254,15 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                     having,                    // don't filter by row groups
                     orderBy                    // The sort order
             );
+
+            DistrictsContract dc1 = new DistrictsContract();
+            allDC.add(dc1.setDefaultVal("","..."));
+
             while (c.moveToNext()) {
                 DistrictsContract dc = new DistrictsContract();
                 allDC.add(dc.hydrate(c));
             }
+
         } finally {
             if (c != null) {
                 c.close();
