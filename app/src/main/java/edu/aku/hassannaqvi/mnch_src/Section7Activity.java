@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.mnch_src;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -119,11 +120,11 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
     RadioButton mn071101;
     @BindView(R.id.mn071102)
     RadioButton mn071102;
-//    @BindView(R.id.mn071102x)
+    //    @BindView(R.id.mn071102x)
 //    EditText mn071102x;
     @BindView(R.id.mn071103)
     RadioButton mn071103;
-//    @BindView(R.id.mn071103x)
+    //    @BindView(R.id.mn071103x)
 //    EditText mn071103x;
     @BindView(R.id.mn0712)
     RadioGroup mn0712;
@@ -236,7 +237,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
     @BindView(R.id.mn071907)
     RadioButton mn0701907;
     @BindView(R.id.mn071988)
-    RadioButton mn0701988;
+    RadioButton mn071988;
     @BindView(R.id.mn071988x)
     EditText mn071988x;
     @BindView(R.id.mn072001)
@@ -294,7 +295,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
 
         appHeader.setText("SRC - > Section 7");
         mn0701.setMaxDate(new Date().getTime());
-        mn0701.setMinDate((new Date().getTime() - ((SRCApp.MILLISECONDS_IN_YEAR)+ SRCApp.MILLISECONDS_IN_DAY)));
+        mn0701.setMinDate((new Date().getTime() - ((SRCApp.MILLISECONDS_IN_YEAR) + SRCApp.MILLISECONDS_IN_DAY)));
 
         dob = new SimpleDateFormat("dd-MM-yyyy").format(mn0701.getCalendarView().getDate());
 
@@ -398,6 +399,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         mn0712.setOnCheckedChangeListener(this);
         mn0715.setOnCheckedChangeListener(this);
         mn0718.setOnCheckedChangeListener(this);
+        mn0719.setOnCheckedChangeListener(this);
         mn0721.setOnCheckedChangeListener(this);
 
 //        Checked Cases
@@ -407,6 +409,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         mn071688.setOnCheckedChangeListener(this);
         mn071788.setOnCheckedChangeListener(this);
         mn070299.setOnCheckedChangeListener(this);
+
 
 
     }
@@ -543,7 +546,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         s7.put("mn0718", mn071801.isChecked() ? "1" : mn071802.isChecked() ? "2" : mn071803.isChecked() ? "3" : "0");
         s7.put("mn0719", mn0701901.isChecked() ? "1" : mn0701902.isChecked() ? "2" : mn0701903.isChecked() ? "3"
                 : mn0701904.isChecked() ? "4" : mn0701905.isChecked() ? "5" : mn0701906.isChecked() ? "6"
-                : mn0701907.isChecked() ? "7" : mn0701988.isChecked() ? "88" : "0");
+                : mn0701907.isChecked() ? "7" : mn071988.isChecked() ? "88" : "0");
         s7.put("mn071988x", mn071988x.getText().toString());
         s7.put("mn072001", mn072001.isChecked() ? "1" : "0");
         s7.put("mn072002", mn072002.isChecked() ? "2" : "0");
@@ -565,50 +568,38 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
 
 //        7.02
 
-        try{
-            if(Integer.parseInt(mn070202.getText().toString())< 6000){
-                Toast.makeText(this, "" + "Weight can not be less than 6000 gm.. check again" , Toast.LENGTH_SHORT).show();
-                mn070202.setError("Weight can not be less than 6000 gm");
-            }else{
-                mn070202.setError(null);
-            }
-        }catch (NumberFormatException nfe){
-
+        if (mn070202.getText().toString().isEmpty()) {
+            Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
+            mn070202.setError("This data is Required");
+        } else {
+            mn070202.setError(null);
         }
 
-        try {
+        if (!mn070202.getText().toString().isEmpty()) {
+            if (Integer.parseInt(mn070202.getText().toString()) < 6000) {
+                Toast.makeText(this, "" + "Weight can not be less than 6000 gm.. check again", Toast.LENGTH_SHORT).show();
+                mn070202.setError("Weight can not be less than 6000 gm");
+            } else {
+                mn070202.setError(null);
+            }
+        }
+
+        if (mn070201.getText().toString().isEmpty()) {
+            Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
+            mn070201.setError("This data is Required");
+        } else {
+            mn070201.setError(null);
+        }
+
+        if (!mn070201.getText().toString().isEmpty()) {
+
             if (Integer.parseInt(mn070201.getText().toString()) < 0 || Integer.parseInt(mn070201.getText().toString()) > 9) {
                 Toast.makeText(this, "" + "Weight can not be less than 0 - 9 kg.. check again", Toast.LENGTH_SHORT).show();
                 mn070201.setError("Weight can not be less than 0 - 9 kg");
             } else {
                 mn070201.setError(null);
             }
-        } catch (NumberFormatException nfe) {
-
         }
-
-        try {
-            if ((Integer.parseInt(mn071102x.getText().toString()) < 0) || (Integer.parseInt(mn071102x.getText().toString()) > 23)) {
-                Toast.makeText(this, "" + "Range is 0 - 23 hours", Toast.LENGTH_SHORT).show();
-                mn071102x.setError("Range is 0 - 23 hours");
-            } else {
-                mn071102x.setError(null);
-            }
-        } catch (NumberFormatException nfe) {
-
-        }
-
-        try {
-            if ((Integer.parseInt(mn071103x.getText().toString()) < 0) || (Integer.parseInt(mn071103x.getText().toString()) > 180)) {
-                Toast.makeText(this, "" + "Range is 0 - 180 days", Toast.LENGTH_SHORT).show();
-                mn071103x.setError("Range is 0 - 180 days");
-            } else {
-                mn071103x.setError(null);
-            }
-        } catch (NumberFormatException nfe) {
-
-        }
-
 
         if (!(mn070299.isChecked())) {
             if (mn070201.getText().toString().isEmpty() && mn070202.getText().toString().isEmpty()) {
@@ -709,7 +700,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 mn071088.setError(null);
             }
 
-            if(mn071088.isChecked() && mn071088x.getText().toString().isEmpty()){
+            if (mn071088.isChecked() && mn071088x.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mn0710), Toast.LENGTH_SHORT).show();
                 mn071088x.setError("This is inValid");
                 return false;
@@ -721,11 +712,43 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
 //        7.11
 
         if (mn0711.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(this, "" + getString(R.string.mn0711), Toast.LENGTH_SHORT).show();
-            mn071101.setError("This is inValid");
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0711), Toast.LENGTH_LONG).show();
+            mn071103.setError("This data is Required!");    // Set Error on last radio button
             return false;
         } else {
-            mn071101.setError(null);
+            mn071103.setError(null);
+        }
+
+        if (mn071102.isChecked()) {
+            if (mn071102x.getText().toString().isEmpty()) {
+                Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
+                mn071102x.setError("This data is Required");
+            } else {
+                mn071102x.setError(null);
+            }
+
+            if ((Integer.parseInt(mn071102x.getText().toString()) < 0) || (Integer.parseInt(mn071102x.getText().toString()) > 23)) {
+                Toast.makeText(this, "" + "Range is 0 - 23 hours", Toast.LENGTH_SHORT).show();
+                mn071102x.setError("Range is 0 - 23 hours");
+            } else {
+                mn071102x.setError(null);
+            }
+        }
+
+        if (mn071103.isChecked()) {
+            if (mn071103x.getText().toString().isEmpty()) {
+                Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
+                mn071103x.setError("This data is Required");
+            } else {
+                mn071103x.setError(null);
+            }
+
+            if ((Integer.parseInt(mn071103x.getText().toString()) < 0) || (Integer.parseInt(mn071103x.getText().toString()) > 180)) {
+                Toast.makeText(this, "" + "Range is 0 - 180 days", Toast.LENGTH_SHORT).show();
+                mn071103x.setError("Range is 0 - 180 days");
+            } else {
+                mn071103x.setError(null);
+            }
         }
 
 //        7.12
@@ -743,10 +766,41 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         if (mn07121.isChecked()) {
             if (mn0713.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "" + getString(R.string.mn0713), Toast.LENGTH_SHORT).show();
-                mn071301.setError("This is inValid");
+                mn071302.setError("This is inValid");
                 return false;
             } else {
-                mn071301.setError(null);
+                mn071302.setError(null);
+            }
+
+            if (mn071301.isChecked()){
+                if (mn071301x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
+                    mn071301x.setError("This data is Required");
+                } else {
+                    mn071301x.setError(null);
+                }
+
+                if (Integer.parseInt(mn071301x.getText().toString()) < 1) {
+                    Toast.makeText(this, "This is inValid", Toast.LENGTH_SHORT).show();
+                    mn071301x.setError("This is inValid");
+                } else {
+                    mn071301x.setError(null);
+                }
+            }
+            if (mn071302.isChecked()){
+                if (mn071302x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
+                    mn071302x.setError("This data is Required");
+                } else {
+                    mn071302x.setError(null);
+                }
+
+                if (Integer.parseInt(mn071302x.getText().toString()) < 1) {
+                    Toast.makeText(this, "This is inValid", Toast.LENGTH_SHORT).show();
+                    mn071302x.setError("This is inValid");
+                } else {
+                    mn071302x.setError(null);
+                }
             }
         }
 
@@ -794,7 +848,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 mn071688.setError(null);
             }
 
-            if(mn071688.isChecked() && mn071688x.getText().toString().isEmpty()){
+            if (mn071688.isChecked() && mn071688x.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mn0716), Toast.LENGTH_SHORT).show();
                 mn071688x.setError("This is inValid");
                 return false;
@@ -815,7 +869,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 mn071788.setError(null);
             }
 
-            if(mn071788.isChecked() && mn071788x.getText().toString().isEmpty()){
+            if (mn071788.isChecked() && mn071788x.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mn0717), Toast.LENGTH_SHORT).show();
                 mn071788x.setError("This is inValid");
                 return false;
@@ -849,50 +903,52 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     mn0701901.setError(null);
                 }
 
-                if (mn0701988.isChecked() && mn071988x.getText().toString().isEmpty()) {
+                if (mn071988.isChecked() && mn071988x.getText().toString().isEmpty()) {
                     Toast.makeText(this, "Empty:" + getString(R.string.mn0719), Toast.LENGTH_SHORT).show();
-                    mn0701988.setError("This is inValid");
+                    mn071988.setError("This is inValid");
                     return false;
                 } else {
-                    mn0701988.setError(null);
+                    mn071988.setError(null);
                 }
 
             }
         }
 
-        if (mn07152.isChecked() || mn071801.isChecked()) {
+        if (mn07152.isChecked()) {
 
+            if (mn071801.isChecked()) {
 //        7.20
 
-            if (!mn072001.isChecked() && !mn072002.isChecked() && !mn072003.isChecked() && !mn072004.isChecked()) {
-                Toast.makeText(this, "" + getString(R.string.mn0720), Toast.LENGTH_SHORT).show();
-                mn072001.setError("This is inValid");
-                return false;
-            } else {
-                mn072001.setError(null);
-            }
+                if (!mn072001.isChecked() && !mn072002.isChecked() && !mn072003.isChecked() && !mn072004.isChecked()) {
+                    Toast.makeText(this, "" + getString(R.string.mn0720), Toast.LENGTH_SHORT).show();
+                    mn072001.setError("This is inValid");
+                    return false;
+                } else {
+                    mn072001.setError(null);
+                }
 
 //        7.21
 
-            if (mn0721.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "" + getString(R.string.mn0721), Toast.LENGTH_SHORT).show();
-                mn07211.setError("This is inValid");
-                return false;
-            } else {
-                mn07211.setError(null);
-            }
+                if (mn0721.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "" + getString(R.string.mn0721), Toast.LENGTH_SHORT).show();
+                    mn07211.setError("This is inValid");
+                    return false;
+                } else {
+                    mn07211.setError(null);
+                }
 
 //      7.22
 
-            if (mn07211.isChecked()) {
-                if (mn072201.getText().toString().isEmpty() && mn072202.getText().toString().isEmpty()
-                        && mn072203.getText().toString().isEmpty()) {
+                if (mn07211.isChecked()) {
+                    if (mn072201.getText().toString().isEmpty() && mn072202.getText().toString().isEmpty()
+                            && mn072203.getText().toString().isEmpty()) {
 
-                    Toast.makeText(this, "" + getString(R.string.mn0722), Toast.LENGTH_SHORT).show();
-                    mn072201.setError("This is inValid");
-                    return false;
-                } else {
-                    mn072201.setError(null);
+                        Toast.makeText(this, "" + getString(R.string.mn0722), Toast.LENGTH_SHORT).show();
+                        mn072201.setError("This is inValid");
+                        return false;
+                    } else {
+                        mn072201.setError(null);
+                    }
                 }
             }
         }
@@ -1005,7 +1061,14 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 mn07019Grp.setVisibility(View.VISIBLE);
                 mn07019BigGrp.setVisibility(View.VISIBLE);
             }
-        } else if (group.getId() == R.id.mn0721) {
+        } else if (group.getId() == R.id.mn0719) {
+            if (mn071988.isChecked()) {
+                mn071988x.setVisibility(View.VISIBLE);
+            } else {
+                mn071988x.setVisibility(View.GONE);
+                mn071988x.setText(null);
+            }
+        }else if (group.getId() == R.id.mn0721) {
             if (mn07212.isChecked()) {
                 mn07022Grp.setVisibility(View.GONE);
             } else {

@@ -109,28 +109,16 @@ public class Section6Activity extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     fldGrpmn0604.setVisibility(View.VISIBLE);
-                    mn060301.setEnabled(false);
                     mn060301.setChecked(false);
-                    mn060302.setEnabled(false);
                     mn060302.setChecked(false);
-                    mn060303.setEnabled(false);
                     mn060303.setChecked(false);
-                    mn060304.setEnabled(false);
                     mn060304.setChecked(false);
-                    mn060388.setEnabled(false);
                     mn060388.setChecked(false);
-                    mn060388x.setEnabled(false);
                     mn060388x.setText(null);
                 } else {
                     fldGrpmn0604.setVisibility(View.GONE);
                     mn0604.clearCheck();
-                    mn060301.setEnabled(true);
-                    mn060302.setEnabled(true);
-                    mn060303.setEnabled(true);
-                    mn060304.setEnabled(true);
-                    mn060388.setEnabled(true);
-                    mn060388x.setEnabled(true);
-
+                    mn060305.setChecked(false);
                 }
             }
         });
@@ -192,7 +180,6 @@ public class Section6Activity extends Activity {
                 }
             }
         });
-
 
 
         // =============================== Q 6.04 Others ========================
@@ -429,8 +416,6 @@ public class Section6Activity extends Activity {
                 mn060488x.setError(null);
             }
 
-        } else {
-            mn0604.clearCheck();
         }
 
         return true;

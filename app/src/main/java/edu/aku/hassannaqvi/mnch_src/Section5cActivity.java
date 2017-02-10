@@ -668,7 +668,7 @@ public class Section5cActivity extends Activity {
             //  CheckBox
             if (!(mn054901.isChecked() || mn054902.isChecked() || mn054903.isChecked() || mn054904.isChecked()
                     || mn054905.isChecked() || mn054906.isChecked() || mn054907.isChecked()
-                    || mn054908.isChecked() || mn054909.isChecked() || mn054788.isChecked())) {
+                    || mn054908.isChecked() || mn054909.isChecked() || mn054988.isChecked())) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0549), Toast.LENGTH_LONG).show();
                 mn054988.setError("This data is Required!");    // Set Error on last radio button
                 Log.i(TAG, "mn0549: This data is Required!");
