@@ -634,7 +634,7 @@
                     android:id="@+id/btn_Continue"
                     style="@style/buttons"
                     android:onClick="startInterview"
-                    android:text="Section-06"
+                    android:text="@string/next_section"
                     android:textColor="#1ed61e" />
                 <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
 
