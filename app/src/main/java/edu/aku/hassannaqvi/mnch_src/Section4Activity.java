@@ -204,13 +204,9 @@ public class Section4Activity extends Activity {
                     Intent sec4b_intent = new Intent(this, Section4bActivity.class);
                     SRCApp.cmCount++;
                     startActivity(sec4b_intent);
-                } else if (SRCApp.curPreg) {
-                    Intent sec5_intent = new Intent(this, Section5Activity.class);
-                    SRCApp.curPreg = false;
-                    startActivity(sec5_intent);
                 } else {
-                    Intent sec6_intent = new Intent(this, Section6Activity.class);
-                    startActivity(sec6_intent);
+                    Intent sec5_intent = new Intent(this, Section5Activity.class);
+                    startActivity(sec5_intent);
                 }
             }
         } else {
@@ -325,6 +321,35 @@ public class Section4Activity extends Activity {
         } else {
             s4q41a.setError(null);
         }
+
+        if (s4q41b.getText().toString().isEmpty()) {
+            s4q41b.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "Cannot be empty", Toast.LENGTH_LONG).show();
+            s4q41b.requestFocus();
+            return false;
+        } else {
+            s4q41b.setError(null);
+        }
+
+        if (s4q41b2.getText().toString().isEmpty()) {
+            s4q41b2.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "Cannot be empty", Toast.LENGTH_LONG).show();
+            s4q41b2.requestFocus();
+            return false;
+        } else {
+            s4q41b2.setError(null);
+        }
+
+        if (s4q41b1.getText().toString().isEmpty()) {
+            s4q41b1.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "Cannot be empty", Toast.LENGTH_LONG).show();
+            s4q41b1.requestFocus();
+            return false;
+        } else {
+            s4q41b1.setError(null);
+        }
+
+
         if (s4q41b.getText().toString().isEmpty() || s4q41b1.getText().toString().isEmpty() || s4q41b2.getText().toString().isEmpty()) {
             s4q41b.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Cannot be empty", Toast.LENGTH_LONG).show();

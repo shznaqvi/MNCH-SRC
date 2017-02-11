@@ -257,15 +257,10 @@ public class Section4bActivity extends Activity {
                         Intent sec4b_intent = new Intent(this, Section4bActivity.class);
                         SRCApp.cmCount++;
                         startActivity(sec4b_intent);
-                    } else if (SRCApp.curPreg) {
+                    } else {
                         Intent sec5_intent = new Intent(this, Section5Activity.class);
                         sec5_intent.putExtra("check", false);
-                        SRCApp.curPreg = false;
                         startActivity(sec5_intent);
-                    } else {
-                        Intent sec6_intent = new Intent(this, Section6Activity.class);
-                        sec6_intent.putExtra("check", false);
-                        startActivity(sec6_intent);
                     }
 
                 } else {
@@ -485,7 +480,7 @@ public class Section4bActivity extends Activity {
         } else {
             s4q42d.setError(null);
 
-            if (Integer.parseInt(s4q42d.getText().toString()) < 1 || Integer.parseInt(s4q42d.getText().toString()) > 29) {
+            if (Integer.parseInt(s4q42d.getText().toString()) > 29) {
                 s4q42d.setError("Invalid:" + getString(R.string.baseline_s4q42d));
                 Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q42d), Toast.LENGTH_LONG).show();
                 s4q42d.requestFocus();
@@ -503,7 +498,7 @@ public class Section4bActivity extends Activity {
             return false;
         } else {
             s4q42d1.setError(null);
-            if (Integer.parseInt(s4q42d1.getText().toString()) < 0 || Integer.parseInt(s4q42d1.getText().toString()) > 11) {
+            if (Integer.parseInt(s4q42d1.getText().toString()) > 11) {
                 s4q42d1.setError("Invalid:" + getString(R.string.baseline_s4q42d1));
                 Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q42d1), Toast.LENGTH_LONG).show();
                 s4q42d1.requestFocus();
@@ -513,7 +508,6 @@ public class Section4bActivity extends Activity {
             }
         }
 
-
         if (s4q42d2.getText().toString().isEmpty() || s4q42d2.getText().toString() == null) {
             s4q42d2.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter age in years", Toast.LENGTH_LONG).show();
@@ -521,7 +515,7 @@ public class Section4bActivity extends Activity {
             return false;
         } else {
             s4q42d2.setError(null);
-            if (Integer.parseInt(s4q42d2.getText().toString()) < 1 || Integer.parseInt(s4q42d2.getText().toString()) > 5) {
+            if (Integer.parseInt(s4q42d2.getText().toString()) > 4) {
                 s4q42d2.setError("Invalid:" + getString(R.string.baseline_s4q42d2));
                 Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q42d2), Toast.LENGTH_LONG).show();
                 s4q42d2.requestFocus();

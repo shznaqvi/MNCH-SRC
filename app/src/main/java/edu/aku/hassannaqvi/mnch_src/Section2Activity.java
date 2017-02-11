@@ -966,9 +966,9 @@ public class Section2Activity extends Activity {
 
         }
 
-        if (s2q206h.getText().toString().isEmpty()) {
-            s2q206h.setError("Please enter 0 or any number ");
-            Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
+        if (s2q206h.getText().toString().isEmpty() || Integer.parseInt(s2q206h.getText().toString()) == 0) {
+            s2q206h.setError("Please enter 1 or any number ");
+            Toast.makeText(getApplicationContext(), "Please Enter 1 or any number \r\n", Toast.LENGTH_LONG).show();
             return false;
         } else {
             s2q206h.setError(null);

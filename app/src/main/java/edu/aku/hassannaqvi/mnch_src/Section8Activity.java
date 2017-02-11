@@ -1235,7 +1235,7 @@ public class Section8Activity extends Activity {
 
             if (mn082207.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082207), Toast.LENGTH_LONG).show();
-                mn082207.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+                mn082207.setError("This data is Required! Or type 'none'");    // Set Error on last radio button
 
                 Log.i(TAG, "mn082207: This data is Required!");
                 return false;
