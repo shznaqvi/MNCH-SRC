@@ -953,6 +953,15 @@ public class Section8Activity extends Activity {
         } else {
             mn080688x.setError(null);
         }
+        if (mn0807.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0807), Toast.LENGTH_LONG).show();
+            mn080788.setError("This data is Required!");    // Set Error on last radio button
+
+            Log.i(TAG, "mn0808: This data is Required!");
+            return false;
+        } else {
+            mn080788.setError(null);
+        }
 
         // ============ Q 8.08 =======================
         // RadioGroup
@@ -1401,8 +1410,8 @@ public class Section8Activity extends Activity {
 
             try {
                 if ((Integer.parseInt(mn0816.getText().toString()) < 1) || (Integer.parseInt(mn0816.getText().toString()) > 180)) {
-                    Toast.makeText(this, "Range is 1 - 20", Toast.LENGTH_LONG).show();
-                    mn0816.setError("Range is 1 - 20 .. Check Again");// Set Error on last radio button
+                    Toast.makeText(this, "Range is 1 - 180", Toast.LENGTH_LONG).show();
+                    mn0816.setError("Range is 1 - 180 .. Check Again");// Set Error on last radio button
                     return false;
 
                 } else {
@@ -1413,7 +1422,7 @@ public class Section8Activity extends Activity {
             }
 
             try {
-                if ((Integer.parseInt(mn082101.getText().toString()) < 0) || (Integer.parseInt(mn082101.getText().toString()) > 99)) {
+                if ((Integer.parseInt(mn082101.getText().toString()) < 0) || (Integer.parseInt(mn082101.getText().toString()) > 999)) {
                     Toast.makeText(this, "Range is 0 - 999 acre", Toast.LENGTH_LONG).show();
                     mn082101.setError("Range is 0 - 999 .. Check Again");// Set Error on last radio button
                     return false;
@@ -1426,7 +1435,7 @@ public class Section8Activity extends Activity {
             }
 
             try {
-                if ((Integer.parseInt(mn082102.getText().toString()) < 0) || (Integer.parseInt(mn082102.getText().toString()) > 99)) {
+                if ((Integer.parseInt(mn082102.getText().toString()) < 0) || (Integer.parseInt(mn082102.getText().toString()) > 999)) {
                     Toast.makeText(this, "Range is 0 - 999 ", Toast.LENGTH_LONG).show();
                     mn082102.setError("Range is 0 - 999 .. Check Again");// Set Error on last radio button
                     return false;
