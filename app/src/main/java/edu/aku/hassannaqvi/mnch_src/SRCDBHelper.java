@@ -303,6 +303,10 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                     having,                    // don't filter by row groups
                     orderBy                    // The sort order
             );
+
+            VillagesContract pc1 = new VillagesContract();
+            allPC.add(pc1.setDefaultVal("","..."));
+
             while (c.moveToNext()) {
                 VillagesContract pc = new VillagesContract();
                 allPC.add(pc.hydrate(c));
@@ -1880,6 +1884,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             Cursor cursor = db.rawQuery(QUERY, null);
 
             if (!cursor.isLast()) {
+
                 while (cursor.moveToNext()) {
                     VillagesContract vc = new VillagesContract();
 

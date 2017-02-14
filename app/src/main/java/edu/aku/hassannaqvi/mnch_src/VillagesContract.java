@@ -66,6 +66,13 @@ public class VillagesContract {
         this.districtCode = districtCode;
     }
 
+    public VillagesContract setDefaultVal(String code,String name) {
+        this.villagesCode = code;
+        this.villagesName = name;
+
+        return this;
+    }
+
     public static abstract class singleVillages implements BaseColumns {
 
         public static final String TABLE_NAME = "Villages";
