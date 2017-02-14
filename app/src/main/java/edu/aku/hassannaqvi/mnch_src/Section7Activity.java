@@ -1068,7 +1068,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 mn07019Grp.setVisibility(View.GONE);
                 mn07019BigGrp.setVisibility(View.GONE);
 
-                mn071688x.setText(null);
+                mn071988x.setText(null);
             } else {
                 mn07019Grp.setVisibility(View.VISIBLE);
                 mn07019BigGrp.setVisibility(View.VISIBLE);
