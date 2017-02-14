@@ -577,7 +577,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         }
 
         if (!mn070202.getText().toString().isEmpty()) {
-            if (Integer.parseInt(mn070202.getText().toString()) < 6000) {
+            if (Integer.parseInt(mn070202.getText().toString()) < 9000) {
                 Toast.makeText(this, "" + "Weight can not be less than 6000 gm.. check again", Toast.LENGTH_SHORT).show();
                 mn070202.setError("Weight can not be less than 6000 gm");
                 return false;
