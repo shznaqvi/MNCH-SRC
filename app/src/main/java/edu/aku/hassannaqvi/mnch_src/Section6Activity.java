@@ -114,11 +114,21 @@ public class Section6Activity extends Activity {
                     mn060303.setChecked(false);
                     mn060304.setChecked(false);
                     mn060388.setChecked(false);
+                    mn060301.setEnabled(false);
+                    mn060302.setEnabled(false);
+                    mn060303.setEnabled(false);
+                    mn060304.setEnabled(false);
+                    mn060388.setEnabled(false);
                     mn060388x.setText(null);
                 } else {
                     fldGrpmn0604.setVisibility(View.GONE);
                     mn0604.clearCheck();
-                    mn060305.setChecked(false);
+                    mn060301.setEnabled(true);
+                    mn060302.setEnabled(true);
+                    mn060303.setEnabled(true);
+                    mn060304.setEnabled(true);
+                    mn060388.setEnabled(true);
+
                 }
             }
         });
