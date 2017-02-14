@@ -113,6 +113,8 @@
     <string name="baseline_s2q206f">ٻار 5 کان 14 سالن تائين جي عمر جا</string>
     <string name="baseline_s2q206g">غير شادي شده عورتون 15 کان 49 سالن تائين</string>
     <string name="baseline_s2q206h">شادي شده عورتون 15کان 49 سالن تائين</string>
+    <string name="s2q206ja"> ڇا هن گهر ۾ پوئين 5 سالن دوران ڪو ٻار مري ويو هو؟ </string>
+    <string name="s2q206j"> مري ويل ٻارن جو تعداد </string>
     <string name="educationType">91 ـ مذهبي تعليم  / 92 ـ ڪڏهن به اسڪول نه ويو</string>
 
     <!-- Section 3 -->
@@ -179,9 +181,8 @@
     <string name="baseline_s4q41c_2">مرده پيدائش</string>
     <string name="baseline_s4q41c_3"> زندهه پيدائش</string>
     <string name="baseline_s4q41c_4">جاڙا زندهه پيدائش</string>
-    <string name="baseline_s4q41c_5">هڪ مرده پيدائش</string>
-    <string name="baseline_s4q41c_6">هڪ زندهه پيدائش</string>
-    <string name="baseline_s4q41c_7">جاڙا  مرده پيدائش</string>
+    <string name="baseline_s4q41c_5">هڪ زندهه پيدائش/هڪ مرده پيدائش</string>
+    <string name="baseline_s4q41c_6">جاڙا مرده پيدائش</string>
     <string name="baseline_s4q41d">موت جي جڳھه</string>
     <string name="baseline_s4q41d_1">گهر</string>
     <string name="baseline_s4q41d_2">گورنمينٽ ڊسپينسري</string>
@@ -324,7 +325,7 @@
     <string name="mn051906"> وڏن جي اجازت نه هئي </string>
     <string name="mn0520"> حمل دوران توهان ڪڏهن ٻانهن/ڏوري ۾ ڪوئي ٽڪو لڳرايو جيڪو تشنج يعني ٻارن کي جهٽڪن جي بيماري کان بچاءِ لاءِ هجي ٿو؟ </string>
     <string name="mn0521"> ڇا اوهان وٽ ويڪسين ڪارڊ موجو د آهي( چيڪ ڪيو ماءُ جو وڪسين جو ڪارڊ ۽ ان مان لکو) ان کان ٽي ٽي وڪسين جي باري ۾ پڇو ته ان کي ڪيترا دفعا لڳي آهي </string>
-    <string name="mn0522"> جيڪڏهن ها، توهان حمل دوران تشنج کان بچاءِ جا ٽڪا ڪيترا ڀيرا لڳرايا هيا؟ </string>
+    <string name="mn0522"> توهان حمل دوران تشنج کان بچاءِ جا ٽڪا ڪيترا ڀيرا لڳرايا هيا؟ </string>
     <string name="mn052201"> هڪ ڀيرو </string>
     <string name="mn052202"> ٻه ڀيرا </string>
     <string name="mn052203"> ٽي ڀيرا </string>
@@ -843,9 +844,9 @@
     <string name="mn0823"> انٽرويو جو نتيجو </string>
     <string name="mn082301"> مڪمل ٿيو </string>
     <string name="mn082302"> مڪمل نه ٿيو </string>
-    <string name="mn082303"> (جيڪڏهن نه ته ڇو__؟) </string>
-    <string name="mn082304"> جواب ڏيندڙ گهر ۾ موجود ناهي </string>
-    <string name="mn082305"> جواب ڏيندڙ انڪار ڪري ڇڏيو </string>
+    <string name="mn082302x"> (جيڪڏهن نه ته ڇو__؟) </string>
+    <string name="mn082303"> جواب ڏيندڙ گهر ۾ موجود ناهي </string>
+    <string name="mn082304"> جواب ڏيندڙ انڪار ڪري ڇڏيو </string>
     <string name="end"> end </string>
 
 
@@ -858,8 +859,6 @@
     <string name="Continue"> Continue </string>
     <!-- Section 6 -->
 
-    <string name="countCMortality"> مري ويل ٻارن جو تعداد </string>
-    <string name="childMortality"> ڇا هن گهر ۾ پوئين 5 سالن دوران ڪو ٻار مري ويو هو؟ </string>
     <string name="section5Label"> صرف حامله عورتن لاء (گذشته هڪ سال دوران) </string>
     <string name="section5bLabel"> آخري ويم </string>
     <string name="section5cLabel"> ويم کان پوء 7 ڏينهن تائين سار سنڀال </string>

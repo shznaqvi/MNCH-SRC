@@ -5,11 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -19,10 +20,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class EndingActivity extends Activity  {
+public class EndingActivity extends Activity {
 
     private static final String TAG = Section8Activity.class.getSimpleName();
 
+    @BindView(R.id.activity_ending)
+    RelativeLayout activityEnding;
+    @BindView(R.id.ScrollView01)
+    ScrollView scrollView01;
     @BindView(R.id.mn0823)
     RadioGroup mn0823;
     @BindView(R.id.mn082301)
@@ -33,15 +38,10 @@ public class EndingActivity extends Activity  {
     RadioButton mn082303;
     @BindView(R.id.mn082304)
     RadioButton mn082304;
-    @BindView(R.id.mn0823other)
-    RadioButton mn082388;
-    @BindView(R.id.mn082302x)
-    EditText mn082302x;
     @BindView(R.id.fldGrpmn0823Reason)
     LinearLayout fldGrpmn0823Reason;
-    @BindView(R.id.mn0823Reason)
-    RadioGroup mn0823Reason;
-    @BindView(R.id.btn_End) Button btn_End;
+    @BindView(R.id.mn082302x)
+    EditText mn082302x;
 
 
     @Override
@@ -52,8 +52,7 @@ public class EndingActivity extends Activity  {
 
         Boolean check = getIntent().getExtras().getBoolean("check");
 
-        if (SRCApp.fc.getROW_S1Q112().equals("1"))
-        {
+        if (SRCApp.fc.getROW_S1Q112().equals("1")) {
             if (check.equals(false)) {
                 mn082301.setEnabled(false);
                 mn082302.setChecked(false);
@@ -63,7 +62,7 @@ public class EndingActivity extends Activity  {
                 mn082302.setChecked(false);
             }
 
-        }else {
+        } else {
             //fldGrpmn0823Reason.setVisibility(View.VISIBLE);
             mn082301.setEnabled(false);
             mn082301.setChecked(false);
@@ -73,25 +72,10 @@ public class EndingActivity extends Activity  {
         mn0823.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == mn082302.getId()) {
+                if (mn082302.isChecked()) {
                     fldGrpmn0823Reason.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpmn0823Reason.setVisibility(View.GONE);
-                }
-            }
-        });
-
-        mn0823Reason.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == mn082388.getId()) {
-
-                    mn082302x.setVisibility(View.VISIBLE);
-                    mn082302x.requestFocus();
-
-                } else {
-
-                    mn082302x.setVisibility(View.GONE);
                     mn082302x.setText(null);
                 }
             }
@@ -140,39 +124,27 @@ public class EndingActivity extends Activity  {
     private boolean formValidation() {
         Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
 
+        if (mn0823.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(Not Selected): " + getString(R.string.mn0823), Toast.LENGTH_LONG).show();
+            mn082304.setError("Please Select One");    // Set Error on last radio button
+            Log.i(TAG, "mn082304: This data is Required!");
+            return false;
+        } else {
+            mn082304.setError(null);
+        }
 
 
-        if(mn082302.isChecked())
-        {
-            if(mn0823Reason.getCheckedRadioButtonId() == -1){
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082303), Toast.LENGTH_LONG).show();
-                mn082388.setError("Please specify reason");    // Set Error on last radio button
+        if (mn082302.isChecked()) {
 
-                Log.i(TAG, "mn082388: This data is Required!");
-
-                return false;
-            } else {
-                mn082388.setError(null);
-
-            }
-
-            if(mn082388.isChecked() && mn082302x.getText().toString().isEmpty())
-            {
+            if (mn082302x.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
                 mn082302x.setError("Please specify reason");    // Set Error on last radio button
-
                 Log.i(TAG, "mn082302x: This data is Required!");
-
                 return false;
             } else {
                 mn082302x.setError(null);
-
             }
-            }
-
-
-
-
+        }
         return true;
     }
 
@@ -181,8 +153,7 @@ public class EndingActivity extends Activity  {
 
         JSONObject s8 = new JSONObject();
 
-        s8.put("mn0823", mn082301.isChecked() ? "1" : mn082302.isChecked() ? "2" : "0");
-        s8.put("mn0823Reason", mn082303.isChecked() ? "3" : mn082304.isChecked() ? "4" : mn082388.isChecked() ? "88" : "0");
+        s8.put("mn0823", mn082301.isChecked() ? "1" : mn082302.isChecked() ? "2" : mn082303.isChecked() ? "3" : mn082304.isChecked() ? "4" : "0");
         s8.put("mn082302x", mn082302x.getText().toString());
 
         SRCApp.fc.setROW_S8(String.valueOf(s8));

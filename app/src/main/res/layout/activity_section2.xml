@@ -400,7 +400,7 @@
 
 
         <EditText
-            android:id="@+id/s2q207"
+            android:id="@+id/s2q206i"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -420,35 +420,35 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/countCMortality"
+            android:text="@string/s2q206ja"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <RadioGroup
-            android:id="@+id/childMortality"
+            android:id="@+id/s2q206ja"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <RadioButton
-                android:id="@+id/md01"
+                android:id="@+id/s2q206ja01"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mnyes" />
 
             <RadioButton
-                android:id="@+id/md02"
+                android:id="@+id/s2q206ja02"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mnno" />
         </RadioGroup>
 
         <EditText
-            android:id="@+id/s2q208"
+            android:id="@+id/s2q206j"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:digits="0123456789"
             android:ems="10"
-            android:hint="@string/countCMortality"
+            android:hint="@string/s2q206j"
             android:inputType="number"
             android:maxLength="2"
             android:visibility="gone" />

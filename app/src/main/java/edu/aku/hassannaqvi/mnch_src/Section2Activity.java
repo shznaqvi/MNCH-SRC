@@ -21,182 +21,176 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class Section2Activity extends Activity {
 
     private static final String TAG = "Sec2";
     String var_s2q203 = "";
     String var_s2q205 = "";
-    private ScrollView scrollView01;
-    private TextView appHeader;
-    private TextView lblS2q201;
-    private TextView lblS2q202;
-    private TextView lblS2q203;
-    private RadioGroup radioS2q203;
-    private RadioButton rDOS2q2031;
-    private RadioButton rDOS2q2032;
-    private TextView lblS2q204;
-    private TextView lblS2q205;
-    private TextView lblS2q205oth;
-    private RadioGroup radioS2q205;
-    private RadioButton rDOS2q2051;
-    private RadioButton rDOS2q2052;
-    private RadioButton rDOS2q2053;
-    private RadioButton rDOS2q2054;
-    private RadioButton rDOS2q2055;
-    private RadioButton rDOS2q2056;
-    private RadioButton rDOS2q2057;
-    private RadioButton rDOS2q2058;
-    private RadioButton rDOS2q2059;
-    private RadioButton rDOS2q20510;
-    private RadioButton rDOS2q20511;
-    private RadioButton rDOS2q20512;
-    private RadioButton rDOS2q20588;
-    private TextView lblS2q206;
-    private TextView lblS2q206a;
-    private TextView lblS2q206b;
-    private TextView lblS2q206c;
-    private TextView lblS2q206d;
-    private TextView lblS2q206e;
-    private TextView lblS2q206f;
-    private TextView lblS2q206g;
-    private TextView lblS2q206h;
-    private EditText s2q201;
-    private EditText s2q202;
-    private EditText s2q204;
-    private EditText s2q205oth;
-    private EditText s2q206a;
-    private EditText s2q206b;
-    private EditText s2q206c;
-    private EditText s2q206d;
-    private EditText s2q206e;
-    private EditText s2q206f;
-    private EditText s2q206g;
-    private EditText s2q206h;
-    private LinearLayout vu_s2q205oth;
-    private int rdo_s2q203;
-    private int rdo_s2q205;
-
-    private EditText s2q207; //Maternal Death
-    private EditText s2q208; //Child Mortality
-
-    private RadioGroup childMortality;
-    private RadioButton md01;
-    private RadioButton md02;
+    @BindView(R.id.ScrollView01)
+    ScrollView scrollView01;
+    @BindView(R.id.app_header)
+    TextView appHeader;
+    @BindView(R.id.app_header1)
+    TextView appHeader1;
+    @BindView(R.id.lbl_hhhead)
+    TextView lblHhhead;
+    @BindView(R.id.lbl_s2q201)
+    TextView lblS2q201;
+    @BindView(R.id.s2q201)
+    EditText s2q201;
+    @BindView(R.id.lbl_s2q202)
+    TextView lblS2q202;
+    @BindView(R.id.s2q202)
+    EditText s2q202;
+    @BindView(R.id.lbl_s2q203)
+    TextView lblS2q203;
+    @BindView(R.id.radio_s2q203)
+    RadioGroup radioS2q203;
+    @BindView(R.id.RDO_s2q203_1)
+    RadioButton rDOS2q2031;
+    @BindView(R.id.RDO_s2q203_2)
+    RadioButton rDOS2q2032;
+    @BindView(R.id.lbl_s2q204)
+    TextView lblS2q204;
+    @BindView(R.id.s2q204)
+    EditText s2q204;
+    @BindView(R.id.lbl_s2q205)
+    TextView lblS2q205;
+    @BindView(R.id.radio_s2q205)
+    RadioGroup radioS2q205;
+    @BindView(R.id.RDO_s2q205_1)
+    RadioButton rDOS2q2051;
+    @BindView(R.id.RDO_s2q205_2)
+    RadioButton rDOS2q2052;
+    @BindView(R.id.RDO_s2q205_3)
+    RadioButton rDOS2q2053;
+    @BindView(R.id.RDO_s2q205_4)
+    RadioButton rDOS2q2054;
+    @BindView(R.id.RDO_s2q205_5)
+    RadioButton rDOS2q2055;
+    @BindView(R.id.RDO_s2q205_6)
+    RadioButton rDOS2q2056;
+    @BindView(R.id.RDO_s2q205_7)
+    RadioButton rDOS2q2057;
+    @BindView(R.id.RDO_s2q205_8)
+    RadioButton rDOS2q2058;
+    @BindView(R.id.RDO_s2q205_9)
+    RadioButton rDOS2q2059;
+    @BindView(R.id.RDO_s2q205_10)
+    RadioButton rDOS2q20510;
+    @BindView(R.id.RDO_s2q205_11)
+    RadioButton rDOS2q20511;
+    @BindView(R.id.RDO_s2q205_12)
+    RadioButton rDOS2q20512;
+    @BindView(R.id.RDO_s2q205_88)
+    RadioButton rDOS2q20588;
+    @BindView(R.id.vu_s2q205oth)
+    LinearLayout vuS2q205oth;
+    @BindView(R.id.lbl_s2q205ot)
+    TextView lblS2q205ot;
+    @BindView(R.id.s2q205oth)
+    EditText s2q205oth;
+    @BindView(R.id.lbl_s2q206)
+    TextView lblS2q206;
+    @BindView(R.id.lbl_s2q206a)
+    TextView lblS2q206a;
+    @BindView(R.id.s2q206a)
+    EditText s2q206a;
+    @BindView(R.id.lbl_s2q206b)
+    TextView lblS2q206b;
+    @BindView(R.id.s2q206b)
+    EditText s2q206b;
+    @BindView(R.id.lbl_s2q206c)
+    TextView lblS2q206c;
+    @BindView(R.id.s2q206c)
+    EditText s2q206c;
+    @BindView(R.id.lbl_s2q206d)
+    TextView lblS2q206d;
+    @BindView(R.id.s2q206d)
+    EditText s2q206d;
+    @BindView(R.id.lbl_s2q206e)
+    TextView lblS2q206e;
+    @BindView(R.id.s2q206e)
+    EditText s2q206e;
+    @BindView(R.id.lbl_s2q206f)
+    TextView lblS2q206f;
+    @BindView(R.id.s2q206f)
+    EditText s2q206f;
+    @BindView(R.id.lbl_s2q206g)
+    TextView lblS2q206g;
+    @BindView(R.id.s2q206g)
+    EditText s2q206g;
+    @BindView(R.id.lbl_s2q206h)
+    TextView lblS2q206h;
+    @BindView(R.id.s2q206h)
+    EditText s2q206h;
+    @BindView(R.id.s2q206i)
+    EditText s2q206i;
+    @BindView(R.id.s2q206ja)
+    RadioGroup s2q206ja;
+    @BindView(R.id.s2q206ja01)
+    RadioButton s2q206ja01;
+    @BindView(R.id.s2q206ja02)
+    RadioButton s2q206ja02;
+    @BindView(R.id.s2q206j)
+    EditText s2q206j;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section2);
-
-        scrollView01 = (ScrollView) findViewById(R.id.ScrollView01);
-        appHeader = (TextView) findViewById(R.id.app_header);
-        appHeader.setText("SRC - > Section2");
-
-        lblS2q201 = (TextView) findViewById(R.id.lbl_s2q201);
-        lblS2q202 = (TextView) findViewById(R.id.lbl_s2q202);
-        lblS2q203 = (TextView) findViewById(R.id.lbl_s2q203);
-        radioS2q203 = (RadioGroup) findViewById(R.id.radio_s2q203);
-        rDOS2q2031 = (RadioButton) findViewById(R.id.RDO_s2q203_1);
-        rDOS2q2032 = (RadioButton) findViewById(R.id.RDO_s2q203_2);
-        lblS2q204 = (TextView) findViewById(R.id.lbl_s2q204);
-        lblS2q205 = (TextView) findViewById(R.id.lbl_s2q205);
-        lblS2q205oth = (TextView) findViewById(R.id.lbl_s2q205);
-        radioS2q205 = (RadioGroup) findViewById(R.id.radio_s2q205);
-        rDOS2q2051 = (RadioButton) findViewById(R.id.RDO_s2q205_1);
-        rDOS2q2052 = (RadioButton) findViewById(R.id.RDO_s2q205_2);
-        rDOS2q2053 = (RadioButton) findViewById(R.id.RDO_s2q205_3);
-        rDOS2q2054 = (RadioButton) findViewById(R.id.RDO_s2q205_4);
-        rDOS2q2055 = (RadioButton) findViewById(R.id.RDO_s2q205_5);
-        rDOS2q2056 = (RadioButton) findViewById(R.id.RDO_s2q205_6);
-        rDOS2q2057 = (RadioButton) findViewById(R.id.RDO_s2q205_7);
-        rDOS2q2058 = (RadioButton) findViewById(R.id.RDO_s2q205_8);
-        rDOS2q2059 = (RadioButton) findViewById(R.id.RDO_s2q205_9);
-        rDOS2q20510 = (RadioButton) findViewById(R.id.RDO_s2q205_10);
-        rDOS2q20511 = (RadioButton) findViewById(R.id.RDO_s2q205_11);
-        rDOS2q20512 = (RadioButton) findViewById(R.id.RDO_s2q205_12);
-        rDOS2q20588 = (RadioButton) findViewById(R.id.RDO_s2q205_88);
-        lblS2q206 = (TextView) findViewById(R.id.lbl_s2q206);
-        lblS2q206a = (TextView) findViewById(R.id.lbl_s2q206a);
-        lblS2q206b = (TextView) findViewById(R.id.lbl_s2q206b);
-        lblS2q206c = (TextView) findViewById(R.id.lbl_s2q206c);
-        lblS2q206d = (TextView) findViewById(R.id.lbl_s2q206d);
-        lblS2q206e = (TextView) findViewById(R.id.lbl_s2q206e);
-        lblS2q206f = (TextView) findViewById(R.id.lbl_s2q206f);
-        lblS2q206g = (TextView) findViewById(R.id.lbl_s2q206g);
-        lblS2q206h = (TextView) findViewById(R.id.lbl_s2q206h);
-
-        s2q201 = (EditText) findViewById(R.id.s2q201);
-        s2q202 = (EditText) findViewById(R.id.s2q202);
-        s2q204 = (EditText) findViewById(R.id.s2q204);
-        s2q205oth = (EditText) findViewById(R.id.s2q205oth);
-        s2q206a = (EditText) findViewById(R.id.s2q206a);
-        s2q206b = (EditText) findViewById(R.id.s2q206b);
-        s2q206c = (EditText) findViewById(R.id.s2q206c);
-        s2q206d = (EditText) findViewById(R.id.s2q206d);
-        s2q206e = (EditText) findViewById(R.id.s2q206e);
-        s2q206f = (EditText) findViewById(R.id.s2q206f);
-        s2q206g = (EditText) findViewById(R.id.s2q206g);
-        s2q206h = (EditText) findViewById(R.id.s2q206h);
+        ButterKnife.bind(this);
 
 
-        s2q207 = (EditText) findViewById(R.id.s2q207);
-        s2q208 = (EditText) findViewById(R.id.s2q208);
-
-
-//      Child Mortality
-
-        childMortality = (RadioGroup) findViewById(R.id.childMortality);
-        md01 = (RadioButton) findViewById(R.id.md01);
-        md02 = (RadioButton) findViewById(R.id.md02);
-
-        childMortality.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        s2q206ja.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                md02.setError(null);
-                s2q208.setText(null);
 
-                if (md01.isChecked()) {
-                    s2q208.setVisibility(View.VISIBLE);
+                if (s2q206ja01.isChecked()) {
+                    s2q206j.setVisibility(View.VISIBLE);
                 } else {
-                    s2q208.setVisibility(View.GONE);
+                    s2q206j.setVisibility(View.GONE);
+                    s2q206j.setText(null);
                 }
             }
         });
 
-        s2q208.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try {
-                    count = Integer.parseInt(s2q208.getText().toString());
-                    if (count < 1 || count > 5) {
-                        s2q208.setError("Cant be less than 1 or greater than 5.");
-                        s2q208.requestFocus();
-                    } else s2q208.setError(null);
-                } catch (NumberFormatException nfe) {
-
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+//        s2q208.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                try {
+//                    count = Integer.parseInt(s2q208.getText().toString());
+//                    if (count < 1 || count > 5) {
+//                        s2q208.setError("Cant be less than 1 or greater than 5.");
+//                        s2q208.requestFocus();
+//                    } else s2q208.setError(null);
+//                } catch (NumberFormatException nfe) {
+//
+//                }
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//            }
+//        });
 
 //        End Mortality
 
-        vu_s2q205oth = (LinearLayout) findViewById(R.id.vu_s2q205oth);
 
         radioS2q205.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == rDOS2q20588.getId()) {
 
-                    vu_s2q205oth.setVisibility(View.VISIBLE);
+                    vuS2q205oth.setVisibility(View.VISIBLE);
                     s2q205oth.requestFocus();
 
                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -204,7 +198,7 @@ public class Section2Activity extends Activity {
 
                 } else {
 
-                    vu_s2q205oth.setVisibility(View.GONE);
+                    vuS2q205oth.setVisibility(View.GONE);
                     s2q205oth.setText("");
                 }
             }
@@ -663,12 +657,14 @@ public class Section2Activity extends Activity {
             s2.put("s2q206f", s2q206f.getText().toString());
             s2.put("s2q206g", s2q206g.getText().toString());
             s2.put("s2q206h", s2q206h.getText().toString());
+            s2.put("s2q206i", s2q206i.getText().toString());
+            s2.put("s2q206j", s2q206j.getText().toString());
 
             SRCApp.mwras = Integer.parseInt(s2q206h.getText().toString());
             SRCApp.chTotal = Integer.parseInt(s2q206d.getText().toString()) + Integer.parseInt(s2q206e.getText().toString());
 
-            SRCApp.mdTotal = Integer.parseInt(s2q207.getText().toString());
-            SRCApp.cmTotal = Integer.parseInt(s2q208.getText().toString());
+            SRCApp.mdTotal = Integer.parseInt(s2q206i.getText().toString());
+            SRCApp.cmTotal = Integer.parseInt(s2q206j.getText().toString());
 
 //
 //            CVars var = new CVars();
@@ -726,9 +722,8 @@ public class Section2Activity extends Activity {
             s2q202.setError(null);
         }
 
-        rdo_s2q203 = radioS2q203.getCheckedRadioButtonId();
 
-        if (rdo_s2q203 == -1) {
+        if (radioS2q203.getCheckedRadioButtonId() == -1) {
             rDOS2q2031.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             rDOS2q2031.requestFocus();
@@ -757,9 +752,7 @@ public class Section2Activity extends Activity {
         }
 
 
-        rdo_s2q205 = radioS2q205.getCheckedRadioButtonId();
-
-        if (rdo_s2q205 == -1) {
+        if (radioS2q205.getCheckedRadioButtonId() == -1) {
             rDOS2q2051.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             rDOS2q2051.requestFocus();
@@ -768,8 +761,8 @@ public class Section2Activity extends Activity {
             rDOS2q2051.setError(null);
         }
 
-
-        switch (rdo_s2q205) {
+/*
+        switch (rdos2q205) {
             case R.id.RDO_s2q205_1:
                 var_s2q205 = "1";
                 break;
@@ -821,7 +814,7 @@ public class Section2Activity extends Activity {
             case R.id.RDO_s2q205_88:
                 var_s2q205 = "88";
                 break;
-        }
+        }*/
 
 
         if (var_s2q205.equals("88") && getS2q205oth().getText().toString().isEmpty()) {
@@ -975,39 +968,39 @@ public class Section2Activity extends Activity {
 
         }
 
-        if (s2q207.getText().toString().isEmpty()) {
-            s2q207.setError("Please enter 0 or any number ");
+        if (s2q206i.getText().toString().isEmpty()) {
+            s2q206i.setError("Please enter 0 or any number ");
             Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
             return false;
         } else {
-            s2q207.setError(null);
+            s2q206i.setError(null);
         }
-        if (Integer.parseInt(s2q207.getText().toString()) < 0 || Integer.parseInt(s2q207.getText().toString()) > 3) {
-            s2q207.setError("Invalid Range 1-3");
+        if (Integer.parseInt(s2q206i.getText().toString()) < 0 || Integer.parseInt(s2q206i.getText().toString()) > 3) {
+            s2q206i.setError("Invalid Range 1-3");
             Toast.makeText(getApplicationContext(), "Invalid Range 1-3 \r\n", Toast.LENGTH_LONG).show();
             return false;
         } else {
-            s2q207.setError(null);
+            s2q206i.setError(null);
 
         }
 
 
-        if(md01.isChecked()) {
-            if (s2q208.getText().toString().isEmpty()) {
-                s2q208.setError("Please enter 0 or any number ");
+        if (s2q206ja01.isChecked()) {
+            if (s2q206j.getText().toString().isEmpty()) {
+                s2q206j.setError("Please enter 0 or any number ");
                 Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
                 return false;
             } else {
-                s2q208.setError(null);
+                s2q206j.setError(null);
 
             }
 
-            if (Integer.parseInt(s2q208.getText().toString()) < 1 || Integer.parseInt(s2q208.getText().toString()) > 5) {
-                s2q208.setError("Invalid Range 1-5");
+            if (Integer.parseInt(s2q206j.getText().toString()) < 1 || Integer.parseInt(s2q206j.getText().toString()) > 5) {
+                s2q206j.setError("Invalid Range 1-5");
                 Toast.makeText(getApplicationContext(), "Invalid Range 1-5 \r\n", Toast.LENGTH_LONG).show();
                 return false;
             } else {
-                s2q208.setError(null);
+                s2q206j.setError(null);
 
             }
         }

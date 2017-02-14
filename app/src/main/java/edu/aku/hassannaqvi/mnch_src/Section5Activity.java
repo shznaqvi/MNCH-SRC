@@ -1092,7 +1092,8 @@ public class Section5Activity extends Activity {
                     fldGrpmn0529.setVisibility(View.VISIBLE);
                     mn0528.clearCheck();
                     mn052888x.setText(null);
-                } else if (!(mn052777.isChecked())) {
+                }
+                if (!(mn052777.isChecked())) {
                     fldGrpmn0529.setVisibility(View.GONE);
                     fldGrpmn0528.setVisibility(View.VISIBLE);
 
@@ -1103,7 +1104,8 @@ public class Section5Activity extends Activity {
                     mn052905.setChecked(false);
                     mn052906.setChecked(false);
                     mn052988x.setText(null);
-                } else if (mn052788.isChecked()) {
+                }
+                if (mn052788.isChecked()) {
                     mn052788x.setVisibility(View.VISIBLE);
                 } else {
                     mn052788x.setVisibility(View.GONE);

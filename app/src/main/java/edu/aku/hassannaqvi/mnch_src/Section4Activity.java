@@ -29,7 +29,6 @@ public class Section4Activity extends Activity {
     private RadioButton rdo_s4q41c_4;
     private RadioButton rdo_s4q41c_5;
     private RadioButton rdo_s4q41c_6;
-    private RadioButton rdo_s4q41c_7;
     private int rdo_s4q41c;
     private RadioGroup radio_s4q41d;
     private RadioButton rdo_s4q41d_1;
@@ -101,7 +100,6 @@ public class Section4Activity extends Activity {
         rdo_s4q41c_4 = (RadioButton) findViewById(R.id.RDO_s4q41c_4);
         rdo_s4q41c_5 = (RadioButton) findViewById(R.id.RDO_s4q41c_5);
         rdo_s4q41c_6 = (RadioButton) findViewById(R.id.RDO_s4q41c_6);
-        rdo_s4q41c_7 = (RadioButton) findViewById(R.id.RDO_s4q41c_7);
         radio_s4q41d = (RadioGroup) findViewById(R.id.radio_s4q41d);
         rdo_s4q41d_1 = (RadioButton) findViewById(R.id.RDO_s4q41d_1);
         rdo_s4q41d_2 = (RadioButton) findViewById(R.id.RDO_s4q41d_2);
@@ -265,9 +263,7 @@ public class Section4Activity extends Activity {
             case R.id.RDO_s4q41c_6:
                 var_s4q41c = "6";
                 break;
-            case R.id.RDO_s4q41c_7:
-                var_s4q41c = "7";
-                break;
+
         }
 
         SRCApp.sc4a.set_s4q41c(var_s4q41c);
@@ -360,7 +356,7 @@ public class Section4Activity extends Activity {
 
 
             // AGE: DAYS 0 - 29
-            if ((Integer.parseInt(s4q41b.getText().toString()) < 1 || Integer.parseInt(s4q41b.getText().toString()) > 29)) {
+            if ((Integer.parseInt(s4q41b.getText().toString()) < 0 || Integer.parseInt(s4q41b.getText().toString()) > 29)) {
 
                 s4q41b.setError("Invalid:" + getString(R.string.baseline_s4q41b));
                 Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
@@ -371,7 +367,7 @@ public class Section4Activity extends Activity {
             }
 
             // AGE: MONTHS 0 - 11
-            if ((Integer.parseInt(s4q41b1.getText().toString()) < 1 || Integer.parseInt(s4q41b1.getText().toString()) > 11)) {
+            if ((Integer.parseInt(s4q41b1.getText().toString()) < 0 || Integer.parseInt(s4q41b1.getText().toString()) > 11)) {
 
                 s4q41b1.setError("Invalid:" + getString(R.string.baseline_s4q41b1));
                 Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q41b1), Toast.LENGTH_LONG).show();
@@ -382,7 +378,7 @@ public class Section4Activity extends Activity {
             }
 
             // AGE: YEARS 15 - 49
-            if ((Integer.parseInt(s4q41b2.getText().toString()) < 15 || Integer.parseInt(s4q41b2.getText().toString()) > 49)) {
+            if ((Integer.parseInt(s4q41b2.getText().toString()) < 0 || Integer.parseInt(s4q41b2.getText().toString()) > 49)) {
 
                 s4q41b2.setError("Invalid:" + getString(R.string.baseline_s4q41b2));
                 Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q41b2), Toast.LENGTH_LONG).show();
@@ -391,6 +387,8 @@ public class Section4Activity extends Activity {
             } else {
                 s4q41b2.setError(null);
             }
+
+
         }
         rdo_s4q41c = radio_s4q41c.getCheckedRadioButtonId();
 
@@ -422,9 +420,7 @@ public class Section4Activity extends Activity {
             case R.id.RDO_s4q41c_6:
                 var_s4q41c = "6";
                 break;
-            case R.id.RDO_s4q41c_7:
-                var_s4q41c = "7";
-                break;
+
         }
 
         rdo_s4q41d = radio_s4q41d.getCheckedRadioButtonId();
