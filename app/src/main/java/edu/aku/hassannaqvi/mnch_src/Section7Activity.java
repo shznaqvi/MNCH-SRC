@@ -596,7 +596,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
 
         if (!mn070201.getText().toString().isEmpty()) {
 
-            if (Integer.parseInt(mn070201.getText().toString()) < 0 || Integer.parseInt(mn070201.getText().toString()) > 9) {
+            if (Double.parseDouble(mn070201.getText().toString()) < 0 || Double.parseDouble(mn070201.getText().toString()) > 9) {
                 Toast.makeText(this, "" + "Weight can not be less than 0 - 9 kg.. check again", Toast.LENGTH_SHORT).show();
                 mn070201.setError("Weight can not be less than 0 - 9 kg");
                 return false;
