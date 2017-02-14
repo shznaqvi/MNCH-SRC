@@ -166,12 +166,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/baseline_s4q41c_6" />
 
-            <RadioButton
-                android:id="@+id/RDO_s4q41c_7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/baseline_s4q41c_7" />
-
         </RadioGroup>
 
         <TextView

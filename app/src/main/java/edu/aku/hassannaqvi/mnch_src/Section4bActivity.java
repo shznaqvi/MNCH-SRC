@@ -354,9 +354,6 @@ public class Section4bActivity extends Activity {
             case R.id.RDO_s4q41c_6:
                 var_s4q42c = "6";
                 break;
-            case R.id.RDO_s4q41c_7:
-                var_s4q42c = "7";
-                break;
         }
 
         SRCApp.sc4b.set_s4q42c(var_s4q42c);
