@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.mnch_src;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -444,6 +445,7 @@ public class Section4bActivity extends Activity {
             s4q42b.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter complete name of deceased child", Toast.LENGTH_LONG).show();
             s4q42b.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type:42b empty");
             return false;
         } else {
             s4q42b.setError(null);
@@ -455,6 +457,7 @@ public class Section4bActivity extends Activity {
             rdo_s4q42c_1.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             radio_s4q42c.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type: 42c not selected");
             return false;
         } else {
             rdo_s4q42c_1.setError(null);
@@ -473,6 +476,7 @@ public class Section4bActivity extends Activity {
             s4q42d.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter age in days", Toast.LENGTH_LONG).show();
             s4q42d.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type:42d empty");
             return false;
         } else {
             s4q42d.setError(null);
@@ -481,6 +485,7 @@ public class Section4bActivity extends Activity {
                 s4q42d.setError("Invalid:" + getString(R.string.baseline_s4q42d));
                 Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q42d), Toast.LENGTH_LONG).show();
                 s4q42d.requestFocus();
+                Log.d(TAG, "ValidateForm: Error Type:42d invalid");
                 return false;
             } else {
                 s4q42d.setError(null);
@@ -492,6 +497,7 @@ public class Section4bActivity extends Activity {
             s4q42d1.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter age in months", Toast.LENGTH_LONG).show();
             s4q42d1.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type:42d1 empty");
             return false;
         } else {
             s4q42d1.setError(null);
@@ -509,6 +515,7 @@ public class Section4bActivity extends Activity {
             s4q42d2.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter age in years", Toast.LENGTH_LONG).show();
             s4q42d2.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type:42d2 empty");
             return false;
         } else {
             s4q42d2.setError(null);
@@ -516,6 +523,7 @@ public class Section4bActivity extends Activity {
                 s4q42d2.setError("Invalid:" + getString(R.string.baseline_s4q42d2));
                 Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q42d2), Toast.LENGTH_LONG).show();
                 s4q42d2.requestFocus();
+                Log.d(TAG, "ValidateForm: 42d2 invalid");
                 return false;
             } else {
                 s4q42d2.setError(null);
@@ -528,6 +536,7 @@ public class Section4bActivity extends Activity {
             rdo_s4q42e_1.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             radio_s4q42e.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type:42e not selected");
             return false;
         } else {
             rdo_s4q42e_1.setError(null);
@@ -572,6 +581,7 @@ public class Section4bActivity extends Activity {
                 s4q42eoth.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "Please specify others", Toast.LENGTH_LONG).show();
                 s4q42eoth.requestFocus();
+                Log.d(TAG, "ValidateForm: Error Type:42eoth empty");
                 return false;
             } else {
                 s4q42eoth.setError(null);
@@ -583,6 +593,7 @@ public class Section4bActivity extends Activity {
             s4q42f.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter caause of death", Toast.LENGTH_LONG).show();
             s4q42f.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type:42f empty");
             return false;
         } else {
             s4q42f.setError(null);

@@ -1182,6 +1182,7 @@ public class Section8Activity extends Activity {
                 if ((Integer.parseInt(mn082101.getText().toString()) < 1) || (Integer.parseInt(mn082101.getText().toString()) > 999)) {
                     Toast.makeText(this, "Range is 0 - 999 acre", Toast.LENGTH_LONG).show();
                     mn082101.setError("Range is 0 - 999 .. Check Again");// Set Error on last radio button
+                    Log.d(TAG, "formValidation: 0821 invalid");
                     return false;
 
                 } else {
@@ -1192,6 +1193,7 @@ public class Section8Activity extends Activity {
                 if ((Integer.parseInt(mn082102.getText().toString()) < 1) || (Integer.parseInt(mn082102.getText().toString()) > 999)) {
                     Toast.makeText(this, "Range is 0 - 999 ", Toast.LENGTH_LONG).show();
                     mn082102.setError("Range is 0 - 999 .. Check Again");// Set Error on last radio button
+                    Log.d(TAG, "formValidation: 082102 invalid");
                     return false;
 
                 } else {
@@ -1404,6 +1406,7 @@ public class Section8Activity extends Activity {
         if ((Integer.parseInt(mn0804.getText().toString()) < 1) || (Integer.parseInt(mn0804.getText().toString()) > 20)) {
             Toast.makeText(this, "Range is 0 - 20 Rooms", Toast.LENGTH_LONG).show();
             mn0804.setError("Range is 0 - 20 Rooms.. Check Again");// Set Error on last radio button
+            Log.d(TAG, "formValidation: 0804 invalid");
             return false;
 
         } else {
@@ -1414,6 +1417,7 @@ public class Section8Activity extends Activity {
         if ((Integer.parseInt(mn0810.getText().toString()) < 1) || (Integer.parseInt(mn0810.getText().toString()) > 180)) {
             Toast.makeText(this, "Range is 1 - 180 Minutes", Toast.LENGTH_LONG).show();
             mn0810.setError("Range is 1 - 180 Minutes.. Check Again");// Set Error on last radio button
+            Log.d(TAG, "formValidation: 0810 invalid");
             return false;
 
         } else {
@@ -1424,6 +1428,7 @@ public class Section8Activity extends Activity {
         if ((Integer.parseInt(mn0816.getText().toString()) < 1) || (Integer.parseInt(mn0816.getText().toString()) > 180)) {
             Toast.makeText(this, "Range is 1 - 180", Toast.LENGTH_LONG).show();
             mn0816.setError("Range is 1 - 180 .. Check Again");// Set Error on last radio button
+            Log.d(TAG, "formValidation: 0816 not selected");
             return false;
 
         } else {
