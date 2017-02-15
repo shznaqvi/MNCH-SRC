@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.mnch_src;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -26,6 +27,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class Section7Activity extends Activity implements RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener {
+
+    private static final String TAG = Section7Activity.class.getSimpleName();
+
 
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
@@ -380,12 +384,16 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (mn071102.isChecked()) {
                     mn071102x.setVisibility(View.VISIBLE);
-                    mn071103x.setVisibility(View.GONE);
-                    mn071103x.setText(null);
+
                 } else if (mn071103.isChecked()) {
                     mn071103x.setVisibility(View.VISIBLE);
                     mn071102x.setVisibility(View.GONE);
                     mn071102x.setText(null);
+                } else {
+                    mn071102x.setVisibility(View.GONE);
+                    mn071102x.setText(null);
+                    mn071103x.setVisibility(View.GONE);
+                    mn071103x.setText(null);
                 }
             }
         });
@@ -570,6 +578,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         if (mn070202.getText().toString().isEmpty()) {
             Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
             mn070202.setError("This data is Required");
+            Log.d(TAG, "ValidateForm: 702");
             return false;
         } else {
             mn070202.setError(null);
@@ -579,6 +588,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             if (Integer.parseInt(mn070202.getText().toString()) < 1000 || Integer.parseInt(mn070202.getText().toString()) > 9000) {
                 Toast.makeText(this, "" + "Weight must be between 1000 - 9000 gm.", Toast.LENGTH_SHORT).show();
                 mn070202.setError("Weight must be between 1000 - 9000 gm.");
+                Log.d(TAG, "ValidateForm: 702");
                 return false;
             } else {
                 mn070202.setError(null);
@@ -588,6 +598,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         if (mn070201.getText().toString().isEmpty()) {
             Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
             mn070201.setError("This data is Required");
+            Log.d(TAG, "ValidateForm: 702");
             return false;
         } else {
             mn070201.setError(null);
@@ -598,6 +609,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             if (Double.parseDouble(mn070201.getText().toString()) < 0 || Double.parseDouble(mn070201.getText().toString()) > 9) {
                 Toast.makeText(this, "" + "Weight can not be less than 0 - 9 kg.. check again", Toast.LENGTH_SHORT).show();
                 mn070201.setError("Weight can not be less than 0 - 9 kg");
+                Log.d(TAG, "ValidateForm: 702");
                 return false;
             } else {
                 mn070201.setError(null);
@@ -608,6 +620,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             if (mn070201.getText().toString().isEmpty() && mn070202.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mn0702), Toast.LENGTH_SHORT).show();
                 mn070201.setError("This is inValid");
+                Log.d(TAG, "ValidateForm: 702");
                 return false;
             } else {
                 mn070201.setError(null);
@@ -621,6 +634,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         if (mn0703.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "" + getString(R.string.mn0703), Toast.LENGTH_SHORT).show();
             mn07031.setError("This is inValid");
+            Log.d(TAG, "ValidateForm: 703");
             return false;
         } else {
             mn07031.setError(null);
@@ -631,6 +645,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         if (mn0704.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "" + getString(R.string.mn0704), Toast.LENGTH_SHORT).show();
             mn07041.setError("This is inValid");
+            Log.d(TAG, "ValidateForm: 704");
+
             return false;
         } else {
             mn07041.setError(null);
@@ -641,6 +657,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         if (mn0705.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "" + getString(R.string.mn0705), Toast.LENGTH_SHORT).show();
             mn07051.setError("This is inValid");
+            Log.d(TAG, "ValidateForm: 705");
+
             return false;
         } else {
             mn07051.setError(null);
@@ -651,6 +669,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         if (mn0706.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "" + getString(R.string.mn0706), Toast.LENGTH_SHORT).show();
             mn070699.setError("This is inValid");
+            Log.d(TAG, "ValidateForm: 706");
+
             return false;
         } else {
             mn070699.setError(null);
@@ -663,6 +683,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             if (mn0707.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "" + getString(R.string.mn0707), Toast.LENGTH_SHORT).show();
                 mn07072.setError("This is inValid");
+                Log.d(TAG, "ValidateForm: 707");
+
                 return false;
             } else {
                 mn07072.setError(null);
@@ -674,6 +696,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 if (mn0708.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(this, "" + getString(R.string.mn0708), Toast.LENGTH_SHORT).show();
                     mn070888.setError("This is inValid");
+                    Log.d(TAG, "ValidateForm: 708");
+
                     return false;
                 } else {
                     mn070888.setError(null);
@@ -686,6 +710,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         if (mn0709.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "" + getString(R.string.mn0709), Toast.LENGTH_SHORT).show();
             mn07092.setError("This is inValid");
+            Log.d(TAG, "ValidateForm: 709");
+
             return false;
         } else {
             mn07092.setError(null);
@@ -698,6 +724,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     && !mn071005.isChecked() && !mn071006.isChecked() && !mn071088.isChecked()) {
                 Toast.makeText(this, "" + getString(R.string.mn0710), Toast.LENGTH_SHORT).show();
                 mn071088.setError("This is inValid");
+                Log.d(TAG, "ValidateForm: 709");
+
                 return false;
             } else {
                 mn071088.setError(null);
@@ -706,6 +734,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             if (mn071088.isChecked() && mn071088x.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mn0710), Toast.LENGTH_SHORT).show();
                 mn071088x.setError("This is inValid");
+                Log.d(TAG, "ValidateForm: 710");
+
                 return false;
             } else {
                 mn071088x.setError(null);
@@ -717,6 +747,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         if (mn0711.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0711), Toast.LENGTH_LONG).show();
             mn071103.setError("This data is Required!");    // Set Error on last radio button
+            Log.d(TAG, "ValidateForm: 711");
+
             return false;
         } else {
             mn071103.setError(null);
@@ -726,6 +758,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             if (mn071102x.getText().toString().isEmpty()) {
                 Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
                 mn071102x.setError("This data is Required");
+                Log.d(TAG, "ValidateForm: 711");
+
                 return false;
             } else {
                 mn071102x.setError(null);
@@ -734,6 +768,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             if ((Integer.parseInt(mn071102x.getText().toString()) < 0) || (Integer.parseInt(mn071102x.getText().toString()) > 23)) {
                 Toast.makeText(this, "" + "Range is 0 - 23 hours", Toast.LENGTH_SHORT).show();
                 mn071102x.setError("Range is 0 - 23 hours");
+                Log.d(TAG, "ValidateForm: 711");
+
                 return false;
             } else {
                 mn071102x.setError(null);
@@ -744,6 +780,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             if (mn071103x.getText().toString().isEmpty()) {
                 Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
                 mn071103x.setError("This data is Required");
+                Log.d(TAG, "ValidateForm: 711");
+
                 return false;
             } else {
                 mn071103x.setError(null);
@@ -752,6 +790,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             if ((Integer.parseInt(mn071103x.getText().toString()) < 0) || (Integer.parseInt(mn071103x.getText().toString()) > 180)) {
                 Toast.makeText(this, "" + "Range is 0 - 180 days", Toast.LENGTH_SHORT).show();
                 mn071103x.setError("Range is 0 - 180 days");
+                Log.d(TAG, "ValidateForm: 711");
+
                 return false;
             } else {
                 mn071103x.setError(null);
@@ -763,6 +803,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         if (mn0712.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "" + getString(R.string.mn0712), Toast.LENGTH_SHORT).show();
             mn07121.setError("This is inValid");
+            Log.d(TAG, "ValidateForm: 712");
+
             return false;
         } else {
             mn07121.setError(null);
@@ -774,6 +816,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             if (mn0713.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "" + getString(R.string.mn0713), Toast.LENGTH_SHORT).show();
                 mn071302.setError("This is inValid");
+                Log.d(TAG, "ValidateForm: 713");
+
                 return false;
             } else {
                 mn071302.setError(null);
@@ -783,6 +827,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 if (mn071301x.getText().toString().isEmpty()) {
                     Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
                     mn071301x.setError("This data is Required");
+                    Log.d(TAG, "ValidateForm: 713-01");
+
                     return false;
                 } else {
                     mn071301x.setError(null);
@@ -791,6 +837,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 if (Integer.parseInt(mn071301x.getText().toString()) < 1 || Integer.parseInt(mn071301x.getText().toString()) > 29) {
                     Toast.makeText(this, "This is inValid", Toast.LENGTH_SHORT).show();
                     mn071301x.setError("This is inValid");
+                    Log.d(TAG, "ValidateForm: 713-01");
+
                     return false;
                 } else {
                     mn071301x.setError(null);
@@ -800,6 +848,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 if (mn071302x.getText().toString().isEmpty()) {
                     Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
                     mn071302x.setError("This data is Required");
+                    Log.d(TAG, "ValidateForm: 713-02");
+
                     return false;
                 } else {
                     mn071302x.setError(null);
@@ -808,6 +858,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 if (Integer.parseInt(mn071302x.getText().toString()) < 1 || Integer.parseInt(mn071302x.getText().toString()) > 24) {
                     Toast.makeText(this, "This is inValid", Toast.LENGTH_SHORT).show();
                     mn071302x.setError("This is inValid");
+                    Log.d(TAG, "ValidateForm: 713-02");
+
                     return false;
                 } else {
                     mn071302x.setError(null);
@@ -822,6 +874,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     && !mn071405.isChecked() && !mn071406.isChecked() && !mn071488.isChecked()) {
                 Toast.makeText(this, "" + getString(R.string.mn0714), Toast.LENGTH_SHORT).show();
                 mn071488.setError("This is inValid");
+                Log.d(TAG, "ValidateForm: 714");
+
                 return false;
             } else {
                 mn071488.setError(null);
@@ -830,6 +884,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             if (mn071488.isChecked() && mn071488x.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mn0714), Toast.LENGTH_SHORT).show();
                 mn071488x.setError("This is inValid");
+                Log.d(TAG, "ValidateForm: 714");
+
                 return false;
             } else {
                 mn071488x.setError(null);
@@ -841,6 +897,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         if (mn0715.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "" + getString(R.string.mn0715), Toast.LENGTH_SHORT).show();
             mn07151.setError("This is inValid");
+            Log.d(TAG, "ValidateForm: 715");
+
             return false;
         } else {
             mn07151.setError(null);
@@ -854,6 +912,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     !mn071609.isChecked() && !mn071688.isChecked()) {
                 Toast.makeText(this, "" + getString(R.string.mn0716), Toast.LENGTH_SHORT).show();
                 mn071688.setError("This is inValid");
+                Log.d(TAG, "ValidateForm: 716");
+
                 return false;
             } else {
                 mn071688.setError(null);
@@ -862,6 +922,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             if (mn071688.isChecked() && mn071688x.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mn0716), Toast.LENGTH_SHORT).show();
                 mn071688x.setError("This is inValid");
+                Log.d(TAG, "ValidateForm: 716");
+
                 return false;
             } else {
                 mn071688x.setError(null);
@@ -875,6 +937,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     !mn071709.isChecked() && !mn071777.isChecked() && !mn071788.isChecked()) {
                 Toast.makeText(this, "" + getString(R.string.mn0717), Toast.LENGTH_SHORT).show();
                 mn071788.setError("This is inValid");
+                Log.d(TAG, "ValidateForm: 717");
+
                 return false;
             } else {
                 mn071788.setError(null);
@@ -883,6 +947,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             if (mn071788.isChecked() && mn071788x.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mn0717), Toast.LENGTH_SHORT).show();
                 mn071788x.setError("This is inValid");
+                Log.d(TAG, "ValidateForm: 717");
+
                 return false;
             } else {
                 mn071788x.setError(null);
@@ -893,6 +959,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             if (mn0718.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "" + getString(R.string.mn0718), Toast.LENGTH_SHORT).show();
                 mn071801.setError("This is inValid");
+                Log.d(TAG, "ValidateForm: 718");
+
                 return false;
             } else {
                 mn071801.setError(null);
