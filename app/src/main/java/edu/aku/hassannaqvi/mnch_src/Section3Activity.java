@@ -788,6 +788,7 @@ public class Section3Activity extends Activity {
             s3q301a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter name of a married woman \r\n", Toast.LENGTH_LONG).show();
             s3q301a.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type: 301 empty");
             return false;
         } else {
             s3q301a.setError(null);
@@ -797,6 +798,7 @@ public class Section3Activity extends Activity {
             s3q301b.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter age in years \r\n", Toast.LENGTH_LONG).show();
             s3q301b.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type: 301b empty ");
             return false;
         } else {
             s3q301b.setError(null);
@@ -809,6 +811,7 @@ public class Section3Activity extends Activity {
             s3q301b.setError("Age Limit should be 15 to 49");
             Toast.makeText(getApplicationContext(), "Please enter age in 15-49 years \r\n", Toast.LENGTH_LONG).show();
             s3q301b.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type: 301b invalid");
             return false;
         } else {
             s3q301b.setError(null);
@@ -818,6 +821,7 @@ public class Section3Activity extends Activity {
             s3q301c.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter education status \r\n", Toast.LENGTH_LONG).show();
             s3q301c.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type:301c empty");
             return false;
         } else {
             s3q301c.setError(null);
@@ -850,6 +854,7 @@ public class Section3Activity extends Activity {
             rDOS3q301d1.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             rDOS3q301d1.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type:301d not selected ");
             return false;
         } else {
             rDOS3q301d1.setError(null);
@@ -873,6 +878,7 @@ public class Section3Activity extends Activity {
                 s3q301e.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "Please enter gestational age \r\n", Toast.LENGTH_LONG).show();
                 s3q301e.requestFocus();
+                Log.d(TAG, "ValidateForm: Error Type: 301e empty");
                 return false;
             } else {
                 s3q301e.setError(null);
@@ -883,6 +889,7 @@ public class Section3Activity extends Activity {
             rDOS3q301f11.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             rDOS3q301f11.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type: 301f not selected");
             return false;
         } else {
             rDOS3q301f11.setError(null);
@@ -902,6 +909,7 @@ public class Section3Activity extends Activity {
                 s3q301e.setError(getString(R.string.txterr) + "Gestational age should be 3 - 42 weeks");
                 Toast.makeText(getApplicationContext(), "Gestational age should be 3 - 42 weeks  \r\n", Toast.LENGTH_LONG).show();
                 s3q301e.requestFocus();
+                Log.d(TAG, "ValidateForm: Error Type:301e invalid");
                 return false;
             } else {
                 s3q301e.setError(null);
@@ -938,6 +946,7 @@ public class Section3Activity extends Activity {
                 rDOS3q301f1.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
                 rDOS3q301f1.requestFocus();
+                Log.d(TAG, "ValidateForm: Error Type: 301f not selected");
                 return false;
             } else {
                 rDOS3q301f1.setError(null);
@@ -963,6 +972,7 @@ public class Section3Activity extends Activity {
                 rDOS3q301g1.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
                 rDOS3q301g1.requestFocus();
+                Log.d(TAG, "ValidateForm: Error Type: 301f not selected ");
                 return false;
             } else {
                 rDOS3q301g1.setError(null);
@@ -989,6 +999,7 @@ public class Section3Activity extends Activity {
                 rDOS3q301h1.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
                 rDOS3q301h1.requestFocus();
+                Log.d(TAG, "ValidateForm: Error Type: 301g not selected  ");
                 return false;
 
             } else {
@@ -1045,6 +1056,7 @@ public class Section3Activity extends Activity {
                 rDOS3q301i1.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
                 rDOS3q301i1.requestFocus();
+                Log.d(TAG, "ValidateForm: Error Type: 301i not selected");
                 return false;
             } else {
                 rDOS3q301i1.setError(null);
@@ -1055,6 +1067,7 @@ public class Section3Activity extends Activity {
                 s3q301ioth.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "Please specify place of delivery if others  \r\n", Toast.LENGTH_LONG).show();
                 s3q301ioth.requestFocus();
+                Log.d(TAG, "ValidateForm: Error Type:301i empty ");
                 return false;
             } else {
                 s3q301ioth.setError(null);
@@ -1102,6 +1115,7 @@ public class Section3Activity extends Activity {
                 rDOS3q301j1.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
                 rDOS3q301j1.requestFocus();
+                Log.d(TAG, "ValidateForm: Error Type: 301j not selected");
                 return false;
             } else {
                 rDOS3q301j1.setError(null);
@@ -1112,6 +1126,7 @@ public class Section3Activity extends Activity {
                 s3q301joth.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "Please specify delivery conducted by if others  \r\n", Toast.LENGTH_LONG).show();
                 s3q301joth.requestFocus();
+                Log.d(TAG, "ValidateForm: Error Type: 301j not selected ");
                 return false;
             } else {
                 s3q301joth.setError(null);
@@ -1122,6 +1137,7 @@ public class Section3Activity extends Activity {
                 s3q301k.setError(getString(R.string.txterr));
                 Toast.makeText(getApplicationContext(), "Please specify cost of delivery  \r\n", Toast.LENGTH_LONG).show();
                 s3q301k.requestFocus();
+                Log.d(TAG, "ValidateForm: Error Type:301k empty");
                 return false;
             } else {
                 s3q301k.setError(null);
@@ -1133,6 +1149,7 @@ public class Section3Activity extends Activity {
                 s3q301k.setError("Invalid specify cost of delivery (100 - 100000) and 99 for free");
                 Toast.makeText(getApplicationContext(), "Invalid specify cost of delivery  \r\n", Toast.LENGTH_LONG).show();
                 s3q301k.requestFocus();
+                Log.d(TAG, "ValidateForm: Error Type:301k invalid");
                 return false;
             } else {
                 s3q301k.setError(null);
@@ -1145,6 +1162,7 @@ public class Section3Activity extends Activity {
                 if (Integer.parseInt(s3q301e.getText().toString()) <= 2 || Integer.parseInt(s3q301e.getText().toString()) > 43) {
                     Toast.makeText(getApplicationContext(), "Gestational age must be 3 - 44 weeks \r\n", Toast.LENGTH_LONG).show();
                     s3q301e.requestFocus();
+                    Log.d(TAG, "ValidateForm: Error Type: 301e invalid");
                     return false;
                 }
             }
@@ -1159,6 +1177,7 @@ public class Section3Activity extends Activity {
                 s3q301c.requestFocus();
                 Toast.makeText(getApplicationContext(), "Years of schooling of woman must be 0 - 16 or 91 or 92 \r\n", Toast.LENGTH_LONG).show();
                 s3q301c.setError("Years of schooling of woman must be 0 - 16 or 91 or 92");
+                Log.d(TAG, "ValidateForm: Error Type:301c invalid");
                 return false;
             } else {
                 s3q301c.setError(null);

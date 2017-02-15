@@ -18,7 +18,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -614,6 +613,7 @@ public class Section1Activity extends Activity implements TextWatcher {
             formid.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter form id \r\n", Toast.LENGTH_LONG).show();
             formid.requestFocus();
+            Log.d(TAG, "ValidateForm: Form Id empty ");
             return false;
         } else {
             formid.setError(null);
@@ -623,6 +623,7 @@ public class Section1Activity extends Activity implements TextWatcher {
             formid.setError("Please enter Household number extension");
             Toast.makeText(getApplicationContext(), "Please enter Household number extension \r\n", Toast.LENGTH_LONG).show();
             formid.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type: 101 empty");
             return false;
         } else {
             formid.setError(null);
@@ -632,6 +633,7 @@ public class Section1Activity extends Activity implements TextWatcher {
             s1q102.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter respondent name \r\n", Toast.LENGTH_LONG).show();
             s1q102.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type: 102 empty");
             return false;
         } else {
             s1q102.setError(null);
@@ -644,6 +646,7 @@ public class Section1Activity extends Activity implements TextWatcher {
             rDOS1q1031.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             rDOS1q1031.requestFocus();
+            Log.d(TAG, "ValidateForm: 103 not selected ");
             return false;
         } else {
             rDOS1q1031.setError(null);
@@ -653,6 +656,7 @@ public class Section1Activity extends Activity implements TextWatcher {
             s1q104.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter respondent age \r\n", Toast.LENGTH_LONG).show();
             s1q104.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type: 104 empty");
             return false;
         } else {
             s1q104.setError(null);
@@ -662,6 +666,7 @@ public class Section1Activity extends Activity implements TextWatcher {
             s1q104.setError("Invalid respondent age");
             Toast.makeText(getApplicationContext(), "Invalid respondent age \r\n", Toast.LENGTH_LONG).show();
             s1q104.requestFocus();
+            Log.d(TAG, "ValidateForm:  Error Type: 104 invalid ");
             return false;
         } else {
             s1q104.setError(null);
@@ -700,7 +705,9 @@ public class Section1Activity extends Activity implements TextWatcher {
             s1q108.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter telephone number \r\n", Toast.LENGTH_LONG).show();
             s1q108.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type:108 empty");
             return false;
+
         } else {
             s1q108.setError(null);
         }
@@ -739,6 +746,7 @@ public class Section1Activity extends Activity implements TextWatcher {
             rDOS1q1121.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             rDOS1q1121.requestFocus();
+            Log.d(TAG, "ValidateForm: ErrorType : 112 not selected ");
             return false;
         } else {
             rDOS1q1121.setError(null);

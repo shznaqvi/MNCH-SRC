@@ -1419,6 +1419,7 @@ public class Section8Activity extends Activity {
         if ((Integer.parseInt(mn0816.getText().toString()) < 1) || (Integer.parseInt(mn0816.getText().toString()) > 180)) {
             Toast.makeText(this, "Range is 1 - 180", Toast.LENGTH_LONG).show();
             mn0816.setError("Range is 1 - 180 .. Check Again");// Set Error on last radio button
+            Log.d(TAG, "formValidation: 0816 not selected");
             return false;
 
         } else {

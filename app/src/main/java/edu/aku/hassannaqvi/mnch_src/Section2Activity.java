@@ -708,6 +708,7 @@ public class Section2Activity extends Activity {
             s2q201.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter household head name \r\n", Toast.LENGTH_LONG).show();
             s2q201.requestFocus();
+            Log.d(TAG, "ValidateForm: ErrorType: 201 empty ");
             return false;
         } else {
             s2q201.setError(null);
@@ -717,6 +718,7 @@ public class Section2Activity extends Activity {
             s2q202.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter household head age \r\n", Toast.LENGTH_LONG).show();
             s2q202.requestFocus();
+            Log.d(TAG, "ValidateForm:ErrorType: 202 empty");
             return false;
         } else {
             s2q202.setError(null);
@@ -727,6 +729,7 @@ public class Section2Activity extends Activity {
             rDOS2q2031.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             rDOS2q2031.requestFocus();
+            Log.d(TAG, "ValidateForm: ErrorType: 203 not selected ");
             return false;
         } else {
             rDOS2q2031.setError(null);
@@ -737,6 +740,7 @@ public class Section2Activity extends Activity {
             s2q204.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter years of schooling head of household \r\n", Toast.LENGTH_LONG).show();
             s2q204.requestFocus();
+            Log.d(TAG, "ValidateForm: ErrorType: 204 empty");
             return false;
         } else {
             s2q204.setError(null);
@@ -746,6 +750,7 @@ public class Section2Activity extends Activity {
             s2q204.setError("Invalid years of schooling");
             Toast.makeText(getApplicationContext(), "Invalid years of schooling head of household \r\n", Toast.LENGTH_LONG).show();
             s2q204.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type: 204 invalid");
             return false;
         } else {
             s2q204.setError(null);
@@ -756,6 +761,7 @@ public class Section2Activity extends Activity {
             rDOS2q2051.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             rDOS2q2051.requestFocus();
+            Log.d(TAG, "ValidateForm:  Error Type: 205 not selected ");
             return false;
         } else {
             rDOS2q2051.setError(null);
@@ -821,6 +827,7 @@ public class Section2Activity extends Activity {
             s2q205oth.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please specify occupation if others \r\n", Toast.LENGTH_LONG).show();
             s2q205oth.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type: 205 empty ");
             return false;
         } else {
             s2q205oth.setError(null);
@@ -830,6 +837,7 @@ public class Section2Activity extends Activity {
             s2q206a.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter total number of members \r\n", Toast.LENGTH_LONG).show();
             s2q206a.requestFocus();
+            Log.d(TAG, "ValidateForm:Error Type: 206a empty ");
             return false;
         } else {
             s2q206a.setError(null);
@@ -839,6 +847,7 @@ public class Section2Activity extends Activity {
             s2q206a.setError("Member greater than 1");
             Toast.makeText(getApplicationContext(), "Total number of members greater than 1 \r\n", Toast.LENGTH_LONG).show();
             s2q206a.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type: 206a invalid");
             return false;
         } else {
             s2q206a.setError(null);
@@ -848,6 +857,7 @@ public class Section2Activity extends Activity {
                 Integer.parseInt(s2q202.getText().toString()) > 99) {
             Toast.makeText(getApplicationContext(), "Head of household age must be between 18 - 99 \r\n", Toast.LENGTH_LONG).show();
             s2q202.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type: 202 invalid");
             return false;
         }
 
@@ -860,6 +870,7 @@ public class Section2Activity extends Activity {
                 && Integer.parseInt(s2q204.getText().toString()) != 92) {
             Toast.makeText(getApplicationContext(), "Years of schooling of head of household must be 0 - 16 or 91 or 92 \r\n", Toast.LENGTH_LONG).show();
             s2q204.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type: 204 not selected");
             return false;
         }
 
@@ -899,6 +910,7 @@ public class Section2Activity extends Activity {
         if (total > totalMembers || total != totalMembers) {
             s2q206a.requestFocus();
             s2q206a.setError("Total members are " + totalMembers + " Check all values again!");
+            Log.d(TAG, "ValidateForm: Error Type: 206a not selected");
             return false;
         } else {
             s2q206a.setError(null);
@@ -909,6 +921,7 @@ public class Section2Activity extends Activity {
             //s2q206g.requestFocus();
             s2q206g.setError("Total women are " + fm + " Please mention women are married or unmarried");
             Toast.makeText(getApplicationContext(), "Check values of total women, married and unmarried women \r\n", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "ValidateForm: Error Type: 206g invalid ");
             return false;
         } else {
             s2q206g.setError(null);
@@ -918,6 +931,7 @@ public class Section2Activity extends Activity {
             //s2q206g.requestFocus();
             s2q206a.setError("Total Members are " + totalMembers + " Please check again1");
             Toast.makeText(getApplicationContext(), "Total Members are less... Check Again \r\n", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "ValidateForm:Error Type: 206a not selected ");
             return false;
         } else {
             s2q206a.setError(null);
@@ -926,6 +940,7 @@ public class Section2Activity extends Activity {
         if (s2q206d.getText().toString().isEmpty()) {
             s2q206d.setError("Please enter 0 or any number ");
             Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "ValidateForm:Error Type: 206d empty ");
             return false;
         } else {
             s2q206d.setError(null);
@@ -935,6 +950,7 @@ public class Section2Activity extends Activity {
         if (s2q206e.getText().toString().isEmpty()) {
             s2q206e.setError("Please enter 0 or any number ");
             Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "ValidateForm: Error Type:206e empty ");
             return false;
         } else {
             s2q206e.setError(null);
@@ -944,6 +960,7 @@ public class Section2Activity extends Activity {
         if (s2q206f.getText().toString().isEmpty()) {
             s2q206f.setError("Please enter 0 or any number ");
             Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "ValidateForm: Error Type: 206f empty");
             return false;
         } else {
             s2q206f.setError(null);
@@ -953,6 +970,7 @@ public class Section2Activity extends Activity {
         if (s2q206g.getText().toString().isEmpty()) {
             s2q206g.setError("Please enter 0 or any number ");
             Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "ValidateForm: Error Type: 206g empty");
             return false;
         } else {
             s2q206g.setError(null);
@@ -962,6 +980,7 @@ public class Section2Activity extends Activity {
         if (s2q206h.getText().toString().isEmpty() || Integer.parseInt(s2q206h.getText().toString()) == 0) {
             s2q206h.setError("Please enter 1 or any number ");
             Toast.makeText(getApplicationContext(), "Please Enter 1 or any number \r\n", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "ValidateForm: Error Type: 206h empty");
             return false;
         } else {
             s2q206h.setError(null);
@@ -971,6 +990,7 @@ public class Section2Activity extends Activity {
         if (s2q206i.getText().toString().isEmpty()) {
             s2q206i.setError("Please enter 0 or any number ");
             Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "ValidateForm: ErrorType:206i empty ");
             return false;
         } else {
             s2q206i.setError(null);
@@ -978,6 +998,7 @@ public class Section2Activity extends Activity {
         if (Integer.parseInt(s2q206i.getText().toString()) < 0 || Integer.parseInt(s2q206i.getText().toString()) > 3) {
             s2q206i.setError("Invalid Range 1-3");
             Toast.makeText(getApplicationContext(), "Invalid Range 1-3 \r\n", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "ValidateForm: ErrorType:206i invalid ");
             return false;
         } else {
             s2q206i.setError(null);
@@ -989,6 +1010,7 @@ public class Section2Activity extends Activity {
             if (s2q206j.getText().toString().isEmpty()) {
                 s2q206j.setError("Please enter 0 or any number ");
                 Toast.makeText(getApplicationContext(), "Please Enter 0 or any number \r\n", Toast.LENGTH_LONG).show();
+                Log.d(TAG, "ValidateForm: ErrorType:206j empty");
                 return false;
             } else {
                 s2q206j.setError(null);
@@ -998,6 +1020,7 @@ public class Section2Activity extends Activity {
             if (Integer.parseInt(s2q206j.getText().toString()) < 1 || Integer.parseInt(s2q206j.getText().toString()) > 5) {
                 s2q206j.setError("Invalid Range 1-5");
                 Toast.makeText(getApplicationContext(), "Invalid Range 1-5 \r\n", Toast.LENGTH_LONG).show();
+                Log.d(TAG, "ValidateForm: ErrorType:206j invalid");
                 return false;
             } else {
                 s2q206j.setError(null);
