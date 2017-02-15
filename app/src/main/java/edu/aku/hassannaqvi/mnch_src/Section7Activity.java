@@ -3,7 +3,6 @@ package edu.aku.hassannaqvi.mnch_src;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -577,9 +576,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         }
 
         if (!mn070202.getText().toString().isEmpty()) {
-            if (Integer.parseInt(mn070202.getText().toString()) < 9000) {
-                Toast.makeText(this, "" + "Weight can not be less than 6000 gm.. check again", Toast.LENGTH_SHORT).show();
-                mn070202.setError("Weight can not be less than 6000 gm");
+            if (Integer.parseInt(mn070202.getText().toString()) < 1000 || Integer.parseInt(mn070202.getText().toString()) > 9000) {
+                Toast.makeText(this, "" + "Weight must be between 1000 - 9000 gm.", Toast.LENGTH_SHORT).show();
+                mn070202.setError("Weight must be between 1000 - 9000 gm.");
                 return false;
             } else {
                 mn070202.setError(null);
@@ -789,7 +788,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     mn071301x.setError(null);
                 }
 
-                if (Integer.parseInt(mn071301x.getText().toString()) < 1) {
+                if (Integer.parseInt(mn071301x.getText().toString()) < 1 || Integer.parseInt(mn071301x.getText().toString()) > 29) {
                     Toast.makeText(this, "This is inValid", Toast.LENGTH_SHORT).show();
                     mn071301x.setError("This is inValid");
                     return false;
@@ -806,7 +805,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     mn071302x.setError(null);
                 }
 
-                if (Integer.parseInt(mn071302x.getText().toString()) < 1) {
+                if (Integer.parseInt(mn071302x.getText().toString()) < 1 || Integer.parseInt(mn071302x.getText().toString()) > 24) {
                     Toast.makeText(this, "This is inValid", Toast.LENGTH_SHORT).show();
                     mn071302x.setError("This is inValid");
                     return false;
@@ -1010,6 +1009,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 mn07013Grp.setVisibility(View.GONE);
                 mn07014Grp.setVisibility(View.VISIBLE);
                 mn0713.clearCheck();
+                mn071301x.setText(null);
+                mn071302x.setText(null);
             } else {
                 mn07013Grp.setVisibility(View.VISIBLE);
                 mn07014Grp.setVisibility(View.GONE);
