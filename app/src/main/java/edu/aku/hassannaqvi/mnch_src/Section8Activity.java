@@ -1009,6 +1009,15 @@ public class Section8Activity extends Activity {
                 mn0810.setError(null);
             }
 
+            if ((Integer.parseInt(mn0810.getText().toString()) < 1) || (Integer.parseInt(mn0810.getText().toString()) > 180)) {
+                Toast.makeText(this, "Range is 1 - 180 Minutes", Toast.LENGTH_LONG).show();
+                mn0810.setError("Range is 1 - 180 Minutes.. Check Again");// Set Error on last radio button
+                return false;
+
+            } else {
+                mn0810.setError(null);
+            }
+
             if (mn0811.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0811), Toast.LENGTH_LONG).show();
                 mn081104.setError("This data is Required!");    // Set Error on last radio button
@@ -1020,11 +1029,6 @@ public class Section8Activity extends Activity {
             }
 
 
-        } else {
-
-            mn0810.setText(null);
-            mn0811.clearCheck();
-            mn081104.setError(null);
         }
 
         // ======================== Q 8.12 ==================
@@ -1178,24 +1182,25 @@ public class Section8Activity extends Activity {
                 } else {
                     mn082199.setError(null);
                 }
+                if (!mn082101.getText().toString().isEmpty()) {
+                    if ((Integer.parseInt(mn082101.getText().toString()) < 1) || (Integer.parseInt(mn082101.getText().toString()) > 999)) {
+                        Toast.makeText(this, "Range is 0 - 999 acre", Toast.LENGTH_LONG).show();
+                        mn082101.setError("Range is 0 - 999 .. Check Again");// Set Error on last radio button
+                        return false;
 
-                if ((Integer.parseInt(mn082101.getText().toString()) < 1) || (Integer.parseInt(mn082101.getText().toString()) > 999)) {
-                    Toast.makeText(this, "Range is 0 - 999 acre", Toast.LENGTH_LONG).show();
-                    mn082101.setError("Range is 0 - 999 .. Check Again");// Set Error on last radio button
-                    return false;
-
-                } else {
-                    mn082101.setError(null);
+                    } else {
+                        mn082101.setError(null);
+                    }
                 }
+                if (!mn082102.getText().toString().isEmpty()) {
+                    if ((Integer.parseInt(mn082102.getText().toString()) < 1) || (Integer.parseInt(mn082102.getText().toString()) > 999)) {
+                        Toast.makeText(this, "Range is 0 - 999 ", Toast.LENGTH_LONG).show();
+                        mn082102.setError("Range is 0 - 999 .. Check Again");// Set Error on last radio button
+                        return false;
 
-
-                if ((Integer.parseInt(mn082102.getText().toString()) < 1) || (Integer.parseInt(mn082102.getText().toString()) > 999)) {
-                    Toast.makeText(this, "Range is 0 - 999 ", Toast.LENGTH_LONG).show();
-                    mn082102.setError("Range is 0 - 999 .. Check Again");// Set Error on last radio button
-                    return false;
-
-                } else {
-                    mn082102.setError(null);
+                    } else {
+                        mn082102.setError(null);
+                    }
                 }
             }
         }
@@ -1408,16 +1413,6 @@ public class Section8Activity extends Activity {
 
         } else {
             mn0804.setError(null);
-        }
-
-
-        if ((Integer.parseInt(mn0810.getText().toString()) < 1) || (Integer.parseInt(mn0810.getText().toString()) > 180)) {
-            Toast.makeText(this, "Range is 1 - 180 Minutes", Toast.LENGTH_LONG).show();
-            mn0810.setError("Range is 1 - 180 Minutes.. Check Again");// Set Error on last radio button
-            return false;
-
-        } else {
-            mn0810.setError(null);
         }
 
 

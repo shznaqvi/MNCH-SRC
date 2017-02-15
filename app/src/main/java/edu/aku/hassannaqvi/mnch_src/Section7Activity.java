@@ -606,9 +606,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
 
         if (!mn070201.getText().toString().isEmpty()) {
 
-            if (Double.parseDouble(mn070201.getText().toString()) < 0 || Double.parseDouble(mn070201.getText().toString()) > 9) {
-                Toast.makeText(this, "" + "Weight can not be less than 0 - 9 kg.. check again", Toast.LENGTH_SHORT).show();
-                mn070201.setError("Weight can not be less than 0 - 9 kg");
+            if (Double.parseDouble(mn070201.getText().toString()) < 1 || Double.parseDouble(mn070201.getText().toString()) > 9) {
+                Toast.makeText(this, "" + "Weight can not be less than 1 - 9 kg.. check again", Toast.LENGTH_SHORT).show();
+                mn070201.setError("Weight can not be less than 1 - 9 kg");
                 Log.d(TAG, "ValidateForm: 702");
                 return false;
             } else {
@@ -1000,9 +1000,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 } else {
                     mn072001.setError(null);
                 }
-
 //        7.21
-
                 if (mn0721.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(this, "" + getString(R.string.mn0721), Toast.LENGTH_SHORT).show();
                     mn07211.setError("This is inValid");
@@ -1010,10 +1008,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 } else {
                     mn07211.setError(null);
                 }
-
 //      7.22
-
-                if (mn07211.isChecked()) {
+            if (mn07211.isChecked()) {
                     if (mn072201.getText().toString().isEmpty() && mn072202.getText().toString().isEmpty()
                             && mn072203.getText().toString().isEmpty()) {
 
@@ -1024,7 +1020,6 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                         mn072201.setError(null);
                     }
                 }
-
         }
 
 
