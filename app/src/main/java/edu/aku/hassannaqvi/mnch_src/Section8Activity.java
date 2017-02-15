@@ -1178,251 +1178,8 @@ public class Section8Activity extends Activity {
                 } else {
                     mn082199.setError(null);
                 }
-            }
-        }
 
-        if (mn082002.isChecked()) {
-            if (mn082201.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082201), Toast.LENGTH_LONG).show();
-                mn082201.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082201: This data is Required!");
-                return false;
-            } else {
-                mn082201.setError(null);
-            }
-
-            if (mn082202.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082202), Toast.LENGTH_LONG).show();
-                mn082202.setError("This data is Required! or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082202: This data is Required!");
-                return false;
-            } else {
-                mn082202.setError(null);
-            }
-
-            if (mn082203.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082203), Toast.LENGTH_LONG).show();
-                mn082203.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082203: This data is Required!");
-                return false;
-            } else {
-                mn082203.setError(null);
-            }
-
-            if (mn082204.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082204), Toast.LENGTH_LONG).show();
-                mn082204.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082204: This data is Required!");
-                return false;
-            } else {
-                mn082204.setError(null);
-            }
-
-            if (mn082205.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082205), Toast.LENGTH_LONG).show();
-                mn082205.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082205: This data is Required!");
-                return false;
-            } else {
-                mn082205.setError(null);
-            }
-
-            if (mn082206.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082206), Toast.LENGTH_LONG).show();
-                mn082206.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082206: This data is Required!");
-                return false;
-            } else {
-                mn082206.setError(null);
-            }
-
-            if (mn082207.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082207), Toast.LENGTH_LONG).show();
-                mn082207.setError("This data is Required! Or type 'none'");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082207: This data is Required!");
-                return false;
-            } else {
-                mn082207.setError(null);
-            }
-
-            if (mn082208.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082208), Toast.LENGTH_LONG).show();
-                mn082208.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082208: This data is Required!");
-                return false;
-            } else {
-                mn082208.setError(null);
-            }
-
-            if (mn082209.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082209), Toast.LENGTH_LONG).show();
-                mn082209.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082209: This data is Required!");
-                return false;
-            } else {
-                mn082209.setError(null);
-            }
-
-            if (mn082210.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082210), Toast.LENGTH_LONG).show();
-                mn082210.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082210: This data is Required!");
-                return false;
-            } else {
-                mn082210.setError(null);
-            }
-
-            if (mn082211.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082211), Toast.LENGTH_LONG).show();
-                mn082211.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082211: This data is Required!");
-                return false;
-            } else {
-                mn082211.setError(null);
-            }
-
-            if (mn082212.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082212), Toast.LENGTH_LONG).show();
-                mn082212.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082212: This data is Required!");
-                return false;
-            } else {
-                mn082212.setError(null);
-            }
-
-            if (mn082213.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082213), Toast.LENGTH_LONG).show();
-                mn082213.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082213: This data is Required!");
-                return false;
-            } else {
-                mn082213.setError(null);
-            }
-
-            if (mn082214.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082214), Toast.LENGTH_LONG).show();
-                mn082214.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082214: This data is Required!");
-                return false;
-            } else {
-                mn082214.setError(null);
-            }
-
-            if (mn082215.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082215), Toast.LENGTH_LONG).show();
-                mn082215.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082215: This data is Required!");
-                return false;
-            } else {
-                mn082215.setError(null);
-            }
-
-            if (mn082216.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082216), Toast.LENGTH_LONG).show();
-                mn082216.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082216: This data is Required!");
-                return false;
-            } else {
-                mn082216.setError(null);
-            }
-
-            if (mn082217.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082217), Toast.LENGTH_LONG).show();
-                mn082217.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082217: This data is Required!");
-                return false;
-            } else {
-                mn082217.setError(null);
-            }
-
-            if (mn082218.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082218), Toast.LENGTH_LONG).show();
-                mn082218.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082218: This data is Required!");
-                return false;
-            } else {
-                mn082218.setError(null);
-            }
-
-            if (mn082219.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082219), Toast.LENGTH_LONG).show();
-                mn082219.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082219: This data is Required!");
-                return false;
-            } else {
-                mn082219.setError(null);
-            }
-
-            if (mn082220.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082220), Toast.LENGTH_LONG).show();
-                mn082220.setError("This data is Required! Or Place 0");    // Set Error on last radio button
-
-                Log.i(TAG, "mn082220: This data is Required!");
-                return false;
-            } else {
-                mn082220.setError(null);
-            }
-
-            try {
-                if ((Integer.parseInt(mn0804.getText().toString()) < 1) || (Integer.parseInt(mn0804.getText().toString()) > 20)) {
-                    Toast.makeText(this, "Range is 0 - 20 Rooms", Toast.LENGTH_LONG).show();
-                    mn0804.setError("Range is 0 - 20 Rooms.. Check Again");// Set Error on last radio button
-                    return false;
-
-                } else {
-                    mn0804.setError(null);
-                }
-            } catch (NumberFormatException nfe) {
-
-            }
-
-            try {
-                if ((Integer.parseInt(mn0810.getText().toString()) < 1) || (Integer.parseInt(mn0810.getText().toString()) > 180)) {
-                    Toast.makeText(this, "Range is 1 - 180 Minutes", Toast.LENGTH_LONG).show();
-                    mn0810.setError("Range is 1 - 180 Minutes.. Check Again");// Set Error on last radio button
-                    return false;
-
-                } else {
-                    mn0810.setError(null);
-                }
-            } catch (NumberFormatException nfe) {
-
-            }
-
-            try {
-                if ((Integer.parseInt(mn0816.getText().toString()) < 1) || (Integer.parseInt(mn0816.getText().toString()) > 180)) {
-                    Toast.makeText(this, "Range is 1 - 180", Toast.LENGTH_LONG).show();
-                    mn0816.setError("Range is 1 - 180 .. Check Again");// Set Error on last radio button
-                    return false;
-
-                } else {
-                    mn0816.setError(null);
-                }
-            } catch (NumberFormatException nfe) {
-
-            }
-
-            try {
-                if ((Integer.parseInt(mn082101.getText().toString()) < 0) || (Integer.parseInt(mn082101.getText().toString()) > 999)) {
+                if ((Integer.parseInt(mn082101.getText().toString()) < 1) || (Integer.parseInt(mn082101.getText().toString()) > 999)) {
                     Toast.makeText(this, "Range is 0 - 999 acre", Toast.LENGTH_LONG).show();
                     mn082101.setError("Range is 0 - 999 .. Check Again");// Set Error on last radio button
                     return false;
@@ -1430,12 +1187,9 @@ public class Section8Activity extends Activity {
                 } else {
                     mn082101.setError(null);
                 }
-            } catch (NumberFormatException nfe) {
 
-            }
 
-            try {
-                if ((Integer.parseInt(mn082102.getText().toString()) < 0) || (Integer.parseInt(mn082102.getText().toString()) > 999)) {
+                if ((Integer.parseInt(mn082102.getText().toString()) < 1) || (Integer.parseInt(mn082102.getText().toString()) > 999)) {
                     Toast.makeText(this, "Range is 0 - 999 ", Toast.LENGTH_LONG).show();
                     mn082102.setError("Range is 0 - 999 .. Check Again");// Set Error on last radio button
                     return false;
@@ -1443,11 +1197,239 @@ public class Section8Activity extends Activity {
                 } else {
                     mn082102.setError(null);
                 }
-            } catch (NumberFormatException nfe) {
-
             }
-
         }
+
+        if (mn082201.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082201), Toast.LENGTH_LONG).show();
+            mn082201.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082201: This data is Required!");
+            return false;
+        } else {
+            mn082201.setError(null);
+        }
+
+        if (mn082202.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082202), Toast.LENGTH_LONG).show();
+            mn082202.setError("This data is Required! or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082202: This data is Required!");
+            return false;
+        } else {
+            mn082202.setError(null);
+        }
+
+        if (mn082203.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082203), Toast.LENGTH_LONG).show();
+            mn082203.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082203: This data is Required!");
+            return false;
+        } else {
+            mn082203.setError(null);
+        }
+
+        if (mn082204.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082204), Toast.LENGTH_LONG).show();
+            mn082204.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082204: This data is Required!");
+            return false;
+        } else {
+            mn082204.setError(null);
+        }
+
+        if (mn082205.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082205), Toast.LENGTH_LONG).show();
+            mn082205.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082205: This data is Required!");
+            return false;
+        } else {
+            mn082205.setError(null);
+        }
+
+        if (mn082206.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082206), Toast.LENGTH_LONG).show();
+            mn082206.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082206: This data is Required!");
+            return false;
+        } else {
+            mn082206.setError(null);
+        }
+
+        if (mn082207.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082207), Toast.LENGTH_LONG).show();
+            mn082207.setError("This data is Required! Or type 'none'");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082207: This data is Required!");
+            return false;
+        } else {
+            mn082207.setError(null);
+        }
+
+        if (mn082208.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082208), Toast.LENGTH_LONG).show();
+            mn082208.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082208: This data is Required!");
+            return false;
+        } else {
+            mn082208.setError(null);
+        }
+
+        if (mn082209.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082209), Toast.LENGTH_LONG).show();
+            mn082209.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082209: This data is Required!");
+            return false;
+        } else {
+            mn082209.setError(null);
+        }
+
+        if (mn082210.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082210), Toast.LENGTH_LONG).show();
+            mn082210.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082210: This data is Required!");
+            return false;
+        } else {
+            mn082210.setError(null);
+        }
+
+        if (mn082211.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082211), Toast.LENGTH_LONG).show();
+            mn082211.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082211: This data is Required!");
+            return false;
+        } else {
+            mn082211.setError(null);
+        }
+
+        if (mn082212.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082212), Toast.LENGTH_LONG).show();
+            mn082212.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082212: This data is Required!");
+            return false;
+        } else {
+            mn082212.setError(null);
+        }
+
+        if (mn082213.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082213), Toast.LENGTH_LONG).show();
+            mn082213.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082213: This data is Required!");
+            return false;
+        } else {
+            mn082213.setError(null);
+        }
+
+        if (mn082214.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082214), Toast.LENGTH_LONG).show();
+            mn082214.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082214: This data is Required!");
+            return false;
+        } else {
+            mn082214.setError(null);
+        }
+
+        if (mn082215.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082215), Toast.LENGTH_LONG).show();
+            mn082215.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082215: This data is Required!");
+            return false;
+        } else {
+            mn082215.setError(null);
+        }
+
+        if (mn082216.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082216), Toast.LENGTH_LONG).show();
+            mn082216.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082216: This data is Required!");
+            return false;
+        } else {
+            mn082216.setError(null);
+        }
+
+        if (mn082217.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082217), Toast.LENGTH_LONG).show();
+            mn082217.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082217: This data is Required!");
+            return false;
+        } else {
+            mn082217.setError(null);
+        }
+
+        if (mn082218.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082218), Toast.LENGTH_LONG).show();
+            mn082218.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082218: This data is Required!");
+            return false;
+        } else {
+            mn082218.setError(null);
+        }
+
+        if (mn082219.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082219), Toast.LENGTH_LONG).show();
+            mn082219.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082219: This data is Required!");
+            return false;
+        } else {
+            mn082219.setError(null);
+        }
+
+        if (mn082220.getText().toString().isEmpty()) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn082220), Toast.LENGTH_LONG).show();
+            mn082220.setError("This data is Required! Or Place 0");    // Set Error on last radio button
+
+            Log.i(TAG, "mn082220: This data is Required!");
+            return false;
+        } else {
+            mn082220.setError(null);
+        }
+
+
+        if ((Integer.parseInt(mn0804.getText().toString()) < 1) || (Integer.parseInt(mn0804.getText().toString()) > 20)) {
+            Toast.makeText(this, "Range is 0 - 20 Rooms", Toast.LENGTH_LONG).show();
+            mn0804.setError("Range is 0 - 20 Rooms.. Check Again");// Set Error on last radio button
+            return false;
+
+        } else {
+            mn0804.setError(null);
+        }
+
+
+        if ((Integer.parseInt(mn0810.getText().toString()) < 1) || (Integer.parseInt(mn0810.getText().toString()) > 180)) {
+            Toast.makeText(this, "Range is 1 - 180 Minutes", Toast.LENGTH_LONG).show();
+            mn0810.setError("Range is 1 - 180 Minutes.. Check Again");// Set Error on last radio button
+            return false;
+
+        } else {
+            mn0810.setError(null);
+        }
+
+
+        if ((Integer.parseInt(mn0816.getText().toString()) < 1) || (Integer.parseInt(mn0816.getText().toString()) > 180)) {
+            Toast.makeText(this, "Range is 1 - 180", Toast.LENGTH_LONG).show();
+            mn0816.setError("Range is 1 - 180 .. Check Again");// Set Error on last radio button
+            return false;
+
+        } else {
+            mn0816.setError(null);
+        }
+
 
         return true;
     }
