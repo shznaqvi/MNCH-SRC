@@ -920,6 +920,14 @@ public class Section8Activity extends Activity {
             mn0804.setError(null);
         }
 
+        if ((Integer.parseInt(mn0804.getText().toString()) < 1) || (Integer.parseInt(mn0804.getText().toString()) > 20)) {
+            Toast.makeText(this, "Range is 0 - 20 Rooms", Toast.LENGTH_LONG).show();
+            mn0804.setError("Range is 0 - 20 Rooms.. Check Again");// Set Error on last radio button
+            return false;
+
+        } else {
+            mn0804.setError(null);
+        }
         // ============ Q 8.05 =======================
         // RadioGroup
         if (mn0805.getCheckedRadioButtonId() == -1) {
@@ -1099,25 +1107,24 @@ public class Section8Activity extends Activity {
 
         if (mn081501.isChecked()) {
             if (mn0816.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0816), Toast.LENGTH_LONG).show();
-                mn0816.setError("This data is Required!");    // Set Error on last radio button
-                Log.i(TAG, "mn0816: This data is Required!");
+                Toast.makeText(this, "Empty(Require): " + getString(R.string.mn0816), Toast.LENGTH_LONG).show();
+                mn0816.setError("This data is required!");
                 return false;
+
             } else {
                 mn0816.setError(null);
             }
-
-            if (Integer.parseInt(mn0816.getText().toString()) < 1) {
-                Toast.makeText(this, "Invalid: " + getString(R.string.mn0816), Toast.LENGTH_LONG).show();
-                mn0816.setError("This data is Invalid!");    // Set Error on last radio button
-                Log.i(TAG, "mn0816: This data is Invalid!");
+            if ((Integer.parseInt(mn0816.getText().toString()) < 1) || (Integer.parseInt(mn0816.getText().toString()) > 180)) {
+                Toast.makeText(this, "Range is 1 - 180", Toast.LENGTH_LONG).show();
+                mn0816.setError("Range is 1 - 180 .. Check Again");// Set Error on last radio button
+                Log.d(TAG, "formValidation: 0816 not selected");
                 return false;
+
             } else {
                 mn0816.setError(null);
             }
 
         } else {
-            mn0816.setText(null);
             mn0816.setError(null);
         }
 
@@ -1406,25 +1413,8 @@ public class Section8Activity extends Activity {
         }
 
 
-        if ((Integer.parseInt(mn0804.getText().toString()) < 1) || (Integer.parseInt(mn0804.getText().toString()) > 20)) {
-            Toast.makeText(this, "Range is 0 - 20 Rooms", Toast.LENGTH_LONG).show();
-            mn0804.setError("Range is 0 - 20 Rooms.. Check Again");// Set Error on last radio button
-            return false;
-
-        } else {
-            mn0804.setError(null);
-        }
 
 
-        if ((Integer.parseInt(mn0816.getText().toString()) < 1) || (Integer.parseInt(mn0816.getText().toString()) > 180)) {
-            Toast.makeText(this, "Range is 1 - 180", Toast.LENGTH_LONG).show();
-            mn0816.setError("Range is 1 - 180 .. Check Again");// Set Error on last radio button
-            Log.d(TAG, "formValidation: 0816 not selected");
-            return false;
-
-        } else {
-            mn0816.setError(null);
-        }
 
 
         return true;

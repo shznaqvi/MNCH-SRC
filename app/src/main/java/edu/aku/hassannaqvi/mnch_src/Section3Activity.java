@@ -1203,10 +1203,10 @@ public class Section3Activity extends Activity {
         }
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
-//    }
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+    }
 
 
 }

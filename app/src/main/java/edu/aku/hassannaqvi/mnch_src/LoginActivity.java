@@ -5,9 +5,9 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -19,7 +19,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class LoginActivity extends Activity {
@@ -30,6 +32,7 @@ public class LoginActivity extends Activity {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private TextView txtinstalldate;
 
     private LinearLayout vu_syncusers;
     private Button btnSyncUsers;
@@ -51,6 +54,24 @@ public class LoginActivity extends Activity {
 
         // Set up the login form.
         userid = (EditText) findViewById(R.id.userid);
+        txtinstalldate = (TextView) findViewById(R.id.txtinstalldate);
+        try {
+            long installedOn = this
+                    .getPackageManager()
+                    .getPackageInfo("edu.aku.hassannaqvi.mnch_src", 0)
+                    .lastUpdateTime;
+            Integer versionCode = this
+                    .getPackageManager()
+                    .getPackageInfo("edu.aku.hassannaqvi.mnch_src", 0)
+                    .versionCode;
+            String versionName = this
+                    .getPackageManager()
+                    .getPackageInfo("edu.aku.hassannaqvi.mnch_src", 0)
+                    .versionName;
+            txtinstalldate.setText("Ver. " + versionName + "." + String.valueOf(versionCode) + " \r\n( Last Updated: " + new SimpleDateFormat("dd MMM. yyyy").format(new Date(installedOn)) + " )");
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -125,21 +146,47 @@ public class LoginActivity extends Activity {
                 }
 
                 if (cancel == false) {
+                    mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                    if (mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                        SRCDBHelper db = new SRCDBHelper(LoginActivity.this);
 
-                    SRCDBHelper db = new SRCDBHelper(LoginActivity.this);
+                        if (db.Login(username, password) || (username.equals("test1234") && password.equals("test1234"))) {
+                            Toast.makeText(LoginActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
 
-                    if (db.Login(username, password) || (username.equals("test1234") && password.equals("test1234"))) {
-                        Toast.makeText(LoginActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
+                            CVars var = new CVars();
+                            var.StoreUser(username);
+                            Intent login_intent = new Intent(this, MainActivity.class);
 
-                        CVars var = new CVars();
-                        var.StoreUser(username);
-                        Intent login_intent = new Intent(this, MainActivity.class);
-
-                        startActivity(login_intent);
+                            startActivity(login_intent);
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Invalid Username/Password", Toast.LENGTH_LONG).show();
+                        }
+                        db.close();
                     } else {
-                        Toast.makeText(LoginActivity.this, "Invalid Username/Password", Toast.LENGTH_LONG).show();
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                                LoginActivity.this);
+                        alertDialogBuilder
+                                .setMessage("GPS is disabled in your device. Enable it?")
+                                .setCancelable(false)
+                                .setPositiveButton("Enable GPS",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog,
+                                                                int id) {
+                                                Intent callGPSSettingIntent = new Intent(
+                                                        android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                                                startActivity(callGPSSettingIntent);
+                                            }
+                                        });
+                        alertDialogBuilder.setNegativeButton("Cancel",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+                        AlertDialog alert = alertDialogBuilder.create();
+                        alert.show();
+
                     }
-                    db.close();
                 }
 
             } catch (Exception e) {

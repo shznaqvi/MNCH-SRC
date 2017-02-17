@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SRC</string>
+    <string name="app_name">Baseline Survey for MNCH Services - SRC</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">User ID</string>
@@ -864,6 +864,7 @@
     <string name="section5cLabel"> ويم کان پوء 7 ڏينهن تائين سار سنڀال </string>
     <string name="section6Label"> خانداني منصوبه بندي </string>
     <string name="death"> مري ويل </string>
+    <string name="dummy_button">Dummy</string>
 
 
 </resources>

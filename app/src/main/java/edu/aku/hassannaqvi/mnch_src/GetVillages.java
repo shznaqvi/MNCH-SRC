@@ -46,7 +46,7 @@ public class GetVillages extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            URL url = new URL(SRCApp._HOST_URL + "/src/getvillages.php");
+            URL url = new URL(SRCApp._HOST_URL + "/src/api/getvillages.php");
             urlConnection = (HttpURLConnection) url.openConnection();
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 //pd.show();

@@ -3,6 +3,17 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.3"
+    def versionPropsFile = file('version.properties')
+
+    if (versionPropsFile.canRead()) {
+        def Properties versionProps = new Properties()
+
+        versionProps.load(new FileInputStream(versionPropsFile))
+
+        def code = versionProps['VERSION_CODE'].toInteger() + 1
+
+        versionProps['VERSION_CODE'] = code.toString()
+        versionProps.store(versionPropsFile.newWriter(), null)
     defaultConfig {
         applicationId "edu.aku.hassannaqvi.mnch_src"
         minSdkVersion 19
@@ -10,9 +21,13 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    } else {
+        throw new GradleException("Could not read version.properties!")
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             debuggable true
         }

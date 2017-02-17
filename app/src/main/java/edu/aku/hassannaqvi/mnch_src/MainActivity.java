@@ -29,24 +29,32 @@ public class MainActivity extends Activity {
 
     public void syncData(View v) {
         //String formsUrl = SRCApp._HOST_URL + "src/forms.php";
-        String usersUrl = SRCApp._HOST_URL + "/src/users_login.php";
-        String clustersUrl = SRCApp._HOST_URL + "/src/getdistricts.php";
-        String villagesUrl = SRCApp._HOST_URL + "/src/getvillages.php";
+        //String usersUrl = SRCApp._HOST_URL + "/src/api/users_login.php";
+        //String clustersUrl = SRCApp._HOST_URL + "/src/api/getdistricts.php";
+        //String villagesUrl = SRCApp._HOST_URL + "/src/api/getvillages.php";
 
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
-            //Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
-            // new SyncForms(this).execute();
-
             Toast.makeText(getApplicationContext(), "Getting Users", Toast.LENGTH_SHORT).show();
-            new GetUsers(this).execute(usersUrl);
+            new GetUsers(this).execute();
             Toast.makeText(getApplicationContext(), "Getting Districts", Toast.LENGTH_SHORT).show();
-            new GetDistricts(this).execute(clustersUrl);
+            new GetDistricts(this).execute();
             Toast.makeText(getApplicationContext(), "Getting Villages", Toast.LENGTH_SHORT).show();
-            new GetVillages(this).execute(villagesUrl);
+            new GetVillages(this).execute();
+
+            /*Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
+            new SyncForms(this).execute();
+            Toast.makeText(getApplicationContext(), "Syncing Section 3", Toast.LENGTH_SHORT).show();
+            new SyncSec3(this).execute();
+            Toast.makeText(getApplicationContext(), "Syncing Section 4a", Toast.LENGTH_SHORT).show();
+            new SyncSec4a(this).execute();
+            Toast.makeText(getApplicationContext(), "Syncing Section 4b", Toast.LENGTH_SHORT).show();
+            new SyncSec4b(this).execute();
+            Toast.makeText(getApplicationContext(), "Syncing Section 7Im", Toast.LENGTH_SHORT).show();
+            new SyncSec7Im(this).execute();*/
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = syncPref.edit();

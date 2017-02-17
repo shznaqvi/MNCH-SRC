@@ -1888,6 +1888,7 @@ public class Section5Activity extends Activity {
                     || mn051505.isChecked()
                     || mn051506.isChecked()
                     || mn051507.isChecked()
+                    || mn051508.isChecked()
                     || mn051588.isChecked())) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0515), Toast.LENGTH_LONG).show();
                 mn051588.setError("This data is Required!");    // Set Error on last radio button

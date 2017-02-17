@@ -52,22 +52,21 @@ public class EndingActivity extends Activity {
 
         Boolean check = getIntent().getExtras().getBoolean("check");
 
-        if (SRCApp.fc.getROW_S1Q112().equals("1")) {
-            if (check.equals(false)) {
-                mn082301.setEnabled(false);
-                mn082302.setChecked(false);
+        if (check) {
+            mn082301.setEnabled(true);
+            mn082302.setEnabled(false);
+            mn082303.setEnabled(false);
+            mn082304.setEnabled(false);
             } else {
                 //fldGrpmn0823Reason.setVisibility(View.GONE);
-                mn082301.setEnabled(true);
-                mn082302.setChecked(false);
+            mn082301.setEnabled(false);
+            mn082302.setEnabled(true);
+            mn082303.setEnabled(true);
+            mn082304.setEnabled(true);
+
+
             }
 
-        } else {
-            //fldGrpmn0823Reason.setVisibility(View.VISIBLE);
-            mn082301.setEnabled(false);
-            mn082301.setChecked(false);
-            mn082302.setEnabled(true);
-        }
 
         mn0823.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

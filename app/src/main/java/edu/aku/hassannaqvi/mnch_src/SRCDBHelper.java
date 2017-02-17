@@ -405,16 +405,11 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 JSONObject jsonObjectUser = jsonArray.getJSONObject(i);
                 String userName = jsonObjectUser.getString("username");
                 String password = jsonObjectUser.getString("password");
-                String userstatus = jsonObjectUser.getString("userstatus");
-                String isadmin = jsonObjectUser.getString("isadmin");
 
                 ContentValues values = new ContentValues();
 
                 values.put(UsersContract.singleUser.ROW_USERNAME, userName);
                 values.put(UsersContract.singleUser.ROW_PASSWORD, password);
-                values.put(UsersContract.singleUser.ROW_USERSTATUS, userstatus);
-                values.put(UsersContract.singleUser.ROW_ISADMIN, isadmin);
-
                 db.insert(UsersContract.singleUser.TABLE_NAME, null, values);
             }
             db.close();
@@ -1575,7 +1570,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         Collection<Sec4bContract> allEntries = new ArrayList<>();
         try {
             c = db.query(
-                    Sec3Entry.TABLE_NAME,  // The table to query
+                    Section4bEntry.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause

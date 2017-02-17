@@ -188,11 +188,20 @@ public class Section6Activity extends Activity {
                     mn060388x.setText(null);
 
                 }
+                if (mn060305.isChecked()) {
+                    fldGrpmn0604.setVisibility(View.GONE);
+                    mn0604.clearCheck();
+                    mn060488x.setText(null);
+                } else {
+                    fldGrpmn0604.setVisibility(View.VISIBLE);
+                }
             }
         });
 
 
         // =============================== Q 6.04 Others ========================
+
+
         mn0604.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -210,13 +219,7 @@ public class Section6Activity extends Activity {
                     mn060488x.setText(null);
                 }
 
-                if (mn060405.isChecked()) {
-                    fldGrpmn0604.setVisibility(View.GONE);
-                    mn0604.clearCheck();
-                    mn060488x.setText(null);
-                } else {
-                    fldGrpmn0604.setVisibility(View.VISIBLE);
-                }
+
             }
         });
 
@@ -376,6 +379,8 @@ public class Section6Activity extends Activity {
             } else {
                 mn060388.setError(null);
             }
+
+
             // Others / EditText Q 6.03
             if (mn060388.isChecked() && mn060388x.getText().toString().isEmpty()) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0603) + " - " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
@@ -385,7 +390,29 @@ public class Section6Activity extends Activity {
             } else {
                 mn060388x.setError(null);
             }
+// ========= Q 6.03 Skip check============
 
+            if (mn060305.isChecked()) {
+                //  6.04 Radio
+                if (mn0604.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0604), Toast.LENGTH_LONG).show();
+                    mn060488.setError("This data is Required!");    // Set Error on last radio button
+                    Log.i(TAG, "mn0604: This data is Required!");
+                    return false;
+                } else {
+                    mn060488.setError(null);
+                }
+                // Others / EditText Q 6.04
+                if (mn060488.isChecked() && mn060488x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0604) + " - " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
+                    mn060488x.setError("This data is Required!");    // Set Error on last radio button
+                    Log.i(TAG, "mn0604: This data is Required!");
+                    return false;
+                } else {
+                    mn060488x.setError(null);
+                }
+
+            }
             if (mn0605.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0605), Toast.LENGTH_LONG).show();
                 mn060502.setError("This data is Required!");    // Set Error on last radio button
@@ -396,47 +423,9 @@ public class Section6Activity extends Activity {
                 mn060502.setError(null);
             }
 
-        } else {
-            mn060201.setChecked(false);
-            mn060202.setChecked(false);
-            mn060203.setChecked(false);
-            mn060204.setChecked(false);
-            mn060288.setChecked(false);
-            mn060288x.setText(null);
-            mn060301.setChecked(false);
-            mn060302.setChecked(false);
-            mn060303.setChecked(false);
-            mn060304.setChecked(false);
-            mn060305.setChecked(false);
-            mn060388.setChecked(false);
-            mn060388x.setText(null);
-            mn0604.clearCheck();
-            mn0605.clearCheck();
         }
 
-        // ========= Q 6.03 Skip check============
 
-        if (mn060305.isChecked()) {
-            //  6.04 Radio
-            if (mn0604.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0604), Toast.LENGTH_LONG).show();
-                mn060488.setError("This data is Required!");    // Set Error on last radio button
-                Log.i(TAG, "mn0604: This data is Required!");
-                return false;
-            } else {
-                mn060488.setError(null);
-            }
-            // Others / EditText Q 6.04
-            if (mn060488.isChecked() && mn060488x.getText().toString().isEmpty()) {
-                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0604) + " - " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
-                mn060388x.setError("This data is Required!");    // Set Error on last radio button
-                Log.i(TAG, "mn0604: This data is Required!");
-                return false;
-            } else {
-                mn060488x.setError(null);
-            }
-
-        }
 
         return true;
     }

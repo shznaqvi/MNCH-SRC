@@ -359,7 +359,8 @@ public class Section4Activity extends Activity {
             return false;
         } else {
             s4q41b.setError(null);
-
+        }
+        if (!(s4q41b.getText().toString().isEmpty() && s4q41b1.getText().toString().isEmpty() && s4q41b2.getText().toString().isEmpty())) {
 
             // AGE: DAYS 0 - 29
             if ((Integer.parseInt(s4q41b.getText().toString()) < 0 || Integer.parseInt(s4q41b.getText().toString()) > 29)) {

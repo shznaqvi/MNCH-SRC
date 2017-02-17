@@ -34,7 +34,7 @@ public class SRCApp extends Application {
     */
     public static final long MILLISECONDS_IN_YEAR = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_YEAR;
     //public static final String _IP = "192.168.1.10"; // Test NODE server
-    public static String _DefaultIP = "http://10.198.97.73"; // Test PHP server
+    public static String _DefaultIP = "http://43.245.131.159"; // Test PHP server
     public static String DEVID;
     public static String GPS_LAT;
     public static String GPS_LNG;

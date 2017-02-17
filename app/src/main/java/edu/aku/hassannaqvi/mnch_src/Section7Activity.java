@@ -418,7 +418,6 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         mn070299.setOnCheckedChangeListener(this);
 
 
-
     }
 
     @OnClick(R.id.btn_End)
@@ -574,49 +573,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
     public boolean ValidateForm() {
 
 //        7.02
+        if (!mn070299.isChecked()) {
 
-        if (mn070202.getText().toString().isEmpty()) {
-            Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
-            mn070202.setError("This data is Required");
-            Log.d(TAG, "ValidateForm: 702");
-            return false;
-        } else {
-            mn070202.setError(null);
-        }
-
-        if (!mn070202.getText().toString().isEmpty()) {
-            if (Integer.parseInt(mn070202.getText().toString()) < 1000 || Integer.parseInt(mn070202.getText().toString()) > 9000) {
-                Toast.makeText(this, "" + "Weight must be between 1000 - 9000 gm.", Toast.LENGTH_SHORT).show();
-                mn070202.setError("Weight must be between 1000 - 9000 gm.");
-                Log.d(TAG, "ValidateForm: 702");
-                return false;
-            } else {
-                mn070202.setError(null);
-            }
-        }
-
-        if (mn070201.getText().toString().isEmpty()) {
-            Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
-            mn070201.setError("This data is Required");
-            Log.d(TAG, "ValidateForm: 702");
-            return false;
-        } else {
-            mn070201.setError(null);
-        }
-
-        if (!mn070201.getText().toString().isEmpty()) {
-
-            if (Double.parseDouble(mn070201.getText().toString()) < 1 || Double.parseDouble(mn070201.getText().toString()) > 9) {
-                Toast.makeText(this, "" + "Weight can not be less than 1 - 9 kg.. check again", Toast.LENGTH_SHORT).show();
-                mn070201.setError("Weight can not be less than 1 - 9 kg");
-                Log.d(TAG, "ValidateForm: 702");
-                return false;
-            } else {
-                mn070201.setError(null);
-            }
-        }
-
-        if (!(mn070299.isChecked())) {
             if (mn070201.getText().toString().isEmpty() && mn070202.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mn0702), Toast.LENGTH_SHORT).show();
                 mn070201.setError("This is inValid");
@@ -625,8 +583,31 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             } else {
                 mn070201.setError(null);
             }
-        } else {
-            mn070201.setError(null);
+
+            if (!mn070202.getText().toString().isEmpty()) {
+                if (Integer.parseInt(mn070202.getText().toString()) < 1000 || Integer.parseInt(mn070202.getText().toString()) > 9000) {
+                    Toast.makeText(this, "" + "Weight must be between 1000 - 9000 gm.", Toast.LENGTH_SHORT).show();
+                    mn070202.setError("Weight must be between 1000 - 9000 gm.");
+                    Log.d(TAG, "ValidateForm: 702");
+                    return false;
+                } else {
+                    mn070202.setError(null);
+                }
+            }
+
+            if (!mn070201.getText().toString().isEmpty()) {
+
+                if (Double.parseDouble(mn070201.getText().toString()) < 1 || Double.parseDouble(mn070201.getText().toString()) > 9) {
+                    Toast.makeText(this, "" + "Weight can not be less than 1 - 9 kg.. check again", Toast.LENGTH_SHORT).show();
+                    mn070201.setError("Weight can not be less than 1 - 9 kg");
+                    Log.d(TAG, "ValidateForm: 702");
+                    return false;
+                } else {
+                    mn070201.setError(null);
+                }
+            }
+
+
         }
 
 //        7.03
@@ -823,7 +804,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 mn071302.setError(null);
             }
 
-            if (mn071301.isChecked()){
+            if (mn071301.isChecked()) {
                 if (mn071301x.getText().toString().isEmpty()) {
                     Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
                     mn071301x.setError("This data is Required");
@@ -844,7 +825,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     mn071301x.setError(null);
                 }
             }
-            if (mn071302.isChecked()){
+            if (mn071302.isChecked()) {
                 if (mn071302x.getText().toString().isEmpty()) {
                     Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
                     mn071302x.setError("This data is Required");
@@ -967,7 +948,6 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             }
 
 
-
             if (mn071802.isChecked()) {
 
                 if (mn0719.getCheckedRadioButtonId() == -1) {
@@ -995,36 +975,36 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
 
 //        7.20
 
-                if (!mn072001.isChecked() && !mn072002.isChecked() && !mn072003.isChecked() && !mn072004.isChecked()) {
-                    Toast.makeText(this, "" + getString(R.string.mn0720), Toast.LENGTH_SHORT).show();
-                    mn072001.setError("This is inValid");
-                    Log.d(TAG, "ValidateForm:72001  ");
-                    return false;
-                } else {
-                    mn072001.setError(null);
-                }
+            if (!mn072001.isChecked() && !mn072002.isChecked() && !mn072003.isChecked() && !mn072004.isChecked()) {
+                Toast.makeText(this, "" + getString(R.string.mn0720), Toast.LENGTH_SHORT).show();
+                mn072001.setError("This is inValid");
+                Log.d(TAG, "ValidateForm:72001  ");
+                return false;
+            } else {
+                mn072001.setError(null);
+            }
 //        7.21
-                if (mn0721.getCheckedRadioButtonId() == -1) {
-                    Toast.makeText(this, "" + getString(R.string.mn0721), Toast.LENGTH_SHORT).show();
-                    mn07211.setError("This is inValid");
-                    Log.d(TAG, "ValidateForm: 721 not selected");
-                    return false;
-                } else {
-                    mn07211.setError(null);
-                }
+            if (mn0721.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(this, "" + getString(R.string.mn0721), Toast.LENGTH_SHORT).show();
+                mn07211.setError("This is inValid");
+                Log.d(TAG, "ValidateForm: 721 not selected");
+                return false;
+            } else {
+                mn07211.setError(null);
+            }
 //      7.22
             if (mn07211.isChecked()) {
-                    if (mn072201.getText().toString().isEmpty() && mn072202.getText().toString().isEmpty()
-                            && mn072203.getText().toString().isEmpty()) {
+                if (mn072201.getText().toString().isEmpty() && mn072202.getText().toString().isEmpty()
+                        && mn072203.getText().toString().isEmpty()) {
 
-                        Toast.makeText(this, "" + getString(R.string.mn0722), Toast.LENGTH_SHORT).show();
-                        mn072201.setError("This is inValid");
-                        Log.d(TAG, "ValidateForm: 722 invalid");
-                        return false;
-                    } else {
-                        mn072201.setError(null);
-                    }
+                    Toast.makeText(this, "" + getString(R.string.mn0722), Toast.LENGTH_SHORT).show();
+                    mn072201.setError("This is inValid");
+                    Log.d(TAG, "ValidateForm: 722 invalid");
+                    return false;
+                } else {
+                    mn072201.setError(null);
                 }
+            }
         }
 
 
@@ -1152,7 +1132,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 mn071988x.setVisibility(View.GONE);
                 mn071988x.setText(null);
             }
-        }else if (group.getId() == R.id.mn0721) {
+        } else if (group.getId() == R.id.mn0721) {
             if (mn07212.isChecked()) {
                 mn07022Grp.setVisibility(View.GONE);
             } else {

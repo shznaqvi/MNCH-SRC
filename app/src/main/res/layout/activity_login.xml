@@ -45,8 +45,7 @@
                 android:imeOptions="actionUnspecified"
                 android:inputType="text"
                 android:maxLines="1"
-                android:singleLine="true"
-                android:text="test1234" />
+                android:singleLine="true" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -64,8 +63,7 @@
                 android:imeOptions="actionUnspecified"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:singleLine="true"
-                android:text="test1234" />
+                android:singleLine="true" />
 
             <Button
                 android:id="@+id/email_sign_in_button"
@@ -73,6 +71,15 @@
                 android:layout_marginTop="20dp"
                 android:onClick="loginUser"
                 android:text="@string/action_sign_in" />
+
+            <TextView
+                android:id="@+id/txtinstalldate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#efefef"
+                android:gravity="center"
+                android:textColor="#565656"
+                android:textSize="11sp" />
 
         </LinearLayout>
     </ScrollView>
