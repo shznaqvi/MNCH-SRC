@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
             Toast.makeText(getApplicationContext(), "Getting Villages", Toast.LENGTH_SHORT).show();
             new GetVillages(this).execute();
 
-            /*Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
             new SyncForms(this).execute();
             Toast.makeText(getApplicationContext(), "Syncing Section 3", Toast.LENGTH_SHORT).show();
             new SyncSec3(this).execute();
@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
             Toast.makeText(getApplicationContext(), "Syncing Section 4b", Toast.LENGTH_SHORT).show();
             new SyncSec4b(this).execute();
             Toast.makeText(getApplicationContext(), "Syncing Section 7Im", Toast.LENGTH_SHORT).show();
-            new SyncSec7Im(this).execute();*/
+            new SyncSec7Im(this).execute();
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = syncPref.edit();

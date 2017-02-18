@@ -26,8 +26,6 @@ public class FormContract implements BaseColumns {
     String ROW_S1Q107;
     String ROW_S1Q108;
     String ROW_S1Q108b;
-    String ROW_S1Q109a;
-    String ROW_S1Q109b;
     String ROW_S1Q110;
     String ROW_S1Q111;
     String ROW_S1Q111oth;
@@ -35,8 +33,6 @@ public class FormContract implements BaseColumns {
     String ROW_ENTRYDATE;
     String ROW_USERID;
     String ROW_S2;
-    String ROW_S3;
-    String ROW_S4;
     String ROW_S5;
     String ROW_S5b;
     String ROW_S5c;
@@ -67,8 +63,6 @@ public class FormContract implements BaseColumns {
         this.ROW_S1Q107 = s1q107;
         this.ROW_S1Q108 = s1q108;
         this.ROW_S1Q108b = s1q108b;
-        this.ROW_S1Q109a = s1q109a;
-        this.ROW_S1Q109b = s1q109b;
         this.ROW_S1Q110 = s1q110;
         this.ROW_S1Q111 = s1q111;
         this.ROW_S1Q111oth = s1q111oth;
@@ -92,8 +86,6 @@ public class FormContract implements BaseColumns {
 
         this.ROW_FORM_ID = formid;
         this.ROW_S2 = fc.getString("va_01");
-        this.ROW_S3 = fc.getString("va_02");
-        this.ROW_S4 = fc.getString("va_03");
         this.ROW_S5 = fc.getString("va_04");
         this.ROW_S6 = fc.getString("va_04");
         this.ROW_S7 = fc.getString("va_04");
@@ -114,8 +106,6 @@ public class FormContract implements BaseColumns {
         this.ROW_S1Q107 = jsonObject.getString(Sec1Entry.ROW_S1Q107);
         this.ROW_S1Q108 = jsonObject.getString(Sec1Entry.ROW_S1Q108);
         this.ROW_S1Q108b = jsonObject.getString(Sec1Entry.ROW_S1Q108b);
-        this.ROW_S1Q109a = jsonObject.getString(Sec1Entry.ROW_S1Q109a);
-        this.ROW_S1Q109b = jsonObject.getString(Sec1Entry.ROW_S1Q109b);
         this.ROW_S1Q110 = jsonObject.getString(Sec1Entry.ROW_S1Q110);
         this.ROW_S1Q111 = jsonObject.getString(Sec1Entry.ROW_S1Q111);
         this.ROW_S1Q111oth = jsonObject.getString(Sec1Entry.ROW_S1Q111OTH);
@@ -123,8 +113,6 @@ public class FormContract implements BaseColumns {
         this.ROW_ENTRYDATE = jsonObject.getString(Sec1Entry.ROW_ENTRYDATE);
         this.ROW_USERID = jsonObject.getString(Sec1Entry.ROW_USERID);
         this.ROW_S2 = jsonObject.getString(Sec1Entry.ROW_S2);
-        this.ROW_S3 = jsonObject.getString(Sec1Entry.ROW_S3);
-        this.ROW_S4 = jsonObject.getString(Sec1Entry.ROW_S4);
         this.ROW_S5 = jsonObject.getString(Sec1Entry.ROW_S5);
         this.ROW_S5b = jsonObject.getString(Sec1Entry.ROW_S5b);
         this.ROW_S5c = jsonObject.getString(Sec1Entry.ROW_S5c);
@@ -157,8 +145,6 @@ public class FormContract implements BaseColumns {
         this.ROW_S1Q107 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q107));
         this.ROW_S1Q108 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q108));
         this.ROW_S1Q108b = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q108b));
-        this.ROW_S1Q109a = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q109a));
-        this.ROW_S1Q109b = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q109b));
         this.ROW_S1Q110 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q110));
         this.ROW_S1Q111 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q111));
         this.ROW_S1Q111oth = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q111OTH));
@@ -166,8 +152,6 @@ public class FormContract implements BaseColumns {
         this.ROW_ENTRYDATE = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_ENTRYDATE));
         this.ROW_USERID = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_USERID));
         this.ROW_S2 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S2));
-        this.ROW_S3 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S3));
-        this.ROW_S4 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S4));
         this.ROW_S5 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S5));
         this.ROW_S5b = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S5b));
         this.ROW_S5c = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S5c));
@@ -298,22 +282,6 @@ public class FormContract implements BaseColumns {
         this.ROW_S1Q108 = ROW_S1Q108;
     }
 
-    public String getROW_S1Q109a() {
-        return ROW_S1Q109a;
-    }
-
-    public void setROW_S1Q109a(String ROW_S1Q109a) {
-        this.ROW_S1Q109a = ROW_S1Q109a;
-    }
-
-    public String getROW_S1Q109b() {
-        return ROW_S1Q109b;
-    }
-
-    public void setROW_S1Q109b(String ROW_S1Q109b) {
-        this.ROW_S1Q109b = ROW_S1Q109b;
-    }
-
     public String getROW_S1Q110() {
         return ROW_S1Q110;
     }
@@ -352,22 +320,6 @@ public class FormContract implements BaseColumns {
 
     public void setROW_S2(String ROW_S2) {
         this.ROW_S2 = ROW_S2;
-    }
-
-    public String getROW_S3() {
-        return ROW_S3;
-    }
-
-    public void setROW_S3(String ROW_S3) {
-        this.ROW_S3 = ROW_S3;
-    }
-
-    public String getROW_S4() {
-        return ROW_S4;
-    }
-
-    public void setROW_S4(String ROW_S4) {
-        this.ROW_S4 = ROW_S4;
     }
 
     public String getROW_S5() {
@@ -497,8 +449,6 @@ public class FormContract implements BaseColumns {
         json.put(Sec1Entry.ROW_S1Q106b, this.ROW_S1Q106b);
         json.put(Sec1Entry.ROW_S1Q107, this.ROW_S1Q107);
         json.put(Sec1Entry.ROW_S1Q108, this.ROW_S1Q108);
-        json.put(Sec1Entry.ROW_S1Q109a, this.ROW_S1Q109a);
-        json.put(Sec1Entry.ROW_S1Q109b, this.ROW_S1Q109b);
         json.put(Sec1Entry.ROW_S1Q110, this.ROW_S1Q110);
         json.put(Sec1Entry.ROW_S1Q111, this.ROW_S1Q111);
         json.put(Sec1Entry.ROW_S1Q111OTH, this.ROW_S1Q111oth);
@@ -506,8 +456,6 @@ public class FormContract implements BaseColumns {
         json.put(Sec1Entry.ROW_ENTRYDATE, this.ROW_ENTRYDATE);
         json.put(Sec1Entry.ROW_USERID, this.ROW_USERID);
         json.put(Sec1Entry.ROW_S2, this.ROW_S2);
-        json.put(Sec1Entry.ROW_S3, this.ROW_S3);
-        json.put(Sec1Entry.ROW_S4, this.ROW_S4);
         json.put(Sec1Entry.ROW_S5, this.ROW_S5);
         json.put(Sec1Entry.ROW_S5b, this.ROW_S5b);
         json.put(Sec1Entry.ROW_S5c, this.ROW_S5c);
@@ -530,7 +478,6 @@ public class FormContract implements BaseColumns {
     public static abstract class Sec1Entry implements BaseColumns {
         public static final String TABLE_NAME = "sec1";
         public static final String _ID = "_id";
-
         public static final String ROW_DEVID = "devid";
         public static final String ROW_FORM_ID = "formid";
         public static final String ROW_S1Q101 = "s1q101";
@@ -543,8 +490,6 @@ public class FormContract implements BaseColumns {
         public static final String ROW_S1Q107 = "s1q107";
         public static final String ROW_S1Q108 = "s1q108";
         public static final String ROW_S1Q108b = "s1q108b";
-        public static final String ROW_S1Q109a = "s1q109a";
-        public static final String ROW_S1Q109b = "s1q109b";
         public static final String ROW_S1Q110 = "s1q110";
         public static final String ROW_S1Q111 = "s1q111";
         public static final String ROW_S1Q111OTH = "s1q111oth";
@@ -552,8 +497,6 @@ public class FormContract implements BaseColumns {
         public static final String ROW_ENTRYDATE = "entrydate";
         public static final String ROW_USERID = "userid";
         public static final String ROW_S2 = "s2";
-        public static final String ROW_S3 = "s3";
-        public static final String ROW_S4 = "s4";
         public static final String ROW_S5 = "s5";
         public static final String ROW_S5b = "s5b";
         public static final String ROW_S5c = "s5c";
@@ -565,7 +508,6 @@ public class FormContract implements BaseColumns {
         public static final String ROW_GPS_LAT = "gps_lat";
         public static final String ROW_GPS_DT = "gps_dt";
         public static final String ROW_GPS_ACC = "gps_acc";
-
         public static final String COLUMN_SYNCED = "sync";
         public static final String COLUMN_SYNCED_DATE = "sync_date";
     }

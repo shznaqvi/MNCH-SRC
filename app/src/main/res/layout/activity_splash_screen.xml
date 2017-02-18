@@ -30,7 +30,7 @@
             android:gravity="center_horizontal"
 
             android:keepScreenOn="true"
-            android:text="SEROPREVALENCE SURVEY PAKISTAN 2016 - 2017"
+            android:text="@string/app_name"
             android:textColor="@color/colorAccent"
             android:textSize="32sp"
             android:textStyle="bold" />

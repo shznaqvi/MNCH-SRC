@@ -57,8 +57,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec1Entry.ROW_S1Q111OTH + " TEXT,"
             + Sec1Entry.ROW_S1Q112 + " TEXT,"
             + Sec1Entry.ROW_S2 + " TEXT,"
-            + Sec1Entry.ROW_S3 + " TEXT,"
-            + Sec1Entry.ROW_S4 + " TEXT,"
             + Sec1Entry.ROW_S5 + " TEXT,"
             + Sec1Entry.ROW_S5b + " TEXT,"
             + Sec1Entry.ROW_S5c + " TEXT,"
@@ -568,7 +566,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean Login(String username, String password) throws SQLException {
+    public boolean Login1(String username, String password) throws SQLException {
         SQLiteDatabase db = this.getReadableDatabase();
         boolean isexists = false;
         String isadmin = "";
@@ -604,7 +602,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean Login1(String username, String password) throws SQLException {
+    public boolean Login(String username, String password) throws SQLException {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor mCursor = db.rawQuery("SELECT * FROM " + UsersContract.singleUser.TABLE_NAME + " WHERE " + UsersContract.singleUser.ROW_USERNAME + "=? AND " + UsersContract.singleUser.ROW_PASSWORD + "=?", new String[]{username, password});
@@ -787,24 +785,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return count;
     }
 
-
-    public int updateS3() {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-// New value for one column
-        ContentValues values = new ContentValues();
-        values.put(Sec1Entry.ROW_S3, SRCApp.fc.getROW_S3());
-
-// Which row to update, based on the ID
-        String selection = " _ID = " + SRCApp.fc.get_ID();
-        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
-
-        int count = db.update(Sec1Entry.TABLE_NAME,
-                values,
-                selection,
-                null);
-        return count;
-    }
 
     public int updateS5() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -1208,8 +1188,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 SRCApp.fc.setROW_S1Q106b(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q106b)));
                 SRCApp.fc.setROW_S1Q107(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q107)));
                 SRCApp.fc.setROW_S1Q108(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q108)));
-                SRCApp.fc.setROW_S1Q109a(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q109a)));
-                SRCApp.fc.setROW_S1Q109b(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q109b)));
                 SRCApp.fc.setROW_S1Q110(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q110)));
                 SRCApp.fc.setROW_S1Q111(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q111)));
                 SRCApp.fc.setROW_S1Q111oth(cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1Q111OTH)));
@@ -1609,8 +1587,6 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 Sec1Entry.ROW_S1Q106b,
                 Sec1Entry.ROW_S1Q107,
                 Sec1Entry.ROW_S1Q108,
-                Sec1Entry.ROW_S1Q109a,
-                Sec1Entry.ROW_S1Q109b,
                 Sec1Entry.ROW_S1Q110,
                 Sec1Entry.ROW_S1Q111,
                 Sec1Entry.ROW_S1Q111OTH,
@@ -1720,15 +1696,11 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         fc.ROW_S1Q106b = c.getString(c.getColumnIndex(Sec1Entry.ROW_S1Q106b));
         fc.ROW_S1Q107 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S1Q107));
         fc.ROW_S1Q108 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S1Q108));
-        fc.ROW_S1Q109a = c.getString(c.getColumnIndex(Sec1Entry.ROW_S1Q109a));
-        fc.ROW_S1Q109b = c.getString(c.getColumnIndex(Sec1Entry.ROW_S1Q109b));
         fc.ROW_S1Q110 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S1Q110));
         fc.ROW_S1Q111 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S1Q111));
         fc.ROW_S1Q111oth = c.getString(c.getColumnIndex(Sec1Entry.ROW_S1Q111OTH));
         fc.ROW_S1Q112 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S1Q112));
         fc.ROW_S2 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S2));
-        fc.ROW_S3 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S3));
-        fc.ROW_S4 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S4));
         fc.ROW_S5 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S5));
         fc.ROW_S5 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S5b));
         fc.ROW_S5 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S5c));
