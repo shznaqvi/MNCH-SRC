@@ -500,11 +500,14 @@ public class Section1Activity extends Activity implements TextWatcher {
 
 
         SRCDBHelper db = new SRCDBHelper(this);
+
+        Toast.makeText(this,s1q105.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
+
         String uccode = db.getDistrictCode(s1q105.getSelectedItem().toString());
 //        String vcode = db.getVCode(s1q105.getSelectedItem().toString(), s1q106a.getSelectedItem().toString());
 
         //Village name
-        SRCApp.fc.setROW_S1Q105(s1q106a.getSelectedItem().toString());
+        SRCApp.fc.setROW_S1Q105(db.getVCode(uccode,s1q106a.getSelectedItem().toString()));
 
 
         SRCApp.fc.setROW_S1Q106a(uccode);
@@ -609,6 +612,18 @@ public class Section1Activity extends Activity implements TextWatcher {
             errorText.setError(null);
         }
 
+        TextView errorText2 = (TextView) s1q106a.getSelectedView();
+        if (s1q106a.getSelectedItemPosition() == 0) {
+            errorText2.setError("anything here, just to add the icon");
+            errorText2.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText2.setText("Please select an Answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an Answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 501 empty");
+            return false;
+        } else {
+            errorText2.setError(null);
+        }
+
         if (getFormid().getText().toString().isEmpty()) {
             formid.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please enter form id \r\n", Toast.LENGTH_LONG).show();
@@ -619,14 +634,25 @@ public class Section1Activity extends Activity implements TextWatcher {
             formid.setError(null);
         }
 
-        if (s1q101.getSelectedItem().toString().equals("...")) {
-            formid.setError("Please enter Household number extension");
-            Toast.makeText(getApplicationContext(), "Please enter Household number extension \r\n", Toast.LENGTH_LONG).show();
-            formid.requestFocus();
-            Log.d(TAG, "ValidateForm: Error Type: 101 empty");
+//        if (s1q101.getSelectedItem().toString().equals("...")) {
+//            formid.setError("Please enter Household number extension");
+//            Toast.makeText(getApplicationContext(), "Please enter Household number extension \r\n", Toast.LENGTH_LONG).show();
+//            formid.requestFocus();
+//            Log.d(TAG, "ValidateForm: Error Type: 101 empty");
+//            return false;
+//        } else {
+//            formid.setError(null);
+//        }
+        TextView errorText3 = (TextView) s1q101.getSelectedView();
+        if (s1q101.getSelectedItemPosition() == 0) {
+            errorText3.setError("anything here, just to add the icon");
+            errorText3.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText3.setText("Please select an Answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an Answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 501 empty");
             return false;
         } else {
-            formid.setError(null);
+            errorText3.setError(null);
         }
 
         if (getS1q102().getText().toString().isEmpty()) {

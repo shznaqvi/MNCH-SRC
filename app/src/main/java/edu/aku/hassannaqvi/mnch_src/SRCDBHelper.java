@@ -1898,13 +1898,13 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
         try {
             String QUERY = "SELECT * FROM " + singleDistrict.TABLE_NAME + " WHERE " +
-                    singleDistrict.COLUMN_DISTRICT_CODE + " = '" + ucname + "'";
+                    singleDistrict.COLUMN_DISTRICT_NAME + " = '" + ucname + "'";
 
             Cursor cursor = db.rawQuery(QUERY, null);
 
             if (!cursor.isLast()) {
                 while (cursor.moveToNext()) {
-                    uccode = cursor.getString(cursor.getColumnIndex("uccode"));
+                    uccode = cursor.getString(cursor.getColumnIndex("district_code"));
                 }
             }
             db.close();
@@ -1927,7 +1927,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
             if (!cursor.isLast()) {
                 while (cursor.moveToNext()) {
-                    vcode = cursor.getString(cursor.getColumnIndex("vcode"));
+                    vcode = cursor.getString(cursor.getColumnIndex("villages_code"));
                 }
             }
             db.close();
