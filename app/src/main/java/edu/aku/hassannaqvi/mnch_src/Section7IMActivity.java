@@ -362,7 +362,6 @@ public class Section7IMActivity extends Activity {
 
         SRCApp.sec7im = new Sec7ImContract();
 
-        SRCApp.sec7im = new Sec7ImContract();
         SRCApp.sec7im.setROW_DEVID(Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID));
         SRCApp.sec7im.setROW_USERID(SRCApp.fc.getROW_USERID());

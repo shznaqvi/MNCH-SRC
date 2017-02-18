@@ -14,7 +14,6 @@ import android.widget.ScrollView;
 import android.widget.Toast;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -108,7 +107,7 @@ public class EndingActivity extends Activity {
     private boolean UpdateDB() {
         SRCDBHelper db = new SRCDBHelper(this);
 
-        int updcount = db.updateS8();
+        int updcount = db.updateEnding();
 
         if (updcount == 1) {
             Toast.makeText(this, "Updating Database... Successful!", Toast.LENGTH_SHORT).show();
@@ -150,12 +149,9 @@ public class EndingActivity extends Activity {
     private void SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
-        JSONObject s8 = new JSONObject();
 
-        s8.put("mn0823", mn082301.isChecked() ? "1" : mn082302.isChecked() ? "2" : mn082303.isChecked() ? "3" : mn082304.isChecked() ? "4" : "0");
-        s8.put("mn082302x", mn082302x.getText().toString());
-
-        SRCApp.fc.setROW_S8(String.valueOf(s8));
+        SRCApp.fc.setROW_MN823(mn082301.isChecked() ? "1" : mn082302.isChecked() ? "2" : mn082303.isChecked() ? "3" : mn082304.isChecked() ? "4" : "0");
+        SRCApp.fc.setROW_MN823X(mn082302x.getText().toString());
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
     }

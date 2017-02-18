@@ -3,11 +3,9 @@ package edu.aku.hassannaqvi.mnch_src;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -19,6 +17,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import butterknife.BindView;
@@ -211,9 +210,9 @@ public class Section2Activity extends Activity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 rDOS2q20512.setChecked(false);
 
-                if (rDOS2q2032.isChecked()){
+                if (rDOS2q2032.isChecked()) {
                     rDOS2q20512.setEnabled(true);
-                }else {
+                } else {
                     rDOS2q20512.setEnabled(false);
                 }
             }
@@ -541,31 +540,35 @@ public class Section2Activity extends Activity {
 
         if (ValidateForm()) {
 
-            if (SaveDraft()) {
+            try {
+                if (SaveDraft()) {
 
-                Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
 
-                if (UpdateDB()) {
-                    if (SRCApp.mwCount < SRCApp.mwras) {
-                        Intent sec3_intent = new Intent(this, Section3Activity.class);
-                        SRCApp.mwCount++;
-                        SRCApp.curPreg = false;
-                        startActivity(sec3_intent);
-                    } else if (SRCApp.mdCount < SRCApp.mdTotal) {
-                        Intent sec4_intent = new Intent(this, Section4Activity.class);
-                        SRCApp.mdCount++;
-                        startActivity(sec4_intent);
-                    } else if (SRCApp.cmCount < SRCApp.cmTotal) {
-                        Intent sec4b_intent = new Intent(this, Section4bActivity.class);
-                        SRCApp.cmCount++;
-                        startActivity(sec4b_intent);
+                    if (UpdateDB()) {
+                        if (SRCApp.mwCount < SRCApp.mwras) {
+                            Intent sec3_intent = new Intent(this, Section3Activity.class);
+                            SRCApp.mwCount++;
+                            SRCApp.curPreg = false;
+                            startActivity(sec3_intent);
+                        } else if (SRCApp.mdCount < SRCApp.mdTotal) {
+                            Intent sec4_intent = new Intent(this, Section4Activity.class);
+                            SRCApp.mdCount++;
+                            startActivity(sec4_intent);
+                        } else if (SRCApp.cmCount < SRCApp.cmTotal) {
+                            Intent sec4b_intent = new Intent(this, Section4bActivity.class);
+                            SRCApp.cmCount++;
+                            startActivity(sec4b_intent);
+                        } else {
+                            Intent sec6_intent = new Intent(this, Section6Activity.class);
+                            startActivity(sec6_intent);
+                        }
                     } else {
-                        Intent sec6_intent = new Intent(this, Section6Activity.class);
-                        startActivity(sec6_intent);
+                        Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
                 }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -586,85 +589,84 @@ public class Section2Activity extends Activity {
     }
 
 
-    private boolean SaveDraft() {
+    private boolean SaveDraft() throws JSONException {
         JSONObject s2 = new JSONObject();
-        try {
-            s2.put("s2q201", s2q201.getText().toString());
-            s2.put("s2q202", s2q202.getText().toString());
+        s2.put("s2q201", s2q201.getText().toString());
+        s2.put("s2q202", s2q202.getText().toString());
 
-            switch (radioS2q203.getCheckedRadioButtonId()) {
-                case R.id.RDO_s2q203_1:
-                    var_s2q203 = "1";
-                    break;
-                case R.id.RDO_s2q203_2:
-                    var_s2q203 = "2";
-                    break;
-            }
+        switch (radioS2q203.getCheckedRadioButtonId()) {
+            case R.id.RDO_s2q203_1:
+                var_s2q203 = "1";
+                break;
+            case R.id.RDO_s2q203_2:
+                var_s2q203 = "2";
+                break;
+        }
 
-            s2.put("s2q203", var_s2q203);
-            s2.put("s2q204", s2q204.getText().toString());
+        s2.put("s2q203", var_s2q203);
+        s2.put("s2q204", s2q204.getText().toString());
 
-            switch (radioS2q205.getCheckedRadioButtonId()) {
-                case R.id.RDO_s2q205_1:
-                    var_s2q205 = "1";
-                    break;
-                case R.id.RDO_s2q205_2:
-                    var_s2q205 = "2";
-                    break;
-                case R.id.RDO_s2q205_3:
-                    var_s2q205 = "3";
-                    break;
-                case R.id.RDO_s2q205_4:
-                    var_s2q205 = "4";
-                    break;
-                case R.id.RDO_s2q205_5:
-                    var_s2q205 = "5";
-                    break;
-                case R.id.RDO_s2q205_6:
-                    var_s2q205 = "6";
-                    break;
+        switch (radioS2q205.getCheckedRadioButtonId()) {
+            case R.id.RDO_s2q205_1:
+                var_s2q205 = "1";
+                break;
+            case R.id.RDO_s2q205_2:
+                var_s2q205 = "2";
+                break;
+            case R.id.RDO_s2q205_3:
+                var_s2q205 = "3";
+                break;
+            case R.id.RDO_s2q205_4:
+                var_s2q205 = "4";
+                break;
+            case R.id.RDO_s2q205_5:
+                var_s2q205 = "5";
+                break;
+            case R.id.RDO_s2q205_6:
+                var_s2q205 = "6";
+                break;
 
-                case R.id.RDO_s2q205_7:
-                    var_s2q205 = "7";
-                    break;
-                case R.id.RDO_s2q205_8:
-                    var_s2q205 = "8";
-                    break;
-                case R.id.RDO_s2q205_9:
-                    var_s2q205 = "9";
-                    break;
-                case R.id.RDO_s2q205_10:
-                    var_s2q205 = "10";
-                    break;
-                case R.id.RDO_s2q205_11:
-                    var_s2q205 = "11";
-                    break;
-                case R.id.RDO_s2q205_12:
-                    var_s2q205 = "12";
-                    break;
-                case R.id.RDO_s2q205_88:
-                    var_s2q205 = "88";
-                    break;
-            }
+            case R.id.RDO_s2q205_7:
+                var_s2q205 = "7";
+                break;
+            case R.id.RDO_s2q205_8:
+                var_s2q205 = "8";
+                break;
+            case R.id.RDO_s2q205_9:
+                var_s2q205 = "9";
+                break;
+            case R.id.RDO_s2q205_10:
+                var_s2q205 = "10";
+                break;
+            case R.id.RDO_s2q205_11:
+                var_s2q205 = "11";
+                break;
+            case R.id.RDO_s2q205_12:
+                var_s2q205 = "12";
+                break;
+            case R.id.RDO_s2q205_88:
+                var_s2q205 = "88";
+                break;
+        }
 
-            s2.put("s2q205", var_s2q205);
-            s2.put("s2q205oth", s2q205oth.getText().toString());
-            s2.put("s2q206a", s2q206a.getText().toString());
-            s2.put("s2q206b", s2q206b.getText().toString());
-            s2.put("s2q206c", s2q206c.getText().toString());
-            s2.put("s2q206d", s2q206d.getText().toString());
-            s2.put("s2q206e", s2q206e.getText().toString());
-            s2.put("s2q206f", s2q206f.getText().toString());
-            s2.put("s2q206g", s2q206g.getText().toString());
-            s2.put("s2q206h", s2q206h.getText().toString());
-            s2.put("s2q206i", s2q206i.getText().toString());
-            s2.put("s2q206j", s2q206j.getText().toString());
+        s2.put("s2q205", var_s2q205);
+        s2.put("s2q205oth", s2q205oth.getText().toString());
+        s2.put("s2q206a", s2q206a.getText().toString());
+        s2.put("s2q206b", s2q206b.getText().toString());
+        s2.put("s2q206c", s2q206c.getText().toString());
+        s2.put("s2q206d", s2q206d.getText().toString());
+        s2.put("s2q206e", s2q206e.getText().toString());
+        s2.put("s2q206f", s2q206f.getText().toString());
+        s2.put("s2q206g", s2q206g.getText().toString());
+        s2.put("s2q206h", s2q206h.getText().toString());
+        s2.put("s2q206i", s2q206i.getText().toString());
+        s2.put("s2q206j", s2q206j.getText().toString());
 
-            SRCApp.mwras = Integer.parseInt(s2q206h.getText().toString());
-            SRCApp.chTotal = Integer.parseInt(s2q206d.getText().toString()) + Integer.parseInt(s2q206e.getText().toString());
+        SRCApp.mwras = Integer.parseInt(s2q206h.getText().toString());
+        SRCApp.chTotal = Integer.parseInt(s2q206d.getText().toString()) + Integer.parseInt(s2q206e.getText().toString());
 
-            SRCApp.mdTotal = Integer.parseInt(s2q206i.getText().toString());
-            SRCApp.cmTotal = Integer.parseInt(s2q206j.getText().toString());
+        SRCApp.mdTotal = Integer.parseInt(s2q206i.getText().toString());
+        SRCApp.cmTotal = Integer.parseInt(s2q206j.getText().toString());
 
 //
 //            CVars var = new CVars();
@@ -692,10 +694,9 @@ public class Section2Activity extends Activity {
 //            }
 
 
-            SRCApp.fc.setROW_S2(s2.toString());
+        SRCApp.fc.setROW_S2(s2.toString());
+        Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
-        } catch (Exception e) {
-        }
 
         return true;
     }
@@ -1032,31 +1033,21 @@ public class Section2Activity extends Activity {
         return true;
     }
 
-    public void setGPS() {
-        SharedPreferences GPSPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
-
-        String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
-
-        SRCApp.fc.setROW_GPS_LAT(GPSPref.getString("Latitude", "0"));
-        SRCApp.fc.setROW_GPS_LANG(GPSPref.getString("Longitude", "0"));
-        SRCApp.fc.setROW_GPS_ACC(GPSPref.getString("Accuracy", "0"));
-        SRCApp.fc.setROW_GPS_ACC(GPSPref.getString(date, "0"));
-
-        Log.d(TAG, "setGPS: " + GPSPref.getString("Latitude", "0") + "\n" + GPSPref.getString("Longitude", "0") + "\n" + GPSPref.getString("Accuracy", "0") + "\n" + GPSPref.getString(date, "0"));
-
-        Toast.makeText(Section2Activity.this, "GPS set", Toast.LENGTH_SHORT).show();
-    }
-
     public void endInterview(View view) {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (ValidateForm()) {
-            SaveDraft();
-            if (UpdateDB()) {
-                Intent end_intent = new Intent(this, EndingActivity.class);
-                end_intent.putExtra("check", false);
-                startActivity(end_intent);
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+            try {
+                if (SaveDraft()) {
+                    if (UpdateDB()) {
+                        Intent end_intent = new Intent(this, EndingActivity.class);
+                        end_intent.putExtra("check", false);
+                        startActivity(end_intent);
+                    } else {
+                        Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }

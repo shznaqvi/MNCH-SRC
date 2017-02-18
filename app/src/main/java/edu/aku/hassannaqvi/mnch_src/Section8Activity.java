@@ -674,18 +674,20 @@ public class Section8Activity extends Activity {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (formValidation()) {
             try {
-                SaveDraft();
+                if (SaveDraft()) {
+
+                    if (UpdateDB()) {
+                        Toast.makeText(this, "Saving Form", Toast.LENGTH_SHORT).show();
+
+                        finish();
+
+                        startActivity(new Intent(this, EndingActivity.class).putExtra("check", true));
+                    } else {
+                        Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+                    }
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
-            }
-            if (UpdateDB()) {
-                Toast.makeText(this, "Saving Form", Toast.LENGTH_SHORT).show();
-
-                finish();
-
-                startActivity(new Intent(this, EndingActivity.class).putExtra("check", true));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -706,7 +708,7 @@ public class Section8Activity extends Activity {
 
     }
 
-    private void SaveDraft() throws JSONException {
+    private boolean SaveDraft() throws JSONException {
         Toast.makeText(this, "Saving Draft for  This Section", Toast.LENGTH_SHORT).show();
 
         JSONObject s8 = new JSONObject();
@@ -804,6 +806,7 @@ public class Section8Activity extends Activity {
 
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
+        return true;
     }
 
     private boolean formValidation() {
@@ -1411,10 +1414,6 @@ public class Section8Activity extends Activity {
         } else {
             mn082220.setError(null);
         }
-
-
-
-
 
 
         return true;

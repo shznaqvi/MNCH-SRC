@@ -39,6 +39,8 @@ public class FormContract implements BaseColumns {
     String ROW_S6;
     String ROW_S7;
     String ROW_S8;
+    String ROW_MN823;
+    String ROW_MN823X;
     String ROW_UUID;
     String ROW_GPS_LNG;
     String ROW_GPS_LAT;
@@ -119,6 +121,8 @@ public class FormContract implements BaseColumns {
         this.ROW_S6 = jsonObject.getString(Sec1Entry.ROW_S6);
         this.ROW_S7 = jsonObject.getString(Sec1Entry.ROW_S7);
         this.ROW_S8 = jsonObject.getString(Sec1Entry.ROW_S8);
+        this.ROW_MN823 = jsonObject.getString(Sec1Entry.ROW_MN823);
+        this.ROW_MN823X = jsonObject.getString(Sec1Entry.ROW_MN823X);
         this.ROW_UUID = jsonObject.getString(Sec1Entry.ROW_UUID);
         this.ROW_GPS_LNG = jsonObject.getString(Sec1Entry.ROW_GPS_LNG);
         this.ROW_GPS_LAT = jsonObject.getString(Sec1Entry.ROW_GPS_LAT);
@@ -158,6 +162,8 @@ public class FormContract implements BaseColumns {
         this.ROW_S6 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S6));
         this.ROW_S7 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S7));
         this.ROW_S8 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S8));
+        this.ROW_MN823 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_MN823));
+        this.ROW_MN823X = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_MN823X));
         this.ROW_UUID = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_UUID));
         this.ROW_GPS_LNG = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_GPS_LNG));
         this.ROW_GPS_LAT = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_GPS_LAT));
@@ -354,6 +360,22 @@ public class FormContract implements BaseColumns {
         this.ROW_S8 = ROW_S8;
     }
 
+    public String getROW_MN823() {
+        return ROW_MN823;
+    }
+
+    public void setROW_MN823(String ROW_MN823) {
+        this.ROW_MN823 = ROW_MN823;
+    }
+
+    public String getROW_MN823X() {
+        return ROW_MN823X;
+    }
+
+    public void setROW_MN823X(String ROW_MN823X) {
+        this.ROW_MN823X = ROW_MN823X;
+    }
+
     public String getROW_UUID() {
         return ROW_UUID;
     }
@@ -462,6 +484,8 @@ public class FormContract implements BaseColumns {
         json.put(Sec1Entry.ROW_S6, this.ROW_S6);
         json.put(Sec1Entry.ROW_S7, this.ROW_S7);
         json.put(Sec1Entry.ROW_S8, this.ROW_S8);
+        json.put(Sec1Entry.ROW_MN823, this.ROW_MN823);
+        json.put(Sec1Entry.ROW_MN823X, this.ROW_MN823X);
         json.put(Sec1Entry.ROW_UUID, this.ROW_UUID);
         json.put(Sec1Entry.ROW_GPS_LNG, this.ROW_GPS_LNG);
         json.put(Sec1Entry.ROW_GPS_LAT, this.ROW_GPS_LAT);
@@ -503,6 +527,8 @@ public class FormContract implements BaseColumns {
         public static final String ROW_S6 = "s6";
         public static final String ROW_S7 = "s7";
         public static final String ROW_S8 = "s8";
+        public static final String ROW_MN823 = "mn823";
+        public static final String ROW_MN823X = "mn823x";
         public static final String ROW_UUID = "uuid";
         public static final String ROW_GPS_LNG = "gps_lng";
         public static final String ROW_GPS_LAT = "gps_lat";

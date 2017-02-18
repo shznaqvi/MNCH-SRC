@@ -63,6 +63,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + Sec1Entry.ROW_S6 + " TEXT,"
             + Sec1Entry.ROW_S7 + " TEXT,"
             + Sec1Entry.ROW_S8 + " TEXT,"
+            + Sec1Entry.ROW_MN823 + " TEXT,"
+            + Sec1Entry.ROW_MN823X + " TEXT,"
             + Sec1Entry.ROW_UUID + " TEXT,"
             + Sec1Entry.ROW_GPS_LNG + " TEXT,"
             + Sec1Entry.ROW_GPS_LAT + " TEXT,"
@@ -683,8 +685,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             values.put(Sec3Entry.ROW_S3Q301J, sec3.get_s3q301j());
             values.put(Sec3Entry.ROW_S3Q301K, sec3.get_s3q301k());
             values.put(Sec3Entry.ROW_S3Q301L, sec3.get_s3q301l());
-            values.put(Sec3Entry.ROW_UUID, SRCApp.fc.getROW_UUID()); // get primary key of main Form UUID
-            values.put(Sec3Entry.ROW_UID, sec3.getROW_UID());
+            values.put(Sec3Entry.ROW_UUID, sec3.getROW_UUID()); // get primary key of main Form UUID
+            /*values.put(Sec3Entry.ROW_UID, sec3.getROW_UID());*/
             // No need to update SYNC fields in this function
 
             newRowId = db.insert(Sec3Entry.TABLE_NAME, null, values);
@@ -1013,7 +1015,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         values.put(Section4Entry.ROW_S4Q41C, sec4a.get_s4q41c());
         values.put(Section4Entry.ROW_S4Q41D, sec4a.get_s4q41d());
         values.put(Section4Entry.ROW_S4Q41E, sec4a.get_s4q41e());
-        values.put(Section4Entry.ROW_UID, sec4a.get_UID());
+        //values.put(Section4Entry.ROW_UID, sec4a.get_UID());
         values.put(Section4Entry.ROW_UUID, sec4a.getROW_UUID());
         values.put(Section4Entry.ROW_SYNCED, sec4a.getROW_SYNCED());
         values.put(Section4Entry.ROW_SYNCED_DATE, sec4a.getROW_SYNCED_DATE());
@@ -1054,6 +1056,25 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 // New value for one column
         ContentValues values = new ContentValues();
         values.put(Sec1Entry.ROW_S8, SRCApp.fc.getROW_S8());
+
+// Which row to update, based on the ID
+        String selection = " _ID = " + SRCApp.fc.get_ID();
+        String[] selectionArgs = {String.valueOf(SRCApp.fc.get_ID())};
+
+        int count = db.update(Sec1Entry.TABLE_NAME,
+                values,
+                selection,
+                null);
+        return count;
+    }
+
+    public int updateEnding() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(Sec1Entry.ROW_MN823, SRCApp.fc.getROW_MN823());
+        values.put(Sec1Entry.ROW_MN823X, SRCApp.fc.getROW_MN823X());
 
 // Which row to update, based on the ID
         String selection = " _ID = " + SRCApp.fc.get_ID();
@@ -1107,7 +1128,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
         // New value for one column
         ContentValues values = new ContentValues();
-        values.put(Section4Entry.ROW_UID, SRCApp.sc4a.get_ID());
+        values.put(Section4Entry.ROW_UID, SRCApp.sc4a.get_UID());
 
         // Which row to update, based on the title
         String where = Section4Entry._ID + " = ?";
@@ -1125,7 +1146,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
         // New value for one column
         ContentValues values = new ContentValues();
-        values.put(Section4bEntry.ROW_UID, SRCApp.sc4b.get_ID());
+        values.put(Section4bEntry.ROW_UID, SRCApp.sc4b.getROW_UID());
 
         // Which row to update, based on the title
         String where = Section4bEntry._ID + " = ?";
@@ -1143,14 +1164,14 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
         // New value for one column
         ContentValues values = new ContentValues();
-        values.put(single7Im.ROW_UID, SRCApp.sec7im.get_ID());
+        values.put(single7Im.ROW_UID, SRCApp.sec7im.getROW_UID());
 
         // Which row to update, based on the title
         String where = single7Im._ID + " = ?";
         String[] whereArgs = {SRCApp.sec7im.get_ID().toString()};
 
         int count = db.update(
-                Section4bEntry.TABLE_NAME,
+                single7Im.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
@@ -1708,6 +1729,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         fc.ROW_S6 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S6));
         fc.ROW_S7 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S7));
         fc.ROW_S8 = c.getString(c.getColumnIndex(Sec1Entry.ROW_S8));
+        fc.ROW_MN823 = c.getString(c.getColumnIndex(Sec1Entry.ROW_MN823));
+        fc.ROW_MN823X = c.getString(c.getColumnIndex(Sec1Entry.ROW_MN823X));
         fc.ROW_UUID = c.getString(c.getColumnIndex(Sec1Entry.ROW_UUID));
         fc.ROW_GPS_LNG = c.getString(c.getColumnIndex(Sec1Entry.ROW_GPS_LNG));
         fc.ROW_GPS_LAT = c.getString(c.getColumnIndex(Sec1Entry.ROW_GPS_LAT));
