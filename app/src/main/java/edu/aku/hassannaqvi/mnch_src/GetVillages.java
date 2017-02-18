@@ -60,7 +60,7 @@ public class GetVillages extends AsyncTask<String, String, String> {
 
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    Log.i(TAG, "User In: " + line);
+                    Log.i(TAG, "Village In: " + line);
                     result.append(line);
                 }
             }
@@ -85,10 +85,10 @@ public class GetVillages extends AsyncTask<String, String, String> {
         //json = json.replaceAll("\\[", "").replaceAll("\\]","");
         Log.d(TAG, result);
         if (json.length() > 0) {
-            ArrayList<VillagesContract> userArrayList;
+            ArrayList<VillagesContract> villageArrayList;
             SRCDBHelper db = new SRCDBHelper(mContext);
             try {
-                userArrayList = new ArrayList<VillagesContract>();
+                villageArrayList = new ArrayList<VillagesContract>();
                 //JSONObject jsonObject = new JSONObject(json);
                 JSONArray jsonArray = new JSONArray(json);
                 db.syncVILLAGES(jsonArray);

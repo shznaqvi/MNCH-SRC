@@ -60,7 +60,7 @@ public class GetDistricts extends AsyncTask<String, String, String> {
 
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    Log.i(TAG, "User In: " + line);
+                    Log.i(TAG, "District In: " + line);
                     result.append(line);
                 }
             }
@@ -85,19 +85,18 @@ public class GetDistricts extends AsyncTask<String, String, String> {
         //json = json.replaceAll("\\[", "").replaceAll("\\]","");
         Log.d(TAG, result);
         if (json.length() > 0) {
-            ArrayList<DistrictsContract> userArrayList;
+            ArrayList<DistrictsContract> districtArrayList;
             SRCDBHelper db = new SRCDBHelper(mContext);
             try {
-                userArrayList = new ArrayList<DistrictsContract>();
+                districtArrayList = new ArrayList<DistrictsContract>();
                 //JSONObject jsonObject = new JSONObject(json);
                 JSONArray jsonArray = new JSONArray(json);
-                db.syncUser(jsonArray);
+                db.syncDistrict(jsonArray);
                 pd.setMessage("Received: " + jsonArray.length());
                 pd.show();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            db.getAllDistricts();
         } else {
             pd.setMessage("Received: " + json.length() + "");
             pd.show();

@@ -123,6 +123,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     public static final String SQL_CREATE_BASELINE_SEC4b = "CREATE TABLE " + Section4bEntry.TABLE_NAME + "("
             + Section4bEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             Section4bEntry.ROW_DEVID + " TEXT," +
+            Section4bEntry.ROW_FORM_ID + " TEXT," +
             Section4bEntry.ROW_FORM_DATE + " TEXT," +
             Section4bEntry.ROW_USERID + " TEXT," +
             Section4bEntry.ROW_UUID + " TEXT," +
