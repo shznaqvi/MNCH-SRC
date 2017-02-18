@@ -1,5 +1,10 @@
 package edu.aku.hassannaqvi.mnch_src;
 
+/**
+ * Created by hassan.naqvi on 11/5/2016.
+ */
+
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -21,27 +26,24 @@ import java.util.ArrayList;
  */
 public class GetDistricts extends AsyncTask<String, String, String> {
 
-    private final String TAG = "GetUsers()";
+    private final String TAG = "GetDistricts()";
     HttpURLConnection urlConnection;
     private Context mContext;
     private ProgressDialog pd;
-
 
     public GetDistricts(Context context) {
         mContext = context;
     }
 
-
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
         pd = new ProgressDialog(mContext);
-        pd.setTitle("Getting Districts");
-        pd.setMessage("Preparing...");
+        pd.setTitle("Syncing Districts");
+        pd.setMessage("Getting connected to server...");
         pd.show();
 
     }
-
 
     @Override
     protected String doInBackground(String... args) {
@@ -49,22 +51,18 @@ public class GetDistricts extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            URL url = new URL(SRCApp._HOST_URL + "/src/api/getdistricts.php");
+            URL url = new URL(SRCApp._HOST_URL + "src/api/getdistricts.php");
             urlConnection = (HttpURLConnection) url.openConnection();
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                //pd.show();
-
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    Log.i(TAG, "District In: " + line);
+                    Log.i(TAG, "User In: " + line);
                     result.append(line);
                 }
-            } else {
-                result.append("URL not found");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -82,28 +80,30 @@ public class GetDistricts extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
 
         //Do something with the JSON string
-        if (result != "URL not found") {
-            String json = result;
-            //json = json.replaceAll("\\[", "").replaceAll("\\]","");
-            Log.d(TAG, result);
-            ArrayList<DistrictsContract> districtArrayList;
+
+        String json = result;
+        //json = json.replaceAll("\\[", "").replaceAll("\\]","");
+        Log.d(TAG, result);
+        if (json.length() > 0) {
+            ArrayList<DistrictsContract> userArrayList;
             SRCDBHelper db = new SRCDBHelper(mContext);
             try {
-                districtArrayList = new ArrayList<DistrictsContract>();
+                userArrayList = new ArrayList<DistrictsContract>();
                 //JSONObject jsonObject = new JSONObject(json);
                 JSONArray jsonArray = new JSONArray(json);
-                db.syncDistrict(jsonArray);
-                pd.setMessage("Received: " + jsonArray.length() + " Districts");
-                pd.setTitle("Done... Synced Districts");
-
+                db.syncUser(jsonArray);
+                pd.setMessage("Received: " + jsonArray.length());
+                pd.show();
             } catch (JSONException e) {
                 e.printStackTrace();
-                pd.setMessage("Received: 0 Districts");
-                pd.setTitle("Error... Syncing Districts");
             }
             db.getAllDistricts();
+        } else {
+            pd.setMessage("Received: " + json.length() + "");
             pd.show();
         }
+    }
+
 
 /*        try {
             JSONObject obj = new JSONObject(json);
@@ -120,5 +120,4 @@ public class GetDistricts extends AsyncTask<String, String, String> {
 //            }
 //        }
 
-    }
 }

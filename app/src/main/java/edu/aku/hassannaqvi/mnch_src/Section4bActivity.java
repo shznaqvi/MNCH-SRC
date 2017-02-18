@@ -271,16 +271,6 @@ public class Section4bActivity extends Activity {
         }
     }
 
-    private void ClearFields() {
-        s4q42b.setText("");
-        radio_s4q42c.clearCheck();
-        s4q42d.setText("");
-        s4q42d1.setText("");
-        s4q42d2.setText("");
-        radio_s4q42e.clearCheck();
-        s4q42eoth.setText("");
-        s4q42f.setText("");
-    }
 
     private boolean UpdateDB() {
         Long rowId;
