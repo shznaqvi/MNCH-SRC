@@ -54,7 +54,7 @@ public class Section4bActivity extends Activity {
     private String var_s4q42e;
     private int sno = 0;
     private int counter = 0;
-//    private RadioGroup childMortality;
+    //    private RadioGroup childMortality;
 //    private RadioButton md01;
 //    private RadioButton md02;
     private LinearLayout md03;
@@ -74,7 +74,7 @@ public class Section4bActivity extends Activity {
                 || m > 0)) {
             return true;
         } else if ((d > 29 || d < 0)
-                && (m > 11 || m < 0)){
+                && (m > 11 || m < 0)) {
             return true;
         }
 
@@ -408,35 +408,32 @@ public class Section4bActivity extends Activity {
 
     public void gotoSection5(View view) {
 
-        if (SRCApp.NoChildMortality == 1) {
-            if (ValidateForm()) {
+        if (ValidateForm()) {
 
-                if (SaveDraft()) {
+            if (SaveDraft()) {
 
-                    Toast.makeText(this, "Storing Values", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Storing Values", Toast.LENGTH_SHORT).show();
 
-                    if (UpdateDB()) {
+                if (UpdateDB()) {
 
-                        //        Checking Married Women
+                    //        Checking Married Women
 
-                        CVars var = new CVars();
-                        if (var.GetReproductionAgeWoman() != 0) {
-                            startActivity(new Intent(this, Section5Activity.class));
-                        } else if (var.getNeonatesChild() != 0) {
-                            startActivity(new Intent(this, Section7Activity.class));
-                        } else if (var.getIMChild() != 0) {
-                            startActivity(new Intent(this, Section7IMActivity.class));
-                        } else {
-                            startActivity(new Intent(this, Section8Activity.class));
-                        }
-//
+                    CVars var = new CVars();
+                    if (var.GetReproductionAgeWoman() != 0) {
+                        startActivity(new Intent(this, Section5Activity.class));
+                    } else if (var.getNeonatesChild() != 0) {
+                        startActivity(new Intent(this, Section7Activity.class));
+                    } else if (var.getIMChild() != 0) {
+                        startActivity(new Intent(this, Section7IMActivity.class));
+                    } else {
+                        startActivity(new Intent(this, Section8Activity.class));
                     }
+//
                 }
             }
         }
-
-
     }
+
 
     private boolean ValidateForm() {
 
