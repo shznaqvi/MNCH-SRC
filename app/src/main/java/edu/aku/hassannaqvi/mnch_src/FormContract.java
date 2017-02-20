@@ -477,7 +477,7 @@ public class FormContract implements BaseColumns {
         json.put(Sec1Entry.ROW_USERID, this.ROW_USERID == null ? JSONObject.NULL : this.ROW_USERID);
         JSONObject jsonObj = new JSONObject("{\"phonetype\":\"N95\",\"cat\":\"WP\"}");
 
-        json.put(Sec1Entry.ROW_S2, new JSONObject(this.ROW_S2) == null ? JSONObject.NULL : new JSONObject(this.ROW_S2));
+        json.put(Sec1Entry.ROW_S2, this.ROW_S2 == null ? JSONObject.NULL : new JSONObject(this.ROW_S2));
         json.put(Sec1Entry.ROW_S5, this.ROW_S5 == null ? JSONObject.NULL : this.ROW_S5);
         json.put(Sec1Entry.ROW_S5B, this.ROW_S5b == null ? JSONObject.NULL : this.ROW_S5b);
         json.put(Sec1Entry.ROW_S5C, this.ROW_S5c == null ? JSONObject.NULL : this.ROW_S5c);
