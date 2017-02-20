@@ -695,7 +695,7 @@ public class Section2Activity extends Activity {
 //            }
 
 
-        SRCApp.fc.setROW_S2(s2.toString());
+        SRCApp.fc.setROW_S2(String.valueOf(s2));
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
 

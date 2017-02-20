@@ -1244,7 +1244,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         Collection<FormContract> allEntries = new ArrayList<>();
         try {
             c = db.query(
-                    Sec3Entry.TABLE_NAME,  // The table to query
+                    Sec1Entry.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
