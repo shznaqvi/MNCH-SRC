@@ -666,8 +666,9 @@ public class Section2Activity extends Activity {
         SRCApp.chTotal = Integer.parseInt(s2q206d.getText().toString()) + Integer.parseInt(s2q206e.getText().toString());
 
         SRCApp.mdTotal = Integer.parseInt(s2q206i.getText().toString());
-        SRCApp.cmTotal = Integer.parseInt(s2q206j.getText().toString());
-
+        if (!s2q206j.getText().toString().isEmpty()) {
+            SRCApp.cmTotal = Integer.parseInt(s2q206j.getText().toString());
+        }
 //
 //            CVars var = new CVars();
 //            if (!s2q206h.getText().toString().isEmpty()) {
