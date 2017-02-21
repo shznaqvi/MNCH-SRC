@@ -560,8 +560,8 @@ public class Section2Activity extends Activity {
                             SRCApp.cmCount++;
                             startActivity(sec4b_intent);
                         } else {
-                            Intent sec6_intent = new Intent(this, Section6Activity.class);
-                            startActivity(sec6_intent);
+                            Intent sec5_intent = new Intent(this, Section5Activity.class);
+                            startActivity(sec5_intent);
                         }
                     } else {
                         Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
