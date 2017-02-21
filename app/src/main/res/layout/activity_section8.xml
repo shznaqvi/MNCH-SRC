@@ -92,7 +92,8 @@
                 android:id="@+id/mn080188x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mnother" />
+                android:hint="@string/mnother"
+                android:visibility="gone" />
 
 
             <TextView
@@ -172,7 +173,8 @@
                 android:id="@+id/mn0802a88x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mnother" />
+                android:hint="@string/mnother"
+                android:visibility="gone" />
 
 
             <TextView
@@ -272,7 +274,8 @@
                 android:id="@+id/mn0802b88x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mnother" />
+                android:hint="@string/mnother"
+                android:visibility="gone" />
 
 
             <TextView
@@ -354,7 +357,8 @@
                 android:id="@+id/mn0802c88x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mnother" />
+                android:hint="@string/mnother"
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -521,7 +525,8 @@
                 android:id="@+id/mn080688x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mnother" />
+                android:hint="@string/mnother"
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -638,7 +643,8 @@
                 android:id="@+id/mn080788x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mnother" />
+                android:hint="@string/mnother"
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -754,7 +760,8 @@
                 android:id="@+id/mn080888x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mnother" />
+                android:hint="@string/mnother"
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -934,7 +941,8 @@
                     android:id="@+id/mn081388x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mnother" />
+                    android:hint="@string/mnother"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -1029,7 +1037,8 @@
                 android:id="@+id/mn081488x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mnother" />
+                android:hint="@string/mnother"
+                android:visibility="gone" />
 
 
             <TextView

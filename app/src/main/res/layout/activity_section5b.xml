@@ -335,7 +335,8 @@
                 android:id="@+id/mn053488x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mnother" />
+                android:hint="@string/mnother"
+                android:visibility="gone" />
 
 
             <TextView
@@ -424,7 +425,8 @@
                     android:id="@+id/mn053688x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mnother" />
+                    android:hint="@string/mnother"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <TextView
@@ -515,7 +517,8 @@
                 android:id="@+id/mn053888x"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/mnother" />
+                android:hint="@string/mnother"
+                android:visibility="gone" />
 
 
             <TextView
@@ -658,7 +661,8 @@
                     android:id="@+id/mn054288x"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mnother" />
+                    android:hint="@string/mnother"
+                    android:visibility="gone" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -732,7 +736,8 @@
                     android:id="@+id/mn054388x"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mnother" />
+                    android:hint="@string/mnother"
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:id="@+id/fldGrpmn0544"
@@ -814,7 +819,8 @@
                         android:id="@+id/mn054488x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/mnother" />
+                        android:hint="@string/mnother"
+                        android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -882,7 +888,8 @@
                     android:id="@+id/mn054588x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mnother" />
+                    android:hint="@string/mnother"
+                    android:visibility="gone" />
 
                 </LinearLayout>
 

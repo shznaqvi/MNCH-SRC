@@ -1601,7 +1601,8 @@
                         android:id="@+id/mn051888x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/mnother" />
+                        android:hint="@string/mnother"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
@@ -1667,7 +1668,8 @@
                     android:id="@+id/mn051988x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mnother" />
+                    android:hint="@string/mnother"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <TextView
@@ -1896,7 +1898,8 @@
                         android:id="@+id/mn052588x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/mnother" />
+                        android:hint="@string/mnother"
+                        android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -2020,7 +2023,8 @@
                     android:id="@+id/mn052688x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mnother" />
+                    android:hint="@string/mnother"
+                    android:visibility="gone" />
 
 
                 <TextView
@@ -2097,7 +2101,8 @@
                     android:id="@+id/mn052788x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mnother" />
+                    android:hint="@string/mnother"
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:id="@+id/fldGrpmn0528"
