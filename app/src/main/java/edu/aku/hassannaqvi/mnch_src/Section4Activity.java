@@ -392,7 +392,7 @@ public class Section4Activity extends Activity {
             }
 
             // AGE: YEARS 15 - 49
-            if ((Integer.parseInt(s4q41b2.getText().toString()) < 0 || Integer.parseInt(s4q41b2.getText().toString()) > 49)) {
+            if ((Integer.parseInt(s4q41b2.getText().toString()) < 15 || Integer.parseInt(s4q41b2.getText().toString()) > 49)) {
 
                 s4q41b2.setError("Invalid:" + getString(R.string.baseline_s4q41b2));
                 Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q41b2), Toast.LENGTH_LONG).show();
