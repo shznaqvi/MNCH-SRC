@@ -815,7 +815,7 @@ public class Section1Activity extends Activity implements TextWatcher {
 
 
             SRCApp.fc.setROW_GPS_LAT(GPSPref.getString("Latitude", "0"));
-            SRCApp.fc.setROW_GPS_LANG(GPSPref.getString("Longitude", "0"));
+            SRCApp.fc.setROW_GPS_LNG(GPSPref.getString("Longitude", "0"));
             SRCApp.fc.setROW_GPS_ACC(GPSPref.getString("Accuracy", "0"));
             SRCApp.fc.setROW_GPS_DT(GPSPref.getString(date, "0"));
 

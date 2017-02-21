@@ -34,11 +34,11 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
     }
 
     public static void longInfo(String str) {
-//        if (str.length() > 4000) {
-//            Log.i("TAG: ", str.substring(0, 4000));
-//            longInfo(str.substring(4000));
-//        } else
-//            Log.i("TAG: ", str);
+        if (str.length() > 4000) {
+            Log.i("TAG: ", str.substring(0, 4000));
+            longInfo(str.substring(4000));
+        } else
+            Log.i("TAG: ", str);
     }
 
 
@@ -90,7 +90,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
 //            pd.setMessage("Total Forms: " );
             for (FormContract fc : forms) {
 
-                jsonSync.put(fc.toJSONObject().toString());
+                jsonSync.put(fc.toJSONObject());
                 //wr.writeBytes(jsonParam.toString().replace("\uFEFF", "") + "\n");
 
             }

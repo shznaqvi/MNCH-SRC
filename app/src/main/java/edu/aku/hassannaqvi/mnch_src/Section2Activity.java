@@ -666,8 +666,9 @@ public class Section2Activity extends Activity {
         SRCApp.chTotal = Integer.parseInt(s2q206d.getText().toString()) + Integer.parseInt(s2q206e.getText().toString());
 
         SRCApp.mdTotal = Integer.parseInt(s2q206i.getText().toString());
-        SRCApp.cmTotal = Integer.parseInt(s2q206j.getText().toString());
-
+        if (!s2q206j.getText().toString().isEmpty()) {
+            SRCApp.cmTotal = Integer.parseInt(s2q206j.getText().toString());
+        }
 //
 //            CVars var = new CVars();
 //            if (!s2q206h.getText().toString().isEmpty()) {
@@ -694,7 +695,7 @@ public class Section2Activity extends Activity {
 //            }
 
 
-        SRCApp.fc.setROW_S2(s2.toString());
+        SRCApp.fc.setROW_S2(String.valueOf(s2));
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
 
