@@ -1004,9 +1004,17 @@ public class Section2Activity extends Activity {
             return false;
         } else {
             s2q206i.setError(null);
-
         }
 
+        if (s2q206ja.getCheckedRadioButtonId() == -1) {
+            s2q206ja02.setError(getString(R.string.s2q206ja));
+            Toast.makeText(getApplicationContext(), getString(R.string.s2q206ja), Toast.LENGTH_LONG).show();
+            s2q206ja02.requestFocus();
+            Log.d(TAG, "ValidateForm:  Error Type: 206 not selected ");
+            return false;
+        } else {
+            s2q206ja02.setError(null);
+        }
 
         if (s2q206ja01.isChecked()) {
             if (s2q206j.getText().toString().isEmpty()) {

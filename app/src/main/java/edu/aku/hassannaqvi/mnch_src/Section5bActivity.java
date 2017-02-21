@@ -304,8 +304,6 @@ public class Section5bActivity extends Activity {
                     mn053388.setEnabled(false);
                     mn053388.setChecked(false);
                     mn053388x.setEnabled(false);
-                    mn053388.setText(null);
-
 
                 } else {
                     mn053301.setEnabled(true);
