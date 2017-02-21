@@ -1267,6 +1267,81 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return allEntries;
     }
 
+    public Collection<FormContract> getUnsyncedForms() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                Sec1Entry._ID,
+                Sec1Entry.ROW_DEVID,
+                Sec1Entry.ROW_FORM_ID,
+                Sec1Entry.ROW_S1Q101,
+                Sec1Entry.ROW_S1Q102,
+                Sec1Entry.ROW_S1Q103,
+                Sec1Entry.ROW_S1Q104,
+                Sec1Entry.ROW_S1Q105,
+                Sec1Entry.ROW_S1Q106A,
+                Sec1Entry.ROW_S1Q106B,
+                Sec1Entry.ROW_S1Q107,
+                Sec1Entry.ROW_S1Q108,
+                Sec1Entry.ROW_S1Q108B,
+                Sec1Entry.ROW_S1Q110,
+                Sec1Entry.ROW_S1Q111,
+                Sec1Entry.ROW_S1Q111OTH,
+                Sec1Entry.ROW_S1Q112,
+                Sec1Entry.ROW_ENTRYDATE,
+                Sec1Entry.ROW_USERID,
+                Sec1Entry.ROW_S2,
+                Sec1Entry.ROW_S5,
+                Sec1Entry.ROW_S5B,
+                Sec1Entry.ROW_S5C,
+                Sec1Entry.ROW_S6,
+                Sec1Entry.ROW_S7,
+                Sec1Entry.ROW_S8,
+                Sec1Entry.ROW_MN823,
+                Sec1Entry.ROW_MN823X,
+                Sec1Entry.ROW_UUID,
+                Sec1Entry.ROW_GPS_LNG,
+                Sec1Entry.ROW_GPS_LAT,
+                Sec1Entry.ROW_GPS_DT,
+                Sec1Entry.ROW_GPS_ACC,
+                Sec1Entry.COLUMN_SYNCED,
+                Sec1Entry.COLUMN_SYNCED_DATE
+        };
+
+        String whereClause = Sec1Entry.COLUMN_SYNCED + " <> ?";
+        String[] whereArgs = {"1"};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                Sec1Entry._ID + " ASC";
+
+        Collection<FormContract> allEntries = new ArrayList<>();
+        try {
+            c = db.query(
+                    Sec1Entry.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                FormContract fc = new FormContract();
+                allEntries.add(fc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEntries;
+    }
+
     public Collection<Sec3Contract> getAllSec3() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;

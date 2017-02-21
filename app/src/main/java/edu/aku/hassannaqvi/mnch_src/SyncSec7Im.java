@@ -90,7 +90,7 @@ public class SyncSec7Im extends AsyncTask<Void, Void, String> {
 //            pd.setMessage("Total Sec7Im: " );
             for (Sec7ImContract fc : Sec7Im) {
 
-                jsonSync.put(fc.toJSONObject().toString());
+                jsonSync.put(fc.toJSONObject());
                 //wr.writeBytes(jsonParam.toString().replace("\uFEFF", "") + "\n");
 
             }

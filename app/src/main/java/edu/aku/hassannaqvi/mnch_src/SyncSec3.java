@@ -90,7 +90,7 @@ public class SyncSec3 extends AsyncTask<Void, Void, String> {
 //            pd.setMessage("Total Sec3: " );
             for (Sec3Contract fc : Sec3) {
 
-                jsonSync.put(fc.toJSONObject().toString());
+                jsonSync.put(fc.toJSONObject());
                 //wr.writeBytes(jsonParam.toString().replace("\uFEFF", "") + "\n");
 
             }

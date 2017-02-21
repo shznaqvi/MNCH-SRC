@@ -475,15 +475,13 @@ public class FormContract implements BaseColumns {
         json.put(Sec1Entry.ROW_S1Q112, this.ROW_S1Q112 == null ? JSONObject.NULL : this.ROW_S1Q112);
         json.put(Sec1Entry.ROW_ENTRYDATE, this.ROW_ENTRYDATE == null ? JSONObject.NULL : this.ROW_ENTRYDATE);
         json.put(Sec1Entry.ROW_USERID, this.ROW_USERID == null ? JSONObject.NULL : this.ROW_USERID);
-        JSONObject jsonObj = new JSONObject("{\"phonetype\":\"N95\",\"cat\":\"WP\"}");
-
         json.put(Sec1Entry.ROW_S2, this.ROW_S2 == null ? JSONObject.NULL : new JSONObject(this.ROW_S2));
-        json.put(Sec1Entry.ROW_S5, this.ROW_S5 == null ? JSONObject.NULL : this.ROW_S5);
-        json.put(Sec1Entry.ROW_S5B, this.ROW_S5b == null ? JSONObject.NULL : this.ROW_S5b);
-        json.put(Sec1Entry.ROW_S5C, this.ROW_S5c == null ? JSONObject.NULL : this.ROW_S5c);
-        json.put(Sec1Entry.ROW_S6, this.ROW_S6 == null ? JSONObject.NULL : this.ROW_S6);
-        json.put(Sec1Entry.ROW_S7, this.ROW_S7 == null ? JSONObject.NULL : this.ROW_S7);
-        json.put(Sec1Entry.ROW_S8, this.ROW_S8 == null ? JSONObject.NULL : this.ROW_S8);
+        json.put(Sec1Entry.ROW_S5, this.ROW_S5 == null ? JSONObject.NULL : new JSONObject(this.ROW_S5));
+        json.put(Sec1Entry.ROW_S5B, this.ROW_S5b == null ? JSONObject.NULL : new JSONObject(this.ROW_S5b));
+        json.put(Sec1Entry.ROW_S5C, this.ROW_S5c == null ? JSONObject.NULL : new JSONObject(this.ROW_S5c));
+        json.put(Sec1Entry.ROW_S6, this.ROW_S6 == null ? JSONObject.NULL : new JSONObject(this.ROW_S6));
+        json.put(Sec1Entry.ROW_S7, this.ROW_S7 == null ? JSONObject.NULL : new JSONObject(this.ROW_S7));
+        json.put(Sec1Entry.ROW_S8, this.ROW_S8 == null ? JSONObject.NULL : new JSONObject(this.ROW_S8));
         json.put(Sec1Entry.ROW_MN823, this.ROW_MN823 == null ? JSONObject.NULL : this.ROW_MN823);
         json.put(Sec1Entry.ROW_MN823X, this.ROW_MN823X == null ? JSONObject.NULL : this.ROW_MN823X);
         json.put(Sec1Entry.ROW_UUID, this.ROW_UUID == null ? JSONObject.NULL : this.ROW_UUID);
