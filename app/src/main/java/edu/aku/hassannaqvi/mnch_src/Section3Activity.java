@@ -578,6 +578,7 @@ public class Section3Activity extends Activity {
             SRCApp.sc3.setROW_FORM_DATE(SRCApp.fc.ROW_ENTRYDATE);
             SRCApp.sc3.setROW_FORM_ID(var.GetHHNO());
             SRCApp.sc3.setROW_HHCODE(var.GetHHCode());
+            SRCApp.sc3.setROW_USERID(SRCApp.fc.ROW_USERID);
             SRCApp.sc3.set_s3q301a(s3q301a.getText().toString());
             SRCApp.sc3.set_s3q301b(s3q301b.getText().toString());
             SRCApp.sc3.set_s3q301c(s3q301c.getText().toString());

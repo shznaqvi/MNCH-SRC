@@ -227,6 +227,7 @@ public class Section4Activity extends Activity {
         SRCApp.sc4a.set_DEVID(SRCApp.DEVID);
         SRCApp.sc4a.setROW_UUID(SRCApp.fc.ROW_UUID);
         SRCApp.sc4a.set_FORM_DATE(SRCApp.fc.ROW_ENTRYDATE);
+        SRCApp.sc4a.set_USERID(SRCApp.fc.ROW_USERID);
         SRCApp.sc4a.set_FORM_ID(var.GetHHNO());
         SRCApp.sc4a.set_HHCODE(var.GetHHCode());
         //SRCApp.countM.set
