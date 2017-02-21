@@ -85,7 +85,7 @@ public class SyncSec3 extends AsyncTask<Void, Void, String> {
 
             DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
             SRCDBHelper db = new SRCDBHelper(mContext);
-            Collection<Sec3Contract> Sec3 = db.getUnsyncedSec3();
+            Collection<Sec3Contract> Sec3 = db.getAllSec3();
             Log.d(TAG, String.valueOf(Sec3.size()));
 //            pd.setMessage("Total Sec3: " );
             for (Sec3Contract fc : Sec3) {
