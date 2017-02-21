@@ -533,17 +533,16 @@ public class Section3Activity extends Activity {
                 } else if (SRCApp.mdCount < SRCApp.mdTotal) {
                     Intent sec4_intent = new Intent(this, Section4Activity.class);
                     SRCApp.mdCount++;
-                    SRCApp.mwCount = 0;
                     startActivity(sec4_intent);
                 } else if (SRCApp.cmCount < SRCApp.cmTotal) {
                     Intent sec4b_intent = new Intent(this, Section4bActivity.class);
                     SRCApp.cmCount++;
-                    SRCApp.mdCount = 0;
+
                     startActivity(sec4b_intent);
                 } else {
                     Intent sec5_intent = new Intent(this, Section5Activity.class);
                     startActivity(sec5_intent);
-                    SRCApp.cmCount = 0;
+
                 }
             }
         } else {

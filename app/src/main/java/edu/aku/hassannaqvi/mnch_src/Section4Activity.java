@@ -78,6 +78,8 @@ public class Section4Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section4);
 
+        SRCApp.mwCount = 0;
+
         app_header = (TextView) findViewById(R.id.app_header);
 
 //        app_header.setText("SRC - > Section4a");
