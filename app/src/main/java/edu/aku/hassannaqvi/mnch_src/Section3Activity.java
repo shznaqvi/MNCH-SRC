@@ -831,15 +831,16 @@ public class Section3Activity extends Activity {
         }
 
         // Valid Range 1 - 16 OR 91 OR 92
-        if ((Integer.parseInt(s3q301c.getText().toString()) < 1 || Integer.parseInt(s3q301c.getText().toString()) > 16) || !(Integer.parseInt(s3q301c.getText().toString()) == 91 || Integer.parseInt(s3q301c.getText().toString()) == 92)) {
-            s3q301c.setError("Invalid Education Range 1-16");
-            Toast.makeText(getApplicationContext(), "Invalid Education Range 1-16 \r\n", Toast.LENGTH_LONG).show();
-            s3q301c.requestFocus();
-            return false;
-        } else {
-            s3q301c.setError(null);
+        if (Integer.parseInt(s3q301c.getText().toString()) != 91 || Integer.parseInt(s3q301c.getText().toString()) != 92) {
+            if ((Integer.parseInt(s3q301c.getText().toString()) < 1 || Integer.parseInt(s3q301c.getText().toString()) > 16)) {
+                s3q301c.setError("Invalid Education Range 1-16");
+                Toast.makeText(getApplicationContext(), "Invalid Education Range 1-16 \r\n", Toast.LENGTH_LONG).show();
+                s3q301c.requestFocus();
+                return false;
+            } else {
+                s3q301c.setError(null);
+            }
         }
-
 
         rdo_s3q301d = radioS3q301d.getCheckedRadioButtonId();
 
