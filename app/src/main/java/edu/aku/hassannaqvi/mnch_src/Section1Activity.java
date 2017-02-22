@@ -113,6 +113,11 @@ public class Section1Activity extends Activity implements TextWatcher {
 
         appheader = (TextView) findViewById(R.id.app_header);
         appheader.setText("SRC - > Section1");
+        SRCApp.mwCount = 0;
+        SRCApp.mdCount = 0;
+        SRCApp.cmCount = 0;
+        SRCApp.chCount = 0;
+
 
 //        s1q110 = (DatePicker) findViewById(R.id.s1q110);
         //s1q110.updateDate(s1q110.getDayOfMonth(), s1q110.getMonth(), s1q110.getYear());
