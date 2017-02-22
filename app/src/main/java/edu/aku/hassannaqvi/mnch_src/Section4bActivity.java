@@ -86,6 +86,7 @@ public class Section4bActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section4b);
 
+        SRCApp.mdCount = 0;
 
         appHeader = (TextView) findViewById(R.id.app_header);
 //        appHeader.setText("SRC - > Section4b");
@@ -303,6 +304,7 @@ public class Section4bActivity extends Activity {
         SRCApp.sc4b.setROW_DEVID(SRCApp.DEVID);
         SRCApp.sc4b.setROW_UUID(SRCApp.fc.ROW_UUID);
         SRCApp.sc4b.setROW_FORM_DATE(SRCApp.fc.ROW_ENTRYDATE);
+        SRCApp.sc4b.setROW_USERID(SRCApp.fc.ROW_USERID);
         SRCApp.sc4b.setROW_FORM_ID(var.GetHHNO());
         SRCApp.sc4b.setROW_HHCODE(var.GetHHCode());
 

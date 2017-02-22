@@ -533,17 +533,16 @@ public class Section3Activity extends Activity {
                 } else if (SRCApp.mdCount < SRCApp.mdTotal) {
                     Intent sec4_intent = new Intent(this, Section4Activity.class);
                     SRCApp.mdCount++;
-                    SRCApp.mwCount = 0;
                     startActivity(sec4_intent);
                 } else if (SRCApp.cmCount < SRCApp.cmTotal) {
                     Intent sec4b_intent = new Intent(this, Section4bActivity.class);
                     SRCApp.cmCount++;
-                    SRCApp.mdCount = 0;
+
                     startActivity(sec4b_intent);
                 } else {
                     Intent sec5_intent = new Intent(this, Section5Activity.class);
                     startActivity(sec5_intent);
-                    SRCApp.cmCount = 0;
+
                 }
             }
         } else {
@@ -579,6 +578,7 @@ public class Section3Activity extends Activity {
             SRCApp.sc3.setROW_FORM_DATE(SRCApp.fc.ROW_ENTRYDATE);
             SRCApp.sc3.setROW_FORM_ID(var.GetHHNO());
             SRCApp.sc3.setROW_HHCODE(var.GetHHCode());
+            SRCApp.sc3.setROW_USERID(SRCApp.fc.ROW_USERID);
             SRCApp.sc3.set_s3q301a(s3q301a.getText().toString());
             SRCApp.sc3.set_s3q301b(s3q301b.getText().toString());
             SRCApp.sc3.set_s3q301c(s3q301c.getText().toString());

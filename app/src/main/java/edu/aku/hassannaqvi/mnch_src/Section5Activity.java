@@ -602,6 +602,8 @@ public class Section5Activity extends Activity {
         setContentView(R.layout.activity_section5);
         ButterKnife.bind(this);
 
+        SRCApp.cmCount = 0;
+
         appHeader.setText("SRC - > Section 5A");
 
         mn0501.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
