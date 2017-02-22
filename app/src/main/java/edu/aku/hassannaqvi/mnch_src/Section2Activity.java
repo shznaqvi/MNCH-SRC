@@ -31,11 +31,7 @@ public class Section2Activity extends Activity {
     @BindView(R.id.ScrollView01)
     ScrollView scrollView01;
     @BindView(R.id.app_header)
-    TextView appHeader;
-    @BindView(R.id.app_header1)
-    TextView appHeader1;
-    @BindView(R.id.lbl_hhhead)
-    TextView lblHhhead;
+    TextView app_header;
     @BindView(R.id.lbl_s2q201)
     TextView lblS2q201;
     @BindView(R.id.s2q201)
@@ -143,6 +139,7 @@ public class Section2Activity extends Activity {
         setContentView(R.layout.activity_section2);
         ButterKnife.bind(this);
 
+        app_header.setText("SRC - > Section2");
 
         s2q206ja.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
