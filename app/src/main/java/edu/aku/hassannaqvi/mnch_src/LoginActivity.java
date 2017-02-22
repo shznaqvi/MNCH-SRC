@@ -155,6 +155,9 @@ public class LoginActivity extends Activity {
 
                             CVars var = new CVars();
                             var.StoreUser(username);
+
+                            finish();
+
                             Intent login_intent = new Intent(this, MainActivity.class);
 
                             startActivity(login_intent);

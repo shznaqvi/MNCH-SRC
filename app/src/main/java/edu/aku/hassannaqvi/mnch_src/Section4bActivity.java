@@ -601,4 +601,18 @@ public class Section4bActivity extends Activity {
         Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
     }
 
+    public void endInterview(View view) {
+        Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
+//        if (ValidateForm()) {
+//            SaveDraft();
+//            if (UpdateDB()) {
+                Intent end_intent = new Intent(this, EndingActivity.class);
+                end_intent.putExtra("check", false);
+                startActivity(end_intent);
+//            } else {
+//                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+    }
+
 }

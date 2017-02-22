@@ -1194,16 +1194,16 @@ public class Section3Activity extends Activity {
 
     public void endInterview(View view) {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
-        if (ValidateForm()) {
-            SaveDraft();
-            if (UpdateDB()) {
+//        if (ValidateForm()) {
+//            SaveDraft();
+//            if (UpdateDB()) {
                 Intent end_intent = new Intent(this, EndingActivity.class);
                 end_intent.putExtra("check", false);
                 startActivity(end_intent);
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-        }
+//            } else {
+//                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+//            }
+//        }
     }
 
     @Override
