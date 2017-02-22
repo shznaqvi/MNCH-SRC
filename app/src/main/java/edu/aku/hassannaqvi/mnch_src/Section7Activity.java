@@ -983,30 +983,33 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             } else {
                 mn072001.setError(null);
             }
-//        7.21
-            if (mn0721.getCheckedRadioButtonId() == -1) {
-                Toast.makeText(this, "" + getString(R.string.mn0721), Toast.LENGTH_SHORT).show();
-                mn07211.setError("This is inValid");
-                Log.d(TAG, "ValidateForm: 721 not selected");
-                return false;
-            } else {
-                mn07211.setError(null);
-            }
-//      7.22
-            if (mn07211.isChecked()) {
-                if (mn072201.getText().toString().isEmpty() && mn072202.getText().toString().isEmpty()
-                        && mn072203.getText().toString().isEmpty()) {
 
-                    Toast.makeText(this, "" + getString(R.string.mn0722), Toast.LENGTH_SHORT).show();
-                    mn072201.setError("This is inValid");
-                    Log.d(TAG, "ValidateForm: 722 invalid");
-                    return false;
-                } else {
-                    mn072201.setError(null);
-                }
-            }
+
+        }
+        //       7.21
+        if (mn0721.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "" + getString(R.string.mn0721), Toast.LENGTH_SHORT).show();
+            mn07211.setError("This is inValid");
+            Log.d(TAG, "ValidateForm: 721 not selected");
+            return false;
+        } else {
+            mn07211.setError(null);
         }
 
+        //      7.22
+
+        if (mn07211.isChecked()) {
+            if (mn072201.getText().toString().isEmpty() && mn072202.getText().toString().isEmpty()
+                    && mn072203.getText().toString().isEmpty()) {
+
+                Toast.makeText(this, "" + getString(R.string.mn0722), Toast.LENGTH_SHORT).show();
+                mn072201.setError("This is inValid");
+                Log.d(TAG, "ValidateForm: 722 invalid");
+                return false;
+            } else {
+                mn072201.setError(null);
+            }
+        }
 
         return true;
     }
@@ -1135,6 +1138,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         } else if (group.getId() == R.id.mn0721) {
             if (mn07212.isChecked()) {
                 mn07022Grp.setVisibility(View.GONE);
+                mn072201.setText(null);
+                mn072202.setText(null);
+                mn072203.setText(null);
             } else {
                 mn07022Grp.setVisibility(View.VISIBLE);
             }
