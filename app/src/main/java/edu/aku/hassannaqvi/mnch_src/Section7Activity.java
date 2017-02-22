@@ -1011,6 +1011,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             }
         }
 
+
         return true;
     }
 

@@ -58,6 +58,9 @@ public class Section1Activity extends Activity implements TextWatcher {
 
     @BindView(R.id.btn_Continue)
     Button btn_Continue;
+
+    @BindView(R.id.btn_End)
+    Button btn_End;
     private TextView appheader;
     private ScrollView activitySection1;
     private TextView lblFormid;
@@ -370,17 +373,29 @@ public class Section1Activity extends Activity implements TextWatcher {
 
 //        s1q101.setBackgroundColor(getResources().getColor(R.color.dullWhile));
 
-
-        rDOS1q1122.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        radioS1q112.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (rDOS1q1122.isChecked()){
                     btn_Continue.setEnabled(false);
+                    btn_End.setEnabled(true);
                 }else {
                     btn_Continue.setEnabled(true);
+                    btn_End.setEnabled(false);
                 }
             }
         });
+
+//        rDOS1q1122.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked){
+//                    btn_Continue.setEnabled(false);
+//                }else {
+//                    btn_Continue.setEnabled(true);
+//                }
+//            }
+//        });
 
 //        radioS1q112.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 //            @Override
