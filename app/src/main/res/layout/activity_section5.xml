@@ -604,7 +604,8 @@
                     android:id="@+id/mn051488x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mnother" />
+                    android:hint="@string/mnother"
+                    android:visibility="gone"/>
 
                 <LinearLayout
                     android:id="@+id/fldGrpmn0515"
@@ -678,7 +679,8 @@
                         android:id="@+id/mn051588x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/mnother" />
+                        android:hint="@string/mnother"
+                        android:visibility="gone"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -760,7 +762,8 @@
                         android:id="@+id/mn051688x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/mnother" />
+                        android:hint="@string/mnother"
+                        android:visibility="gone"/>
 
                     <TextView
                         android:layout_width="match_parent"
