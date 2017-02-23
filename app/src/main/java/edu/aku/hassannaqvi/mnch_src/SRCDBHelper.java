@@ -1763,6 +1763,60 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return allOC;
     }
 
+    public Collection<Sec7ImContract> getUnsyncedSec7Im() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                single7Im._ID,
+                single7Im.ROW_DEVID,
+                single7Im.ROW_ENTRYDATE,
+                single7Im.ROW_USERID,
+                single7Im.ROW_UUID,
+                single7Im.ROW_UID,
+                single7Im.HOUSEHOLD,
+                single7Im.ROW_7IM,
+                single7Im.ROW_GPS_LNG,
+                single7Im.ROW_GPS_LAT,
+                single7Im.ROW_GPS_DT,
+                single7Im.ROW_GPS_ACC,
+                single7Im.ROW_SYNCED,
+                single7Im.ROW_SYNCED_DATE,
+
+        };
+        String whereClause = Section4bEntry.ROW_SYNCED + " is null";
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                single7Im._ID + " ASC";
+
+        Collection<Sec7ImContract> allOC = new ArrayList<Sec7ImContract>();
+        try {
+            c = db.query(
+                    single7Im.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                Sec7ImContract s7Im = new Sec7ImContract();
+                allOC.add(s7Im.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allOC;
+    }
+
     public ArrayList<Members> getAll_Woman_Reproductive_Age() {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<Members> userList = null;

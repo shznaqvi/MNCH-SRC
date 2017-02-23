@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 
 public class MainActivity extends Activity {
@@ -45,16 +46,37 @@ public class MainActivity extends Activity {
             Toast.makeText(getApplicationContext(), "Getting Villages", Toast.LENGTH_SHORT).show();
             new GetVillages(this).execute();
 
+            SRCDBHelper db = new SRCDBHelper(this);
+            Collection<FormContract> fc = db.getUnsyncedForms();
+            Collection<Sec3Contract> s3 = db.getUnsyncedSec3();
+            Collection<Sec4aContract> s4a = db.getUnsyncedSec4a();
+            Collection<Sec4bContract> s4b = db.getUnsyncedSec4b();
+            Collection<Sec7ImContract> s7im = db.getUnsyncedSec7Im();
+
+            if (fc.size() > 0) {
             Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
             new SyncForms(this).execute();
+            }
+
+            if (s3.size() > 0) {
             Toast.makeText(getApplicationContext(), "Syncing Section 3", Toast.LENGTH_SHORT).show();
             new SyncSec3(this).execute();
+            }
+
+            if (s4a.size() > 0) {
             Toast.makeText(getApplicationContext(), "Syncing Section 4a", Toast.LENGTH_SHORT).show();
             new SyncSec4a(this).execute();
+            }
+
+            if (s4b.size() > 0) {
             Toast.makeText(getApplicationContext(), "Syncing Section 4b", Toast.LENGTH_SHORT).show();
             new SyncSec4b(this).execute();
-            Toast.makeText(getApplicationContext(), "Syncing Section 7Im", Toast.LENGTH_SHORT).show();
-            new SyncSec7Im(this).execute();
+            }
+
+            if (s7im.size() > 0) {
+                Toast.makeText(getApplicationContext(), "Syncing Section 7Im", Toast.LENGTH_SHORT).show();
+                new SyncSec7Im(this).execute();
+            }
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = syncPref.edit();

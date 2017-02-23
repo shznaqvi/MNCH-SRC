@@ -34,11 +34,11 @@ public class SyncSec7Im extends AsyncTask<Void, Void, String> {
     }
 
     public static void longInfo(String str) {
-//        if (str.length() > 4000) {
-//            Log.i("TAG: ", str.substring(0, 4000));
-//            longInfo(str.substring(4000));
-//        } else
-//            Log.i("TAG: ", str);
+        if (str.length() > 4000) {
+            Log.i("TAG: ", str.substring(0, 4000));
+            longInfo(str.substring(4000));
+        } else
+            Log.i("TAG: ", str);
     }
 
 
@@ -85,7 +85,7 @@ public class SyncSec7Im extends AsyncTask<Void, Void, String> {
 
             DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
             SRCDBHelper db = new SRCDBHelper(mContext);
-            Collection<Sec7ImContract> Sec7Im = db.getAllSec7Im();
+            Collection<Sec7ImContract> Sec7Im = db.getUnsyncedSec7Im();
             Log.d(TAG, String.valueOf(Sec7Im.size()));
 //            pd.setMessage("Total Sec7Im: " );
             for (Sec7ImContract fc : Sec7Im) {

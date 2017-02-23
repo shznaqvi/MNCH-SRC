@@ -85,9 +85,10 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
 
             DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
             SRCDBHelper db = new SRCDBHelper(mContext);
-            Collection<FormContract> forms = db.getAllForms();
+            Collection<FormContract> forms = db.getUnsyncedForms();
             Log.d(TAG, String.valueOf(forms.size()));
 //            pd.setMessage("Total Forms: " );
+
             for (FormContract fc : forms) {
 
                 jsonSync.put(fc.toJSONObject());
