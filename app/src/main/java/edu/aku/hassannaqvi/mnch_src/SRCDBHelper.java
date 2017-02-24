@@ -1308,8 +1308,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 Sec1Entry.COLUMN_SYNCED_DATE
         };
 
-        String whereClause = Sec1Entry.COLUMN_SYNCED + " <> ?";
-        String[] whereArgs = {"1"};
+        String whereClause = Sec3Entry.ROW_SYNCED + " is null";
+        String[] whereArgs = null;
         String groupBy = null;
         String having = null;
 
