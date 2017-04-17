@@ -411,6 +411,8 @@ public class Section4bActivity extends Activity {
 
 
         SRCApp.sc4b.set_s4q42e(var_s4q42e);
+        SRCApp.sc4b.set_s4q42eoth(s4q42eoth.getText().toString());
+
         SRCApp.sc4b.set_s4q42f(s4q42f.getText().toString());
 
         return true;
