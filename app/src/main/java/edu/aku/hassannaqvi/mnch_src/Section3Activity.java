@@ -733,7 +733,7 @@ public class Section3Activity extends Activity {
             }
 
 
-            SRCApp.sc3.set_s3q301h(var_s3q301h);
+            SRCApp.sc3.set_s3q301h(var_s3q301i);
 
 
             rdo_s3q301j = radioS3q301j.getCheckedRadioButtonId();
@@ -773,6 +773,8 @@ public class Section3Activity extends Activity {
             }
 
             SRCApp.sc3.set_s3q301j(var_s3q301j);
+
+            SRCApp.sc3.set_s3q301k(s3q301k.getText().toString());
 
 
         } catch (Exception e) {

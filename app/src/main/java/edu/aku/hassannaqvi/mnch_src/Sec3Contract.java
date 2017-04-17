@@ -330,7 +330,7 @@ public class Sec3Contract implements BaseColumns {
         public static final String TABLE_NAME = "sec3";
         public static final String _ID = "_id";
         public static final String ROW_DEVID = "devid";
-        public static final String ROW_FORM_ID = "form_id";
+        public static final String ROW_FORM_ID = "form_id"; //HH NO
         public static final String ROW_FORM_DATE = "form_date";
         public static final String ROW_USERID = "userid";
         public static final String ROW_HHCODE = "hhcode";
