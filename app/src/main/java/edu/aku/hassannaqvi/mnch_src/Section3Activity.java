@@ -733,7 +733,7 @@ public class Section3Activity extends Activity {
             }
 
 
-            SRCApp.sc3.set_s3q301h(var_s3q301i);
+            SRCApp.sc3.set_s3q301i(var_s3q301i);
 
 
             rdo_s3q301j = radioS3q301j.getCheckedRadioButtonId();
