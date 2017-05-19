@@ -723,6 +723,16 @@ public class Section2Activity extends Activity {
             s2q202.setError(null);
         }
 
+        if (Integer.parseInt(getS2q202().getText().toString()) < 18 || Integer.parseInt(getS2q202().getText().toString()) > 99) {
+            s2q202.setError("Invalid household head age!!");
+            Toast.makeText(getApplicationContext(), "Invalid household head age \r\n", Toast.LENGTH_LONG).show();
+            s2q202.requestFocus();
+            Log.d(TAG, "ValidateForm:ErrorType: 202 Invalid");
+            return false;
+        } else {
+            s2q202.setError(null);
+        }
+
 
         if (radioS2q203.getCheckedRadioButtonId() == -1) {
             rDOS2q2031.setError(getString(R.string.rdoerr));
@@ -745,12 +755,17 @@ public class Section2Activity extends Activity {
             s2q204.setError(null);
         }
 
-        if (Integer.parseInt(getS2q204().getText().toString()) == 0) {
-            s2q204.setError("Invalid years of schooling");
-            Toast.makeText(getApplicationContext(), "Invalid years of schooling head of household \r\n", Toast.LENGTH_LONG).show();
-            s2q204.requestFocus();
-            Log.d(TAG, "ValidateForm: Error Type: 204 invalid");
-            return false;
+        if (Integer.parseInt(getS2q204().getText().toString()) < 0 || Integer.parseInt(getS2q204().getText().toString()) > 16) {
+
+            if (Integer.parseInt(getS2q204().getText().toString()) == 91 || Integer.parseInt(getS2q204().getText().toString()) == 92) {
+                s2q204.setError(null);
+            } else {
+                s2q204.setError("Invalid years of schooling");
+                Toast.makeText(getApplicationContext(), "Invalid years of schooling head of household \r\n", Toast.LENGTH_LONG).show();
+                s2q204.requestFocus();
+                Log.d(TAG, "ValidateForm: Error Type: 204 invalid");
+                return false;
+            }
         } else {
             s2q204.setError(null);
         }
@@ -766,63 +781,62 @@ public class Section2Activity extends Activity {
             rDOS2q2051.setError(null);
         }
 
-/*
-        switch (rdos2q205) {
-            case R.id.RDO_s2q205_1:
-                var_s2q205 = "1";
-                break;
+//        switch (rdos2q205) {
+//            case R.id.RDO_s2q205_1:
+//                var_s2q205 = "1";
+//                break;
+//
+//            case R.id.RDO_s2q205_2:
+//                var_s2q205 = "2";
+//                break;
+//
+//            case R.id.RDO_s2q205_3:
+//                var_s2q205 = "3";
+//                break;
+//
+//            case R.id.RDO_s2q205_4:
+//                var_s2q205 = "4";
+//                break;
+//
+//            case R.id.RDO_s2q205_5:
+//                var_s2q205 = "5";
+//                break;
+//
+//            case R.id.RDO_s2q205_6:
+//                var_s2q205 = "6";
+//                break;
+//
+//            case R.id.RDO_s2q205_7:
+//                var_s2q205 = "7";
+//                break;
+//
+//            case R.id.RDO_s2q205_8:
+//                var_s2q205 = "8";
+//                break;
+//
+//            case R.id.RDO_s2q205_9:
+//                var_s2q205 = "9";
+//                break;
+//
+//            case R.id.RDO_s2q205_10:
+//                var_s2q205 = "10";
+//                break;
+//
+//            case R.id.RDO_s2q205_11:
+//                var_s2q205 = "11";
+//                break;
+//
+//            case R.id.RDO_s2q205_12:
+//                var_s2q205 = "12";
+//                break;
+//
+//            case R.id.RDO_s2q205_88:
+//                var_s2q205 = "88";
+//                break;
+//        }
 
-            case R.id.RDO_s2q205_2:
-                var_s2q205 = "2";
-                break;
 
-            case R.id.RDO_s2q205_3:
-                var_s2q205 = "3";
-                break;
-
-            case R.id.RDO_s2q205_4:
-                var_s2q205 = "4";
-                break;
-
-            case R.id.RDO_s2q205_5:
-                var_s2q205 = "5";
-                break;
-
-            case R.id.RDO_s2q205_6:
-                var_s2q205 = "6";
-                break;
-
-            case R.id.RDO_s2q205_7:
-                var_s2q205 = "7";
-                break;
-
-            case R.id.RDO_s2q205_8:
-                var_s2q205 = "8";
-                break;
-
-            case R.id.RDO_s2q205_9:
-                var_s2q205 = "9";
-                break;
-
-            case R.id.RDO_s2q205_10:
-                var_s2q205 = "10";
-                break;
-
-            case R.id.RDO_s2q205_11:
-                var_s2q205 = "11";
-                break;
-
-            case R.id.RDO_s2q205_12:
-                var_s2q205 = "12";
-                break;
-
-            case R.id.RDO_s2q205_88:
-                var_s2q205 = "88";
-                break;
-        }*/
-
-
-        if (var_s2q205.equals("88") && getS2q205oth().getText().toString().isEmpty()) {
+        if (rDOS2q20588.isChecked() && getS2q205oth().getText().toString().isEmpty()) {
             s2q205oth.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please specify occupation if others \r\n", Toast.LENGTH_LONG).show();
             s2q205oth.requestFocus();
@@ -852,26 +866,26 @@ public class Section2Activity extends Activity {
             s2q206a.setError(null);
         }
 
-        if (Integer.parseInt(s2q202.getText().toString()) < 18 ||
-                Integer.parseInt(s2q202.getText().toString()) > 99) {
-            Toast.makeText(getApplicationContext(), "Head of household age must be between 18 - 99 \r\n", Toast.LENGTH_LONG).show();
-            s2q202.requestFocus();
-            Log.d(TAG, "ValidateForm: Error Type: 202 invalid");
-            return false;
-        }
+//        if (Integer.parseInt(s2q202.getText().toString()) < 18 ||
+//                Integer.parseInt(s2q202.getText().toString()) > 99) {
+//            Toast.makeText(getApplicationContext(), "Head of household age must be between 18 - 99 \r\n", Toast.LENGTH_LONG).show();
+//            s2q202.requestFocus();
+//            Log.d(TAG, "ValidateForm: Error Type: 202 invalid");
+//            return false;
+//        }
 
 
-        if (Integer.parseInt(s2q204.getText().toString()) < 0
-                && Integer.parseInt(s2q204.getText().toString()) != 91
-                && Integer.parseInt(s2q204.getText().toString()) != 92
-                || Integer.parseInt(s2q204.getText().toString()) > 16
-                && Integer.parseInt(s2q204.getText().toString()) != 91
-                && Integer.parseInt(s2q204.getText().toString()) != 92) {
-            Toast.makeText(getApplicationContext(), "Years of schooling of head of household must be 0 - 16 or 91 or 92 \r\n", Toast.LENGTH_LONG).show();
-            s2q204.requestFocus();
-            Log.d(TAG, "ValidateForm: Error Type: 204 not selected");
-            return false;
-        }
+//        if (Integer.parseInt(s2q204.getText().toString()) < 0
+//                && Integer.parseInt(s2q204.getText().toString()) != 91
+//                && Integer.parseInt(s2q204.getText().toString()) != 92
+//                || Integer.parseInt(s2q204.getText().toString()) > 16
+//                && Integer.parseInt(s2q204.getText().toString()) != 91
+//                && Integer.parseInt(s2q204.getText().toString()) != 92) {
+//            Toast.makeText(getApplicationContext(), "Years of schooling of head of household must be 0 - 16 or 91 or 92 \r\n", Toast.LENGTH_LONG).show();
+//            s2q204.requestFocus();
+//            Log.d(TAG, "ValidateForm: Error Type: 204 not selected");
+//            return false;
+//        }
 
 
         int totalMembers = 0;
@@ -909,14 +923,15 @@ public class Section2Activity extends Activity {
         if (total > totalMembers || total != totalMembers) {
             s2q206a.requestFocus();
             s2q206a.setError("Total members are " + totalMembers + " Check all values again!");
-            Log.d(TAG, "ValidateForm: Error Type: 206a not selected");
+            Log.d(TAG, "ValidateForm: Error Type: 206a total no not equal");
             return false;
         } else {
             s2q206a.setError(null);
 
         }
 
-        if (fm > 0 && totalWomen > fm) {
+//        if (fm > 0 && totalWomen > fm) {
+        if (totalWomen > fm) {
             //s2q206g.requestFocus();
             s2q206g.setError("Total women are " + fm + " Please mention women are married or unmarried");
             Toast.makeText(getApplicationContext(), "Check values of total women, married and unmarried women \r\n", Toast.LENGTH_LONG).show();
@@ -1045,9 +1060,9 @@ public class Section2Activity extends Activity {
 //            try {
 //                if (SaveDraft()) {
 //                    if (UpdateDB()) {
-                        Intent end_intent = new Intent(this, EndingActivity.class);
-                        end_intent.putExtra("check", false);
-                        startActivity(end_intent);
+        Intent end_intent = new Intent(this, EndingActivity.class);
+        end_intent.putExtra("check", false);
+        startActivity(end_intent);
 //                    } else {
 //                        Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
 //                    }

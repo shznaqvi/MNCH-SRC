@@ -836,7 +836,7 @@ public class Section3Activity extends Activity {
         if (Integer.parseInt(s3q301c.getText().toString()) != 91 && Integer.parseInt(s3q301c.getText().toString()) != 92) {
             if ((Integer.parseInt(s3q301c.getText().toString()) < 1 || Integer.parseInt(s3q301c.getText().toString()) > 16)) {
                 s3q301c.setError("Invalid Education Range 1-16");
-                Toast.makeText(getApplicationContext(), "Invalid Education Range 1-16 \r\n", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Invalid Education Range 1-16 or 91-92 \r\n", Toast.LENGTH_LONG).show();
                 s3q301c.requestFocus();
                 return false;
             } else {
