@@ -296,6 +296,8 @@
                         android:id="@+id/mn070888x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:digits="@string/txtMsg"
+
                         android:hint="@string/mnother"
                         android:visibility="gone" />
 
@@ -390,6 +392,8 @@
                     android:id="@+id/mn071088x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="@string/txtMsg"
+
                     android:hint="@string/mnother"
                     android:visibility="gone" />
 
@@ -602,6 +606,8 @@
                 android:id="@+id/mn071488x"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="@string/txtMsg"
+
                 android:hint="@string/mnother"
                 android:visibility="gone" />
 
@@ -711,6 +717,8 @@
                     android:id="@+id/mn071688x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="@string/txtMsg"
+
                     android:hint="@string/mnother"
                     android:visibility="gone" />
 
@@ -792,6 +800,7 @@
                     android:id="@+id/mn071788x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="@string/txtMsg"
                     android:hint="@string/mnother"
                     android:visibility="gone" />
 
@@ -902,6 +911,7 @@
                         android:id="@+id/mn071988x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:digits="@string/txtMsg"
                         android:hint="@string/mnother"
                         android:visibility="gone" />
 

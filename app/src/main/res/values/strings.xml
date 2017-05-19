@@ -865,6 +865,8 @@
     <string name="section6Label"> خانداني منصوبه بندي </string>
     <string name="death"> مري ويل </string>
     <string name="dummy_button">Dummy</string>
+    <string name="txtMsg">1234567890 QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm@#$%^*()_+~`{[}]|:;,.?</string>
+    <string name="txtName">QWERTYUIOPASDFGHJKLZXCVBNM qwertyuiopasdfghjklzxcvbnm</string>
 
 
 </resources>

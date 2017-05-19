@@ -114,6 +114,8 @@
                     android:id="@+id/mn060288x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="@string/txtMsg"
+
                     android:hint="@string/mnother"
                     android:visibility="gone" />
 
@@ -165,6 +167,8 @@
                     android:id="@+id/mn060388x"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="@string/txtMsg"
+
                     android:hint="@string/mnother"
                     android:visibility="gone" />
 
@@ -233,6 +237,8 @@
                         android:id="@+id/mn060488x"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:digits="@string/txtMsg"
+
                         android:hint="@string/mnother"
                         android:visibility="gone" />
                 </LinearLayout>
