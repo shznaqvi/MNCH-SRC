@@ -327,6 +327,7 @@ public class Sec3Contract implements BaseColumns {
 
 
     public static abstract class Sec3Entry implements BaseColumns {
+        public static final String _URL = "sec3.php";
         public static final String TABLE_NAME = "sec3";
         public static final String _ID = "_id";
         public static final String ROW_DEVID = "devid";
