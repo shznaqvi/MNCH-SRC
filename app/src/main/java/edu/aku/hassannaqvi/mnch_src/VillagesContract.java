@@ -75,6 +75,7 @@ public class VillagesContract {
 
     public static abstract class singleVillages implements BaseColumns {
 
+        public static final String _URI = "getvillages.php";
         public static final String TABLE_NAME = "Villages";
         public static final String COLUMN_NAME_NULLABLE = "nullColumnHack";
         public static final String _ID = "_ID";

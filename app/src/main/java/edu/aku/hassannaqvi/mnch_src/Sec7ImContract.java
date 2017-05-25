@@ -205,6 +205,7 @@ public class Sec7ImContract implements BaseColumns {
     }
 
     public static abstract class single7Im implements BaseColumns {
+        public static final String _URL = "sec7im.php";
         public static final String TABLE_NAME = "sec7im";
         public static final String _ID = "_id";
         public static final String ROW_DEVID = "devid";

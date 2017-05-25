@@ -60,6 +60,7 @@ public class DistrictsContract {
 
     public static abstract class singleDistrict implements BaseColumns {
 
+        public static final String _URI = "getdistricts.php";
         public static final String TABLE_NAME = "Districts";
         public static final String COLUMN_NAME_NULLABLE = "nullColumnHack";
         public static final String _ID = "_ID";

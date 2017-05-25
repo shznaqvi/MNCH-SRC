@@ -26,6 +26,99 @@ import java.util.ArrayList;
  */
 public class GetVillages extends AsyncTask<String, String, String> {
 
+//    private final String TAG = "GetVillages()";
+//    HttpURLConnection urlConnection;
+//    private Context mContext;
+//    private ProgressDialog pd;
+//
+//    public GetVillages(Context context) {
+//        mContext = context;
+//    }
+//
+//    @Override
+//    protected void onPreExecute() {
+//        super.onPreExecute();
+//        pd = new ProgressDialog(mContext);
+//        pd.setTitle("Syncing Villages");
+//        pd.setMessage("Getting connected to server...");
+//        pd.show();
+//
+//    }
+//
+//    @Override
+//    protected String doInBackground(String... args) {
+//
+//        StringBuilder result = new StringBuilder();
+//
+//        try {
+//            URL url = new URL(SRCApp._HOST_URL + "src/api/getvillages.php");
+//            urlConnection = (HttpURLConnection) url.openConnection();
+//            if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+//                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+//
+//                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+//
+//                String line;
+//                while ((line = reader.readLine()) != null) {
+//                    Log.i(TAG, "Village In: " + line);
+//                    result.append(line);
+//                }
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//
+//
+//        } finally {
+//            urlConnection.disconnect();
+//        }
+//
+//
+//        return result.toString();
+//    }
+//
+//    @Override
+//    protected void onPostExecute(String result) {
+//
+//        //Do something with the JSON string
+//
+//        String json = result;
+//        //json = json.replaceAll("\\[", "").replaceAll("\\]","");
+//        Log.d(TAG, result);
+//        if (json.length() > 0) {
+//            ArrayList<VillagesContract> villageArrayList;
+//            SRCDBHelper db = new SRCDBHelper(mContext);
+//            try {
+//                villageArrayList = new ArrayList<VillagesContract>();
+//                //JSONObject jsonObject = new JSONObject(json);
+//                JSONArray jsonArray = new JSONArray(json);
+//                db.syncVILLAGES(jsonArray);
+//                pd.setMessage("Received: " + jsonArray.length());
+//                pd.show();
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//        } else {
+//            pd.setMessage("Received: " + json.length() + "");
+//            pd.show();
+//        }
+//    }
+//
+//
+///*        try {
+//            JSONObject obj = new JSONObject(json);
+//            Log.d("My App", obj.toString());
+//        } catch (Throwable t) {
+//            Log.e("My App", "Could not parse malformed JSON: \"" + json + "\"");
+//        }*/
+//
+////        ArrayList<String> listdata = new ArrayList<String>();
+////        JSONArray jArray = (JSONArray)jsonObject;
+////        if (jArray != null) {
+////            for (int i=0;i<jArray.length();i++){
+////                listdata.add(jArray.get(i).toString());
+////            }
+////        }
+
     private final String TAG = "GetVillages()";
     HttpURLConnection urlConnection;
     private Context mContext;
@@ -51,7 +144,7 @@ public class GetVillages extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            URL url = new URL(SRCApp._HOST_URL + "src/api/getvillages.php");
+            URL url = new URL(SRCApp._HOST_URL + VillagesContract.singleVillages._URI);
             urlConnection = (HttpURLConnection) url.openConnection();
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
@@ -60,7 +153,7 @@ public class GetVillages extends AsyncTask<String, String, String> {
 
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    Log.i(TAG, "Village In: " + line);
+                    Log.i(TAG, "villages In: " + line);
                     result.append(line);
                 }
             }
@@ -85,10 +178,10 @@ public class GetVillages extends AsyncTask<String, String, String> {
         //json = json.replaceAll("\\[", "").replaceAll("\\]","");
         Log.d(TAG, result);
         if (json.length() > 0) {
-            ArrayList<VillagesContract> villageArrayList;
+            ArrayList<VillagesContract> villagesArrayList;
             SRCDBHelper db = new SRCDBHelper(mContext);
             try {
-                villageArrayList = new ArrayList<VillagesContract>();
+                villagesArrayList = new ArrayList<VillagesContract>();
                 //JSONObject jsonObject = new JSONObject(json);
                 JSONArray jsonArray = new JSONArray(json);
                 db.syncVILLAGES(jsonArray);
@@ -97,26 +190,11 @@ public class GetVillages extends AsyncTask<String, String, String> {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+            // db.getAllVillages();
         } else {
             pd.setMessage("Received: " + json.length() + "");
             pd.show();
         }
     }
-
-
-/*        try {
-            JSONObject obj = new JSONObject(json);
-            Log.d("My App", obj.toString());
-        } catch (Throwable t) {
-            Log.e("My App", "Could not parse malformed JSON: \"" + json + "\"");
-        }*/
-
-//        ArrayList<String> listdata = new ArrayList<String>();
-//        JSONArray jArray = (JSONArray)jsonObject;
-//        if (jArray != null) {
-//            for (int i=0;i<jArray.length();i++){
-//                listdata.add(jArray.get(i).toString());
-//            }
-//        }
 
 }

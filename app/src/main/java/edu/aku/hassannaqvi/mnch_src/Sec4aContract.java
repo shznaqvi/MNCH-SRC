@@ -260,6 +260,7 @@ public class Sec4aContract implements BaseColumns {
 
 
     public static abstract class Section4Entry implements BaseColumns {
+        public static final String _URL = "sec4a.php";
         public static final String TABLE_NAME = "sec4";
         public static final String _ID = "_id";
         public static final String ROW_DEVID = "devid";

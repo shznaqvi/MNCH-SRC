@@ -18,7 +18,7 @@ import android.view.View;
 public class SRCApp extends Application {
     public static final String _IP = "43.245.131.159"; // Test PHP server
     public static final Integer _PORT = 8080; // Port - with colon (:)
-    public static final String _HOST_URL = "http://" + _IP + ":" + _PORT + "/";
+    public static final String _HOST_URL = "http://" + _IP + ":" + _PORT + "/src/api/";
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
     private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000; // in Milliseconds
     private static final int TWENTY_MINUTES = 1000 * 60 * 20;

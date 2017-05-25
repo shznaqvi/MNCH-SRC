@@ -498,6 +498,7 @@ public class FormContract implements BaseColumns {
 
 
     public static abstract class Sec1Entry implements BaseColumns {
+        public static final String _URL = "forms.php";
         public static final String TABLE_NAME = "sec1";
         public static final String _ID = "_id";
         public static final String ROW_DEVID = "row_devid";
