@@ -412,6 +412,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 values.put(UsersContract.singleUser.ROW_USERNAME, userName);
                 values.put(UsersContract.singleUser.ROW_PASSWORD, password);
                 db.insert(UsersContract.singleUser.TABLE_NAME, null, values);
+
             }
             db.close();
 

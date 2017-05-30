@@ -36,8 +36,14 @@
             <Button
                 style="@style/buttons"
                 android:layout_marginTop="20dp"
-                android:onClick="syncData"
-                android:text="Sync Data" />
+                android:onClick="getData"
+                android:text="Get Data" />
+
+            <Button
+                style="@style/buttons"
+                android:layout_marginTop="20dp"
+                android:onClick="sendData"
+                android:text="Send Data" />
 
             <!--<Button
                 android:id="@+id/ShowSec4"

@@ -202,72 +202,76 @@ public class SyncSec7Im extends AsyncTask<Void, Void, String> {
 
     private String downloadUrl(String myurl) throws IOException {
         String line = "No Response";
+        // Only display the first 500 characters of the retrieved
+        // web page content.
+        //int len = 500;
+        SRCDBHelper db = new SRCDBHelper(mContext);
+        Collection<Sec7ImContract> forms = db.getUnsyncedSec7Im();
+        Log.d(TAG, String.valueOf(forms.size()));
+        if (forms.size() > 0) {
+            try {
+                URL url = new URL(myurl);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setReadTimeout(20000 /* milliseconds */);
+                conn.setConnectTimeout(30000 /* milliseconds */);
+                conn.setRequestMethod("POST");
+                conn.setDoOutput(true);
+                conn.setDoInput(true);
+                conn.setRequestProperty("Content-Type", "application/json");
+                conn.setRequestProperty("charset", "utf-8");
+                conn.setUseCaches(false);
+                // Starts the query
+                conn.connect();
+                JSONArray jsonSync = new JSONArray();
+                try {
+                    DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
 
-        HttpURLConnection connection = null;
-        try {
-            String request = myurl;
-            //String request = "http://10.1.42.30:3000/Sec7Im";
+                    for (Sec7ImContract fc : forms) {
 
-            URL url = new URL(request);
-            connection = (HttpURLConnection) url.openConnection();
-            connection.setDoOutput(true);
-            connection.setDoInput(true);
-            connection.setInstanceFollowRedirects(false);
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
-            connection.setRequestProperty("charset", "utf-8");
-            connection.setUseCaches(false);
-            connection.connect();
+                        jsonSync.put(fc.toJSONObject());
 
-
-            JSONArray jsonSync = new JSONArray();
-
-            DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-            SRCDBHelper db = new SRCDBHelper(mContext);
-            Collection<Sec7ImContract> Sec7Im = db.getUnsyncedSec7Im();
-            Log.d(TAG, String.valueOf(Sec7Im.size()));
-//            pd.setMessage("Total Sec7Im: " );
-
-            for (Sec7ImContract fc : Sec7Im) {
-//                if (fc.getIstatus().equals("1")) {
-                jsonSync.put(fc.toJSONObject());
-//                }
-            }
-            wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");
-            longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
-            wr.flush();
-            int HttpResult = connection.getResponseCode();
-            if (HttpResult == HttpURLConnection.HTTP_OK) {
-                BufferedReader br = new BufferedReader(new InputStreamReader(
-                        connection.getInputStream(), "utf-8"));
-                StringBuffer sb = new StringBuffer();
-
-                while ((line = br.readLine()) != null) {
-                    sb.append(line + "\n");
+                    }
+                    wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");
+                    //longInfo(jsonSync.toString().replace("\uFEFF", "") + "\n");
+                    wr.flush();
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
                 }
-                br.close();
 
-                System.out.println("" + sb.toString());
-                return sb.toString();
-            } else {
-                System.out.println(connection.getResponseMessage());
-                return connection.getResponseMessage();
+            /*==================================SERVER RESPONSE===================================*/
+                int HttpResult = conn.getResponseCode();
+                if (HttpResult == HttpURLConnection.HTTP_OK) {
+                    BufferedReader br = new BufferedReader(new InputStreamReader(
+                            conn.getInputStream(), "utf-8"));
+                    StringBuffer sb = new StringBuffer();
+
+                    while ((line = br.readLine()) != null) {
+                        sb.append(line + "\n");
+                    }
+                    br.close();
+
+                    System.out.println("" + sb.toString());
+                    return sb.toString();
+                } else {
+                    System.out.println(conn.getResponseMessage());
+                    return conn.getResponseMessage();
+                }
+            } catch (MalformedURLException e) {
+
+                e.printStackTrace();
+            } catch (IOException e) {
+
+                e.printStackTrace();
             }
-        } catch (MalformedURLException e) {
-
-            e.printStackTrace();
-        } catch (IOException e) {
-
-            e.printStackTrace();
-        } catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } finally {
-            if (connection != null)
-                connection.disconnect();
+        } else {
+            return "No new records to sync";
         }
         return line;
+            /*==================================SERVER RESPONSE===================================*/
+
     }
+
 
     @Override
     protected void onPostExecute(String result) {
