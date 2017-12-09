@@ -55,7 +55,7 @@ public class SyncSec3 extends AsyncTask<Void, Void, String> {
     @Override
     protected String doInBackground(Void... params) {
         try {
-            return downloadUrl(SRCApp._HOST_URL + "/src/api/sec3.php");
+            return downloadUrl(SRCApp._HOST_URL + "/src2/api/sec3.php");
         } catch (IOException e) {
             return "Unable to upload data. Server may be down.";
         }

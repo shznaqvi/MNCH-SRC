@@ -55,7 +55,7 @@ public class SyncForms extends AsyncTask<Void, Void, String> {
     @Override
     protected String doInBackground(Void... params) {
         try {
-            return downloadUrl(SRCApp._HOST_URL + "/src/api/forms.php");
+            return downloadUrl(SRCApp._HOST_URL + "/src2/api/forms.php");
         } catch (IOException e) {
             return "Unable to upload data. Server may be down.";
         }
