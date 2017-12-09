@@ -1,15 +1,14 @@
 package edu.aku.hassannaqvi.mnch_src;
 
+import android.database.Cursor;
 import android.provider.BaseColumns;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by isd on 30/12/2016.
  */
-
-import android.database.Cursor;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  * Created by hassan.naqvi on 10/31/2016.
@@ -78,8 +77,8 @@ public class VillagesContract {
         public static final String TABLE_NAME = "Villages";
         public static final String COLUMN_NAME_NULLABLE = "nullColumnHack";
         public static final String _ID = "_ID";
-        public static final String COLUMN_VILLAGES_CODE = "villages_code";
-        public static final String COLUMN_VILLAGES_NAME = "villages_name";
+        public static final String COLUMN_VILLAGES_CODE = "village_code";
+        public static final String COLUMN_VILLAGES_NAME = "village_name";
         public static final String COLUMN_DISTRICT_CODE = "district_code";
 
     }
