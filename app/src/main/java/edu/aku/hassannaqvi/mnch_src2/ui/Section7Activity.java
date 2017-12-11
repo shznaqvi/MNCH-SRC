@@ -1223,4 +1223,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             }
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You Can't go back", Toast.LENGTH_LONG).show();
+    }
 }
