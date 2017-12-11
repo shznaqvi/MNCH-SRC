@@ -16,8 +16,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-import edu.aku.hassannaqvi.mnch_src2.other.CVars;
-import edu.aku.hassannaqvi.mnch_src2.other.Members;
 import edu.aku.hassannaqvi.mnch_src2.contract.DistrictsContract;
 import edu.aku.hassannaqvi.mnch_src2.contract.DistrictsContract.singleDistrict;
 import edu.aku.hassannaqvi.mnch_src2.contract.FormContract;
@@ -34,6 +32,8 @@ import edu.aku.hassannaqvi.mnch_src2.contract.UsersContract;
 import edu.aku.hassannaqvi.mnch_src2.contract.UsersContract.singleUser;
 import edu.aku.hassannaqvi.mnch_src2.contract.VillagesContract;
 import edu.aku.hassannaqvi.mnch_src2.contract.VillagesContract.singleVillages;
+import edu.aku.hassannaqvi.mnch_src2.other.CVars;
+import edu.aku.hassannaqvi.mnch_src2.other.Members;
 
 
 /**
@@ -1433,6 +1433,65 @@ public class SRCDBHelper extends SQLiteOpenHelper {
     }
 
 
+    public Collection<Sec7ImContract> getUnsyncedSec7IM() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+
+                single7Im._ID,
+                single7Im.ROW_DEVID,
+                single7Im.ROW_ENTRYDATE,
+                single7Im.ROW_USERID,
+                single7Im.ROW_UUID,
+                single7Im.ROW_UID,
+                single7Im.HOUSEHOLD,
+                single7Im.ROW_7IM,
+                single7Im.ROW_GPS_LNG,
+                single7Im.ROW_GPS_LAT,
+                single7Im.ROW_GPS_DT,
+                single7Im.ROW_GPS_ACC,
+                single7Im.ROW_SYNCED,
+                single7Im.ROW_SYNCED_DATE,
+                single7Im.COLUMN_TAGID,
+                single7Im.COLUMN_VERSION,
+
+        };
+        String whereClause = single7Im.ROW_SYNCED + " is null";
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                single7Im._ID + " ASC";
+
+        Collection<Sec7ImContract> allEntries = new ArrayList<>();
+        try {
+            c = db.query(
+                    single7Im.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                Sec7ImContract oc = new Sec7ImContract();
+                allEntries.add(oc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEntries;
+    }
+
+
+
     public Collection<Sec4aContract> getAllSec4a() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -1538,6 +1597,84 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 Sec4aContract oc = new Sec4aContract();
+                allEntries.add(oc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allEntries;
+    }
+
+
+    public Collection<FormContract> getUnsyncedForms() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                Sec1Entry._ID,
+                Sec1Entry.ROW_DEVID,
+                Sec1Entry.ROW_FORM_ID,
+                Sec1Entry.ROW_S1Q101,
+                Sec1Entry.ROW_S1Q102,
+                Sec1Entry.ROW_S1Q103,
+                Sec1Entry.ROW_S1Q104,
+                Sec1Entry.ROW_S1Q105,
+                Sec1Entry.ROW_S1Q106A,
+                Sec1Entry.ROW_S1Q106B,
+                Sec1Entry.ROW_S1Q107,
+                Sec1Entry.ROW_S1Q108,
+                Sec1Entry.ROW_S1Q108B,
+                Sec1Entry.ROW_S1Q110,
+                Sec1Entry.ROW_S1Q111,
+                Sec1Entry.ROW_S1Q111OTH,
+                Sec1Entry.ROW_S1Q112,
+                Sec1Entry.ROW_ENTRYDATE,
+                Sec1Entry.ROW_USERID,
+                Sec1Entry.ROW_S2,
+                Sec1Entry.ROW_S5,
+                Sec1Entry.ROW_S5B,
+                Sec1Entry.ROW_S5C,
+                Sec1Entry.ROW_S6,
+                Sec1Entry.ROW_S7,
+                Sec1Entry.ROW_S8,
+                Sec1Entry.COLUMN_TAGID,
+                Sec1Entry.COLUMN_VERSION,
+                Sec1Entry.ROW_MN823,
+                Sec1Entry.ROW_MN823X,
+                Sec1Entry.ROW_UUID,
+                Sec1Entry.ROW_GPS_LNG,
+                Sec1Entry.ROW_GPS_LAT,
+                Sec1Entry.ROW_GPS_DT,
+                Sec1Entry.ROW_GPS_ACC,
+                Sec1Entry.COLUMN_SYNCED,
+                Sec1Entry.COLUMN_SYNCED_DATE
+
+        };
+        String whereClause = Sec1Entry.COLUMN_SYNCED + " is null";
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                Sec1Entry._ID + " ASC";
+
+        Collection<FormContract> allEntries = new ArrayList<>();
+        try {
+            c = db.query(
+                    Sec1Entry.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                FormContract oc = new FormContract();
                 allEntries.add(oc.Hydrate(c));
             }
         } finally {
