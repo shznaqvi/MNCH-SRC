@@ -518,10 +518,10 @@ public class FormContract implements BaseColumns {
             json.put(Sec1Entry.ROW_S6, this.ROW_S6.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S6));
         }
         if (!this.ROW_S7.equals("")) {
-            json.put(Sec1Entry.ROW_S7, this.ROW_S2.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S7));
+            json.put(Sec1Entry.ROW_S7, this.ROW_S7.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S7));
         }
         if (!this.ROW_S8.equals("")) {
-            json.put(Sec1Entry.ROW_S8, this.ROW_S2.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S8));
+            json.put(Sec1Entry.ROW_S8, this.ROW_S8.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S8));
         }
         /*json.put(Sec1Entry.ROW_S5, this.ROW_S5 == null ? JSONObject.NULL : this.ROW_S5);
         json.put(Sec1Entry.ROW_S5B, this.ROW_S5b == null ? JSONObject.NULL : this.ROW_S5b);
@@ -582,10 +582,10 @@ public class FormContract implements BaseColumns {
         public static final String ROW_GPS_LAT = "row_gps_lat";
         public static final String ROW_GPS_DT = "row_gps_dt";
         public static final String ROW_GPS_ACC = "row_gps_acc";
-        public static final String COLUMN_SYNCED = "column_synced";
-        public static final String COLUMN_SYNCED_DATE = "column_synced_date";
+        public static final String COLUMN_SYNCED = "synced";
+        public static final String COLUMN_SYNCED_DATE = "synced_date";
 
         public static final String COLUMN_TAGID = "tagID";
-        public static final String COLUMN_VERSION = "version";
+        public static final String COLUMN_VERSION = "app_version";
     }
 }

@@ -307,6 +307,6 @@ public class Sec4aContract implements BaseColumns {
         public static final String ROW_SYNCED_DATE = "synced_date";
 
         public static final String COLUMN_TAGID = "tagID";
-        public static final String COLUMN_VERSION = "version";
+        public static final String COLUMN_VERSION = "app_version";
     }
 }
