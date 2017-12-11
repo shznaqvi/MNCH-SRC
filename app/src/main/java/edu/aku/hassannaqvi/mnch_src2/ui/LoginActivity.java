@@ -9,10 +9,8 @@ import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -23,11 +21,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
-import edu.aku.hassannaqvi.mnch_src2.other.CVars;
 import edu.aku.hassannaqvi.mnch_src2.R;
-import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
 import edu.aku.hassannaqvi.mnch_src2.contract.UsersContract;
+import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
+import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
+import edu.aku.hassannaqvi.mnch_src2.other.CVars;
 
 
 public class LoginActivity extends Activity {
@@ -59,8 +57,8 @@ public class LoginActivity extends Activity {
 
 
         // Set up the login form.
-        userid = (EditText) findViewById(R.id.userid);
-        txtinstalldate = (TextView) findViewById(R.id.txtinstalldate);
+        userid = findViewById(R.id.userid);
+        txtinstalldate = findViewById(R.id.txtinstalldate);
         try {
             long installedOn = this
                     .getPackageManager()
@@ -79,15 +77,15 @@ public class LoginActivity extends Activity {
             e.printStackTrace();
         }
 
-        mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                return id == R.id.login || id == EditorInfo.IME_NULL;
-            }
-        });
+        mPasswordView = findViewById(R.id.password);
+//        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
+//                return id == R.id.login || id == EditorInfo.IME_NULL;
+//            }
+//        });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        Button mEmailSignInButton = findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
