@@ -23,6 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.other.CVars;
 import edu.aku.hassannaqvi.mnch_src2.R;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
@@ -65,15 +66,15 @@ public class LoginActivity extends Activity {
                     .getPackageManager()
                     .getPackageInfo("edu.aku.hassannaqvi.mnch_src2", 0)
                     .lastUpdateTime;
-            Integer versionCode = this
+            SRCApp.versionCode = this
                     .getPackageManager()
                     .getPackageInfo("edu.aku.hassannaqvi.mnch_src2", 0)
                     .versionCode;
-            String versionName = this
+            SRCApp.versionName = this
                     .getPackageManager()
                     .getPackageInfo("edu.aku.hassannaqvi.mnch_src2", 0)
                     .versionName;
-            txtinstalldate.setText("Ver. " + versionName + "." + String.valueOf(versionCode) + " \r\n( Last Updated: " + new SimpleDateFormat("dd MMM. yyyy").format(new Date(installedOn)) + " )");
+            txtinstalldate.setText("Ver. " + SRCApp.versionName + "." + String.valueOf(SRCApp.versionCode) + " \r\n( Last Updated: " + new SimpleDateFormat("dd MMM. yyyy").format(new Date(installedOn)) + " )");
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
