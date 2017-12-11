@@ -35,10 +35,10 @@ public class Section2Activity extends Activity {
     ScrollView scrollView01;
     @BindView(R.id.app_header)
     TextView appHeader;
-    @BindView(R.id.app_header1)
-    TextView appHeader1;
-    @BindView(R.id.lbl_hhhead)
-    TextView lblHhhead;
+    /*@BindView(R.id.app_header1)
+    TextView appHeader1;*/
+    /*@BindView(R.id.lbl_hhhead)
+    TextView lblHhhead;*/
     @BindView(R.id.lbl_s2q201)
     TextView lblS2q201;
     @BindView(R.id.s2q201)

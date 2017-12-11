@@ -22,15 +22,20 @@
 
             <TextView
                 android:id="@+id/app_header"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:textSize="30sp" />
+                android:layout_marginTop="20dp"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:text="SRC Section - 5A"
+                android:textSize="30sp"/>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/colorPrimary" />
+                android:layout_marginBottom="10dp"
+                android:background="@color/colorPrimary"/>
 
             <TextView
                 android:id="@+id/lbl_hhhead1"
