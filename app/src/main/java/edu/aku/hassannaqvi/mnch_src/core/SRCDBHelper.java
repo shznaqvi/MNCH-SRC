@@ -88,6 +88,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             ");";
     public static final String SQL_CREATE_BASELINE_SEC3 = "CREATE TABLE " + Sec3Entry.TABLE_NAME + "("
             + Sec3Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            Sec3Entry.COLUMN_TAGID + " TEXT," +
+            Sec3Entry.COLUMN_VERSION + " TEXT," +
             Sec3Entry.ROW_DEVID + " TEXT," +
             Sec3Entry.ROW_FORM_ID + " TEXT," +
             Sec3Entry.ROW_FORM_DATE + " TEXT," +
@@ -114,8 +116,10 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
             ");";
     public static final String SQL_CREATE_BASELINE_SEC4 = "CREATE TABLE " + Section4Entry.TABLE_NAME + "("
-            + Section4Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + Section4Entry.ROW_DEVID + " TEXT," +
+            + Section4Entry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            Section4Entry.COLUMN_TAGID + " TEXT," +
+            Section4Entry.COLUMN_VERSION + " TEXT," +
+            Section4Entry.ROW_DEVID + " TEXT," +
             Section4Entry.ROW_FORM_ID + " TEXT," +
             Section4Entry.ROW_FORM_DATE + " TEXT," +
             Section4Entry.ROW_USERID + " TEXT," +
@@ -136,6 +140,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             + ");";
     public static final String SQL_CREATE_BASELINE_SEC4b = "CREATE TABLE " + Section4bEntry.TABLE_NAME + "("
             + Section4bEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            Section4bEntry.COLUMN_TAGID + " TEXT," +
+            Section4bEntry.COLUMN_VERSION + " TEXT," +
             Section4bEntry.ROW_DEVID + " TEXT," +
             Section4bEntry.ROW_FORM_ID + " TEXT," +
             Section4bEntry.ROW_FORM_DATE + " TEXT," +
@@ -159,8 +165,10 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             ");";
 
     public static final String SQL_CREATE_SEC_7_IM = "CREATE TABLE " + single7Im.TABLE_NAME + "("
-            + single7Im._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + single7Im.ROW_DEVID + " TEXT,"
+            + single7Im._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            single7Im.COLUMN_TAGID + " TEXT," +
+            single7Im.COLUMN_VERSION + " TEXT," +
+            single7Im.ROW_DEVID + " TEXT,"
             + single7Im.ROW_ENTRYDATE + " TEXT,"
             + single7Im.ROW_USERID + " TEXT,"
             + single7Im.HOUSEHOLD + " TEXT,"
@@ -694,6 +702,9 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         try {
             ContentValues values = new ContentValues();
 
+            values.put(Sec3Entry.COLUMN_TAGID, sec3.getTagID());
+            values.put(Sec3Entry.COLUMN_VERSION, sec3.getVersion());
+
             values.put(Sec3Entry.ROW_DEVID, sec3.getROW_DEVID());
             values.put(Sec3Entry.ROW_FORM_ID, sec3.getROW_FORM_ID());
             values.put(Sec3Entry.ROW_FORM_DATE, sec3.getROW_FORM_DATE());
@@ -929,6 +940,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         values.put(single7Im.ROW_SYNCED, sec7Im.getROW_SYNCED());
         values.put(single7Im.ROW_SYNCED_DATE, sec7Im.getROW_SYNCED_DATE());
 
+        values.put(single7Im.COLUMN_TAGID, sec7Im.getTagID());
+        values.put(single7Im.COLUMN_VERSION, sec7Im.getVersion());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
@@ -1011,6 +1024,9 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         values.put(Section4bEntry.ROW_SYNCED, sec4b.getROW_SYNCED());
         values.put(Section4bEntry.ROW_SYNCED_DATE, sec4b.getROW_SYNCED_DATE());
 
+        values.put(Section4bEntry.COLUMN_TAGID, sec4b.getTagID());
+        values.put(Section4bEntry.COLUMN_VERSION, sec4b.getVersion());
+
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
         newRowId = db.insert(
@@ -1048,6 +1064,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         values.put(Section4Entry.ROW_SYNCED, sec4a.getROW_SYNCED());
         values.put(Section4Entry.ROW_SYNCED_DATE, sec4a.getROW_SYNCED_DATE());
 
+        values.put(Section4Entry.COLUMN_TAGID, sec4a.getTagID());
+        values.put(Section4Entry.COLUMN_VERSION, sec4a.getVersion());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
@@ -1376,6 +1394,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 Sec3Entry.ROW_UID,
                 Sec3Entry.ROW_SYNCED,
                 Sec3Entry.ROW_SYNCED_DATE,
+                Sec3Entry.COLUMN_TAGID,
+                Sec3Entry.COLUMN_VERSION,
 
         };
         String whereClause = Sec3Entry.ROW_SYNCED + " is null";
@@ -1493,6 +1513,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 Section4Entry.ROW_UUID,
                 Section4Entry.ROW_SYNCED,
                 Section4Entry.ROW_SYNCED_DATE,
+                Section4Entry.COLUMN_TAGID,
+                Section4Entry.COLUMN_VERSION,
 
         };
         String whereClause = Section4Entry.ROW_SYNCED + " is null";
@@ -1613,6 +1635,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 Section4bEntry.ROW_UUID,
                 Section4bEntry.ROW_SYNCED,
                 Section4bEntry.ROW_SYNCED_DATE,
+                Section4bEntry.COLUMN_TAGID,
+                Section4bEntry.COLUMN_VERSION,
 
         };
         String whereClause = Section4bEntry.ROW_SYNCED + " is null";
@@ -1668,6 +1692,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 single7Im.ROW_GPS_ACC,
                 single7Im.ROW_SYNCED,
                 single7Im.ROW_SYNCED_DATE,
+                single7Im.COLUMN_TAGID,
+                single7Im.COLUMN_VERSION,
 
         };
         String whereClause = null;

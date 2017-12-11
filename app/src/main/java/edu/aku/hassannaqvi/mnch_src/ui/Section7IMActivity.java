@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.mnch_src.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
@@ -365,6 +366,10 @@ public class Section7IMActivity extends Activity {
         Toast.makeText(this, "Validation Successful! - Saving Draft...", Toast.LENGTH_SHORT).show();
 
         SRCApp.sec7im = new Sec7ImContract();
+
+        SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
+        SRCApp.sec7im.setTagID(sharedPref.getString("tagName", null));
+        SRCApp.sec7im.setVersion(SRCApp.versionName + "." + SRCApp.versionCode);
 
         SRCApp.sec7im.setROW_DEVID(Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID));

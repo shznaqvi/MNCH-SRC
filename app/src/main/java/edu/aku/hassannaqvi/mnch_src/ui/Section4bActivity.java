@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.mnch_src.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -304,6 +305,10 @@ public class Section4bActivity extends Activity {
         SRCApp.sc4b = new Sec4bContract();
 
         CVars var = new CVars();
+
+        SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
+        SRCApp.sc4b.setTagID(sharedPref.getString("tagName", null));
+        SRCApp.sc4b.setVersion(SRCApp.versionName + "." + SRCApp.versionCode);
 
         SRCApp.sc4b.setROW_FORM_ID(var.GetHHNO());
         SRCApp.sc4b.setROW_HHCODE(var.GetHHCode());

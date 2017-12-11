@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.mnch_src.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -574,6 +575,10 @@ public class Section3Activity extends Activity {
         SRCApp.sc3 = new Sec3Contract();
 
         try {
+
+            SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
+            SRCApp.sc3.setTagID(sharedPref.getString("tagName", null));
+            SRCApp.sc3.setVersion(SRCApp.versionName + "." + SRCApp.versionCode);
 
             CVars var = new CVars();
 

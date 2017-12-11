@@ -1,14 +1,19 @@
 package edu.aku.hassannaqvi.mnch_src.ui;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.InputType;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -30,11 +35,51 @@ public class MainActivity extends Activity {
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
     private Boolean exit = false;
 
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
+    AlertDialog.Builder builder;
+    String m_Text = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*TagID Start*/
+        sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
+        editor = sharedPref.edit();
+
+        builder = new AlertDialog.Builder(MainActivity.this);
+        ImageView img = new ImageView(getApplicationContext());
+        img.setImageResource(R.drawable.tagimg);
+        img.setPadding(0, 15, 0, 15);
+        builder.setCustomTitle(img);
+
+        final EditText input = new EditText(MainActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                m_Text = input.getText().toString();
+                if (!m_Text.equals("")) {
+                    editor.putString("tagName", m_Text);
+                    editor.commit();
+                }
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        if (sharedPref.getString("tagName", null) == "" || sharedPref.getString("tagName", null) == null) {
+            builder.show();
+        }
+        /*TagID End*/
 
     }
 
@@ -87,8 +132,43 @@ public class MainActivity extends Activity {
 
     public void OpenForm(View v) {
 
-        Intent sec1_intent = new Intent(this, Section1Activity.class);
-        startActivity(sec1_intent);
+        if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null) {
+            Intent oF = new Intent(MainActivity.this, Section1Activity.class);
+            startActivity(oF);
+        } else {
+
+            builder = new AlertDialog.Builder(MainActivity.this);
+            ImageView img = new ImageView(getApplicationContext());
+            img.setImageResource(R.drawable.tagimg);
+            img.setPadding(0, 15, 0, 15);
+            builder.setCustomTitle(img);
+
+            final EditText input = new EditText(MainActivity.this);
+            input.setInputType(InputType.TYPE_CLASS_TEXT);
+            builder.setView(input);
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    m_Text = input.getText().toString();
+                    if (!m_Text.equals("")) {
+                        editor.putString("tagName", m_Text);
+                        editor.commit();
+
+                        Intent oF = new Intent(MainActivity.this, Section1Activity.class);
+                        startActivity(oF);
+                    }
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+
+            builder.show();
+        }
 
     }
 
@@ -116,7 +196,6 @@ public class MainActivity extends Activity {
 
         }
     }
-
 
 
 }

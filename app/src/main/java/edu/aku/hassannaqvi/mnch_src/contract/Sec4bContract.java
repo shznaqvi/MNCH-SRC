@@ -35,6 +35,8 @@ public class Sec4bContract implements BaseColumns {
     String ROW_SYNCED;
     String ROW_SYNCED_DATE;
 
+    String TagID = "";
+    String Version = "";
 
     public Sec4bContract() {
 
@@ -204,6 +206,22 @@ public class Sec4bContract implements BaseColumns {
         this.ROW_SYNCED_DATE = ROW_SYNCED_DATE;
     }
 
+    public String getTagID() {
+        return TagID;
+    }
+
+    public void setTagID(String tagID) {
+        TagID = tagID;
+    }
+
+    public String getVersion() {
+        return Version;
+    }
+
+    public void setVersion(String version) {
+        Version = version;
+    }
+
     public JSONObject toJSONObject() throws JSONException {
         JSONObject json = new JSONObject();
 
@@ -228,6 +246,8 @@ public class Sec4bContract implements BaseColumns {
         json.put(Section4bEntry.ROW_SYNCED, this.ROW_SYNCED == null ? JSONObject.NULL : this.ROW_SYNCED);
         json.put(Section4bEntry.ROW_SYNCED_DATE, this.ROW_SYNCED_DATE == null ? JSONObject.NULL : this.ROW_SYNCED_DATE);
 
+        json.put(Section4bEntry.COLUMN_TAGID, this.TagID == null ? JSONObject.NULL : this.TagID);
+        json.put(Section4bEntry.COLUMN_VERSION, this.Version == null ? JSONObject.NULL : this.Version);
         return json;
     }
 
@@ -253,6 +273,8 @@ public class Sec4bContract implements BaseColumns {
         this.ROW_SYNCED = jsonObject.getString(Section4bEntry.ROW_SYNCED);
         this.ROW_SYNCED_DATE = jsonObject.getString(Section4bEntry.ROW_SYNCED_DATE);
 
+        this.TagID = jsonObject.getString(Section4bEntry.COLUMN_TAGID);
+        this.Version = jsonObject.getString(Section4bEntry.COLUMN_VERSION);
         return this;
     }
 
@@ -278,6 +300,8 @@ public class Sec4bContract implements BaseColumns {
         this.ROW_SYNCED = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_SYNCED));
         this.ROW_SYNCED_DATE = cursor.getString(cursor.getColumnIndex(Section4bEntry.ROW_SYNCED_DATE));
 
+        this.TagID = cursor.getString(cursor.getColumnIndex(Section4bEntry.COLUMN_TAGID));
+        this.Version = cursor.getString(cursor.getColumnIndex(Section4bEntry.COLUMN_VERSION));
         return this;
     }
 
@@ -305,5 +329,7 @@ public class Sec4bContract implements BaseColumns {
         public static final String ROW_SYNCED = "synced";
         public static final String ROW_SYNCED_DATE = "synced_date";
 
+        public static final String COLUMN_TAGID = "tagID";
+        public static final String COLUMN_VERSION = "version";
     }
 }

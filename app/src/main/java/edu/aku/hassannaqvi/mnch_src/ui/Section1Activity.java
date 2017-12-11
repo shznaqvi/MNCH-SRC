@@ -482,6 +482,10 @@ public class Section1Activity extends Activity implements TextWatcher {
     private boolean SaveDraft() {
         SRCApp.fc = new FormContract();
 
+        SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
+        SRCApp.fc.setTagID(sharedPref.getString("tagName", null));
+        SRCApp.fc.setVersion(SRCApp.versionName + "." + SRCApp.versionCode);
+
         SRCApp.fc.setROW_DEVID(SRCApp.DEVID);
         SRCApp.fc.setROW_FORM_ID(formid.getText().toString());
         SRCApp.fc.setROW_S1Q101(s1q101.getSelectedItem().toString());
