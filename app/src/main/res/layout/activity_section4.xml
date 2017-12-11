@@ -7,7 +7,7 @@
     android:layout_marginStart="16dp"
     android:background="@drawable/background_grad"
     android:scrollbars="horizontal"
-    tools:context="edu.aku.hassannaqvi.mnch_src.ui.Section4Activity">
+    tools:context="edu.aku.hassannaqvi.mnch_src2.ui.Section4Activity">
 
     <LinearLayout
         android:layout_width="match_parent"

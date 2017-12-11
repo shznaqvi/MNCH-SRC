@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Baseline Survey for MNCH Services - SRC</string>
+    <string name="app_name">Baseline Survey for MNCH Services - SRC-2</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">User ID</string>
