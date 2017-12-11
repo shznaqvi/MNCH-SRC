@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_grad"
-    tools:context="edu.aku.hassannaqvi.mnch_src.Section7Activity">
+    tools:context="edu.aku.hassannaqvi.mnch_src.ui.Section7Activity">
 
     <ScrollView
         android:id="@+id/scrollView01"

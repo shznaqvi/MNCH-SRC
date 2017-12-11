@@ -17,87 +17,87 @@
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
 
     <application
-        android:name=".SRCApp"
+        android:name=".core.SRCApp"
         android:allowBackup="true"
         android:icon="@drawable/mcct_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.LoginActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".ui.MainActivity" />
         <activity
-            android:name=".AndroidDatabaseManager"
+            android:name=".core.AndroidDatabaseManager"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Section1Activity"
+            android:name=".ui.Section1Activity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".Section2Activity"
+            android:name=".ui.Section2Activity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".Section3Activity"
+            android:name=".ui.Section3Activity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".Section4Activity"
+            android:name=".ui.Section4Activity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".Section4bActivity"
-            android:screenOrientation="portrait"
-
-            android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity
-            android:name=".Section5Activity"
+            android:name=".ui.Section4bActivity"
             android:screenOrientation="portrait"
 
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".Section6Activity"
+            android:name=".ui.Section5Activity"
             android:screenOrientation="portrait"
 
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".Section7Activity"
+            android:name=".ui.Section6Activity"
             android:screenOrientation="portrait"
 
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".Section7IMActivity"
+            android:name=".ui.Section7Activity"
             android:screenOrientation="portrait"
 
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".Section8Activity"
+            android:name=".ui.Section7IMActivity"
             android:screenOrientation="portrait"
 
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".Section5bActivity"
+            android:name=".ui.Section8Activity"
             android:screenOrientation="portrait"
 
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".Section5cActivity"
+            android:name=".ui.Section5bActivity"
             android:screenOrientation="portrait"
 
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".EndingActivity"
+            android:name=".ui.Section5cActivity"
             android:screenOrientation="portrait"
 
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".Section4AMaternalCount"
+            android:name=".ui.EndingActivity"
+            android:screenOrientation="portrait"
+
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".ui.Section4AMaternalCount"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".ui.SplashScreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
