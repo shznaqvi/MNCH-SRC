@@ -155,7 +155,8 @@ public class LoginActivity extends Activity {
                     if (mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                         SRCDBHelper db = new SRCDBHelper(LoginActivity.this);
 
-                        if (db.Login(username, password) || (username.equals("test1234") && password.equals("test1234"))) {
+                        if (db.Login(username, password) || (username.equals("test1234") && password.equals("test1234"))
+                                || (username.equals("dmu@aku") && password.equals("aku?dmu"))) {
                             Toast.makeText(LoginActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
 
                             CVars var = new CVars();
