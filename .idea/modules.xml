@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MNCH-SRC.iml" filepath="$PROJECT_DIR$/MNCH-SRC.iml" />
+      <module fileurl="file://E:\Android\MNCH-SRC-2\MNCH-SRC.iml" filepath="E:\Android\MNCH-SRC-2\MNCH-SRC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MNCH-SRC-2.iml" filepath="$PROJECT_DIR$/MNCH-SRC-2.iml" />
       <module fileurl="file://E:\Android\MNCH-SRC-2\MNCH-SRC.iml" filepath="E:\Android\MNCH-SRC-2\MNCH-SRC.iml" />
       <module fileurl="file://E:\Hassan\Android\MNCH-SRC\MNCH-SRC-2.iml" filepath="E:\Hassan\Android\MNCH-SRC\MNCH-SRC-2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
