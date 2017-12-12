@@ -552,7 +552,8 @@ public class Section2Activity extends Activity {
                         if (SRCApp.mwCount < SRCApp.mwras) {
                             Intent sec3_intent = new Intent(this, Section3Activity.class);
                             SRCApp.mwCount++;
-                            SRCApp.curPreg = false;
+                            SRCApp.curPreg = 0;
+                            SRCApp.lastDelivery = 0;
                             startActivity(sec3_intent);
                         } else if (SRCApp.mdCount < SRCApp.mdTotal) {
                             Intent sec4_intent = new Intent(this, Section4Activity.class);

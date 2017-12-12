@@ -96,6 +96,14 @@ public class EndingActivity extends Activity {
             }
             if (UpdateDB()) {
                 Toast.makeText(this, "Saving Form", Toast.LENGTH_SHORT).show();
+                SRCApp.mwCount = 0;
+                SRCApp.curPreg = false;
+                SRCApp.mdCount = 0;
+                SRCApp.mdTotal = 0;
+                SRCApp.cmCount = 0;
+                SRCApp.cmTotal = 0;
+                SRCApp.chCount = 0;
+                SRCApp.chTotal = 0;
 
                 finish();
 
