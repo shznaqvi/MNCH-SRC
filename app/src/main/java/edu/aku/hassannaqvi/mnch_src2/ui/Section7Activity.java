@@ -303,7 +303,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         mn0701.setMaxDate(new Date().getTime());
         mn0701.setMinDate((new Date().getTime() - ((SRCApp.MILLISECONDS_IN_YEAR) + SRCApp.MILLISECONDS_IN_DAY)));
 
-        dob = new SimpleDateFormat("dd-MM-yyyy").format(mn0701.getCalendarView().getDate());
+        //dob = new SimpleDateFormat("dd-MM-yyyy").format(mn0701.getCalendarView().getDate());
 
         mn0713.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -489,7 +489,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
 
         JSONObject s7 = new JSONObject();
 
-        s7.put("mn0701", dob);
+        s7.put("mn0701", new SimpleDateFormat("dd-MM-yyyy").format(mn0701.getCalendarView().getDate()));
         s7.put("mn070201", mn070201.getText().toString());
         s7.put("mn070202", mn070202.getText().toString());
         s7.put("mn070299", mn070299.isChecked() ? "99" : "0");
