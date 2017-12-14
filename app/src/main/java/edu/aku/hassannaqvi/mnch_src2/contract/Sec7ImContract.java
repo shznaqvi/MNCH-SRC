@@ -217,8 +217,11 @@ public class Sec7ImContract implements BaseColumns {
         json.put(single7Im.ROW_UUID, this.ROW_UUID == null ? JSONObject.NULL : this.ROW_UUID);
         json.put(single7Im.ROW_UID, this.ROW_UID == null ? JSONObject.NULL : this.ROW_UID);
         json.put(single7Im.HOUSEHOLD, this.household == null ? JSONObject.NULL : this.household);
-        if (!this.ROW_7IM.equals("")) {
-            json.put(single7Im.ROW_7IM, this.ROW_7IM.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_7IM));
+        try {
+            if (!this.ROW_7IM.equals("")) {
+                json.put(single7Im.ROW_7IM, this.ROW_7IM.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_7IM));
+            }
+        } catch (Exception e) {
         }
         json.put(single7Im.ROW_GPS_LNG, this.ROW_GPS_LNG == null ? JSONObject.NULL : this.ROW_GPS_LNG);
         json.put(single7Im.ROW_GPS_LAT, this.ROW_GPS_LAT == null ? JSONObject.NULL : this.ROW_GPS_LAT);

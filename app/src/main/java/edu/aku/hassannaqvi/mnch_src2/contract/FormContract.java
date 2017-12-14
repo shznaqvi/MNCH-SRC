@@ -502,26 +502,47 @@ public class FormContract implements BaseColumns {
         json.put(Sec1Entry.ROW_ENTRYDATE, this.ROW_ENTRYDATE == null ? JSONObject.NULL : this.ROW_ENTRYDATE);
         json.put(Sec1Entry.ROW_USERID, this.ROW_USERID == null ? JSONObject.NULL : this.ROW_USERID);
 
-        if (!this.ROW_S2.equals("")) {
-            json.put(Sec1Entry.ROW_S2, this.ROW_S2.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S2));
+        try {
+            if (!this.ROW_S2.equals("")) {
+                json.put(Sec1Entry.ROW_S2, this.ROW_S2.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S2));
+            }
+        } catch (Exception e) {
         }
-        if (!this.ROW_S5.equals("")) {
-            json.put(Sec1Entry.ROW_S5, this.ROW_S5.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S5));
+        try {
+            if (!this.ROW_S5.equals("")) {
+                json.put(Sec1Entry.ROW_S5, this.ROW_S5.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S5));
+            }
+        } catch (Exception e) {
         }
-        if (!this.ROW_S5b.equals("")) {
-            json.put(Sec1Entry.ROW_S5B, this.ROW_S5b.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S5b));
+        try {
+            if (!this.ROW_S5b.equals("")) {
+                json.put(Sec1Entry.ROW_S5B, this.ROW_S5b.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S5b));
+            }
+        } catch (Exception e) {
         }
-        if (!this.ROW_S5c.equals("")) {
-            json.put(Sec1Entry.ROW_S5C, this.ROW_S5c.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S5c));
+        try {
+            if (!this.ROW_S5c.equals("")) {
+                json.put(Sec1Entry.ROW_S5C, this.ROW_S5c.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S5c));
+            }
+        } catch (Exception e) {
         }
-        if (!this.ROW_S6.equals("")) {
-            json.put(Sec1Entry.ROW_S6, this.ROW_S6.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S6));
+        try {
+            if (!this.ROW_S6.equals("")) {
+                json.put(Sec1Entry.ROW_S6, this.ROW_S6.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S6));
+            }
+        } catch (Exception e) {
         }
-        if (!this.ROW_S7.equals("")) {
-            json.put(Sec1Entry.ROW_S7, this.ROW_S7.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S7));
+        try {
+            if (!this.ROW_S7.equals("")) {
+                json.put(Sec1Entry.ROW_S7, this.ROW_S7.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S7));
+            }
+        } catch (Exception e) {
         }
-        if (!this.ROW_S8.equals("")) {
-            json.put(Sec1Entry.ROW_S8, this.ROW_S8.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S8));
+        try {
+            if (!this.ROW_S8.equals("")) {
+                json.put(Sec1Entry.ROW_S8, this.ROW_S8.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S8));
+            }
+        } catch (Exception e) {
         }
         /*json.put(Sec1Entry.ROW_S5, this.ROW_S5 == null ? JSONObject.NULL : this.ROW_S5);
         json.put(Sec1Entry.ROW_S5B, this.ROW_S5b == null ? JSONObject.NULL : this.ROW_S5b);
