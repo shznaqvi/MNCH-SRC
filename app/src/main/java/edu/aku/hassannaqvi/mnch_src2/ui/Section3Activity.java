@@ -19,11 +19,11 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
-import edu.aku.hassannaqvi.mnch_src2.other.CVars;
 import edu.aku.hassannaqvi.mnch_src2.R;
+import edu.aku.hassannaqvi.mnch_src2.contract.Sec3Contract;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
-import edu.aku.hassannaqvi.mnch_src2.contract.Sec3Contract;
+import edu.aku.hassannaqvi.mnch_src2.other.CVars;
 
 public class Section3Activity extends Activity {
 
@@ -128,97 +128,97 @@ public class Section3Activity extends Activity {
         counter = 1;
         sno = 0;
 
-        scrollView01 = (ScrollView) findViewById(R.id.ScrollView01);
+        scrollView01 = findViewById(R.id.ScrollView01);
 
-        appHeader = (TextView) findViewById(R.id.app_header);
+        appHeader = findViewById(R.id.app_header);
         appHeader.setText(getString(R.string.sec3) + " (" + SRCApp.mwCount + " of " + SRCApp.mwras + ")");
 
-        vu_s3q301g = (LinearLayout) findViewById(R.id.vu_s3q301g);
-        vu_s3q301d = (LinearLayout) findViewById(R.id.vu_s3q301d);
-        vu_s3q301h = (LinearLayout) findViewById(R.id.vu_s3q301h);
-        vu_s3q301ioth = (LinearLayout) findViewById(R.id.vu_s3q301ioth);
-        vu_s3q301joth = (LinearLayout) findViewById(R.id.vu_s3q301joth);
+        vu_s3q301g = findViewById(R.id.vu_s3q301g);
+        vu_s3q301d = findViewById(R.id.vu_s3q301d);
+        vu_s3q301h = findViewById(R.id.vu_s3q301h);
+        vu_s3q301ioth = findViewById(R.id.vu_s3q301ioth);
+        vu_s3q301joth = findViewById(R.id.vu_s3q301joth);
 
 
-        lblS3q301a = (TextView) findViewById(R.id.lbl_s3q301a);
-        lblS3q301b = (TextView) findViewById(R.id.lbl_s3q301b);
-        lblS3q301c = (TextView) findViewById(R.id.lbl_s3q301c);
-        lblS3q301d = (TextView) findViewById(R.id.lbl_s3q301d);
-        radioS3q301d = (RadioGroup) findViewById(R.id.radio_s3q301d);
-        rDOS3q301d1 = (RadioButton) findViewById(R.id.RDO_s3q301d_1);
-        rDOS3q301d2 = (RadioButton) findViewById(R.id.rDOS3q301d2);
-        lblS3q301e = (TextView) findViewById(R.id.lbl_s3q301e);
-        lblS3q301f = (TextView) findViewById(R.id.lbl_s3q301f);
+        lblS3q301a = findViewById(R.id.lbl_s3q301a);
+        lblS3q301b = findViewById(R.id.lbl_s3q301b);
+        lblS3q301c = findViewById(R.id.lbl_s3q301c);
+        lblS3q301d = findViewById(R.id.lbl_s3q301d);
+        radioS3q301d = findViewById(R.id.radio_s3q301d);
+        rDOS3q301d1 = findViewById(R.id.RDO_s3q301d_1);
+        rDOS3q301d2 = findViewById(R.id.rDOS3q301d2);
+        lblS3q301e = findViewById(R.id.lbl_s3q301e);
+        lblS3q301f = findViewById(R.id.lbl_s3q301f);
 
-        radioS3q301f1 = (RadioGroup) findViewById(R.id.radio_s3q301f1);
-        rDOS3q301f11 = (RadioButton) findViewById(R.id.RDO_s3q301f1_1);
-        rDOS3q301f12 = (RadioButton) findViewById(R.id.RDO_s3q301f1_2);
+        radioS3q301f1 = findViewById(R.id.radio_s3q301f1);
+        rDOS3q301f11 = findViewById(R.id.RDO_s3q301f1_1);
+        rDOS3q301f12 = findViewById(R.id.RDO_s3q301f1_2);
 
-        radioS3q301f = (RadioGroup) findViewById(R.id.radio_s3q301f);
-        rDOS3q301f1 = (RadioButton) findViewById(R.id.RDO_s3q301f_1);
-        rDOS3q301f2 = (RadioButton) findViewById(R.id.RDO_s3q301f_2);
-        rDOS3q301f3 = (RadioButton) findViewById(R.id.RDO_s3q301f_3);
-        rDOS3q301f4 = (RadioButton) findViewById(R.id.RDO_s3q301f_4);
-        lblS3q301g = (TextView) findViewById(R.id.lbl_s3q301g);
-        radioS3q301g = (RadioGroup) findViewById(R.id.radio_s3q301g);
-        rDOS3q301g1 = (RadioButton) findViewById(R.id.RDO_s3q301g_1);
-        rDOS3q301g2 = (RadioButton) findViewById(R.id.RDO_s3q301g_2);
-        rDOS3q301g3 = (RadioButton) findViewById(R.id.RDO_s3q301g_3);
-        lblS3q301h = (TextView) findViewById(R.id.lbl_s3q301h);
-        radioS3q301h = (RadioGroup) findViewById(R.id.radio_s3q301h);
-        rDOS3q301h1 = (RadioButton) findViewById(R.id.RDO_s3q301h_1);
-        rDOS3q301h2 = (RadioButton) findViewById(R.id.RDO_s3q301h_2);
-        rDOS3q301h3 = (RadioButton) findViewById(R.id.RDO_s3q301h_3);
-        rDOS3q301h4 = (RadioButton) findViewById(R.id.RDO_s3q301h_4);
-        rDOS3q301h5 = (RadioButton) findViewById(R.id.RDO_s3q301h_5);
-        lblS3q301i = (TextView) findViewById(R.id.lbl_s3q301i);
-        radioS3q301i = (RadioGroup) findViewById(R.id.radio_s3q301i);
-        rDOS3q301i1 = (RadioButton) findViewById(R.id.RDO_s3q301i_1);
-        rDOS3q301i2 = (RadioButton) findViewById(R.id.RDO_s3q301i_2);
-        rDOS3q301i3 = (RadioButton) findViewById(R.id.RDO_s3q301i_3);
-        rDOS3q301i4 = (RadioButton) findViewById(R.id.RDO_s3q301i_4);
-        rDOS3q301i5 = (RadioButton) findViewById(R.id.RDO_s3q301i_5);
-        rDOS3q301i6 = (RadioButton) findViewById(R.id.RDO_s3q301i_6);
-        rDOS3q301i7 = (RadioButton) findViewById(R.id.RDO_s3q301i_7);
-        rDOS3q301i8 = (RadioButton) findViewById(R.id.RDO_s3q301i_8);
-        rDOS3q301i9 = (RadioButton) findViewById(R.id.RDO_s3q301i_9);
-        rDOS3q301i10 = (RadioButton) findViewById(R.id.RDO_s3q301i_10);
-        lblS3q301j = (TextView) findViewById(R.id.lbl_s3q301j);
-        radioS3q301j = (RadioGroup) findViewById(R.id.radio_s3q301j);
-        rDOS3q301j1 = (RadioButton) findViewById(R.id.RDO_s3q301j_1);
-        rDOS3q301j2 = (RadioButton) findViewById(R.id.RDO_s3q301j_2);
-        rDOS3q301j3 = (RadioButton) findViewById(R.id.RDO_s3q301j_3);
-        rDOS3q301j4 = (RadioButton) findViewById(R.id.RDO_s3q301j_4);
-        rDOS3q301j5 = (RadioButton) findViewById(R.id.RDO_s3q301j_5);
-        rDOS3q301j6 = (RadioButton) findViewById(R.id.RDO_s3q301j_6);
-        rDOS3q301j7 = (RadioButton) findViewById(R.id.RDO_s3q301j_7);
-        rDOS3q301j8 = (RadioButton) findViewById(R.id.RDO_s3q301j_8);
-        lblS3q301k = (TextView) findViewById(R.id.lbl_s3q301k);
-        s3q301ioth = (EditText) findViewById(R.id.s3q301ioth);
-        s3q301joth = (EditText) findViewById(R.id.s3q301joth);
+        radioS3q301f = findViewById(R.id.radio_s3q301f);
+        rDOS3q301f1 = findViewById(R.id.RDO_s3q301f_1);
+        rDOS3q301f2 = findViewById(R.id.RDO_s3q301f_2);
+        rDOS3q301f3 = findViewById(R.id.RDO_s3q301f_3);
+        rDOS3q301f4 = findViewById(R.id.RDO_s3q301f_4);
+        lblS3q301g = findViewById(R.id.lbl_s3q301g);
+        radioS3q301g = findViewById(R.id.radio_s3q301g);
+        rDOS3q301g1 = findViewById(R.id.RDO_s3q301g_1);
+        rDOS3q301g2 = findViewById(R.id.RDO_s3q301g_2);
+        rDOS3q301g3 = findViewById(R.id.RDO_s3q301g_3);
+        lblS3q301h = findViewById(R.id.lbl_s3q301h);
+        radioS3q301h = findViewById(R.id.radio_s3q301h);
+        rDOS3q301h1 = findViewById(R.id.RDO_s3q301h_1);
+        rDOS3q301h2 = findViewById(R.id.RDO_s3q301h_2);
+        rDOS3q301h3 = findViewById(R.id.RDO_s3q301h_3);
+        rDOS3q301h4 = findViewById(R.id.RDO_s3q301h_4);
+        rDOS3q301h5 = findViewById(R.id.RDO_s3q301h_5);
+        lblS3q301i = findViewById(R.id.lbl_s3q301i);
+        radioS3q301i = findViewById(R.id.radio_s3q301i);
+        rDOS3q301i1 = findViewById(R.id.RDO_s3q301i_1);
+        rDOS3q301i2 = findViewById(R.id.RDO_s3q301i_2);
+        rDOS3q301i3 = findViewById(R.id.RDO_s3q301i_3);
+        rDOS3q301i4 = findViewById(R.id.RDO_s3q301i_4);
+        rDOS3q301i5 = findViewById(R.id.RDO_s3q301i_5);
+        rDOS3q301i6 = findViewById(R.id.RDO_s3q301i_6);
+        rDOS3q301i7 = findViewById(R.id.RDO_s3q301i_7);
+        rDOS3q301i8 = findViewById(R.id.RDO_s3q301i_8);
+        rDOS3q301i9 = findViewById(R.id.RDO_s3q301i_9);
+        rDOS3q301i10 = findViewById(R.id.RDO_s3q301i_10);
+        lblS3q301j = findViewById(R.id.lbl_s3q301j);
+        radioS3q301j = findViewById(R.id.radio_s3q301j);
+        rDOS3q301j1 = findViewById(R.id.RDO_s3q301j_1);
+        rDOS3q301j2 = findViewById(R.id.RDO_s3q301j_2);
+        rDOS3q301j3 = findViewById(R.id.RDO_s3q301j_3);
+        rDOS3q301j4 = findViewById(R.id.RDO_s3q301j_4);
+        rDOS3q301j5 = findViewById(R.id.RDO_s3q301j_5);
+        rDOS3q301j6 = findViewById(R.id.RDO_s3q301j_6);
+        rDOS3q301j7 = findViewById(R.id.RDO_s3q301j_7);
+        rDOS3q301j8 = findViewById(R.id.RDO_s3q301j_8);
+        lblS3q301k = findViewById(R.id.lbl_s3q301k);
+        s3q301ioth = findViewById(R.id.s3q301ioth);
+        s3q301joth = findViewById(R.id.s3q301joth);
 
-        s3q301a = (EditText) findViewById(R.id.s3q301a);
-        s3q301b = (EditText) findViewById(R.id.s3q301b);
-        s3q301c = (EditText) findViewById(R.id.s3q301c);
-        s3q301e = (EditText) findViewById(R.id.s3q301e);
-        s3q301k = (EditText) findViewById(R.id.s3q301k);
-        s3q301ioth = (EditText) findViewById(R.id.s3q301ioth);
-        s3q301joth = (EditText) findViewById(R.id.s3q301joth);
-        vu_s3q301d = (LinearLayout) findViewById(R.id.vu_s3q301d);
+        s3q301a = findViewById(R.id.s3q301a);
+        s3q301b = findViewById(R.id.s3q301b);
+        s3q301c = findViewById(R.id.s3q301c);
+        s3q301e = findViewById(R.id.s3q301e);
+        s3q301k = findViewById(R.id.s3q301k);
+        s3q301ioth = findViewById(R.id.s3q301ioth);
+        s3q301joth = findViewById(R.id.s3q301joth);
+        vu_s3q301d = findViewById(R.id.vu_s3q301d);
 
-        vu_s3q301f = (LinearLayout) findViewById(R.id.vu_s3q301f);
+        vu_s3q301f = findViewById(R.id.vu_s3q301f);
         //vu_s3q301f1 = (LinearLayout) findViewById(R.id.vu_s3q301f1);
-        vu_s3q301g = (LinearLayout) findViewById(R.id.vu_s3q301g);
+        vu_s3q301g = findViewById(R.id.vu_s3q301g);
 
 //        btnnext = (Button) findViewById(R.id.btnnext);
 //        btnadd = (Button) findViewById(R.id.btnadd);
 
-        lbl_wcount = (TextView) findViewById(R.id.lbl_wcount);
-        wcount = (TextView) findViewById(R.id.wcount);
+        lbl_wcount = findViewById(R.id.lbl_wcount);
+        wcount = findViewById(R.id.wcount);
 
         CVars var = new CVars();
 
-        lbl_hhhead = (TextView) findViewById(R.id.lbl_hhhead);
+        lbl_hhhead = findViewById(R.id.lbl_hhhead);
 
 
 //        wcount.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Woman " + SRCApp.tcount + " of " + var.GetReproductionAgeWoman() + ")");
@@ -781,6 +781,7 @@ public class Section3Activity extends Activity {
             }
 
             SRCApp.sc3.set_s3q301j(var_s3q301j);
+            SRCApp.sc3.set_s3q301k(s3q301k.getText().toString());
 
 
         } catch (Exception e) {
