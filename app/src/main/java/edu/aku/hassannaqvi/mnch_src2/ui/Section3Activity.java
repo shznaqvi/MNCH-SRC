@@ -848,6 +848,21 @@ public class Section3Activity extends Activity {
             s3q301c.setError(null);
         }*/
 
+        if (Integer.parseInt(s3q301c.getText().toString()) < 1
+                && Integer.parseInt(s3q301c.getText().toString()) != 91
+                && Integer.parseInt(s3q301c.getText().toString()) != 92
+                || Integer.parseInt(s3q301c.getText().toString()) > 18
+                && Integer.parseInt(s3q301c.getText().toString()) != 91
+                && Integer.parseInt(s3q301c.getText().toString()) != 92) {
+            s3q301c.requestFocus();
+            Toast.makeText(getApplicationContext(), "Years of schooling of woman must be 1 - 18 or 91 or 92 \r\n", Toast.LENGTH_LONG).show();
+            s3q301c.setError("Years of schooling of woman must be 1 - 18 or 91 or 92");
+            Log.d(TAG, "ValidateForm: Error Type:301c invalid");
+            return false;
+        } else {
+            s3q301c.setError(null);
+        }
+
 
         rdo_s3q301d = radioS3q301d.getCheckedRadioButtonId();
 
@@ -866,6 +881,8 @@ public class Section3Activity extends Activity {
             rDOS3q301d1.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             rDOS3q301d1.requestFocus();
+            rDOS3q301d1.setFocusableInTouchMode(true);
+            rDOS3q301d1.setFocusable(true);
             Log.d(TAG, "ValidateForm: Error Type:301d not selected ");
             return false;
         } else {
@@ -895,12 +912,25 @@ public class Section3Activity extends Activity {
             } else {
                 s3q301e.setError(null);
             }
+
+            if (s3q301e.getText().toString().isEmpty()) {
+
+            } else {
+                if (Integer.parseInt(s3q301e.getText().toString()) < 1 || Integer.parseInt(s3q301e.getText().toString()) > 9) {
+                    Toast.makeText(getApplicationContext(), "Gestational age must be 1 - 9 months \r\n", Toast.LENGTH_LONG).show();
+                    s3q301e.requestFocus();
+                    Log.d(TAG, "ValidateForm: Error Type: 301e invalid");
+                    return false;
+                }
+            }
         }
 
         if (rdo_s3q301f1 == -1) {
             rDOS3q301f11.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             rDOS3q301f11.requestFocus();
+            rDOS3q301f11.setFocusable(true);
+            rDOS3q301f11.setFocusableInTouchMode(true);
             Log.d(TAG, "ValidateForm: Error Type: 301f not selected");
             return false;
         } else {
@@ -910,16 +940,16 @@ public class Section3Activity extends Activity {
 
 
 
-        int gestation = 0;
+        /*int gestation = 0;
 
 
         try {
             gestation = Integer.parseInt(s3q301e.getText().toString());
 
 
-            if (gestation < 3 || gestation > 42) {
-                s3q301e.setError(getString(R.string.txterr) + "Gestational age should be 3 - 42 weeks");
-                Toast.makeText(getApplicationContext(), "Gestational age should be 3 - 42 weeks  \r\n", Toast.LENGTH_LONG).show();
+            if (gestation < 1 || gestation > 9) {
+                s3q301e.setError(getString(R.string.txterr) + "Gestational age should be 1 - 9 months");
+                Toast.makeText(getApplicationContext(), "Gestational age should be 1 - 9 months  \r\n", Toast.LENGTH_LONG).show();
                 s3q301e.requestFocus();
                 Log.d(TAG, "ValidateForm: Error Type:301e invalid");
                 return false;
@@ -930,7 +960,7 @@ public class Section3Activity extends Activity {
         } catch (NumberFormatException nfe) {
 
         }
-
+*/
 
         rdo_s3q301f = radioS3q301f.getCheckedRadioButtonId();
 
@@ -958,6 +988,8 @@ public class Section3Activity extends Activity {
                 rDOS3q301f1.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
                 rDOS3q301f1.requestFocus();
+                rDOS3q301f1.setFocusableInTouchMode(true);
+                rDOS3q301f1.setFocusable(true);
                 Log.d(TAG, "ValidateForm: Error Type: 301f not selected");
                 return false;
             } else {
@@ -984,6 +1016,8 @@ public class Section3Activity extends Activity {
                 rDOS3q301g1.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
                 rDOS3q301g1.requestFocus();
+                rDOS3q301g1.setFocusable(true);
+                rDOS3q301g1.setFocusableInTouchMode(true);
                 Log.d(TAG, "ValidateForm: Error Type: 301f not selected ");
                 return false;
             } else {
@@ -1011,6 +1045,8 @@ public class Section3Activity extends Activity {
                 rDOS3q301h1.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
                 rDOS3q301h1.requestFocus();
+                rDOS3q301h1.setFocusableInTouchMode(true);
+                rDOS3q301h1.setFocusable(true);
                 Log.d(TAG, "ValidateForm: Error Type: 301g not selected  ");
                 return false;
 
@@ -1068,6 +1104,8 @@ public class Section3Activity extends Activity {
                 rDOS3q301i1.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
                 rDOS3q301i1.requestFocus();
+                rDOS3q301i1.setFocusable(true);
+                rDOS3q301i1.setFocusableInTouchMode(true);
                 Log.d(TAG, "ValidateForm: Error Type: 301i not selected");
                 return false;
             } else {
@@ -1127,6 +1165,8 @@ public class Section3Activity extends Activity {
                 rDOS3q301j1.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
                 rDOS3q301j1.requestFocus();
+                rDOS3q301j1.setFocusableInTouchMode(true);
+                rDOS3q301j1.setFocusable(true);
                 Log.d(TAG, "ValidateForm: Error Type: 301j not selected");
                 return false;
             } else {
@@ -1165,34 +1205,6 @@ public class Section3Activity extends Activity {
                 return false;
             } else {
                 s3q301k.setError(null);
-            }
-
-
-            if (s3q301e.getText().toString().isEmpty()) {
-
-            } else {
-                if (Integer.parseInt(s3q301e.getText().toString()) <= 2 || Integer.parseInt(s3q301e.getText().toString()) > 43) {
-                    Toast.makeText(getApplicationContext(), "Gestational age must be 3 - 44 weeks \r\n", Toast.LENGTH_LONG).show();
-                    s3q301e.requestFocus();
-                    Log.d(TAG, "ValidateForm: Error Type: 301e invalid");
-                    return false;
-                }
-            }
-
-
-            if (Integer.parseInt(s3q301c.getText().toString()) == 0
-                    && Integer.parseInt(s3q301c.getText().toString()) != 91
-                    && Integer.parseInt(s3q301c.getText().toString()) != 92
-                    || Integer.parseInt(s3q301c.getText().toString()) > 16
-                    && Integer.parseInt(s3q301c.getText().toString()) != 91
-                    && Integer.parseInt(s3q301c.getText().toString()) != 92) {
-                s3q301c.requestFocus();
-                Toast.makeText(getApplicationContext(), "Years of schooling of woman must be 0 - 16 or 91 or 92 \r\n", Toast.LENGTH_LONG).show();
-                s3q301c.setError("Years of schooling of woman must be 0 - 16 or 91 or 92");
-                Log.d(TAG, "ValidateForm: Error Type:301c invalid");
-                return false;
-            } else {
-                s3q301c.setError(null);
             }
 
 

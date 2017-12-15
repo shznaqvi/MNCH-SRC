@@ -387,6 +387,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (mn071102.isChecked()) {
                     mn071102x.setVisibility(View.VISIBLE);
+                    mn071103x.setVisibility(View.GONE);
+                    mn071103x.setText(null);
 
                 } else if (mn071103.isChecked()) {
                     mn071103x.setVisibility(View.VISIBLE);
@@ -587,7 +589,19 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 mn070201.setError(null);
             }
 
-            if (!mn070202.getText().toString().isEmpty()) {
+            if (!mn070201.getText().toString().isEmpty() && Integer.valueOf(mn070202.getText().toString()) == 0) {
+
+                if (Double.parseDouble(mn070201.getText().toString()) < 1.0 || Double.parseDouble(mn070201.getText().toString()) > 9.0) {
+                    Toast.makeText(this, "" + "Weight can not be less than 1 - 9 kg.. check again", Toast.LENGTH_SHORT).show();
+                    mn070201.setError("Weight can not be less than 1.0 - 9.0 kg");
+                    Log.d(TAG, "ValidateForm: 702");
+                    return false;
+                } else {
+                    mn070201.setError(null);
+                }
+            }
+
+            if (!mn070202.getText().toString().isEmpty() && Double.valueOf(mn070201.getText().toString()) == 0) {
                 if (Integer.parseInt(mn070202.getText().toString()) < 1000 || Integer.parseInt(mn070202.getText().toString()) > 9000) {
                     Toast.makeText(this, "" + "Weight must be between 1000 - 9000 gm.", Toast.LENGTH_SHORT).show();
                     mn070202.setError("Weight must be between 1000 - 9000 gm.");
@@ -598,17 +612,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 }
             }
 
-            if (!mn070201.getText().toString().isEmpty()) {
 
-                if (Double.parseDouble(mn070201.getText().toString()) < 1 || Double.parseDouble(mn070201.getText().toString()) > 9) {
-                    Toast.makeText(this, "" + "Weight can not be less than 1 - 9 kg.. check again", Toast.LENGTH_SHORT).show();
-                    mn070201.setError("Weight can not be less than 1 - 9 kg");
-                    Log.d(TAG, "ValidateForm: 702");
-                    return false;
-                } else {
-                    mn070201.setError(null);
-                }
-            }
 
 
         }
@@ -685,6 +689,16 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     return false;
                 } else {
                     mn070888.setError(null);
+                }
+
+                if (mn070888.isChecked() && mn070888x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "" + getString(R.string.mn0708), Toast.LENGTH_SHORT).show();
+                    mn070888x.setError("This is inValid");
+                    Log.d(TAG, "ValidateForm: 708");
+
+                    return false;
+                } else {
+                    mn070888x.setError(null);
                 }
             }
         }
@@ -1029,6 +1043,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             }
         } else if (group.getId() == R.id.mn0707) {
             if (mn07072.isChecked()) {
+                mn0708.clearCheck();
                 mn07088.setVisibility(View.GONE);
                 mn070888x.setText(null);
             } else {

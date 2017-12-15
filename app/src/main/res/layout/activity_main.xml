@@ -39,12 +39,12 @@
                 android:onClick="syncData"
                 android:text="Sync Data" />
 
-            <!--<Button
-                android:id="@+id/ShowSec4"
-                style="@style/buttons"
-                android:layout_marginTop="20dp"
-                android:onClick="OpenSection4"
-                android:text="@string/sec4" />-->
+            <!-- <Button
+                 android:id="@+id/ShowSec4"
+                 style="@style/buttons"
+                 android:layout_marginTop="20dp"
+                 android:onClick="OpenSection4"
+                 android:text="@string/sec4" />-->
 
         </LinearLayout>
     </ScrollView>

@@ -414,7 +414,7 @@
             android:ems="10"
             android:hint="@string/countMDeath"
             android:inputType="number"
-            android:maxLength="2" />
+            android:maxLength="1"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -456,7 +456,7 @@
             android:ems="10"
             android:hint="@string/s2q206j"
             android:inputType="number"
-            android:maxLength="2"
+            android:maxLength="1"
             android:visibility="gone" />
 
         <LinearLayout

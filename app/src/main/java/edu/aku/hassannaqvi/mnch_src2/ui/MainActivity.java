@@ -19,11 +19,11 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import edu.aku.hassannaqvi.mnch_src2.R;
 import edu.aku.hassannaqvi.mnch_src2.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.mnch_src2.get.GetDistricts;
 import edu.aku.hassannaqvi.mnch_src2.get.GetUsers;
 import edu.aku.hassannaqvi.mnch_src2.get.GetVillages;
-import edu.aku.hassannaqvi.mnch_src2.R;
 import edu.aku.hassannaqvi.mnch_src2.sync.SyncForms;
 import edu.aku.hassannaqvi.mnch_src2.sync.SyncSec3;
 import edu.aku.hassannaqvi.mnch_src2.sync.SyncSec4a;
@@ -33,12 +33,11 @@ import edu.aku.hassannaqvi.mnch_src2.sync.SyncSec7Im;
 public class MainActivity extends Activity {
 
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
-    private Boolean exit = false;
-
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     AlertDialog.Builder builder;
     String m_Text = "";
+    private Boolean exit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,7 +173,7 @@ public class MainActivity extends Activity {
 
     public void OpenSection4(View v) {
 
-        Intent sec1_intent = new Intent(this, Section8Activity.class);
+        Intent sec1_intent = new Intent(this, Section5Activity.class);
         startActivity(sec1_intent);
 
     }
