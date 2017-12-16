@@ -387,6 +387,8 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (mn071102.isChecked()) {
                     mn071102x.setVisibility(View.VISIBLE);
+                    mn071103x.setVisibility(View.GONE);
+                    mn071103x.setText(null);
 
                 } else if (mn071103.isChecked()) {
                     mn071103x.setVisibility(View.VISIBLE);
@@ -581,16 +583,31 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             if (mn070201.getText().toString().isEmpty() && mn070202.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mn0702), Toast.LENGTH_SHORT).show();
                 mn070201.setError("This is inValid");
+                mn070201.requestFocus();
                 Log.d(TAG, "ValidateForm: 702");
                 return false;
             } else {
                 mn070201.setError(null);
             }
 
-            if (!mn070202.getText().toString().isEmpty()) {
+            if (!mn070201.getText().toString().isEmpty() && Integer.valueOf(mn070202.getText().toString()) == 0) {
+
+                if (Double.parseDouble(mn070201.getText().toString()) < 1.0 || Double.parseDouble(mn070201.getText().toString()) > 9.0) {
+                    Toast.makeText(this, "" + "Weight can not be less than 1 - 9 kg.. check again", Toast.LENGTH_SHORT).show();
+                    mn070201.setError("Weight can not be less than 1.0 - 9.0 kg");
+                    mn070201.requestFocus();
+                    Log.d(TAG, "ValidateForm: 702");
+                    return false;
+                } else {
+                    mn070201.setError(null);
+                }
+            }
+
+            if (!mn070202.getText().toString().isEmpty() && Double.valueOf(mn070201.getText().toString()) == 0) {
                 if (Integer.parseInt(mn070202.getText().toString()) < 1000 || Integer.parseInt(mn070202.getText().toString()) > 9000) {
                     Toast.makeText(this, "" + "Weight must be between 1000 - 9000 gm.", Toast.LENGTH_SHORT).show();
                     mn070202.setError("Weight must be between 1000 - 9000 gm.");
+                    mn070202.requestFocus();
                     Log.d(TAG, "ValidateForm: 702");
                     return false;
                 } else {
@@ -598,17 +615,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 }
             }
 
-            if (!mn070201.getText().toString().isEmpty()) {
 
-                if (Double.parseDouble(mn070201.getText().toString()) < 1 || Double.parseDouble(mn070201.getText().toString()) > 9) {
-                    Toast.makeText(this, "" + "Weight can not be less than 1 - 9 kg.. check again", Toast.LENGTH_SHORT).show();
-                    mn070201.setError("Weight can not be less than 1 - 9 kg");
-                    Log.d(TAG, "ValidateForm: 702");
-                    return false;
-                } else {
-                    mn070201.setError(null);
-                }
-            }
 
 
         }
@@ -619,6 +626,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             Toast.makeText(this, "" + getString(R.string.mn0703), Toast.LENGTH_SHORT).show();
             mn07031.setError("This is inValid");
             Log.d(TAG, "ValidateForm: 703");
+            mn07031.requestFocus();
+            mn07031.setFocusableInTouchMode(true);
+            mn07031.setFocusable(true);
             return false;
         } else {
             mn07031.setError(null);
@@ -630,6 +640,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             Toast.makeText(this, "" + getString(R.string.mn0704), Toast.LENGTH_SHORT).show();
             mn07041.setError("This is inValid");
             Log.d(TAG, "ValidateForm: 704");
+            mn07041.setFocusable(true);
+            mn07041.setFocusableInTouchMode(true);
+            mn07041.requestFocus();
 
             return false;
         } else {
@@ -642,6 +655,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             Toast.makeText(this, "" + getString(R.string.mn0705), Toast.LENGTH_SHORT).show();
             mn07051.setError("This is inValid");
             Log.d(TAG, "ValidateForm: 705");
+            mn07051.requestFocus();
+            mn07051.setFocusableInTouchMode(true);
+            mn07051.setFocusable(true);
 
             return false;
         } else {
@@ -654,7 +670,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             Toast.makeText(this, "" + getString(R.string.mn0706), Toast.LENGTH_SHORT).show();
             mn070699.setError("This is inValid");
             Log.d(TAG, "ValidateForm: 706");
-
+            mn070699.setFocusable(true);
+            mn070699.setFocusableInTouchMode(true);
+            mn070699.requestFocus();
             return false;
         } else {
             mn070699.setError(null);
@@ -668,7 +686,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 Toast.makeText(this, "" + getString(R.string.mn0707), Toast.LENGTH_SHORT).show();
                 mn07072.setError("This is inValid");
                 Log.d(TAG, "ValidateForm: 707");
-
+                mn07072.requestFocus();
+                mn07072.setFocusableInTouchMode(true);
+                mn07072.setFocusable(true);
                 return false;
             } else {
                 mn07072.setError(null);
@@ -681,10 +701,22 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     Toast.makeText(this, "" + getString(R.string.mn0708), Toast.LENGTH_SHORT).show();
                     mn070888.setError("This is inValid");
                     Log.d(TAG, "ValidateForm: 708");
-
+                    mn070888.setFocusable(true);
+                    mn070888.setFocusableInTouchMode(true);
+                    mn070888.requestFocus();
                     return false;
                 } else {
                     mn070888.setError(null);
+                }
+
+                if (mn070888.isChecked() && mn070888x.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "" + getString(R.string.mn0708), Toast.LENGTH_SHORT).show();
+                    mn070888x.setError("This is inValid");
+                    Log.d(TAG, "ValidateForm: 708");
+                    mn070888x.requestFocus();
+                    return false;
+                } else {
+                    mn070888x.setError(null);
                 }
             }
         }
@@ -695,7 +727,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             Toast.makeText(this, "" + getString(R.string.mn0709), Toast.LENGTH_SHORT).show();
             mn07092.setError("This is inValid");
             Log.d(TAG, "ValidateForm: 709");
-
+            mn07092.requestFocus();
+            mn07092.setFocusableInTouchMode(true);
+            mn07092.setFocusable(true);
             return false;
         } else {
             mn07092.setError(null);
@@ -709,7 +743,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 Toast.makeText(this, "" + getString(R.string.mn0710), Toast.LENGTH_SHORT).show();
                 mn071088.setError("This is inValid");
                 Log.d(TAG, "ValidateForm: 709");
-
+                mn071088.requestFocus();
                 return false;
             } else {
                 mn071088.setError(null);
@@ -719,6 +753,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 Toast.makeText(this, "" + getString(R.string.mn0710), Toast.LENGTH_SHORT).show();
                 mn071088x.setError("This is inValid");
                 Log.d(TAG, "ValidateForm: 710");
+                mn071088x.requestFocus();
 
                 return false;
             } else {
@@ -732,7 +767,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0711), Toast.LENGTH_LONG).show();
             mn071103.setError("This data is Required!");    // Set Error on last radio button
             Log.d(TAG, "ValidateForm: 711");
-
+            mn071103.requestFocus();
+            mn071103.setFocusable(true);
+            mn071103.setFocusableInTouchMode(true);
             return false;
         } else {
             mn071103.setError(null);
@@ -743,6 +780,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
                 mn071102x.setError("This data is Required");
                 Log.d(TAG, "ValidateForm: 711");
+                mn071102x.requestFocus();
 
                 return false;
             } else {
@@ -752,6 +790,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             if ((Integer.parseInt(mn071102x.getText().toString()) < 0) || (Integer.parseInt(mn071102x.getText().toString()) > 23)) {
                 Toast.makeText(this, "" + "Range is 0 - 23 hours", Toast.LENGTH_SHORT).show();
                 mn071102x.setError("Range is 0 - 23 hours");
+                mn071102x.requestFocus();
                 Log.d(TAG, "ValidateForm: 711");
 
                 return false;
@@ -765,7 +804,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
                 mn071103x.setError("This data is Required");
                 Log.d(TAG, "ValidateForm: 711");
-
+                mn071103x.requestFocus();
                 return false;
             } else {
                 mn071103x.setError(null);
@@ -775,7 +814,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 Toast.makeText(this, "" + "Range is 0 - 180 days", Toast.LENGTH_SHORT).show();
                 mn071103x.setError("Range is 0 - 180 days");
                 Log.d(TAG, "ValidateForm: 711");
-
+                mn071103x.requestFocus();
                 return false;
             } else {
                 mn071103x.setError(null);
@@ -788,7 +827,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             Toast.makeText(this, "" + getString(R.string.mn0712), Toast.LENGTH_SHORT).show();
             mn07121.setError("This is inValid");
             Log.d(TAG, "ValidateForm: 712");
-
+            mn07121.requestFocus();
+            mn07121.setFocusableInTouchMode(true);
+            mn07121.setFocusable(true);
             return false;
         } else {
             mn07121.setError(null);
@@ -801,7 +842,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 Toast.makeText(this, "" + getString(R.string.mn0713), Toast.LENGTH_SHORT).show();
                 mn071302.setError("This is inValid");
                 Log.d(TAG, "ValidateForm: 713");
-
+                mn071302.setFocusable(true);
+                mn071302.setFocusableInTouchMode(true);
+                mn071302.requestFocus();
                 return false;
             } else {
                 mn071302.setError(null);
@@ -812,7 +855,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
                     mn071301x.setError("This data is Required");
                     Log.d(TAG, "ValidateForm: 713-01");
-
+                    mn071301x.requestFocus();
                     return false;
                 } else {
                     mn071301x.setError(null);
@@ -822,7 +865,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     Toast.makeText(this, "This is inValid", Toast.LENGTH_SHORT).show();
                     mn071301x.setError("This is inValid");
                     Log.d(TAG, "ValidateForm: 713-01");
-
+                    mn071301x.requestFocus();
                     return false;
                 } else {
                     mn071301x.setError(null);
@@ -833,7 +876,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     Toast.makeText(this, "This data is Required", Toast.LENGTH_SHORT).show();
                     mn071302x.setError("This data is Required");
                     Log.d(TAG, "ValidateForm: 713-02");
-
+                    mn071302x.requestFocus();
                     return false;
                 } else {
                     mn071302x.setError(null);
@@ -843,7 +886,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     Toast.makeText(this, "This is inValid", Toast.LENGTH_SHORT).show();
                     mn071302x.setError("This is inValid");
                     Log.d(TAG, "ValidateForm: 713-02");
-
+                    mn071302x.requestFocus();
                     return false;
                 } else {
                     mn071302x.setError(null);
@@ -859,7 +902,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 Toast.makeText(this, "" + getString(R.string.mn0714), Toast.LENGTH_SHORT).show();
                 mn071488.setError("This is inValid");
                 Log.d(TAG, "ValidateForm: 714");
-
+                mn071488.requestFocus();
                 return false;
             } else {
                 mn071488.setError(null);
@@ -869,7 +912,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 Toast.makeText(this, "" + getString(R.string.mn0714), Toast.LENGTH_SHORT).show();
                 mn071488x.setError("This is inValid");
                 Log.d(TAG, "ValidateForm: 714");
-
+                mn071488x.requestFocus();
                 return false;
             } else {
                 mn071488x.setError(null);
@@ -882,7 +925,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             Toast.makeText(this, "" + getString(R.string.mn0715), Toast.LENGTH_SHORT).show();
             mn07151.setError("This is inValid");
             Log.d(TAG, "ValidateForm: 715");
-
+            mn07151.requestFocus();
+            mn07151.setFocusableInTouchMode(true);
+            mn07151.setFocusable(true);
             return false;
         } else {
             mn07151.setError(null);
@@ -898,6 +943,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 mn071688.setError("This is inValid");
                 Log.d(TAG, "ValidateForm: 716");
 
+                mn071688.requestFocus();
                 return false;
             } else {
                 mn071688.setError(null);
@@ -907,7 +953,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 Toast.makeText(this, "" + getString(R.string.mn0716), Toast.LENGTH_SHORT).show();
                 mn071688x.setError("This is inValid");
                 Log.d(TAG, "ValidateForm: 716");
-
+                mn071688x.requestFocus();
                 return false;
             } else {
                 mn071688x.setError(null);
@@ -922,7 +968,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 Toast.makeText(this, "" + getString(R.string.mn0717), Toast.LENGTH_SHORT).show();
                 mn071788.setError("This is inValid");
                 Log.d(TAG, "ValidateForm: 717");
-
+                mn071788.requestFocus();
                 return false;
             } else {
                 mn071788.setError(null);
@@ -932,7 +978,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 Toast.makeText(this, "" + getString(R.string.mn0717), Toast.LENGTH_SHORT).show();
                 mn071788x.setError("This is inValid");
                 Log.d(TAG, "ValidateForm: 717");
-
+                mn071788x.requestFocus();
                 return false;
             } else {
                 mn071788x.setError(null);
@@ -944,7 +990,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 Toast.makeText(this, "" + getString(R.string.mn0718), Toast.LENGTH_SHORT).show();
                 mn071801.setError("This is inValid");
                 Log.d(TAG, "ValidateForm: 718");
-
+                mn071801.requestFocus();
+                mn071801.setFocusable(true);
+                mn071801.setFocusableInTouchMode(true);
                 return false;
             } else {
                 mn071801.setError(null);
@@ -957,6 +1005,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     Toast.makeText(this, "" + getString(R.string.mn0719), Toast.LENGTH_SHORT).show();
                     mn0701901.setError("This is inValid");
                     Log.d(TAG, "ValidateForm: 719 not selected");
+                    mn0701901.requestFocus();
+                    mn0701901.setFocusableInTouchMode(true);
+                    mn0701901.setFocusable(true);
                     return false;
                 } else {
                     mn0701901.setError(null);
@@ -966,6 +1017,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     Toast.makeText(this, "Empty:" + getString(R.string.mn0719), Toast.LENGTH_SHORT).show();
                     mn071988.setError("This is inValid");
                     Log.d(TAG, "ValidateForm:  719 empty");
+                    mn071988.requestFocus();
+                    mn071988.setFocusable(true);
+                    mn071988.setFocusableInTouchMode(true);
                     return false;
                 } else {
                     mn071988.setError(null);
@@ -982,6 +1036,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 Toast.makeText(this, "" + getString(R.string.mn0720), Toast.LENGTH_SHORT).show();
                 mn072001.setError("This is inValid");
                 Log.d(TAG, "ValidateForm:72001  ");
+                mn072001.requestFocus();
                 return false;
             } else {
                 mn072001.setError(null);
@@ -991,6 +1046,9 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                 Toast.makeText(this, "" + getString(R.string.mn0721), Toast.LENGTH_SHORT).show();
                 mn07211.setError("This is inValid");
                 Log.d(TAG, "ValidateForm: 721 not selected");
+                mn07211.requestFocus();
+                mn07211.setFocusableInTouchMode(true);
+                mn07211.setFocusable(true);
                 return false;
             } else {
                 mn07211.setError(null);
@@ -1003,6 +1061,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
                     Toast.makeText(this, "" + getString(R.string.mn0722), Toast.LENGTH_SHORT).show();
                     mn072201.setError("This is inValid");
                     Log.d(TAG, "ValidateForm: 722 invalid");
+                    mn072201.requestFocus();
                     return false;
                 } else {
                     mn072201.setError(null);
@@ -1029,6 +1088,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
             }
         } else if (group.getId() == R.id.mn0707) {
             if (mn07072.isChecked()) {
+                mn0708.clearCheck();
                 mn07088.setVisibility(View.GONE);
                 mn070888x.setText(null);
             } else {

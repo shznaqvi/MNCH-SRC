@@ -37,13 +37,13 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import edu.aku.hassannaqvi.mnch_src2.other.CVars;
+import edu.aku.hassannaqvi.mnch_src2.R;
 import edu.aku.hassannaqvi.mnch_src2.contract.DistrictsContract;
 import edu.aku.hassannaqvi.mnch_src2.contract.FormContract;
-import edu.aku.hassannaqvi.mnch_src2.R;
+import edu.aku.hassannaqvi.mnch_src2.contract.VillagesContract;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
-import edu.aku.hassannaqvi.mnch_src2.contract.VillagesContract;
+import edu.aku.hassannaqvi.mnch_src2.other.CVars;
 
 
 public class Section1Activity extends Activity implements TextWatcher {
@@ -118,7 +118,7 @@ public class Section1Activity extends Activity implements TextWatcher {
         SRCApp.DEVID = Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID);
 
-        appheader = (TextView) findViewById(R.id.app_header);
+        appheader = findViewById(R.id.app_header);
         appheader.setText("SRC - > Section1");
 
 //        s1q110 = (DatePicker) findViewById(R.id.s1q110);
@@ -126,19 +126,19 @@ public class Section1Activity extends Activity implements TextWatcher {
 
 //        s1q110.setMaxDate(new Date().getTime());
 
-        lblFormid = (TextView) findViewById(R.id.lbl_formid);
-        lblS1q101 = (TextView) findViewById(R.id.lbl_s1q101);
-        lblS1q102 = (TextView) findViewById(R.id.lbl_s1q102);
-        lblS1q103 = (TextView) findViewById(R.id.lbl_s1q103);
-        radioS1q103 = (RadioGroup) findViewById(R.id.radio_s1q103);
-        rDOS1q1031 = (RadioButton) findViewById(R.id.RDO_s1q103_1);
-        rDOS1q1032 = (RadioButton) findViewById(R.id.RDO_s1q103_2);
-        lblS1q104 = (TextView) findViewById(R.id.lbl_s1q104);
-        lblS1q105 = (TextView) findViewById(R.id.lbl_s1q105);
-        lblS1q106a = (TextView) findViewById(R.id.lbl_s1q106a);
+        lblFormid = findViewById(R.id.lbl_formid);
+        lblS1q101 = findViewById(R.id.lbl_s1q101);
+        lblS1q102 = findViewById(R.id.lbl_s1q102);
+        lblS1q103 = findViewById(R.id.lbl_s1q103);
+        radioS1q103 = findViewById(R.id.radio_s1q103);
+        rDOS1q1031 = findViewById(R.id.RDO_s1q103_1);
+        rDOS1q1032 = findViewById(R.id.RDO_s1q103_2);
+        lblS1q104 = findViewById(R.id.lbl_s1q104);
+        lblS1q105 = findViewById(R.id.lbl_s1q105);
+        lblS1q106a = findViewById(R.id.lbl_s1q106a);
         //lblS1q106b = (TextView) findViewById(R.id.lbl_s1q106b);
         //lblS1q107 = (TextView) findViewById(R.id.lbl_s1q107);
-        lblS1q108 = (TextView) findViewById(R.id.lbl_s1q108);
+        lblS1q108 = findViewById(R.id.lbl_s1q108);
 //        lblS1q110 = (TextView) findViewById(R.id.lbl_s1q110);
         //lblS1q111 = (TextView) findViewById(R.id.lbl_s1q111);
         //radioS1q111 = (RadioGroup) findViewById(R.id.radio_s1q111);
@@ -148,24 +148,24 @@ public class Section1Activity extends Activity implements TextWatcher {
         //rDOS1q1114 = (RadioButton) findViewById(R.id.RDO_s1q111_4);
         //lblS1q111oth = (TextView) findViewById(R.id.lbl_s1q111oth);
         //s1q111oth = (EditText) findViewById(R.id.s1q111oth);
-        lblS1q112 = (TextView) findViewById(R.id.lbl_s1q112);
+        lblS1q112 = findViewById(R.id.lbl_s1q112);
 //        radioS1q112 = (RadioGroup) findViewById(R.id.radio_s1q112);
 //        rDOS1q1121 = (RadioButton) findViewById(R.id.RDO_s1q112_1);
 //        rDOS1q1122 = (RadioButton) findViewById(R.id.RDO_s1q112_2);
 
-        formid = (EditText) findViewById(R.id.formid);
-        s1q101 = (Spinner) findViewById(R.id.s1q101);
+        formid = findViewById(R.id.formid);
+        s1q101 = findViewById(R.id.s1q101);
 
 
-        s1q102 = (EditText) findViewById(R.id.s1q102);
+        s1q102 = findViewById(R.id.s1q102);
 
-        s1q104 = (EditText) findViewById(R.id.s1q104);
-        s1q105 = (Spinner) findViewById(R.id.s1q105);
-        s1q106a = (Spinner) findViewById(R.id.s1q106a);
+        s1q104 = findViewById(R.id.s1q104);
+        s1q105 = findViewById(R.id.s1q105);
+        s1q106a = findViewById(R.id.s1q106a);
 //        s1q106b = (EditText) findViewById(R.id.s1q106b);
         //s1q107 = (EditText) findViewById(R.id.s1q107);
-        s1q108 = (EditText) findViewById(R.id.s1q108);
-        s1q108b = (EditText) findViewById(R.id.s1q108b);
+        s1q108 = findViewById(R.id.s1q108);
+        s1q108b = findViewById(R.id.s1q108b);
 
 //        s1q110 = (DatePicker) findViewById(R.id.s1q110);
         //s1q111oth = (EditText) findViewById(R.id.s1q111oth);
@@ -683,6 +683,8 @@ public class Section1Activity extends Activity implements TextWatcher {
             rDOS1q1031.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             rDOS1q1031.requestFocus();
+            rDOS1q1031.setFocusableInTouchMode(true);
+            rDOS1q1031.setFocusable(true);
             Log.d(TAG, "ValidateForm: 103 not selected ");
             return false;
         } else {
@@ -783,6 +785,8 @@ public class Section1Activity extends Activity implements TextWatcher {
             rDOS1q1121.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             rDOS1q1121.requestFocus();
+            rDOS1q1121.setFocusable(true);
+            rDOS1q1121.setFocusableInTouchMode(true);
             Log.d(TAG, "ValidateForm: ErrorType : 112 not selected ");
             return false;
         } else {

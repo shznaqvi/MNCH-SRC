@@ -200,7 +200,7 @@
     <!-- Section 4a -->
 
     <string name="baseline_s4q42a">ساڳيوماءُ جو فهرست نمبر استعمال ڪريو سوال 20 ۾</string>
-    <string name="baseline_s4q42b">مريويل  ٻار جو مڪمل نالو</string>
+    <string name="baseline_s4q42b">مري ويل  ٻار جو مڪمل نالو</string>
     <string name="baseline_s4q42c">جنس</string>
     <string name="baseline_s4q42c_1">مرد</string>
     <string name="baseline_s4q42c_2">عورت</string>
@@ -297,6 +297,7 @@
     <string name="mn0517month"> Month </string>
     <string name="mn0517src"> Source </string>
     <string name="mn0517iron"> Iron folate </string>
+    <string name="months">مهينا</string>
 
     <string name="mn0517folic"> Folic acid </string>
 

@@ -69,7 +69,7 @@
                 android:digits="0123456789."
                 android:hint="@string/mn070201"
                 android:inputType="numberDecimal"
-                android:maxLength="5" />
+                android:maxLength="3"/>
 
             <EditText
                 android:id="@+id/mn070202"
@@ -78,7 +78,7 @@
                 android:digits="0123456789"
                 android:hint="@string/mn070202"
                 android:inputType="numberDecimal"
-                android:maxLength="5"/>
+                android:maxLength="4"/>
 
             <CheckBox
                 android:id="@+id/mn070299"
@@ -430,31 +430,32 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mn071102" />
 
+                <EditText
+                    android:id="@+id/mn071102x"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mn071102"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:visibility="gone"/>
+
                 <RadioButton
                     android:id="@+id/mn071103"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mn071103" />
+                    android:text="@string/mn071103"/>
+
+                <EditText
+                    android:id="@+id/mn071103x"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mn071103"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:visibility="gone"/>
 
             </RadioGroup>
 
-            <EditText
-                android:id="@+id/mn071102x"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mn071102"
-                android:inputType="number"
-                android:maxLength="2"
-                android:visibility="gone" />
-
-            <EditText
-                android:id="@+id/mn071103x"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/mn071103"
-                android:inputType="number"
-                android:maxLength="3"
-                android:visibility="gone" />
 
             </LinearLayout>
             <TextView

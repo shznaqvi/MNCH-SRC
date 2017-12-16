@@ -14,11 +14,11 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import edu.aku.hassannaqvi.mnch_src2.other.CVars;
 import edu.aku.hassannaqvi.mnch_src2.R;
+import edu.aku.hassannaqvi.mnch_src2.contract.Sec4aContract;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
-import edu.aku.hassannaqvi.mnch_src2.contract.Sec4aContract;
+import edu.aku.hassannaqvi.mnch_src2.other.CVars;
 
 public class Section4Activity extends Activity {
 
@@ -85,43 +85,43 @@ public class Section4Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section4);
 
-        app_header = (TextView) findViewById(R.id.app_header);
+        app_header = findViewById(R.id.app_header);
 
 //        app_header.setText("SRC - > Section4a");
         app_header.setText(getString(R.string.sec4) + " (" + SRCApp.mdCount + " of " + SRCApp.mdTotal + ")");
 
 
-        tcount = (TextView) findViewById(R.id.tcount);
+        tcount = findViewById(R.id.tcount);
 
-        s4q41a = (EditText) findViewById(R.id.s4q41a);
-        s4q41b = (EditText) findViewById(R.id.s4q41b);
+        s4q41a = findViewById(R.id.s4q41a);
+        s4q41b = findViewById(R.id.s4q41b);
 
-        s4q41b1 = (EditText) findViewById(R.id.s4q41b1);
-        s4q41b2 = (EditText) findViewById(R.id.s4q41b2);
+        s4q41b1 = findViewById(R.id.s4q41b1);
+        s4q41b2 = findViewById(R.id.s4q41b2);
 
-        s4q41doth = (EditText) findViewById(R.id.s4q41doth);
+        s4q41doth = findViewById(R.id.s4q41doth);
 
-        radio_s4q41c = (RadioGroup) findViewById(R.id.radio_s4q41c);
-        rdo_s4q41c_1 = (RadioButton) findViewById(R.id.RDO_s4q41c_1);
-        rdo_s4q41c_2 = (RadioButton) findViewById(R.id.RDO_s4q41c_2);
-        rdo_s4q41c_3 = (RadioButton) findViewById(R.id.RDO_s4q41c_3);
-        rdo_s4q41c_4 = (RadioButton) findViewById(R.id.RDO_s4q41c_4);
-        rdo_s4q41c_5 = (RadioButton) findViewById(R.id.RDO_s4q41c_5);
-        rdo_s4q41c_6 = (RadioButton) findViewById(R.id.RDO_s4q41c_6);
-        radio_s4q41d = (RadioGroup) findViewById(R.id.radio_s4q41d);
-        rdo_s4q41d_1 = (RadioButton) findViewById(R.id.RDO_s4q41d_1);
-        rdo_s4q41d_2 = (RadioButton) findViewById(R.id.RDO_s4q41d_2);
-        rdo_s4q41d_3 = (RadioButton) findViewById(R.id.RDO_s4q41d_3);
-        rdo_s4q41d_4 = (RadioButton) findViewById(R.id.RDO_s4q41d_4);
-        rdo_s4q41d_5 = (RadioButton) findViewById(R.id.RDO_s4q41d_5);
-        rdo_s4q41d_6 = (RadioButton) findViewById(R.id.RDO_s4q41d_6);
-        rdo_s4q41d_7 = (RadioButton) findViewById(R.id.RDO_s4q41d_7);
-        rdo_s4q41d_8 = (RadioButton) findViewById(R.id.RDO_s4q41d_8);
-        rdo_s4q41d_9 = (RadioButton) findViewById(R.id.RDO_s4q41d_9);
-        rdo_s4q41d_10 = (RadioButton) findViewById(R.id.RDO_s4q41d_10);
-        s4q41e = (EditText) findViewById(R.id.s4q41e);
+        radio_s4q41c = findViewById(R.id.radio_s4q41c);
+        rdo_s4q41c_1 = findViewById(R.id.RDO_s4q41c_1);
+        rdo_s4q41c_2 = findViewById(R.id.RDO_s4q41c_2);
+        rdo_s4q41c_3 = findViewById(R.id.RDO_s4q41c_3);
+        rdo_s4q41c_4 = findViewById(R.id.RDO_s4q41c_4);
+        rdo_s4q41c_5 = findViewById(R.id.RDO_s4q41c_5);
+        rdo_s4q41c_6 = findViewById(R.id.RDO_s4q41c_6);
+        radio_s4q41d = findViewById(R.id.radio_s4q41d);
+        rdo_s4q41d_1 = findViewById(R.id.RDO_s4q41d_1);
+        rdo_s4q41d_2 = findViewById(R.id.RDO_s4q41d_2);
+        rdo_s4q41d_3 = findViewById(R.id.RDO_s4q41d_3);
+        rdo_s4q41d_4 = findViewById(R.id.RDO_s4q41d_4);
+        rdo_s4q41d_5 = findViewById(R.id.RDO_s4q41d_5);
+        rdo_s4q41d_6 = findViewById(R.id.RDO_s4q41d_6);
+        rdo_s4q41d_7 = findViewById(R.id.RDO_s4q41d_7);
+        rdo_s4q41d_8 = findViewById(R.id.RDO_s4q41d_8);
+        rdo_s4q41d_9 = findViewById(R.id.RDO_s4q41d_9);
+        rdo_s4q41d_10 = findViewById(R.id.RDO_s4q41d_10);
+        s4q41e = findViewById(R.id.s4q41e);
 
-        vu_s4q41doth = (LinearLayout) findViewById(R.id.vu_s4q41doth);
+        vu_s4q41doth = findViewById(R.id.vu_s4q41doth);
 
 //        btnNext = (Button) findViewById(R.id.btnNext);
 //        btnadd = (Button) findViewById(R.id.btnadd);
@@ -346,16 +346,6 @@ public class Section4Activity extends Activity {
             s4q41b.setError(null);
         }
 
-        if (s4q41b2.getText().toString().isEmpty()) {
-            s4q41b2.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "Cannot be empty", Toast.LENGTH_LONG).show();
-            s4q41b2.requestFocus();
-            Log.d(TAG, "ValidateForm: Error Type: 41b2 empty");
-            return false;
-        } else {
-            s4q41b2.setError(null);
-        }
-
         if (s4q41b1.getText().toString().isEmpty()) {
             s4q41b1.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Cannot be empty", Toast.LENGTH_LONG).show();
@@ -366,6 +356,15 @@ public class Section4Activity extends Activity {
             s4q41b1.setError(null);
         }
 
+        if (s4q41b2.getText().toString().isEmpty()) {
+            s4q41b2.setError(getString(R.string.txterr));
+            Toast.makeText(getApplicationContext(), "Cannot be empty", Toast.LENGTH_LONG).show();
+            s4q41b2.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type: 41b2 empty");
+            return false;
+        } else {
+            s4q41b2.setError(null);
+        }
 
         if (s4q41b.getText().toString().isEmpty() || s4q41b1.getText().toString().isEmpty() || s4q41b2.getText().toString().isEmpty()) {
             s4q41b.setError(getString(R.string.txterr));
@@ -382,7 +381,7 @@ public class Section4Activity extends Activity {
             if ((Integer.parseInt(s4q41b.getText().toString()) < 0 || Integer.parseInt(s4q41b.getText().toString()) > 29)) {
 
                 s4q41b.setError("Invalid:" + getString(R.string.baseline_s4q41b));
-                Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Invalid: Range is 0 to 29 days" + getString(R.string.baseline_s4q41b), Toast.LENGTH_LONG).show();
                 s4q41b.requestFocus();
                 Log.d(TAG, "ValidateForm: Error Type:41b invalid");
                 return false;
@@ -394,7 +393,7 @@ public class Section4Activity extends Activity {
             if ((Integer.parseInt(s4q41b1.getText().toString()) < 0 || Integer.parseInt(s4q41b1.getText().toString()) > 11)) {
 
                 s4q41b1.setError("Invalid:" + getString(R.string.baseline_s4q41b1));
-                Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q41b1), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Invalid: Range is 0 to 11 months" + getString(R.string.baseline_s4q41b1), Toast.LENGTH_LONG).show();
                 s4q41b1.requestFocus();
                 Log.d(TAG, "ValidateForm: Error Type: 41b1 invalid");
                 return false;
@@ -403,10 +402,10 @@ public class Section4Activity extends Activity {
             }
 
             // AGE: YEARS 15 - 49
-            if ((Integer.parseInt(s4q41b2.getText().toString()) < 0 || Integer.parseInt(s4q41b2.getText().toString()) > 49)) {
+            if ((Integer.parseInt(s4q41b2.getText().toString()) < 15 || Integer.parseInt(s4q41b2.getText().toString()) > 49)) {
 
                 s4q41b2.setError("Invalid:" + getString(R.string.baseline_s4q41b2));
-                Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q41b2), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Invalid: Range is 15 to 49 years" + getString(R.string.baseline_s4q41b2), Toast.LENGTH_LONG).show();
                 s4q41b2.requestFocus();
                 Log.d(TAG, "ValidateForm: Error Type: 41b2 invalid");
                 return false;
@@ -422,6 +421,8 @@ public class Section4Activity extends Activity {
             rdo_s4q41c_1.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             radio_s4q41c.requestFocus();
+            radio_s4q41c.setFocusable(true);
+            radio_s4q41c.setFocusableInTouchMode(true);
             Log.d(TAG, "ValidateForm: Error Type:41c not selected");
             return false;
         } else {
@@ -456,6 +457,8 @@ public class Section4Activity extends Activity {
             rdo_s4q41d_1.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             radio_s4q41d.requestFocus();
+            radio_s4q41d.setFocusableInTouchMode(true);
+            radio_s4q41d.setFocusable(true);
             Log.d(TAG, "ValidateForm: Error Type: 41d not selected");
             return false;
         } else {

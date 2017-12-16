@@ -19,12 +19,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import edu.aku.hassannaqvi.mnch_src2.other.CVars;
-import edu.aku.hassannaqvi.mnch_src2.other.Members;
 import edu.aku.hassannaqvi.mnch_src2.R;
+import edu.aku.hassannaqvi.mnch_src2.contract.Sec4bContract;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
-import edu.aku.hassannaqvi.mnch_src2.contract.Sec4bContract;
+import edu.aku.hassannaqvi.mnch_src2.other.CVars;
+import edu.aku.hassannaqvi.mnch_src2.other.Members;
 
 
 public class Section4bActivity extends Activity {
@@ -95,39 +95,39 @@ public class Section4bActivity extends Activity {
         setContentView(R.layout.activity_section4b);
 
 
-        appHeader = (TextView) findViewById(R.id.app_header);
+        appHeader = findViewById(R.id.app_header);
 //        appHeader.setText("SRC - > Section4b");
 
         appHeader.setText(getString(R.string.sec4b) + " (" + SRCApp.cmCount + " of " + SRCApp.cmTotal + ")");
 
-        lbl_hhhead = (TextView) findViewById(R.id.lbl_hhhead);
-        lbl_hhhead1 = (TextView) findViewById(R.id.lbl_hhhead1);
+        lbl_hhhead = findViewById(R.id.lbl_hhhead);
+        lbl_hhhead1 = findViewById(R.id.lbl_hhhead1);
 
 
-        s4q42a = (Spinner) findViewById(R.id.s4q42a);
-        s4q42b = (EditText) findViewById(R.id.s4q42b);
-        radio_s4q42c = (RadioGroup) findViewById(R.id.radio_s4q42c);
-        rdo_s4q42c_1 = (RadioButton) findViewById(R.id.RDO_s4q42c_1);
-        rdo_s4q42c_2 = (RadioButton) findViewById(R.id.RDO_s4q42c_2);
-        s4q42d = (EditText) findViewById(R.id.s4q42d);
-        s4q42d1 = (EditText) findViewById(R.id.s4q42d1);
-        s4q42d2 = (EditText) findViewById(R.id.s4q42d2);
-        radio_s4q42e = (RadioGroup) findViewById(R.id.radio_s4q42e);
-        rdo_s4q42e_1 = (RadioButton) findViewById(R.id.RDO_s4q42e_1);
-        rdo_s4q42e_2 = (RadioButton) findViewById(R.id.RDO_s4q42e_2);
-        rdo_s4q42e_3 = (RadioButton) findViewById(R.id.RDO_s4q42e_3);
-        rdo_s4q42e_4 = (RadioButton) findViewById(R.id.RDO_s4q42e_4);
-        rdo_s4q42e_5 = (RadioButton) findViewById(R.id.RDO_s4q42e_5);
-        rdo_s4q42e_6 = (RadioButton) findViewById(R.id.RDO_s4q42e_6);
-        rdo_s4q42e_7 = (RadioButton) findViewById(R.id.RDO_s4q42e_7);
-        rdo_s4q42e_8 = (RadioButton) findViewById(R.id.RDO_s4q42e_8);
-        rdo_s4q42e_9 = (RadioButton) findViewById(R.id.RDO_s4q42e_9);
-        rdo_s4q42e_10 = (RadioButton) findViewById(R.id.RDO_s4q42e_10);
-        s4q42eoth = (EditText) findViewById(R.id.s4q42eoth);
+        s4q42a = findViewById(R.id.s4q42a);
+        s4q42b = findViewById(R.id.s4q42b);
+        radio_s4q42c = findViewById(R.id.radio_s4q42c);
+        rdo_s4q42c_1 = findViewById(R.id.RDO_s4q42c_1);
+        rdo_s4q42c_2 = findViewById(R.id.RDO_s4q42c_2);
+        s4q42d = findViewById(R.id.s4q42d);
+        s4q42d1 = findViewById(R.id.s4q42d1);
+        s4q42d2 = findViewById(R.id.s4q42d2);
+        radio_s4q42e = findViewById(R.id.radio_s4q42e);
+        rdo_s4q42e_1 = findViewById(R.id.RDO_s4q42e_1);
+        rdo_s4q42e_2 = findViewById(R.id.RDO_s4q42e_2);
+        rdo_s4q42e_3 = findViewById(R.id.RDO_s4q42e_3);
+        rdo_s4q42e_4 = findViewById(R.id.RDO_s4q42e_4);
+        rdo_s4q42e_5 = findViewById(R.id.RDO_s4q42e_5);
+        rdo_s4q42e_6 = findViewById(R.id.RDO_s4q42e_6);
+        rdo_s4q42e_7 = findViewById(R.id.RDO_s4q42e_7);
+        rdo_s4q42e_8 = findViewById(R.id.RDO_s4q42e_8);
+        rdo_s4q42e_9 = findViewById(R.id.RDO_s4q42e_9);
+        rdo_s4q42e_10 = findViewById(R.id.RDO_s4q42e_10);
+        s4q42eoth = findViewById(R.id.s4q42eoth);
 
-        s4q42f = (EditText) findViewById(R.id.s4q42f);
+        s4q42f = findViewById(R.id.s4q42f);
 
-        vu_s4q42eoth = (LinearLayout) findViewById(R.id.vu_s4q42eoth);
+        vu_s4q42eoth = findViewById(R.id.vu_s4q42eoth);
 
         counter = 1;
 
@@ -487,7 +487,7 @@ public class Section4bActivity extends Activity {
 
             if (Integer.parseInt(s4q42d.getText().toString()) > 29) {
                 s4q42d.setError("Invalid:" + getString(R.string.baseline_s4q42d));
-                Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q42d), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Invalid: Range is 0 to 29 days" + getString(R.string.baseline_s4q42d), Toast.LENGTH_LONG).show();
                 s4q42d.requestFocus();
                 Log.d(TAG, "ValidateForm: Error Type:42d invalid");
                 return false;
@@ -507,7 +507,7 @@ public class Section4bActivity extends Activity {
             s4q42d1.setError(null);
             if (Integer.parseInt(s4q42d1.getText().toString()) > 11) {
                 s4q42d1.setError("Invalid:" + getString(R.string.baseline_s4q42d1));
-                Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q42d1), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Invalid: Range is 0 to 11 months" + getString(R.string.baseline_s4q42d1), Toast.LENGTH_LONG).show();
                 s4q42d1.requestFocus();
                 return false;
             } else {
@@ -525,7 +525,7 @@ public class Section4bActivity extends Activity {
             s4q42d2.setError(null);
             if (Integer.parseInt(s4q42d2.getText().toString()) > 4) {
                 s4q42d2.setError("Invalid:" + getString(R.string.baseline_s4q42d2));
-                Toast.makeText(getApplicationContext(), "Invalid:" + getString(R.string.baseline_s4q42d2), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Invalid: Range is 0 to 4 years" + getString(R.string.baseline_s4q42d2), Toast.LENGTH_LONG).show();
                 s4q42d2.requestFocus();
                 Log.d(TAG, "ValidateForm: 42d2 invalid");
                 return false;
@@ -540,6 +540,8 @@ public class Section4bActivity extends Activity {
             rdo_s4q42e_1.setError(getString(R.string.rdoerr));
             Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
             radio_s4q42e.requestFocus();
+            radio_s4q42e.setFocusable(true);
+            radio_s4q42e.setFocusableInTouchMode(true);
             Log.d(TAG, "ValidateForm: Error Type:42e not selected");
             return false;
         } else {
