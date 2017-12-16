@@ -847,13 +847,13 @@ public class Section2Activity extends Activity {
                 var_s2q205 = "12";
                 break;
 
-            case R.id.RDO_s2q205_88:
+            case R.id.:
                 var_s2q205 = "88";
                 break;
         }*/
 
 
-        if (var_s2q205.equals("88") && getS2q205oth().getText().toString().isEmpty()) {
+        if (rDOS2q20588.isChecked() && getS2q205oth().getText().toString().isEmpty()) {
             s2q205oth.setError(getString(R.string.txterr));
             Toast.makeText(getApplicationContext(), "Please specify occupation if others \r\n", Toast.LENGTH_LONG).show();
             s2q205oth.requestFocus();

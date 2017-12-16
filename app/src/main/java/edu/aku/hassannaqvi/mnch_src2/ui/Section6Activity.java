@@ -343,7 +343,9 @@ public class Section6Activity extends Activity {
         if (mn0601.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0601), Toast.LENGTH_LONG).show();
             mn060102.setError("This data is Required!");    // Set Error on last radio button
-
+            mn060102.requestFocus();
+            mn060102.setFocusable(true);
+            mn060102.setFocusableInTouchMode(true);
             Log.i(TAG, "mn0601: This data is Required!");
             return false;
         } else {
@@ -358,6 +360,7 @@ public class Section6Activity extends Activity {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0602), Toast.LENGTH_LONG).show();
                 mn060288.setError("This data is Required!");    // Set Error on last radio button
                 Log.i(TAG, "mn0602: This data is Required!");
+                mn060102.requestFocus();
                 return false;
             } else {
                 mn060288.setError(null);
@@ -367,6 +370,7 @@ public class Section6Activity extends Activity {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0602) + " - " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
                 mn060288x.setError("This data is Required!");    // Set Error on last radio button
                 Log.i(TAG, "mn0602: This data is Required!");
+                mn060288x.requestFocus();
                 return false;
             } else {
                 mn060288x.setError(null);
@@ -378,6 +382,7 @@ public class Section6Activity extends Activity {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0603), Toast.LENGTH_LONG).show();
                 mn060388.setError("This data is Required!");    // Set Error on last radio button
                 Log.i(TAG, "mn0603: This data is Required!");
+                mn060388.requestFocus();
                 return false;
             } else {
                 mn060388.setError(null);
@@ -389,6 +394,7 @@ public class Section6Activity extends Activity {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0603) + " - " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
                 mn060388x.setError("This data is Required!");    // Set Error on last radio button
                 Log.i(TAG, "mn0603: This data is Required!");
+                mn060388x.requestFocus();
                 return false;
             } else {
                 mn060388x.setError(null);
@@ -401,6 +407,9 @@ public class Section6Activity extends Activity {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0604), Toast.LENGTH_LONG).show();
                     mn060488.setError("This data is Required!");    // Set Error on last radio button
                     Log.i(TAG, "mn0604: This data is Required!");
+                    mn060488.requestFocus();
+                    mn060488.setFocusableInTouchMode(true);
+                    mn060488.setFocusable(true);
                     return false;
                 } else {
                     mn060488.setError(null);
@@ -410,6 +419,7 @@ public class Section6Activity extends Activity {
                     Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0604) + " - " + getString(R.string.mnother), Toast.LENGTH_LONG).show();
                     mn060488x.setError("This data is Required!");    // Set Error on last radio button
                     Log.i(TAG, "mn0604: This data is Required!");
+                    mn060488x.requestFocus();
                     return false;
                 } else {
                     mn060488x.setError(null);
@@ -419,7 +429,9 @@ public class Section6Activity extends Activity {
             if (mn0605.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn0605), Toast.LENGTH_LONG).show();
                 mn060502.setError("This data is Required!");    // Set Error on last radio button
-
+                mn060502.requestFocus();
+                mn060502.setFocusable(true);
+                mn060502.setFocusableInTouchMode(true);
                 Log.i(TAG, "mn0605: This data is Required!");
                 return false;
             } else {

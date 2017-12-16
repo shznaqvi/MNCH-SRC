@@ -21,9 +21,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.mnch_src2.R;
+import edu.aku.hassannaqvi.mnch_src2.contract.Sec7ImContract;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
-import edu.aku.hassannaqvi.mnch_src2.contract.Sec7ImContract;
 
 public class Section7IMActivity extends Activity {
 
@@ -432,6 +432,7 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn07im01), Toast.LENGTH_LONG).show();
             mn07im01.setError("This data is Required!");
             Log.i(TAG, "mn07im01: This data is Required!");
+            mn07im01.requestFocus();
             return false;
         } else {
             mn07im01.setError(null);
@@ -441,6 +442,7 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn07im02), Toast.LENGTH_LONG).show();
             mn07im02.setError("This data is Required!");
             Log.i(TAG, "mn07im02: This data is Required!");
+            mn07im02.requestFocus();
             return false;
         } else {
             mn07im02.setError(null);
@@ -450,6 +452,7 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "Invalid: " + getString(R.string.mn07im02), Toast.LENGTH_LONG).show();
             mn07im02.setError("Invalid: Range 0 - 59!");
             Log.i(TAG, "mn07im02: Invalid: Range 0 - 59!");
+            mn07im02.requestFocus();
             return false;
         } else {
             mn07im02.setError(null);
@@ -459,6 +462,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn07im03), Toast.LENGTH_LONG).show();
             mn07im0302.setError("This data is Required!");
             Log.i(TAG, "mn07im03: This data is Required!");
+            mn07im0302.setFocusable(true);
+            mn07im0302.setFocusableInTouchMode(true);
+            mn07im0302.requestFocus();
             return false;
         } else {
             mn07im0302.setError(null);
@@ -468,6 +474,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnbcg), Toast.LENGTH_LONG).show();
             mnbcg02.setError("This data is Required!");
             Log.i(TAG, "mnbcg: This data is Required!");
+            mnbcg02.setFocusableInTouchMode(true);
+            mnbcg02.setFocusable(true);
+            mnbcg02.requestFocus();
             return false;
         } else {
             mnbcg02.setError(null);
@@ -477,6 +486,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnbcgsrc), Toast.LENGTH_LONG).show();
             mnbcgsrc02.setError("This data is Required!");
             Log.i(TAG, "mnbcgsrc: This data is Required!");
+            mnbcgsrc02.setFocusable(true);
+            mnbcgsrc02.setFocusableInTouchMode(true);
+            mnbcgsrc02.requestFocus();
             return false;
         } else {
             mnbcgsrc02.setError(null);
@@ -486,6 +498,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnbcgscar), Toast.LENGTH_LONG).show();
             mnbcgscar02.setError("This data is Required!");
             Log.i(TAG, "mnbcgscar: This data is Required!");
+            mnbcgscar02.requestFocus();
+            mnbcgscar02.setFocusableInTouchMode(true);
+            mnbcgscar02.setFocusable(true);
             return false;
         } else {
             mnbcgscar02.setError(null);
@@ -495,6 +510,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnopv0), Toast.LENGTH_LONG).show();
             mnopv002.setError("This data is Required!");
             Log.i(TAG, "mnopv0: This data is Required!");
+            mnopv002.requestFocus();
+            mnopv002.setFocusable(true);
+            mnopv002.setFocusableInTouchMode(true);
             return false;
         } else {
             mnopv002.setError(null);
@@ -504,6 +522,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnopv0src), Toast.LENGTH_LONG).show();
             mnopv0src03.setError("This data is Required!");
             Log.i(TAG, "mnopv0src: This data is Required!");
+            mnopv0src03.requestFocus();
+            mnopv0src03.setFocusableInTouchMode(true);
+            mnopv0src03.setFocusable(true);
             return false;
         } else {
             mnopv0src03.setError(null);
@@ -513,6 +534,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnp1), Toast.LENGTH_LONG).show();
             mnp102.setError("This data is Required!");
             Log.i(TAG, "mnp1: This data is Required!");
+            mnp1.requestFocus();
+            mnp1.setFocusable(true);
+            mnp1.setFocusableInTouchMode(true);
             return false;
         } else {
             mnp102.setError(null);
@@ -522,6 +546,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnp1src), Toast.LENGTH_LONG).show();
             mnp1src03.setError("This data is Required!");
             Log.i(TAG, "mnp1src: This data is Required!");
+            mnp1src03.requestFocus();
+            mnp1src03.setFocusable(true);
+            mnp1src03.setFocusableInTouchMode(true);
             return false;
         } else {
             mnp1src03.setError(null);
@@ -530,6 +557,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnopv1), Toast.LENGTH_LONG).show();
             mnopv102.setError("This data is Required!");
             Log.i(TAG, "mnopv1: This data is Required!");
+            mnopv102.requestFocus();
+            mnopv102.setFocusableInTouchMode(true);
+            mnopv102.setFocusable(true);
             return false;
         } else {
             mnopv102.setError(null);
@@ -538,6 +568,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnopv1src), Toast.LENGTH_LONG).show();
             mnopv1src03.setError("This data is Required!");
             Log.i(TAG, "mnopv1src: This data is Required!");
+            mnopv1src03.requestFocus();
+            mnopv1src03.setFocusable(true);
+            mnopv1src03.setFocusableInTouchMode(true);
             return false;
         } else {
             mnopv1src03.setError(null);
@@ -546,6 +579,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnpcv1), Toast.LENGTH_LONG).show();
             mnpcv102.setError("This data is Required!");
             Log.i(TAG, "mnpcv1: This data is Required!");
+            mnpcv102.requestFocus();
+            mnpcv102.setFocusableInTouchMode(true);
+            mnpcv102.setFocusable(true);
             return false;
         } else {
             mnpcv102.setError(null);
@@ -554,6 +590,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnpcv1src), Toast.LENGTH_LONG).show();
             mnpcv1src03.setError("This data is Required!");
             Log.i(TAG, "mnpcv1src: This data is Required!");
+            mnpcv1src03.requestFocus();
+            mnpcv1src03.setFocusable(true);
+            mnpcv1src03.setFocusableInTouchMode(true);
             return false;
         } else {
             mnpcv1src03.setError(null);
@@ -563,6 +602,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnp2), Toast.LENGTH_LONG).show();
             mnp202.setError("This data is Required!");
             Log.i(TAG, "mnp2: This data is Required!");
+            mnp202.requestFocus();
+            mnp202.setFocusableInTouchMode(true);
+            mnp202.setFocusable(true);
             return false;
         } else {
             mnp202.setError(null);
@@ -571,6 +613,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnp2src), Toast.LENGTH_LONG).show();
             mnp2src03.setError("This data is Required!");
             Log.i(TAG, "mnp2src: This data is Required!");
+            mnp2src03.requestFocus();
+            mnp2src03.setFocusable(true);
+            mnp2src03.setFocusableInTouchMode(true);
             return false;
         } else {
             mnp2src03.setError(null);
@@ -579,6 +624,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnopv2), Toast.LENGTH_LONG).show();
             mnopv202.setError("This data is Required!");
             Log.i(TAG, "mnopv2: This data is Required!");
+            mnopv202.requestFocus();
+            mnopv202.setFocusableInTouchMode(true);
+            mnopv202.setFocusable(true);
             return false;
         } else {
             mnopv202.setError(null);
@@ -587,6 +635,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnopv2src), Toast.LENGTH_LONG).show();
             mnopv2src03.setError("This data is Required!");
             Log.i(TAG, "mnopv2src: This data is Required!");
+            mnopv2src03.setFocusable(true);
+            mnopv2src03.setFocusableInTouchMode(true);
+            mnopv2src03.requestFocus();
             return false;
         } else {
             mnopv2src03.setError(null);
@@ -595,6 +646,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnpcv2), Toast.LENGTH_LONG).show();
             mnpcv202.setError("This data is Required!");
             Log.i(TAG, "mnpcv2: This data is Required!");
+            mnpcv202.requestFocus();
+            mnpcv202.setFocusableInTouchMode(true);
+            mnpcv202.setFocusable(true);
             return false;
         } else {
             mnpcv202.setError(null);
@@ -603,6 +657,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnpcv2src), Toast.LENGTH_LONG).show();
             mnpcv2src03.setError("This data is Required!");
             Log.i(TAG, "mnpcv2src: This data is Required!");
+            mnpcv2src03.setFocusable(true);
+            mnpcv2src03.setFocusableInTouchMode(true);
+            mnpcv2src03.requestFocus();
             return false;
         } else {
             mnpcv2src03.setError(null);
@@ -612,6 +669,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnp3), Toast.LENGTH_LONG).show();
             mnp302.setError("This data is Required!");
             Log.i(TAG, "mnp3: This data is Required!");
+            mnp302.requestFocus();
+            mnp302.setFocusableInTouchMode(true);
+            mnp302.setFocusable(true);
             return false;
         } else {
             mnp302.setError(null);
@@ -620,6 +680,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnp3src), Toast.LENGTH_LONG).show();
             mnp3src03.setError("This data is Required!");
             Log.i(TAG, "mnp3src: This data is Required!");
+            mnp3src03.setFocusable(true);
+            mnp3src03.setFocusableInTouchMode(true);
+            mnp3src03.requestFocus();
             return false;
         } else {
             mnp3src03.setError(null);
@@ -628,6 +691,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnopv3), Toast.LENGTH_LONG).show();
             mnopv302.setError("This data is Required!");
             Log.i(TAG, "mnopv3: This data is Required!");
+            mnopv302.setFocusableInTouchMode(true);
+            mnopv302.setFocusable(true);
+            mnopv302.requestFocus();
             return false;
         } else {
             mnopv302.setError(null);
@@ -636,6 +702,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnopv3src), Toast.LENGTH_LONG).show();
             mnopv3src03.setError("This data is Required!");
             Log.i(TAG, "mnopv3src: This data is Required!");
+            mnopv3src03.requestFocus();
+            mnopv3src03.setFocusable(true);
+            mnopv3src03.setFocusableInTouchMode(true);
             return false;
         } else {
             mnopv3src03.setError(null);
@@ -644,6 +713,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnipv), Toast.LENGTH_LONG).show();
             mnipv02.setError("This data is Required!");
             Log.i(TAG, "mnipv: This data is Required!");
+            mnipv02.requestFocus();
+            mnipv02.setFocusableInTouchMode(true);
+            mnipv02.setFocusable(true);
             return false;
         } else {
             mnipv02.setError(null);
@@ -660,6 +732,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnpcv3), Toast.LENGTH_LONG).show();
             mnpcv302.setError("This data is Required!");
             Log.i(TAG, "mnpcv3: This data is Required!");
+            mnpcv3.requestFocus();
+            mnpcv3.setFocusableInTouchMode(true);
+            mnpcv3.setFocusable(true);
             return false;
         } else {
             mnpcv302.setError(null);
@@ -668,6 +743,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnpcv3src), Toast.LENGTH_LONG).show();
             mnpcv3src03.setError("This data is Required!");
             Log.i(TAG, "mnpcv3src: This data is Required!");
+            mnpcv3src03.requestFocus();
+            mnpcv3src03.setFocusable(true);
+            mnpcv3src03.setFocusableInTouchMode(true);
             return false;
         } else {
             mnpcv3src03.setError(null);
@@ -677,6 +755,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnm1), Toast.LENGTH_LONG).show();
             mnm102.setError("This data is Required!");
             Log.i(TAG, "mnm1: This data is Required!");
+            mnm102.requestFocus();
+            mnm102.setFocusableInTouchMode(true);
+            mnm102.setFocusable(true);
             return false;
         } else {
             mnm102.setError(null);
@@ -685,6 +766,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnm1src), Toast.LENGTH_LONG).show();
             mnm1src03.setError("This data is Required!");
             Log.i(TAG, "mnm1src: This data is Required!");
+            mnm1src03.requestFocus();
+            mnm1src03.setFocusable(true);
+            mnm1src03.setFocusableInTouchMode(true);
             return false;
         } else {
             mnm1src03.setError(null);
@@ -694,6 +778,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnm2), Toast.LENGTH_LONG).show();
             mnm202.setError("This data is Required!");
             Log.i(TAG, "mnm2: This data is Required!");
+            mnm202.requestFocus();
+            mnm202.setFocusableInTouchMode(true);
+            mnm202.setFocusable(true);
             return false;
         } else {
             mnm202.setError(null);
@@ -702,6 +789,9 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnm2src), Toast.LENGTH_LONG).show();
             mnm2src03.setError("This data is Required!");
             Log.i(TAG, "mnm2src: This data is Required!");
+            mnm2src03.requestFocus();
+            mnm2src03.setFocusable(true);
+            mnm2src03.setFocusableInTouchMode(true);
             return false;
         } else {
             mnm2src03.setError(null);
@@ -711,6 +801,10 @@ public class Section7IMActivity extends Activity {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mnis), Toast.LENGTH_LONG).show();
             mnui.setError("This data is Required!");
             Log.i(TAG, "mnis: This data is Required!");
+            mnui.requestFocus();
+            mnui.setFocusable(true);
+            mnui.setFocusableInTouchMode(true);
+
             return false;
         } else {
             mnui.setError(null);
