@@ -179,6 +179,21 @@ public class Section6Activity extends Activity {
             }
         });
 
+        mn060305.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    fldGrpmn0604.setVisibility(View.GONE);
+                    mn0604.clearCheck();
+                    mn060488x.setText(null);
+                } else {
+                    fldGrpmn0604.setVisibility(View.VISIBLE);
+                }
+
+            }
+        });
+
         //  =========================== Q 6.03 Others ================================
         mn060388.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -191,13 +206,7 @@ public class Section6Activity extends Activity {
                     mn060388x.setText(null);
 
                 }
-                if (mn060305.isChecked()) {
-                    fldGrpmn0604.setVisibility(View.GONE);
-                    mn0604.clearCheck();
-                    mn060488x.setText(null);
-                } else {
-                    fldGrpmn0604.setVisibility(View.VISIBLE);
-                }
+
             }
         });
 
@@ -322,7 +331,7 @@ public class Section6Activity extends Activity {
 
         // Radio Group
         s6.put("mn0604", mn060401.isChecked() ? "1" : mn060402.isChecked() ? "2" : mn060403.isChecked() ? "3"
-                : mn060404.isChecked() ? "4" : mn060405.isChecked() ? "5" : mn060488.isChecked() ? "6" : "0");
+                : mn060404.isChecked() ? "4" : mn060405.isChecked() ? "5" : mn060488.isChecked() ? "88" : "0");
         s6.put("mn060488x", mn060488x.getText().toString());
 
         // Radio Group

@@ -38,11 +38,11 @@ public class SyncSec4b extends AsyncTask<Void, Void, String> {
     }
 
     public static void longInfo(String str) {
-//        if (str.length() > 4000) {
-//            Log.i("TAG: ", str.substring(0, 4000));
-//            longInfo(str.substring(4000));
-//        } else
-//            Log.i("TAG: ", str);
+        /*if (str.length() > 4000) {
+            Log.i("TAG: ", str.substring(0, 4000));
+            longInfo(str.substring(4000));
+        } else
+            Log.i("TAG: ", str);*/
     }
 
 

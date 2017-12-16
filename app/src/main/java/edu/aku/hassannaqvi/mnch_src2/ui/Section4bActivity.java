@@ -315,8 +315,8 @@ public class Section4bActivity extends Activity {
         SRCApp.sc4b.setROW_DEVID(SRCApp.DEVID);
         SRCApp.sc4b.setROW_UUID(SRCApp.fc.getROW_UUID());
         SRCApp.sc4b.setROW_FORM_DATE(SRCApp.fc.getROW_ENTRYDATE());
-        SRCApp.sc4b.setROW_FORM_ID(var.GetHHNO());
-        SRCApp.sc4b.setROW_HHCODE(var.GetHHCode());
+        //SRCApp.sc4b.setROW_FORM_ID(var.GetHHNO());
+        //SRCApp.sc4b.setROW_HHCODE(var.GetHHCode());
 
 
         if (sno == 0) {
@@ -408,6 +408,7 @@ public class Section4bActivity extends Activity {
 
 
         SRCApp.sc4b.set_s4q42e(var_s4q42e);
+        SRCApp.sc4b.set_s4q42eoth(s4q42eoth.getText().toString());
         SRCApp.sc4b.set_s4q42f(s4q42f.getText().toString());
 
         return true;

@@ -591,7 +591,7 @@ public class Section5cActivity extends Activity {
         s5c.put("mn055305", mn055305.isChecked() ? "5" : "0");
         s5c.put("mn055306", mn055306.isChecked() ? "6" : "0");
         s5c.put("mn055307", mn055307.isChecked() ? "7" : "0");
-        s5c.put("mn055308", mn055377.isChecked() ? "77" : "0");
+        s5c.put("mn055377", mn055377.isChecked() ? "77" : "0");
         s5c.put("mn055388", mn055388.isChecked() ? "88" : "0");
         s5c.put("mn055388x", mn055388x.getText().toString());
 

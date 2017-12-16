@@ -690,6 +690,19 @@ public class Section3Activity extends Activity {
                 case R.id.RDO_s3q301h_2:
                     var_s3q301h = "2";
                     break;
+
+                // Added by gul sanober
+                case R.id.RDO_s3q301h_3:
+                    var_s3q301h = "3";
+                    break;
+
+                case R.id.RDO_s3q301h_4:
+                    var_s3q301h = "4";
+                    break;
+
+                case R.id.RDO_s3q301h_5:
+                    var_s3q301h = "5";
+                    break;
             }
 
 
@@ -742,6 +755,7 @@ public class Section3Activity extends Activity {
 
 
             SRCApp.sc3.set_s3q301i(var_s3q301i);
+            SRCApp.sc3.set_s3q301ioth(s3q301ioth.getText().toString());
 
 
             rdo_s3q301j = radioS3q301j.getCheckedRadioButtonId();
@@ -781,6 +795,7 @@ public class Section3Activity extends Activity {
             }
 
             SRCApp.sc3.set_s3q301j(var_s3q301j);
+            SRCApp.sc3.set_s3q301joth(s3q301joth.getText().toString());
             SRCApp.sc3.set_s3q301k(s3q301k.getText().toString());
 
 

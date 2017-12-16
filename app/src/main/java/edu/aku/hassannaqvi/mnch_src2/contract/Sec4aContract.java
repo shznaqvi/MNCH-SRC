@@ -29,6 +29,7 @@ public class Sec4aContract implements BaseColumns {
     String ROW_s4q41b2;
     String ROW_s4q41c;
     String ROW_s4q41d;
+    String ROW_s4q41doth;
     String ROW_s4q41e;
     String ROW_UID;
     String ROW_UUID;
@@ -158,6 +159,14 @@ public class Sec4aContract implements BaseColumns {
         this.ROW_s4q41d = ROW_s4q41d;
     }
 
+    public String get_s4q41doth() {
+        return this.ROW_s4q41doth;
+    }
+
+    public void set_s4q41doth(String ROW_s4q41doth) {
+        this.ROW_s4q41d = ROW_s4q41doth;
+    }
+
     public String get_s4q41e() {
         return this.ROW_s4q41e;
     }
@@ -222,6 +231,7 @@ public class Sec4aContract implements BaseColumns {
         json.put(Section4Entry.ROW_S4Q41B2, this.ROW_s4q41b2 == null ? JSONObject.NULL : this.ROW_s4q41b2);
         json.put(Section4Entry.ROW_S4Q41C, this.ROW_s4q41c == null ? JSONObject.NULL : this.ROW_s4q41c);
         json.put(Section4Entry.ROW_S4Q41D, this.ROW_s4q41d == null ? JSONObject.NULL : this.ROW_s4q41d);
+        json.put(Section4Entry.ROW_S4Q41DOTH, this.ROW_s4q41doth == null ? JSONObject.NULL : this.ROW_s4q41doth);
         json.put(Section4Entry.ROW_S4Q41E, this.ROW_s4q41e == null ? JSONObject.NULL : this.ROW_s4q41e);
         json.put(Section4Entry.ROW_UID, this.ROW_UID == null ? JSONObject.NULL : this.ROW_UID);
         json.put(Section4Entry.ROW_UUID, this.ROW_UUID == null ? JSONObject.NULL : this.ROW_UUID);
@@ -247,6 +257,7 @@ public class Sec4aContract implements BaseColumns {
         this.ROW_s4q41b2 = jsonObject.getString(Section4Entry.ROW_S4Q41B2);
         this.ROW_s4q41c = jsonObject.getString(Section4Entry.ROW_S4Q41C);
         this.ROW_s4q41d = jsonObject.getString(Section4Entry.ROW_S4Q41D);
+        this.ROW_s4q41doth = jsonObject.getString(Section4Entry.ROW_S4Q41DOTH);
         this.ROW_s4q41e = jsonObject.getString(Section4Entry.ROW_S4Q41E);
         this.ROW_UID = jsonObject.getString(Section4Entry.ROW_UID);
         this.ROW_UUID = jsonObject.getString(Section4Entry.ROW_UUID);
@@ -273,6 +284,7 @@ public class Sec4aContract implements BaseColumns {
         this.ROW_s4q41b2 = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_S4Q41B2));
         this.ROW_s4q41c = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_S4Q41C));
         this.ROW_s4q41d = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_S4Q41D));
+        this.ROW_s4q41doth = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_S4Q41DOTH));
         this.ROW_s4q41e = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_S4Q41E));
         this.ROW_UID = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_UID));
         this.ROW_UUID = cursor.getString(cursor.getColumnIndex(Section4Entry.ROW_UUID));
@@ -300,6 +312,7 @@ public class Sec4aContract implements BaseColumns {
         public static final String ROW_S4Q41B2 = "s4q41b2";
         public static final String ROW_S4Q41C = "s4q41c";
         public static final String ROW_S4Q41D = "s4q41d";
+        public static final String ROW_S4Q41DOTH = "s4q41doth";
         public static final String ROW_S4Q41E = "s4q41e";
         public static final String ROW_UID = "uid";
         public static final String ROW_UUID = "uuid";

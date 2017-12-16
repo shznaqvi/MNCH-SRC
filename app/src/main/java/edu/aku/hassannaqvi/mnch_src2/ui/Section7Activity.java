@@ -512,7 +512,7 @@ public class Section7Activity extends Activity implements RadioGroup.OnCheckedCh
         s7.put("mn071004", mn071004.isChecked() ? "4" : "0");
         s7.put("mn071005", mn071005.isChecked() ? "5" : "0");
         s7.put("mn071006", mn071006.isChecked() ? "6" : "0");
-        s7.put("mn071007", mn071088.isChecked() ? "88" : "0");
+        s7.put("mn071088", mn071088.isChecked() ? "88" : "0");
         s7.put("mn071088x", mn071088x.getText().toString());
         s7.put("mn0711", mn071101.isChecked() ? "1" : mn071102.isChecked() ? "2" : mn071103.isChecked() ? "3" : "0");
 //        s7.put("mn071102x", mn071102x.getText().toString());

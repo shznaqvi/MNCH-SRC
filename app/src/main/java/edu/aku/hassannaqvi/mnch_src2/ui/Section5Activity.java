@@ -1417,7 +1417,7 @@ public class Section5Activity extends Activity {
         s5.put("mn0502", mn050201.isChecked() ? "1" : mn050202.isChecked() ? "2" : "0");
         s5.put("mn0503", mn050301.isChecked() ? "1" : mn050302.isChecked() ? "2" : mn050303.isChecked() ? "3" : "0");
         s5.put("mn0504", mn050401.isChecked() ? "1" : mn050402.isChecked() ? "2" : "0");
-        s5.put("mn0504", mn050401.isChecked() ? "1" : mn050402.isChecked() ? "2" : "0");
+        //s5.put("mn0504", mn050401.isChecked() ? "1" : mn050402.isChecked() ? "2" : "0");
         s5.put("mn0505", mn050501.isChecked() ? "1" : mn050502.isChecked() ? "2" : "0");
         s5.put("mn0506", mn050601.isChecked() ? "1" : mn050602.isChecked() ? "2" : "0");
         // CheckBox
@@ -1468,7 +1468,7 @@ public class Section5Activity extends Activity {
         s5.put("mn051505", mn051505.isChecked() ? "5" : "0");
         s5.put("mn051506", mn051506.isChecked() ? "6" : "0");
         s5.put("mn051507", mn051507.isChecked() ? "7" : "0");
-        s5.put("mn051577", mn051508.isChecked() ? "8" : "0");
+        s5.put("mn051508", mn051508.isChecked() ? "8" : "0");
         s5.put("mn051588", mn051588.isChecked() ? "88" : "0");
         // EditText
         s5.put("mn051588x", mn051588x.getText().toString());
@@ -1490,7 +1490,7 @@ public class Section5Activity extends Activity {
         s5.put("mn0517a2d", mn0517a2d.getText().toString());
         s5.put("mn0517a2m", mn0517a2m.getText().toString());
         // RadioGroup
-        s5.put("mn0517a1", mn0517a301.isChecked() ? "1"
+        s5.put("mn0517a3", mn0517a301.isChecked() ? "1"
                 : mn0517a302.isChecked() ? "2"
                 : mn0517a303.isChecked() ? "3"
                 : mn0517a304.isChecked() ? "4"
@@ -1503,7 +1503,7 @@ public class Section5Activity extends Activity {
         s5.put("mn0517b2d", mn0517b2d.getText().toString());
         s5.put("mn0517b2m", mn0517b2m.getText().toString());
         // RadioGroup
-        s5.put("mn0517b1", mn0517b301.isChecked() ? "1"
+        s5.put("mn0517b3", mn0517b301.isChecked() ? "1"
                 : mn0517b302.isChecked() ? "2"
                 : mn0517b303.isChecked() ? "3"
                 : mn0517b304.isChecked() ? "4"
@@ -1516,7 +1516,7 @@ public class Section5Activity extends Activity {
         s5.put("mn0517c2d", mn0517c2d.getText().toString());
         s5.put("mn0517c2m", mn0517c2m.getText().toString());
         // RadioGroup
-        s5.put("mn0517c1", mn0517c301.isChecked() ? "1"
+        s5.put("mn0517c3", mn0517c301.isChecked() ? "1"
                 : mn0517c302.isChecked() ? "2"
                 : mn0517c303.isChecked() ? "3"
                 : mn0517c304.isChecked() ? "4"
@@ -1529,7 +1529,7 @@ public class Section5Activity extends Activity {
         s5.put("mn0517d2d", mn0517d2d.getText().toString());
         s5.put("mn0517d2m", mn0517d2m.getText().toString());
         // RadioGroup
-        s5.put("mn0517d1", mn0517d301.isChecked() ? "1"
+        s5.put("mn0517d3", mn0517d301.isChecked() ? "1"
                 : mn0517d302.isChecked() ? "2"
                 : mn0517d303.isChecked() ? "3"
                 : mn0517d304.isChecked() ? "4"
@@ -1542,7 +1542,7 @@ public class Section5Activity extends Activity {
         s5.put("mn0517e2d", mn0517e2d.getText().toString());
         s5.put("mn0517e2m", mn0517e2m.getText().toString());
         // RadioGroup
-        s5.put("mn0517e1", mn0517e301.isChecked() ? "1"
+        s5.put("mn0517e3", mn0517e301.isChecked() ? "1"
                 : mn0517e302.isChecked() ? "2"
                 : mn0517e303.isChecked() ? "3"
                 : mn0517e304.isChecked() ? "4"
@@ -1555,7 +1555,7 @@ public class Section5Activity extends Activity {
         s5.put("mn0517f2d", mn0517f2d.getText().toString());
         s5.put("mn0517f2m", mn0517f2m.getText().toString());
         // RadioGroup
-        s5.put("mn0517f1", mn0517f301.isChecked() ? "1"
+        s5.put("mn0517f3", mn0517f301.isChecked() ? "1"
                 : mn0517f302.isChecked() ? "2"
                 : mn0517f303.isChecked() ? "3"
                 : mn0517f304.isChecked() ? "4"

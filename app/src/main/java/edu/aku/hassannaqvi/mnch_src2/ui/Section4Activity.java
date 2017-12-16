@@ -236,8 +236,8 @@ public class Section4Activity extends Activity {
         SRCApp.sc4a.set_DEVID(SRCApp.DEVID);
         SRCApp.sc4a.setROW_UUID(SRCApp.fc.getROW_UUID());
         SRCApp.sc4a.set_FORM_DATE(SRCApp.fc.getROW_ENTRYDATE());
-        SRCApp.sc4a.set_FORM_ID(var.GetHHNO());
-        SRCApp.sc4a.set_HHCODE(var.GetHHCode());
+        //SRCApp.sc4a.set_FORM_ID(var.GetHHNO());
+        //SRCApp.sc4a.set_HHCODE(var.GetHHCode());
         //SRCApp.countM.set
 
 
@@ -284,6 +284,7 @@ public class Section4Activity extends Activity {
         }
 
         SRCApp.sc4a.set_s4q41c(var_s4q41c);
+
         rdo_s4q41d = radio_s4q41d.getCheckedRadioButtonId();
 
         switch (rdo_s4q41d) {
@@ -320,6 +321,8 @@ public class Section4Activity extends Activity {
         }
 
         SRCApp.sc4a.set_s4q41d(var_s4q41d);
+        SRCApp.sc4a.set_s4q41doth(s4q41doth.getText().toString());
+
         SRCApp.sc4a.set_s4q41e(s4q41e.getText().toString());
 
         return true;

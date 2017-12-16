@@ -106,7 +106,9 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             Sec3Entry.ROW_S3Q301G + " TEXT," +
             Sec3Entry.ROW_S3Q301H + " TEXT," +
             Sec3Entry.ROW_S3Q301I + " TEXT," +
+            Sec3Entry.ROW_S3Q301IOTH + " TEXT," +
             Sec3Entry.ROW_S3Q301J + " TEXT," +
+            Sec3Entry.ROW_S3Q301JOTH + " TEXT," +
             Sec3Entry.ROW_S3Q301K + " TEXT," +
             Sec3Entry.ROW_S3Q301L + " TEXT," +
             Sec3Entry.ROW_UUID + " TEXT," +
@@ -131,6 +133,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             Section4Entry.ROW_S4Q41B2 + " TEXT," +
             Section4Entry.ROW_S4Q41C + " TEXT," +
             Section4Entry.ROW_S4Q41D + " TEXT," +
+            Section4Entry.ROW_S4Q41DOTH + " TEXT," +
             Section4Entry.ROW_S4Q41E + " TEXT," +
             Section4Entry.ROW_UID + " TEXT," +
             Section4Entry.ROW_UUID + " TEXT," +
@@ -721,7 +724,9 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             values.put(Sec3Entry.ROW_S3Q301G, sec3.get_s3q301g());
             values.put(Sec3Entry.ROW_S3Q301H, sec3.get_s3q301h());
             values.put(Sec3Entry.ROW_S3Q301I, sec3.get_s3q301i());
+            values.put(Sec3Entry.ROW_S3Q301IOTH, sec3.get_s3q301ioth());
             values.put(Sec3Entry.ROW_S3Q301J, sec3.get_s3q301j());
+            values.put(Sec3Entry.ROW_S3Q301JOTH, sec3.get_s3q301joth());
             values.put(Sec3Entry.ROW_S3Q301K, sec3.get_s3q301k());
             values.put(Sec3Entry.ROW_S3Q301L, sec3.get_s3q301l());
             values.put(Sec3Entry.ROW_UUID, sec3.getROW_UUID()); // get primary key of main Form UUID
@@ -757,6 +762,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             values.put(Section4Entry.ROW_S4Q41B2, sec4a.get_s4q41b2());
             values.put(Section4Entry.ROW_S4Q41C, sec4a.get_s4q41c());
             values.put(Section4Entry.ROW_S4Q41D, sec4a.get_s4q41d());
+            values.put(Section4Entry.ROW_S4Q41DOTH, sec4a.get_s4q41doth());
             values.put(Section4Entry.ROW_S4Q41E, sec4a.get_s4q41e());
             values.put(Section4Entry.ROW_UID, sec4a.get_UID());
             values.put(Section4Entry.ROW_UUID, SRCApp.fc.getROW_UUID());
@@ -977,7 +983,9 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         values.put(Sec3Entry.ROW_S3Q301G, sec3.get_s3q301g());
         values.put(Sec3Entry.ROW_S3Q301H, sec3.get_s3q301h());
         values.put(Sec3Entry.ROW_S3Q301I, sec3.get_s3q301i());
+        values.put(Sec3Entry.ROW_S3Q301IOTH, sec3.get_s3q301ioth());
         values.put(Sec3Entry.ROW_S3Q301J, sec3.get_s3q301j());
+        values.put(Sec3Entry.ROW_S3Q301JOTH, sec3.get_s3q301joth());
         values.put(Sec3Entry.ROW_S3Q301K, sec3.get_s3q301k());
         values.put(Sec3Entry.ROW_S3Q301L, sec3.get_s3q301l());
         values.put(Sec3Entry.ROW_UUID, sec3.getROW_UUID());
@@ -1058,6 +1066,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         values.put(Section4Entry.ROW_S4Q41B2, sec4a.get_s4q41b2());
         values.put(Section4Entry.ROW_S4Q41C, sec4a.get_s4q41c());
         values.put(Section4Entry.ROW_S4Q41D, sec4a.get_s4q41d());
+        values.put(Section4Entry.ROW_S4Q41DOTH, sec4a.get_s4q41doth());
         values.put(Section4Entry.ROW_S4Q41E, sec4a.get_s4q41e());
         //values.put(Section4Entry.ROW_UID, sec4a.get_UID());
         values.put(Section4Entry.ROW_UUID, sec4a.getROW_UUID());
@@ -1322,7 +1331,9 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 Sec3Entry.ROW_S3Q301G,
                 Sec3Entry.ROW_S3Q301H,
                 Sec3Entry.ROW_S3Q301I,
+                Sec3Entry.ROW_S3Q301IOTH,
                 Sec3Entry.ROW_S3Q301J,
+                Sec3Entry.ROW_S3Q301JOTH,
                 Sec3Entry.ROW_S3Q301K,
                 Sec3Entry.ROW_S3Q301L,
                 Sec3Entry.ROW_UUID,
@@ -1387,7 +1398,9 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 Sec3Entry.ROW_S3Q301G,
                 Sec3Entry.ROW_S3Q301H,
                 Sec3Entry.ROW_S3Q301I,
+                Sec3Entry.ROW_S3Q301IOTH,
                 Sec3Entry.ROW_S3Q301J,
+                Sec3Entry.ROW_S3Q301JOTH,
                 Sec3Entry.ROW_S3Q301K,
                 Sec3Entry.ROW_S3Q301L,
                 Sec3Entry.ROW_UUID,
@@ -1509,6 +1522,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 Section4Entry.ROW_S4Q41B2,
                 Section4Entry.ROW_S4Q41C,
                 Section4Entry.ROW_S4Q41D,
+                Section4Entry.ROW_S4Q41DOTH,
                 Section4Entry.ROW_S4Q41E,
                 Section4Entry.ROW_UID,
                 Section4Entry.ROW_UUID,
@@ -1567,6 +1581,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 Section4Entry.ROW_S4Q41B2,
                 Section4Entry.ROW_S4Q41C,
                 Section4Entry.ROW_S4Q41D,
+                Section4Entry.ROW_S4Q41DOTH,
                 Section4Entry.ROW_S4Q41E,
                 Section4Entry.ROW_UID,
                 Section4Entry.ROW_UUID,

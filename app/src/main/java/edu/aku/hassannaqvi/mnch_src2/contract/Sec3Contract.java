@@ -32,7 +32,9 @@ public class Sec3Contract implements BaseColumns {
     String ROW_s3q301g;
     String ROW_s3q301h;
     String ROW_s3q301i;
+    String ROW_s3q301ioth;
     String ROW_s3q301j;
+    String ROW_s3q301joth;
     String ROW_s3q301k;
     String ROW_s3q301l;
     String ROW_UUID;
@@ -193,6 +195,14 @@ public class Sec3Contract implements BaseColumns {
         this.ROW_s3q301h = ROW_s3q301h;
     }
 
+    public String get_s3q301ioth() {
+        return this.ROW_s3q301ioth;
+    }
+
+    public void set_s3q301ioth(String ROW_s3q301ioth) {
+        this.ROW_s3q301ioth = ROW_s3q301ioth;
+    }
+
     public String get_s3q301i() {
         return this.ROW_s3q301i;
     }
@@ -207,6 +217,14 @@ public class Sec3Contract implements BaseColumns {
 
     public void set_s3q301j(String ROW_s3q301j) {
         this.ROW_s3q301j = ROW_s3q301j;
+    }
+
+    public String get_s3q301joth() {
+        return this.ROW_s3q301joth;
+    }
+
+    public void set_s3q301joth(String ROW_s3q301joth) {
+        this.ROW_s3q301joth = ROW_s3q301joth;
     }
 
     public String get_s3q301k() {
@@ -276,7 +294,9 @@ public class Sec3Contract implements BaseColumns {
         this.ROW_s3q301g = jsonObject.getString(Sec3Entry.ROW_S3Q301G);
         this.ROW_s3q301h = jsonObject.getString(Sec3Entry.ROW_S3Q301H);
         this.ROW_s3q301i = jsonObject.getString(Sec3Entry.ROW_S3Q301I);
+        this.ROW_s3q301ioth = jsonObject.getString(Sec3Entry.ROW_S3Q301IOTH);
         this.ROW_s3q301j = jsonObject.getString(Sec3Entry.ROW_S3Q301J);
+        this.ROW_s3q301joth = jsonObject.getString(Sec3Entry.ROW_S3Q301JOTH);
         this.ROW_s3q301k = jsonObject.getString(Sec3Entry.ROW_S3Q301K);
         this.ROW_s3q301l = jsonObject.getString(Sec3Entry.ROW_S3Q301L);
         this.ROW_UUID = jsonObject.getString(Sec3Entry.ROW_UUID);
@@ -308,7 +328,9 @@ public class Sec3Contract implements BaseColumns {
         this.ROW_s3q301g = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301G));
         this.ROW_s3q301h = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301H));
         this.ROW_s3q301i = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301I));
+        this.ROW_s3q301ioth = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301IOTH));
         this.ROW_s3q301j = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301J));
+        this.ROW_s3q301joth = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301JOTH));
         this.ROW_s3q301k = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301K));
         this.ROW_s3q301l = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_S3Q301L));
         this.ROW_UUID = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_UUID));
@@ -340,7 +362,9 @@ public class Sec3Contract implements BaseColumns {
         json.put(Sec3Entry.ROW_S3Q301G, this.ROW_s3q301g == null ? JSONObject.NULL : this.ROW_s3q301g);
         json.put(Sec3Entry.ROW_S3Q301H, this.ROW_s3q301h == null ? JSONObject.NULL : this.ROW_s3q301h);
         json.put(Sec3Entry.ROW_S3Q301I, this.ROW_s3q301i == null ? JSONObject.NULL : this.ROW_s3q301i);
+        json.put(Sec3Entry.ROW_S3Q301IOTH, this.ROW_s3q301ioth == null ? JSONObject.NULL : this.ROW_s3q301ioth);
         json.put(Sec3Entry.ROW_S3Q301J, this.ROW_s3q301j == null ? JSONObject.NULL : this.ROW_s3q301j);
+        json.put(Sec3Entry.ROW_S3Q301JOTH, this.ROW_s3q301joth == null ? JSONObject.NULL : this.ROW_s3q301joth);
         json.put(Sec3Entry.ROW_S3Q301K, this.ROW_s3q301k == null ? JSONObject.NULL : this.ROW_s3q301k);
         json.put(Sec3Entry.ROW_S3Q301L, this.ROW_s3q301l == null ? JSONObject.NULL : this.ROW_s3q301l);
         json.put(Sec3Entry.ROW_UUID, this.ROW_UUID == null ? JSONObject.NULL : this.ROW_UUID);
@@ -373,7 +397,9 @@ public class Sec3Contract implements BaseColumns {
         public static final String ROW_S3Q301G = "s3q301g";
         public static final String ROW_S3Q301H = "s3q301h";
         public static final String ROW_S3Q301I = "s3q301i";
+        public static final String ROW_S3Q301IOTH = "s3q301ioth";
         public static final String ROW_S3Q301J = "s3q301j";
+        public static final String ROW_S3Q301JOTH = "s3q301joth";
         public static final String ROW_S3Q301K = "s3q301k";
         public static final String ROW_S3Q301L = "s3q301l";
         public static final String ROW_UUID = "uuid";
