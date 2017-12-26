@@ -376,7 +376,7 @@ public class Section7IMActivity extends Activity {
         SRCApp.sec7im.setROW_USERID(SRCApp.fc.getROW_USERID());
         SRCApp.sec7im.setROW_UUID(SRCApp.fc.getROW_UUID());
         SRCApp.sec7im.setROW_ENTRYDATE(SRCApp.fc.getROW_ENTRYDATE());
-        SRCApp.sec7im.setHousehold(SRCApp.fc.getROW_S1Q101());
+        SRCApp.sec7im.setHousehold(SRCApp.hhno);
         SRCApp.sec7im.setROW_GPS_LAT(SRCApp.fc.getROW_GPS_LAT());
         SRCApp.sec7im.setROW_GPS_LNG(SRCApp.fc.getROW_GPS_LNG());
         SRCApp.sec7im.setROW_GPS_ACC(SRCApp.fc.getROW_GPS_ACC());

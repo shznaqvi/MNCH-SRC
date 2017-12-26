@@ -27,6 +27,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
@@ -49,7 +50,6 @@ import edu.aku.hassannaqvi.mnch_src2.other.CVars;
 public class Section1Activity extends Activity implements TextWatcher {
 
     private static final String TAG = "Sec1";
-    public static JSONObject s1;
     public List<String> psuCode;
     String var_s1q103 = "";
     String var_s1q111 = "";
@@ -433,28 +433,18 @@ public class Section1Activity extends Activity implements TextWatcher {
 
     public void startInterview(View view) {
 
-//        spDateT = new SimpleDateFormat("dd-MM-yyyy").format(s1q110.getCalendarView().getDate());
-
-        //spTimeT = mc101time.getCurrentHour() + ":" + mc101time.getCurrentMinute();
-
-        switch (radioS1q112.getCheckedRadioButtonId()) {
-            case R.id.RDO_s1q112_1:
-                var_s1q112 = "1";
-                break;
-            case R.id.RDO_s1q112_2:
-                var_s1q112 = "2";
-                break;
-        }
-
         if (ValidateForm()) {
 
-            if (SaveDraft()) {
-
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
                 Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
 
                 if (UpdateDB()) {
 
-                    if (var_s1q112.equals("1")) {
+                    if (rDOS1q1121.isChecked()) {
                         Intent sec2_intent = new Intent(this, Section2Activity.class);
                         startActivity(sec2_intent);
                     } else {
@@ -465,7 +455,6 @@ public class Section1Activity extends Activity implements TextWatcher {
                 } else {
                     Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
                 }
-            }
         }
     }
 
@@ -479,94 +468,50 @@ public class Section1Activity extends Activity implements TextWatcher {
     }
 
 
-    private boolean SaveDraft() {
+    private boolean SaveDraft() throws JSONException {
         SRCApp.fc = new FormContract();
+        CVars var = new CVars();
 
         SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
         SRCApp.fc.setTagID(sharedPref.getString("tagName", null));
         SRCApp.fc.setVersion(SRCApp.versionName + "." + SRCApp.versionCode);
 
         SRCApp.fc.setROW_DEVID(SRCApp.DEVID);
-        SRCApp.fc.setROW_FORM_ID(formid.getText().toString());
-        SRCApp.fc.setROW_S1Q101(s1q101.getSelectedItem().toString());
-        SRCApp.fc.setROW_S1Q102(s1q102.getText().toString());
-
-        CVars var = new CVars();
-        var.StoreHHNO(formid.getText().toString());
-        var.StoreHHCode(s1q101.getSelectedItem().toString());
-
-
-        switch (radioS1q103.getCheckedRadioButtonId()) {
-            case R.id.RDO_s1q103_1:
-                var_s1q103 = "1";
-                break;
-            case R.id.RDO_s1q103_2:
-                var_s1q103 = "2";
-                break;
-        }
-
-
-        SRCApp.fc.setROW_S1Q103(var_s1q103.toString());
-        SRCApp.fc.setROW_S1Q104(s1q104.getText().toString());
-
-
-        SRCDBHelper db = new SRCDBHelper(this);
-
-        Toast.makeText(this,s1q105.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
-
-        String uccode = db.getDistrictCode(s1q105.getSelectedItem().toString());
-//        String vcode = db.getVCode(s1q105.getSelectedItem().toString(), s1q106a.getSelectedItem().toString());
-
-        //Village name
-        SRCApp.fc.setROW_S1Q105(db.getVCode(uccode,s1q106a.getSelectedItem().toString()));
-
-
-        SRCApp.fc.setROW_S1Q106a(uccode);
-
-        SRCApp.fc.setROW_S1Q106b(null);
-
-        //SRCApp.fc.setROW_S1Q107(s1q107.getText().toString());
-        SRCApp.fc.setROW_S1Q108(s1q108.getText().toString());
-        SRCApp.fc.setROW_S1Q108b(s1q108b.getText().toString());
-
-        /*switch (radioS1q111.getCheckedRadioButtonId()) {
-            case R.id.RDO_s1q111_1:
-                var_s1q111 = "1";
-                break;
-            case R.id.RDO_s1q111_2:
-                var_s1q111 = "2";
-                break;
-            case R.id.RDO_s1q111_3:
-                var_s1q111 = "3";
-                break;
-            case R.id.RDO_s1q111_4:
-                var_s1q111 = "4";
-                break;
-        }*/
-
-        //SRCApp.fc.setROW_S1Q111(var_s1q111.toString());
-        //SRCApp.fc.setROW_S1Q111oth(String.valueOf(s1q111oth.getText().toString()));
-
-        switch (radioS1q112.getCheckedRadioButtonId()) {
-            case R.id.RDO_s1q112_1:
-                var_s1q112 = "1";
-                break;
-            case R.id.RDO_s1q112_2:
-                var_s1q112 = "2";
-                break;
-        }
-
-        SRCApp.fc.setROW_S1Q112(String.valueOf(var_s1q112.toString()));
-
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         Date dt = new Date();
         String dt1 = sdf.format(dt);
-
         SRCApp.fc.setROW_ENTRYDATE(dt1);
-
-        SRCApp.fc.setROW_S1Q110(dt1);
-
         SRCApp.fc.setROW_USERID(var.GetUser());
+        var.StoreHHNO(formid.getText().toString());
+        var.StoreHHCode(s1q101.getSelectedItem().toString());
+
+        // HH no
+        SRCApp.fc.setROW_FORM_ID(formid.getText().toString());
+        SRCApp.hhno = formid.getText().toString();
+
+
+        JSONObject s1 = new JSONObject();
+
+        // UC name and code
+        s1.put("s1q105", s1q105.getSelectedItem().toString());
+        SRCApp.uc = s1q105.getSelectedItem().toString();
+
+        // Village Name
+        s1.put("s1q106a", s1q106a.getSelectedItem().toString());
+        SRCApp.village = s1q106a.getSelectedItem().toString();
+
+        // HH Code / Extension
+        s1.put("s1q101", s1q101.getSelectedItem().toString());
+
+
+        // Respondent name
+        s1.put("s1q102", s1q102.getText().toString());
+        s1.put("s1q103", rDOS1q1031.isChecked() ? "1" : rDOS1q1032.isChecked() ? "2" : "0");
+        s1.put("s1q104", s1q104.getText().toString());
+        s1.put("s1q108", s1q108.getText().toString());
+        s1.put("s1q108b", s1q108b.getText().toString());
+        s1.put("s1q112", rDOS1q1121.isChecked() ? "1" : rDOS1q1122.isChecked() ? "2" : "0");
+
 
         setGPS();
 
@@ -878,7 +823,11 @@ public class Section1Activity extends Activity implements TextWatcher {
     public void endInterview(View view) {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (ValidateForm()) {
-            SaveDraft();
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             if (UpdateDB()) {
                 Intent end_intent = new Intent(this, EndingActivity.class);
                 end_intent.putExtra("check", false);
