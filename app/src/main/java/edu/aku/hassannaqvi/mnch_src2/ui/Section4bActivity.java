@@ -19,7 +19,6 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -29,7 +28,6 @@ import edu.aku.hassannaqvi.mnch_src2.contract.Sec4bContract;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
 import edu.aku.hassannaqvi.mnch_src2.other.CVars;
-import edu.aku.hassannaqvi.mnch_src2.other.Members;
 import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
 
@@ -166,14 +164,14 @@ public class Section4bActivity extends AppCompatActivity
         counter = 1;
 
         SRCDBHelper db = new SRCDBHelper(this);
-        Collection<Members> members = db.getAll_Woman_Reproductive_Age();
+        //Collection<Members> members = db.getAll_Woman_Reproductive_Age();
 
         ArrayList<String> arr_members = new ArrayList<>();
 
-        for (Members m : members) {
+        /*for (Members m : members) {
             arr_members.add(
                     m.getNME());
-        }
+        }*/
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(Section4bActivity.this,
                 android.R.layout.simple_spinner_item, arr_members);
@@ -368,11 +366,11 @@ public class Section4bActivity extends AppCompatActivity
 
         String val;
         if (s4q42a.getSelectedItem().toString() != "NA") {
-            val = db.getID_Woman_Reproductive_Age(s4q42a.getSelectedItem().toString());
+            //val = db.getID_Woman_Reproductive_Age(s4q42a.getSelectedItem().toString());
         } else {
             val = "99";
         }
-        SRCApp.sc4b.set_s4q42a(val);
+        //SRCApp.sc4b.set_s4q42a(val);
         SRCApp.sc4b.set_s4q42b(s4q42b.getText().toString());
 
         rdo_s4q42c = radio_s4q42c.getCheckedRadioButtonId();
