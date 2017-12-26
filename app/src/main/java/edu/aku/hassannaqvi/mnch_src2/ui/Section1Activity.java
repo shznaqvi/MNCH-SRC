@@ -512,6 +512,7 @@ public class Section1Activity extends Activity implements TextWatcher {
         s1.put("s1q108b", s1q108b.getText().toString());
         s1.put("s1q112", rDOS1q1121.isChecked() ? "1" : rDOS1q1122.isChecked() ? "2" : "0");
 
+        SRCApp.fc.setROW_S1(String.valueOf(s1));
 
         setGPS();
 

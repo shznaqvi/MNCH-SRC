@@ -29,8 +29,6 @@ import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
 public class Section2Activity extends Activity {
 
     private static final String TAG = "Sec2";
-    String var_s2q203 = "";
-    String var_s2q205 = "";
     @BindView(R.id.ScrollView01)
     ScrollView scrollView01;
     @BindView(R.id.app_header)
@@ -596,73 +594,44 @@ public class Section2Activity extends Activity {
         JSONObject s2 = new JSONObject();
         s2.put("s2q201", s2q201.getText().toString());
         s2.put("s2q202", s2q202.getText().toString());
-
-        switch (radioS2q203.getCheckedRadioButtonId()) {
-            case R.id.RDO_s2q203_1:
-                var_s2q203 = "1";
-                break;
-            case R.id.RDO_s2q203_2:
-                var_s2q203 = "2";
-                break;
-        }
-
-        s2.put("s2q203", var_s2q203);
+        s2.put("s2q203", rDOS2q2031.isChecked() ? "1"
+                : rDOS2q2032.isChecked() ? "2" : "0");
         s2.put("s2q204", s2q204.getText().toString());
 
-        switch (radioS2q205.getCheckedRadioButtonId()) {
-            case R.id.RDO_s2q205_1:
-                var_s2q205 = "1";
-                break;
-            case R.id.RDO_s2q205_2:
-                var_s2q205 = "2";
-                break;
-            case R.id.RDO_s2q205_3:
-                var_s2q205 = "3";
-                break;
-            case R.id.RDO_s2q205_4:
-                var_s2q205 = "4";
-                break;
-            case R.id.RDO_s2q205_5:
-                var_s2q205 = "5";
-                break;
-            case R.id.RDO_s2q205_6:
-                var_s2q205 = "6";
-                break;
+        s2.put("s2q205", rDOS2q2051.isChecked() ? "1"
+                : rDOS2q2052.isChecked() ? "2"
+                : rDOS2q2053.isChecked() ? "3"
+                : rDOS2q2054.isChecked() ? "4"
+                : rDOS2q2055.isChecked() ? "5"
+                : rDOS2q2056.isChecked() ? "6"
+                : rDOS2q2057.isChecked() ? "7"
+                : rDOS2q2058.isChecked() ? "8"
+                : rDOS2q2059.isChecked() ? "9"
+                : rDOS2q20510.isChecked() ? "10"
+                : rDOS2q20511.isChecked() ? "11"
+                : rDOS2q20512.isChecked() ? "12"
+                : rDOS2q20588.isChecked() ? "88" : "0");
 
-            case R.id.RDO_s2q205_7:
-                var_s2q205 = "7";
-                break;
-            case R.id.RDO_s2q205_8:
-                var_s2q205 = "8";
-                break;
-            case R.id.RDO_s2q205_9:
-                var_s2q205 = "9";
-                break;
-            case R.id.RDO_s2q205_10:
-                var_s2q205 = "10";
-                break;
-            case R.id.RDO_s2q205_11:
-                var_s2q205 = "11";
-                break;
-            case R.id.RDO_s2q205_12:
-                var_s2q205 = "12";
-                break;
-            case R.id.RDO_s2q205_88:
-                var_s2q205 = "88";
-                break;
-        }
-
-        s2.put("s2q205", var_s2q205);
         s2.put("s2q205oth", s2q205oth.getText().toString());
+
         s2.put("s2q206a", s2q206a.getText().toString());
+
         s2.put("s2q206b", s2q206b.getText().toString());
+
         s2.put("s2q206c", s2q206c.getText().toString());
+
         s2.put("s2q206d", s2q206d.getText().toString());
+
         s2.put("s2q206e", s2q206e.getText().toString());
+
         s2.put("s2q206f", s2q206f.getText().toString());
+
         s2.put("s2q206g", s2q206g.getText().toString());
+
         s2.put("s2q206h", s2q206h.getText().toString());
+
         s2.put("s2q206i", s2q206i.getText().toString());
+
         s2.put("s2q206j", s2q206j.getText().toString());
 
         SRCApp.mwras = Integer.parseInt(s2q206h.getText().toString());
