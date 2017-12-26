@@ -1,10 +1,10 @@
 package edu.aku.hassannaqvi.mnch_src2.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -19,18 +19,25 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import edu.aku.hassannaqvi.mnch_src2.R;
 import edu.aku.hassannaqvi.mnch_src2.contract.Sec3Contract;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
 import edu.aku.hassannaqvi.mnch_src2.other.CVars;
+import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
-public class Section3Activity extends Activity {
+public class Section3Activity extends AppCompatActivity
+{
 
     private static final String TAG = "Sec3";
     public static JSONObject s1;
     public LinearLayout vu_s3q301f;
     public int wcount1;
+    public DatePickerInputEditText s3q301h_dod;
     String var_s3q301d = "";
     String var_s3q301f1 = "";
     String var_s3q301f = "";
@@ -38,6 +45,8 @@ public class Section3Activity extends Activity {
     String var_s3q301h = "";
     String var_s3q301i = "";
     String var_s3q301j = "";
+    String dateToday;
+    String maxDateyear;
     private ScrollView scrollView01;
     private TextView appHeader;
     private TextView lblS3q301a;
@@ -127,6 +136,30 @@ public class Section3Activity extends Activity {
 
         counter = 1;
         sno = 0;
+
+        dateToday = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
+        try {
+
+            String s2 = "2016-12-01";
+            Date d1 = (new SimpleDateFormat("yyyy-MM-dd")).parse(s2);
+            maxDateyear = (new SimpleDateFormat("dd/MM/yyyy")).format(d1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        Calendar c = Calendar.getInstance();
+        c.set(2016, Calendar.DECEMBER, 1);
+
+       /* Calendar c1 =Calendar.getInstance();
+        c1.set(2016,Calendar.AUGUST,01);*/
+
+
+        s3q301h_dod = findViewById(R.id.s3q301h_dod);
+        s3q301h_dod.setManager(getSupportFragmentManager());
+        s3q301h_dod.setMaxDate(dateToday);
+        s3q301h_dod.setMinDate(maxDateyear);
+
 
         scrollView01 = findViewById(R.id.ScrollView01);
 

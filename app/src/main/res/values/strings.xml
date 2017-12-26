@@ -176,6 +176,7 @@
     <string name="baseline_s4q41b">مرڻ وقت عمر(ڏينهن)</string>
     <string name="baseline_s4q41b1">مرڻ وقت عمر(مهينو)</string>
     <string name="baseline_s4q41b2">مرڻ وقت عمر(سال)</string>
+    <string name="baseline_s4q41b_dod">وفات جي تاريخ</string>
     <string name="baseline_s4q41c">ويم يا حمل جو نتيجو</string>
     <string name="baseline_s4q41c_1">پيٽ ۾ مري ويو</string>
     <string name="baseline_s4q41c_2">مرده پيدائش</string>
@@ -183,6 +184,7 @@
     <string name="baseline_s4q41c_4">جاڙا زندهه پيدائش</string>
     <string name="baseline_s4q41c_5">هڪ زندهه پيدائش/هڪ مرده پيدائش</string>
     <string name="baseline_s4q41c_6">جاڙا مرده پيدائش</string>
+    <string name="baseline_s4q41c_dod">ويم جي تاريخ</string>
     <string name="baseline_s4q41d">موت جي جڳھه</string>
     <string name="baseline_s4q41d_1">گهر</string>
     <string name="baseline_s4q41d_2">گورنمينٽ ڊسپينسري</string>

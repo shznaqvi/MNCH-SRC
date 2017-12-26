@@ -1,13 +1,14 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ScrollView01"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginEnd="16dp"
-    android:layout_marginStart="16dp"
-    android:background="@drawable/background_grad"
-    android:scrollbars="horizontal"
-    tools:context="edu.aku.hassannaqvi.mnch_src2.ui.Section4Activity">
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/ScrollView01"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/background_grad"
+            android:scrollbars="horizontal"
+            tools:context="edu.aku.hassannaqvi.mnch_src2.ui.Section4Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -124,6 +125,22 @@
             android:maxLength="2" />
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/baseline_s4q41b_dod"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
+            android:id="@+id/s4q41b_dod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:focusable="false"
+            android:hint="@string/baseline_s4q41b_dod"
+            android:textColor="@android:color/black"
+            app:dateFormat="dd-MM-yyyy"/>
+
+        <TextView
             android:id="@+id/lbl_s4q41c"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -172,6 +189,7 @@
                 android:text="@string/baseline_s4q41c_6" />
 
         </RadioGroup>
+
 
         <TextView
             android:id="@+id/lbl_s4q41d"

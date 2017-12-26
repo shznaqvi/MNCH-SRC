@@ -1,9 +1,9 @@
 package edu.aku.hassannaqvi.mnch_src2.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,18 +14,27 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import edu.aku.hassannaqvi.mnch_src2.R;
 import edu.aku.hassannaqvi.mnch_src2.contract.Sec4aContract;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
 import edu.aku.hassannaqvi.mnch_src2.other.CVars;
+import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
-public class Section4Activity extends Activity {
+public class Section4Activity extends AppCompatActivity
+{
 
     private static final String TAG = "Sec4";
     public static String data = null;
     public TextView tcount;
     public int countM = 0;
+    public DatePickerInputEditText s4q41b_dod;
+    String dateToday;
+    String maxDateyear;
     private EditText s4q41a;
     private EditText s4q41b;
     private EditText s4q41b1;
@@ -84,6 +93,33 @@ public class Section4Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section4);
+//        ButterKnife.bind(this);
+
+        dateToday = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
+        try {
+
+            String s2 = "2016-12-01";
+            Date d1 = (new SimpleDateFormat("yyyy-MM-dd")).parse(s2);
+            maxDateyear = (new SimpleDateFormat("dd/MM/yyyy")).format(d1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        Calendar c = Calendar.getInstance();
+        c.set(2016, Calendar.DECEMBER, 1);
+
+       /* Calendar c1 =Calendar.getInstance();
+        c1.set(2016,Calendar.AUGUST,01);*/
+
+
+        s4q41b_dod = findViewById(R.id.s4q41b_dod);
+
+        s4q41b_dod.setManager(getSupportFragmentManager());
+        s4q41b_dod.setMaxDate(dateToday);
+        s4q41b_dod.setMinDate(maxDateyear);
+
+
 
         app_header = findViewById(R.id.app_header);
 

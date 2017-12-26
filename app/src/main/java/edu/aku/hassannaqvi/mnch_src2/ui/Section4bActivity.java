@@ -1,9 +1,9 @@
 package edu.aku.hassannaqvi.mnch_src2.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -16,22 +16,33 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import edu.aku.hassannaqvi.mnch_src2.R;
 import edu.aku.hassannaqvi.mnch_src2.contract.Sec4bContract;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
 import edu.aku.hassannaqvi.mnch_src2.other.CVars;
 import edu.aku.hassannaqvi.mnch_src2.other.Members;
+import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
 
-public class Section4bActivity extends Activity {
+public class Section4bActivity extends AppCompatActivity
+{
 
     private static final String TAG = "Sec4a";
     private static int mortalityCounter = 1;
     public int count = 0;
+    @BindView(R.id.s4q42d_dod)
+    DatePickerInputEditText s4q42d_dod;
+    String dateToday;
+    String maxDate5year;
     private TextView appHeader;
     private TextView lbl_hhhead;
     private LinearLayout vu_s4q42eoth;
@@ -93,6 +104,29 @@ public class Section4bActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section4b);
+        ButterKnife.bind(this);
+
+        dateToday = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
+        try {
+
+            String s2 = "2012-12-01";
+            Date d1 = (new SimpleDateFormat("yyyy-MM-dd")).parse(s2);
+            maxDate5year = (new SimpleDateFormat("dd/MM/yyyy")).format(d1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        Calendar c = Calendar.getInstance();
+        c.set(2012, Calendar.DECEMBER, 1);
+
+       /* Calendar c1 =Calendar.getInstance();
+        c1.set(2016,Calendar.AUGUST,01);*/
+
+
+        s4q42d_dod.setManager(getSupportFragmentManager());
+        s4q42d_dod.setMaxDate(dateToday);
+        s4q42d_dod.setMinDate(maxDate5year);
 
 
         appHeader = findViewById(R.id.app_header);
