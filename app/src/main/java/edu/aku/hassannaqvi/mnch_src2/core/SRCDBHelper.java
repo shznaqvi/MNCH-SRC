@@ -32,6 +32,8 @@ import edu.aku.hassannaqvi.mnch_src2.contract.UsersContract;
 import edu.aku.hassannaqvi.mnch_src2.contract.UsersContract.singleUser;
 import edu.aku.hassannaqvi.mnch_src2.contract.VillagesContract;
 import edu.aku.hassannaqvi.mnch_src2.contract.VillagesContract.singleVillages;
+import edu.aku.hassannaqvi.mnch_src2.contract.BLRandomContract;
+import edu.aku.hassannaqvi.mnch_src2.contract.BLRandomContract.singleRandom;
 import edu.aku.hassannaqvi.mnch_src2.other.CVars;
 import edu.aku.hassannaqvi.mnch_src2.other.Members;
 
@@ -40,6 +42,16 @@ import edu.aku.hassannaqvi.mnch_src2.other.Members;
  * Created by isd on 20/10/2016.
  */
 public class SRCDBHelper extends SQLiteOpenHelper {
+
+
+    public static final String SQL_CREATE_BL_RANDOM = "CREATE TABLE " + singleRandom.TABLE_NAME + "("
+            + singleRandom.COLUMN_ID + " TEXT,"
+            + singleRandom.COLUMN_SUB_VILLAGE_CODE + " TEXT,"
+            + singleRandom.COLUMN_LUID + " TEXT,"
+            + singleRandom.COLUMN_SNO + " TEXT,"
+            + singleRandom.COLUMN_STRUCTURE_NO + " TEXT,"
+            + singleRandom.COLUMN_MW_NAME + " TEXT,"
+            + singleRandom.COLUMN_RANDOMDT + " TEXT );";
 
     public static final String SQL_CREATE_USERS = "CREATE TABLE " + UsersContract.singleUser.TABLE_NAME + "("
             + UsersContract.singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -191,6 +203,8 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + Section4bEntry.TABLE_NAME;
     private static final String SQL_DELETE_SEC7IM =
             "DROP TABLE IF EXISTS " + single7Im.TABLE_NAME;
+    private static final String SQL_DELETE_BL_RANDOM =
+            "DROP TABLE IF EXISTS " + singleRandom.TABLE_NAME;
     final String SQL_CREATE_DISTRICT_TABLE = "CREATE TABLE " + singleDistrict.TABLE_NAME + " (" +
             singleDistrict._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             singleDistrict.COLUMN_DISTRICT_CODE + " TEXT, " +
@@ -219,6 +233,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_BASELINE_SEC4);
         db.execSQL(SQL_CREATE_BASELINE_SEC4b);
         db.execSQL(SQL_CREATE_SEC_7_IM);
+        db.execSQL(SQL_CREATE_BL_RANDOM);
 
     }
 
@@ -232,8 +247,57 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_SEC4);
         db.execSQL(SQL_DELETE_SEC4B);
         db.execSQL(SQL_DELETE_SEC7IM);
+        db.execSQL(SQL_DELETE_BL_RANDOM);
 
         onCreate(db);
+    }
+
+    public Collection<BLRandomContract> getAllBLRandom(String subVillageCode, String hh) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                singleRandom.COLUMN_ID,
+                singleRandom.COLUMN_LUID,
+                singleRandom.COLUMN_STRUCTURE_NO,
+                singleRandom.COLUMN_SNO,
+                singleRandom.COLUMN_SUB_VILLAGE_CODE,
+                singleRandom.COLUMN_RANDOMDT,
+                singleRandom.COLUMN_MW_NAME
+        };
+
+        String whereClause = singleRandom.COLUMN_SUB_VILLAGE_CODE + "=? AND " +
+                singleRandom.COLUMN_STRUCTURE_NO + "=?";
+        String[] whereArgs = new String[]{subVillageCode, hh};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                singleRandom.COLUMN_ID + " ASC";
+
+        Collection<BLRandomContract> allBL = new ArrayList<>();
+        try {
+            c = db.query(
+                    singleRandom.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                BLRandomContract dc = new BLRandomContract();
+                allBL.add(dc.Hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allBL;
     }
 
     public Collection<DistrictsContract> getAllDistricts() {
@@ -388,6 +452,34 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         }
     }
 
+    public void syncBlRandom(JSONArray Areaslist) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(singleRandom.TABLE_NAME, null, null);
+        try {
+            JSONArray jsonArray = Areaslist;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectCC = jsonArray.getJSONObject(i);
+
+                BLRandomContract Vc = new BLRandomContract();
+                Vc.Sync(jsonObjectCC);
+
+                ContentValues values = new ContentValues();
+
+                values.put(singleRandom.COLUMN_ID, Vc.get_ID());
+                values.put(singleRandom.COLUMN_LUID, Vc.getLUID());
+                values.put(singleRandom.COLUMN_STRUCTURE_NO, Vc.getStructure());
+                values.put(singleRandom.COLUMN_SNO, Vc.getSno());
+                values.put(singleRandom.COLUMN_SUB_VILLAGE_CODE, Vc.getSubVillageCode());
+                values.put(singleRandom.COLUMN_RANDOMDT, Vc.getRandomDT());
+                values.put(singleRandom.COLUMN_MW_NAME, Vc.getMwname());
+
+                db.insert(singleRandom.TABLE_NAME, null, values);
+            }
+        } catch (Exception e) {
+        } finally {
+            db.close();
+        }
+    }
 
     public void addUser(UsersContract userscontract) {
         SQLiteDatabase db = this.getWritableDatabase();

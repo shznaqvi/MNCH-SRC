@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 
+import java.util.ArrayList;
+
+import edu.aku.hassannaqvi.mnch_src2.contract.BLRandomContract;
 import edu.aku.hassannaqvi.mnch_src2.contract.FormContract;
 import edu.aku.hassannaqvi.mnch_src2.contract.Sec3Contract;
 import edu.aku.hassannaqvi.mnch_src2.contract.Sec4aContract;
@@ -90,6 +93,7 @@ public class SRCApp extends Application {
     public static int versionCode;
     public static String versionName;
     protected static LocationManager locationManager;
+    public static ArrayList<BLRandomContract> blRandomized;
 
 
 /*df*/

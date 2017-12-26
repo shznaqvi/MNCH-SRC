@@ -21,6 +21,7 @@ import java.util.Date;
 
 import edu.aku.hassannaqvi.mnch_src2.R;
 import edu.aku.hassannaqvi.mnch_src2.core.AndroidDatabaseManager;
+import edu.aku.hassannaqvi.mnch_src2.get.GetBLRandom;
 import edu.aku.hassannaqvi.mnch_src2.get.GetDistricts;
 import edu.aku.hassannaqvi.mnch_src2.get.GetUsers;
 import edu.aku.hassannaqvi.mnch_src2.get.GetVillages;
@@ -83,22 +84,11 @@ public class MainActivity extends Activity {
     }
 
     public void syncData(View v) {
-        //String formsUrl = SRCApp._HOST_URL + "src/forms.php";
-        //String usersUrl = SRCApp._HOST_URL + "/src/api/users_login.php";
-        //String clustersUrl = SRCApp._HOST_URL + "/src/api/getdistricts.php";
-        //String villagesUrl = SRCApp._HOST_URL + "/src/api/getvillages.php";
-
         // Require permissions INTERNET & ACCESS_NETWORK_STATE
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
-            Toast.makeText(getApplicationContext(), "Getting Users", Toast.LENGTH_SHORT).show();
-            new GetUsers(this).execute();
-            Toast.makeText(getApplicationContext(), "Getting Districts", Toast.LENGTH_SHORT).show();
-            new GetDistricts(this).execute();
-            Toast.makeText(getApplicationContext(), "Getting Villages", Toast.LENGTH_SHORT).show();
-            new GetVillages(this).execute();
 
             Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
             new SyncForms(this).execute();

@@ -34,11 +34,15 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import edu.aku.hassannaqvi.mnch_src2.R;
+import edu.aku.hassannaqvi.mnch_src2.contract.BLRandomContract;
 import edu.aku.hassannaqvi.mnch_src2.contract.DistrictsContract;
 import edu.aku.hassannaqvi.mnch_src2.contract.FormContract;
 import edu.aku.hassannaqvi.mnch_src2.contract.VillagesContract;
@@ -51,6 +55,7 @@ public class Section1Activity extends Activity implements TextWatcher {
 
     private static final String TAG = "Sec1";
     public List<String> psuCode;
+    public Map<String,String> VillageCode;
     String var_s1q103 = "";
     String var_s1q111 = "";
     String var_s1q112 = "";
@@ -91,15 +96,14 @@ public class Section1Activity extends Activity implements TextWatcher {
     private TextView lblS1q112;
     private EditText s1q102;
     private EditText formid;
-    private Spinner s1q101;
     private EditText s1q104;
     private Spinner s1q105;
     private Spinner s1q106a;
-//    private EditText s1q106b;
+    //    private EditText s1q106b;
     //private EditText s1q107;
     private EditText s1q108;
     private EditText s1q108b;
-//    private DatePicker s1q110;
+    //    private DatePicker s1q110;
     private EditText s1q111oth;
     private LinearLayout vu_s1q112;
     private int rdo_s1q103;
@@ -107,6 +111,13 @@ public class Section1Activity extends Activity implements TextWatcher {
     private int rdo_s1q112;
     private AlertDialog.Builder alert;
     private String spDateT;
+
+    @BindView(R.id.hh_count)
+    TextView hhCount;
+    @BindView(R.id.fldGrp01)
+    LinearLayout fldGrp01;
+    Collection<BLRandomContract> selected;
+    SRCDBHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,7 +138,6 @@ public class Section1Activity extends Activity implements TextWatcher {
 //        s1q110.setMaxDate(new Date().getTime());
 
         lblFormid = findViewById(R.id.lbl_formid);
-        lblS1q101 = findViewById(R.id.lbl_s1q101);
         lblS1q102 = findViewById(R.id.lbl_s1q102);
         lblS1q103 = findViewById(R.id.lbl_s1q103);
         radioS1q103 = findViewById(R.id.radio_s1q103);
@@ -154,7 +164,6 @@ public class Section1Activity extends Activity implements TextWatcher {
 //        rDOS1q1122 = (RadioButton) findViewById(R.id.RDO_s1q112_2);
 
         formid = findViewById(R.id.formid);
-        s1q101 = findViewById(R.id.s1q101);
 
 
         s1q102 = findViewById(R.id.s1q102);
@@ -179,82 +188,7 @@ public class Section1Activity extends Activity implements TextWatcher {
 
         getS1q104().addTextChangedListener(this);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(Section1Activity.this,
-                android.R.layout.simple_spinner_dropdown_item, lst_hhcode);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        s1q101.setAdapter(adapter);
-
-
-//        final ArrayList<String> arr_members = new ArrayList<>();
-//        final ArrayList<String> arr_members1 = new ArrayList<>();
-//
-        final SRCDBHelper db = new SRCDBHelper(this);
-//        final Collection<Members> members = db.getDistricts();
-//
-//        final ArrayList<Members> member = new ArrayList<>();
-//
-//        for (Members m : members) {
-//            arr_members.add(m.getNME());
-//        }
-//
-//        for (Members m : members) {
-//            member.add(new Members(m.getID(),m.getNME()));
-//        }
-//
-////        Toast.makeText(getApplicationContext(),""+member.get(1).getID(),Toast.LENGTH_LONG).show();
-//
-//
-//        ArrayAdapter<String> adapter_cluster = new ArrayAdapter<>(Section1Activity.this,
-//                android.R.layout.simple_spinner_dropdown_item, arr_members);
-////        adapter_cluster.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        s1q105.setAdapter(adapter_cluster);
-//
-//
-//        final CVars var = new CVars();
-//
-//        s1q105.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-//                // TODO Auto-generated method stub
-//
-//                if (position != 0) {
-//
-//                    s1q106a.setEnabled(true);
-//                    s1q106b.setEnabled(true);
-//
-////                    String item = s1q105.getSelectedItem().toString();
-//
-//
-//                    String item = member.get(position).getID();
-//
-//                    Toast.makeText(getApplicationContext(),item,Toast.LENGTH_LONG).show();
-//
-//                    //var.setClusterName(item);
-//
-//                    final Collection<Members> members1 = db.getVillages(item);
-//
-//                    arr_members1.clear();
-//
-//                    for (Members m : members1) {
-//                        arr_members1.add(m.getNME());
-//                    }
-//
-//
-//                    ArrayAdapter<String> adapter1 = new ArrayAdapter<>(Section1Activity.this,
-//                            android.R.layout.simple_spinner_dropdown_item, arr_members1);
-////                adapter1.setDropDownViewResource(android.R.layout.simple_list_item_1);
-//                    s1q106a.setAdapter(adapter1);
-//
-//                }else {
-//                    s1q106a.setEnabled(false);
-//                    s1q106b.setEnabled(false);
-//                }
-//            }
-//
-//            public void onNothingSelected(AdapterView<?> arg0) {
-//                // TODO Auto-generated method stub
-//            }
-//        });
-
+        db = new SRCDBHelper(this);
 
         // Spinner Drop down elements
         List<String> districtNames = new ArrayList<String>();
@@ -270,11 +204,6 @@ public class Section1Activity extends Activity implements TextWatcher {
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, districtNames);
 
-        // Drop down layout style - list view with radio button
-//        dataAdapter
-//                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // attaching data adapter to spinner
         s1q105.setAdapter(dataAdapter);
 
         s1q105.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -282,10 +211,12 @@ public class Section1Activity extends Activity implements TextWatcher {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 SRCApp.hh01txt = districtCodes.get(position);
 
-                psuCode = new ArrayList<String>();
+                psuCode = new ArrayList<>();
+                VillageCode = new HashMap<>();
                 Collection<VillagesContract> pc = db.getAllVillagesByDistrict(districtCodes.get(position));
                 for (VillagesContract p : pc) {
                     psuCode.add(p.getVILLAGESName());
+                    VillageCode.put(p.getVILLAGESName(),p.getVILLAGESCode());
                 }
                 ArrayAdapter<String> villagesAdapter = new ArrayAdapter<String>(Section1Activity.this,
                         android.R.layout.simple_spinner_dropdown_item, psuCode);
@@ -307,22 +238,8 @@ public class Section1Activity extends Activity implements TextWatcher {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 SRCApp.hh02txt = psuCode.get(position);
 
-                Collection<VillagesContract> pc = db.getAllVillagesByDistrict(s1q105.getSelectedItem().toString());
-                for (VillagesContract p : pc) {
-                    Log.d(TAG, "onItemSelected: " + p.getVILLAGESCode() + " -" + SRCApp.hh02txt);
-
-//                    if (p.getVILLAGESCode().equals(SRCApp.hh02txt)) {
-//                        Log.d(TAG, "onItemSelected: " + p.getVILLAGESName());
-//                        String[] psuNameS = p.getVILLAGESName().toString().split("\\|");
-//                        districtN.setText(psuNameS[0]);
-//                        Log.d(TAG, "onItemSelected: " + psuNameS[0]);
-//                        ucN.setText(psuNameS[1]);
-//                        Log.d(TAG, "onItemSelected: " + psuNameS[1]);
-//                        /*psuN.setText(psuNameS[2]);
-//                        Log.d(TAG, "onItemSelected: " + psuNameS[2]);*/
-//
-//                    }
-                }
+                formid.setText(null);
+                hhCount.setText(null);
             }
 
             @Override
@@ -337,9 +254,6 @@ public class Section1Activity extends Activity implements TextWatcher {
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-//                        Intent intent = new Intent(Section1Activity.this, MainActivity.class);
-//                        startActivity(intent);
-
                         finish();
                     }
                 })
@@ -349,53 +263,39 @@ public class Section1Activity extends Activity implements TextWatcher {
                     }
                 });
 
-        /*radioS1q111.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                //View view = this.getCurrentFocus();
-                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(rDOS1q1111.getWindowToken(), 0);
-
-                if (checkedId == rDOS1q1114.getId()) {
-
-                    vu_s1q112.setVisibility(View.VISIBLE);
-
-                } else {
-
-                    vu_s1q112.setVisibility(View.GONE);
-                    s1q111oth.setText("");
-                }
-            }
-        });*/
-
         getS1q104().addTextChangedListener(this);
-
-//        s1q101.setBackgroundColor(getResources().getColor(R.color.dullWhile));
-
 
         rDOS1q1122.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
+                if (isChecked) {
                     btn_Continue.setEnabled(false);
-                }else {
+                } else {
                     btn_Continue.setEnabled(true);
                 }
             }
         });
 
-//        radioS1q112.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                if (rDOS1q1122.isChecked()){
-//                    btnNext.setText(R.string.end_interview);
-//                }
-//                else {
-//                    btnNext.setText("Section 2");
-//                }
-//            }
-//        });
+        SRCApp.blRandomized = new ArrayList<>();
+        formid.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                fldGrp01.setVisibility(View.GONE);
+
+                hhCount.setText(null);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
     }
 
@@ -440,21 +340,21 @@ public class Section1Activity extends Activity implements TextWatcher {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-                Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
 
-                if (UpdateDB()) {
+            if (UpdateDB()) {
 
-                    if (rDOS1q1121.isChecked()) {
-                        Intent sec2_intent = new Intent(this, Section2Activity.class);
-                        startActivity(sec2_intent);
-                    } else {
-                        Intent end_intent = new Intent(this, EndingActivity.class);
-                        end_intent.putExtra("check", false);
-                        startActivity(end_intent);
-                    }
+                if (rDOS1q1121.isChecked()) {
+                    Intent sec2_intent = new Intent(this, Section2Activity.class);
+                    startActivity(sec2_intent);
                 } else {
-                    Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
+                    Intent end_intent = new Intent(this, EndingActivity.class);
+                    end_intent.putExtra("check", false);
+                    startActivity(end_intent);
                 }
+            } else {
+                Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -483,7 +383,6 @@ public class Section1Activity extends Activity implements TextWatcher {
         SRCApp.fc.setROW_ENTRYDATE(dt1);
         SRCApp.fc.setROW_USERID(var.GetUser());
         var.StoreHHNO(formid.getText().toString());
-        var.StoreHHCode(s1q101.getSelectedItem().toString());
 
         // HH no
         SRCApp.fc.setROW_FORM_ID(formid.getText().toString());
@@ -497,12 +396,8 @@ public class Section1Activity extends Activity implements TextWatcher {
         SRCApp.uc = s1q105.getSelectedItem().toString();
 
         // Village Name
-        s1.put("s1q106a", s1q106a.getSelectedItem().toString());
-        SRCApp.village = s1q106a.getSelectedItem().toString();
-
-        // HH Code / Extension
-        s1.put("s1q101", s1q101.getSelectedItem().toString());
-
+        s1.put("s1q106a", VillageCode.get(s1q106a.getSelectedItem().toString()));
+        SRCApp.village = VillageCode.get(s1q106a.getSelectedItem().toString());
 
         // Respondent name
         s1.put("s1q102", s1q102.getText().toString());
@@ -517,6 +412,38 @@ public class Section1Activity extends Activity implements TextWatcher {
         setGPS();
 
         return true;
+    }
+
+
+    @OnClick(R.id.checkHH)
+    void onCheckHHClick() {
+        //TODO implement
+
+        if (s1q106a.getSelectedItemPosition() != 0 && !formid.getText().toString().trim().isEmpty()) {
+
+            selected = db.getAllBLRandom(VillageCode.get(s1q106a.getSelectedItem().toString()), formid.getText().toString().toUpperCase());
+
+            if (selected.size() != 0) {
+
+                for (BLRandomContract rnd : selected) {
+                    SRCApp.blRandomized.add(new BLRandomContract(rnd));
+                }
+
+                hhCount.setText(SRCApp.blRandomized.size() + " found");
+
+                fldGrp01.setVisibility(View.VISIBLE);
+            } else {
+                hhCount.setText(null);
+
+                fldGrp01.setVisibility(View.GONE);
+
+                Toast.makeText(this, "No HH found.", Toast.LENGTH_SHORT).show();
+            }
+
+        } else {
+            Toast.makeText(this, "Not found.", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private ArrayList GetHHCode() {
@@ -589,27 +516,6 @@ public class Section1Activity extends Activity implements TextWatcher {
             return false;
         } else {
             formid.setError(null);
-        }
-
-//        if (s1q101.getSelectedItem().toString().equals("...")) {
-//            formid.setError("Please enter Household number extension");
-//            Toast.makeText(getApplicationContext(), "Please enter Household number extension \r\n", Toast.LENGTH_LONG).show();
-//            formid.requestFocus();
-//            Log.d(TAG, "ValidateForm: Error Type: 101 empty");
-//            return false;
-//        } else {
-//            formid.setError(null);
-//        }
-        TextView errorText3 = (TextView) s1q101.getSelectedView();
-        if (s1q101.getSelectedItemPosition() == 0) {
-            errorText3.setError("anything here, just to add the icon");
-            errorText3.setTextColor(Color.RED);//just to highlight that this is an error
-            errorText3.setText("Please select an Answer");//changes the selected item text to this
-            Toast.makeText(getApplicationContext(), "Please select an Answer.", Toast.LENGTH_LONG).show();
-            Log.d(TAG, "Error Type: 501 empty");
-            return false;
-        } else {
-            errorText3.setError(null);
         }
 
         if (getS1q102().getText().toString().isEmpty()) {

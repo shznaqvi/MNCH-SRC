@@ -1,12 +1,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@drawable/background"
-              android:fitsSystemWindows="true"
-              android:gravity="center_horizontal"
-              android:orientation="vertical"
-              tools:context="edu.aku.hassannaqvi.mnch_src2.ui.LoginActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:fitsSystemWindows="true"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="edu.aku.hassannaqvi.mnch_src2.ui.LoginActivity">
 
     <!-- Login progress -->
     <ProgressBar
@@ -42,7 +42,7 @@
                 android:text="@string/app_name"
                 android:textColor="@color/colorPrimary"
                 android:textSize="32sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                 android:gravity="center_horizontal"
                 android:text="A PROJECT OF"
                 android:textColor="@color/white"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -59,7 +59,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="0dp"
                 android:contentDescription="Aga Khan LOGO"
-                android:src="@drawable/agakhannew"/>
+                android:src="@drawable/agakhannew" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -91,7 +91,7 @@
 
                         android:textSize="18sp">
 
-                        <requestFocus/>
+                        <requestFocus />
 
                     </EditText>
 
@@ -112,7 +112,7 @@
                         android:drawableStart="@drawable/ic_remove_red_eye_black_24dp"
                         android:gravity="center"
                         android:padding="3dp"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp" />
 
                     <EditText
                         android:id="@+id/password"
@@ -131,7 +131,7 @@
                         android:paddingStart="4dp"
                         android:singleLine="true"
 
-                        android:textSize="18sp"/>
+                        android:textSize="18sp" />
 
 
                 </LinearLayout>
@@ -160,18 +160,37 @@
                 android:onClick="loginUser"
                 android:text="@string/action_sign_in" />-->
 
-            <Button
-                android:id="@+id/email_sign_in_button"
-                style="?android:textAppearanceSmall"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="2dp"
-                android:layout_marginTop="40dp"
-                android:background="@color/colorPrimary"
-                android:padding="16dp"
-                android:text="@string/action_sign_in"
-                android:textColor="@color/white"
-                android:textStyle="bold"/>
+                android:orientation="horizontal"
+                android:layoutDirection="ltr"
+                android:layout_marginTop="40dp">
+
+                <Button
+                    android:id="@+id/email_sign_in_button"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="0dp"
+                    android:layout_weight="70"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="@color/colorAccent"
+                    android:text="@string/action_sign_in"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/syncDataButton"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="0dp"
+                    android:layout_weight="20"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:text="SYNC Data"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/txtinstalldate"
@@ -180,7 +199,7 @@
                 android:background="#efefef"
                 android:gravity="center"
                 android:textColor="#565656"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
 
         </LinearLayout>
     </ScrollView>

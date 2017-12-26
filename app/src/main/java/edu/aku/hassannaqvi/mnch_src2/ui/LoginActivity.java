@@ -7,6 +7,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -21,10 +23,16 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import edu.aku.hassannaqvi.mnch_src2.R;
 import edu.aku.hassannaqvi.mnch_src2.contract.UsersContract;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
+import edu.aku.hassannaqvi.mnch_src2.get.GetBLRandom;
+import edu.aku.hassannaqvi.mnch_src2.get.GetDistricts;
+import edu.aku.hassannaqvi.mnch_src2.get.GetUsers;
+import edu.aku.hassannaqvi.mnch_src2.get.GetVillages;
 import edu.aku.hassannaqvi.mnch_src2.other.CVars;
 
 
@@ -50,10 +58,10 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        ButterKnife.bind(this);
 
         SRCDBHelper db = new SRCDBHelper(this);
         ArrayList<UsersContract> lstUsers = db.getAllUsers();
-
 
 
         // Set up the login form.
@@ -114,6 +122,27 @@ public class LoginActivity extends Activity {
                 });
     }
 
+
+    @OnClick(R.id.syncDataButton)
+    void onSyncDataButtonClick() {
+        //TODO implement
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+
+            Toast.makeText(getApplicationContext(), "Getting Users", Toast.LENGTH_SHORT).show();
+            new GetUsers(this).execute();
+            Toast.makeText(getApplicationContext(), "Getting Districts", Toast.LENGTH_SHORT).show();
+            new GetDistricts(this).execute();
+            Toast.makeText(getApplicationContext(), "Getting Random", Toast.LENGTH_SHORT).show();
+            new GetBLRandom(this).execute();
+            Toast.makeText(getApplicationContext(), "Getting Villages", Toast.LENGTH_SHORT).show();
+            new GetVillages(this).execute();
+        } else {
+            Toast.makeText(this, "No network connection available.", Toast.LENGTH_SHORT).show();
+        }
+    }
 
 
     public void loginUser(View view) {
@@ -197,7 +226,7 @@ public class LoginActivity extends Activity {
             } catch (Exception e) {
                 Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }else {
+        } else {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                     LoginActivity.this);
             alertDialogBuilder

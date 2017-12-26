@@ -1,119 +1,118 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/ScrollView01"
+    android:id="@+id/ScrollView01"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:layout_marginStart="16dp"
+    android:background="#d6d6d6"
+    android:scrollbars="horizontal">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:background="#d6d6d6"
-        android:scrollbars="horizontal">
+        android:layoutDirection="rtl"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/app_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:textSize="30sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/lbl_s1q105"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/baseline_s1q106a"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/app_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:background="@color/colorPrimaryDark"
-                android:gravity="center"
-                android:textSize="30sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginBottom="10dp"
-                android:background="@color/colorPrimary" />
-
-
-            <TextView
-                android:id="@+id/lbl_s1q105"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/baseline_s1q106a"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Spinner
-                    android:id="@+id/s1q105"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:ems="10" />
-
-<!--                <EditText
-                    android:id="@+id/s1q106b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:ems="10"
-                    android:hint="@string/baseline_s1q106b"
-                    android:inputType="number"
-                    android:visibility="gone"
-                    android:maxLength="2" />-->
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/lbl_s1q106a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/baseline_s1q105"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
+            android:orientation="horizontal">
 
             <Spinner
-                android:id="@+id/s1q106a"
+                android:id="@+id/s1q105"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                />
+                android:ems="10" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lbl_s1q106a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/baseline_s1q105"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+        <Spinner
+            android:id="@+id/s1q106a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/lbl_formid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/baseline_formid"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/formid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/baseline_formid">
+
+        </EditText>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/lbl_formid"
-                android:layout_width="match_parent"
+                android:id="@+id/hh_count"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:enabled="false"
+                android:paddingLeft="10dp" />
+
+            <Button
+                android:id="@+id/checkHH"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/baseline_formid"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:layout_marginRight="5dp"
+                android:layout_weight="40"
+                android:text="Check HH" />
 
-            <EditText
-                android:id="@+id/formid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/baseline_formid"
-                android:inputType="number"
-                android:maxLength="4">
+        </LinearLayout>
 
-            </EditText>
-
-
-            <TextView
-                android:id="@+id/lbl_s1q101"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/baseline_s1q101"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <Spinner
-                android:id="@+id/s1q101"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text"
-                />
-
+        <LinearLayout
+            android:id="@+id/fldGrp01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/lbl_s1q102"
@@ -173,40 +172,7 @@
                 android:ems="10"
                 android:hint="@string/baseline_s1q104"
                 android:inputType="number"
-                android:maxLength="2"
-                />
-
-            <!--<TextView
-                android:id="@+id/lbl_s1q106b"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/baseline_s1q106b"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <EditText
-                android:id="@+id/s1q106b"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="number"
-                android:maxLength="2"
-                android:hint="@string/baseline_s1q106b"/>-->
-
-            <!--<TextView
-                android:id="@+id/lbl_s1q107"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/baseline_s1q107"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <EditText
-                android:id="@+id/s1q107"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="number" />-->
+                android:maxLength="2" />
 
             <TextView
                 android:id="@+id/lbl_s1q108"
@@ -243,86 +209,6 @@
                 android:hint="@string/baseline_s1q108"
                 android:inputType="phone"
                 android:maxLength="11" />
-
-            <!--<TextView-->
-                <!--android:id="@+id/lbl_s1q110"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/baseline_s1q110"-->
-                <!--android:textAppearance="?android:attr/textAppearanceLarge" />-->
-
-            <!--<DatePicker-->
-                <!--android:id="@+id/s1q110"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:calendarViewShown="false"-->
-                <!--android:datePickerMode="spinner"-->
-                <!--android:ems="10"-->
-                <!--android:spinnersShown="true" />-->
-
-            <!--<TextView
-                android:id="@+id/lbl_s1q111"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/baseline_s1q111"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <RadioGroup
-                android:id="@+id/radio_s1q111"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RadioButton
-                    android:id="@+id/RDO_s1q111_1"
-                   android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/baseline_s1q111_1" />
-
-                <RadioButton
-                    android:id="@+id/RDO_s1q111_2"
-                   android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/baseline_s1q111_2" />
-
-                <RadioButton
-                    android:id="@+id/RDO_s1q111_3"
-                   android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/baseline_s1q111_3" />
-
-                <RadioButton
-                    android:id="@+id/RDO_s1q111_4"
-                   android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/baseline_s1q111_4" />
-
-            </RadioGroup>
-
-            <LinearLayout
-                android:id="@+id/vu_s1q112"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="visible">
-
-                <TextView
-                    android:id="@+id/lbl_s1q111oth"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/baseline_s1q111oth"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                <EditText
-                    android:id="@+id/s1q111oth"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:hint="@string/baseline_s1q111oth"/>
-
-            </LinearLayout>-->
 
             <TextView
                 android:id="@+id/lbl_s1q112"
@@ -376,5 +262,8 @@
                 <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
 
             </LinearLayout>
+
         </LinearLayout>
-    </ScrollView>
+
+    </LinearLayout>
+</ScrollView>
