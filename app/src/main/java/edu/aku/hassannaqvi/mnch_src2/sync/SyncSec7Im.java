@@ -71,7 +71,7 @@ public class SyncSec7Im extends AsyncTask<Void, Void, String> {
         SRCDBHelper db = new SRCDBHelper(mContext);
         Collection<Sec7ImContract> Forms;
         //if (flag) {
-        Forms = db.getAllSec7Im();
+        Forms = db.getUnsyncedSec7Im();
         /*} else {
             Forms = db.getFormsSg();
         }*/
