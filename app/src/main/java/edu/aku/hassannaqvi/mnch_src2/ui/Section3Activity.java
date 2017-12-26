@@ -17,6 +17,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
@@ -564,7 +565,12 @@ public class Section3Activity extends AppCompatActivity
 
 
         if (ValidateForm()) {
-            SaveDraft();
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
             if (UpdateDB()) {
                 if (SRCApp.mwCount < SRCApp.mwras) {
                     Intent sec3_intent = new Intent(this, Section3Activity.class);
@@ -603,26 +609,79 @@ public class Section3Activity extends AppCompatActivity
 
     // ============== Form Saving================
 
-    private boolean SaveDraft() {
+    private boolean SaveDraft() throws JSONException {
 
         SRCApp.sc3 = new Sec3Contract();
 
-        try {
+        SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
+        SRCApp.sc3.setTagID(sharedPref.getString("tagName", null));
+        SRCApp.sc3.setVersion(SRCApp.versionName + "." + SRCApp.versionCode);
 
-            SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
-            SRCApp.sc3.setTagID(sharedPref.getString("tagName", null));
-            SRCApp.sc3.setVersion(SRCApp.versionName + "." + SRCApp.versionCode);
+        CVars var = new CVars();
 
-            CVars var = new CVars();
+        SRCApp.sc3.setROW_DEVID(SRCApp.DEVID);
+        SRCApp.sc3.setROW_UUID(SRCApp.fc.getROW_UUID());
+        SRCApp.sc3.setROW_FORM_DATE(SRCApp.fc.getROW_ENTRYDATE());
+        SRCApp.sc3.setROW_FORM_ID(var.GetHHNO());
+        SRCApp.sc3.setROW_HHCODE(var.GetHHCode());
 
-            SRCApp.sc3.setROW_DEVID(SRCApp.DEVID);
-            SRCApp.sc3.setROW_UUID(SRCApp.fc.getROW_UUID());
-            SRCApp.sc3.setROW_FORM_DATE(SRCApp.fc.getROW_ENTRYDATE());
-            SRCApp.sc3.setROW_FORM_ID(var.GetHHNO());
-            SRCApp.sc3.setROW_HHCODE(var.GetHHCode());
-            SRCApp.sc3.set_s3q301a(s3q301a.getText().toString());
-            SRCApp.sc3.set_s3q301b(s3q301b.getText().toString());
-            SRCApp.sc3.set_s3q301c(s3q301c.getText().toString());
+        JSONObject s3 = new JSONObject();
+        s3.put("s3q301a", s3q301a.getText().toString());
+        s3.put("s3q301b", s3q301b.getText().toString());
+        s3.put("s3q301c", s3q301c.getText().toString());
+        s3.put("s3q301d", rDOS3q301d1.isChecked() ? "1"
+                : rDOS3q301d2.isChecked() ? "2" : "0");
+        s3.put("s3q301e", s3q301e.getText().toString());
+        s3.put("s3q301f1", rDOS3q301f11.isChecked() ? "1"
+                : rDOS3q301f12.isChecked() ? "2" : "0");
+
+        s3.put("s3q301f", rDOS3q301f1.isChecked() ? "1"
+                : rDOS3q301f2.isChecked() ? "2"
+                : rDOS3q301f3.isChecked() ? "3"
+                : rDOS3q301f4.isChecked() ? "4"
+                : "0");
+
+
+        s3.put("s3q301g", rDOS3q301g1.isChecked() ? "1"
+                : rDOS3q301g2.isChecked() ? "2"
+                : rDOS3q301g3.isChecked() ? "3"
+                : "0");
+
+        s3.put("s3q301h", rDOS3q301h1.isChecked() ? "1"
+                : rDOS3q301h2.isChecked() ? "2"
+                : rDOS3q301h3.isChecked() ? "3"
+                : rDOS3q301h4.isChecked() ? "4"
+                : rDOS3q301h5.isChecked() ? "5"
+                : "0");
+
+        s3.put("s3q301h_dod", s3q301h_dod.getText().toString());
+
+        s3.put("s3q301i", rDOS3q301i1.isChecked() ? "1"
+                : rDOS3q301i2.isChecked() ? "2"
+                : rDOS3q301i3.isChecked() ? "3"
+                : rDOS3q301i4.isChecked() ? "4"
+                : rDOS3q301i5.isChecked() ? "5"
+                : rDOS3q301i6.isChecked() ? "6"
+                : rDOS3q301i7.isChecked() ? "7"
+                : rDOS3q301i8.isChecked() ? "8"
+                : rDOS3q301i9.isChecked() ? "9"
+                : rDOS3q301i10.isChecked() ? "88"
+                : "0");
+
+        s3.put("s3q301ioth", s3q301ioth.getText().toString());
+
+        s3.put("s3q301j", rDOS3q301j1.isChecked() ? "1"
+                : rDOS3q301j2.isChecked() ? "2"
+                : rDOS3q301j3.isChecked() ? "3"
+                : rDOS3q301j4.isChecked() ? "4"
+                : rDOS3q301j5.isChecked() ? "5"
+                : rDOS3q301j6.isChecked() ? "6"
+                : rDOS3q301j7.isChecked() ? "7"
+                : rDOS3q301j8.isChecked() ? "88"
+                : "0");
+
+        s3.put("s3q301joth", s3q301joth.getText().toString());
+        s3.put("s3q301k", s3q301k.getText().toString());
 
 
             if (sno == 0) {
@@ -641,200 +700,10 @@ public class Section3Activity extends AppCompatActivity
             if (!SRCApp.curPreg) {
                 SRCApp.curPreg = rDOS3q301d1.isChecked();
             }
-            rdo_s3q301d = radioS3q301d.getCheckedRadioButtonId();
-
-            switch (rdo_s3q301d) {
-                case R.id.RDO_s3q301d_1:
-                    var_s3q301d = "1";
-                    break;
-
-                case R.id.rDOS3q301d2:
-                    var_s3q301d = "2";
-                    break;
-            }
-
-            SRCApp.sc3.set_s3q301d(var_s3q301d);
 
 
-            rdo_s3q301f1 = radioS3q301f1.getCheckedRadioButtonId();
+        SRCApp.sc3.setROW_S3(String.valueOf(s3));
 
-            switch (rdo_s3q301f1) {
-                case R.id.RDO_s3q301f1_1:
-                    var_s3q301f1 = "1";
-                    break;
-
-                case R.id.RDO_s3q301f1_2:
-                    var_s3q301f1 = "2";
-                    break;
-            }
-
-            SRCApp.sc3.set_s3q301f1(var_s3q301f1);
-
-
-            SRCApp.sc3.set_s3q301e(s3q301e.getText().toString());
-
-
-            rdo_s3q301f = radioS3q301f.getCheckedRadioButtonId();
-
-            switch (rdo_s3q301f) {
-                case R.id.RDO_s3q301f_1:
-                    var_s3q301f = "1";
-                    break;
-
-                case R.id.RDO_s3q301f_2:
-                    var_s3q301f = "2";
-                    break;
-
-                case R.id.RDO_s3q301f_3:
-                    var_s3q301f = "3";
-                    break;
-
-                case R.id.RDO_s3q301f_4:
-                    var_s3q301f = "4";
-                    break;
-            }
-
-
-            SRCApp.sc3.set_s3q301f(var_s3q301f);
-
-
-            rdo_s3q301g = radioS3q301g.getCheckedRadioButtonId();
-
-            switch (rdo_s3q301g) {
-                case R.id.RDO_s3q301g_2:
-                    var_s3q301g = "2";
-                    break;
-
-                case R.id.RDO_s3q301g_3:
-                    var_s3q301g = "3";
-                    break;
-            }
-
-
-            SRCApp.sc3.set_s3q301g(var_s3q301g);
-
-            rdo_s3q301h = radioS3q301h.getCheckedRadioButtonId();
-
-            switch (rdo_s3q301h) {
-                case R.id.RDO_s3q301h_1:
-                    var_s3q301h = "1";
-                    break;
-
-                case R.id.RDO_s3q301h_2:
-                    var_s3q301h = "2";
-                    break;
-
-                // Added by gul sanober
-                case R.id.RDO_s3q301h_3:
-                    var_s3q301h = "3";
-                    break;
-
-                case R.id.RDO_s3q301h_4:
-                    var_s3q301h = "4";
-                    break;
-
-                case R.id.RDO_s3q301h_5:
-                    var_s3q301h = "5";
-                    break;
-            }
-
-
-            SRCApp.sc3.set_s3q301h(var_s3q301h);
-
-
-            rdo_s3q301i = radioS3q301i.getCheckedRadioButtonId();
-
-            switch (rdo_s3q301i) {
-                case R.id.RDO_s3q301i_1:
-                    var_s3q301i = "1";
-                    break;
-
-                case R.id.RDO_s3q301i_2:
-                    var_s3q301i = "2";
-                    break;
-
-                case R.id.RDO_s3q301i_3:
-                    var_s3q301i = "3";
-                    break;
-
-                case R.id.RDO_s3q301i_4:
-                    var_s3q301i = "4";
-                    break;
-
-                case R.id.RDO_s3q301i_5:
-                    var_s3q301i = "5";
-                    break;
-
-                case R.id.RDO_s3q301i_6:
-                    var_s3q301i = "6";
-                    break;
-
-                case R.id.RDO_s3q301i_7:
-                    var_s3q301i = "7";
-                    break;
-
-                case R.id.RDO_s3q301i_8:
-                    var_s3q301i = "8";
-                    break;
-
-                case R.id.RDO_s3q301i_9:
-                    var_s3q301i = "9";
-                    break;
-
-                case R.id.RDO_s3q301i_10:
-                    var_s3q301i = "10";
-                    break;
-            }
-
-
-            SRCApp.sc3.set_s3q301i(var_s3q301i);
-            SRCApp.sc3.set_s3q301ioth(s3q301ioth.getText().toString());
-
-
-            rdo_s3q301j = radioS3q301j.getCheckedRadioButtonId();
-
-            switch (rdo_s3q301j) {
-                case R.id.RDO_s3q301j_1:
-                    var_s3q301j = "1";
-                    break;
-
-                case R.id.RDO_s3q301j_2:
-                    var_s3q301j = "2";
-                    break;
-
-                case R.id.RDO_s3q301j_3:
-                    var_s3q301j = "3";
-                    break;
-
-                case R.id.RDO_s3q301j_4:
-                    var_s3q301j = "4";
-                    break;
-
-                case R.id.RDO_s3q301j_5:
-                    var_s3q301j = "5";
-                    break;
-
-                case R.id.RDO_s3q301j_6:
-                    var_s3q301j = "6";
-                    break;
-
-                case R.id.RDO_s3q301j_7:
-                    var_s3q301j = "7";
-                    break;
-
-                case R.id.RDO_s3q301j_8:
-                    var_s3q301j = "8";
-                    break;
-            }
-
-            SRCApp.sc3.set_s3q301j(var_s3q301j);
-            SRCApp.sc3.set_s3q301joth(s3q301joth.getText().toString());
-            SRCApp.sc3.set_s3q301k(s3q301k.getText().toString());
-
-
-        } catch (Exception e) {
-
-        }
 
         return true;
     }
@@ -1264,7 +1133,12 @@ public class Section3Activity extends AppCompatActivity
     public void endInterview(View view) {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (ValidateForm()) {
-            SaveDraft();
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
             if (UpdateDB()) {
                 Intent end_intent = new Intent(this, EndingActivity.class);
                 end_intent.putExtra("check", false);

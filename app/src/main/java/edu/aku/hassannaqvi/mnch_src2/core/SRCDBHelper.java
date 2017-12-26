@@ -95,21 +95,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             Sec3Entry.ROW_USERID + " TEXT," +
             Sec3Entry.ROW_HHCODE + " TEXT," +
             Sec3Entry.ROW_SNO + " TEXT," +
-            Sec3Entry.ROW_S3Q301A + " TEXT," +
-            Sec3Entry.ROW_S3Q301B + " TEXT," +
-            Sec3Entry.ROW_S3Q301C + " TEXT," +
-            Sec3Entry.ROW_S3Q301D + " TEXT," +
-            Sec3Entry.ROW_S3Q301E + " TEXT," +
-            Sec3Entry.ROW_S3Q301F1 + " TEXT," +
-            Sec3Entry.ROW_S3Q301F + " TEXT," +
-            Sec3Entry.ROW_S3Q301G + " TEXT," +
-            Sec3Entry.ROW_S3Q301H + " TEXT," +
-            Sec3Entry.ROW_S3Q301I + " TEXT," +
-            Sec3Entry.ROW_S3Q301IOTH + " TEXT," +
-            Sec3Entry.ROW_S3Q301J + " TEXT," +
-            Sec3Entry.ROW_S3Q301JOTH + " TEXT," +
-            Sec3Entry.ROW_S3Q301K + " TEXT," +
-            Sec3Entry.ROW_S3Q301L + " TEXT," +
+            Sec3Entry.ROW_S3 + " TEXT," +
             Sec3Entry.ROW_UUID + " TEXT," +
             Sec3Entry.ROW_UID + " TEXT," +
             Sec3Entry.ROW_SYNCED + " TEXT," +
@@ -743,21 +729,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             values.put(Sec3Entry.ROW_USERID, sec3.getROW_USERID());
             values.put(Sec3Entry.ROW_HHCODE, sec3.getROW_HHCODE());
             values.put(Sec3Entry.ROW_SNO, sec3.getROW_SNO());
-            values.put(Sec3Entry.ROW_S3Q301A, sec3.get_s3q301a());
-            values.put(Sec3Entry.ROW_S3Q301B, sec3.get_s3q301b());
-            values.put(Sec3Entry.ROW_S3Q301C, sec3.get_s3q301c());
-            values.put(Sec3Entry.ROW_S3Q301D, sec3.get_s3q301d());
-            values.put(Sec3Entry.ROW_S3Q301E, sec3.get_s3q301e());
-            values.put(Sec3Entry.ROW_S3Q301F1, sec3.get_s3q301f1());
-            values.put(Sec3Entry.ROW_S3Q301F, sec3.get_s3q301f());
-            values.put(Sec3Entry.ROW_S3Q301G, sec3.get_s3q301g());
-            values.put(Sec3Entry.ROW_S3Q301H, sec3.get_s3q301h());
-            values.put(Sec3Entry.ROW_S3Q301I, sec3.get_s3q301i());
-            values.put(Sec3Entry.ROW_S3Q301IOTH, sec3.get_s3q301ioth());
-            values.put(Sec3Entry.ROW_S3Q301J, sec3.get_s3q301j());
-            values.put(Sec3Entry.ROW_S3Q301JOTH, sec3.get_s3q301joth());
-            values.put(Sec3Entry.ROW_S3Q301K, sec3.get_s3q301k());
-            values.put(Sec3Entry.ROW_S3Q301L, sec3.get_s3q301l());
+            values.put(Sec3Entry.ROW_S3, sec3.getROW_S3());
             values.put(Sec3Entry.ROW_UUID, sec3.getROW_UUID()); // get primary key of main Form UUID
             /*values.put(Sec3Entry.ROW_UID, sec3.getROW_UID());*/
             // No need to update SYNC fields in this function
@@ -946,21 +918,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         values.put(Sec3Entry.ROW_USERID, sec3.getROW_USERID());
         values.put(Sec3Entry.ROW_HHCODE, sec3.getROW_HHCODE());
         values.put(Sec3Entry.ROW_SNO, sec3.getROW_SNO());
-        values.put(Sec3Entry.ROW_S3Q301A, sec3.get_s3q301a());
-        values.put(Sec3Entry.ROW_S3Q301B, sec3.get_s3q301b());
-        values.put(Sec3Entry.ROW_S3Q301C, sec3.get_s3q301c());
-        values.put(Sec3Entry.ROW_S3Q301D, sec3.get_s3q301d());
-        values.put(Sec3Entry.ROW_S3Q301E, sec3.get_s3q301e());
-        values.put(Sec3Entry.ROW_S3Q301F1, sec3.get_s3q301f1());
-        values.put(Sec3Entry.ROW_S3Q301F, sec3.get_s3q301f());
-        values.put(Sec3Entry.ROW_S3Q301G, sec3.get_s3q301g());
-        values.put(Sec3Entry.ROW_S3Q301H, sec3.get_s3q301h());
-        values.put(Sec3Entry.ROW_S3Q301I, sec3.get_s3q301i());
-        values.put(Sec3Entry.ROW_S3Q301IOTH, sec3.get_s3q301ioth());
-        values.put(Sec3Entry.ROW_S3Q301J, sec3.get_s3q301j());
-        values.put(Sec3Entry.ROW_S3Q301JOTH, sec3.get_s3q301joth());
-        values.put(Sec3Entry.ROW_S3Q301K, sec3.get_s3q301k());
-        values.put(Sec3Entry.ROW_S3Q301L, sec3.get_s3q301l());
+        values.put(Sec3Entry.ROW_S3, sec3.getROW_S3());
         values.put(Sec3Entry.ROW_UUID, sec3.getROW_UUID());
         values.put(Sec3Entry.ROW_UID, sec3.getROW_UID());
         values.put(Sec3Entry.ROW_SYNCED, sec3.getROW_SYNCED());
@@ -1213,21 +1171,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 Sec3Entry.ROW_USERID,
                 Sec3Entry.ROW_HHCODE,
                 Sec3Entry.ROW_SNO,
-                Sec3Entry.ROW_S3Q301A,
-                Sec3Entry.ROW_S3Q301B,
-                Sec3Entry.ROW_S3Q301C,
-                Sec3Entry.ROW_S3Q301D,
-                Sec3Entry.ROW_S3Q301E,
-                Sec3Entry.ROW_S3Q301F1,
-                Sec3Entry.ROW_S3Q301F,
-                Sec3Entry.ROW_S3Q301G,
-                Sec3Entry.ROW_S3Q301H,
-                Sec3Entry.ROW_S3Q301I,
-                Sec3Entry.ROW_S3Q301IOTH,
-                Sec3Entry.ROW_S3Q301J,
-                Sec3Entry.ROW_S3Q301JOTH,
-                Sec3Entry.ROW_S3Q301K,
-                Sec3Entry.ROW_S3Q301L,
+                Sec3Entry.ROW_S3,
                 Sec3Entry.ROW_UUID,
                 Sec3Entry.ROW_UID,
                 Sec3Entry.ROW_SYNCED,
@@ -1513,7 +1457,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         return allOC;
     }
 
-    public ArrayList<Members> getAll_Woman_Reproductive_Age() {
+    /*public ArrayList<Members> getAll_Woman_Reproductive_Age() {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<Members> userList = null;
         try {
@@ -1548,9 +1492,9 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         }
         return userList;
     }
+*/
 
-
-    public String getID_Woman_Reproductive_Age(String nme) {
+   /* public String getID_Woman_Reproductive_Age(String nme) {
         SQLiteDatabase db = this.getReadableDatabase();
         String id = "";
 
@@ -1573,7 +1517,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         } catch (Exception e) {
         }
         return id;
-    }
+    }*/
 
 
     public ArrayList<Members> getDistricts() {
