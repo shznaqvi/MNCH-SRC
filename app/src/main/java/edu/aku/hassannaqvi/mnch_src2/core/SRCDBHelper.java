@@ -1380,7 +1380,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
                 single7Im.COLUMN_VERSION,
 
         };
-        String whereClause = null;
+        String whereClause = single7Im.ROW_SYNCED + " is null";
         String[] whereArgs = null;
         String groupBy = null;
         String having = null;
