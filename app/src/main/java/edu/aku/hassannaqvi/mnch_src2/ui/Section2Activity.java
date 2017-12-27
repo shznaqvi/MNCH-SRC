@@ -634,7 +634,8 @@ public class Section2Activity extends Activity {
 
         s2.put("s2q206j", s2q206j.getText().toString());
 
-        SRCApp.mwras = Integer.parseInt(s2q206h.getText().toString());
+//        SRCApp.mwras = Integer.parseInt(s2q206h.getText().toString());
+        SRCApp.mwras = SRCApp.blRandomized.size();
         SRCApp.chTotal = Integer.parseInt(s2q206d.getText().toString()) + Integer.parseInt(s2q206e.getText().toString());
 
         SRCApp.mdTotal = Integer.parseInt(s2q206i.getText().toString());
