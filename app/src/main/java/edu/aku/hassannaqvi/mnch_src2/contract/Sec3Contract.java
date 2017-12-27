@@ -216,7 +216,13 @@ public class Sec3Contract implements BaseColumns {
         json.put(Sec3Entry.ROW_SNO, this.ROW_SNO == null ? JSONObject.NULL : this.ROW_SNO);
         json.put(Sec3Entry.ROW_UUID, this.ROW_UUID == null ? JSONObject.NULL : this.ROW_UUID);
         json.put(Sec3Entry.ROW_UID, this.ROW_UID == null ? JSONObject.NULL : this.ROW_UID);
-        json.put(Sec3Entry.ROW_S3, this.ROW_S3 == null ? JSONObject.NULL : this.ROW_S3);
+//        json.put(Sec3Entry.ROW_S3, this.ROW_S3 == null ? JSONObject.NULL : this.ROW_S3);
+        try {
+            if (!this.ROW_S3.equals("")) {
+                json.put(Sec3Entry.ROW_S3, this.ROW_S3.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_S3));
+            }
+        } catch (Exception e) {
+        }
         json.put(Sec3Entry.ROW_SYNCED, this.ROW_SYNCED == null ? JSONObject.NULL : this.ROW_SYNCED);
         json.put(Sec3Entry.ROW_SYNCED_DATE, this.ROW_SYNCED_DATE == null ? JSONObject.NULL : this.ROW_SYNCED_DATE);
 

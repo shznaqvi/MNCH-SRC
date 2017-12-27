@@ -170,7 +170,13 @@ public class Sec4bContract implements BaseColumns {
         //json.put(Section4bEntry.ROW_HHCODE, this.ROW_HHCODE == null ? JSONObject.NULL : this.ROW_HHCODE);
         json.put(Section4bEntry.ROW_USERID, this.ROW_USERID == null ? JSONObject.NULL : this.ROW_USERID);
         json.put(Section4bEntry.ROW_SNO, this.ROW_SNO == null ? JSONObject.NULL : this.ROW_SNO);
-        json.put(Section4bEntry.ROW_S4B, this.ROW_s4b == null ? JSONObject.NULL : this.ROW_s4b);
+//        json.put(Section4bEntry.ROW_S4B, this.ROW_s4b == null ? JSONObject.NULL : this.ROW_s4b);
+        try {
+            if (!this.ROW_s4b.equals("")) {
+                json.put(Section4bEntry.ROW_S4B, this.ROW_s4b.equals("") ? JSONObject.NULL : new JSONObject(this.ROW_s4b));
+            }
+        } catch (Exception e) {
+        }
         json.put(Section4bEntry.ROW_UID, this.ROW_UID == null ? JSONObject.NULL : this.ROW_UID);
         json.put(Section4bEntry.ROW_UUID, this.ROW_UUID == null ? JSONObject.NULL : this.ROW_UUID);
         json.put(Section4bEntry.ROW_SYNCED, this.ROW_SYNCED == null ? JSONObject.NULL : this.ROW_SYNCED);
