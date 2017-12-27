@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -28,19 +27,19 @@ import butterknife.OnClick;
 import edu.aku.hassannaqvi.mnch_src2.R;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
+import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
 public class Section7Activity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener
 {
 
     private static final String TAG = Section7Activity.class.getSimpleName();
 
-
     @BindView(R.id.scrollView01)
     ScrollView scrollView01;
     @BindView(R.id.app_header)
     TextView appHeader;
     @BindView(R.id.mn0701)
-    DatePicker mn0701;
+    DatePickerInputEditText mn0701;
     @BindView(R.id.mn070201)
     EditText mn070201;
     @BindView(R.id.mn070202)
@@ -290,9 +289,9 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
     EditText mn071102x;
     @BindView(R.id.mn071103x)
     EditText mn071103x;
-
+    String dateToday;
+    String maxDateYear;
     private String dob;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -301,10 +300,13 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
         ButterKnife.bind(this);
 
         appHeader.setText("SRC - > Section 7");
-        mn0701.setMaxDate(new Date().getTime());
-        mn0701.setMinDate((new Date().getTime() - ((SRCApp.MILLISECONDS_IN_YEAR) + SRCApp.MILLISECONDS_IN_DAY)));
 
-        //dob = new SimpleDateFormat("dd-MM-yyyy").format(mn0701.getCalendarView().getDate());
+        dateToday = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
+        maxDateYear = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime() - ((SRCApp.MILLISECONDS_IN_YEAR) + SRCApp.MILLISECONDS_IN_DAY));
+
+        mn0701.setManager(getSupportFragmentManager());
+        mn0701.setMaxDate(dateToday);
+        mn0701.setMinDate(maxDateYear);
 
         mn0713.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -492,7 +494,7 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
 
         JSONObject s7 = new JSONObject();
 
-        s7.put("mn0701", new SimpleDateFormat("dd-MM-yyyy").format(mn0701.getCalendarView().getDate()));
+        s7.put("mn0701", mn0701.getText().toString());
         s7.put("mn070201", mn070201.getText().toString());
         s7.put("mn070202", mn070202.getText().toString());
         s7.put("mn070299", mn070299.isChecked() ? "99" : "0");
@@ -577,6 +579,17 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
 
 
     public boolean ValidateForm() {
+
+        if (mn0701.getText().toString().isEmpty()) {
+            mn0701.setError(getString(R.string.rdoerr));
+            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+            mn0701.requestFocus();
+
+            Log.d(TAG, "ValidateForm: Error Type: mn0701 not selected ");
+            return false;
+        } else {
+            mn0701.setError(null);
+        }
 
 //        7.02
         if (!mn070299.isChecked()) {

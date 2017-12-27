@@ -421,6 +421,17 @@ public class Section4Activity extends AppCompatActivity {
 
 
         }
+
+        if (s4q41b_dod.getText().toString().isEmpty()) {
+            s4q41b_dod.setError(getString(R.string.rdoerr));
+            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+            s4q41b_dod.requestFocus();
+            Log.d(TAG, "ValidateForm: Error Type: 301f not selected ");
+            return false;
+        } else {
+            s4q41b_dod.setError(null);
+        }
+
         rdo_s4q41c = radio_s4q41c.getCheckedRadioButtonId();
 
         if (rdo_s4q41c == -1) {

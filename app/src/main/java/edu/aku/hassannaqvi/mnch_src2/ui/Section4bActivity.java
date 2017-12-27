@@ -46,6 +46,8 @@ public class Section4bActivity extends AppCompatActivity {
     DatePickerInputEditText s4q42d_dod;
     String dateToday;
     String maxDate5year;
+    ArrayList<String> mwraNames;
+    Map<String, BLRandomContract> mwraMap;
     private TextView appHeader;
     private TextView lbl_hhhead;
     private LinearLayout vu_s4q42eoth;
@@ -76,9 +78,6 @@ public class Section4bActivity extends AppCompatActivity {
     private String var_s4q42e;
     private int sno = 0;
     private int counter = 0;
-    //    private RadioGroup childMortality;
-//    private RadioButton md01;
-//    private RadioButton md02;
     private LinearLayout md03;
     private LinearLayout md04;
     private LinearLayout childMortalityFlag;
@@ -87,9 +86,6 @@ public class Section4bActivity extends AppCompatActivity {
     private Button btnadd;
     private Button btncontinue;
     private TextView lbl_hhhead1;
-
-    ArrayList<String> mwraNames;
-    Map<String, BLRandomContract> mwraMap;
 
     public static boolean dobValidation(int y, int m, int d) {
 
@@ -190,7 +186,8 @@ public class Section4bActivity extends AppCompatActivity {
         s4q42a.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, mwraNames));
 
 
-        radio_s4q42e.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        radio_s4q42e.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == rdo_s4q42e_10.getId()) {
@@ -205,95 +202,7 @@ public class Section4bActivity extends AppCompatActivity {
                 }
             }
         });
-
-//        childMortality = (RadioGroup) findViewById(R.id.childMortality);
-//        md01 = (RadioButton) findViewById(R.id.md01);
-//        md02 = (RadioButton) findViewById(R.id.md02);
-//        md03 = (LinearLayout) findViewById(R.id.md03);
-//        md04 = (LinearLayout) findViewById(R.id.md04);
-//        childMortalityFlag = (LinearLayout) findViewById(R.id.childMortalityFlag);
-//        countCMortality = (EditText) findViewById(R.id.countCMortality);
-
-//        btnNext = (Button) findViewById(R.id.btnNext);
-//        btnadd = (Button) findViewById(R.id.btnadd);
-//        btncontinue = (Button) findViewById(R.id.btncontinue);
-//
-//        if (SRCApp.ChildMortality) {
-//            childMortalityFlag.setVisibility(View.VISIBLE);
-//        } else {
-//            childMortalityFlag.setVisibility(View.GONE);
-//            md03.setVisibility(View.GONE);
-//            md04.setVisibility(View.VISIBLE);
-//
-//            btnNext.setEnabled(false);
-//
-//            btncontinue.setVisibility(View.GONE);
-//        }
-
-//        childMortality.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                md02.setError(null);
-//
-//                if (md01.isChecked()) {
-//                    md03.setVisibility(View.VISIBLE);
-//                } else {
-//                    md03.setVisibility(View.GONE);
-//                    countCMortality.setText(null);
-//                }
-//            }
-//        });
-
-
-//        CVars var = new CVars();
-//
-//
-//        if (!SRCApp.ChildMortality) {
-//            lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Deceased Child " + mortalityCounter + " of " + countCMortality.getText().toString() + ")");
-//        } else {
-//            lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode());
-//        }
-
     }
-
-/*    public void AddChild(View view) {
-        if (ValidateForm()) {
-
-            if (SaveDraft()) {
-
-                Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
-
-                if (UpdateDB()) {
-
-                    ClearFields();
-
-                    vu_s4q42eoth.setVisibility(View.GONE);
-                    s4q42a.requestFocus();
-
-                    SRCApp.NoChildMortality-=1 ;
-
-                    if (mortalityCounter < Integer.parseInt(countCMortality.getText().toString())) {
-                        mortalityCounter++;
-                    }
-
-                    CVars var = new CVars();
-                    lbl_hhhead.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Child Mortality " + mortalityCounter + " of " + countCMortality.getText().toString() + ")");
-                    s4q42b.requestFocus();
-
-                    if(SRCApp.NoChildMortality > 1){
-                        btnNext.setVisibility(View.GONE);
-                        btnadd.setVisibility(View.VISIBLE);
-                    }else {
-                        btnNext.setVisibility(View.VISIBLE);
-                        btnadd.setVisibility(View.GONE);
-                    }
-
-                } else {
-                    Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }
-    }*/
 
     public void NextSection(View view) {
 
@@ -353,21 +262,15 @@ public class Section4bActivity extends AppCompatActivity {
     private boolean SaveDraft() throws JSONException {
 
         SRCApp.sc4b = new Sec4bContract();
-
-        CVars var = new CVars();
-
         SharedPreferences sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
         SRCApp.sc4b.setTagID(sharedPref.getString("tagName", null));
         SRCApp.sc4b.setVersion(SRCApp.versionName + "." + SRCApp.versionCode);
 
         SRCApp.sc4b.setHHNO(SRCApp.fc.getHHNO());
-        //SRCApp.sc4b.setROW_HHCODE(SRCApp.);
         SRCApp.sc4b.setROW_DEVID(SRCApp.DEVID);
         SRCApp.sc4b.setROW_UUID(SRCApp.fc.getROW_UUID());
         SRCApp.sc4b.setROW_FORM_DATE(SRCApp.fc.getROW_ENTRYDATE());
         SRCApp.sc4b.setROW_USERID(SRCApp.fc.getROW_USERID());
-        //SRCApp.sc4b.setHHNO(var.GetHHNO());
-        //SRCApp.sc4b.setROW_HHCODE(var.GetHHCode());
 
 
         if (sno == 0) {
@@ -546,6 +449,17 @@ public class Section4bActivity extends AppCompatActivity {
             } else {
                 s4q42d2.setError(null);
             }
+        }
+
+        if (s4q42d_dod.getText().toString().isEmpty()) {
+            s4q42d_dod.setError(getString(R.string.rdoerr));
+            Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+            s4q42d_dod.requestFocus();
+
+            Log.d(TAG, "ValidateForm: Error Type: 402h not selected ");
+            return false;
+        } else {
+            s4q42d_dod.setError(null);
         }
 
         rdo_s4q42e = radio_s4q42e.getCheckedRadioButtonId();

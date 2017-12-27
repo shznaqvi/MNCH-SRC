@@ -264,22 +264,6 @@ public class Section3Activity extends AppCompatActivity {
         lbl_hhhead = findViewById(R.id.lbl_hhhead);
 
 
-//        wcount.setText(var.GetHHNO() + "-" + var.GetHHCode() + " " + "(" + "Woman " + SRCApp.tcount + " of " + var.GetReproductionAgeWoman() + ")");
-//
-//        if (SRCApp.tcount < var.GetReproductionAgeWoman()) {
-//            btnadd.setVisibility(View.VISIBLE);
-//            btnnext.setVisibility(View.GONE);
-//
-//        } else {
-//            btnnext.setVisibility(View.VISIBLE);
-//            btnadd.setVisibility(View.GONE);
-//        }
-//
-//        if (var.GetReproductionAgeWoman() == 0) {
-//            startActivity(new Intent(Section3Activity.this, Section4AMaternalCount.class));
-//        }
-//
-
         // ================ Q 3.01d If lady is pregnant ask gestational Age ====================
         radioS3q301d.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -287,10 +271,6 @@ public class Section3Activity extends AppCompatActivity {
                 if (checkedId == rDOS3q301d1.getId()) {
                     vu_s3q301d.setVisibility(View.VISIBLE);
 
-//                    radioS3q301f1.requestFocus();
-//
-//                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//                    imm.hideSoftInputFromWindow(s3q301e.getWindowToken(), 0);
 
                 } else {
 
@@ -327,79 +307,6 @@ public class Section3Activity extends AppCompatActivity {
                 }
             }
         });
-
-        // ==================  Q 3.01f Outcome ==============
-
-//        radioS3q301f.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//
-//                if (checkedId == rDOS3q301f1.getId()) {
-//
-//                    vu_s3q301h.setVisibility(View.GONE);
-//                    vu_s3q301g.setVisibility(View.GONE);
-//
-//                    radioS3q301h.clearCheck();
-//                    radioS3q301g.clearCheck();
-//
-//                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//                    imm.hideSoftInputFromWindow(radioS3q301i.getWindowToken(), 0);
-//
-//                } else if (checkedId == rDOS3q301f2.getId()) {
-//
-//                    vu_s3q301h.setVisibility(View.GONE);
-//                    vu_s3q301g.setVisibility(View.GONE);
-//
-//                    radioS3q301h.clearCheck();
-//                    radioS3q301g.clearCheck();
-//
-//                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//                    imm.hideSoftInputFromWindow(radioS3q301i.getWindowToken(), 0);
-//
-//                } else if (checkedId == rDOS3q301f3.getId()) {
-//
-//                    vu_s3q301h.setVisibility(View.VISIBLE);
-//                    vu_s3q301g.setVisibility(View.GONE);
-//
-//                    radioS3q301g.clearCheck();
-//
-//                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//                    imm.hideSoftInputFromWindow(radioS3q301h.getWindowToken(), 0);
-//
-//                } else if (checkedId == rDOS3q301f4.getId()) {
-//
-//                    vu_s3q301g.setVisibility(View.VISIBLE);
-//                    vu_s3q301h.setVisibility(View.GONE);
-//
-//                    radioS3q301h.clearCheck();
-//
-//                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//                    imm.hideSoftInputFromWindow(radioS3q301g.getWindowToken(), 0);
-//                }
-//
-//            }
-//        });
-
-        // ==================  Q 3.01g If outcome was Live Birth ==============
-
-//        radioS3q301g.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//
-//                if (checkedId == rDOS3q301g2.getId() || checkedId == rDOS3q301g3.getId()) {
-//
-//                    vu_s3q301h.setVisibility(View.VISIBLE);
-//
-//                } else {
-//
-//
-//                    vu_s3q301h.setVisibility(View.GONE);
-//                    radioS3q301h.clearCheck();
-//
-//                }
-//
-//            }
-//        });
 
 
         radioS3q301i.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -572,34 +479,6 @@ public class Section3Activity extends AppCompatActivity {
     }
 
 
-    /*public void AddWoman(View view) {
-
-        CVars var = new CVars();
-
-        Log.d(TAG, "counter: " + counter);
-        Log.d(TAG, "getwoman: " + var.GetReproductionAgeWoman());
-
-
-        if (ValidateForm()) {
-
-            SaveDraft();
-
-            if (UpdateDB()) {
-                //counter++;
-                SRCApp.tcount++;
-
-                Intent fA = new Intent(this, Section3Activity.class);
-                startActivity(fA);
-
-                s3q301a.requestFocus();
-
-
-            } else {
-                Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }*/
-
 
     public void NextSection(View view) {
 
@@ -677,7 +556,7 @@ public class Section3Activity extends AppCompatActivity {
         SRCApp.sc3.setROW_FORM_DATE(SRCApp.fc.getROW_ENTRYDATE());
         SRCApp.sc3.setHHNO(SRCApp.hhno);
         SRCApp.sc3.setROW_USERID(SRCApp.fc.getROW_USERID());
-        //SRCApp.sc3.setROW_HHCODE(var.GetHHCode());
+
 
         JSONObject s3 = new JSONObject();
 
@@ -825,15 +704,6 @@ public class Section3Activity extends AppCompatActivity {
             s3q301c.setError(null);
         }
 
-        /*if (Integer.parseInt(s3q301c.getText().toString()) < 1 ||  Integer.parseInt(s3q301c.getText().toString()) > 16) {
-            s3q301c.setError("Invalid Education Range 1-16");
-            Toast.makeText(getApplicationContext(), "Invalid Education Range 1-16 \r\n", Toast.LENGTH_LONG).show();
-            s3q301c.requestFocus();
-            return false;
-        } else {
-            s3q301c.setError(null);
-        }*/
-
         if (Integer.parseInt(s3q301c.getText().toString()) < 1
                 && Integer.parseInt(s3q301c.getText().toString()) != 91
                 && Integer.parseInt(s3q301c.getText().toString()) != 92
@@ -924,29 +794,6 @@ public class Section3Activity extends AppCompatActivity {
         }
 
 
-
-
-        /*int gestation = 0;
-
-
-        try {
-            gestation = Integer.parseInt(s3q301e.getText().toString());
-
-
-            if (gestation < 1 || gestation > 9) {
-                s3q301e.setError(getString(R.string.txterr) + "Gestational age should be 1 - 9 months");
-                Toast.makeText(getApplicationContext(), "Gestational age should be 1 - 9 months  \r\n", Toast.LENGTH_LONG).show();
-                s3q301e.requestFocus();
-                Log.d(TAG, "ValidateForm: Error Type:301e invalid");
-                return false;
-            } else {
-                s3q301e.setError(null);
-            }
-
-        } catch (NumberFormatException nfe) {
-
-        }
-*/
 
         rdo_s3q301f = radioS3q301f.getCheckedRadioButtonId();
 
@@ -1045,9 +892,8 @@ public class Section3Activity extends AppCompatActivity {
                 s3q301h_dod.setError(getString(R.string.rdoerr));
                 Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
                 s3q301h_dod.requestFocus();
-                s3q301h_dod.setFocusable(true);
-                s3q301h_dod.setFocusableInTouchMode(true);
-                Log.d(TAG, "ValidateForm: Error Type: 301f not selected ");
+
+                Log.d(TAG, "ValidateForm: Error Type: 301h not selected ");
                 return false;
             } else {
                 s3q301h_dod.setError(null);

@@ -38,10 +38,13 @@ public class SRCApp extends Application {
     private static final long HOURS_IN_DAY = 24;
     public static final long MILLISECONDS_IN_DAY = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY;
     private static final long DAYS_IN_YEAR = 365;
+    public static final long MILLISECONDS_IN_YEAR = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_YEAR;
     /*
+
         public static final String _IP = "43.245.131.159"; // Test server
     */
-    public static final long MILLISECONDS_IN_YEAR = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_YEAR;
+    private static final long DAYS_IN_5_YEAR = 365 * 5;
+    public static final long MILLISECONDS_IN_5_YEAR = MILLIS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_IN_DAY * DAYS_IN_5_YEAR;
     //public static final String _IP = "192.168.1.10"; // Test NODE server
     public static String _DefaultIP = "http://43.245.131.159"; // Test PHP server
     public static String DEVID;

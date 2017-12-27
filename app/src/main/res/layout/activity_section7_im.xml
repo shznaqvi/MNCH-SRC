@@ -1,9 +1,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_grad"
-    tools:context="edu.aku.hassannaqvi.mnch_src2.ui.Section7IMActivity">
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@drawable/background_grad"
+             tools:context="edu.aku.hassannaqvi.mnch_src2.ui.Section7IMActivity">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/ScrollView01"
@@ -67,18 +68,90 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
                 android:text="@string/mn07im02"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white"/>
+
+            <RadioGroup
+                android:id="@+id/mn07im02dob"
+                style="@style/radiogroup"
+                android:layout_marginTop="32dp"
+                android:background="@color/colorPrimary"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/mn07im02dob01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1.3"
+                    android:text="@string/mn07im02dob"/>
+
+                <RadioButton
+                    android:id="@+id/mn07im02dob02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1"
+                    android:text="@string/mn07im02age"/>
+
+            </RadioGroup>
 
 
-            <EditText
-                android:id="@+id/mn07im02"
+            <LinearLayout
+                android:id="@+id/fldGrpAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:digits="0123456789"
-                android:hint="@string/mn07im02"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/mn07im02age"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+                <EditText
+                    android:id="@+id/mn07im02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789"
+                    android:hint="@string/mn07im02age"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/fldGrpDob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/mn07im02dob"
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+
+                <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
+                    android:id="@+id/mn07im02_dob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:focusable="false"
+                    android:hint="@string/mn07im02dob"
+                    android:textColor="@android:color/black"
+                    app:dateFormat="dd-MM-yyyy"/>
+
+            </LinearLayout>
 
 
             <TextView

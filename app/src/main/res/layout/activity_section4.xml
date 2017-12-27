@@ -6,7 +6,7 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:background="@drawable/background_grad"
+            android:background="#d6d6d6"
             android:scrollbars="horizontal"
             tools:context="edu.aku.hassannaqvi.mnch_src2.ui.Section4Activity">
 

@@ -1,13 +1,15 @@
 package edu.aku.hassannaqvi.mnch_src2.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
@@ -17,6 +19,9 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -24,8 +29,10 @@ import edu.aku.hassannaqvi.mnch_src2.R;
 import edu.aku.hassannaqvi.mnch_src2.contract.Sec7ImContract;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
+import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
-public class Section7IMActivity extends Activity {
+public class Section7IMActivity extends AppCompatActivity
+{
 
     private static final String TAG = Section7IMActivity.class.getSimpleName();
 
@@ -35,8 +42,20 @@ public class Section7IMActivity extends Activity {
     TextView appHeader;
     @BindView(R.id.mn07im01)
     EditText mn07im01;
+    @BindView(R.id.mn07im02dob)
+    RadioGroup mn07im02dob;
+    @BindView(R.id.mn07im02dob01)
+    RadioButton mn07im02dob01;
+    @BindView(R.id.mn07im02dob02)
+    RadioButton mn07im02dob02;
     @BindView(R.id.mn07im02)
     EditText mn07im02;
+    @BindView(R.id.mn07im02_dob)
+    DatePickerInputEditText mn07im02_dob;
+    @BindView(R.id.fldGrpAge)
+    LinearLayout fldGrpAge;
+    @BindView(R.id.fldGrpDob)
+    LinearLayout fldGrpDob;
     @BindView(R.id.mn07im03)
     RadioGroup mn07im03;
     @BindView(R.id.mn07im0301)
@@ -256,10 +275,9 @@ public class Section7IMActivity extends Activity {
 
     @BindView(R.id.btn_Continue)
     Button btn_Continue;
+    String dateToday;
+    String maxDate5Year;
 
-
-
-    int counterIM = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -268,25 +286,30 @@ public class Section7IMActivity extends Activity {
         ButterKnife.bind(this);
         appHeader.setText(getString(R.string.sec7IM) + " (" + SRCApp.chCount + " of " + SRCApp.chTotal+")");
 
-//        counterIM = Integer.parseInt(getIntent().getExtras().getString("IMChild"));
+        dateToday = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
+        maxDate5Year = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime() - ((SRCApp.MILLISECONDS_IN_5_YEAR) + SRCApp.MILLISECONDS_IN_DAY));
 
-     /*   CVars var = new CVars();
+        mn07im02_dob.setManager(getSupportFragmentManager());
+        mn07im02_dob.setMaxDate(dateToday);
+        mn07im02_dob.setMinDate(maxDate5Year);
 
-        if (SRCApp.chTotal > 1) {
-            btn_Continue.setText("Next Section");
 
-            appHeader.setText("Section 7IM Child:" + (var.getIMChild() - (SRCApp.chTotal - 1)) + " out of " + var.getIMChild());
+        mn07im02dob.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (mn07im02dob01.isChecked()) {
+                    fldGrpDob.setVisibility(View.VISIBLE);
+                    fldGrpAge.setVisibility(View.GONE);
+                    mn07im02.setText(null);
+                } else {
+                    fldGrpAge.setVisibility(View.VISIBLE);
+                    fldGrpDob.setVisibility(View.GONE);
+                    mn07im02_dob.setText(null);
+                }
+            }
+        });
 
-        }else {
-            btn_Continue.setText("Section 8");
-
-            appHeader.setText("Section 7IM Child:"+ var.getIMChild() + " out of "+ var.getIMChild());
-        }
-
-        if (SRCApp.chTotal < 1) {
-            finish();
-            startActivity(new Intent(this, Section8Activity.class));
-        }*/
 
     }
 
@@ -387,6 +410,7 @@ public class Section7IMActivity extends Activity {
 
         s7im.put("mn07im01", mn07im01.getText().toString());
         s7im.put("mn07im02", mn07im02.getText().toString());
+        s7im.put("mn07im02_dob", mn07im02_dob.getText().toString());
         s7im.put("mn07im03", mn07im0301.isChecked() ? "1" : mn07im0302.isChecked() ? "2" : "default");
         s7im.put("mnbcg", mnbcg01.isChecked() ? "1" : mnbcg02.isChecked() ? "2" : "default");
         s7im.put("mnbcgsrc", mnbcgsrc01.isChecked() ? "1" : mnbcgsrc02.isChecked() ? "2" : "default");
@@ -438,25 +462,53 @@ public class Section7IMActivity extends Activity {
             mn07im01.setError(null);
         }
 
-        if (mn07im02.getText().toString().isEmpty()) {
-            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn07im02), Toast.LENGTH_LONG).show();
-            mn07im02.setError("This data is Required!");
-            Log.i(TAG, "mn07im02: This data is Required!");
-            mn07im02.requestFocus();
+        if (mn07im02dob.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn07im02dob), Toast.LENGTH_LONG).show();
+            mn07im02dob01.setError("This data is Required!");
+            Log.i(TAG, "mn07im02dob01: This data is Required!");
+            mn07im02dob01.requestFocus();
+            mn07im02dob01.setFocusable(true);
+            mn07im02dob01.setFocusableInTouchMode(true);
             return false;
         } else {
-            mn07im02.setError(null);
+            mn07im02dob01.setError(null);
         }
 
-        if (Integer.parseInt(mn07im02.getText().toString()) > 59 || Integer.parseInt(mn07im02.getText().toString()) < 0) {
-            Toast.makeText(this, "Invalid: " + getString(R.string.mn07im02), Toast.LENGTH_LONG).show();
-            mn07im02.setError("Invalid: Range 0 - 59!");
-            Log.i(TAG, "mn07im02: Invalid: Range 0 - 59!");
-            mn07im02.requestFocus();
-            return false;
+
+        if (mn07im02dob02.isChecked()) {
+
+            if (mn07im02.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn07im02age), Toast.LENGTH_LONG).show();
+                mn07im02.setError("This data is Required!");
+                Log.i(TAG, "mn07im02: This data is Required!");
+                mn07im02.requestFocus();
+                return false;
+            } else {
+                mn07im02.setError(null);
+            }
+
+            if (Integer.valueOf(mn07im02.getText().toString()) > 59 || Integer.valueOf(mn07im02.getText().toString()) < 0) {
+                Toast.makeText(this, "Invalid: " + getString(R.string.mn07im02), Toast.LENGTH_LONG).show();
+                mn07im02.setError("Invalid: Range 0 - 59!");
+                Log.i(TAG, "mn07im02: Invalid: Range 0 - 59!");
+                mn07im02.requestFocus();
+                return false;
+            } else {
+                mn07im02.setError(null);
+            }
+
         } else {
-            mn07im02.setError(null);
+            if (mn07im02_dob.getText().toString().isEmpty()) {
+                Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn07im02dob), Toast.LENGTH_LONG).show();
+                mn07im02_dob.setError("This data is Required!");
+                Log.i(TAG, "mn07im02_dob: This data is Required!");
+                mn07im02_dob.requestFocus();
+                return false;
+            } else {
+                mn07im02_dob.setError(null);
+            }
         }
+
 
         if (mn07im03.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "ERROR(empty): " + getString(R.string.mn07im03), Toast.LENGTH_LONG).show();

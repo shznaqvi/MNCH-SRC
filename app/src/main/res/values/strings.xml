@@ -553,7 +553,9 @@
     <string name="mn060405"> وڏن جي اجازت نه هئي </string>
 
     <string name="mn07im01"> Name of Child </string>
-    <string name="mn07im02"> Age of Child (Months) </string>
+    <string name="mn07im02"> Age of Child (Months) / Date of Birth </string>
+    <string name="mn07im02dob">Date of Birth</string>
+    <string name="mn07im02age">Age of Child (Months)</string>
     <string name="mn07im03"> Card available </string>
     <string name="mn0605"> ڇا اوهان هاڻي فيملي پلاننگ جو طريقو استعمال ڪري رهيا آهيو؟ </string>
     <string name="mn0701"> ٻار جي ڄمڻ جي تاريخ </string>

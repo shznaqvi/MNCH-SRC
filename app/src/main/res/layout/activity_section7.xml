@@ -1,10 +1,11 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_section7"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_grad"
-    tools:context="edu.aku.hassannaqvi.mnch_src2.ui.Section7Activity">
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:id="@+id/activity_section7"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@drawable/background_grad"
+             tools:context="edu.aku.hassannaqvi.mnch_src2.ui.Section7Activity">
 
     <ScrollView
         android:id="@+id/scrollView01"
@@ -45,15 +46,17 @@
                 android:text="@string/mn0701"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <DatePicker
+
+            <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
                 android:id="@+id/mn0701"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:calendarViewShown="false"
-                android:datePickerMode="spinner"
-                android:ems="10"
-                android:spinnersShown="true" />
+                android:layout_marginTop="1dp"
+                android:focusable="false"
+                android:hint="@string/mn0701"
+                android:textColor="@android:color/black"
+                app:dateFormat="dd-MM-yyyy"/>
+
 
             <TextView
                 android:layout_width="match_parent"
