@@ -23,10 +23,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import edu.aku.hassannaqvi.mnch_src2.R;
+import edu.aku.hassannaqvi.mnch_src2.contract.BLRandomContract;
 import edu.aku.hassannaqvi.mnch_src2.contract.Sec4bContract;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
@@ -85,6 +88,9 @@ public class Section4bActivity extends AppCompatActivity
     private Button btnadd;
     private Button btncontinue;
     private TextView lbl_hhhead1;
+
+    ArrayList<String> mwraNames;
+    Map<String, BLRandomContract> mwraMap;
 
     public static boolean dobValidation(int y, int m, int d) {
 
@@ -166,20 +172,20 @@ public class Section4bActivity extends AppCompatActivity
 
         counter = 1;
 
-        SRCDBHelper db = new SRCDBHelper(this);
-        //Collection<Members> members = db.getAll_Woman_Reproductive_Age();
 
-        ArrayList<String> arr_members = new ArrayList<>();
+        //        Setting Spinner
 
-        /*for (Members m : members) {
-            arr_members.add(
-                    m.getNME());
-        }*/
+        mwraNames = new ArrayList<>();
+        mwraMap = new HashMap<>();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(Section4bActivity.this,
-                android.R.layout.simple_spinner_item, arr_members);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        s4q42a.setAdapter(adapter);
+        mwraNames.add("....");
+
+        for (BLRandomContract rand : SRCApp.blRandomized) {
+            mwraNames.add(rand.getMwname());
+            mwraMap.put(rand.getMwname(), rand);
+        }
+
+        s4q42a.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, mwraNames));
 
 
         radio_s4q42e.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -373,20 +379,22 @@ public class Section4bActivity extends AppCompatActivity
             SRCApp.sc4b.setROW_SNO(String.valueOf(sno));
         }
 
-        /*SRCDBHelper db = new SRCDBHelper(this);
-
-        String val;
-        if (s4q42a.getSelectedItem().toString() != "NA") {
-            //val = db.getID_Woman_Reproductive_Age(s4q42a.getSelectedItem().toString());
-        } else {
-            val = "99";
-        }*/
-        //SRCApp.sc4b.set_s4q42a(val);
-
 
         JSONObject s4b = new JSONObject();
 
         //s4b.put("s4q42a", s4q42a.getSelectedItem().toString());
+
+        BLRandomContract selectedRand = mwraMap.get(s4q42a.getSelectedItem().toString());
+
+        s4b.put("s4q42a", selectedRand.getMwname());
+        s4b.put("s4q42a_luid", selectedRand.getLUID());
+        s4b.put("s4q42a_village", selectedRand.getSubVillageCode());
+        s4b.put("s4q42a_structure", selectedRand.getStructure());
+        s4b.put("s4q42a_sno", selectedRand.getSno());
+        s4b.put("s4q42a_rndDT", selectedRand.getRandomDT());
+        s4b.put("s4q42a_ID", selectedRand.get_ID());
+
+
         s4b.put("s4q42b", s4q42b.getText().toString());
         s4b.put("s4q42c", rdo_s4q42c_1.isChecked() ? "1"
                 : rdo_s4q42c_2.isChecked() ? "2" : "0");
