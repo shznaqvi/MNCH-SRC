@@ -607,8 +607,11 @@ public class Section3Activity extends AppCompatActivity {
                     Intent sec4b_intent = new Intent(this, Section4bActivity.class);
                     SRCApp.cmCount++;
                     startActivity(sec4b_intent);
-                } else {
+                } else if (SRCApp.selectedMWRAs.size() > 0){
                     Intent sec5_intent = new Intent(this, Section5Activity.class);
+                    startActivity(sec5_intent);
+                }else {
+                    Intent sec5_intent = new Intent(this, Section6Activity.class);
                     startActivity(sec5_intent);
                 }
             }

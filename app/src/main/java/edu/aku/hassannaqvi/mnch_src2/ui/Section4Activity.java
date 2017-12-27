@@ -28,8 +28,7 @@ import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
 import edu.aku.hassannaqvi.mnch_src2.other.CVars;
 import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
-public class Section4Activity extends AppCompatActivity
-{
+public class Section4Activity extends AppCompatActivity {
 
     private static final String TAG = "Sec4";
     public static String data = null;
@@ -121,7 +120,6 @@ public class Section4Activity extends AppCompatActivity
         s4q41b_dod.setManager(getSupportFragmentManager());
         s4q41b_dod.setMaxDate(dateToday);
         s4q41b_dod.setMinDate(maxDateyear);
-
 
 
         app_header = findViewById(R.id.app_header);
@@ -254,8 +252,11 @@ public class Section4Activity extends AppCompatActivity
                     Intent sec4b_intent = new Intent(this, Section4bActivity.class);
                     SRCApp.cmCount++;
                     startActivity(sec4b_intent);
-                } else {
+                } else if (SRCApp.selectedMWRAs.size() > 0) {
                     Intent sec5_intent = new Intent(this, Section5Activity.class);
+                    startActivity(sec5_intent);
+                } else {
+                    Intent sec5_intent = new Intent(this, Section6Activity.class);
                     startActivity(sec5_intent);
                 }
             }
