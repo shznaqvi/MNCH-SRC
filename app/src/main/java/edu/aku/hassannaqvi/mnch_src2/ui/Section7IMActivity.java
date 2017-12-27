@@ -284,7 +284,7 @@ public class Section7IMActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section7_im);
         ButterKnife.bind(this);
-        appHeader.setText(getString(R.string.sec7IM) + " (" + SRCApp.chCount + " of " + SRCApp.chTotal+")");
+        appHeader.setText("(" + SRCApp.chCount + " of " + SRCApp.chTotal+") " + getString(R.string.sec7IM));
 
         dateToday = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
         maxDate5Year = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime() - ((SRCApp.MILLISECONDS_IN_5_YEAR) + SRCApp.MILLISECONDS_IN_DAY));
