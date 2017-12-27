@@ -426,7 +426,7 @@ public class Section1Activity extends Activity implements TextWatcher {
             if (selected.size() != 0) {
 
                 for (BLRandomContract rnd : selected) {
-                    SRCApp.blRandomized.add(new BLRandomContract(rnd));
+                    SRCApp.blRandomized.add(rnd);
                 }
 
                 hhCount.setText(SRCApp.blRandomized.size() + " found");

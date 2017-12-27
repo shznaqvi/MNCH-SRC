@@ -94,6 +94,7 @@ public class SRCApp extends Application {
     public static String versionName;
     protected static LocationManager locationManager;
     public static ArrayList<BLRandomContract> blRandomized;
+    public static ArrayList<BLRandomContract> selectedMWRAs;
 
 
 /*df*/

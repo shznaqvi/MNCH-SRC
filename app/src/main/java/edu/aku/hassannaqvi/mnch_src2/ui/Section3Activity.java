@@ -3,17 +3,20 @@ package edu.aku.hassannaqvi.mnch_src2.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,18 +24,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import edu.aku.hassannaqvi.mnch_src2.R;
+import edu.aku.hassannaqvi.mnch_src2.contract.BLRandomContract;
 import edu.aku.hassannaqvi.mnch_src2.contract.Sec3Contract;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
 import edu.aku.hassannaqvi.mnch_src2.other.CVars;
 import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
-public class Section3Activity extends AppCompatActivity
-{
+public class Section3Activity extends AppCompatActivity {
 
     private static final String TAG = "Sec3";
     public static JSONObject s1;
@@ -111,7 +117,7 @@ public class Section3Activity extends AppCompatActivity
     private LinearLayout vu_s3q301h;
     private LinearLayout vu_s3q301ioth;
     private LinearLayout vu_s3q301joth;
-    private EditText s3q301a;
+    private Spinner s3q301a;
     private EditText s3q301b;
     private EditText s3q301c;
     private EditText s3q301e;
@@ -129,6 +135,9 @@ public class Section3Activity extends AppCompatActivity
     private int rdo_s3q301j;
     private TextView lbl_hhhead;
     private TextView lbl_wcount;
+
+    ArrayList<String> mwraNames;
+    Map<String, BLRandomContract> mwraMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -501,10 +510,25 @@ public class Section3Activity extends AppCompatActivity
         });
 
 
+//        Setting Spinner
+
+        mwraNames = new ArrayList<>();
+        mwraMap = new HashMap<>();
+
+        mwraNames.add("....");
+
+        for (BLRandomContract rand : SRCApp.blRandomized) {
+            mwraNames.add(rand.getMwname());
+            mwraMap.put(rand.getMwname(), rand);
+        }
+
+        s3q301a.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, mwraNames));
+
+
     }
 
-    private EditText getS3q301a() {
-        return (EditText) findViewById(R.id.s3q301a);
+    private Spinner getS3q301a() {
+        return (Spinner) findViewById(R.id.s3q301a);
     }
 
     private EditText getS3q301b() {
@@ -626,7 +650,21 @@ public class Section3Activity extends AppCompatActivity
         SRCApp.sc3.setROW_HHCODE(var.GetHHCode());
 
         JSONObject s3 = new JSONObject();
-        s3.put("s3q301a", s3q301a.getText().toString());
+
+        BLRandomContract selectedRand = mwraMap.get(s3q301a.getSelectedItem().toString());
+
+        s3.put("s3q301a", selectedRand.getMwname());
+        s3.put("s3q301a_luid", selectedRand.getLUID());
+        s3.put("s3q301a_village", selectedRand.getSubVillageCode());
+        s3.put("s3q301a_structure", selectedRand.getStructure());
+        s3.put("s3q301a_sno", selectedRand.getSno());
+        s3.put("s3q301a_rndDT", selectedRand.getRandomDT());
+        s3.put("s3q301a_ID", selectedRand.get_ID());
+
+        if (rDOS3q301f11.isChecked()){
+            SRCApp.selectedMWRAs.add(selectedRand);
+        }
+
         s3.put("s3q301b", s3q301b.getText().toString());
         s3.put("s3q301c", s3q301c.getText().toString());
         s3.put("s3q301d", rDOS3q301d1.isChecked() ? "1"
@@ -684,22 +722,22 @@ public class Section3Activity extends AppCompatActivity
         s3.put("s3q301k", s3q301k.getText().toString());
 
 
-            if (sno == 0) {
-                SRCApp.sc3.setROW_SNO("1");
-                sno = 1;
-            } else {
+        if (sno == 0) {
+            SRCApp.sc3.setROW_SNO("1");
+            sno = 1;
+        } else {
 
-                SRCDBHelper db = new SRCDBHelper(this);
+            SRCDBHelper db = new SRCDBHelper(this);
 
-                sno = db.getSNO();
+            sno = db.getSNO();
 
-                Log.d(TAG, "sno: " + sno);
-                SRCApp.sc3.setROW_SNO(String.valueOf(sno + 1));
-            }
+            Log.d(TAG, "sno: " + sno);
+            SRCApp.sc3.setROW_SNO(String.valueOf(sno + 1));
+        }
 
-            if (!SRCApp.curPreg) {
-                SRCApp.curPreg = rDOS3q301d1.isChecked();
-            }
+        if (!SRCApp.curPreg) {
+            SRCApp.curPreg = rDOS3q301d1.isChecked();
+        }
 
 
         SRCApp.sc3.setROW_S3(String.valueOf(s3));
@@ -713,14 +751,15 @@ public class Section3Activity extends AppCompatActivity
     private boolean ValidateForm() {
         //Toast.makeText(getApplicationContext(), "Validating Form", Toast.LENGTH_SHORT).show();
 
-        if (getS3q301a().getText().toString().isEmpty()) {
-            s3q301a.setError(getString(R.string.txterr));
-            Toast.makeText(getApplicationContext(), "Please enter name of a married woman \r\n", Toast.LENGTH_LONG).show();
-            s3q301a.requestFocus();
-            Log.d(TAG, "ValidateForm: Error Type: 301 empty");
+        TextView errorText = (TextView) s3q301a.getSelectedView();
+        if (s3q301a.getSelectedItemPosition() == 0) {
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an Answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an Answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: s3q301a empty");
             return false;
         } else {
-            s3q301a.setError(null);
+            errorText.setError(null);
         }
 
         if (getS3q301b().getText().toString().isEmpty()) {

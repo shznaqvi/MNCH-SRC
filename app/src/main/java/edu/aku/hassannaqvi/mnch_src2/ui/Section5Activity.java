@@ -2,9 +2,11 @@ package edu.aku.hassannaqvi.mnch_src2.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -12,16 +14,22 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.aku.hassannaqvi.mnch_src2.R;
+import edu.aku.hassannaqvi.mnch_src2.contract.BLRandomContract;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
 
@@ -598,6 +606,11 @@ public class Section5Activity extends Activity {
     LinearLayout fldGrpmn0515;
     @BindView(R.id.fldGrpmn0526)
     LinearLayout fldGrpmn0526;
+    @BindView(R.id.mn0500)
+    Spinner mn0500;
+
+    ArrayList<String> mwraNames;
+    Map<String, BLRandomContract> mwraMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -1345,6 +1358,21 @@ public class Section5Activity extends Activity {
 //        });
 
 
+//        Setting Spinner
+
+        mwraNames = new ArrayList<>();
+        mwraMap = new HashMap<>();
+
+        mwraNames.add("....");
+
+        for (BLRandomContract rand : SRCApp.selectedMWRAs) {
+            mwraNames.add(rand.getMwname());
+            mwraMap.put(rand.getMwname(), rand);
+        }
+
+        mn0500.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, mwraNames));
+
+
     }
 
     @OnClick(R.id.btn_End)
@@ -1411,6 +1439,15 @@ public class Section5Activity extends Activity {
 
         JSONObject s5 = new JSONObject();
 
+        BLRandomContract selectedRand = mwraMap.get(mn0500.getSelectedItem().toString());
+
+        s5.put("mn0500", selectedRand.getMwname());
+        s5.put("mn0500_luid", selectedRand.getLUID());
+        s5.put("mn0500_village", selectedRand.getSubVillageCode());
+        s5.put("mn0500_structure", selectedRand.getStructure());
+        s5.put("mn0500_sno", selectedRand.getSno());
+        s5.put("mn0500_rndDT", selectedRand.getRandomDT());
+        s5.put("mn0500_ID", selectedRand.get_ID());
 
         // RadioGroup
         s5.put("mn0501", mn050101.isChecked() ? "1" : mn050102.isChecked() ? "2" : "0");
@@ -1668,6 +1705,18 @@ public class Section5Activity extends Activity {
     private boolean formValidation() {
 
         Toast.makeText(this, "Validating This Section ", Toast.LENGTH_SHORT).show();
+
+//        Spinner
+        TextView errorText = (TextView) mn0500.getSelectedView();
+        if (mn0500.getSelectedItemPosition() == 0) {
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an Answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an Answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: s3q301a empty");
+            return false;
+        } else {
+            errorText.setError(null);
+        }
 
         // RadioGroup
         if (mn0501.getCheckedRadioButtonId() == -1) {
