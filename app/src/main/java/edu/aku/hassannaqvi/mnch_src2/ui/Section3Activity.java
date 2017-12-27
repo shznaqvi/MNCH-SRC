@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -516,12 +517,28 @@ public class Section3Activity extends AppCompatActivity {
 
         mwraNames.add("....");
 
+        int index = 0;
         for (BLRandomContract rand : SRCApp.blRandomized) {
-            mwraNames.add(rand.getMwname());
-            mwraMap.put(rand.getMwname(), rand);
+            if (SRCApp.selectedPos != index) {
+                mwraNames.add(rand.getMwname());
+                mwraMap.put(rand.getMwname(), rand);
+            }
+            index++;
         }
 
         s3q301a.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, mwraNames));
+
+        s3q301a.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                SRCApp.selectedPos = i;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
 
     }
@@ -600,17 +617,29 @@ public class Section3Activity extends AppCompatActivity {
                     SRCApp.mwCount++;
                     startActivity(sec3_intent);
                 } else if (SRCApp.mdCount < SRCApp.mdTotal) {
+
+                    SRCApp.selectedPos = -1;
+
                     Intent sec4_intent = new Intent(this, Section4Activity.class);
                     SRCApp.mdCount++;
                     startActivity(sec4_intent);
                 } else if (SRCApp.cmCount < SRCApp.cmTotal) {
+
+                    SRCApp.selectedPos = -1;
+
                     Intent sec4b_intent = new Intent(this, Section4bActivity.class);
                     SRCApp.cmCount++;
                     startActivity(sec4b_intent);
-                } else if (SRCApp.selectedMWRAs.size() > 0){
+                } else if (SRCApp.selectedMWRAs.size() > 0) {
+
+                    SRCApp.selectedPos = -1;
+
                     Intent sec5_intent = new Intent(this, Section5Activity.class);
                     startActivity(sec5_intent);
-                }else {
+                } else {
+
+                    SRCApp.selectedPos = -1;
+
                     Intent sec5_intent = new Intent(this, Section6Activity.class);
                     startActivity(sec5_intent);
                 }
@@ -662,7 +691,7 @@ public class Section3Activity extends AppCompatActivity {
         s3.put("s3q301a_rndDT", selectedRand.getRandomDT());
         s3.put("s3q301a_ID", selectedRand.get_ID());
 
-        if (rDOS3q301f11.isChecked()){
+        if (rDOS3q301f11.isChecked()) {
             SRCApp.selectedMWRAs.add(selectedRand);
         }
 
