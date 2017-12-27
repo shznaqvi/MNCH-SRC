@@ -774,6 +774,7 @@ public class Section3Activity extends AppCompatActivity {
             } else {
                 if (Integer.parseInt(s3q301e.getText().toString()) < 1 || Integer.parseInt(s3q301e.getText().toString()) > 9) {
                     Toast.makeText(getApplicationContext(), "Gestational age must be 1 - 9 months \r\n", Toast.LENGTH_LONG).show();
+                    s3q301e.setError("Gestational age must be 1 - 9 months");
                     s3q301e.requestFocus();
                     Log.d(TAG, "ValidateForm: Error Type: 301e invalid");
                     return false;
