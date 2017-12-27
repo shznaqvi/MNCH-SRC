@@ -22,6 +22,16 @@ public class BLRandomContract {
     public BLRandomContract() {
     }
 
+    public BLRandomContract(String _ID, String LUID, String subVillageCode, String structure, String sno, String mwname, String randomDT) {
+        this._ID = _ID;
+        this.LUID = LUID;
+        this.subVillageCode = subVillageCode;
+        this.structure = structure;
+        this.sno = sno;
+        this.mwname = mwname;
+        this.randomDT = randomDT;
+    }
+
     public BLRandomContract(BLRandomContract rnd) {
         this._ID = rnd.get_ID();
         this.LUID = rnd.getLUID();

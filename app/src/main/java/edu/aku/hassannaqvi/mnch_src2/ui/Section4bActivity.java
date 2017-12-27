@@ -37,8 +37,7 @@ import edu.aku.hassannaqvi.mnch_src2.other.CVars;
 import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
 
-public class Section4bActivity extends AppCompatActivity
-{
+public class Section4bActivity extends AppCompatActivity {
 
     private static final String TAG = "Sec4b";
     private static int mortalityCounter = 1;
@@ -180,6 +179,9 @@ public class Section4bActivity extends AppCompatActivity
 
         mwraNames.add("....");
 
+        mwraNames.add("NA");
+        mwraMap.put("NA", new BLRandomContract("99", "99", "99", "99", "99", "99", "99"));
+
         for (BLRandomContract rand : SRCApp.blRandomized) {
             mwraNames.add(rand.getMwname());
             mwraMap.put(rand.getMwname(), rand);
@@ -303,26 +305,26 @@ public class Section4bActivity extends AppCompatActivity
                 e.printStackTrace();
             }
 
-                Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
 
-                if (UpdateDB()) {
+            if (UpdateDB()) {
 
-                    if (SRCApp.cmCount < SRCApp.cmTotal) {
-                        Intent sec4b_intent = new Intent(this, Section4bActivity.class);
-                        SRCApp.cmCount++;
-                        startActivity(sec4b_intent);
-                    } else if (SRCApp.selectedMWRAs.size() > 0){
-                        Intent sec5_intent = new Intent(this, Section5Activity.class);
-                        sec5_intent.putExtra("check", false);
-                        startActivity(sec5_intent);
-                    } else {
-                        Intent sec5_intent = new Intent(this, Section6Activity.class);
-                        startActivity(sec5_intent);
-                    }
-
+                if (SRCApp.cmCount < SRCApp.cmTotal) {
+                    Intent sec4b_intent = new Intent(this, Section4bActivity.class);
+                    SRCApp.cmCount++;
+                    startActivity(sec4b_intent);
+                } else if (SRCApp.selectedMWRAs.size() > 0) {
+                    Intent sec5_intent = new Intent(this, Section5Activity.class);
+                    sec5_intent.putExtra("check", false);
+                    startActivity(sec5_intent);
                 } else {
-                    Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
+                    Intent sec5_intent = new Intent(this, Section6Activity.class);
+                    startActivity(sec5_intent);
                 }
+
+            } else {
+                Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
+            }
 
         }
     }
@@ -431,25 +433,25 @@ public class Section4bActivity extends AppCompatActivity
                 e.printStackTrace();
             }
 
-                Toast.makeText(this, "Storing Values", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Storing Values", Toast.LENGTH_SHORT).show();
 
-                if (UpdateDB()) {
+            if (UpdateDB()) {
 
-                    //        Checking Married Women
+                //        Checking Married Women
 
-                    CVars var = new CVars();
-                    if (var.GetReproductionAgeWoman() != 0) {
-                        startActivity(new Intent(this, Section5Activity.class));
-                    } else if (var.getNeonatesChild() != 0) {
-                        startActivity(new Intent(this, Section7Activity.class));
-                    } else if (var.getIMChild() != 0) {
-                        startActivity(new Intent(this, Section7IMActivity.class));
-                    } else {
-                        startActivity(new Intent(this, Section8Activity.class));
-                    }
-//
+                CVars var = new CVars();
+                if (var.GetReproductionAgeWoman() != 0) {
+                    startActivity(new Intent(this, Section5Activity.class));
+                } else if (var.getNeonatesChild() != 0) {
+                    startActivity(new Intent(this, Section7Activity.class));
+                } else if (var.getIMChild() != 0) {
+                    startActivity(new Intent(this, Section7IMActivity.class));
+                } else {
+                    startActivity(new Intent(this, Section8Activity.class));
                 }
+//
             }
+        }
 
     }
 
