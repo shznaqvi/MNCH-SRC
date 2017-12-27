@@ -14,6 +14,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -236,7 +239,12 @@ public class Section4Activity extends AppCompatActivity
         //tcount.setVisibility(View.VISIBLE);
 
         if (ValidateForm()) {
-            SaveDraft();
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
             if (UpdateDB()) {
                 if (SRCApp.mdCount < SRCApp.mdTotal) {
                     Intent sec4_intent = new Intent(this, Section4Activity.class);
@@ -257,7 +265,7 @@ public class Section4Activity extends AppCompatActivity
         }
     }
 
-    private boolean SaveDraft() {
+    private boolean SaveDraft() throws JSONException {
 
         SRCApp.sc4a = new Sec4aContract();
 
@@ -267,8 +275,8 @@ public class Section4Activity extends AppCompatActivity
         SRCApp.sc4a.setTagID(sharedPref.getString("tagName", null));
         SRCApp.sc4a.setVersion(SRCApp.versionName + "." + SRCApp.versionCode);
 
-        SRCApp.sc4a.set_FORM_ID(var.GetHHNO());
-        SRCApp.sc4a.set_HHCODE(var.GetHHCode());
+        SRCApp.sc4a.set_HHNO(SRCApp.hhno);
+        //SRCApp.sc4a.set_HHCODE(var.GetHHCode());
         SRCApp.sc4a.set_DEVID(SRCApp.DEVID);
         SRCApp.sc4a.setROW_UUID(SRCApp.fc.getROW_UUID());
         SRCApp.sc4a.set_FORM_DATE(SRCApp.fc.getROW_ENTRYDATE());
@@ -288,78 +296,36 @@ public class Section4Activity extends AppCompatActivity
             SRCApp.sc4a.set_SNO(String.valueOf(sno));
         }
 
-        SRCApp.sc4a.set_s4q41a(s4q41a.getText().toString());
-        SRCApp.sc4a.set_s4q41b(s4q41b.getText().toString());
+        JSONObject s4a = new JSONObject();
 
-        SRCApp.sc4a.set_s4q41b1(s4q41b1.getText().toString());
-        SRCApp.sc4a.set_s4q41b2(s4q41b2.getText().toString());
+        s4a.put("s4q41a", s4q41a.getText().toString());
+        s4a.put("s4q41b", s4q41b.getText().toString());
+        s4a.put("s4q41b1", s4q41b1.getText().toString());
+        s4a.put("s4q41b2", s4q41b2.getText().toString());
+        s4a.put("s4q41b_dod", s4q41b_dod.getText().toString());
+        s4a.put("s4q41c", rdo_s4q41c_1.isChecked() ? "1"
+                : rdo_s4q41c_2.isChecked() ? "2"
+                : rdo_s4q41c_3.isChecked() ? "3"
+                : rdo_s4q41c_4.isChecked() ? "4"
+                : rdo_s4q41c_5.isChecked() ? "5"
+                : rdo_s4q41c_6.isChecked() ? "6" : "0");
 
+        s4a.put("s4q41d", rdo_s4q41d_1.isChecked() ? "1"
+                : rdo_s4q41d_2.isChecked() ? "2"
+                : rdo_s4q41d_3.isChecked() ? "3"
+                : rdo_s4q41d_4.isChecked() ? "4"
+                : rdo_s4q41d_5.isChecked() ? "5"
+                : rdo_s4q41d_6.isChecked() ? "6"
+                : rdo_s4q41d_7.isChecked() ? "7"
+                : rdo_s4q41d_8.isChecked() ? "8"
+                : rdo_s4q41d_9.isChecked() ? "9"
+                : rdo_s4q41d_10.isChecked() ? "88"
+                : "0");
+        s4a.put("s4q41doth", s4q41doth.getText().toString());
+        s4a.put("s4q41e", s4q41e.getText().toString());
 
-        rdo_s4q41c = radio_s4q41c.getCheckedRadioButtonId();
+        SRCApp.sc4a.set_s4a(String.valueOf(s4a));
 
-        switch (rdo_s4q41c) {
-            case R.id.RDO_s4q41c_1:
-                var_s4q41c = "1";
-                break;
-            case R.id.RDO_s4q41c_2:
-                var_s4q41c = "2";
-                break;
-            case R.id.RDO_s4q41c_3:
-                var_s4q41c = "3";
-                break;
-            case R.id.RDO_s4q41c_4:
-                var_s4q41c = "4";
-                break;
-            case R.id.RDO_s4q41c_5:
-                var_s4q41c = "5";
-                break;
-            case R.id.RDO_s4q41c_6:
-                var_s4q41c = "6";
-                break;
-
-        }
-
-        SRCApp.sc4a.set_s4q41c(var_s4q41c);
-
-        rdo_s4q41d = radio_s4q41d.getCheckedRadioButtonId();
-
-        switch (rdo_s4q41d) {
-            case R.id.RDO_s4q41d_1:
-                var_s4q41d = "1";
-                break;
-            case R.id.RDO_s4q41d_2:
-                var_s4q41d = "2";
-                break;
-            case R.id.RDO_s4q41d_3:
-                var_s4q41d = "3";
-                break;
-            case R.id.RDO_s4q41d_4:
-                var_s4q41d = "4";
-                break;
-            case R.id.RDO_s4q41d_5:
-                var_s4q41d = "5";
-                break;
-            case R.id.RDO_s4q41d_6:
-                var_s4q41d = "6";
-                break;
-            case R.id.RDO_s4q41d_7:
-                var_s4q41d = "7";
-                break;
-            case R.id.RDO_s4q41d_8:
-                var_s4q41d = "8";
-                break;
-            case R.id.RDO_s4q41d_9:
-                var_s4q41d = "9";
-                break;
-            case R.id.RDO_s4q41d_10:
-                var_s4q41d = "10";
-                break;
-        }
-
-        SRCApp.sc4a.set_s4q41d(var_s4q41d);
-        SRCApp.sc4a.set_s4q41doth(s4q41doth.getText().toString());
-
-        SRCApp.sc4a.set_s4q41e(s4q41e.getText().toString());
 
         return true;
     }
@@ -586,7 +552,12 @@ public class Section4Activity extends AppCompatActivity
     public void endInterview(View view) {
         Toast.makeText(this, "Processing This Section", Toast.LENGTH_SHORT).show();
         if (ValidateForm()) {
-            SaveDraft();
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
             if (UpdateDB()) {
                 Intent end_intent = new Intent(this, EndingActivity.class);
                 end_intent.putExtra("check", false);

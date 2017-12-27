@@ -17,7 +17,7 @@ public class FormContract implements BaseColumns {
 
     Long _ID;
     String ROW_DEVID = SRCApp.DEVID;
-    String ROW_FORM_ID;
+    String HHNO;
     String ROW_ENTRYDATE;
     String ROW_USERID;
     String ROW_S1;
@@ -46,7 +46,7 @@ public class FormContract implements BaseColumns {
     public FormContract Sync(JSONObject jsonObject) throws JSONException {
         this._ID = jsonObject.getLong(Sec1Entry._ID);
         this.ROW_DEVID = jsonObject.getString(Sec1Entry.ROW_DEVID);
-        this.ROW_FORM_ID = jsonObject.getString(Sec1Entry.ROW_FORM_ID);
+        this.HHNO = jsonObject.getString(Sec1Entry.ROW_HHNO);
         this.ROW_ENTRYDATE = jsonObject.getString(Sec1Entry.ROW_ENTRYDATE);
         this.ROW_USERID = jsonObject.getString(Sec1Entry.ROW_USERID);
         this.ROW_S1 = jsonObject.getString(Sec1Entry.ROW_S1);
@@ -76,7 +76,7 @@ public class FormContract implements BaseColumns {
     public FormContract Hydrate(Cursor cursor) {
         this._ID = cursor.getLong(cursor.getColumnIndex(Sec1Entry._ID));
         this.ROW_DEVID = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_DEVID));
-        this.ROW_FORM_ID = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_FORM_ID));
+        this.HHNO = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_HHNO));
         this.ROW_ENTRYDATE = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_ENTRYDATE));
         this.ROW_USERID = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_USERID));
         this.ROW_S1 = cursor.getString(cursor.getColumnIndex(Sec1Entry.ROW_S1));
@@ -119,12 +119,12 @@ public class FormContract implements BaseColumns {
         this.ROW_DEVID = ROW_DEVID;
     }
 
-    public String getROW_FORM_ID() {
-        return ROW_FORM_ID;
+    public String getHHNO() {
+        return HHNO;
     }
 
-    public void setROW_FORM_ID(String ROW_FORM_ID) {
-        this.ROW_FORM_ID = ROW_FORM_ID;
+    public void setHHNO(String HHNO) {
+        this.HHNO = HHNO;
     }
 
     public String getROW_ENTRYDATE() {
@@ -299,7 +299,7 @@ public class FormContract implements BaseColumns {
         JSONObject json = new JSONObject();
         json.put(Sec1Entry._ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(Sec1Entry.ROW_DEVID, this.ROW_DEVID == null ? JSONObject.NULL : this.ROW_DEVID);
-        json.put(Sec1Entry.ROW_FORM_ID, this.ROW_FORM_ID == null ? JSONObject.NULL : this.ROW_FORM_ID);
+        json.put(Sec1Entry.ROW_HHNO, this.HHNO == null ? JSONObject.NULL : this.HHNO);
         json.put(Sec1Entry.ROW_ENTRYDATE, this.ROW_ENTRYDATE == null ? JSONObject.NULL : this.ROW_ENTRYDATE);
         json.put(Sec1Entry.ROW_USERID, this.ROW_USERID == null ? JSONObject.NULL : this.ROW_USERID);
 
@@ -375,7 +375,7 @@ public class FormContract implements BaseColumns {
         public static final String ROW_DEVID = "row_devid";
         public static final String ROW_ENTRYDATE = "row_entrydate";
         public static final String ROW_USERID = "row_userid";
-        public static final String ROW_FORM_ID = "row_form_id";
+        public static final String ROW_HHNO = "hh_no";
         public static final String ROW_S1 = "row_s1";
         public static final String ROW_S2 = "row_s2";
         public static final String ROW_S5 = "row_s5";

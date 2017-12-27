@@ -17,10 +17,10 @@ public class Sec3Contract implements BaseColumns {
 
     Long _ID;
     String ROW_DEVID = SRCApp.DEVID;
-    String ROW_FORM_ID;
+    String HHNO;
     String ROW_FORM_DATE;
     String ROW_USERID;
-    String ROW_HHCODE;
+    //String ROW_HHCODE;
     String ROW_SNO;
     /*String ROW_s3q301a;
     String ROW_s3q301b;
@@ -58,13 +58,13 @@ public class Sec3Contract implements BaseColumns {
         this._ID = _ID;
     }
 
-    public String getROW_HHCODE() {
+    /*public String getROW_HHCODE() {
         return this.ROW_HHCODE;
     }
 
     public void setROW_HHCODE(String ROW_HHCODE) {
         this.ROW_HHCODE = ROW_HHCODE;
-    }
+    }*/
 
 
     public String getROW_SNO() {
@@ -100,12 +100,12 @@ public class Sec3Contract implements BaseColumns {
         this.ROW_DEVID = ROW_DEVID;
     }
 
-    public String getROW_FORM_ID() {
-        return ROW_FORM_ID;
+    public String getHHNO() {
+        return HHNO;
     }
 
-    public void setROW_FORM_ID(String ROW_FORM_ID) {
-        this.ROW_FORM_ID = ROW_FORM_ID;
+    public void setHHNO(String HHNO) {
+        this.HHNO = HHNO;
     }
 
     public String getROW_FORM_DATE() {
@@ -168,10 +168,10 @@ public class Sec3Contract implements BaseColumns {
     public Sec3Contract sync(JSONObject jsonObject) throws JSONException {
         this._ID = jsonObject.getLong(Sec3Entry._ID);
         this.ROW_DEVID = jsonObject.getString(Sec3Entry.ROW_DEVID);
-        this.ROW_FORM_ID = jsonObject.getString(Sec3Entry.ROW_FORM_ID);
+        this.HHNO = jsonObject.getString(Sec3Entry.ROW_HHNO);
         this.ROW_FORM_DATE = jsonObject.getString(Sec3Entry.ROW_FORM_DATE);
         this.ROW_USERID = jsonObject.getString(Sec3Entry.ROW_USERID);
-        this.ROW_HHCODE = jsonObject.getString(Sec3Entry.ROW_HHCODE);
+        //this.ROW_HHCODE = jsonObject.getString(Sec3Entry.ROW_HHCODE);
         this.ROW_SNO = jsonObject.getString(Sec3Entry.ROW_SNO);
         this.ROW_UUID = jsonObject.getString(Sec3Entry.ROW_UUID);
         this.ROW_UID = jsonObject.getString(Sec3Entry.ROW_UID);
@@ -188,10 +188,10 @@ public class Sec3Contract implements BaseColumns {
     public Sec3Contract Hydrate(Cursor cursor) {
         this._ID = cursor.getLong(cursor.getColumnIndex(Sec3Entry._ID));
         this.ROW_DEVID = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_DEVID));
-        this.ROW_FORM_ID = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_FORM_ID));
+        this.HHNO = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_HHNO));
         this.ROW_FORM_DATE = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_FORM_DATE));
         this.ROW_USERID = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_USERID));
-        this.ROW_HHCODE = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_HHCODE));
+        //this.ROW_HHCODE = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_HHCODE));
         this.ROW_SNO = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_SNO));
 
         this.ROW_UUID = cursor.getString(cursor.getColumnIndex(Sec3Entry.ROW_UUID));
@@ -209,10 +209,10 @@ public class Sec3Contract implements BaseColumns {
         JSONObject json = new JSONObject();
         json.put(Sec3Entry._ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(Sec3Entry.ROW_DEVID, this.ROW_DEVID == null ? JSONObject.NULL : this.ROW_DEVID);
-        json.put(Sec3Entry.ROW_FORM_ID, this.ROW_FORM_ID == null ? JSONObject.NULL : this.ROW_FORM_ID);
+        json.put(Sec3Entry.ROW_HHNO, this.HHNO == null ? JSONObject.NULL : this.HHNO);
         json.put(Sec3Entry.ROW_FORM_DATE, this.ROW_FORM_DATE == null ? JSONObject.NULL : this.ROW_FORM_DATE);
         json.put(Sec3Entry.ROW_USERID, this.ROW_USERID == null ? JSONObject.NULL : this.ROW_USERID);
-        json.put(Sec3Entry.ROW_HHCODE, this.ROW_HHCODE == null ? JSONObject.NULL : this.ROW_HHCODE);
+        //json.put(Sec3Entry.ROW_HHCODE, this.ROW_HHCODE == null ? JSONObject.NULL : this.ROW_HHCODE);
         json.put(Sec3Entry.ROW_SNO, this.ROW_SNO == null ? JSONObject.NULL : this.ROW_SNO);
         json.put(Sec3Entry.ROW_UUID, this.ROW_UUID == null ? JSONObject.NULL : this.ROW_UUID);
         json.put(Sec3Entry.ROW_UID, this.ROW_UID == null ? JSONObject.NULL : this.ROW_UID);
@@ -230,10 +230,10 @@ public class Sec3Contract implements BaseColumns {
         public static final String TABLE_NAME = "sec3";
         public static final String _ID = "_id";
         public static final String ROW_DEVID = "devid";
-        public static final String ROW_FORM_ID = "form_id";
+        public static final String ROW_HHNO = "hh_no";
         public static final String ROW_FORM_DATE = "form_date";
         public static final String ROW_USERID = "userid";
-        public static final String ROW_HHCODE = "hhcode";
+        //public static final String ROW_HHCODE = "hhcode";
         public static final String ROW_SNO = "sno";
         public static final String ROW_UUID = "uuid";
         public static final String ROW_UID = "uid";

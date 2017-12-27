@@ -54,6 +54,8 @@ public class Section3Activity extends AppCompatActivity {
     String var_s3q301j = "";
     String dateToday;
     String maxDateyear;
+    ArrayList<String> mwraNames;
+    Map<String, BLRandomContract> mwraMap;
     private ScrollView scrollView01;
     private TextView appHeader;
     private TextView lblS3q301a;
@@ -135,9 +137,6 @@ public class Section3Activity extends AppCompatActivity {
     private int rdo_s3q301j;
     private TextView lbl_hhhead;
     private TextView lbl_wcount;
-
-    ArrayList<String> mwraNames;
-    Map<String, BLRandomContract> mwraMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -641,13 +640,12 @@ public class Section3Activity extends AppCompatActivity {
         SRCApp.sc3.setTagID(sharedPref.getString("tagName", null));
         SRCApp.sc3.setVersion(SRCApp.versionName + "." + SRCApp.versionCode);
 
-        CVars var = new CVars();
-
         SRCApp.sc3.setROW_DEVID(SRCApp.DEVID);
         SRCApp.sc3.setROW_UUID(SRCApp.fc.getROW_UUID());
         SRCApp.sc3.setROW_FORM_DATE(SRCApp.fc.getROW_ENTRYDATE());
-        SRCApp.sc3.setROW_FORM_ID(var.GetHHNO());
-        SRCApp.sc3.setROW_HHCODE(var.GetHHCode());
+        SRCApp.sc3.setHHNO(SRCApp.hhno);
+        SRCApp.sc3.setROW_USERID(SRCApp.fc.getROW_USERID());
+        //SRCApp.sc3.setROW_HHCODE(var.GetHHCode());
 
         JSONObject s3 = new JSONObject();
 
@@ -1008,6 +1006,19 @@ public class Section3Activity extends AppCompatActivity {
 
             } else {
                 rDOS3q301h1.setError(null);
+            }
+
+
+            if (s3q301h_dod.getText().toString().isEmpty()) {
+                s3q301h_dod.setError(getString(R.string.rdoerr));
+                Toast.makeText(getApplicationContext(), getString(R.string.rdoerr), Toast.LENGTH_LONG).show();
+                s3q301h_dod.requestFocus();
+                s3q301h_dod.setFocusable(true);
+                s3q301h_dod.setFocusableInTouchMode(true);
+                Log.d(TAG, "ValidateForm: Error Type: 301f not selected ");
+                return false;
+            } else {
+                s3q301h_dod.setError(null);
             }
 
 

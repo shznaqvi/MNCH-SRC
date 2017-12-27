@@ -73,6 +73,8 @@ public class SRCApp extends Application {
     public static int UMWomen = 0;
     public static int tcount = 1;
     public static int counter = 1;
+
+    // Gul Sanober
     public static String uc;
     public static String village;
     public static String hhno;
@@ -92,9 +94,9 @@ public class SRCApp extends Application {
     public static boolean curPreg = false;
     public static int versionCode;
     public static String versionName;
-    protected static LocationManager locationManager;
     public static ArrayList<BLRandomContract> blRandomized;
     public static ArrayList<BLRandomContract> selectedMWRAs;
+    protected static LocationManager locationManager;
 
 
 /*df*/

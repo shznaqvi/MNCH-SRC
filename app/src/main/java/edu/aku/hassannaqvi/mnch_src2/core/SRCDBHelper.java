@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import edu.aku.hassannaqvi.mnch_src2.contract.BLRandomContract;
+import edu.aku.hassannaqvi.mnch_src2.contract.BLRandomContract.singleRandom;
 import edu.aku.hassannaqvi.mnch_src2.contract.DistrictsContract;
 import edu.aku.hassannaqvi.mnch_src2.contract.DistrictsContract.singleDistrict;
 import edu.aku.hassannaqvi.mnch_src2.contract.FormContract;
@@ -32,8 +34,6 @@ import edu.aku.hassannaqvi.mnch_src2.contract.UsersContract;
 import edu.aku.hassannaqvi.mnch_src2.contract.UsersContract.singleUser;
 import edu.aku.hassannaqvi.mnch_src2.contract.VillagesContract;
 import edu.aku.hassannaqvi.mnch_src2.contract.VillagesContract.singleVillages;
-import edu.aku.hassannaqvi.mnch_src2.contract.BLRandomContract;
-import edu.aku.hassannaqvi.mnch_src2.contract.BLRandomContract.singleRandom;
 import edu.aku.hassannaqvi.mnch_src2.other.CVars;
 import edu.aku.hassannaqvi.mnch_src2.other.Members;
 
@@ -64,7 +64,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             Sec1Entry.COLUMN_TAGID + " TEXT," +
             Sec1Entry.COLUMN_VERSION + " TEXT," +
             Sec1Entry.ROW_DEVID + " TEXT," +
-            Sec1Entry.ROW_FORM_ID + " TEXT," +
+            Sec1Entry.ROW_HHNO + " TEXT," +
             Sec1Entry.ROW_ENTRYDATE + " TEXT," +
             Sec1Entry.ROW_USERID + " TEXT," +
             Sec1Entry.ROW_S1 + " TEXT," +
@@ -90,10 +90,10 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             Sec3Entry.COLUMN_TAGID + " TEXT," +
             Sec3Entry.COLUMN_VERSION + " TEXT," +
             Sec3Entry.ROW_DEVID + " TEXT," +
-            Sec3Entry.ROW_FORM_ID + " TEXT," +
+            Sec3Entry.ROW_HHNO + " TEXT," +
             Sec3Entry.ROW_FORM_DATE + " TEXT," +
             Sec3Entry.ROW_USERID + " TEXT," +
-            Sec3Entry.ROW_HHCODE + " TEXT," +
+            //Sec3Entry.ROW_HHCODE + " TEXT," +
             Sec3Entry.ROW_SNO + " TEXT," +
             Sec3Entry.ROW_S3 + " TEXT," +
             Sec3Entry.ROW_UUID + " TEXT," +
@@ -107,19 +107,12 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             Section4Entry.COLUMN_TAGID + " TEXT," +
             Section4Entry.COLUMN_VERSION + " TEXT," +
             Section4Entry.ROW_DEVID + " TEXT," +
-            Section4Entry.ROW_FORM_ID + " TEXT," +
+            Section4Entry.ROW_HHNO + " TEXT," +
             Section4Entry.ROW_FORM_DATE + " TEXT," +
             Section4Entry.ROW_USERID + " TEXT," +
-            Section4Entry.ROW_HHCODE + " TEXT," +
+            //Section4Entry.ROW_HHCODE + " TEXT," +
             Section4Entry.ROW_SNO + " TEXT," +
-            Section4Entry.ROW_S4Q41A + " TEXT," +
-            Section4Entry.ROW_S4Q41B + " TEXT," +
-            Section4Entry.ROW_S4Q41B1 + " TEXT," +
-            Section4Entry.ROW_S4Q41B2 + " TEXT," +
-            Section4Entry.ROW_S4Q41C + " TEXT," +
-            Section4Entry.ROW_S4Q41D + " TEXT," +
-            Section4Entry.ROW_S4Q41DOTH + " TEXT," +
-            Section4Entry.ROW_S4Q41E + " TEXT," +
+            Section4Entry.ROW_S4A + " TEXT," +
             Section4Entry.ROW_UID + " TEXT," +
             Section4Entry.ROW_UUID + " TEXT," +
             Section4Entry.ROW_SYNCED + " TEXT," +
@@ -131,22 +124,14 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             Section4bEntry.COLUMN_TAGID + " TEXT," +
             Section4bEntry.COLUMN_VERSION + " TEXT," +
             Section4bEntry.ROW_DEVID + " TEXT," +
-            Section4bEntry.ROW_FORM_ID + " TEXT," +
+            Section4bEntry.ROW_HHNO + " TEXT," +
             Section4bEntry.ROW_FORM_DATE + " TEXT," +
             Section4bEntry.ROW_USERID + " TEXT," +
             Section4bEntry.ROW_UUID + " TEXT," +
             Section4bEntry.ROW_UID + " TEXT," +
-            Section4bEntry.ROW_HHCODE + " TEXT," +
+            //Section4bEntry.ROW_HHCODE + " TEXT," +
             Section4bEntry.ROW_SNO + " TEXT," +
-            Section4bEntry.ROW_S4Q42A + " TEXT," +
-            Section4bEntry.ROW_S4Q42B + " TEXT," +
-            Section4bEntry.ROW_S4Q42C + " TEXT," +
-            Section4bEntry.ROW_S4Q42D + " TEXT," +
-            Section4bEntry.ROW_S4Q42D1 + " TEXT," +
-            Section4bEntry.ROW_S4Q42D2 + " TEXT," +
-            Section4bEntry.ROW_S4Q42E + " TEXT," +
-            Section4bEntry.ROW_S4Q42EOTH + " TEXT," +
-            Section4bEntry.ROW_S4Q42F + " TEXT," +
+            Section4bEntry.ROW_S4B + " TEXT," +
             Section4bEntry.ROW_SYNCED + " TEXT," +
             Section4bEntry.ROW_SYNCED_DATE + " TEXT" +
 
@@ -681,7 +666,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
 
             values.put(Sec1Entry._ID, fc.get_ID());
             values.put(Sec1Entry.ROW_DEVID, fc.getROW_DEVID());
-            values.put(Sec1Entry.ROW_FORM_ID, fc.getROW_FORM_ID());
+            values.put(Sec1Entry.ROW_HHNO, fc.getHHNO());
             values.put(Sec1Entry.ROW_ENTRYDATE, fc.getROW_ENTRYDATE());
             values.put(Sec1Entry.ROW_USERID, fc.getROW_USERID());
             values.put(Sec1Entry.ROW_S1, fc.getROW_S1());
@@ -724,10 +709,10 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             values.put(Sec3Entry.COLUMN_VERSION, sec3.getVersion());
 
             values.put(Sec3Entry.ROW_DEVID, sec3.getROW_DEVID());
-            values.put(Sec3Entry.ROW_FORM_ID, sec3.getROW_FORM_ID());
+            values.put(Sec3Entry.ROW_HHNO, sec3.getHHNO());
             values.put(Sec3Entry.ROW_FORM_DATE, sec3.getROW_FORM_DATE());
             values.put(Sec3Entry.ROW_USERID, sec3.getROW_USERID());
-            values.put(Sec3Entry.ROW_HHCODE, sec3.getROW_HHCODE());
+            //values.put(Sec3Entry.ROW_HHCODE, sec3.getROW_HHCODE());
             values.put(Sec3Entry.ROW_SNO, sec3.getROW_SNO());
             values.put(Sec3Entry.ROW_S3, sec3.getROW_S3());
             values.put(Sec3Entry.ROW_UUID, sec3.getROW_UUID()); // get primary key of main Form UUID
@@ -913,10 +898,10 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(Sec3Entry._ID, sec3.get_ID());
         values.put(Sec3Entry.ROW_DEVID, sec3.getROW_DEVID());
-        values.put(Sec3Entry.ROW_FORM_ID, sec3.getROW_FORM_ID());
+        values.put(Sec3Entry.ROW_HHNO, sec3.getHHNO());
         values.put(Sec3Entry.ROW_FORM_DATE, sec3.getROW_FORM_DATE());
         values.put(Sec3Entry.ROW_USERID, sec3.getROW_USERID());
-        values.put(Sec3Entry.ROW_HHCODE, sec3.getROW_HHCODE());
+        //values.put(Sec3Entry.ROW_HHCODE, sec3.getROW_HHCODE());
         values.put(Sec3Entry.ROW_SNO, sec3.getROW_SNO());
         values.put(Sec3Entry.ROW_S3, sec3.getROW_S3());
         values.put(Sec3Entry.ROW_UUID, sec3.getROW_UUID());
@@ -943,20 +928,12 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(Section4bEntry._ID, sec4b.get_ID());
         values.put(Section4bEntry.ROW_DEVID, sec4b.getROW_DEVID());
-        values.put(Section4bEntry.ROW_FORM_ID, sec4b.getROW_FORM_ID());
+        values.put(Section4bEntry.ROW_HHNO, sec4b.getHHNO());
         values.put(Section4bEntry.ROW_FORM_DATE, sec4b.getROW_FORM_DATE());
-        values.put(Section4bEntry.ROW_HHCODE, sec4b.getROW_HHCODE());
+        //values.put(Section4bEntry.ROW_HHCODE, sec4b.getROW_HHCODE());
         values.put(Section4bEntry.ROW_USERID, sec4b.getROW_USERID());
         values.put(Section4bEntry.ROW_SNO, sec4b.getROW_SNO());
-        values.put(Section4bEntry.ROW_S4Q42A, sec4b.get_s4q42a());
-        values.put(Section4bEntry.ROW_S4Q42B, sec4b.get_s4q42b());
-        values.put(Section4bEntry.ROW_S4Q42C, sec4b.get_s4q42c());
-        values.put(Section4bEntry.ROW_S4Q42D, sec4b.get_s4q42d());
-        values.put(Section4bEntry.ROW_S4Q42D1, sec4b.get_s4q42d1());
-        values.put(Section4bEntry.ROW_S4Q42D2, sec4b.get_s4q42d2());
-        values.put(Section4bEntry.ROW_S4Q42E, sec4b.get_s4q42e());
-        values.put(Section4bEntry.ROW_S4Q42EOTH, sec4b.get_s4q42eoth());
-        values.put(Section4bEntry.ROW_S4Q42F, sec4b.get_s4q42f());
+        values.put(Section4bEntry.ROW_S4B, sec4b.get_s4b());
         values.put(Section4bEntry.ROW_UID, sec4b.getROW_UID());
         values.put(Section4bEntry.ROW_UUID, sec4b.getROW_UUID());
         values.put(Section4bEntry.ROW_SYNCED, sec4b.getROW_SYNCED());
@@ -984,19 +961,12 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(Section4Entry._ID, sec4a.get_ID());
         values.put(Section4Entry.ROW_DEVID, sec4a.get_DEVID());
-        values.put(Section4Entry.ROW_FORM_ID, sec4a.get_FORM_ID());
+        values.put(Section4Entry.ROW_HHNO, sec4a.get_HHNO());
         values.put(Section4Entry.ROW_FORM_DATE, sec4a.get_FORM_DATE());
         values.put(Section4Entry.ROW_USERID, sec4a.get_USERID());
-        values.put(Section4Entry.ROW_HHCODE, sec4a.get_HHCODE());
+        //values.put(Section4Entry.ROW_HHCODE, sec4a.get_HHCODE());
         values.put(Section4Entry.ROW_SNO, sec4a.get_SNO());
-        values.put(Section4Entry.ROW_S4Q41A, sec4a.get_s4q41a());
-        values.put(Section4Entry.ROW_S4Q41B, sec4a.get_s4q41b());
-        values.put(Section4Entry.ROW_S4Q41B1, sec4a.get_s4q41b1());
-        values.put(Section4Entry.ROW_S4Q41B2, sec4a.get_s4q41b2());
-        values.put(Section4Entry.ROW_S4Q41C, sec4a.get_s4q41c());
-        values.put(Section4Entry.ROW_S4Q41D, sec4a.get_s4q41d());
-        values.put(Section4Entry.ROW_S4Q41DOTH, sec4a.get_s4q41doth());
-        values.put(Section4Entry.ROW_S4Q41E, sec4a.get_s4q41e());
+        values.put(Section4Entry.ROW_S4A, sec4a.get_s4a());
         //values.put(Section4Entry.ROW_UID, sec4a.get_UID());
         values.put(Section4Entry.ROW_UUID, sec4a.getROW_UUID());
         values.put(Section4Entry.ROW_SYNCED, sec4a.getROW_SYNCED());
@@ -1166,10 +1136,10 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         String[] columns = {
                 Sec3Entry._ID,
                 Sec3Entry.ROW_DEVID,
-                Sec3Entry.ROW_FORM_ID,
+                Sec3Entry.ROW_HHNO,
                 Sec3Entry.ROW_FORM_DATE,
                 Sec3Entry.ROW_USERID,
-                Sec3Entry.ROW_HHCODE,
+                //Sec3Entry.ROW_HHCODE,
                 Sec3Entry.ROW_SNO,
                 Sec3Entry.ROW_S3,
                 Sec3Entry.ROW_UUID,
@@ -1220,19 +1190,13 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         String[] columns = {
                 Section4Entry._ID,
                 Section4Entry.ROW_DEVID,
-                Section4Entry.ROW_FORM_ID,
+                Section4Entry.ROW_HHNO,
                 Section4Entry.ROW_FORM_DATE,
                 Section4Entry.ROW_USERID,
-                Section4Entry.ROW_HHCODE,
+                //Section4Entry.ROW_HHCODE,
                 Section4Entry.ROW_SNO,
-                Section4Entry.ROW_S4Q41A,
-                Section4Entry.ROW_S4Q41B,
-                Section4Entry.ROW_S4Q41B1,
-                Section4Entry.ROW_S4Q41B2,
-                Section4Entry.ROW_S4Q41C,
-                Section4Entry.ROW_S4Q41D,
-                Section4Entry.ROW_S4Q41DOTH,
-                Section4Entry.ROW_S4Q41E,
+                Section4Entry.ROW_S4A,
+
                 Section4Entry.ROW_UID,
                 Section4Entry.ROW_UUID,
                 Section4Entry.ROW_SYNCED,
@@ -1281,7 +1245,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         String[] columns = {
                 Sec1Entry._ID,
                 Sec1Entry.ROW_DEVID,
-                Sec1Entry.ROW_FORM_ID,
+                Sec1Entry.ROW_HHNO,
                 Sec1Entry.ROW_ENTRYDATE,
                 Sec1Entry.ROW_USERID,
                 Sec1Entry.ROW_S1,
@@ -1345,20 +1309,13 @@ public class SRCDBHelper extends SQLiteOpenHelper {
         String[] columns = {
                 Section4bEntry._ID,
                 Section4bEntry.ROW_DEVID,
-                Section4bEntry.ROW_FORM_ID,
+                Section4bEntry.ROW_HHNO,
                 Section4bEntry.ROW_FORM_DATE,
-                Section4bEntry.ROW_HHCODE,
+                //Section4bEntry.ROW_HHCODE,
                 Section4bEntry.ROW_USERID,
                 Section4bEntry.ROW_SNO,
-                Section4bEntry.ROW_S4Q42A,
-                Section4bEntry.ROW_S4Q42B,
-                Section4bEntry.ROW_S4Q42C,
-                Section4bEntry.ROW_S4Q42D,
-                Section4bEntry.ROW_S4Q42D1,
-                Section4bEntry.ROW_S4Q42D2,
-                Section4bEntry.ROW_S4Q42E,
-                Section4bEntry.ROW_S4Q42EOTH,
-                Section4bEntry.ROW_S4Q42F,
+                Section4bEntry.ROW_S4B,
+
                 Section4bEntry.ROW_UID,
                 Section4bEntry.ROW_UUID,
                 Section4bEntry.ROW_SYNCED,
@@ -1465,7 +1422,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             CVars var = new CVars();
 
             userList = new ArrayList<>();
-            String QUERY = "SELECT * FROM " + Sec3Entry.TABLE_NAME + " WHERE " + Sec3Entry.ROW_FORM_ID +
+            String QUERY = "SELECT * FROM " + Sec3Entry.TABLE_NAME + " WHERE " + Sec3Entry.ROW_HHNO +
                     " = '" + var.GetHHNO() + "'";
 
             Cursor cursor = db.rawQuery(QUERY, null);
@@ -1503,7 +1460,7 @@ public class SRCDBHelper extends SQLiteOpenHelper {
             CVars var = new CVars();
 
             String QUERY = "SELECT * FROM " + Sec3Entry.TABLE_NAME + " WHERE " +
-                    Sec3Entry.ROW_FORM_ID + " = '" + var.GetHHNO() + "' and " +
+                    Sec3Entry.ROW_HHNO + " = '" + var.GetHHNO() + "' and " +
                     Sec3Entry.ROW_S3Q301A + " = '" + nme + "'";
 
             Cursor cursor = db.rawQuery(QUERY, null);

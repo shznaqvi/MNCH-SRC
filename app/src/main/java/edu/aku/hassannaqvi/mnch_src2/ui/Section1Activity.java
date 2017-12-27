@@ -70,6 +70,12 @@ public class Section1Activity extends Activity implements TextWatcher {
 
     @BindView(R.id.btn_Continue)
     Button btn_Continue;
+    @BindView(R.id.hh_count)
+    TextView hhCount;
+    @BindView(R.id.fldGrp01)
+    LinearLayout fldGrp01;
+    Collection<BLRandomContract> selected;
+    SRCDBHelper db;
     private TextView appheader;
     private ScrollView activitySection1;
     private TextView lblFormid;
@@ -111,13 +117,6 @@ public class Section1Activity extends Activity implements TextWatcher {
     private int rdo_s1q112;
     private AlertDialog.Builder alert;
     private String spDateT;
-
-    @BindView(R.id.hh_count)
-    TextView hhCount;
-    @BindView(R.id.fldGrp01)
-    LinearLayout fldGrp01;
-    Collection<BLRandomContract> selected;
-    SRCDBHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -277,6 +276,7 @@ public class Section1Activity extends Activity implements TextWatcher {
         });
 
         SRCApp.blRandomized = new ArrayList<>();
+        SRCApp.selectedMWRAs = new ArrayList<>();
         formid.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -382,10 +382,10 @@ public class Section1Activity extends Activity implements TextWatcher {
         String dt1 = sdf.format(dt);
         SRCApp.fc.setROW_ENTRYDATE(dt1);
         SRCApp.fc.setROW_USERID(var.GetUser());
-        var.StoreHHNO(formid.getText().toString());
+        //var.StoreHHNO(formid.getText().toString());
 
         // HH no
-        SRCApp.fc.setROW_FORM_ID(formid.getText().toString());
+        SRCApp.fc.setHHNO(formid.getText().toString());
         SRCApp.hhno = formid.getText().toString();
 
 

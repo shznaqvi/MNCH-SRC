@@ -104,6 +104,9 @@ public class EndingActivity extends Activity {
                 SRCApp.cmTotal = 0;
                 SRCApp.chCount = 0;
                 SRCApp.chTotal = 0;
+                SRCApp.hhno = null;
+                SRCApp.village = null;
+                SRCApp.uc = null;
 
                 finish();
 

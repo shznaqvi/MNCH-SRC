@@ -16,6 +16,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -34,7 +37,7 @@ import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 public class Section4bActivity extends AppCompatActivity
 {
 
-    private static final String TAG = "Sec4a";
+    private static final String TAG = "Sec4b";
     private static int mortalityCounter = 1;
     public int count = 0;
     @BindView(R.id.s4q42d_dod)
@@ -288,7 +291,11 @@ public class Section4bActivity extends AppCompatActivity
 
         if (ValidateForm()) {
 
-            if (SaveDraft()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
                 Toast.makeText(getApplicationContext(), "Storing Values", Toast.LENGTH_SHORT).show();
 
@@ -307,7 +314,7 @@ public class Section4bActivity extends AppCompatActivity
                 } else {
                     Toast.makeText(getApplicationContext(), "Unable to update database", Toast.LENGTH_SHORT).show();
                 }
-            }
+
         }
     }
 
@@ -332,7 +339,7 @@ public class Section4bActivity extends AppCompatActivity
         }
     }
 
-    private boolean SaveDraft() {
+    private boolean SaveDraft() throws JSONException {
 
         SRCApp.sc4b = new Sec4bContract();
 
@@ -342,12 +349,13 @@ public class Section4bActivity extends AppCompatActivity
         SRCApp.sc4b.setTagID(sharedPref.getString("tagName", null));
         SRCApp.sc4b.setVersion(SRCApp.versionName + "." + SRCApp.versionCode);
 
-        SRCApp.sc4b.setROW_FORM_ID(var.GetHHNO());
-        SRCApp.sc4b.setROW_HHCODE(var.GetHHCode());
+        SRCApp.sc4b.setHHNO(SRCApp.fc.getHHNO());
+        //SRCApp.sc4b.setROW_HHCODE(SRCApp.);
         SRCApp.sc4b.setROW_DEVID(SRCApp.DEVID);
         SRCApp.sc4b.setROW_UUID(SRCApp.fc.getROW_UUID());
         SRCApp.sc4b.setROW_FORM_DATE(SRCApp.fc.getROW_ENTRYDATE());
-        //SRCApp.sc4b.setROW_FORM_ID(var.GetHHNO());
+        SRCApp.sc4b.setROW_USERID(SRCApp.fc.getROW_USERID());
+        //SRCApp.sc4b.setHHNO(var.GetHHNO());
         //SRCApp.sc4b.setROW_HHCODE(var.GetHHCode());
 
 
@@ -362,86 +370,42 @@ public class Section4bActivity extends AppCompatActivity
             SRCApp.sc4b.setROW_SNO(String.valueOf(sno));
         }
 
-        SRCDBHelper db = new SRCDBHelper(this);
+        /*SRCDBHelper db = new SRCDBHelper(this);
 
         String val;
         if (s4q42a.getSelectedItem().toString() != "NA") {
             //val = db.getID_Woman_Reproductive_Age(s4q42a.getSelectedItem().toString());
         } else {
             val = "99";
-        }
+        }*/
         //SRCApp.sc4b.set_s4q42a(val);
-        SRCApp.sc4b.set_s4q42b(s4q42b.getText().toString());
-
-        rdo_s4q42c = radio_s4q42c.getCheckedRadioButtonId();
-
-        switch (rdo_s4q42c) {
-            case R.id.RDO_s4q41c_1:
-                var_s4q42c = "1";
-                break;
-            case R.id.RDO_s4q41c_2:
-                var_s4q42c = "2";
-                break;
-            case R.id.RDO_s4q41c_3:
-                var_s4q42c = "3";
-                break;
-            case R.id.RDO_s4q41c_4:
-                var_s4q42c = "4";
-                break;
-            case R.id.RDO_s4q41c_5:
-                var_s4q42c = "5";
-                break;
-            case R.id.RDO_s4q41c_6:
-                var_s4q42c = "6";
-                break;
-        }
-
-        SRCApp.sc4b.set_s4q42c(var_s4q42c);
-
-        SRCApp.sc4b.set_s4q42d(s4q42d.getText().toString());
-        SRCApp.sc4b.set_s4q42d1(s4q42d1.getText().toString());
-        SRCApp.sc4b.set_s4q42d2(s4q42d2.getText().toString());
 
 
-        rdo_s4q42e = radio_s4q42e.getCheckedRadioButtonId();
+        JSONObject s4b = new JSONObject();
 
-        switch (rdo_s4q42e) {
-            case R.id.RDO_s4q42e_1:
-                var_s4q42e = "1";
-                break;
-            case R.id.RDO_s4q42e_2:
-                var_s4q42e = "2";
-                break;
-            case R.id.RDO_s4q42e_3:
-                var_s4q42e = "3";
-                break;
-            case R.id.RDO_s4q42e_4:
-                var_s4q42e = "4";
-                break;
-            case R.id.RDO_s4q42e_5:
-                var_s4q42e = "5";
-                break;
-            case R.id.RDO_s4q42e_6:
-                var_s4q42e = "6";
-                break;
-            case R.id.RDO_s4q42e_7:
-                var_s4q42e = "7";
-                break;
-            case R.id.RDO_s4q42e_8:
-                var_s4q42e = "8";
-                break;
-            case R.id.RDO_s4q42e_9:
-                var_s4q42e = "9";
-                break;
-            case R.id.RDO_s4q42e_10:
-                var_s4q42e = "10";
-                break;
-        }
+        //s4b.put("s4q42a", s4q42a.getSelectedItem().toString());
+        s4b.put("s4q42b", s4q42b.getText().toString());
+        s4b.put("s4q42c", rdo_s4q42c_1.isChecked() ? "1"
+                : rdo_s4q42c_2.isChecked() ? "2" : "0");
+        s4b.put("s4q42d", s4q42d.getText().toString());
+        s4b.put("s4q42d1", s4q42d1.getText().toString());
+        s4b.put("s4q42d2", s4q42d2.getText().toString());
+        s4b.put("s4q42d_dod", s4q42d_dod.getText().toString());
+        s4b.put("s4q42e", rdo_s4q42e_1.isChecked() ? "1"
+                : rdo_s4q42e_2.isChecked() ? "2"
+                : rdo_s4q42e_3.isChecked() ? "3"
+                : rdo_s4q42e_4.isChecked() ? "4"
+                : rdo_s4q42e_5.isChecked() ? "5"
+                : rdo_s4q42e_6.isChecked() ? "6"
+                : rdo_s4q42e_7.isChecked() ? "7"
+                : rdo_s4q42e_8.isChecked() ? "8"
+                : rdo_s4q42e_9.isChecked() ? "9"
+                : rdo_s4q42e_10.isChecked() ? "88" : "0");
+        s4b.put("s4q42eoth", s4q42eoth.getText().toString());
+        s4b.put("s4q42f", s4q42f.getText().toString());
 
 
-        SRCApp.sc4b.set_s4q42e(var_s4q42e);
-        SRCApp.sc4b.set_s4q42eoth(s4q42eoth.getText().toString());
-        SRCApp.sc4b.set_s4q42f(s4q42f.getText().toString());
+        SRCApp.sc4b.set_s4b(String.valueOf(s4b));
 
         return true;
     }
@@ -450,7 +414,11 @@ public class Section4bActivity extends AppCompatActivity
 
         if (ValidateForm()) {
 
-            if (SaveDraft()) {
+            try {
+                SaveDraft();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
                 Toast.makeText(this, "Storing Values", Toast.LENGTH_SHORT).show();
 
@@ -471,7 +439,7 @@ public class Section4bActivity extends AppCompatActivity
 //
                 }
             }
-        }
+
     }
 
 
