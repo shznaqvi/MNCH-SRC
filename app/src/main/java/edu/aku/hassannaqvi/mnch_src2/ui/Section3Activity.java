@@ -424,7 +424,7 @@ public class Section3Activity extends AppCompatActivity {
 
         mwraNames.add("....");
 
-        int index = 0;
+        int index = 1;
         for (BLRandomContract rand : SRCApp.blRandomized) {
             if (SRCApp.selectedPos != index) {
                 mwraNames.add(rand.getMwname());
