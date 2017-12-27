@@ -21,10 +21,6 @@ import java.util.Date;
 
 import edu.aku.hassannaqvi.mnch_src2.R;
 import edu.aku.hassannaqvi.mnch_src2.core.AndroidDatabaseManager;
-import edu.aku.hassannaqvi.mnch_src2.get.GetBLRandom;
-import edu.aku.hassannaqvi.mnch_src2.get.GetDistricts;
-import edu.aku.hassannaqvi.mnch_src2.get.GetUsers;
-import edu.aku.hassannaqvi.mnch_src2.get.GetVillages;
 import edu.aku.hassannaqvi.mnch_src2.sync.SyncForms;
 import edu.aku.hassannaqvi.mnch_src2.sync.SyncSec3;
 import edu.aku.hassannaqvi.mnch_src2.sync.SyncSec4a;
@@ -172,6 +168,7 @@ public class MainActivity extends Activity {
     public void onBackPressed() {
         if (exit) {
             finish(); // finish activity
+            startActivity(new Intent(this, LoginActivity.class));
         } else {
             Toast.makeText(this, "Press Back again to Exit.",
                     Toast.LENGTH_SHORT).show();

@@ -64,14 +64,14 @@
             </EditText>
 
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
                 android:text="@string/mn07im02"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/white"/>-->
 
             <RadioGroup
                 android:id="@+id/mn07im02dob"
