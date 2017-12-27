@@ -277,6 +277,7 @@ public class Section1Activity extends Activity implements TextWatcher {
         });
 
         SRCApp.blRandomized = new ArrayList<>();
+        SRCApp.selectedMWRAs = new ArrayList<>();
         formid.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
