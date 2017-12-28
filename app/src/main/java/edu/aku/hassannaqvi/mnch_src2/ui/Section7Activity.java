@@ -604,7 +604,7 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
                 mn070201.setError(null);
             }
 
-            if (!mn070201.getText().toString().isEmpty() && Integer.valueOf(mn070202.getText().toString()) == 0) {
+            if (!mn070201.getText().toString().isEmpty() && Double.valueOf(mn070202.getText().toString()) == 0) {
 
                 if (Double.parseDouble(mn070201.getText().toString()) < 1.0 || Double.parseDouble(mn070201.getText().toString()) > 9.0) {
                     Toast.makeText(this, "" + "Weight can not be less than 1 - 9 kg.. check again", Toast.LENGTH_SHORT).show();
@@ -618,7 +618,7 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
             }
 
             if (!mn070202.getText().toString().isEmpty() && Double.valueOf(mn070201.getText().toString()) == 0) {
-                if (Integer.parseInt(mn070202.getText().toString()) < 1000 || Integer.parseInt(mn070202.getText().toString()) > 9000) {
+                if (Double.valueOf(mn070202.getText().toString()) < 1000 || Double.valueOf(mn070202.getText().toString()) > 9000) {
                     Toast.makeText(this, "" + "Weight must be between 1000 - 9000 gm.", Toast.LENGTH_SHORT).show();
                     mn070202.setError("Weight must be between 1000 - 9000 gm.");
                     mn070202.requestFocus();
@@ -801,7 +801,7 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
                 mn071102x.setError(null);
             }
 
-            if ((Integer.parseInt(mn071102x.getText().toString()) < 0) || (Integer.parseInt(mn071102x.getText().toString()) > 23)) {
+            if ((Integer.valueOf(mn071102x.getText().toString()) < 0) || (Integer.valueOf(mn071102x.getText().toString()) > 23)) {
                 Toast.makeText(this, "" + "Range is 0 - 23 hours", Toast.LENGTH_SHORT).show();
                 mn071102x.setError("Range is 0 - 23 hours");
                 mn071102x.requestFocus();
@@ -824,7 +824,7 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
                 mn071103x.setError(null);
             }
 
-            if ((Integer.parseInt(mn071103x.getText().toString()) < 0) || (Integer.parseInt(mn071103x.getText().toString()) > 180)) {
+            if ((Integer.valueOf(mn071103x.getText().toString()) < 0) || (Integer.valueOf(mn071103x.getText().toString()) > 180)) {
                 Toast.makeText(this, "" + "Range is 0 - 180 days", Toast.LENGTH_SHORT).show();
                 mn071103x.setError("Range is 0 - 180 days");
                 Log.d(TAG, "ValidateForm: 711");
@@ -875,7 +875,7 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
                     mn071301x.setError(null);
                 }
 
-                if (Integer.parseInt(mn071301x.getText().toString()) < 1 || Integer.parseInt(mn071301x.getText().toString()) > 29) {
+                if (Integer.valueOf(mn071301x.getText().toString()) < 1 || Integer.valueOf(mn071301x.getText().toString()) > 29) {
                     Toast.makeText(this, "This is inValid", Toast.LENGTH_SHORT).show();
                     mn071301x.setError("This is inValid");
                     Log.d(TAG, "ValidateForm: 713-01");
@@ -896,7 +896,7 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
                     mn071302x.setError(null);
                 }
 
-                if (Integer.parseInt(mn071302x.getText().toString()) < 1 || Integer.parseInt(mn071302x.getText().toString()) > 24) {
+                if (Integer.valueOf(mn071302x.getText().toString()) < 1 || Integer.valueOf(mn071302x.getText().toString()) > 24) {
                     Toast.makeText(this, "This is inValid", Toast.LENGTH_SHORT).show();
                     mn071302x.setError("This is inValid");
                     Log.d(TAG, "ValidateForm: 713-02");

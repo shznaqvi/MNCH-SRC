@@ -179,7 +179,7 @@ public class Section6Activity extends Activity {
             }
         });
 
-        mn060305.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+/*        mn060305.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
         {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -192,7 +192,7 @@ public class Section6Activity extends Activity {
                 }
 
             }
-        });
+        });*/
 
         //  =========================== Q 6.03 Others ================================
         mn060388.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
