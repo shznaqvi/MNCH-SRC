@@ -29,8 +29,7 @@ import edu.aku.hassannaqvi.mnch_src2.core.SRCApp;
 import edu.aku.hassannaqvi.mnch_src2.core.SRCDBHelper;
 import io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText;
 
-public class Section7Activity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener
-{
+public class Section7Activity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener {
 
     private static final String TAG = Section7Activity.class.getSimpleName();
 
@@ -594,7 +593,7 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
 //        7.02
         if (!mn070299.isChecked()) {
 
-            if (mn070201.getText().toString().isEmpty() && mn070202.getText().toString().isEmpty()) {
+            if (mn070201.getText().toString().isEmpty() || mn070202.getText().toString().isEmpty()) {
                 Toast.makeText(this, "" + getString(R.string.mn0702), Toast.LENGTH_SHORT).show();
                 mn070201.setError("This is inValid");
                 mn070201.requestFocus();
@@ -604,8 +603,7 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
                 mn070201.setError(null);
             }
 
-            if (!mn070201.getText().toString().isEmpty() && Double.valueOf(mn070202.getText().toString()) == 0) {
-
+            if (Double.valueOf(mn070202.getText().toString()) == 0) {
                 if (Double.parseDouble(mn070201.getText().toString()) < 1.0 || Double.parseDouble(mn070201.getText().toString()) > 9.0) {
                     Toast.makeText(this, "" + "Weight can not be less than 1 - 9 kg.. check again", Toast.LENGTH_SHORT).show();
                     mn070201.setError("Weight can not be less than 1.0 - 9.0 kg");
@@ -617,7 +615,7 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
                 }
             }
 
-            if (!mn070202.getText().toString().isEmpty() && Double.valueOf(mn070201.getText().toString()) == 0) {
+            if (Double.valueOf(mn070201.getText().toString()) == 0) {
                 if (Double.valueOf(mn070202.getText().toString()) < 1000 || Double.valueOf(mn070202.getText().toString()) > 9000) {
                     Toast.makeText(this, "" + "Weight must be between 1000 - 9000 gm.", Toast.LENGTH_SHORT).show();
                     mn070202.setError("Weight must be between 1000 - 9000 gm.");
@@ -628,9 +626,6 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
                     mn070202.setError(null);
                 }
             }
-
-
-
 
         }
 
