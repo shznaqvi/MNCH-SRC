@@ -616,6 +616,83 @@
 
             </LinearLayout>
 
+            <!--New ques add 07.02.2018-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/mn0714a"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <CheckBox
+                android:id="@+id/mn0714a01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mn0714a01" />
+
+            <CheckBox
+                android:id="@+id/mn0714a02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mn0714a02" />
+
+            <CheckBox
+                android:id="@+id/mn0714a03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mn0714a03" />
+
+            <CheckBox
+                android:id="@+id/mn0714a04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mn0714a04" />
+
+            <CheckBox
+                android:id="@+id/mn0714a05"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mn0714a05" />
+
+            <CheckBox
+                android:id="@+id/mn0714a06"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mn0714a06" />
+
+            <CheckBox
+                android:id="@+id/mn0714a07"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mn0714a07" />
+
+            <CheckBox
+                android:id="@+id/mn0714a08"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mn0714a08" />
+
+            <CheckBox
+                android:id="@+id/mn0714a09"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mn0714a09" />
+
+            <CheckBox
+                android:id="@+id/mn0714a88"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mnother" />
+
+            <EditText
+                android:id="@+id/mn0714a88x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mnother"
+                android:visibility="gone" />
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

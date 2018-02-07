@@ -165,6 +165,30 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
     CheckBox mn071488;
     @BindView(R.id.mn071488x)
     EditText mn071488x;
+
+    @BindView(R.id.mn0714a01)
+    CheckBox mn0714a01;
+    @BindView(R.id.mn0714a02)
+    CheckBox mn0714a02;
+    @BindView(R.id.mn0714a03)
+    CheckBox mn0714a03;
+    @BindView(R.id.mn0714a04)
+    CheckBox mn0714a04;
+    @BindView(R.id.mn0714a05)
+    CheckBox mn0714a05;
+    @BindView(R.id.mn0714a06)
+    CheckBox mn0714a06;
+    @BindView(R.id.mn0714a07)
+    CheckBox mn0714a07;
+    @BindView(R.id.mn0714a08)
+    CheckBox mn0714a08;
+    @BindView(R.id.mn0714a09)
+    CheckBox mn0714a09;
+    @BindView(R.id.mn0714a88)
+    CheckBox mn0714a88;
+    @BindView(R.id.mn0714a88x)
+    EditText mn0714a88x;
+
     @BindView(R.id.mn0715)
     RadioGroup mn0715;
     @BindView(R.id.mn071501)
@@ -420,6 +444,7 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
 
         mn071088.setOnCheckedChangeListener(this);
         mn071488.setOnCheckedChangeListener(this);
+        mn0714a88.setOnCheckedChangeListener(this);
         mn071688.setOnCheckedChangeListener(this);
         mn071788.setOnCheckedChangeListener(this);
         mn070299.setOnCheckedChangeListener(this);
@@ -531,6 +556,19 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
         s7.put("mn071406", mn071406.isChecked() ? "6" : "0");
         s7.put("mn071488", mn071488.isChecked() ? "88" : "0");
         s7.put("mn071488x", mn071488x.getText().toString());
+
+        s7.put("mn0714a01", mn0714a01.isChecked() ? "1" : "0");
+        s7.put("mn0714a02", mn0714a02.isChecked() ? "2" : "0");
+        s7.put("mn0714a03", mn0714a03.isChecked() ? "3" : "0");
+        s7.put("mn0714a04", mn0714a04.isChecked() ? "4" : "0");
+        s7.put("mn0714a05", mn0714a05.isChecked() ? "5" : "0");
+        s7.put("mn0714a06", mn0714a06.isChecked() ? "6" : "0");
+        s7.put("mn0714a07", mn0714a07.isChecked() ? "7" : "0");
+        s7.put("mn0714a08", mn0714a08.isChecked() ? "8" : "0");
+        s7.put("mn0714a09", mn0714a09.isChecked() ? "9" : "0");
+        s7.put("mn0714a88", mn0714a88.isChecked() ? "88" : "0");
+        s7.put("mn0714a88x", mn0714a88x.getText().toString());
+
         s7.put("mn0715", mn07151.isChecked() ? "1" : mn07152.isChecked() ? "2" : "0");
 
         s7.put("mn071601", mn071601.isChecked() ? "1" : "0");
@@ -928,6 +966,28 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
             }
         }
 
+//        7.14a
+        if (!mn0714a01.isChecked() && !mn0714a02.isChecked() && !mn0714a03.isChecked() && !mn0714a04.isChecked()
+                && !mn0714a05.isChecked() && !mn0714a06.isChecked() && !mn0714a88.isChecked()) {
+            Toast.makeText(this, "" + getString(R.string.mn0714a), Toast.LENGTH_SHORT).show();
+            mn0714a88.setError("This is inValid");
+            Log.d(TAG, "ValidateForm: 714");
+            mn0714a88.requestFocus();
+            return false;
+        } else {
+            mn0714a88.setError(null);
+        }
+
+        if (mn0714a88.isChecked() && mn0714a88x.getText().toString().isEmpty()) {
+            Toast.makeText(this, "" + getString(R.string.mn0714a), Toast.LENGTH_SHORT).show();
+            mn0714a88x.setError("This is inValid");
+            Log.d(TAG, "ValidateForm: 714a");
+            mn0714a88x.requestFocus();
+            return false;
+        } else {
+            mn0714a88x.setError(null);
+        }
+
 //        7.15
 
         if (mn0715.getCheckedRadioButtonId() == -1) {
@@ -1242,6 +1302,16 @@ public class Section7Activity extends AppCompatActivity implements RadioGroup.On
             } else {
                 mn071488x.setVisibility(View.GONE);
                 mn071488x.setText(null);
+            }
+        }
+
+        if (v.getId() == R.id.mn0714a88) {
+            if (b) {
+                mn0714a88x.setVisibility(View.VISIBLE);
+                mn0714a88x.setText(null);
+            } else {
+                mn0714a88x.setVisibility(View.GONE);
+                mn0714a88x.setText(null);
             }
         }
 
